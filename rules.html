@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confession Rules | UTeM Confessions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-card {
+            max-width: 800px;
+            margin: 40px auto;
+            width: 100%;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1444529930367815">
+</head>
+<body>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-brand">
+            <svg viewBox="0 0 100 100" class="mobile-logo-svg">
+                <defs>
+                    <linearGradient id="goldGradRulesMob" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#d4af37" />
+                        <stop offset="50%" stop-color="#f39c12" />
+                        <stop offset="100%" stop-color="#aa841c" />
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldGradRulesMob)" stroke-width="2"/>
+                <circle cx="50" cy="50" r="43" fill="none" stroke="url(#goldGradRulesMob)" stroke-width="0.5" stroke-dasharray="2,1"/>
+                <g stroke="url(#goldGradRulesMob)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M45,30 L45,21 L55,21 L55,30 Z" stroke-width="1.2"/>
+                    <path d="M48,30 L48,24 M50,30 L50,24 M52,30 L52,24" stroke-width="0.8"/>
+                    <path d="M44,21 L56,21" stroke-width="1.5"/>
+                    <path d="M46,21 L46,16 L54,16 L54,21 Z" stroke-width="1.2"/>
+                    <circle cx="50" cy="18.5" r="1.5" stroke-width="0.8"/>
+                    <path d="M45,16 C45,12 55,12 55,16" stroke-width="1.2"/>
+                    <path d="M50,12 L50,9" stroke-width="1"/>
+                </g>
+                <text x="50" y="54" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="url(#goldGradRulesMob)" text-anchor="middle">UC</text>
+                <text x="50" y="66" font-family="'Outfit', sans-serif" font-weight="700" font-size="5" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">UTEM CONFESSION</text>
+                <line x1="28" y1="71" x2="72" y2="71" stroke="url(#goldGradRulesMob)" stroke-width="0.8"/>
+                <circle cx="50" cy="71" r="1.2" fill="url(#goldGradRulesMob)"/>
+                <text x="50" y="82" font-family="'Outfit', sans-serif" font-weight="800" font-size="9" fill="url(#goldGradRulesMob)" text-anchor="middle" letter-spacing="1.5">PRO MAX</text>
+            </svg>
+            <div class="mobile-title-container">
+                <span class="mobile-title">UTeM Confessions</span>
+                <span class="mobile-subtitle">Rules</span>
+            </div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle" style="padding: 6px 10px; font-size: 11px; font-weight: 700; height: 32px; border-color: var(--border-color); color: var(--accent-gold);">
+                BM
+            </button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <svg viewBox="0 0 100 100" class="brand-logo-svg">
+                    <defs>
+                        <linearGradient id="goldGradRulesDesk" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#d4af37" />
+                            <stop offset="50%" stop-color="#f39c12" />
+                            <stop offset="100%" stop-color="#aa841c" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldGradRulesDesk)" stroke-width="2.2"/>
+                    <circle cx="50" cy="50" r="43" fill="none" stroke="url(#goldGradRulesDesk)" stroke-width="0.6" stroke-dasharray="2,1"/>
+                    <g stroke="url(#goldGradRulesDesk)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M44,30 L44,21 L56,21 L56,30 Z" stroke-width="1.2"/>
+                        <path d="M47,30 L47,24 M50,30 L50,24 M53,30 L53,24" stroke-width="0.8"/>
+                        <path d="M43,21 L57,21" stroke-width="1.5"/>
+                        <path d="M45,21 L45,15 L55,15 L55,21 Z" stroke-width="1.2"/>
+                        <circle cx="50" cy="18" r="1.8" stroke-width="0.8"/>
+                        <path d="M44,15 C44,11 56,11 56,15" stroke-width="1.2"/>
+                        <path d="M50,11 L50,8" stroke-width="1"/>
+                    </g>
+                    <text x="50" y="55" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="url(#goldGradRulesDesk)" text-anchor="middle">UC</text>
+                    <text x="50" y="67" font-family="'Outfit', sans-serif" font-weight="700" font-size="5.5" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">UTEM CONFESSION</text>
+                    <line x1="26" y1="72" x2="74" y2="72" stroke="url(#goldGradRulesDesk)" stroke-width="0.8"/>
+                    <circle cx="50" cy="72" r="1.5" fill="url(#goldGradRulesDesk)"/>
+                    <text x="50" y="83" font-family="'Outfit', sans-serif" font-weight="800" font-size="10.5" fill="url(#goldGradRulesDesk)" text-anchor="middle" letter-spacing="2">PRO MAX</text>
+                </svg>
+                <h1 class="brand-title">UTeM Confessions</h1>
+                <span class="brand-subtitle">Confessions Pro Max</span>
+            </div>
+
+            <ul class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    Back to Home
+                </a>
+            </ul>
+
+            <div class="sidebar-footer">
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+                <a href="index.html" class="back-link" style="margin-bottom: 0;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    Back to Dashboard
+                </a>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="theme-switch-label" id="langSwitchLabel">Language</span>
+                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 6px 14px; font-size: 12px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
+                        Bahasa Melayu
+                    </button>
+                </div>
+            </div>
+
+            <div class="card content-card">
+                <h2 class="card-title">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    UTeM Confession Posting Rules
+                </h2>
+                
+                <p style="margin-bottom: 20px; line-height: 1.6; color: var(--text-secondary);">
+                    By submitting a confession or using the UTeM Confession Pro Max channel, you agree to comply with the following community rules. We strive to provide a safe, respectful environment for discussion and anonymous expression.
+                </p>
+
+                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">Rules Breakdown:</h3>
+                <ul class="guide-list" style="margin-bottom: 24px;">
+                    <li><strong>No Bullying & Harassment:</strong> Strictly no targeted attacks, naming and shaming of individuals, spreading malicious gossip, or threat of violence.</li>
+                    <li><strong>No Doxxing (Private Info):</strong> Do not post student ID card details, phone numbers, email addresses, vehicle plates, or personal photos without explicit written consent.</li>
+                    <li><strong>No Illegal Activities:</strong> Content promoting drug use, exam cheating/plagiarism rings, or illegal gatherings will be blocked and reported.</li>
+                    <li><strong>No Spam or Commercial Ads:</strong> Confessions seeking commercial gain, posting affiliate links, or repetitive postings will be filtered out. Use official channels for business.</li>
+                    <li><strong>Responsible Discussion:</strong> While criticism is allowed, maintain constructive critique regarding academic issues, facilities, or campus administration.</li>
+                </ul>
+
+                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">Review Process:</h3>
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    Submissions are queued in a Google Sheet linked to our reviewer bot. Our moderation team screens entries daily. Submission does not guarantee publishing. Approved confessions are posted directly to the official channel.
+                </p>
+            </div>
+
+            <footer>
+                <div>
+                    <strong>UTeM Confessions</strong> &copy; 2026. Unofficial campus platform.
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About Us</a>
+                    <a href="rules.html">Confession Rules</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Mobile Nav Bar -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-btn">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="rules.html" class="mobile-nav-btn active">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <span>Rules</span>
+        </a>
+        <a href="privacy.html" class="mobile-nav-btn">
+            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+            <span>Privacy</span>
+        </a>
+    </nav>
+
+    <script>
+        const translations = {
+            en: {
+                back_dashboard: "Back to Dashboard",
+                back_home: "Back to Home",
+                nav_home: "Home",
+                nav_rules: "Rules",
+                nav_privacy: "Privacy",
+                title_rules: "UTeM Confession Posting Rules",
+                intro_text: "By submitting a confession or using the UTeM Confession Pro Max channel, you agree to comply with the following community rules. We strive to provide a safe, respectful environment for discussion and anonymous expression.",
+                breakdown_title: "Rules Breakdown:",
+                rule1_title: "No Bullying & Harassment:",
+                rule1_desc: "Strictly no targeted attacks, naming and shaming of individuals, spreading malicious gossip, or threat of violence.",
+                rule2_title: "No Doxxing (Private Info):",
+                rule2_desc: "Do not post student ID card details, phone numbers, email addresses, vehicle plates, or personal photos without explicit written consent.",
+                rule3_title: "No Illegal Activities:",
+                rule3_desc: "Content promoting drug use, exam cheating/plagiarism rings, or illegal gatherings will be blocked and reported.",
+                rule4_title: "No Spam or Commercial Ads:",
+                rule4_desc: "Confessions seeking commercial gain, posting affiliate links, or repetitive postings will be filtered out. Use official channels for business.",
+                rule5_title: "Responsible Discussion:",
+                rule5_desc: "While criticism is allowed, maintain constructive critique regarding academic issues, facilities, or campus administration.",
+                process_title: "Review Process:",
+                process_desc: "Submissions are queued in a Google Sheet linked to our reviewer bot. Our moderation team screens entries daily. Submission does not guarantee publishing. Approved confessions are posted directly to the official channel.",
+                footer_text: "Unofficial campus platform.",
+                footer_about: "About Us",
+                footer_rules: "Confession Rules",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                lang_label: "Language",
+                theme_switcher_label: "Dark Theme"
+            },
+            ms: {
+                back_dashboard: "Kembali ke Dashboard",
+                back_home: "Kembali ke Laman Utama",
+                nav_home: "Laman Utama",
+                nav_rules: "Peraturan",
+                nav_privacy: "Privasi",
+                title_rules: "Peraturan Pengakuan UTeM",
+                intro_text: "Dengan menghantar pengakuan atau menggunakan saluran UTeM Confession Pro Max, anda bersetuju untuk mematuhi peraturan komuniti berikut. Kami berusaha untuk menyediakan persekitaran yang selamat dan hormat untuk perbincangan serta luahan tanpa nama.",
+                breakdown_title: "Pecahan Peraturan:",
+                rule1_title: "Tiada Pembulian & Gangguan:",
+                rule1_desc: "Dilarang sama sekali melakukan serangan bersasar, menamakan dan memalukan mana-mana individu, menyebarkan gosip jahat, atau ancaman keganasan.",
+                rule2_title: "Tiada Doxxing (Maklumat Peribadi):",
+                rule2_desc: "Jangan hantar butiran kad ID pelajar, nombor telefon, alamat e-mel, plat kenderaan, atau foto peribadi tanpa kebenaran bertulis yang jelas.",
+                rule3_title: "Tiada Aktiviti Haram:",
+                rule3_desc: "Kandungan yang mempromosikan penyalahgunaan dadah, sindiket penipuan/plagiat peperiksaan, atau perhimpunan haram akan disekat dan dilaporkan.",
+                rule4_title: "Tiada Spam atau Iklan Komersial:",
+                rule4_desc: "Pengakuan yang bertujuan mencari keuntungan komersial, menyiarkan pautan sekutu, atau hantaran berulang kali akan ditapis. Sila gunakan saluran rasmi untuk perniagaan.",
+                rule5_title: "Perbincangan Bertanggungjawab:",
+                rule5_desc: "Walaupun kritikan dibenarkan, sila kekalkan kritikan yang membina mengenai isu akademik, kemudahan, atau pentadbiran kampus.",
+                process_title: "Proses Semakan:",
+                process_desc: "Hantaran akan dikumpul di dalam Google Sheet yang dihubungkan ke bot semakan kami. Pasukan moderator menyaring hantaran setiap hari. Hantaran tidak menjamin ia akan diterbitkan. Pengakuan yang diluluskan akan dihantar terus ke saluran rasmi.",
+                footer_text: "Platform kampus tidak rasmi.",
+                footer_about: "Tentang Kami",
+                footer_rules: "Peraturan Pengakuan",
+                footer_privacy: "Dasar Privasi",
+                footer_terms: "Syarat Perkhidmatan",
+                lang_label: "Bahasa",
+                theme_switcher_label: "Tema Gelap"
+            }
+        };
+
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        function updateNodeText(element, text) {
+            if (!element) return;
+            for (let i = 0; i < element.childNodes.length; i++) {
+                let node = element.childNodes[i];
+                if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
+                    node.nodeValue = " " + text;
+                    return;
+                }
+            }
+            element.appendChild(document.createTextNode(text));
+        }
+
+        function setLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            // Header link
+            const backLink = document.querySelector(".back-link");
+            updateNodeText(backLink, t.back_dashboard);
+
+            // Sidebar navigation
+            const backHomeNav = document.querySelector(".nav-menu .nav-item");
+            updateNodeText(backHomeNav, t.back_home);
+
+            // Title and introduction
+            const titleRules = document.querySelector(".content-card .card-title");
+            updateNodeText(titleRules, t.title_rules);
+            
+            const introText = document.querySelector(".content-card p");
+            if (introText) introText.textContent = t.intro_text;
+
+            // Breakdown
+            const breakdownTitle = document.querySelector(".content-card h3");
+            if (breakdownTitle) breakdownTitle.textContent = t.breakdown_title;
+
+            // Guide lists
+            const guides = document.querySelectorAll(".guide-list li");
+            if (guides.length >= 5) {
+                guides[0].querySelector("strong").textContent = t.rule1_title;
+                updateNodeText(guides[0], t.rule1_desc);
+
+                guides[1].querySelector("strong").textContent = t.rule2_title;
+                updateNodeText(guides[1], t.rule2_desc);
+
+                guides[2].querySelector("strong").textContent = t.rule3_title;
+                updateNodeText(guides[2], t.rule3_desc);
+
+                guides[3].querySelector("strong").textContent = t.rule4_title;
+                updateNodeText(guides[3], t.rule4_desc);
+
+                guides[4].querySelector("strong").textContent = t.rule5_title;
+                updateNodeText(guides[4], t.rule5_desc);
+            }
+
+            // Review process
+            const processTitle = document.querySelectorAll(".content-card h3")[1];
+            if (processTitle) processTitle.textContent = t.process_title;
+
+            const processDesc = document.querySelectorAll(".content-card p")[1];
+            if (processDesc) processDesc.textContent = t.process_desc;
+
+            // Footer
+            const footerDiv = document.querySelector("footer div");
+            if (footerDiv) {
+                footerDiv.innerHTML = `<strong>UTeM Confessions</strong> &copy; 2026. ${t.footer_text}`;
+            }
+            const footerLinks = document.querySelectorAll(".footer-links a");
+            if (footerLinks.length >= 4) {
+                footerLinks[0].textContent = t.footer_about;
+                footerLinks[1].textContent = t.footer_rules;
+                footerLinks[2].textContent = t.footer_privacy;
+                footerLinks[3].textContent = t.footer_terms;
+            } else if (footerLinks.length >= 3) {
+                footerLinks[0].textContent = t.footer_about;
+                footerLinks[1].textContent = t.footer_rules;
+                footerLinks[2].textContent = t.footer_privacy;
+            }
+
+            // Mobile Nav
+            const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
+            if (mobileNavSpans.length >= 3) {
+                mobileNavSpans[0].textContent = t.nav_home;
+                mobileNavSpans[1].textContent = t.nav_rules;
+                mobileNavSpans[2].textContent = t.nav_privacy;
+            }
+
+            // Button togglers
+            const desktopToggle = document.getElementById("desktopLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggle");
+            if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
+            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "BM" : "EN";
+
+            const langSwitchLabel = document.getElementById("langSwitchLabel");
+            if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
+
+            const themeSwitchLabel = document.getElementById("themeSwitchLabel");
+            if (themeSwitchLabel) themeSwitchLabel.textContent = t.theme_switcher_label;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === "en" ? "ms" : "en";
+            localStorage.setItem("lang", currentLang);
+            setLanguage(currentLang);
+        }
+
+        function initPageTheme() {
+            const savedTheme = localStorage.getItem("theme") || "dark";
+            if (savedTheme === "light") {
+                document.body.classList.add("light-theme");
+                updateIcons("light");
+            } else {
+                document.body.classList.remove("light-theme");
+                updateIcons("dark");
+            }
+        }
+        function togglePageTheme() {
+            if (document.body.classList.contains("light-theme")) {
+                document.body.classList.remove("light-theme");
+                localStorage.setItem("theme", "dark");
+                updateIcons("dark");
+            } else {
+                document.body.classList.add("light-theme");
+                localStorage.setItem("theme", "light");
+                updateIcons("light");
+            }
+        }
+        function updateIcons(theme) {
+            const btns = document.querySelectorAll(".theme-toggle-btn");
+            const lbls = document.querySelectorAll(".theme-switch-label");
+            btns.forEach(btn => {
+                if (theme === "light") {
+                    btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.38 5.38 0 0 1-4.4 2.26 5.4 5.4 0 0 1-5.14-5.14 5.38 5.38 0 0 1 2.26-4.4c-.44-.06-.9-.1-1.36-.1z"/></svg>`;
+                } else {
+                    btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 16a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zM5.64 5.64a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 0 1-1.41 1.41L5.64 7.05a1 1 0 0 1 0-1.41zm11.31 11.31a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 0 1-1.41 1.41l-1.42-1.42a1 1 0 0 1 0-1.41zM3 11a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1zm14 0a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1zM5.64 18.36a1 1 0 0 1 0-1.41l1.42-1.42a1 1 0 1 1 1.41 1.41l-1.42 1.42a1 1 0 0 1-1.41 0zm11.31-11.31a1 1 0 0 1 0-1.41l1.42-1.42a1 1 0 1 1 1.41 1.41L18.36 7.05a1 1 0 0 1-1.41 0z"/></svg>`;
+                }
+            });
+            lbls.forEach(lbl => {
+                lbl.textContent = theme === "light" ? "Light Theme" : "Dark Theme";
+            });
+        }
+        document.querySelectorAll(".theme-toggle-btn").forEach(btn => btn.addEventListener("click", togglePageTheme));
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            initPageTheme();
+            setLanguage(currentLang);
+            
+            const desktopToggle = document.getElementById("desktopLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggle");
+            if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
+            if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
+        });
+    </script>
+</body>
+</html>

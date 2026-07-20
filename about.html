@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | UTeM Confessions</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .content-card {
+            max-width: 800px;
+            margin: 40px auto;
+            width: 100%;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+    </style>
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1444529930367815">
+</head>
+<body>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-brand">
+            <svg viewBox="0 0 100 100" class="mobile-logo-svg">
+                <defs>
+                    <linearGradient id="goldGradAboutMob" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#d4af37" />
+                        <stop offset="50%" stop-color="#f39c12" />
+                        <stop offset="100%" stop-color="#aa841c" />
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldGradAboutMob)" stroke-width="2"/>
+                <circle cx="50" cy="50" r="43" fill="none" stroke="url(#goldGradAboutMob)" stroke-width="0.5" stroke-dasharray="2,1"/>
+                <g stroke="url(#goldGradAboutMob)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M45,30 L45,21 L55,21 L55,30 Z" stroke-width="1.2"/>
+                    <path d="M48,30 L48,24 M50,30 L50,24 M52,30 L52,24" stroke-width="0.8"/>
+                    <path d="M44,21 L56,21" stroke-width="1.5"/>
+                    <path d="M46,21 L46,16 L54,16 L54,21 Z" stroke-width="1.2"/>
+                    <circle cx="50" cy="18.5" r="1.5" stroke-width="0.8"/>
+                    <path d="M45,16 C45,12 55,12 55,16" stroke-width="1.2"/>
+                    <path d="M50,12 L50,9" stroke-width="1"/>
+                </g>
+                <text x="50" y="54" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="url(#goldGradAboutMob)" text-anchor="middle">UC</text>
+                <text x="50" y="66" font-family="'Outfit', sans-serif" font-weight="700" font-size="5" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">UTEM CONFESSION</text>
+                <line x1="28" y1="71" x2="72" y2="71" stroke="url(#goldGradAboutMob)" stroke-width="0.8"/>
+                <circle cx="50" cy="71" r="1.2" fill="url(#goldGradAboutMob)"/>
+                <text x="50" y="82" font-family="'Outfit', sans-serif" font-weight="800" font-size="9" fill="url(#goldGradAboutMob)" text-anchor="middle" letter-spacing="1.5">PRO MAX</text>
+            </svg>
+            <div class="mobile-title-container">
+                <span class="mobile-title">UTeM Confessions</span>
+                <span class="mobile-subtitle">About Us</span>
+            </div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle" style="padding: 6px 10px; font-size: 11px; font-weight: 700; height: 32px; border-color: var(--border-color); color: var(--accent-gold);">
+                BM
+            </button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        
+        <!-- Desktop Sidebar -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <svg viewBox="0 0 100 100" class="brand-logo-svg">
+                    <defs>
+                        <linearGradient id="goldGradAboutDesk" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#d4af37" />
+                            <stop offset="50%" stop-color="#f39c12" />
+                            <stop offset="100%" stop-color="#aa841c" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldGradAboutDesk)" stroke-width="2.2"/>
+                    <circle cx="50" cy="50" r="43" fill="none" stroke="url(#goldGradAboutDesk)" stroke-width="0.6" stroke-dasharray="2,1"/>
+                    <g stroke="url(#goldGradAboutDesk)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M44,30 L44,21 L56,21 L56,30 Z" stroke-width="1.2"/>
+                        <path d="M47,30 L47,24 M50,30 L50,24 M53,30 L53,24" stroke-width="0.8"/>
+                        <path d="M43,21 L57,21" stroke-width="1.5"/>
+                        <path d="M45,21 L45,15 L55,15 L55,21 Z" stroke-width="1.2"/>
+                        <circle cx="50" cy="18" r="1.8" stroke-width="0.8"/>
+                        <path d="M44,15 C44,11 56,11 56,15" stroke-width="1.2"/>
+                        <path d="M50,11 L50,8" stroke-width="1"/>
+                    </g>
+                    <text x="50" y="55" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="url(#goldGradAboutDesk)" text-anchor="middle">UC</text>
+                    <text x="50" y="67" font-family="'Outfit', sans-serif" font-weight="700" font-size="5.5" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">UTEM CONFESSION</text>
+                    <line x1="26" y1="72" x2="74" y2="72" stroke="url(#goldGradAboutDesk)" stroke-width="0.8"/>
+                    <circle cx="50" cy="72" r="1.5" fill="url(#goldGradAboutDesk)"/>
+                    <text x="50" y="83" font-family="'Outfit', sans-serif" font-weight="800" font-size="10.5" fill="url(#goldGradAboutDesk)" text-anchor="middle" letter-spacing="2">PRO MAX</text>
+                </svg>
+                <h1 class="brand-title">UTeM Confessions</h1>
+                <span class="brand-subtitle">Confessions Pro Max</span>
+            </div>
+
+            <ul class="nav-menu">
+                <a href="index.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    Back to Home
+                </a>
+            </ul>
+
+            <div class="sidebar-footer">
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+                <a href="index.html" class="back-link" style="margin-bottom: 0;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+                    Back to Dashboard
+                </a>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span class="theme-switch-label" id="langSwitchLabel">Language</span>
+                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 6px 14px; font-size: 12px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
+                        Bahasa Melayu
+                    </button>
+                </div>
+            </div>
+
+            <div class="card content-card">
+                <h2 class="card-title">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    About UTeM Confessions
+                </h2>
+                
+                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
+                    UTeM Confessions is an unofficial student platform created to provide a space for students to share anonymous confessions and gain other helpful infos around the campus.
+                </p>
+
+                <p style="line-height: 1.6; color: var(--text-secondary);">
+                    This platform is independently managed by student developers and is not an official website of Universiti Teknikal Malaysia Melaka (UTeM).
+                </p>
+            </div>
+
+            <footer>
+                <div>
+                    <strong>UTeM Confessions</strong> &copy; 2026. Unofficial campus platform.
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About Us</a>
+                    <a href="rules.html">Confession Rules</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Mobile Nav Bar -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html" class="mobile-nav-btn active">
+            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+            <span>Home</span>
+        </a>
+        <a href="rules.html" class="mobile-nav-btn">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <span>Rules</span>
+        </a>
+        <a href="privacy.html" class="mobile-nav-btn">
+            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+            <span>Privacy</span>
+        </a>
+    </nav>
+
+    <script>
+        const translations = {
+            en: {
+                back_dashboard: "Back to Dashboard",
+                back_home: "Back to Home",
+                nav_home: "Home",
+                nav_rules: "Rules",
+                nav_privacy: "Privacy",
+                title_about: "About UTeM Confessions",
+                p1: "UTeM Confessions is an unofficial student platform created to provide a space for students to share anonymous confessions and gain other helpful infos around the campus.",
+                p2: "This platform is independently managed by student developers and is not an official website of Universiti Teknikal Malaysia Melaka (UTeM).",
+                footer_text: "Unofficial campus platform.",
+                footer_about: "About Us",
+                footer_rules: "Confession Rules",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                lang_label: "Language"
+            },
+            ms: {
+                back_dashboard: "Kembali ke Dashboard",
+                back_home: "Kembali ke Laman Utama",
+                nav_home: "Laman Utama",
+                nav_rules: "Peraturan",
+                nav_privacy: "Dasar Privasi",
+                title_about: "Tentang UTeM Confessions",
+                p1: "UTeM Confessions ialah platform pelajar tidak rasmi yang dicipta untuk menyediakan ruang bagi pelajar berkongsi pengakuan secara rawak dan mendapatkan maklumat berguna berkaitan kampus.",
+                p2: "Platform ini diuruskan secara bebas oleh pembangun pelajar dan bukan laman web rasmi Universiti Teknikal Malaysia Melaka (UTeM).",
+                footer_text: "Platform kampus tidak rasmi.",
+                footer_about: "Tentang Kami",
+                footer_rules: "Peraturan Pengakuan",
+                footer_privacy: "Dasar Privasi",
+                footer_terms: "Syarat Perkhidmatan",
+                lang_label: "Bahasa"
+            }
+        };
+
+        let currentLang = localStorage.getItem("lang") || "en";
+
+        function updateNodeText(element, text) {
+            if (!element) return;
+            for (let i = 0; i < element.childNodes.length; i++) {
+                let node = element.childNodes[i];
+                if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
+                    node.nodeValue = " " + text;
+                    return;
+                }
+            }
+            element.appendChild(document.createTextNode(text));
+        }
+
+        function setLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+
+            const backLink = document.querySelector(".back-link");
+            updateNodeText(backLink, t.back_dashboard);
+
+            const backHomeNav = document.querySelector(".nav-menu .nav-item");
+            updateNodeText(backHomeNav, t.back_home);
+
+            const titleAbout = document.querySelector(".content-card .card-title");
+            updateNodeText(titleAbout, t.title_about);
+
+            const paragraphs = document.querySelectorAll(".content-card p");
+            if (paragraphs.length >= 1) paragraphs[0].textContent = t.p1;
+            if (paragraphs.length >= 2) paragraphs[1].textContent = t.p2;
+
+            const footerDiv = document.querySelector("footer div");
+            if (footerDiv) {
+                footerDiv.innerHTML = `<strong>UTeM Confessions</strong> &copy; 2026. ${t.footer_text}`;
+            }
+            const footerLinks = document.querySelectorAll(".footer-links a");
+            if (footerLinks.length >= 4) {
+                footerLinks[0].textContent = t.footer_about;
+                footerLinks[1].textContent = t.footer_rules;
+                footerLinks[2].textContent = t.footer_privacy;
+                footerLinks[3].textContent = t.footer_terms;
+            } else if (footerLinks.length >= 3) {
+                footerLinks[0].textContent = t.footer_about;
+                footerLinks[1].textContent = t.footer_rules;
+                footerLinks[2].textContent = t.footer_privacy;
+            }
+
+            const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
+            if (mobileNavSpans.length >= 3) {
+                mobileNavSpans[0].textContent = t.nav_home;
+                mobileNavSpans[1].textContent = t.nav_rules;
+                mobileNavSpans[2].textContent = t.nav_privacy;
+            }
+
+            const desktopToggle = document.getElementById("desktopLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggle");
+            if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
+            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "BM" : "EN";
+
+            const langSwitchLabel = document.getElementById("langSwitchLabel");
+            if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === "en" ? "ms" : "en";
+            localStorage.setItem("lang", currentLang);
+            setLanguage(currentLang);
+        }
+
+        // Lock dark mode permanently
+        document.body.classList.remove("light-theme");
+        localStorage.setItem("theme", "dark");
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setLanguage(currentLang);
+
+            const desktopToggle = document.getElementById("desktopLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggle");
+            if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
+            if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
+        });
+    </script>
+</body>
+</html>

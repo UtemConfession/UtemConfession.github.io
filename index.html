@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Optimization -->
+    <title>UTeM Confession Pro Max | Student Services & Resources Hub</title>
+    <meta name="description" content="Submit anonymous confessions to UTeM Confession Pro Max. Access student resources like GPA calculator, exam countdown, campus map, bus schedules, and academic calendar.">
+    <meta name="keywords" content="UTeM, Universiti Teknikal Malaysia Melaka, UTeM Confession, GPA Calculator, Bus Schedule, Campus Map, Exam Countdown, Academic Calendar">
+    <meta name="author" content="UTeM Confessions">
+    
+
+    
+    <!-- Custom Style System -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google AdSense -->
+    <meta name="google-adsense-account" content="ca-pub-1444529930367815">
+</head>
+<body>
+
+    <!-- ADSTERRA / MONETAG POPUNDER AND SOCIAL BAR ANCHORS -->
+    <!-- Placeholders for overlay scripts to maximize ad income -->
+    <!-- 
+    <script type='text/javascript' src='//your-ad-network-popunder-code.js'></script>
+    <script type='text/javascript' src='//your-ad-network-socialbar-code.js'></script>
+    -->
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-brand">
+            <!-- Custom SVG Clock Tower Logo Replicated from Screenshot -->
+            <svg viewBox="0 0 100 100" class="mobile-logo-svg">
+                <defs>
+                    <linearGradient id="goldGradMobile" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#d4af37" />
+                        <stop offset="50%" stop-color="#f39c12" />
+                        <stop offset="100%" stop-color="#aa841c" />
+                    </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldGradMobile)" stroke-width="2"/>
+                <circle cx="50" cy="50" r="43" fill="none" stroke="url(#goldGradMobile)" stroke-width="0.5" stroke-dasharray="2,1"/>
+                <g stroke="url(#goldGradMobile)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M45,30 L45,21 L55,21 L55,30 Z" stroke-width="1.2"/>
+                    <path d="M48,30 L48,24 M50,30 L50,24 M52,30 L52,24" stroke-width="0.8"/>
+                    <path d="M44,21 L56,21" stroke-width="1.5"/>
+                    <path d="M46,21 L46,16 L54,16 L54,21 Z" stroke-width="1.2"/>
+                    <circle cx="50" cy="18.5" r="1.5" stroke-width="0.8"/>
+                    <path d="M45,16 C45,12 55,12 55,16" stroke-width="1.2"/>
+                    <path d="M50,12 L50,9" stroke-width="1"/>
+                </g>
+                <text x="50" y="54" font-family="'Outfit', sans-serif" font-weight="800" font-size="24" fill="url(#goldGradMobile)" text-anchor="middle">UC</text>
+                <text x="50" y="66" font-family="'Outfit', sans-serif" font-weight="700" font-size="5" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">UTEM CONFESSION</text>
+                <line x1="28" y1="71" x2="72" y2="71" stroke="url(#goldGradMobile)" stroke-width="0.8"/>
+                <circle cx="50" cy="71" r="1.2" fill="url(#goldGradMobile)"/>
+                <text x="50" y="82" font-family="'Outfit', sans-serif" font-weight="800" font-size="9" fill="url(#goldGradMobile)" text-anchor="middle" letter-spacing="1.5">PRO MAX</text>
+            </svg>
+            <div class="mobile-title-container">
+                <span class="mobile-title">UTeM Confessions</span>
+                <span class="mobile-subtitle">Confession Pro Max</span>
+            </div>
+        </div>
+        
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle" style="padding: 6px 10px; font-size: 11px; font-weight: 700; height: 32px; border-color: var(--border-color); color: var(--accent-gold);">
+                BM
+            </button>
+        </div>
+    </header>
+
+    <div class="app-container">
+        
+        <!-- Desktop Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <!-- Custom Inline SVG Logo matching Channel Emblem -->
+                <svg viewBox="0 0 100 100" class="brand-logo-svg">
+                    <defs>
+                        <linearGradient id="goldGradSidebar" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#d4af37" />
+                            <stop offset="50%" stop-color="#f39c12" />
+                            <stop offset="100%" stop-color="#aa841c" />
+                        </linearGradient>
+                    </defs>
+                    <circle cx="50" cy="50" r="46" fill="none" stroke="url(#goldGradSidebar)" stroke-width="2.2"/>
+                    <circle cx="50" cy="50" r="43" fill="none" stroke="url(#goldGradSidebar)" stroke-width="0.6" stroke-dasharray="2,1"/>
+                    
+                    <!-- UTeM Clock Tower SVG recreation -->
+                    <g stroke="url(#goldGradSidebar)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M44,30 L44,21 L56,21 L56,30 Z" stroke-width="1.2"/>
+                        <path d="M47,30 L47,24 M50,30 L50,24 M53,30 L53,24" stroke-width="0.8"/>
+                        <path d="M43,21 L57,21" stroke-width="1.5"/>
+                        <path d="M45,21 L45,15 L55,15 L55,21 Z" stroke-width="1.2"/>
+                        <circle cx="50" cy="18" r="1.8" stroke-width="0.8"/>
+                        <path d="M44,15 C44,11 56,11 56,15" stroke-width="1.2"/>
+                        <path d="M50,11 L50,8" stroke-width="1"/>
+                    </g>
+                    
+                    <text x="50" y="55" font-family="'Outfit', sans-serif" font-weight="800" font-size="28" fill="url(#goldGradSidebar)" text-anchor="middle">UC</text>
+                    <text x="50" y="67" font-family="'Outfit', sans-serif" font-weight="700" font-size="5.5" fill="#ffffff" text-anchor="middle" letter-spacing="0.5">UTEM CONFESSION</text>
+                    <line x1="26" y1="72" x2="74" y2="72" stroke="url(#goldGradSidebar)" stroke-width="0.8"/>
+                    <circle cx="50" cy="72" r="1.5" fill="url(#goldGradSidebar)"/>
+                    <text x="50" y="83" font-family="'Outfit', sans-serif" font-weight="800" font-size="10.5" fill="url(#goldGradSidebar)" text-anchor="middle" letter-spacing="2">PRO MAX</text>
+                </svg>
+                <h1 class="brand-title">UTeM Confessions</h1>
+                <span class="brand-subtitle">Confessions Pro Max</span>
+            </div>
+
+            <!-- Tab Items -->
+            <ul class="nav-menu">
+                <li class="nav-item active" data-tab="confession-tab">
+                    <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                    Confessions
+                </li>
+                <li class="nav-item" data-tab="gpa-tab">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"/></svg>
+                    GPA Calculator
+                </li>
+                <li class="nav-item" data-tab="countdown-tab">
+                    <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                    Exam Countdown
+                </li>
+                <li class="nav-item" data-tab="bus-tab">
+                    <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>
+                    Bus Schedules
+                </li>
+                <li class="nav-item" data-tab="calendar-tab">
+                    <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                    Academic Calendar
+                </li>
+                <li class="nav-item" data-tab="exams-tab" id="desktopExamsTab">
+                    <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
+                    Past Year Exams
+                </li>
+                <li class="nav-item" data-tab="health-tab" id="desktopHealthTab">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+                    Health Center (PKU)
+                </li>
+                <li class="nav-item" data-tab="library-tab" id="desktopLibraryTab">
+                    <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                    Library (PLH)
+                </li>
+            </ul>
+
+            <div class="sidebar-footer">
+                <div id="googleSignInContainer" style="margin-bottom: 12px;"></div>
+
+                <!-- Adsterra / Monetag Sidebar ad slot -->
+                <div class="ad-slot ad-sidebar" id="adSidebar">
+                    <span class="ad-placeholder-text">Sidebar Banner ad unit</span>
+                    <!-- Place ad script/iframe here -->
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard View Panel -->
+        <main class="main-content">
+            <!-- Top Right Language Switcher Bar -->
+            <div class="top-header-bar" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 16px;">
+                <div class="theme-switch-wrapper" style="margin-bottom: 0;">
+                    <span class="theme-switch-label" id="langSwitchLabel">Language</span>
+                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 6px 14px; font-size: 12px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
+                        Bahasa Melayu
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Adsterra / Monetag Header Leaderboard Banner Placement (728x90) -->
+            <div class="ad-slot" style="max-width: 728px; width: 100%; margin: 0 auto 12px auto;" id="adHeader">
+                <span class="ad-placeholder-text">Header Banner (728x90)</span>
+                <!-- Place your Monetag/Adsterra leaderboard code here -->
+            </div>
+
+            <!-- TAB 1: CONFESSION BOARD -->
+            <div class="tab-content active" id="confession-tab">
+                <div class="confession-layout">
+                    
+                    <!-- Submission card -->
+                    <div class="card">
+                        <h2 class="card-title">
+                            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+                            Submit Confession
+                        </h2>
+                        
+                        <div id="googleLoginContainer" class="card mb-3">
+                            <div class="card-body">
+                                <h5>Sign in to submit confessions</h5>
+
+                                <div id="g_id_signin"></div>
+
+                                <div id="userInfo" style="display:none;">
+                                    <img id="userAvatar" width="40" height="40" style="border-radius:50%;">
+                                    <span id="userName"></span>
+                                    <button id="logoutBtn" class="btn btn-sm btn-secondary">
+                                        Sign Out
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confessionText" class="form-label">Type your confession anonymously. Be respectful.</label>
+                            <textarea id="confessionText" class="form-control" placeholder="What is on your mind? (Keep it responsible...)"></textarea>
+                            <div class="char-count" id="charCount">0 / 1000 characters</div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="agreeRules">
+                                <span class="custom-checkmark"></span>
+                                I agree to follow the confession rules. I understand illegal or abusive submissions will be rejected.
+                            </label>
+                        </div>
+
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px;">
+                            <button id="submitBtn" class="btn btn-primary" style="flex: 1.5;">Submit Confession</button>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeU1gByzxy4Ehrgo1nZV9RFcvTqPVpVOrvPTTPii7e__SyKPg/viewform" target="_blank" class="btn btn-gold-outline" style="flex: 1;">
+                                Submit via Google Form ➔
+                            </a>
+                        </div>
+                        
+                        <div id="statusMessage" class="status-message"></div>
+                    </div>
+
+                    <!-- Rules Sidebar -->
+                    <div class="card" style="height: fit-content;">
+                        <h3 class="card-title">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                            Posting Guidelines
+                        </h3>
+                        <ul class="guide-list">
+                            <li><strong>Anonymous:</strong> Your IP address, name, or metadata are not tracked or saved.</li>
+                            <li><strong>Respect:</strong> No target bullying, sexual harassment, or hate speech against students or lecturers.</li>
+                            <li><strong>Spam:</strong> Submit button has a 30-second delay between posts.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Banner ad inside confession -->
+                <div class="ad-slot" style="max-width: 468px; width: 100%; margin: 24px auto 0 auto;" id="adMiddle1">
+                    <span class="ad-placeholder-text">Banner placement (468x60)</span>
+                    <!-- Paste ad code here -->
+                </div>
+            </div>
+
+            <!-- TAB 2: GPA CALCULATOR -->
+            <div class="tab-content" id="gpa-tab">
+                <div class="gpa-grid">
+                    
+                    <div class="card">
+                        <h2 class="card-title">
+                            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"/></svg>
+                            UTeM Semester GPA & CGPA Calculator
+                        </h2>
+                        
+                        <!-- Top results cards -->
+                        <div class="gpa-results-bar">
+                            <div class="gpa-result-card">
+                                <div class="form-label">Current Semester GPA</div>
+                                <div class="gpa-result-val" id="currentSemGpa">4.00</div>
+                            </div>
+                            <div class="gpa-result-card">
+                                <div class="form-label">Semester Credit Hours</div>
+                                <div class="gpa-result-val" id="totalCreditsVal">14</div>
+                            </div>
+                            <div class="gpa-result-card" style="border-color: var(--accent-gold); box-shadow: var(--glow-shadow);">
+                                <div class="form-label" style="color: var(--accent-gold);">Estimated CGPA</div>
+                                <div class="gpa-result-val" id="calculatedCgpa" style="text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);">4.00</div>
+                            </div>
+                        </div>
+
+                        <!-- Main Table Inputs -->
+                        <div class="gpa-table-container">
+                            <table class="gpa-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 40%;">Course Title (Optional)</th>
+                                        <th style="width: 25%;">Credits</th>
+                                        <th style="width: 25%;">Grade Achieved</th>
+                                        <th style="width: 10%;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gpaRows">
+                                    <!-- Populated dynamically by script.js -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="gpa-btn-row">
+                            <button id="addRowBtn" class="btn btn-secondary btn-sm">➕ Add Subject Row</button>
+                            <button id="clearGpaBtn" class="btn btn-danger btn-sm">✕ Clear All Entries</button>
+                        </div>
+
+                        <!-- CGPA Cumulative box -->
+                        <div class="cgpa-calc-box">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="prevCgpa" class="form-label">Prior Cumulative CGPA</label>
+                                <input type="number" id="prevCgpa" class="form-control" step="0.01" min="0.00" max="4.00" placeholder="e.g. 3.65">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="prevCredits" class="form-label">Prior Earned Credits (Total)</label>
+                                <input type="number" id="prevCredits" class="form-control" step="1" min="0" placeholder="e.g. 45">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- TAB 3: EXAM COUNTDOWN -->
+            <div class="tab-content" id="countdown-tab">
+                <div class="card" style="text-align: center;">
+                    <h2 class="card-title" style="justify-content: center;">
+                        <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                        Countdown to Next Exams
+                    </h2>
+                    
+                    <div class="countdown-container">
+                        <div class="countdown-header">
+                            <h3 id="countdownTitleText" style="color: var(--text-primary); font-size: 24px;">Semester 2 Final Examinations</h3>
+                            <select id="examTargetSelect" class="countdown-title-select">
+                                <option value="sem2_finals" selected>UTeM Semester 2 Finals (Oct 12, 2026)</option>
+                                <option value="sem1_finals">UTeM Semester 1 Finals (Jan 25, 2027)</option>
+                                <option value="merdeka">Malaysia Merdeka Day (Aug 31, 2026)</option>
+                                <option value="newyear">New Year's Day (Jan 1, 2027)</option>
+                                <option value="custom">Set Custom Date...</option>
+                            </select>
+                        </div>
+
+                        <!-- Timer Numbers -->
+                        <div class="countdown-timer">
+                            <div class="countdown-segment">
+                                <div class="countdown-number" id="countdownDays">00</div>
+                                <div class="countdown-label">Days</div>
+                            </div>
+                            <div class="countdown-segment">
+                                <div class="countdown-number" id="countdownHours">00</div>
+                                <div class="countdown-label">Hours</div>
+                            </div>
+                            <div class="countdown-segment">
+                                <div class="countdown-number" id="countdownMinutes">00</div>
+                                <div class="countdown-label">Mins</div>
+                            </div>
+                            <div class="countdown-segment">
+                                <div class="countdown-number" id="countdownSeconds">00</div>
+                                <div class="countdown-label">Secs</div>
+                            </div>
+                        </div>
+
+                        <!-- Custom Date Setter -->
+                        <div class="countdown-custom">
+                            <div class="form-group" style="margin-bottom: 0; text-align: left;">
+                                <label for="customExamDate" class="form-label" style="font-size: 12px;">Choose Custom Date & Time</label>
+                                <input type="datetime-local" id="customExamDate" class="form-control">
+                            </div>
+                            <button id="customExamBtn" class="btn btn-primary" style="height: 45px;">Apply Countdown</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner ad unit -->
+                <div class="ad-slot" style="max-width: 468px; width: 100%; margin: 24px auto 0 auto;" id="adMiddle2">
+                    <span class="ad-placeholder-text">Adsterra Banner Placement</span>
+                    <!-- Paste ad code here -->
+                </div>
+            </div>
+
+            <!-- TAB 4: BUS SCHEDULES -->
+            <div class="tab-content" id="bus-tab">
+                
+                <!-- Public Bus Route M10A Card -->
+                <div class="card" style="margin-bottom: 24px; border-color: rgba(231, 78, 159, 0.35); position: relative;">
+                    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #e74e9f 0%, #ff66b2 100%);"></div>
+                    <h3 class="card-title" style="color: #e74e9f; border-bottom-color: rgba(231, 78, 159, 0.15);">
+                        <svg viewBox="0 0 24 24" style="color: #e74e9f; fill: currentColor;"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>
+                        <span id="titlePublicBus">BAS.MY Melaka Public Bus Route M10A (To/From UTeM)</span>
+                    </h3>
+                    
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;" id="descPublicBus">
+                        Public transit connection connecting UTeM to Melaka Sentral (transit hub). Serves UTeM directly on weekends (Friday to Sunday).
+                    </p>
+
+                    <!-- Route timeline diagram -->
+                    <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
+                        <h4 style="font-size: 13px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;" id="labelRouteTimeline">M10A Route Stops</h4>
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                            <div style="flex: 1; min-width: 110px; text-align: center;">
+                                <div style="width: 24px; height: 24px; border-radius: 50%; background-color: var(--accent-gold); color: #000; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 6px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);">1</div>
+                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Melaka Sentral</div>
+                                <div style="font-size: 10px; color: var(--text-muted);">Main Hub</div>
+                            </div>
+                            <div style="flex: 1; min-width: 110px; text-align: center;">
+                                <div style="width: 24px; height: 24px; border-radius: 50%; background-color: var(--bg-card); border: 2px solid var(--border-color); color: var(--text-secondary); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 6px;">2</div>
+                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Batu Berendam</div>
+                                <div style="font-size: 10px; color: var(--text-muted);">Industrial</div>
+                            </div>
+                            <div style="flex: 1; min-width: 110px; text-align: center;">
+                                <div style="width: 24px; height: 24px; border-radius: 50%; background-color: var(--bg-card); border: 2px solid var(--border-color); color: var(--text-secondary); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 6px;">3</div>
+                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">MITC / Mydin</div>
+                                <div style="font-size: 10px; color: var(--text-muted);">Trade Centre</div>
+                            </div>
+                            <div style="flex: 1; min-width: 110px; text-align: center;">
+                                <div style="width: 24px; height: 24px; border-radius: 50%; background-color: #e74e9f; color: #fff; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 6px; box-shadow: 0 0 10px rgba(231, 78, 159, 0.4);">4</div>
+                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Zoo Melaka</div>
+                                <div style="font-size: 10px; color: #e74e9f; font-weight: 600;" id="labelWeekend1">Weekend Only</div>
+                            </div>
+                            <div style="flex: 1; min-width: 110px; text-align: center;">
+                                <div style="width: 24px; height: 24px; border-radius: 50%; background-color: #e74e9f; color: #fff; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 6px; box-shadow: 0 0 10px rgba(231, 78, 159, 0.4);">5</div>
+                                <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">UTeM Campus</div>
+                                <div style="font-size: 10px; color: #e74e9f; font-weight: 600;" id="labelWeekend2">Weekend Only</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Detailed Schedule & Route Info from bas.my -->
+                    <div style="margin-top: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.6; border-top: 1px dashed var(--border-color); padding-top: 16px;">
+                        <div style="font-weight: 700; color: var(--accent-gold); margin-bottom: 6px;" id="labelM10ADetails">M10A Detailed Schedule & Operations:</div>
+                        <ul style="margin: 0; padding-left: 20px; list-style-type: square; display: flex; flex-direction: column; gap: 4px;">
+                            <li id="m10aDetail1"><strong>Weekdays (Monday–Thursday):</strong> Runs between Melaka Sentral and MITC (via Batu Berendam) only.</li>
+                            <li id="m10aDetail2"><strong>Weekends (Friday–Sunday):</strong> Service is extended to directly serve Zoo Melaka and UTeM.</li>
+                            <li id="m10aDetail3"><strong>Operating Hours:</strong> 6:00 AM – 8:00 PM daily. Cashless payment only (TNG, Debit Card, QR).</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Internal Shuttle Schedules -->
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>
+                        UTeM Campus Transit Bus Timings
+                    </h2>
+
+                    <!-- Route Selector Pills -->
+                    <div class="bus-routes-selector">
+                        <div class="bus-route-pill active" data-route="ftmk">Main Campus ⇄ FTMK (Tech Campus)</div>
+                        <div class="bus-route-pill" data-route="satria">Satria College ⇄ Main Campus</div>
+                        <div class="bus-route-pill" data-route="lestari">Lestari College ⇄ Main Campus</div>
+                    </div>
+
+                    <div class="bus-schedule-box">
+                        <!-- Left Table -->
+                        <div class="gpa-table-container">
+                            <table class="gpa-table">
+                                <thead>
+                                    <tr>
+                                        <th>Departure Time</th>
+                                        <th>Schedule Day Type</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="busRouteTableBody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Right Live Card Info -->
+                        <div class="bus-next-alert">
+                            <div class="bus-status-tag active-now" id="nextBusStatusTag">Active Service</div>
+                            <h3 style="font-size: 16px; margin-top: 4px;" id="nextBusRouteTitle">Main Campus ⇄ FTMK</h3>
+                            
+                            <div style="margin-top: 12px;">
+                                <span class="form-label" style="font-size: 11px; text-transform: uppercase;">Next Departure Time:</span>
+                                <div style="font-size: 36px; font-weight: 800; color: var(--accent-gold);" id="nextBusTimeVal">08:00</div>
+                            </div>
+                            
+                            <div style="margin-top: 8px;">
+                                <div style="font-size: 16px; font-weight: 600; color: var(--text-primary);" id="nextBusCountdownVal">Arriving in 12 minutes</div>
+                            </div>
+                            
+                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px; line-height: 1.4;">
+                                Note: Shuttle bus arrival times may vary slightly based on traffic conditions on Lebuhraya Ayer Keroh. Please reach the boarding point 5 minutes early.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Melaka Public Route Lookup & Reference Card -->
+                <div class="card" style="margin-top: 24px;">
+                    <h3 class="card-title">
+                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+                        <span id="titleRouteLookup">Melaka Public Bus Route Lookup (Other Locations)</span>
+                    </h3>
+                    
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;" id="descRouteLookup">
+                        Select a destination below to find the correct BAS.MY bus route operating from Melaka Sentral.
+                    </p>
+
+                    <div class="cgpa-calc-box" style="margin-top: 0; margin-bottom: 20px; display: block;">
+                        <div class="form-group" style="margin-bottom: 0;">
+                            <label for="melakaDestSelect" class="form-label" id="labelSelectDest">Select destination...</label>
+                            <select id="melakaDestSelect" class="form-control">
+                                <option value="" id="optSelectDest">Choose a location...</option>
+                                <option value="tampin" id="optDestTampin">Tampin (via Alor Gajah) - Route M20 / M21</option>
+                                <option value="jasin" id="optDestJasin">Jasin - Route M32</option>
+                                <option value="klebang" id="optDestKlebang">Klebang / Pulau Gadong - Route M15</option>
+                                <option value="payaluboh" id="optDestPaya">Paya Luboh - Route M16</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Result display container -->
+                    <div id="lookupResultBox" style="display: none; background-color: var(--bg-secondary); border-left: 4px solid var(--accent-gold); padding: 16px; border-radius: 0 8px 8px 0; margin-bottom: 24px; font-size: 14px; line-height: 1.6;">
+                    </div>
+
+                    <!-- References list -->
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px;">
+                        <h4 style="font-size: 13px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;" id="busSourcesLabel">Official Data Sources & Reference Links:</h4>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://bas.my/basmymelaka.php" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                                BAS.MY Melaka Official Portal ➔
+                            </a>
+                            <a href="https://bas.my/route/M10A-melaka-sentral-MITC-dan-UTEM-via-batu-berendam.php" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                                Detailed BAS.MY Route M10A Stops & Schedule ➔
+                            </a>
+                            <a href="https://bas.my/map/map-basmymelaka.pdf" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                                Full Bus Service Map (PDF) ➔
+                            </a>
+                            <a href="https://www.causewaylink.com.my/BAS.MY-Melaka/" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600;">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                                Causeway Link BAS.MY Melaka Transit Info ➔
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: ACADEMIC CALENDAR -->
+            <div class="tab-content" id="calendar-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                        UTeM Academic Calendar (2026/2027)
+                    </h2>
+
+                    <!-- Filter Options -->
+                    <div class="calendar-controls">
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary btn-sm cal-filter-btn active" data-category="all">All Dates</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="academic">Lecture Weeks</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="exam">Exams</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="break">Breaks</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="holiday">Holidays</button>
+                        </div>
+                        <div style="position: relative; flex: 1; max-width: 300px; min-width: 200px;">
+                            <input type="text" id="calendarSearch" class="form-control" placeholder="Search calendar events..." style="padding-top: 8px; padding-bottom: 8px;">
+                        </div>
+                    </div>
+
+                    <!-- Event Timeline -->
+                    <div class="calendar-timeline" id="calendarTimeline">
+                        <!-- Populated by JS -->
+                    </div>
+
+                    <!-- Calendar Reference Sources -->
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
+                        <h4 style="font-size: 13px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;" id="calendarSourcesLabel">Official Academic Calendar Reference:</h4>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <a href="https://www.utem.edu.my/ms/muat-turun/kalendar-akademik/250-kalendar-akademik-sesi-2026-2027-bi/file.html" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600;" id="calendarLinkLabel">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z"/></svg>
+                                UTeM Academic Calendar Session 2026/2027 PDF ➔
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 7: PAST YEAR EXAMS -->
+            <div class="tab-content" id="exams-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
+                        <span id="titlePastExamsTab">UTeM Past Year Exam Papers</span>
+                    </h2>
+                    
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descPastExamsTab">
+                        Access the official UTeM library repository to search, browse, and download past semester examination papers for your courses.
+                    </p>
+                    
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                        <h4 style="font-size: 14px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;" id="labelPastExamsLib">Official Exam Paper Database:</h4>
+                        
+                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&view=list&Itemid=101&layout=table&filter%5Bsearch%5D=data+communication+and+network" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; width: 100%; max-width: 320px;" id="btnPastExamsLink">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-top: -2px;"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                            Open Library Exam Portal ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 8: HEALTH CENTER (PKU) -->
+            <div class="tab-content" id="health-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+                        <span id="titleHealthTab">Pusat Kesihatan UTeM (PKU)</span>
+                    </h2>
+                    
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descHealthTab">
+                        Providing comprehensive healthcare, medical treatment, and dental services for the UTeM student and staff community.
+                    </p>
+
+                    <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        
+                        <!-- Operating Hours -->
+                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                                <span id="labelHealthHours">Operating Hours</span>
+                            </h3>
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
+                                <li>
+                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthMainInduk">Main Campus (Durian Tunggal):</strong>
+                                    <span id="labelHoursIndukAcad">Academic Weeks: Mon - Fri, 8:00 AM - 7:00 PM</span><br>
+                                    <span id="labelHoursIndukBreak">Semester Breaks: Mon - Fri, 8:00 AM - 5:00 PM</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthTechAyer">Technology Campus (Ayer Keroh):</strong>
+                                    <span id="labelHoursTech">Mon - Fri: 8:00 AM - 5:00 PM</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthBreaks">Daily Rest Breaks:</strong>
+                                    <span id="labelHoursBreakMonThu">Mon - Thu: 1:00 PM - 2:00 PM</span><br>
+                                    <span id="labelHoursBreakFri">Friday: 12:15 PM - 2:45 PM</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px; color: #e74c3c; font-weight: 600;">
+                                    <span id="labelHealthClosed">Weekends & Public Holidays: Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- E-Services & Bookings -->
+                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z"/></svg>
+                                <span id="labelHealthServices">Online Appointments & Requests</span>
+                            </h3>
+                            
+                            <div>
+                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelDentalApp">Dental Clinic Appointment:</h4>
+                                <a href="https://form.jotform.com/dentalpkuutem/e-appointment" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnDentalLink">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                                    Dental e-Appointment ➔
+                                </a>
+                            </div>
+
+                            <div style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelEmergKit">Borrow Emergency First Aid Kits:</h4>
+                                <a href="https://forms.office.com/pages/responsepage.aspx?id=Vut-Z9_ydUaeDMzWAKkVgGQQ4HDQiuVKqFEd44j-gG5UOEhLSldKODZGQlZQQ1NaQlVDOFM1RTNOSy4u&origin=QRCode&route=shorturl" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnEmergLink">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                                    First Aid Request Form ➔
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact & Address (arrange in logical sequence) -->
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                        <div>
+                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthContact">Contact Information</h3>
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
+                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelHealthPhone">Phone:</strong> 06-2292308
+                                </li>
+                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelHealthEmail">Email:</strong> <a href="mailto:pusatkesihatanutem@utem.edu.my" style="color: var(--accent-gold);">pusatkesihatanutem@utem.edu.my</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthAddress">Mailing Address</h3>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Pusat Kesihatan Universiti,<br>
+                                Universiti Teknikal Malaysia Melaka,<br>
+                                Jalan Hang Tuah Jaya,<br>
+                                76100 Durian Tunggal,<br>
+                                Melaka, Malaysia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Official Portal Reference -->
+                    <div style="border-top: 1px dashed var(--border-color); padding-top: 16px; margin-top: 20px;">
+                        <span style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 8px;" id="labelHealthRef">Information sourced from official channels:</span>
+                        <a href="https://pusatkesihatan.utem.edu.my/en/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent-gold);">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            Pusat Kesihatan UTeM Official Portal ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 9: LIBRARY (PLH) -->
+            <div class="tab-content" id="library-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM9 9h10v2H9zm0 3h6v2H9zm0-6h10v2H9z"/></svg>
+                        <span id="titleLibTab">Perpustakaan Laman Hikmah (PLH)</span>
+                    </h2>
+                    
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descLibTab">
+                        UTeM Laman Hikmah Library offers a massive physical and digital catalog of learning resources, study zones, and modern digital library spaces.
+                    </p>
+
+                    <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        
+                        <!-- Library Opening Hours -->
+                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                                <span id="labelLibHours">Library Hours</span>
+                            </h3>
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
+                                <li>
+                                    <strong style="color: var(--text-primary); display: block;" id="labelLibMainHours">Academic Semester Hours:</strong>
+                                    <span id="labelHoursLibMonThu">Mon - Thu: 8:00 AM - 10:00 PM</span><br>
+                                    <span id="labelHoursLibFri">Friday: 8:00 AM - 12:15 PM, 2:45 PM - 10:00 PM</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                                    <strong style="color: var(--text-primary); display: block;" id="labelLibWeekendHours">Study & Exam Weeks (Weekends):</strong>
+                                    <span id="labelHoursLibWeekend">Sat - Sun: 9:00 AM - 5:00 PM (Selected areas)</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                                    <strong style="color: var(--text-primary); display: block;" id="labelLibBreakHours">Semester Break Hours:</strong>
+                                    <span id="labelHoursLibBreak">Mon - Fri: 8:00 AM - 5:00 PM (Closed on Weekends)</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px; color: var(--accent-gold); font-weight: 600;">
+                                    <span id="labelLib24Hours">24-Hour Study Area: Available at Level 2 (Exam weeks)</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Gaming Zone & Indoor Games -->
+                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M21.58 7.47c-.13-.25-.33-.45-.58-.58l-3-1.5c-.5-.25-1.12-.05-1.37.45l-1.5 3c-.25.5-.05 1.12.45 1.37l3 1.5c.25.13.53.19.8.19.64 0 1.22-.38 1.48-1l1.5-3c.25-.5.05-1.12-.45-1.37zm-9.1 5.91l-1.5-3c-.25-.5-.87-.7-1.37-.45l-3 1.5c-.25.13-.45.33-.58.58-.25.5-.05 1.12.45 1.37l3 1.5c.27.13.55.19.82.19.64 0 1.22-.38 1.48-1l1.12-2.25c.26-.5.06-1.12-.45-1.37zM4 15h16v2H4z"/></svg>
+                                <span id="labelLibServices">PLH Gaming Zone & Leisure</span>
+                            </h3>
+                            
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text-secondary);">
+                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelLibPlaystation">PlayStation 4 Console & Controller Rental:</strong>
+                                    <span id="descLibPlaystation">Rent PS4 controllers and consoles at the Circulation Counter. 3 console sets at Main Campus and 2 sets at Tech Campus. Rate is RM4.00 per hour (includes 2 controllers). Maximum 2 hours per session. Bringing own game CDs is permitted after staff inspection.</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                                    <strong style="color: var(--text-primary);" id="labelLibBoardgames">Free Indoor & Board Games:</strong>
+                                    <span id="descLibBoardgames">Borrow dartboards, carrom sets, chess, checkers, and board games for free at the counter.</span>
+                                </li>
+                            </ul>
+
+                            <div style="border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 4px;">
+                                <h4 style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelLibBookingTitle">Booking & Registration:</h4>
+                                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 8px;" id="descLibBookingText">
+                                    Registration and controller rentals are processed directly at the main library <strong>Circulation Counter</strong>. For inquiries, contact:
+                                </p>
+                                <a href="mailto:lamanhikmah@utem.edu.my" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnLibMail">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                                    Email Circulation Desk ➔
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact & Location Info -->
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                        <div>
+                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelLibContact">Contact & Inquiries</h3>
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
+                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelLibPhone">Phone:</strong> +606-229 2090 / +606-270 1200
+                                </li>
+                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelLibEmail">Email:</strong> <a href="mailto:lamanhikmah@utem.edu.my" style="color: var(--accent-gold);">lamanhikmah@utem.edu.my</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelLibAddress">Library Location</h3>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Perpustakaan Laman Hikmah,<br>
+                                Universiti Teknikal Malaysia Melaka,<br>
+                                Jalan Hang Tuah Jaya,<br>
+                                76100 Durian Tunggal,<br>
+                                Melaka, Malaysia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Official Portal Reference -->
+                    <div style="border-top: 1px dashed var(--border-color); padding-top: 16px; margin-top: 20px;">
+                        <span style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 8px;" id="labelLibRef">Visit official UTeM library site for catalog searches:</span>
+                        <a href="https://library.utem.edu.my/en/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent-gold);">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            UTeM Laman Hikmah Library Portal ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Universal Footer -->
+            <footer>
+                <div>
+                    <strong>UTeM Confessions</strong> &copy; 2026. Unofficial campus platform.
+                </div>
+                <div class="footer-links">
+                    <a href="about.html">About Us</a>
+                    <a href="rules.html">Confession Rules</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Mobile Sticky Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+        <button class="mobile-nav-btn active" data-tab="confession-tab">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 12H6v-2h8v2zm4-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+            <span>Confessions</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="gpa-tab">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"/></svg>
+            <span>GPA Calc</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="countdown-tab">
+            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.5 11H11V7h1.5v4H15v1.5h-2.5z"/></svg>
+            <span>Countdown</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="bus-tab">
+            <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z"/></svg>
+            <span>Buses</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="calendar-tab">
+            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+            <span>Calendar</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="exams-tab" id="mobileExamsTab">
+            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
+            <span>Exams</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="health-tab" id="mobileHealthTab">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+            <span>Health</span>
+        </button>
+        <button class="mobile-nav-btn" data-tab="library-tab" id="mobileLibraryTab">
+            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+            <span>Library</span>
+        </button>
+    </nav>
+
+
+    
+    <!-- Google Identity Services Sign-In Library & Authentication Module -->
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script src="authentication.js"></script>
+
+    <!-- Utilities (must load first — helpers used by all modules) -->
+    <script src="utils.js"></script>
+    <script src="translation.js"></script>
+
+    <!-- Feature modules (depend on utils.js + translation.js) -->
+    <script src="confessions.js"></script>
+    <script src="gpa.js"></script>
+    <script src="countdown.js"></script>
+    <script src="lookup.js"></script>
+    <script src="bus.js"></script>
+    <script src="calendar.js"></script>
+    <script src="health.js"></script>
+    <script src="library.js"></script>
+
+    <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
+    <script src="script.js"></script>
+</body>
+</html>
