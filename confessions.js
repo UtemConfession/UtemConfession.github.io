@@ -29,7 +29,7 @@ const submitImageBtn = document.getElementById("submitImageBtn");
 let selectedImageFile = null;
 
 // Webhook endpoint for Google Apps Script submission manager
-const APPS_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbzH4jT5OQ63XipqHsevkiIrM190k7u2PppcBEMJJ9olUonHZPlalZcV-PTAAeCgzb6veA/exec";
+const APPS_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbznUn5W2T0-DRnni5VG3mvS6ogG4WH4UD-5M2lfznXqLxUal4RubZMwclDnWVjwTTSKdQ/exec";
 
 // Helper to format bytes into readable KB / MB
 function formatBytes(bytes) {
