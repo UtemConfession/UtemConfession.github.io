@@ -3,25 +3,31 @@
 const translations = {
     en: {
         nav_confessions: "Confessions",
-        nav_gpa: "GPA Calculator",
-        nav_countdown: "Exam Countdown",
-        nav_buses: "Bus Schedules",
         nav_calendar: "Academic Calendar",
+        nav_gpa: "GPA Calculator",
         nav_exams: "Past Year Exams",
-        nav_health: "Health Center (PKU)",
+        nav_links: "Important Links",
+        nav_buses: "Bus Schedules",
+        nav_service: "Student Service",
         nav_library: "Library (PLH)",
+        nav_health: "Health Center (PKU)",
+        nav_marketplace: "Marketplace",
+        nav_scholarships: "Scholarship",
 
         mobile_nav_gpa: "GPA Calc",
-        mobile_nav_countdown: "Countdown",
+        mobile_nav_links: "Links",
         mobile_nav_buses: "Buses",
+        mobile_nav_service: "Services",
         mobile_nav_calendar: "Calendar",
         mobile_nav_exams: "Exams",
         mobile_nav_health: "Health",
         mobile_nav_library: "Library",
+        mobile_nav_marketplace: "Market",
+        mobile_nav_scholarships: "Scholarship",
 
         title_submit_confession: "Submit Confession",
         label_submit_confession: "Type your confession anonymously. Be respectful.",
-        placeholder_confession: "What is on your mind? (Keep it responsible...)",
+        placeholder_confession: "type here to confess...",
         checkbox_rules: "I agree to follow the confession rules. I understand illegal or abusive submissions will be rejected.",
         btn_submit: "Submit Confession",
         btn_submit_google: "Submit via Google Form ➔",
@@ -70,8 +76,8 @@ const translations = {
         pill_satria: "Satria College ⇄ Main Campus",
         pill_lestari: "Lestari College ⇄ Main Campus",
 
-        title_public_bus: "BAS.MY Melaka Public Bus Route M10A (To/From UTeM)",
-        desc_public_bus: "Public transit connection connecting UTeM to Melaka Sentral (transit hub). Serves UTeM directly on weekends (Friday to Sunday).",
+        title_public_bus: "Bus M10A (To/From UTeM)",
+        desc_public_bus: "Melaka Sentral ⇄ UTeM bus route. Serves UTeM on weekends.",
         label_route_timeline: "M10A Route Stops",
         label_weekend: "Weekend Only",
         title_route_lookup: "Melaka Public Bus Route Lookup (Other Locations)",
@@ -83,12 +89,12 @@ const translations = {
         opt_dest_klebang: "Klebang / Pulau Gadong - Route M15",
         opt_dest_paya: "Paya Luboh - Route M16",
         bus_sources_label: "Official Data Sources & Reference Links:",
-        label_m10a_details: "M10A Detailed Schedule & Operations:",
-        m10a_detail1: "<strong>Weekdays (Monday–Thursday):</strong> Runs between Melaka Sentral and MITC (via Batu Berendam) only.",
-        m10a_detail2: "<strong>Weekends (Friday–Sunday):</strong> Service is extended to directly serve Zoo Melaka and UTeM.",
-        m10a_detail3: "<strong>Operating Hours:</strong> 6:00 AM – 8:00 PM daily. Cashless payment only (TNG, Debit Card, QR).",
+        label_m10a_details: "M10A Schedule & Operations:",
+        m10a_detail1: "<strong>Weekdays:</strong> Melaka Sentral ⇄ MITC (via Batu Berendam)",
+        m10a_detail2: "<strong>Weekends:</strong> Extends directly to Zoo Melaka & UTeM",
+        m10a_detail3: "<strong>Hours:</strong> 6:00 AM – 8:00 PM (Cashless: TNG, Debit, QR)",
 
-        title_calendar: "UTeM Academic Calendar (2026/2027)",
+        title_calendar: "Academic Calendar (2026/2027)",
         btn_cal_all: "All Dates",
         btn_cal_academic: "Lecture Weeks",
         btn_cal_exam: "Exams",
@@ -150,11 +156,19 @@ const translations = {
         label_lib_address: "Library Location",
         label_lib_ref: "Visit official UTeM library site for catalog searches:",
 
-        footer_text: "Unofficial campus platform.",
+        footer_text: "Unofficial Student Confessions platform.",
         footer_about: "About Us",
         footer_rules: "Confession Rules",
         footer_privacy: "Privacy Policy",
         footer_terms: "Terms of Service",
+
+        title_marketplace: "UTeM Student Marketplace",
+        badge_marketplace: "Development Coming Soon",
+        desc_marketplace: "Campus marketplace for UTeM students to buy, sell, or trade textbooks, notes, appliances, and tech.",
+        notice_marketplace_seller: "To have your items sold here: Share in the Telegram group or contact admin email at:",
+
+        title_scholarships: "Scholarship & Financial Aid",
+        desc_scholarships: "Discover government loans, MARA schemes, state foundation grants, corporate awards, and university financial assistance available for UTeM and Malaysian university students.",
 
         theme_label_dark: "Dark Theme",
         theme_label_light: "Light Theme",
@@ -185,25 +199,31 @@ const translations = {
     },
     ms: {
         nav_confessions: "Pengakuan",
-        nav_gpa: "Kalkulator GPA",
-        nav_countdown: "Countdown Exam",
-        nav_buses: "Jadual Bas",
         nav_calendar: "Kalendar Akademik",
+        nav_gpa: "Kalkulator GPA",
         nav_exams: "Kertas Exam Lepas",
-        nav_health: "Pusat Kesihatan (PKU)",
+        nav_links: "Pautan Penting",
+        nav_buses: "Jadual Bas",
+        nav_service: "Perkhidmatan Pelajar",
         nav_library: "Perpustakaan (PLH)",
+        nav_health: "Pusat Kesihatan (PKU)",
+        nav_marketplace: "Pasar Pelajar",
+        nav_scholarships: "Biasiswa",
 
         mobile_nav_gpa: "GPA Calc",
-        mobile_nav_countdown: "Countdown",
+        mobile_nav_links: "Pautan",
         mobile_nav_buses: "Bas",
+        mobile_nav_service: "Servis",
         mobile_nav_calendar: "Kalendar",
         mobile_nav_exams: "Exam",
         mobile_nav_health: "PKU",
         mobile_nav_library: "Perpustakaan",
+        mobile_nav_marketplace: "Pasar",
+        mobile_nav_scholarships: "Biasiswa",
 
         title_submit_confession: "Hantar Pengakuan",
         label_submit_confession: "Tulis pengakuan anda secara rawak. Sila hormat satu sama lain.",
-        placeholder_confession: "Apa yang sedang anda fikirkan? (Tulis secara bertanggungjawab...)",
+        placeholder_confession: "taip pengakuan anda di sini...",
         checkbox_rules: "Saya bersetuju mematuhi peraturan pengakuan. Saya faham bahawa hantaran biadap atau melanggar undang-undang akan ditolak.",
         btn_submit: "Hantar Pengakuan",
         btn_submit_google: "Hantar melalui Google Form ➔",
@@ -252,8 +272,8 @@ const translations = {
         pill_satria: "Kolej Satria ⇄ Kampus Utama",
         pill_lestari: "Kolej Lestari ⇄ Kampus Utama",
 
-        title_public_bus: "Laluan Bas Awam BAS.MY Melaka M10A (Ke/Dari UTeM)",
-        desc_public_bus: "Sambungan transit awam yang menghubungkan UTeM ke Melaka Sentral (hub transit). Melayan UTeM secara terus pada hujung minggu (Jumaat hingga Ahad).",
+        title_public_bus: "Bas M10A (Ke/Dari UTeM)",
+        desc_public_bus: "Laluan bas Melaka Sentral ⇄ UTeM. Melayani UTeM pada hujung minggu.",
         label_route_timeline: "Hentian Laluan M10A",
         label_weekend: "Hujung Minggu Sahaja",
         title_route_lookup: "Carian Laluan Bas Awam Melaka (Lokasi Lain)",
@@ -265,12 +285,12 @@ const translations = {
         opt_dest_klebang: "Klebang / Pulau Gadong - Laluan M15",
         opt_dest_paya: "Paya Luboh - Laluan M16",
         bus_sources_label: "Sumber Data Rasmi & Pautan Rujukan:",
-        label_m10a_details: "Jadual & Operasi Terperinci M10A:",
-        m10a_detail1: "<strong>Hari Bekerja (Isnin–Khamis):</strong> Hanya berjalan di antara Melaka Sentral dan MITC (melalui Batu Berendam).",
-        m10a_detail2: "<strong>Hujung Minggu (Jumaat–Ahad):</strong> Laluan dilanjutkan untuk melayani Zoo Melaka dan UTeM secara langsung.",
-        m10a_detail3: "<strong>Waktu Operasi:</strong> 6:00 AM – 8:00 PM setiap hari. Bayaran tanpa tunai sahaja (TNG, Kad Debit, QR).",
+        label_m10a_details: "Jadual & Operasi M10A:",
+        m10a_detail1: "<strong>Hari Bekerja:</strong> Melaka Sentral ⇄ MITC (melalui Batu Berendam)",
+        m10a_detail2: "<strong>Hujung Minggu:</strong> Dilanjutkan ke Zoo Melaka & UTeM",
+        m10a_detail3: "<strong>Waktu:</strong> 6:00 AM – 8:00 PM (Tanpa Tunai: TNG, Kad Debit, QR)",
 
-        title_calendar: "Kalendar Akademik UTeM (2026/2027)",
+        title_calendar: "Kalendar Akademik (2026/2027)",
         btn_cal_all: "Semua Tarikh",
         btn_cal_academic: "Minggu Kuliah",
         btn_cal_exam: "Peperiksaan",
@@ -332,11 +352,19 @@ const translations = {
         label_lib_address: "Lokasi Perpustakaan",
         label_lib_ref: "Layari portal perpustakaan rasmi UTeM untuk carian katalog:",
 
-        footer_text: "Platform kampus tidak rasmi.",
+        footer_text: "Platform Pengakuan Pelajar Tidak Rasmi.",
         footer_about: "Tentang Kami",
         footer_rules: "Peraturan Pengakuan",
         footer_privacy: "Dasar Privasi",
         footer_terms: "Syarat Perkhidmatan",
+
+        title_marketplace: "Pasar Pelajar UTeM",
+        badge_marketplace: "Pembangunan Akan Datang",
+        desc_marketplace: "Pasar kampus untuk pelajar UTeM membeli, menjual, atau menukar buku teks, nota, peralatan, dan gajet.",
+        notice_marketplace_seller: "Untuk menjual barangan anda di sini: Kongsi dalam kumpulan Telegram atau hubungi e-mel admin di:",
+
+        title_scholarships: "Biasiswa & Bantuan Kewangan",
+        desc_scholarships: "Ketahui pinjaman kerajaan, skim MARA, hibah yayasan negeri, biasiswa korporat, dan bantuan kewangan universiti untuk pelajar UTeM dan IPT Malaysia.",
 
         theme_label_dark: "Tema Gelap",
         theme_label_light: "Tema Terang",
@@ -375,29 +403,47 @@ function setLanguage(lang) {
 
     // 1. Sidebar nav items
     const sidebarItems = document.querySelectorAll(".sidebar .nav-menu .nav-item");
-    if (sidebarItems.length >= 5) {
+    if (sidebarItems.length >= 11) {
         updateNodeText(sidebarItems[0], t.nav_confessions);
-        updateNodeText(sidebarItems[1], t.nav_gpa);
-        updateNodeText(sidebarItems[2], t.nav_countdown);
-        updateNodeText(sidebarItems[3], t.nav_buses);
-        updateNodeText(sidebarItems[4], t.nav_calendar);
+        updateNodeText(sidebarItems[1], t.nav_calendar);
+        updateNodeText(sidebarItems[2], t.nav_gpa);
+        updateNodeText(sidebarItems[3], t.nav_exams);
+        updateNodeText(sidebarItems[4], t.nav_links);
+        updateNodeText(sidebarItems[5], t.nav_buses);
+        updateNodeText(sidebarItems[6], t.nav_service);
+        updateNodeText(sidebarItems[7], t.nav_library);
+        updateNodeText(sidebarItems[8], t.nav_health);
+        updateNodeText(sidebarItems[9], t.nav_marketplace);
+        updateNodeText(sidebarItems[10], t.nav_scholarships);
+    } else if (sidebarItems.length >= 5) {
+        updateNodeText(sidebarItems[0], t.nav_confessions);
+        updateNodeText(sidebarItems[1], t.nav_calendar);
+        updateNodeText(sidebarItems[2], t.nav_gpa);
+        updateNodeText(sidebarItems[3], t.nav_exams);
+        updateNodeText(sidebarItems[4], t.nav_links);
     }
-    if (sidebarItems.length >= 6) updateNodeText(sidebarItems[5], t.nav_exams);
-    if (sidebarItems.length >= 7) updateNodeText(sidebarItems[6], t.nav_health);
-    if (sidebarItems.length >= 8) updateNodeText(sidebarItems[7], t.nav_library);
 
     // 2. Mobile bottom nav
     const mobileNavLabels = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
-    if (mobileNavLabels.length >= 5) {
+    if (mobileNavLabels.length >= 11) {
         mobileNavLabels[0].textContent = t.nav_confessions;
-        mobileNavLabels[1].textContent = t.mobile_nav_gpa;
-        mobileNavLabels[2].textContent = t.mobile_nav_countdown;
-        mobileNavLabels[3].textContent = t.mobile_nav_buses;
-        mobileNavLabels[4].textContent = t.mobile_nav_calendar;
+        mobileNavLabels[1].textContent = t.mobile_nav_calendar;
+        mobileNavLabels[2].textContent = t.mobile_nav_gpa;
+        mobileNavLabels[3].textContent = t.mobile_nav_exams;
+        mobileNavLabels[4].textContent = t.mobile_nav_links;
+        mobileNavLabels[5].textContent = t.mobile_nav_buses;
+        mobileNavLabels[6].textContent = t.mobile_nav_service;
+        mobileNavLabels[7].textContent = t.mobile_nav_library;
+        mobileNavLabels[8].textContent = t.mobile_nav_health;
+        mobileNavLabels[9].textContent = t.mobile_nav_marketplace;
+        mobileNavLabels[10].textContent = t.mobile_nav_scholarships;
+    } else if (mobileNavLabels.length >= 5) {
+        mobileNavLabels[0].textContent = t.nav_confessions;
+        mobileNavLabels[1].textContent = t.mobile_nav_calendar;
+        mobileNavLabels[2].textContent = t.mobile_nav_gpa;
+        mobileNavLabels[3].textContent = t.mobile_nav_exams;
+        mobileNavLabels[4].textContent = t.mobile_nav_links;
     }
-    if (mobileNavLabels.length >= 6) mobileNavLabels[5].textContent = t.mobile_nav_exams;
-    if (mobileNavLabels.length >= 7) mobileNavLabels[6].textContent = t.mobile_nav_health;
-    if (mobileNavLabels.length >= 8) mobileNavLabels[7].textContent = t.mobile_nav_library;
 
     // 3. Language toggle buttons
     const desktopToggle = document.getElementById("desktopLangToggle");
@@ -482,38 +528,12 @@ function setLanguage(lang) {
         priorLabels[1].textContent = t.label_prior_credits;
     }
 
-    // 6. Exam Countdown
-    const countdownTitle = document.querySelector("#countdown-tab .card-title");
-    updateNodeText(countdownTitle, t.title_countdown);
+    // 6. Important Links
+    const titleLinks = document.querySelector("#links-tab .card-title");
+    if (titleLinks) updateNodeText(titleLinks, t.title_important_links || "UTeM Important Links & Portals");
 
-    const countdownOpts = document.querySelectorAll("#examTargetSelect option");
-    if (countdownOpts.length >= 5) {
-        countdownOpts[0].text = t.opt_sem2_finals;
-        countdownOpts[1].text = t.opt_sem1_finals;
-        countdownOpts[2].text = t.opt_merdeka;
-        countdownOpts[3].text = t.opt_newyear;
-        countdownOpts[4].text = t.opt_custom;
-    }
-
-    const targetSel = document.getElementById("examTargetSelect");
-    const countdownTitleText = document.getElementById("countdownTitleText");
-    if (targetSel && targetSel.value !== 'custom' && countdownTitleText) {
-        countdownTitleText.textContent = targetSel.options[targetSel.selectedIndex].text;
-    }
-
-    const cLabels = document.querySelectorAll("#countdown-tab .countdown-label");
-    if (cLabels.length >= 4) {
-        cLabels[0].textContent = t.label_days;
-        cLabels[1].textContent = t.label_hours;
-        cLabels[2].textContent = t.label_mins;
-        cLabels[3].textContent = t.label_secs;
-    }
-
-    const customDateLabel = document.querySelector(".countdown-custom .form-label");
-    if (customDateLabel) customDateLabel.textContent = t.label_countdown_custom;
-
-    const customApplyBtn = document.getElementById("customExamBtn");
-    if (customApplyBtn) customApplyBtn.textContent = t.btn_apply_countdown;
+    const descImportantLinks = document.getElementById("descImportantLinks");
+    if (descImportantLinks) descImportantLinks.textContent = t.desc_important_links || "Quick access to essential official campus portals, VPN clients, student council channels, and academic systems.";
 
     // 7. Bus Transit
     const busTitle = document.querySelector("#bus-tab .card-title");
@@ -773,10 +793,27 @@ function setLanguage(lang) {
     const labelLibRef = document.getElementById("labelLibRef");
     if (labelLibRef) labelLibRef.textContent = t.label_lib_ref;
 
-    // 11. Footer
+    // 11. Marketplace
+    const badgeMarketplace = document.getElementById("badgeMarketplace");
+    if (badgeMarketplace) badgeMarketplace.textContent = t.badge_marketplace;
+
+    const titleMarketplace = document.getElementById("titleMarketplace");
+    if (titleMarketplace) titleMarketplace.textContent = t.title_marketplace;
+
+    const descMarketplace = document.getElementById("descMarketplace");
+    if (descMarketplace) descMarketplace.textContent = t.desc_marketplace;
+
+    // 12. Scholarship Tracker
+    const titleScholarships = document.querySelector("#scholarships-tab .card-title");
+    if (titleScholarships) updateNodeText(titleScholarships, t.title_scholarships);
+
+    const descScholarships = document.getElementById("descScholarships");
+    if (descScholarships) descScholarships.textContent = t.desc_scholarships;
+
+    // 13. Footer
     const footerDiv = document.querySelector("footer div");
     if (footerDiv) {
-        footerDiv.innerHTML = `<strong>UTeM Confessions</strong> &copy; 2026. ${t.footer_text}`;
+        footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;
     }
     const footerLinks = document.querySelectorAll(".footer-links a");
     if (footerLinks.length >= 4) {
