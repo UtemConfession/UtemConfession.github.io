@@ -102,12 +102,12 @@ window.updateSubmitButton = updateSubmitButton;
 if (confessionText) {
     confessionText.addEventListener("input", () => {
         let length = confessionText.value.length;
-        if (length > 1000) {
-            confessionText.value = confessionText.value.substring(0, 1000);
-            length = 1000;
+        if (length > 10000) {
+            confessionText.value = confessionText.value.substring(0, 10000);
+            length = 10000;
         }
         if (charCount) {
-            charCount.textContent = `${length} / 1000 characters`;
+            charCount.textContent = `${length} / 10000 characters`;
         }
         updateSubmitButton();
     });
@@ -175,13 +175,13 @@ if (submitBtn) {
             } else if (result.status === "success") {
                 showStatus(result.message || "Confession submitted successfully!", "success");
                 confessionText.value = "";
-                if (charCount) charCount.textContent = "0 / 1000 characters";
+                if (charCount) charCount.textContent = "0 / 10000 characters";
                 agreeRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
             } else if (result.status === "rejected") {
                 showStatus(result.message || "Your confession contained inappropriate content and was rejected by automated moderation.", "error");
                 confessionText.value = "";
-                if (charCount) charCount.textContent = "0 / 1000 characters";
+                if (charCount) charCount.textContent = "0 / 10000 characters";
                 agreeRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
             } else {

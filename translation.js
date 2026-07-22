@@ -3,6 +3,7 @@
 const translations = {
     en: {
         nav_confessions: "Confessions",
+        nav_archive: "Confessions Archive",
         nav_calendar: "Academic Calendar",
         nav_gpa: "GPA Calculator",
         nav_exams: "Past Year Exams",
@@ -15,6 +16,7 @@ const translations = {
         nav_scholarships: "Scholarship",
 
         mobile_nav_gpa: "GPA Calc",
+        mobile_nav_archive: "Archive",
         mobile_nav_links: "Links",
         mobile_nav_buses: "Buses",
         mobile_nav_service: "Services",
@@ -169,6 +171,8 @@ const translations = {
 
         title_scholarships: "Scholarship & Financial Aid",
         desc_scholarships: "Discover government loans, MARA schemes, state foundation grants, corporate awards, and university financial assistance available for UTeM and Malaysian university students.",
+        notice_archive_takedown: "Content Removal Request: If a confession post involves you and you wish to have it removed from the archive, please contact the admin team via email or Telegram.",
+        btn_contact_admin_removal: "Contact Admin ➔",
 
         theme_label_dark: "Dark Theme",
         theme_label_light: "Light Theme",
@@ -199,6 +203,7 @@ const translations = {
     },
     ms: {
         nav_confessions: "Pengakuan",
+        nav_archive: "Arkib Pengakuan",
         nav_calendar: "Kalendar Akademik",
         nav_gpa: "Kalkulator GPA",
         nav_exams: "Kertas Exam Lepas",
@@ -211,6 +216,7 @@ const translations = {
         nav_scholarships: "Biasiswa",
 
         mobile_nav_gpa: "GPA Calc",
+        mobile_nav_archive: "Arkib",
         mobile_nav_links: "Pautan",
         mobile_nav_buses: "Bas",
         mobile_nav_service: "Servis",
@@ -365,6 +371,8 @@ const translations = {
 
         title_scholarships: "Biasiswa & Bantuan Kewangan",
         desc_scholarships: "Ketahui pinjaman kerajaan, skim MARA, hibah yayasan negeri, biasiswa korporat, dan bantuan kewangan universiti untuk pelajar UTeM dan IPT Malaysia.",
+        notice_archive_takedown: "Permohonan Pemadaman Kandungan: Jika terdapat hantaran pengakuan yang melibatkan anda dan anda mahu ia dipadam daripada arkib, sila hubungi pasukan admin melalui e-mel atau Telegram.",
+        btn_contact_admin_removal: "Hubungi Admin ➔",
 
         theme_label_dark: "Tema Gelap",
         theme_label_light: "Tema Terang",
@@ -401,49 +409,38 @@ function setLanguage(lang) {
     const t = translations[lang];
     if (!t) return;
 
-    // 1. Sidebar nav items
-    const sidebarItems = document.querySelectorAll(".sidebar .nav-menu .nav-item");
-    if (sidebarItems.length >= 11) {
-        updateNodeText(sidebarItems[0], t.nav_confessions);
-        updateNodeText(sidebarItems[1], t.nav_calendar);
-        updateNodeText(sidebarItems[2], t.nav_gpa);
-        updateNodeText(sidebarItems[3], t.nav_exams);
-        updateNodeText(sidebarItems[4], t.nav_links);
-        updateNodeText(sidebarItems[5], t.nav_buses);
-        updateNodeText(sidebarItems[6], t.nav_service);
-        updateNodeText(sidebarItems[7], t.nav_library);
-        updateNodeText(sidebarItems[8], t.nav_health);
-        updateNodeText(sidebarItems[9], t.nav_marketplace);
-        updateNodeText(sidebarItems[10], t.nav_scholarships);
-    } else if (sidebarItems.length >= 5) {
-        updateNodeText(sidebarItems[0], t.nav_confessions);
-        updateNodeText(sidebarItems[1], t.nav_calendar);
-        updateNodeText(sidebarItems[2], t.nav_gpa);
-        updateNodeText(sidebarItems[3], t.nav_exams);
-        updateNodeText(sidebarItems[4], t.nav_links);
-    }
+    // Mapped navigation dictionary by data-tab attribute
+    const tabNavMap = {
+        "confession-tab": { desktop: t.nav_confessions, mobile: t.nav_confessions },
+        "archive-tab": { desktop: t.nav_archive, mobile: t.mobile_nav_archive },
+        "calendar-tab": { desktop: t.nav_calendar, mobile: t.mobile_nav_calendar },
+        "gpa-tab": { desktop: t.nav_gpa, mobile: t.mobile_nav_gpa },
+        "exams-tab": { desktop: t.nav_exams, mobile: t.mobile_nav_exams },
+        "links-tab": { desktop: t.nav_links, mobile: t.mobile_nav_links },
+        "bus-tab": { desktop: t.nav_buses, mobile: t.mobile_nav_buses },
+        "service-tab": { desktop: t.nav_service, mobile: t.mobile_nav_service },
+        "library-tab": { desktop: t.nav_library, mobile: t.mobile_nav_library },
+        "health-tab": { desktop: t.nav_health, mobile: t.mobile_nav_health },
+        "marketplace-tab": { desktop: t.nav_marketplace, mobile: t.mobile_nav_marketplace },
+        "scholarships-tab": { desktop: t.nav_scholarships, mobile: t.mobile_nav_scholarships }
+    };
 
-    // 2. Mobile bottom nav
-    const mobileNavLabels = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
-    if (mobileNavLabels.length >= 11) {
-        mobileNavLabels[0].textContent = t.nav_confessions;
-        mobileNavLabels[1].textContent = t.mobile_nav_calendar;
-        mobileNavLabels[2].textContent = t.mobile_nav_gpa;
-        mobileNavLabels[3].textContent = t.mobile_nav_exams;
-        mobileNavLabels[4].textContent = t.mobile_nav_links;
-        mobileNavLabels[5].textContent = t.mobile_nav_buses;
-        mobileNavLabels[6].textContent = t.mobile_nav_service;
-        mobileNavLabels[7].textContent = t.mobile_nav_library;
-        mobileNavLabels[8].textContent = t.mobile_nav_health;
-        mobileNavLabels[9].textContent = t.mobile_nav_marketplace;
-        mobileNavLabels[10].textContent = t.mobile_nav_scholarships;
-    } else if (mobileNavLabels.length >= 5) {
-        mobileNavLabels[0].textContent = t.nav_confessions;
-        mobileNavLabels[1].textContent = t.mobile_nav_calendar;
-        mobileNavLabels[2].textContent = t.mobile_nav_gpa;
-        mobileNavLabels[3].textContent = t.mobile_nav_exams;
-        mobileNavLabels[4].textContent = t.mobile_nav_links;
-    }
+    // 1. Sidebar nav items
+    document.querySelectorAll(".sidebar .nav-menu .nav-item").forEach(item => {
+        const tab = item.getAttribute("data-tab");
+        if (tab && tabNavMap[tab]) {
+            updateNodeText(item, tabNavMap[tab].desktop);
+        }
+    });
+
+    // 2. Mobile bottom nav buttons
+    document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn").forEach(btn => {
+        const tab = btn.getAttribute("data-tab");
+        const span = btn.querySelector("span");
+        if (tab && span && tabNavMap[tab]) {
+            span.textContent = tabNavMap[tab].mobile;
+        }
+    });
 
     // 3. Language toggle buttons
     const desktopToggle = document.getElementById("desktopLangToggle");
@@ -470,7 +467,7 @@ function setLanguage(lang) {
     const chCountLabel = document.getElementById("charCount");
     if (chCountLabel && confText) {
         const len = confText.value.length;
-        chCountLabel.textContent = lang === "en" ? `${len} / 1000 characters` : `${len} / 1000 aksara`;
+        chCountLabel.textContent = lang === "en" ? `${len} / 10000 characters` : `${len} / 10000 aksara`;
     }
 
     const agreeLabel = document.querySelector("#confession-tab .checkbox-container");
@@ -809,6 +806,16 @@ function setLanguage(lang) {
 
     const descScholarships = document.getElementById("descScholarships");
     if (descScholarships) descScholarships.textContent = t.desc_scholarships;
+
+    // 13. Archive Takedown Notice
+    const noticeArchiveTakedown = document.getElementById("noticeArchiveTakedown");
+    if (noticeArchiveTakedown && t.notice_archive_takedown) {
+        noticeArchiveTakedown.innerHTML = `<strong>${currentLang === "ms" ? "Permohonan Pemadaman Kandungan:" : "Content Removal Request:"}</strong> ${currentLang === "ms" ? "Jika terdapat hantaran pengakuan yang melibatkan anda dan anda mahu ia dipadam daripada arkib, sila hubungi pasukan admin melalui e-mel atau Telegram." : "If a confession post involves you and you wish to have it removed from the archive, please contact the admin team via email or Telegram."}`;
+    }
+    const btnContactAdminRemoval = document.getElementById("btnContactAdminRemoval");
+    if (btnContactAdminRemoval && t.btn_contact_admin_removal) {
+        updateNodeText(btnContactAdminRemoval, t.btn_contact_admin_removal);
+    }
 
     // 13. Footer
     const footerDiv = document.querySelector("footer div");

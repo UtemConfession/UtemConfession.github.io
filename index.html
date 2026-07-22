@@ -34,7 +34,7 @@
             <!-- Custom SVG Clock Tower Logo Replicated from Screenshot -->
             <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="mobile-logo-img">
             <div class="mobile-title-container">
-                <span class="mobile-title">UTeM Confession</span>
+                <span class="mobile-title">UTeM Confessions</span>
                 <span class="mobile-subtitle">Pro Max</span>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <div class="brand-section">
                 <!-- Custom Inline SVG Logo matching Channel Emblem -->
                 <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="brand-logo-img">
-                <h1 class="brand-title">UTeM Confession</h1>
+                <h1 class="brand-title">UTeM Confessions</h1>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
 
@@ -97,11 +97,13 @@
                     <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
                     Scholarship
                 </li>
+                <li class="nav-item" data-tab="archive-tab" id="desktopArchiveTab">
+                    <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/></svg>
+                    Confessions Archive
+                </li>
             </ul>
 
             <div class="sidebar-footer">
-                <div id="googleSignInContainer" style="margin-bottom: 12px;"></div>
-
                 <!-- Adsterra / Monetag Sidebar ad slot -->
                 <div class="ad-slot ad-sidebar" id="adSidebar">
                     <span class="ad-placeholder-text">Sidebar Banner ad unit</span>
@@ -133,23 +135,19 @@
                             Submit Confession
                         </h2>
                         
-                        <div id="googleLoginContainer" class="card mb-3" style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 16px; margin-bottom: 18px; border-radius: 12px;">
-                            <div class="card-body">
-                                <h5 style="margin-bottom: 12px; font-size: 15px; font-weight: 700; color: var(--accent-gold);">Sign in to submit confessions</h5>
+                        <div id="googleLoginContainer" style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); padding: 14px 18px; margin-bottom: 18px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                            <div id="authNotice" class="auth-notice warning" style="padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); color: #f59e0b; margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+                                🔒 Sign in required
+                            </div>
 
-                                <div id="authNotice" class="auth-notice warning" style="padding: 10px 14px; border-radius: 8px; font-size: 12.5px; line-height: 1.4; margin-bottom: 12px; background: rgba(243, 156, 18, 0.1); border: 1px solid rgba(243, 156, 18, 0.3); color: var(--text-secondary);">
-                                    🔒 <strong>Sign in required</strong>
-                                </div>
+                            <div id="g_id_signin"></div>
 
-                                <div id="g_id_signin"></div>
-
-                                <div id="userInfo" style="display:none; align-items: center; gap: 12px; flex-wrap: wrap;">
-                                    <img id="userAvatar" width="38" height="38" style="border-radius:50%; border: 2px solid var(--accent-gold);">
-                                    <span id="userName" style="font-weight: 700; font-size: 14px; color: var(--text-primary);"></span>
-                                    <button id="logoutBtn" class="btn btn-sm btn-secondary" style="margin-left: auto; padding: 4px 12px; font-size: 12px;">
-                                        Sign Out
-                                    </button>
-                                </div>
+                            <div id="userInfo" style="display:none; align-items: center; gap: 12px; width: 100%;">
+                                <img id="userAvatar" width="34" height="34" style="border-radius:50%; border: 2px solid var(--accent-gold); flex-shrink: 0;">
+                                <span id="userName" style="font-weight: 700; font-size: 13.5px; color: var(--text-primary);"></span>
+                                <button id="logoutBtn" class="btn btn-sm btn-secondary" style="margin-left: auto; padding: 4px 12px; font-size: 11.5px; border-radius: 8px;">
+                                    Sign Out
+                                </button>
                             </div>
                         </div>
 
@@ -166,8 +164,8 @@
                         <!-- SUB-PANEL 1: TEXT MODE (DEFAULT ACTIVE) -->
                         <div id="textSubmissionPanel">
                             <div class="form-group">
-                                <textarea id="confessionText" class="form-control" placeholder="type here to confess..."></textarea>
-                                <div class="char-count" id="charCount">0 / 1000 characters</div>
+                                <textarea id="confessionText" class="form-control" maxlength="10000" placeholder="type here to confess..."></textarea>
+                                <div class="char-count" id="charCount">0 / 10000 characters</div>
                             </div>
 
                             <div class="form-group">
@@ -253,7 +251,42 @@
                 </div>
             </div>
 
-            <!-- TAB 2: GPA CALCULATOR -->
+            <!-- TAB 2: ACADEMIC CALENDAR -->
+            <div class="tab-content" id="calendar-tab">
+                <div class="card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                        <h2 class="card-title" style="margin-bottom: 0;">
+                            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+                            Academic Calendar (2026/2027)
+                        </h2>
+                        <a href="https://www.utem.edu.my/ms/muat-turun/kalendar-akademik/250-kalendar-akademik-sesi-2026-2027-bi/file.html" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--accent-gold); text-decoration: none;" id="calendarLinkLabel">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z"/></svg>
+                            Official PDF ➔
+                        </a>
+                    </div>
+
+                    <!-- Filter Options -->
+                    <div class="calendar-controls">
+                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary btn-sm cal-filter-btn active" data-category="all">All Dates</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="academic">Lecture Weeks</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="exam">Exams</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="break">Breaks</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="holiday">Holidays</button>
+                        </div>
+                        <div style="position: relative; flex: 1; max-width: 300px; min-width: 200px;">
+                            <input type="text" id="calendarSearch" class="form-control" placeholder="Search calendar events..." style="padding-top: 8px; padding-bottom: 8px;">
+                        </div>
+                    </div>
+
+                    <!-- Event Timeline -->
+                    <div class="calendar-timeline" id="calendarTimeline">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 4: GPA CALCULATOR -->
             <div class="tab-content" id="gpa-tab">
                 <div class="gpa-grid">
                     
@@ -304,20 +337,46 @@
                         <!-- CGPA Cumulative box -->
                         <div class="cgpa-calc-box">
                             <div class="form-group" style="margin-bottom: 0;">
-                                <label for="prevCgpa" class="form-label">Prior Cumulative CGPA</label>
+                                <label for="prevCgpa" class="form-label">Prior Cumulative CGPA (Optional)</label>
                                 <input type="number" id="prevCgpa" class="form-control" step="0.01" min="0.00" max="4.00" placeholder="e.g. 3.65">
                             </div>
                             <div class="form-group" style="margin-bottom: 0;">
-                                <label for="prevCredits" class="form-label">Prior Earned Credits (Total)</label>
-                                <input type="number" id="prevCredits" class="form-control" step="1" min="0" placeholder="e.g. 45">
+                                <label for="prevCredits" class="form-label">Prior Earned Credits (Optional)</label>
+                                <input type="number" id="prevCredits" class="form-control" step="1" min="0" placeholder="e.g. 45 (leave blank to estimate)">
                             </div>
+                        </div>
+
+                        <div id="gpaEstimationNote" style="display: none; font-size: 12.5px; color: var(--accent-gold); background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); padding: 8px 14px; border-radius: 8px; margin-top: 14px; text-align: center; font-weight: 600;">
                         </div>
                     </div>
 
                 </div>
             </div>
 
-            <!-- TAB: IMPORTANT LINKS -->
+            <!-- TAB 5: PAST YEAR EXAMS -->
+            <div class="tab-content" id="exams-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
+                        <span id="titlePastExamsTab">UTeM Past Year Exam Papers</span>
+                    </h2>
+                    
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descPastExamsTab">
+                        Access the official UTeM library repository to search, browse, and download past semester examination papers for your courses.
+                    </p>
+                    
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                        <h4 style="font-size: 14px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;" id="labelPastExamsLib">Official Exam Paper Database:</h4>
+                        
+                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&view=list&Itemid=101&layout=table&filter%5Bsearch%5D=data+communication+and+network" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; width: 100%; max-width: 320px;" id="btnPastExamsLink">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-top: -2px;"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                            Open Library Exam Portal ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 6: IMPORTANT LINKS -->
             <div class="tab-content" id="links-tab">
                 <div class="card">
                     <h2 class="card-title">
@@ -385,6 +444,25 @@
                             </p>
                             <a href="https://portal.utem.edu.my/oas/directory/stafsearch_smsm.asp?mysearch=" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px;">
                                 Open Staff Directory ➔
+                            </a>
+                        </div>
+
+                        <!-- CARD 4: MOHE E-ADUAN (SPAB PORTAL) -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">MOHE e-Aduan (SPAB)</h3>
+                                    <span style="font-size: 11px; color: var(--text-muted);">Ministry Public Complaints System</span>
+                                </div>
+                            </div>
+                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+                                Official Public Complaints Management System (SISPAA / SPAB) under Ministry of Higher Education (KPT/MOHE) for feedback, inquiries, and official complaints.
+                            </p>
+                            <a href="https://mohe.spab.gov.my/eApps/system/index.do" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; background: #10b981; border: none; color: #fff;">
+                                Open MOHE e-Aduan Portal ➔
                             </a>
                         </div>
                     </div>
@@ -573,173 +651,12 @@
                         <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">🛍️ Personal Shopper (PS)</span>
                         <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">🏃 Campus Runners</span>
                         <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">🖨️ Printing & Assignments</span>
+                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">📦 Others</span>
                     </div>
 
                     <!-- Provider Notice -->
                     <div style="margin: 0 auto; max-width: 580px; padding: 16px; border-radius: 12px; background: rgba(212, 175, 55, 0.08); border: 1px dashed var(--accent-gold); font-size: 14px; color: var(--text-primary); line-height: 1.6;">
                         <strong>Want to promote your student service here?</strong> Share in the Telegram group or contact admin email at: <a href="mailto:admin@utemconfessions.com" style="color: var(--accent-gold); font-weight: 700;">admin@utemconfessions.com</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 6: ACADEMIC CALENDAR -->
-            <div class="tab-content" id="calendar-tab">
-                <div class="card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
-                        <h2 class="card-title" style="margin-bottom: 0;">
-                            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
-                            Academic Calendar (2026/2027)
-                        </h2>
-                        <a href="https://www.utem.edu.my/ms/muat-turun/kalendar-akademik/250-kalendar-akademik-sesi-2026-2027-bi/file.html" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--accent-gold); text-decoration: none;" id="calendarLinkLabel">
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z"/></svg>
-                            Official PDF ➔
-                        </a>
-                    </div>
-
-                    <!-- Filter Options -->
-                    <div class="calendar-controls">
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <button class="btn btn-secondary btn-sm cal-filter-btn active" data-category="all">All Dates</button>
-                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="academic">Lecture Weeks</button>
-                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="exam">Exams</button>
-                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="break">Breaks</button>
-                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="holiday">Holidays</button>
-                        </div>
-                        <div style="position: relative; flex: 1; max-width: 300px; min-width: 200px;">
-                            <input type="text" id="calendarSearch" class="form-control" placeholder="Search calendar events..." style="padding-top: 8px; padding-bottom: 8px;">
-                        </div>
-                    </div>
-
-                    <!-- Event Timeline -->
-                    <div class="calendar-timeline" id="calendarTimeline">
-                        <!-- Populated by JS -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 7: PAST YEAR EXAMS -->
-            <div class="tab-content" id="exams-tab">
-                <div class="card">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
-                        <span id="titlePastExamsTab">UTeM Past Year Exam Papers</span>
-                    </h2>
-                    
-                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descPastExamsTab">
-                        Access the official UTeM library repository to search, browse, and download past semester examination papers for your courses.
-                    </p>
-                    
-                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
-                        <h4 style="font-size: 14px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;" id="labelPastExamsLib">Official Exam Paper Database:</h4>
-                        
-                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&view=list&Itemid=101&layout=table&filter%5Bsearch%5D=data+communication+and+network" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; width: 100%; max-width: 320px;" id="btnPastExamsLink">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-top: -2px;"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                            Open Library Exam Portal ➔
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 8: HEALTH CENTER (PKU) -->
-            <div class="tab-content" id="health-tab">
-                <div class="card">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
-                        <span id="titleHealthTab">Pusat Kesihatan UTeM (PKU)</span>
-                    </h2>
-                    
-                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descHealthTab">
-                        Providing comprehensive healthcare, medical treatment, and dental services for the UTeM student and staff community.
-                    </p>
-
-                    <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-                        
-                        <!-- Operating Hours -->
-                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
-                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
-                                <span id="labelHealthHours">Operating Hours</span>
-                            </h3>
-                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
-                                <li>
-                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthMainInduk">Main Campus (Durian Tunggal):</strong>
-                                    <span id="labelHoursIndukAcad">Academic Weeks: Mon - Fri, 8:00 AM - 7:00 PM</span><br>
-                                    <span id="labelHoursIndukBreak">Semester Breaks: Mon - Fri, 8:00 AM - 5:00 PM</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthTechAyer">Technology Campus (Ayer Keroh):</strong>
-                                    <span id="labelHoursTech">Mon - Fri: 8:00 AM - 5:00 PM</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthBreaks">Daily Rest Breaks:</strong>
-                                    <span id="labelHoursBreakMonThu">Mon - Thu: 1:00 PM - 2:00 PM</span><br>
-                                    <span id="labelHoursBreakFri">Friday: 12:15 PM - 2:45 PM</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px; color: #e74c3c; font-weight: 600;">
-                                    <span id="labelHealthClosed">Weekends & Public Holidays: Closed</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <!-- E-Services & Bookings -->
-                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
-                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z"/></svg>
-                                <span id="labelHealthServices">Online Appointments & Requests</span>
-                            </h3>
-                            
-                            <div>
-                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelDentalApp">Dental Clinic Appointment:</h4>
-                                <a href="https://form.jotform.com/dentalpkuutem/e-appointment" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnDentalLink">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                                    Dental e-Appointment ➔
-                                </a>
-                            </div>
-
-                            <div style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
-                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelEmergKit">Borrow Emergency First Aid Kits:</h4>
-                                <a href="https://forms.office.com/pages/responsepage.aspx?id=Vut-Z9_ydUaeDMzWAKkVgGQQ4HDQiuVKqFEd44j-gG5UOEhLSldKODZGQlZQQ1NaQlVDOFM1RTNOSy4u&origin=QRCode&route=shorturl" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnEmergLink">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                                    First Aid Request Form ➔
-                                </a>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- Contact & Address (arrange in logical sequence) -->
-                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
-                        <div>
-                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthContact">Contact Information</h3>
-                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
-                                <li>
-                                    <strong style="color: var(--text-primary);" id="labelHealthPhone">Phone:</strong> 06-2292308
-                                </li>
-                                <li>
-                                    <strong style="color: var(--text-primary);" id="labelHealthEmail">Email:</strong> <a href="mailto:pusatkesihatanutem@utem.edu.my" style="color: var(--accent-gold);">pusatkesihatanutem@utem.edu.my</a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div>
-                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthAddress">Mailing Address</h3>
-                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
-                                Pusat Kesihatan Universiti,<br>
-                                Universiti Teknikal Malaysia Melaka,<br>
-                                Jalan Hang Tuah Jaya,<br>
-                                76100 Durian Tunggal,<br>
-                                Melaka, Malaysia.
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Official Portal Reference -->
-                    <div style="border-top: 1px dashed var(--border-color); padding-top: 16px; margin-top: 20px;">
-                        <span style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 8px;" id="labelHealthRef">Information sourced from official channels:</span>
-                        <a href="https://pusatkesihatan.utem.edu.my/en/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent-gold);">
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
-                            Pusat Kesihatan UTeM Official Portal ➔
-                        </a>
                     </div>
                 </div>
             </div>
@@ -853,7 +770,111 @@
                 </div>
             </div>
 
-            <!-- TAB 9: MARKETPLACE (COMING SOON) -->
+            <!-- TAB 10: HEALTH CENTER (PKU) -->
+            <div class="tab-content" id="health-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+                        <span id="titleHealthTab">Pusat Kesihatan UTeM (PKU)</span>
+                    </h2>
+                    
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descHealthTab">
+                        Providing comprehensive healthcare, medical treatment, and dental services for the UTeM student and staff community.
+                    </p>
+
+                    <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                        
+                        <!-- Operating Hours -->
+                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+                                <span id="labelHealthHours">Operating Hours</span>
+                            </h3>
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
+                                <li>
+                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthMainInduk">Main Campus (Durian Tunggal):</strong>
+                                    <span id="labelHoursIndukAcad">Academic Weeks: Mon - Fri, 8:00 AM - 7:00 PM</span><br>
+                                    <span id="labelHoursIndukBreak">Semester Breaks: Mon - Fri, 8:00 AM - 5:00 PM</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthTechAyer">Technology Campus (Ayer Keroh):</strong>
+                                    <span id="labelHoursTech">Mon - Fri: 8:00 AM - 5:00 PM</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
+                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthBreaks">Daily Rest Breaks:</strong>
+                                    <span id="labelHoursBreakMonThu">Mon - Thu: 1:00 PM - 2:00 PM</span><br>
+                                    <span id="labelHoursBreakFri">Friday: 12:15 PM - 2:45 PM</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px; color: #e74c3c; font-weight: 600;">
+                                    <span id="labelHealthClosed">Weekends & Public Holidays: Closed</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- E-Services & Bookings -->
+                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
+                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z"/></svg>
+                                <span id="labelHealthServices">Online Appointments & Requests</span>
+                            </h3>
+                            
+                            <div>
+                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelDentalApp">Dental Clinic Appointment:</h4>
+                                <a href="https://form.jotform.com/dentalpkuutem/e-appointment" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnDentalLink">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                                    Dental e-Appointment ➔
+                                </a>
+                            </div>
+
+                            <div style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelEmergKit">Borrow Emergency First Aid Kits:</h4>
+                                <a href="https://forms.office.com/pages/responsepage.aspx?id=Vut-Z9_ydUaeDMzWAKkVgGQQ4HDQiuVKqFEd44j-gG5UOEhLSldKODZGQlZQQ1NaQlVDOFM1RTNOSy4u&origin=QRCode&route=shorturl" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnEmergLink">
+                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
+                                    First Aid Request Form ➔
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Contact & Address (arrange in logical sequence) -->
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                        <div>
+                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthContact">Contact Information</h3>
+                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
+                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelHealthPhone">Phone:</strong> 06-2292308
+                                </li>
+                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelHealthEmail">Email:</strong> <a href="mailto:pusatkesihatanutem@utem.edu.my" style="color: var(--accent-gold);">pusatkesihatanutem@utem.edu.my</a>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthAddress">Mailing Address</h3>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Pusat Kesihatan Universiti,<br>
+                                Universiti Teknikal Malaysia Melaka,<br>
+                                Jalan Hang Tuah Jaya,<br>
+                                76100 Durian Tunggal,<br>
+                                Melaka, Malaysia.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Official Portal Reference -->
+                    <div style="border-top: 1px dashed var(--border-color); padding-top: 16px; margin-top: 20px;">
+                        <span style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 8px;" id="labelHealthRef">Information sourced from official channels:</span>
+                        <a href="https://pusatkesihatan.utem.edu.my/en/" target="_blank" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent-gold);">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+                            Pusat Kesihatan UTeM Official Portal ➔
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB 11: MARKETPLACE (COMING SOON) -->
             <div class="tab-content" id="marketplace-tab">
                 <div class="card" style="text-align: center; padding: 48px 24px;">
                     <div style="width: 80px; height: 80px; margin: 0 auto 20px auto; background: rgba(212, 175, 55, 0.1); border: 2px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--glow-shadow);">
@@ -879,7 +900,7 @@
                 </div>
             </div>
 
-            <!-- TAB 10: SCHOLARSHIP -->
+            <!-- TAB 12: SCHOLARSHIP -->
             <div class="tab-content" id="scholarships-tab">
                 <div class="card">
                     <h2 class="card-title">
@@ -1005,11 +1026,144 @@
                             </div>
                         </div>
 
+                        <!-- CARD 7: GAMUDA SCHOLARSHIP -->
+                        <div class="scholarship-card" data-category="corporate" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <span style="display: inline-block; padding: 3px 10px; border-radius: 10px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">Corporate Sponsorship</span>
+                                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 0;">Biasiswa Gamuda Scholarship (Yayasan Gamuda)</h3>
+                                </div>
+                                <span style="background: rgba(239, 68, 68, 0.15); color: #ef4444; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;">✦ Cycle: April - May Annually</span>
+                            </div>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Full tertiary scholarship by Gamuda Foundation covering tuition fees, living allowances, accommodation, computer allowance, and guaranteed career placement within Gamuda Group for Engineering, IT, Software Engineering, Quantity Surveying, and Environmental Science undergraduates.
+                            </p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
+                                <span style="color: var(--text-secondary);"><strong>Target:</strong> Engineering, IT & Built Environment Undergraduates</span>
+                                <div style="display: flex; gap: 12px;">
+                                    <a href="https://gamuda.com.my/sustainability-esg/gamuda-foundation/scholarship/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">Gamuda Portal ➔</a>
+                                    <a href="https://www.biasiswamalaysia.com/biasiswa-gamuda-scholarship/" target="_blank" rel="noopener noreferrer" style="color: var(--text-muted); font-weight: 600; text-decoration: none;">Info Guide ➔</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARD 8: PETRONAS PESP -->
+                        <div class="scholarship-card" data-category="corporate" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <span style="display: inline-block; padding: 3px 10px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">Corporate Sponsorship</span>
+                                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 0;">PETRONAS Education Sponsorship Programme (PESP)</h3>
+                                </div>
+                                <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;">✦ Cycle: May - June Annually</span>
+                            </div>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Premier corporate education sponsorship offering full tuition, monthly living stipends, book allowances, and career development for Malaysian students studying Engineering, Computer Science, Data Analytics, and Applied Sciences.
+                            </p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
+                                <span style="color: var(--text-secondary);"><strong>Target:</strong> Engineering, IT & Science Degree Students</span>
+                                <a href="https://www.petronas.com/careers/students-graduates/pesp" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">PETRONAS PESP Portal ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- CARD 9: YAYASAN UEM -->
+                        <div class="scholarship-card" data-category="yayasan" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <span style="display: inline-block; padding: 3px 10px; border-radius: 10px; background: rgba(168, 85, 247, 0.15); color: #a855f7; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">Foundation Grant</span>
+                                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 0;">Yayasan UEM Undergraduate Scholarship (YUEM)</h3>
+                                </div>
+                                <span style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;">✦ Cycle: June - July Annually</span>
+                            </div>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Full undergraduate scholarship grant by UEM Group covering full tuition, living allowances, laptop allowance, and structured development for students pursuing Civil, Mechanical, Electrical Engineering, and IT degrees.
+                            </p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
+                                <span style="color: var(--text-secondary);"><strong>Target:</strong> Engineering & Technology Undergraduates</span>
+                                <a href="https://www.uem.com.my/yayasanuem_scholarship.aff" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">Yayasan UEM Portal ➔</a>
+                            </div>
+                        </div>
+
+                        <!-- CARD 10: YAYASAN TM FUTURE LEADERS -->
+                        <div class="scholarship-card" data-category="corporate" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <span style="display: inline-block; padding: 3px 10px; border-radius: 10px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 6px;">Corporate Sponsorship</span>
+                                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 0;">Yayasan TM (YTM) Future Leaders Scholarship</h3>
+                                </div>
+                                <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;">✦ Cycle: May - July Annually</span>
+                            </div>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Telekom Malaysia foundation scholarship for high-performing Malaysian students pursuing Computer Science, Software Engineering, Cybersecurity, AI, and Telecommunication Engineering.
+                            </p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
+                                <span style="color: var(--text-secondary);"><strong>Target:</strong> Computer Science, IT & Engineering Students</span>
+                                <a href="https://ytm.tm.com.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">Yayasan TM Portal ➔</a>
+                            </div>
+                        </div>
+
                     </div>
 
                     <p id="noScholarshipFoundMsg" style="display: none; text-align: center; color: var(--text-muted); padding: 40px 0;">
                         No scholarships or loans found matching your criteria.
                     </p>
+                </div>
+            </div>
+
+            <!-- TAB 12: CONFESSIONS ARCHIVE -->
+            <div class="tab-content" id="archive-tab">
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/></svg>
+                        Confessions Archive
+                    </h2>
+                    
+                    <p style="margin-bottom: 20px; line-height: 1.5; color: var(--text-secondary); font-size: 14px;">
+                        Browse approved student confessions by category. Use keyword search, filters, and emoji reactions to engage!
+                    </p>
+
+                    <!-- Controls: Search bar & Sort -->
+                    <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+                        <div style="flex: 1; min-width: 240px; position: relative;">
+                            <input type="text" id="archiveSearch" placeholder="🔍 Search confessions by keyword..." class="form-control">
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <select id="archiveSortSelect" class="form-control" style="width: auto; padding: 10px 14px; font-weight: 600;">
+                                <option value="latest">⚡ Sort: Latest First</option>
+                                <option value="popular">🔥 Sort: Most Popular (Top Reacted)</option>
+                                <option value="oldest">⏳ Sort: Oldest First</option>
+                            </select>
+                            <span id="archiveCountBadge" style="font-size: 12px; font-weight: 700; color: var(--accent-gold); background: rgba(212, 175, 55, 0.15); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3);">
+                                6 Confessions Found
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Category Filter Pills -->
+                    <div style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 6px;" class="archive-cat-pills">
+                        <button class="btn btn-secondary btn-sm archive-cat-btn active" data-category="all">✨ All Categories</button>
+                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="rant">🤬 Rant</button>
+                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="funny">😂 Funny</button>
+                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="horror">👻 Horror</button>
+                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="improvement">💡 Improvement</button>
+                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="romance">❤️ Romance</button>
+                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="academic">📚 Academic</button>
+                    </div>
+
+                    <!-- Confessions Cards Container -->
+                    <div id="archiveContainer" style="display: flex; flex-direction: column; gap: 16px;">
+                    </div>
+
+                    <!-- Content Removal Disclaimer Box -->
+                    <div style="margin-top: 28px; padding: 16px 20px; border-radius: 12px; background: rgba(239, 68, 68, 0.08); border: 1px dashed rgba(239, 68, 68, 0.35); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
+                        <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 260px;">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="#ef4444" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
+                            <span id="noticeArchiveTakedown"><strong>Content Removal Request:</strong> If a post involves you and you wish to have it removed from the archive, please contact the admin team via email or Telegram.</span>
+                        </div>
+                        <a href="mailto:admin@utemconfessions.com" class="btn btn-sm btn-secondary" style="border-color: rgba(239, 68, 68, 0.4); color: #ef4444; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;" id="btnContactAdminRemoval">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                            Contact Admin ➔
+                        </a>
+                    </div>
                 </div>
             </div>
 
@@ -1029,51 +1183,64 @@
     </div>
 
     <!-- Mobile Sticky Bottom Navigation Bar -->
-    <nav class="mobile-bottom-nav" style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
-        <button class="mobile-nav-btn active" data-tab="confession-tab">
-            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 12H6v-2h8v2zm4-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
-            <span>Confessions</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="calendar-tab">
-            <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
-            <span>Calendar</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="gpa-tab">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"/></svg>
-            <span>GPA Calc</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="exams-tab" id="mobileExamsTab">
-            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
-            <span>Exams</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="links-tab" id="mobileLinksTab">
-            <svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
-            <span>Links</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="bus-tab">
-            <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z"/></svg>
-            <span>Buses</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="service-tab">
-            <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
-            <span>Services</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="library-tab" id="mobileLibraryTab">
-            <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
-            <span>Library</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="health-tab" id="mobileHealthTab">
-            <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
-            <span>Health</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="marketplace-tab" id="mobileMarketplaceTab">
-            <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-            <span>Market</span>
-        </button>
-        <button class="mobile-nav-btn" data-tab="scholarships-tab" id="mobileScholarshipsTab">
-            <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
-            <span>Scholarships</span>
-        </button>
+    <nav class="mobile-bottom-nav">
+        <!-- Pinned Left Confessions Button -->
+        <div class="mobile-nav-fixed-left">
+            <button class="mobile-nav-btn active" data-tab="confession-tab">
+                <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 12H6v-2h8v2zm4-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+                <span>Confessions</span>
+            </button>
+        </div>
+
+        <div class="mobile-nav-divider"></div>
+
+        <!-- Scrollable Right Campus Tools -->
+        <div class="mobile-nav-scrollable-right">
+            <button class="mobile-nav-btn" data-tab="calendar-tab">
+                <svg viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+                <span>Calendar</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="gpa-tab">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z"/></svg>
+                <span>GPA Calc</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="exams-tab" id="mobileExamsTab">
+                <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
+                <span>Exams</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="links-tab" id="mobileLinksTab">
+                <svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                <span>Links</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="bus-tab">
+                <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z"/></svg>
+                <span>Buses</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="service-tab">
+                <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
+                <span>Services</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="library-tab" id="mobileLibraryTab">
+                <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+                <span>Library</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="health-tab" id="mobileHealthTab">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
+                <span>Health</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="marketplace-tab" id="mobileMarketplaceTab">
+                <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                <span>Market</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="scholarships-tab" id="mobileScholarshipsTab">
+                <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                <span>Scholarships</span>
+            </button>
+            <button class="mobile-nav-btn" data-tab="archive-tab" id="mobileArchiveTab">
+                <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/></svg>
+                <span>Archive</span>
+            </button>
+        </div>
     </nav>
 
 
@@ -1095,6 +1262,7 @@
     <script src="health.js"></script>
     <script src="library.js"></script>
     <script src="scholarships.js"></script>
+    <script src="archive.js"></script>
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
     <script src="script.js"></script>

@@ -168,12 +168,12 @@ h1, h2, h3, h4 {
     color: var(--text-primary);
 }
 .brand-subtitle {
-    font-size: 10.5px;
+    font-size: 13px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--accent-gold);
-    letter-spacing: 2.5px;
-    margin-top: 2px;
+    letter-spacing: 3px;
+    margin-top: 3px;
 }
 
 .nav-menu {
@@ -315,11 +315,12 @@ h1, h2, h3, h4 {
     line-height: 1.1;
 }
 .mobile-subtitle {
-    font-size: 8px;
+    font-size: 10.5px;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--accent-gold);
-    letter-spacing: 2px;
+    letter-spacing: 2.5px;
+    margin-top: 1px;
 }
 .mobile-nav-toggle {
     background: none;
@@ -331,7 +332,15 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 
-/* Mobile Navigation Bottom Bar */
+.nav-menu .nav-item[data-tab="confession-tab"] {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background-color: var(--bg-card);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile Navigation Bottom Bar (Split Layout) */
 .mobile-bottom-nav {
     display: none;
     position: fixed;
@@ -341,11 +350,45 @@ h1, h2, h3, h4 {
     height: 64px;
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
-    z-index: 100;
-    justify-content: space-around;
+    z-index: 1000;
     align-items: center;
     padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
 }
+
+.mobile-nav-fixed-left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    min-width: 82px;
+    flex-shrink: 0;
+    background-color: var(--bg-card);
+    z-index: 1005;
+}
+
+.mobile-nav-divider {
+    width: 1px;
+    height: 36px;
+    background-color: var(--border-color);
+    flex-shrink: 0;
+    margin: 0 4px;
+}
+
+.mobile-nav-scrollable-right {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+.mobile-nav-scrollable-right::-webkit-scrollbar {
+    display: none;
+}
+
 .mobile-nav-btn {
     display: flex;
     flex-direction: column;
@@ -357,10 +400,15 @@ h1, h2, h3, h4 {
     font-size: 10px;
     font-weight: 500;
     cursor: pointer;
-    flex: 1;
+    flex-shrink: 0;
+    min-width: 68px;
     height: 100%;
     gap: 4px;
     transition: var(--transition);
+}
+
+.mobile-nav-fixed-left .mobile-nav-btn {
+    width: 100%;
 }
 .mobile-nav-btn svg {
     width: 20px;
@@ -1031,16 +1079,79 @@ footer {
     .mobile-header {
         display: flex;
     }
+    
+    /* Mobile Left Vertical Navigation Rail */
     .mobile-bottom-nav {
         display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        bottom: 0;
+        width: 76px;
+        height: auto;
+        background-color: var(--bg-secondary);
+        border-right: 1px solid var(--border-color);
+        border-top: none;
+        z-index: 1000;
+        padding-bottom: 0;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.4);
     }
+    
+    .mobile-nav-fixed-left {
+        width: 100%;
+        height: 66px;
+        min-width: unset;
+        flex-shrink: 0;
+        background-color: var(--bg-card);
+        border-bottom: 1px solid var(--border-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .mobile-nav-divider {
+        width: 80%;
+        height: 1px;
+        background-color: var(--accent-gold);
+        margin: 4px auto;
+        opacity: 0.35;
+        flex-shrink: 0;
+    }
+
+    .mobile-nav-scrollable-right {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        padding: 4px 0;
+    }
+
+    .mobile-nav-scrollable-right::-webkit-scrollbar {
+        display: none;
+    }
+
+    .mobile-nav-btn {
+        width: 100%;
+        min-width: unset;
+        height: 60px;
+        padding: 6px 2px;
+        flex-shrink: 0;
+    }
+
     .main-content {
-        margin-left: 0;
-        padding: 24px 20px 100px 20px;
+        margin-left: 76px !important;
+        padding: 20px 14px 40px 14px !important;
     }
+
     footer {
         flex-direction: column;
-        margin-bottom: 64px; /* Space for bottom nav */
+        margin-bottom: 24px;
     }
 }
 
@@ -1102,4 +1213,252 @@ footer {
 #imageDropZone:hover, #imageDropZone.drag-over {
     border-color: var(--accent-gold) !important;
     background: rgba(212, 175, 55, 0.05) !important;
+}
+
+/* Academic Calendar Date Range Cards */
+.calendar-timeline-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 16px;
+}
+
+.calendar-event-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-event-card:hover {
+    border-color: var(--accent-gold);
+    transform: translateY(-2px);
+    box-shadow: var(--glow-shadow);
+}
+
+.calendar-event-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--accent-gold);
+}
+
+.calendar-event-card.cat-academic::before { background: #3b82f6; }
+.calendar-event-card.cat-break::before { background: #f59e0b; }
+.calendar-event-card.cat-exam::before { background: #ef4444; }
+.calendar-event-card.cat-holiday::before { background: #10b981; }
+
+.cal-date-range-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-color);
+    padding: 10px 16px;
+    border-radius: 12px;
+    min-width: 210px;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cal-start-date, .cal-end-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cal-day {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--accent-gold);
+    line-height: 1.1;
+}
+
+.cal-month {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.cal-arrow {
+    color: var(--accent-gold);
+    font-size: 14px;
+    font-weight: 700;
+    opacity: 0.8;
+}
+
+.cal-event-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+}
+
+.cal-event-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.cal-event-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.cal-duration-pill {
+    background: rgba(212, 175, 55, 0.15);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: var(--accent-gold);
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 11.5px;
+    font-weight: 700;
+}
+
+.cal-event-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.4;
+}
+
+.calendar-event-category {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 10.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    width: fit-content;
+}
+
+.calendar-event-category.cat-academic { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
+.calendar-event-category.cat-break { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
+.calendar-event-category.cat-exam { background: rgba(239, 68, 68, 0.15); color: #f87171; }
+.calendar-event-category.cat-holiday { background: rgba(16, 185, 129, 0.15); color: #34d399; }
+
+@media (max-width: 640px) {
+    .calendar-event-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 14px 16px;
+    }
+    .cal-date-range-box {
+        width: 100%;
+    }
+}
+
+/* --- CONFESSIONS ARCHIVE & INTERACTIVE EMOJI REACTIONS --- */
+.archive-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: var(--transition);
+    position: relative;
+}
+.archive-card:hover {
+    border-color: rgba(212, 175, 55, 0.4);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.archive-card.cat-border-rant { border-left: 4px solid #ef4444; }
+.archive-card.cat-border-funny { border-left: 4px solid #f59e0b; }
+.archive-card.cat-border-horror { border-left: 4px solid #a855f7; }
+.archive-card.cat-border-improvement { border-left: 4px solid #3b82f6; }
+.archive-card.cat-border-romance { border-left: 4px solid #ec4899; }
+.archive-card.cat-border-academic { border-left: 4px solid #10b981; }
+
+.archive-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.archive-cat-tag {
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+}
+.archive-date {
+    font-size: 11.5px;
+    color: var(--text-muted);
+}
+
+.archive-card-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+.archive-card-content {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* 20 Interactive Emoji Reaction Grid */
+.archive-reaction-grid {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 6px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--border-color);
+}
+.reaction-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.reaction-btn:hover {
+    background: rgba(212, 175, 55, 0.12);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+}
+.reaction-btn.reacted {
+    background: rgba(212, 175, 55, 0.22);
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+    font-weight: 700;
+    box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+}
+.rxn-emoji {
+    font-size: 13.5px;
+}
+.rxn-count {
+    font-size: 11.5px;
 }
