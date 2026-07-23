@@ -56,8 +56,10 @@ document.addEventListener("DOMContentLoaded", () => {
         calculateGpa();
     }
 
-    // Start exam countdown
-    runCountdown();
+    // Start exam countdown (if module enabled)
+    if (typeof runCountdown === "function") {
+        runCountdown();
+    }
 
     // Load initial bus schedules
     updateBusScheduleDisplay();
