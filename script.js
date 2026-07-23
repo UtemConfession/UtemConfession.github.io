@@ -45,14 +45,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
     if (mobileToggle)  mobileToggle.addEventListener("click", toggleLanguage);
 
-    // Seed default GPA rows
+    // Seed default GPA rows (with clean empty subject titles)
     if (gpaRowsContainer) {
         gpaRowsContainer.innerHTML = '';
-        addCalculatorRow('Object Oriented Programming', 3, 'A');
-        addCalculatorRow('Data Structures & Algorithms', 3, 'A-');
-        addCalculatorRow('Operating Systems', 3, 'B+');
-        addCalculatorRow('Web Development', 4, 'A');
-        addCalculatorRow('Co-curriculum', 1, 'A');
+        addCalculatorRow('', 3, 'A');
+        addCalculatorRow('', 3, 'A');
+        addCalculatorRow('', 3, 'A');
+        addCalculatorRow('', 3, 'A');
+        addCalculatorRow('', 3, 'A');
         calculateGpa();
     }
 

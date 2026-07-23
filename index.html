@@ -81,6 +81,10 @@
                     <svg viewBox="0 0 24 24"><path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/></svg>
                     Student Service
                 </li>
+                <li class="nav-item" data-tab="marketplace-tab" id="desktopMarketplaceTab">
+                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    Marketplace
+                </li>
                 <li class="nav-item" data-tab="library-tab" id="desktopLibraryTab">
                     <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
                     Library (PLH)
@@ -88,10 +92,6 @@
                 <li class="nav-item" data-tab="health-tab" id="desktopHealthTab">
                     <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
                     Health Center (PKU)
-                </li>
-                <li class="nav-item" data-tab="marketplace-tab" id="desktopMarketplaceTab">
-                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                    Marketplace
                 </li>
                 <li class="nav-item" data-tab="scholarships-tab" id="desktopScholarshipsTab">
                     <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
@@ -179,7 +179,7 @@
                             <div style="margin-top: 14px; text-align: center;">
                                 <button id="submitBtn" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px; font-weight: 700;">Submit Confession</button>
                                 <div style="margin-top: 10px; font-size: 12px; color: var(--text-muted);">
-                                    Having trouble? <a href="https://docs.google.com/forms/d/e/1FAIpQLSeU1gByzxy4Ehrgo1nZV9RFcvTqPVpVOrvPTTPii7e__SyKPg/viewform" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Submit using Google Forms</a>
+                                    or <a href="https://docs.google.com/forms/d/e/1FAIpQLSeU1gByzxy4Ehrgo1nZV9RFcvTqPVpVOrvPTTPii7e__SyKPg/viewform" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Submit using Google Forms</a>
                                 </div>
                             </div>
                         </div>
@@ -661,6 +661,32 @@
                 </div>
             </div>
 
+            <!-- TAB 11: MARKETPLACE (COMING SOON) -->
+            <div class="tab-content" id="marketplace-tab">
+                <div class="card" style="text-align: center; padding: 48px 24px;">
+                    <div style="width: 80px; height: 80px; margin: 0 auto 20px auto; background: rgba(212, 175, 55, 0.1); border: 2px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--glow-shadow);">
+                        <svg viewBox="0 0 24 24" width="40" height="40" fill="var(--accent-gold)"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+                    </div>
+
+                    <span style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: var(--gold-gradient); color: #000000; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;" id="badgeMarketplace">Development Coming Soon</span>
+                    
+                    <h2 class="card-title" style="justify-content: center; font-size: 26px; margin-bottom: 12px;" id="titleMarketplace">UTeM Student Marketplace</h2>
+                    
+                    <!-- Feature Preview Badges -->
+                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
+                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">📚 Textbooks & Notes</span>
+                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">💻 Tech & Electronics</span>
+                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">🏠 Hostel Essentials</span>
+                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">🚴 Bicycles & Commute</span>
+                    </div>
+
+                    <!-- Seller Notice -->
+                    <div style="margin: 28px auto 0 auto; max-width: 580px; padding: 16px; border-radius: 12px; background: rgba(212, 175, 55, 0.08); border: 1px dashed var(--accent-gold); font-size: 14px; color: var(--text-primary); line-height: 1.6;" id="sellerNoticeMarketplace">
+                        <strong>To have your items sold here:</strong> Share in the Telegram group or contact admin email at: <a href="mailto:admin@utemconfessions.com" style="color: var(--accent-gold); font-weight: 700;">admin@utemconfessions.com</a>
+                    </div>
+                </div>
+            </div>
+
             <!-- TAB 9: LIBRARY (PLH) -->
             <div class="tab-content" id="library-tab">
                 <div class="card">
@@ -668,10 +694,6 @@
                         <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM9 9h10v2H9zm0 3h6v2H9zm0-6h10v2H9z"/></svg>
                         <span id="titleLibTab">Perpustakaan Laman Hikmah (PLH)</span>
                     </h2>
-                    
-                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descLibTab">
-                        UTeM Laman Hikmah Library offers a massive physical and digital catalog of learning resources, study zones, and modern digital library spaces.
-                    </p>
 
                     <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                         
@@ -696,7 +718,7 @@
                                     <span id="labelHoursLibBreak">Mon - Fri: 8:00 AM - 5:00 PM (Closed on Weekends)</span>
                                 </li>
                                 <li style="border-top: 1px dashed var(--border-color); padding-top: 8px; color: var(--accent-gold); font-weight: 600;">
-                                    <span id="labelLib24Hours">24-Hour Study Area: Available at Level 2 (Exam weeks)</span>
+                                    <span id="labelLib24Hours">24-Hour Study Area: Available at Main Entrance Area (Exam weeks)</span>
                                 </li>
                             </ul>
                         </div>
@@ -710,19 +732,19 @@
                             
                             <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text-secondary);">
                                 <li>
-                                    <strong style="color: var(--text-primary);" id="labelLibPlaystation">PlayStation 4 Rental:</strong>
-                                    <span id="descLibPlaystation">Rent PS4 consoles at Circulation Counter (RM4/hr, max 2 hrs). Bring own game CDs permitted.</span>
+                                    <strong style="color: var(--text-primary);" id="labelLibPlaystation">PS4 Console & Controller Rental:</strong>
+                                    <span id="descLibPlaystation">RM4 per hour (max 2 hours, 2 controllers). 3 sets at Main Campus & 2 sets at Tech Campus. You can bring your own CDs but need to let the staff know.</span>
                                 </li>
                                 <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
                                     <strong style="color: var(--text-primary);" id="labelLibBoardgames">Free Indoor & Board Games:</strong>
-                                    <span id="descLibBoardgames">Borrow dartboards, carrom sets, chess, checkers, and board games for free at the counter.</span>
+                                    <span id="descLibBoardgames">Free rental for carrom, chess, darts, checkers, and board games at the counter.</span>
                                 </li>
                             </ul>
 
                             <div style="border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 4px;">
-                                <h4 style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelLibBookingTitle">Booking & Registration:</h4>
+                                <h4 style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelLibBookingTitle">Booking & Further Questions:</h4>
                                 <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 8px;" id="descLibBookingText">
-                                    Registration and controller rentals are processed directly at the main library <strong>Circulation Counter</strong>. For inquiries, contact:
+                                    Do at the Counter after passing the scanners. Contact:
                                 </p>
                                 <a href="mailto:lamanhikmah@utem.edu.my" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnLibMail">
                                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
@@ -734,7 +756,7 @@
                     </div>
 
                     <!-- Contact & Location Info -->
-                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
                         <div>
                             <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelLibContact">Contact & Inquiries</h3>
                             <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
@@ -745,17 +767,6 @@
                                     <strong style="color: var(--text-primary);" id="labelLibEmail">Email:</strong> <a href="mailto:lamanhikmah@utem.edu.my" style="color: var(--accent-gold);">lamanhikmah@utem.edu.my</a>
                                 </li>
                             </ul>
-                        </div>
-
-                        <div>
-                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelLibAddress">Library Location</h3>
-                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
-                                Perpustakaan Laman Hikmah,<br>
-                                Universiti Teknikal Malaysia Melaka,<br>
-                                Jalan Hang Tuah Jaya,<br>
-                                76100 Durian Tunggal,<br>
-                                Melaka, Malaysia.
-                            </p>
                         </div>
                     </div>
 
@@ -777,10 +788,6 @@
                         <svg viewBox="0 0 24 24" style="fill: currentColor;"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z"/></svg>
                         <span id="titleHealthTab">Pusat Kesihatan UTeM (PKU)</span>
                     </h2>
-                    
-                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descHealthTab">
-                        Providing comprehensive healthcare, medical treatment, and dental services for the UTeM student and staff community.
-                    </p>
 
                     <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                         
@@ -837,8 +844,8 @@
 
                     </div>
 
-                    <!-- Contact & Address (arrange in logical sequence) -->
-                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px;">
+                    <!-- Contact Information -->
+                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
                         <div>
                             <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthContact">Contact Information</h3>
                             <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
@@ -849,17 +856,6 @@
                                     <strong style="color: var(--text-primary);" id="labelHealthEmail">Email:</strong> <a href="mailto:pusatkesihatanutem@utem.edu.my" style="color: var(--accent-gold);">pusatkesihatanutem@utem.edu.my</a>
                                 </li>
                             </ul>
-                        </div>
-
-                        <div>
-                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthAddress">Mailing Address</h3>
-                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
-                                Pusat Kesihatan Universiti,<br>
-                                Universiti Teknikal Malaysia Melaka,<br>
-                                Jalan Hang Tuah Jaya,<br>
-                                76100 Durian Tunggal,<br>
-                                Melaka, Malaysia.
-                            </p>
                         </div>
                     </div>
 
@@ -874,31 +870,7 @@
                 </div>
             </div>
 
-            <!-- TAB 11: MARKETPLACE (COMING SOON) -->
-            <div class="tab-content" id="marketplace-tab">
-                <div class="card" style="text-align: center; padding: 48px 24px;">
-                    <div style="width: 80px; height: 80px; margin: 0 auto 20px auto; background: rgba(212, 175, 55, 0.1); border: 2px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: var(--glow-shadow);">
-                        <svg viewBox="0 0 24 24" width="40" height="40" fill="var(--accent-gold)"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
-                    </div>
 
-                    <span style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: var(--gold-gradient); color: #000000; font-weight: 800; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;" id="badgeMarketplace">Development Coming Soon</span>
-                    
-                    <h2 class="card-title" style="justify-content: center; font-size: 26px; margin-bottom: 12px;" id="titleMarketplace">UTeM Student Marketplace</h2>
-                    
-                    <!-- Feature Preview Badges -->
-                    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 32px;">
-                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">📚 Textbooks & Notes</span>
-                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">💻 Tech & Electronics</span>
-                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">🏠 Hostel Essentials</span>
-                        <span style="background: var(--bg-secondary); border: 1px solid var(--border-color); padding: 8px 16px; border-radius: 12px; font-size: 13px; color: var(--text-primary); font-weight: 600;">🚴 Bicycles & Commute</span>
-                    </div>
-
-                    <!-- Seller Notice -->
-                    <div style="margin: 28px auto 0 auto; max-width: 580px; padding: 16px; border-radius: 12px; background: rgba(212, 175, 55, 0.08); border: 1px dashed var(--accent-gold); font-size: 14px; color: var(--text-primary); line-height: 1.6;" id="sellerNoticeMarketplace">
-                        <strong>To have your items sold here:</strong> Share in the Telegram group or contact admin email at: <a href="mailto:admin@utemconfessions.com" style="color: var(--accent-gold); font-weight: 700;">admin@utemconfessions.com</a>
-                    </div>
-                </div>
-            </div>
 
             <!-- TAB 12: SCHOLARSHIP -->
             <div class="tab-content" id="scholarships-tab">
@@ -1118,39 +1090,39 @@
                     </h2>
                     
                     <p style="margin-bottom: 20px; line-height: 1.5; color: var(--text-secondary); font-size: 14px;">
-                        Browse approved student confessions by category. Use keyword search, filters, and emoji reactions to engage!
+                        Browse approved raw student confessions. Use keyword search to find specific posts.
                     </p>
 
                     <!-- Controls: Search bar & Sort -->
-                    <div style="display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+                    <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
                         <div style="flex: 1; min-width: 240px; position: relative;">
                             <input type="text" id="archiveSearch" placeholder="🔍 Search confessions by keyword..." class="form-control">
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                             <select id="archiveSortSelect" class="form-control" style="width: auto; padding: 10px 14px; font-weight: 600;">
                                 <option value="latest">⚡ Sort: Latest First</option>
-                                <option value="popular">🔥 Sort: Most Popular (Top Reacted)</option>
                                 <option value="oldest">⏳ Sort: Oldest First</option>
                             </select>
                             <span id="archiveCountBadge" style="font-size: 12px; font-weight: 700; color: var(--accent-gold); background: rgba(212, 175, 55, 0.15); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                                6 Confessions Found
+                                8 Confessions Found
                             </span>
                         </div>
                     </div>
 
-                    <!-- Category Filter Pills -->
-                    <div style="display: flex; gap: 8px; margin-bottom: 24px; overflow-x: auto; padding-bottom: 6px;" class="archive-cat-pills">
-                        <button class="btn btn-secondary btn-sm archive-cat-btn active" data-category="all">✨ All Categories</button>
-                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="rant">🤬 Rant</button>
-                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="funny">😂 Funny</button>
-                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="horror">👻 Horror</button>
-                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="improvement">💡 Improvement</button>
-                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="romance">❤️ Romance</button>
-                        <button class="btn btn-secondary btn-sm archive-cat-btn" data-category="academic">📚 Academic</button>
+                    <!-- Main Category Selection Pills (with Emojis) -->
+                    <div class="archive-cat-pills" id="archiveCatPills">
+                        <button class="archive-pill active" data-cat="all">🗣️ All</button>
+                        <button class="archive-pill" data-cat="rant">🔥 Rant</button>
+                        <button class="archive-pill" data-cat="funny">😂 Funny</button>
+                        <button class="archive-pill" data-cat="horror">👻 Horror</button>
+                        <button class="archive-pill" data-cat="love">❤️ Relationship</button>
+                        <button class="archive-pill" data-cat="academic">📚 Academic</button>
+                        <button class="archive-pill" data-cat="campus">🏫 Campus Life</button>
+                        <button class="archive-pill" data-cat="lost">🔍 Lost & Found</button>
                     </div>
 
-                    <!-- Confessions Cards Container -->
-                    <div id="archiveContainer" style="display: flex; flex-direction: column; gap: 16px;">
+                    <!-- Confessions Cards Container (Square Cards Grid) -->
+                    <div id="archiveContainer" class="archive-grid">
                     </div>
 
                     <!-- Content Removal Disclaimer Box -->
