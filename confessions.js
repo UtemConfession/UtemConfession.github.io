@@ -29,7 +29,7 @@ const submitImageBtn = document.getElementById("submitImageBtn");
 let selectedImageFile = null;
 
 // Webhook endpoint for Google Apps Script submission manager
-const APPS_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbwWdIr4S-WdfXDvzgKDRJ7Je8h5h956Spxcn5NpFxTE/exec";
+const APPS_SCRIPT_WEBHOOK = "https://script.google.com/macros/s/AKfycbznUn5W2T0-DRnni5VG3mvS6ogG4WH4UD-5M2lfznXqLxUal4RubZMwclDnWVjwTTSKdQ/exec";
 
 // Helper to format bytes into readable KB / MB
 function formatBytes(bytes) {
@@ -168,12 +168,21 @@ if (submitBtn) {
                 body: JSON.stringify(payload)
             });
 
-            const result = await response.json().catch(() => null);
+            if (!response.ok) {
+                console.error("Submission Server HTTP Error:", response.status, response.statusText);
+                showStatus(`Server error (${response.status}). Please check Apps Script Web App permissions.`, "error");
+                return;
+            }
+
+            const result = await response.json().catch(err => {
+                console.error("JSON parse error from Apps Script response:", err);
+                return null;
+            });
 
             if (!result) {
                 showStatus("Failed to receive structured response from server. Please try again.", "error");
             } else if (result.status === "success") {
-                showStatus(result.message || "Confession submitted successfully!", "success");
+                showStatus(result.message || "Confession published successfully!", "success");
                 confessionText.value = "";
                 if (charCount) charCount.textContent = "0 / 10000 characters";
                 agreeRules.checked = false;
@@ -189,7 +198,7 @@ if (submitBtn) {
             }
         } catch (error) {
             console.error("Confession Submission Network Error:", error);
-            showStatus("Network error: Unable to connect to submission server. Please check your connection and try again.", "error");
+            showStatus("Network error: Unable to connect to Apps Script server. Ensure your Apps Script Web App access is set to 'Anyone'.", "error");
         } finally {
             submitBtn.textContent = "Submit Confession";
             updateSubmitButton();
@@ -371,7 +380,16 @@ if (submitImageBtn) {
                 body: JSON.stringify(payload)
             });
 
-            const result = await response.json().catch(() => null);
+            if (!response.ok) {
+                console.error("Image Submission Server HTTP Error:", response.status, response.statusText);
+                showStatus(`Server error (${response.status}). Please check Apps Script Web App permissions.`, "error");
+                return;
+            }
+
+            const result = await response.json().catch(err => {
+                console.error("JSON parse error from Apps Script image response:", err);
+                return null;
+            });
 
             if (result && result.status === "success") {
                 showStatus(result.message || "Image confession published successfully!", "success");
@@ -392,7 +410,7 @@ if (submitImageBtn) {
             }
         } catch (error) {
             console.error("Image Submission Error:", error);
-            showStatus("Unable to submit image. Please check your network connection and try again.", "error");
+            showStatus("Unable to submit image. Ensure your Apps Script Web App access is set to 'Anyone'.", "error");
         } finally {
             submitImageBtn.textContent = "Submit Image";
             updateImageSubmitButton();
