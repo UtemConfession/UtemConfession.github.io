@@ -170,13 +170,12 @@ function initGoogleAuth() {
         return;
     }
 
-    // 3. Initialize Google Identity Services
+    // 3. Initialize Google Identity Services safely using popup mode for static hosting
     google.accounts.id.initialize({
         client_id: CLIENT_ID,
         callback: handleCredentialResponse,
         auto_select: false,
-        ux_mode: isTelegramInAppBrowser() ? "redirect" : "popup",
-        login_uri: window.location.origin + window.location.pathname
+        ux_mode: "popup"
     });
 
     const confessionContainer = document.getElementById("g_id_signin");
