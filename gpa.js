@@ -45,7 +45,7 @@ function addCalculatorRow(subjName = '', credit = 3, grade = 'A') {
             </select>
         </td>
         <td>
-            <button class="btn btn-danger btn-sm delete-row-btn" type="button" onclick="removeCalculatorRow('${rowId}')">✕ Remove</button>
+            <button class="btn btn-danger btn-sm delete-row-btn" type="button" title="Remove Subject" onclick="removeCalculatorRow('${rowId}')">✕</button>
         </td>
     `;
     gpaRowsContainer.appendChild(tr);

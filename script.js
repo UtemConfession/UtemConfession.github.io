@@ -9,20 +9,27 @@ localStorage.setItem("theme", "dark");
 
 
 // --- TAB NAVIGATION SYSTEM ---
-const navItems      = document.querySelectorAll(".nav-item");
-const mobileNavBtns = document.querySelectorAll(".mobile-nav-btn");
-const tabContents   = document.querySelectorAll(".tab-content");
+const navItems       = document.querySelectorAll(".nav-item");
+const mobileNavBtns  = document.querySelectorAll(".mobile-nav-btn[data-tab]");
+const drawerItemBtns = document.querySelectorAll(".drawer-item-btn[data-tab]");
+const tabContents    = document.querySelectorAll(".tab-content");
 
 function switchTab(tabId) {
+    if (!tabId) return;
     navItems.forEach(item => {
         item.classList.toggle("active", item.getAttribute("data-tab") === tabId);
     });
     mobileNavBtns.forEach(btn => {
         btn.classList.toggle("active", btn.getAttribute("data-tab") === tabId);
     });
+    drawerItemBtns.forEach(btn => {
+        btn.classList.toggle("active", btn.getAttribute("data-tab") === tabId);
+    });
     tabContents.forEach(panel => {
         panel.classList.toggle("active", panel.id === tabId);
     });
+    closeMobileDrawer();
+    window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 navItems.forEach(item => {
@@ -32,6 +39,31 @@ navItems.forEach(item => {
 mobileNavBtns.forEach(btn => {
     btn.addEventListener("click", () => switchTab(btn.getAttribute("data-tab")));
 });
+
+drawerItemBtns.forEach(btn => {
+    btn.addEventListener("click", () => switchTab(btn.getAttribute("data-tab")));
+});
+
+// --- MOBILE "MORE" DRAWER CONTROLLER ---
+const openDrawerBtn  = document.getElementById("openMobileDrawerBtn");
+const closeDrawerBtn = document.getElementById("closeMobileDrawerBtn");
+const drawerOverlay  = document.getElementById("mobileMoreDrawer");
+
+function openMobileDrawer() {
+    if (drawerOverlay) drawerOverlay.classList.add("active");
+}
+
+function closeMobileDrawer() {
+    if (drawerOverlay) drawerOverlay.classList.remove("active");
+}
+
+if (openDrawerBtn)  openDrawerBtn.addEventListener("click", openMobileDrawer);
+if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeMobileDrawer);
+if (drawerOverlay) {
+    drawerOverlay.addEventListener("click", (e) => {
+        if (e.target === drawerOverlay) closeMobileDrawer();
+    });
+}
 
 
 // --- INITIALIZATION ---
