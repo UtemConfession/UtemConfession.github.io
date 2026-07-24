@@ -165,6 +165,12 @@ function initGoogleAuth() {
         loadSavedSession();
     }
 
+    // Display alert notice if opened inside Telegram or social media embedded webview
+    const tgNotice = document.getElementById("telegramInAppNotice");
+    if (tgNotice && isTelegramInAppBrowser() && !currentUserToken) {
+        tgNotice.style.display = "block";
+    }
+
     if (typeof google === "undefined" || !google.accounts || !google.accounts.id) {
         setTimeout(initGoogleAuth, 200);
         return;
