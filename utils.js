@@ -12,13 +12,36 @@ function updateNodeText(element, text) {
     element.appendChild(document.createTextNode(text));
 }
 
-function showStatus(msg, type) {
-    const statusMessage = document.getElementById("statusMessage");
-    if (statusMessage) {
-        statusMessage.textContent = msg;
-        statusMessage.className = `status-message ${type}`;
-        setTimeout(() => {
-            statusMessage.style.display = 'none';
-        }, 6000);
+function showToast(msg, type = "info", duration = 4000) {
+    let toastContainer = document.getElementById("toastContainer");
+    if (!toastContainer) {
+        toastContainer = document.createElement("div");
+        toastContainer.id = "toastContainer";
+        toastContainer.className = "toast-container";
+        document.body.appendChild(toastContainer);
     }
+
+    const toast = document.createElement("div");
+    toast.className = `toast-item toast-${type}`;
+
+    let icon = "ℹ️";
+    if (type === "success") icon = "✅";
+    if (type === "error") icon = "⚠️";
+    if (type === "warning") icon = "🔔";
+
+    toast.innerHTML = `
+        <span style="font-size: 16px;">${icon}</span>
+        <span style="flex: 1; font-size: 13px; font-weight: 600; line-height: 1.4;">${msg}</span>
+    `;
+
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add("toast-fade-out");
+        setTimeout(() => toast.remove(), 400);
+    }, duration);
+}
+
+function showStatus(msg, type) {
+    showToast(msg, type || "info", 5000);
 }

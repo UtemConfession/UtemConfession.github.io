@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mobileToggle)  mobileToggle.addEventListener("click", toggleLanguage);
 
     // Seed default GPA rows (with clean empty subject titles)
-    if (gpaRowsContainer) {
+    if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {
         gpaRowsContainer.innerHTML = '';
         addCalculatorRow('', 3, 'A');
         addCalculatorRow('', 3, 'A');
@@ -54,11 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
         addCalculatorRow('', 3, 'A');
         addCalculatorRow('', 3, 'A');
         calculateGpa();
-    }
-
-    // Start exam countdown (if module enabled)
-    if (typeof runCountdown === "function") {
-        runCountdown();
     }
 
     // Load initial bus schedules
@@ -80,6 +75,59 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 lookupResultBox.style.display = 'none';
             }
+        });
+    }
+
+    // Floating Back to Top Button
+    const backToTopBtn = document.getElementById("backToTopBtn");
+    if (backToTopBtn) {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = "flex";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        });
+        backToTopBtn.addEventListener("click", () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+    }
+
+    // UTeM Live Campus Weather Fetcher (Open-Meteo API for Durian Tunggal / Ayer Keroh)
+    async function fetchCampusWeather() {
+        const weatherText = document.getElementById("weatherText");
+        if (!weatherText) return;
+
+        try {
+            const res = await fetch("https://api.open-meteo.com/v1/forecast?latitude=2.3138&longitude=102.3188&current_weather=true");
+            if (res.ok) {
+                const data = await res.json();
+                if (data && data.current_weather) {
+                    const temp = Math.round(data.current_weather.temperature);
+                    const code = data.current_weather.weathercode;
+                    let desc = "Clear";
+                    let icon = "☀️";
+
+                    if (code >= 1 && code <= 3) { desc = "Partly Cloudy"; icon = "⛅"; }
+                    else if (code >= 45 && code <= 48) { desc = "Foggy"; icon = "🌫️"; }
+                    else if (code >= 51 && code <= 67) { desc = "Light Rain"; icon = "🌧️"; }
+                    else if (code >= 80 && code <= 99) { desc = "Thunderstorm / Heavy Rain"; icon = "⛈️"; }
+
+                    weatherText.textContent = `UTeM Campus: ${temp}°C ${desc} ${icon}`;
+                }
+            }
+        } catch (err) {
+            console.warn("Weather API fetch fallback:", err);
+        }
+    }
+    fetchCampusWeather();
+
+    // Register PWA Service Worker for offline availability
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js').catch(err => {
+                console.log('ServiceWorker registration failed: ', err);
+            });
         });
     }
 });

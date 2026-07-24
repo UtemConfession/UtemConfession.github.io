@@ -99,7 +99,40 @@ function updateSubmitButton() {
 // Attach to window so authentication.js can call it when login state changes
 window.updateSubmitButton = updateSubmitButton;
 
+// Draft Confession Auto-Save (LocalStorage Protection)
+const DRAFT_KEY = "ucpm_draft_confession";
+
+function loadDraftConfession() {
+    if (!confessionText) return;
+    const savedDraft = localStorage.getItem(DRAFT_KEY);
+    if (savedDraft && !confessionText.value) {
+        confessionText.value = savedDraft;
+        const len = savedDraft.length;
+        if (charCount) charCount.textContent = `${len} / 10000 characters`;
+        updateSubmitButton();
+        if (typeof showToast === "function") {
+            showToast("💾 Restored your saved confession draft!", "info", 3500);
+        }
+    }
+}
+
+function saveDraftConfession() {
+    if (!confessionText) return;
+    const val = confessionText.value;
+    if (val.trim().length > 0) {
+        localStorage.setItem(DRAFT_KEY, val);
+    } else {
+        localStorage.removeItem(DRAFT_KEY);
+    }
+}
+
+function clearDraftConfession() {
+    localStorage.removeItem(DRAFT_KEY);
+}
+
 if (confessionText) {
+    loadDraftConfession();
+
     confessionText.addEventListener("input", () => {
         let length = confessionText.value.length;
         if (length > 10000) {
@@ -109,6 +142,7 @@ if (confessionText) {
         if (charCount) {
             charCount.textContent = `${length} / 10000 characters`;
         }
+        saveDraftConfession();
         updateSubmitButton();
     });
 }
@@ -159,8 +193,28 @@ if (submitBtn) {
             timestamp: submission.timestamp
         };
 
+// Helper to perform fetch with auto-retry on network interruption
+async function fetchWithRetry(url, options, maxRetries = 2) {
+    let lastError = null;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
         try {
-            const response = await fetch(APPS_SCRIPT_WEBHOOK, {
+            const response = await fetch(url, options);
+            if (response.ok) return response;
+            lastError = new Error(`Server returned HTTP ${response.status}`);
+        } catch (err) {
+            lastError = err;
+            console.warn(`Confession submission attempt ${attempt} failed. Retrying in 1.5s...`, err);
+            if (attempt < maxRetries) {
+                showStatus(`Connection interrupted. Auto-retrying submission (Attempt ${attempt + 1})...`, "warning");
+                await new Promise(res => setTimeout(res, 1500));
+            }
+        }
+    }
+    throw lastError;
+}
+
+        try {
+            const response = await fetchWithRetry(APPS_SCRIPT_WEBHOOK, {
                 method: "POST",
                 headers: {
                     "Content-Type": "text/plain;charset=utf-8"
@@ -184,12 +238,14 @@ if (submitBtn) {
             } else if (result.status === "success") {
                 showStatus(result.message || "Confession published successfully!", "success");
                 confessionText.value = "";
+                clearDraftConfession();
                 if (charCount) charCount.textContent = "0 / 10000 characters";
                 agreeRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
             } else if (result.status === "rejected") {
                 showStatus(result.message || "Your confession contained inappropriate content and was rejected by automated moderation.", "error");
                 confessionText.value = "";
+                clearDraftConfession();
                 if (charCount) charCount.textContent = "0 / 10000 characters";
                 agreeRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
@@ -274,6 +330,31 @@ if (imageFileInput) {
     });
 }
 
+if (imageDropZone) {
+    ['dragenter', 'dragover'].forEach(eventName => {
+        imageDropZone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            imageDropZone.classList.add("drag-over");
+        }, false);
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+        imageDropZone.addEventListener(eventName, (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            imageDropZone.classList.remove("drag-over");
+        }, false);
+    });
+
+    imageDropZone.addEventListener("drop", (e) => {
+        const dt = e.dataTransfer;
+        if (dt && dt.files && dt.files.length > 0) {
+            handleImageSelection(dt.files[0]);
+        }
+    });
+}
+
 if (imageCaptionInput) {
     imageCaptionInput.addEventListener("input", () => {
         let length = imageCaptionInput.value.length;
@@ -303,11 +384,42 @@ if (agreeImageRules) {
     agreeImageRules.addEventListener("change", updateImageSubmitButton);
 }
 
-function readFileAsBase64(file) {
+function compressImage(file, maxWidth = 1200, maxHeight = 1200, quality = 0.82) {
     return new Promise((resolve, reject) => {
+        const image = new Image();
         const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = error => reject(error);
+
+        reader.onload = (e) => {
+            image.src = e.target.result;
+        };
+        reader.onerror = (err) => reject(err);
+
+        image.onload = () => {
+            let width = image.width;
+            let height = image.height;
+
+            if (width > maxWidth || height > maxHeight) {
+                if (width > height) {
+                    height = Math.round((height * maxWidth) / width);
+                    width = maxWidth;
+                } else {
+                    width = Math.round((width * maxHeight) / height);
+                    height = maxHeight;
+                }
+            }
+
+            const canvas = document.createElement("canvas");
+            canvas.width = width;
+            canvas.height = height;
+
+            const ctx = canvas.getContext("2d");
+            ctx.drawImage(image, 0, 0, width, height);
+
+            const compressedBase64 = canvas.toDataURL("image/jpeg", quality);
+            resolve(compressedBase64);
+        };
+        image.onerror = (err) => reject(err);
+
         reader.readAsDataURL(file);
     });
 }
@@ -337,14 +449,14 @@ if (submitImageBtn) {
         }
 
         submitImageBtn.disabled = true;
-        submitImageBtn.textContent = "Uploading Image...";
+        submitImageBtn.textContent = "Compressing & Uploading...";
 
         let base64Data = "";
         try {
-            base64Data = await readFileAsBase64(selectedImageFile);
+            base64Data = await compressImage(selectedImageFile);
         } catch (readErr) {
-            console.error("Failed to read image file:", readErr);
-            showStatus("Failed to read image file. Please try another file.", "error");
+            console.error("Failed to compress image file:", readErr);
+            showStatus("Failed to process image file. Please try another file.", "error");
             submitImageBtn.textContent = "Submit Image";
             updateImageSubmitButton();
             return;
@@ -372,7 +484,7 @@ if (submitImageBtn) {
         };
 
         try {
-            const response = await fetch(APPS_SCRIPT_WEBHOOK, {
+            const response = await fetchWithRetry(APPS_SCRIPT_WEBHOOK, {
                 method: "POST",
                 headers: {
                     "Content-Type": "text/plain;charset=utf-8"

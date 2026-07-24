@@ -68,18 +68,15 @@ const translations = {
         opt_newyear: "New Year's Day (Jan 1, 2027)",
         opt_custom: "Set Custom Date...",
 
-        title_bus_transit: "UTeM Campus Transit Bus Timings",
-        label_next_departure: "Next Departure Time:",
-        label_note: "Note: Shuttle bus arrival times may vary slightly based on traffic conditions on Lebuhraya Ayer Keroh.",
-        th_departure: "Departure Time",
-        th_day_type: "Schedule Day Type",
+        title_bus_transit: "UTeM Campus Shuttle Timetable (Semester Khas & Regular)",
+        label_next_departure: "Next Scheduled Departure:",
+        label_note: "Note: Shuttle bus arrival times may vary based on traffic conditions on Lebuhraya Ayer Keroh. Please reach boarding points 5 minutes early.",
+        th_departure: "Departure / Departure Slot",
+        th_day_type: "Operating Days",
         th_status: "Status",
-        pill_ftmk: "Main Campus ⇄ FTMK (Tech Campus)",
-        pill_satria: "Satria College ⇄ Main Campus",
-        pill_lestari: "Lestari College ⇄ Main Campus",
 
-        title_public_bus: "Bus M10A (To/From UTeM)",
-        desc_public_bus: "Melaka Sentral ⇄ UTeM bus route. Serves UTeM on weekends.",
+        title_public_bus: "BAS.MY Bus M10A Official Timetable (Pink Bus)",
+        desc_public_bus: "Public bus service operating between Melaka Sentral ⇄ Batu Berendam ⇄ MITC ⇄ Zoo Melaka ⇄ UTeM Main Campus.",
         label_route_timeline: "M10A Route Stops",
         label_weekend: "Weekend Only",
         title_route_lookup: "Melaka Public Bus Route Lookup (Other Locations)",
@@ -268,18 +265,15 @@ const translations = {
         opt_newyear: "Tahun Baru (1 Jan 2027)",
         opt_custom: "Tetapkan Tarikh Khas...",
 
-        title_bus_transit: "Jadual Waktu Bas Transit Kampus UTeM",
-        label_next_departure: "Waktu Pelepasan Seterusnya:",
-        label_note: "Nota: Waktu ketibaan bas shuttle mungkin berbeza bergantung kepada keadaan trafik di Lebuhraya Ayer Keroh.",
-        th_departure: "Waktu Pelepasan",
-        th_day_type: "Jenis Hari Jadual",
+        title_bus_transit: "Jadual Masa Shuttle Kampus UTeM (Semester Khas & Biasa)",
+        label_next_departure: "Pelepasan Dijadualkan Seterusnya:",
+        label_note: "Nota: Masa ketibaan bas shuttle mungkin berbeza mengikut keadaan trafik di Lebuhraya Ayer Keroh. Sila berada di tempat menunggu 5 minit awal.",
+        th_departure: "Masa / Slot Pelepasan",
+        th_day_type: "Hari Beroperasi",
         th_status: "Status",
-        pill_ftmk: "Kampus Utama ⇄ FTMK (Kampus Teknologi)",
-        pill_satria: "Kolej Satria ⇄ Kampus Utama",
-        pill_lestari: "Kolej Lestari ⇄ Kampus Utama",
 
-        title_public_bus: "Bas M10A (Ke/Dari UTeM)",
-        desc_public_bus: "Laluan bas Melaka Sentral ⇄ UTeM. Melayani UTeM pada hujung minggu.",
+        title_public_bus: "Jadual Masa Rasmi Bas M10A BAS.MY (Bas Pink)",
+        desc_public_bus: "Perkhidmatan bas awam beroperasi antara Melaka Sentral ⇄ Batu Berendam ⇄ MITC ⇄ Zoo Melaka ⇄ Kampus Induk UTeM.",
         label_route_timeline: "Hentian Laluan M10A",
         label_weekend: "Hujung Minggu Sahaja",
         title_route_lookup: "Carian Laluan Bas Awam Melaka (Lokasi Lain)",
@@ -532,22 +526,25 @@ function setLanguage(lang) {
     const descImportantLinks = document.getElementById("descImportantLinks");
     if (descImportantLinks) descImportantLinks.textContent = t.desc_important_links || "Quick access to essential official campus portals, VPN clients, student council channels, and academic systems.";
 
-    // 7. Bus Transit
+    // 7. Bus Transit (Minggu Semester Khas & Regular)
     const busTitle = document.querySelector("#bus-tab .card-title");
-    updateNodeText(busTitle, t.title_bus_transit);
+    if (busTitle) updateNodeText(busTitle, t.title_bus_transit || "UTeM Campus Shuttle Timetable (Semester Khas & Regular)");
 
-    const busPills = document.querySelectorAll(".bus-route-pill");
-    if (busPills.length >= 3) {
-        busPills[0].textContent = t.pill_ftmk;
-        busPills[1].textContent = t.pill_satria;
-        busPills[2].textContent = t.pill_lestari;
-    }
+    document.querySelectorAll(".bus-route-pill").forEach(pill => {
+        const routeKey = pill.getAttribute("data-route");
+        if (routeKey === "kt") pill.textContent = lang === "en" ? "Kampus Teknologi (KT)" : "Kampus Teknologi (KT)";
+        else if (routeKey === "ki") pill.textContent = lang === "en" ? "Hop On Campus (KI)" : "Hop On Campus (KI)";
+        else if (routeKey === "ep") pill.textContent = lang === "en" ? "Emerald Park (EP)" : "Emerald Park (EP)";
+        else if (routeKey === "ftmk_regular") pill.textContent = lang === "en" ? "Main ⇄ FTMK (Regular)" : "Induk ⇄ FTMK (Biasa)";
+        else if (routeKey === "satria_regular") pill.textContent = lang === "en" ? "Satria ⇄ Main (Regular)" : "Satria ⇄ Induk (Biasa)";
+        else if (routeKey === "lestari_regular") pill.textContent = lang === "en" ? "Lestari ⇄ Main (Regular)" : "Lestari ⇄ Induk (Biasa)";
+    });
 
     const busThs = document.querySelectorAll("#bus-tab .gpa-table th");
     if (busThs.length >= 3) {
-        busThs[0].textContent = t.th_departure;
-        busThs[1].textContent = t.th_day_type;
-        busThs[2].textContent = t.th_status;
+        busThs[0].textContent = t.th_departure || "Departure / Departure Slot";
+        busThs[1].textContent = t.th_day_type || "Operating Days";
+        busThs[2].textContent = t.th_status || "Status";
     }
 
     const busNote = document.querySelector(".bus-next-alert p");

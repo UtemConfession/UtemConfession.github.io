@@ -21,14 +21,7 @@
 </head>
 <body>
 
-    <!-- ADSTERRA / MONETAG POPUNDER AND SOCIAL BAR ANCHORS -->
-    <!-- Placeholders for overlay scripts to maximize ad income -->
-    <!-- 
-    <script type='text/javascript' src='//your-ad-network-popunder-code.js'></script>
-    <script type='text/javascript' src='//your-ad-network-socialbar-code.js'></script>
-    -->
-
-    <!-- Mobile Header -->
+    <!-- Mobile Header (Full Width Sticky Top Bar) -->
     <header class="mobile-header">
         <div class="mobile-brand">
             <!-- Custom SVG Clock Tower Logo Replicated from Screenshot -->
@@ -37,6 +30,11 @@
                 <span class="mobile-title">UTeM Confessions</span>
                 <span class="mobile-subtitle">Pro Max</span>
             </div>
+        </div>
+        <div class="mobile-lang-wrapper">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
+                Bahasa Melayu
+            </button>
         </div>
     </header>
 
@@ -104,18 +102,32 @@
             </ul>
 
             <div class="sidebar-footer">
-                <!-- Adsterra / Monetag Sidebar ad slot -->
+                <!-- Google AdSense Sidebar Multiplex Unit -->
                 <div class="ad-slot ad-sidebar" id="adSidebar">
-                    <span class="ad-placeholder-text">Sidebar Banner ad unit</span>
-                    <!-- Place ad script/iframe here -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1444529930367815"
+                         data-ad-slot="7411190923"
+                         data-ad-format="autorelaxed"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
         </aside>
 
         <!-- Main Dashboard View Panel -->
         <main class="main-content">
-            <!-- Top Right Language Switcher Bar -->
-            <div class="top-header-bar" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 16px;">
+            <!-- Top Right Language Switcher & Campus Weather Bar -->
+            <div class="top-header-bar" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                <!-- Live Campus Weather Pill -->
+                <div id="campusWeatherPill" style="display: inline-flex; align-items: center; gap: 8px; background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); padding: 5px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; color: var(--text-primary); backdrop-filter: blur(10px);">
+                    <span style="font-size: 14px;">⛅</span>
+                    <span id="weatherText">Durian Tunggal / Ayer Keroh: 31°C Fair</span>
+                    <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 800;">Live Weather</span>
+                </div>
+
                 <div class="theme-switch-wrapper" style="margin-bottom: 0;">
                     <span class="theme-switch-label" id="langSwitchLabel">Language</span>
                     <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 6px 14px; font-size: 12px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
@@ -135,17 +147,19 @@
                             Submit Confession
                         </h2>
                         
-                        <div id="googleLoginContainer" style="background: rgba(15, 23, 42, 0.5); border: 1px solid var(--border-color); padding: 14px 18px; margin-bottom: 18px; border-radius: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-                            <div id="authNotice" class="auth-notice warning" style="padding: 6px 12px; border-radius: 20px; font-size: 12px; font-weight: 600; background: rgba(245, 158, 11, 0.12); border: 1px solid rgba(245, 158, 11, 0.3); color: #f59e0b; margin: 0; display: inline-flex; align-items: center; gap: 6px;">
+                        <div id="googleLoginContainer" class="google-auth-box">
+                            <div id="authNotice" class="auth-notice warning">
                                 🔒 Sign in required
                             </div>
 
-                            <div id="g_id_signin"></div>
+                            <div id="g_id_signin" class="google-btn-wrapper"></div>
 
-                            <div id="userInfo" style="display:none; align-items: center; gap: 12px; width: 100%;">
-                                <img id="userAvatar" width="34" height="34" style="border-radius:50%; border: 2px solid var(--accent-gold); flex-shrink: 0;">
-                                <span id="userName" style="font-weight: 700; font-size: 13.5px; color: var(--text-primary);"></span>
-                                <button id="logoutBtn" class="btn btn-sm btn-secondary" style="margin-left: auto; padding: 4px 12px; font-size: 11.5px; border-radius: 8px;">
+                            <div id="userInfo" class="user-info-bar">
+                                <img id="userAvatar" width="34" height="34" alt="User Avatar" class="user-avatar-img">
+                                <div class="user-details-text">
+                                    <span id="userName" class="user-name-text"></span>
+                                </div>
+                                <button id="logoutBtn" class="btn btn-sm btn-secondary logout-btn">
                                     Sign Out
                                 </button>
                             </div>
@@ -244,10 +258,17 @@
                     </div>
                 </div>
 
-                <!-- Banner ad at bottom of confession tab -->
+                <!-- Google AdSense Horizontal Display Banner Unit -->
                 <div class="ad-slot" style="max-width: 728px; width: 100%; margin: 24px auto 0 auto;" id="adHeader">
-                    <span class="ad-placeholder-text">Header Banner (728x90) / Advertisement</span>
-                    <!-- Place your Monetag/Adsterra leaderboard code here -->
+                    <ins class="adsbygoogle"
+                         style="display:block"
+                         data-ad-client="ca-pub-1444529930367815"
+                         data-ad-slot="9427949528"
+                         data-ad-format="auto"
+                         data-full-width-responsive="true"></ins>
+                    <script>
+                         (adsbygoogle = window.adsbygoogle || []).push({});
+                    </script>
                 </div>
             </div>
 
@@ -312,6 +333,11 @@
                             </div>
                         </div>
 
+                        <!-- Anugerah Dekan Badge Container -->
+                        <div id="deansListBadge" style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(255, 215, 0, 0.08) 100%); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--accent-gold); font-weight: 800; font-size: 13px; text-shadow: 0 0 8px rgba(212, 175, 55, 0.3); box-shadow: 0 0 14px rgba(212, 175, 55, 0.15);">
+                            🏆 Anugerah Dekan (Dean's List) Eligible!
+                        </div>
+
                         <!-- Main Table Inputs -->
                         <div class="gpa-table-container">
                             <table class="gpa-table">
@@ -348,6 +374,36 @@
 
                         <div id="gpaEstimationNote" style="display: none; font-size: 12.5px; color: var(--accent-gold); background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); padding: 8px 14px; border-radius: 8px; margin-top: 14px; text-align: center; font-weight: 600;">
                         </div>
+
+                        <!-- UTeM Subject Code & Credit Lookup Box -->
+                        <div style="margin-top: 20px; background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                            <h3 style="font-size: 14px; font-weight: 700; color: var(--accent-gold); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                                🔍 Quick UTeM Course Lookup & Auto-Fill
+                            </h3>
+                            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
+                                Select or type a UTeM course code below to instantly auto-fill its course title and credit load into your GPA calculator table.
+                            </p>
+                            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                <select id="courseLookupSelect" class="form-control" style="flex: 1; min-width: 220px; font-weight: 600;">
+                                    <option value="">-- Choose UTeM Course Code --</option>
+                                    <option value="BITP 1113|Data Communication|3">BITP 1113 - Data Communication (3 Credits - FTMK)</option>
+                                    <option value="BITS 1213|Operating Systems|3">BITS 1213 - Operating Systems (3 Credits - FTMK)</option>
+                                    <option value="BITM 2113|Database Systems|3">BITM 2113 - Database Systems (3 Credits - FTMK)</option>
+                                    <option value="BITI 2233|Artificial Intelligence|3">BITI 2233 - Artificial Intelligence (3 Credits - FTMK)</option>
+                                    <option value="BITP 3123|Software Engineering|3">BITP 3123 - Software Engineering (3 Credits - FTMK)</option>
+                                    <option value="BMMU 1013|Engineering Mathematics|3">BMMU 1013 - Engineering Mathematics (3 Credits - FKM)</option>
+                                    <option value="BTEC 1113|Circuit Theory|3">BTEC 1113 - Circuit Theory (3 Credits - FTKEE)</option>
+                                    <option value="BTMM 1013|Workshop Technology|3">BTMM 1013 - Workshop Technology (3 Credits - FTKEE)</option>
+                                    <option value="BLHL 1012|Malay Language / Communication|2">BLHL 1012 - Malay Language / Communication (2 Credits)</option>
+                                    <option value="BLKC 1011|Co-Curriculum I|1">BLKC 1011 - Co-Curriculum I (1 Credit)</option>
+                                    <option value="BITP 4884|Final Year Project I (FYP)|4">BITP 4884 - Final Year Project I (4 Credits)</option>
+                                    <option value="BITP 4896|Final Year Project II (FYP)|6">BITP 4896 - Final Year Project II (6 Credits)</option>
+                                </select>
+                                <button type="button" id="btnAutoFillCourse" class="btn btn-primary btn-sm" style="padding: 10px 16px; font-weight: 700; flex-shrink: 0;">
+                                    ➕ Insert into Calculator
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                 </div>
@@ -361,16 +417,44 @@
                         <span id="titlePastExamsTab">UTeM Past Year Exam Papers</span>
                     </h2>
                     
-                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;" id="descPastExamsTab">
+                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;" id="descPastExamsTab">
                         Access the official UTeM library repository to search, browse, and download past semester examination papers for your courses.
                     </p>
+
+                    <!-- Instant Subject Search Input Box -->
+                    <div style="background: rgba(13, 21, 39, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 20px; margin-bottom: 20px; box-shadow: 0 0 16px rgba(212, 175, 55, 0.12);">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--accent-gold); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
+                            🔍 Direct Course Exam Search
+                        </h3>
+                        <p style="font-size: 12.5px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.4;">
+                            Type your subject code or title below to generate a pre-filtered search link directly into the UTeM Library Exam Repository.
+                        </p>
+
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <input type="text" id="examSubjectInput" class="form-control" placeholder="e.g. Data Communication, Calculus, Software Engineering, BITP 1113..." style="flex: 1; min-width: 240px; padding: 12px 16px; font-size: 14px;">
+                            <button type="button" id="btnSearchExams" class="btn btn-primary" style="padding: 12px 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;">
+                                🔎 Search Papers ➔
+                            </button>
+                        </div>
+
+                        <!-- Popular Quick Search Tags -->
+                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 14px;">
+                            <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Quick Subjects:</span>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Data Communication')">Data Communication</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Software Engineering')">Software Engineering</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Calculus')">Calculus</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Operating Systems')">Operating Systems</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Cyber Security')">Cyber Security</button>
+                        </div>
+                    </div>
                     
-                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
-                        <h4 style="font-size: 14px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px;" id="labelPastExamsLib">Official Exam Paper Database:</h4>
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px;">
+                        <h4 style="font-size: 14px; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;" id="labelPastExamsLib">Official Exam Paper Database:</h4>
+                        <p style="font-size: 12.5px; color: var(--text-secondary); margin: 0;">Or open the master exam paper catalog directly:</p>
                         
-                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&view=list&Itemid=101&layout=table&filter%5Bsearch%5D=data+communication+and+network" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; width: 100%; max-width: 320px;" id="btnPastExamsLink">
+                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&view=list&Itemid=101&layout=table" target="_blank" class="btn btn-secondary" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; width: 100%; max-width: 320px; border-color: var(--border-color);" id="btnPastExamsLink">
                             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="margin-top: -2px;"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
-                            Open Library Exam Portal ➔
+                            Open Master Library Exam Portal ➔
                         </a>
                     </div>
                 </div>
@@ -390,7 +474,74 @@
 
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
                         
-                        <!-- CARD 1: SOFTETHER VPN -->
+                        <!-- CARD 1: UTEM HELPDESK (HELP.UTEM.EDU.MY) -->
+                        <div style="background: rgba(13, 21, 39, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 0 16px rgba(212, 175, 55, 0.15); position: relative; overflow: hidden; grid-column: 1 / -1;">
+                            <div style="position: absolute; top: 0; left: 0; width: 100%; height: 3.5px; background: var(--gold-gradient);"></div>
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(212, 175, 55, 0.2); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">UTeM Helpdesk (ServiceDesk)</h3>
+                                        <span style="font-size: 11px; color: var(--accent-gold); font-weight: 600;">IT & Admin Portal (help.utem.edu.my)</span>
+                                    </div>
+                                </div>
+                                <span style="background: rgba(212, 175, 55, 0.15); color: var(--accent-gold); padding: 3px 10px; border-radius: 12px; font-size: 10.5px; font-weight: 800; border: 1px solid rgba(212, 175, 55, 0.3);">
+                                    Official Support
+                                </span>
+                            </div>
+                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+                                Official UTeM ServiceDesk portal for submitting ICT support tickets, Wi-Fi troubleshooting, portal login resets, campus maintenance, and general student inquiries.
+                            </p>
+                            <a href="https://help.utem.edu.my" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; font-weight: 700; width: fit-content;">
+                                Open UTeM Helpdesk Portal ➔
+                            </a>
+                        </div>
+
+                        <!-- CARD 2: UTEM WI-FI & EDUROAM QUICK SETUP GUIDE -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px; grid-column: 1 / -1;">
+                            <div style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3C6.95 3 2.55 5.37 0 9l2.14 2.85C4.28 8.87 7.92 7 12 7s7.72 1.87 9.86 4.85L24 9c-2.55-3.63-6.95-6-12-6zm0 6c-3.32 0-6.28 1.55-8.18 3.96L6.03 16C7.45 14.77 9.61 14 12 14s4.55.77 5.97 2l2.21-3.04C18.28 10.55 15.32 9 12 9zm0 6c-1.66 0-3.14.76-4.14 1.94L12 22l4.14-5.06C15.14 15.76 13.66 15 12 15z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">UTeM Wi-Fi & eduroam Quick Setup Guide</h3>
+                                        <span style="font-size: 11px; color: var(--text-muted);">Campus Wireless Network Credentials</span>
+                                    </div>
+                                </div>
+                                <span style="background: rgba(59, 130, 246, 0.15); color: #3b82f6; padding: 3px 10px; border-radius: 12px; font-size: 10.5px; font-weight: 800;">
+                                    📶 Wi-Fi Credentials
+                                </span>
+                            </div>
+
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 6px;">
+                                <!-- Network 1: UTeM-Wifi -->
+                                <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; font-size: 12.5px;">
+                                    <strong style="color: var(--accent-gold); display: block; font-size: 13.5px; margin-bottom: 6px;">📶 Network: UTeM-Wifi</strong>
+                                    <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.5;">
+                                        <li><strong>Identity / Username:</strong> Student ID (e.g. <code>b032110000</code>)</li>
+                                        <li><strong>Password:</strong> Student Portal Password</li>
+                                        <li><strong>EAP Method:</strong> PEAP</li>
+                                        <li><strong>Phase 2 Authentication:</strong> MSCHAPv2</li>
+                                    </ul>
+                                </div>
+
+                                <!-- Network 2: eduroam -->
+                                <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 14px; border-radius: 10px; font-size: 12.5px;">
+                                    <strong style="color: #60a5fa; display: block; font-size: 13.5px; margin-bottom: 6px;">🌐 Network: eduroam (Global Academic Wi-Fi)</strong>
+                                    <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.5;">
+                                        <li><strong>Identity / Username:</strong> <code>ID@student.utem.edu.my</code></li>
+                                        <li><strong>Password:</strong> Student Portal Password</li>
+                                        <li><strong>CA Certificate:</strong> Select <em>Do Not Validate</em> (or Use System Cert)</li>
+                                        <li><strong>Global Access:</strong> Works across all public universities worldwide!</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CARD 3: SOFTETHER VPN -->
                         <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: center; gap: 10px;">
                                 <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(59, 130, 246, 0.15); color: #3b82f6; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
@@ -409,26 +560,7 @@
                             </a>
                         </div>
 
-                        <!-- CARD 2: MPP UTEM OFFICIAL -->
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(231, 78, 159, 0.15); color: #e74e9f; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                                </div>
-                                <div>
-                                    <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">MPP UTeM Official</h3>
-                                    <span style="font-size: 11px; color: var(--text-muted);">Majlis Perwakilan Pelajar 2025/2026</span>
-                                </div>
-                            </div>
-                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;">
-                                Official Instagram channel of UTeM Student Representative Council for announcements, welfare, and student activities.
-                            </p>
-                            <a href="https://www.instagram.com/mpputem2526/?hl=de" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; background: linear-gradient(135deg, #e74e9f 0%, #f39c12 100%); border: none; color: #fff;">
-                                Visit MPP UTeM Instagram ➔
-                            </a>
-                        </div>
-
-                        <!-- CARD 3: STAFF DIRECTORY -->
+                        <!-- CARD 4: STAFF DIRECTORY -->
                         <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: center; gap: 10px;">
                                 <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(212, 175, 55, 0.15); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
@@ -447,7 +579,26 @@
                             </a>
                         </div>
 
-                        <!-- CARD 4: MOHE E-ADUAN (SPAB PORTAL) -->
+                        <!-- CARD 5: MPP UTEM OFFICIAL -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(231, 78, 159, 0.15); color: #e74e9f; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">MPP UTeM Official</h3>
+                                    <span style="font-size: 11px; color: var(--text-muted);">Majlis Perwakilan Pelajar 2025/2026</span>
+                                </div>
+                            </div>
+                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+                                Official Instagram channel of UTeM Student Representative Council for announcements, welfare, and student activities.
+                            </p>
+                            <a href="https://www.instagram.com/mpputem2526/?hl=de" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; background: linear-gradient(135deg, #e74e9f 0%, #f39c12 100%); border: none; color: #fff;">
+                                Visit MPP UTeM Instagram ➔
+                            </a>
+                        </div>
+
+                        <!-- CARD 6: MOHE E-ADUAN (SPAB PORTAL) -->
                         <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
                             <div style="display: flex; align-items: center; gap: 10px;">
                                 <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(16, 185, 129, 0.15); color: #10b981; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
@@ -465,31 +616,202 @@
                                 Open MOHE e-Aduan Portal ➔
                             </a>
                         </div>
+
+                        <!-- CARD 7: UTEM CONVOCATION & ALUMNI RESOURCE CARD -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(168, 85, 247, 0.15); color: #a855f7; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">UTeM Convocation & Alumni Hub</h3>
+                                    <span style="font-size: 11px; color: var(--text-muted);">Graduation Schedule & Robe Collection</span>
+                                </div>
+                            </div>
+                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+                                Official UTeM Convocation portal for graduating seniors to check ceremony session schedules, academic robe collection notices, and alumni registration.
+                            </p>
+                            <a href="https://konvo.utem.edu.my" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; font-weight: 700; color: #a855f7; border-color: rgba(168, 85, 247, 0.3);">
+                                Open UTeM Konvo Portal ➔
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- TAB 4: BUS SCHEDULES -->
             <div class="tab-content" id="bus-tab">
-                
-                <!-- Public Bus Route M10A Card -->
-                <div class="card" style="margin-bottom: 24px; border-color: rgba(231, 78, 159, 0.35); position: relative;">
+
+                <!-- CARD 1: Internal Campus Shuttle Schedules (Semester Khas & Regular) -->
+                <div class="card">
+                    <h2 class="card-title">
+                        <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>
+                        UTeM Campus Shuttle Timetable (Semester Khas)
+                    </h2>
+
+                    <!-- Route Selector Pills (Grouped by Special Semester vs Regular Semester) -->
+                    <div class="bus-routes-selector" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;">
+                        <div style="font-size: 11.5px; font-weight: 800; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 0.5px; width: 100%; margin-bottom: 2px;">
+                            📌 Special Semester Timetable (Active: 21 Julai 2026):
+                        </div>
+                        <div class="bus-route-pill active" data-route="kt">Kampus Teknologi (KT)</div>
+                        <div class="bus-route-pill" data-route="ki">Hop On Campus (KI)</div>
+                        <div class="bus-route-pill" data-route="ep">Emerald Park (EP)</div>
+
+                        <div style="font-size: 11.5px; font-weight: 800; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; width: 100%; margin-top: 10px; margin-bottom: 2px;">
+                            🗓️ Regular Semester Timetable (Includes Full Weekend Runs):
+                        </div>
+                        <div class="bus-route-pill" data-route="ftmk_regular">Main ⇄ FTMK (Regular)</div>
+                        <div class="bus-route-pill" data-route="satria_regular">Satria ⇄ Main (Regular)</div>
+                        <div class="bus-route-pill" data-route="lestari_regular">Lestari ⇄ Main (Regular)</div>
+                    </div>
+
+                    <div class="bus-schedule-box">
+                        <!-- Left Table -->
+                        <div class="gpa-table-container">
+                            <table class="gpa-table">
+                                <thead>
+                                    <tr>
+                                        <th>Departure / Departure Slot</th>
+                                        <th>Operating Days</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="busRouteTableBody">
+                                    <!-- Populated by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Right Live Card Info -->
+                        <div class="bus-next-alert">
+                            <div class="bus-status-tag active-now" id="nextBusStatusTag">Active Service</div>
+                            <h3 style="font-size: 16px; margin-top: 4px;" id="nextBusRouteTitle">Kampus Teknologi (KT) Shuttle</h3>
+                            
+                            <div style="margin-top: 12px;">
+                                <span class="form-label" style="font-size: 11px; text-transform: uppercase;">Next Scheduled Departure:</span>
+                                <div style="font-size: 36px; font-weight: 800; color: var(--accent-gold);" id="nextBusTimeVal">07:30</div>
+                            </div>
+                            
+                            <div style="margin-top: 8px;">
+                                <div style="font-size: 16px; font-weight: 600; color: var(--text-primary);" id="nextBusCountdownVal">Arriving soon</div>
+                            </div>
+                            
+                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px; line-height: 1.4;">
+                                Note: Shuttle bus arrival times may vary based on traffic conditions on Lebuhraya Ayer Keroh. Please reach boarding points 5 minutes early.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Special Semester Legend & Official Contact Info Card -->
+                    <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 22px; margin-top: 20px;">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 14px;">
+                            <h4 style="font-size: 13.5px; font-weight: 800; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin: 0;">
+                                📌 Jadual Minggu Semester Khas (Dikemaskini: 21 Julai 2026)
+                            </h4>
+                            <span style="font-size: 11.5px; font-weight: 700; background: rgba(59, 130, 246, 0.15); color: #60a5fa; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.3);">
+                                Official Timetable
+                            </span>
+                        </div>
+
+                        <!-- Abbreviations Grid -->
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; font-size: 12.5px; margin-bottom: 16px;">
+                            <div style="background: rgba(255, 255, 255, 0.03); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <strong style="color: var(--accent-gold);">KI:</strong> Kampus Induk (Main Campus)
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.03); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <strong style="color: var(--accent-gold);">KT:</strong> Kampus Teknologi (FTMK / FKT)
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.03); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <strong style="color: var(--accent-gold);">KSU:</strong> Kompleks Sukan UTeM
+                            </div>
+                            <div style="background: rgba(255, 255, 255, 0.03); padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <strong style="color: var(--accent-gold);">EP:</strong> Emerald Park (Kediaman Luar)
+                            </div>
+                        </div>
+
+                        <!-- Official Contact Hotline -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); padding: 12px 16px; border-radius: 10px; font-size: 12.5px;">
+                            <div>
+                                <strong style="color: var(--text-primary); display: block;">Pejabat Pengurusan Kenderaan Universiti:</strong>
+                                <span style="color: var(--text-secondary);">En. Omar (Hotline / Inquiries)</span>
+                            </div>
+                            <a href="tel:01111494251" class="btn btn-secondary btn-sm" style="padding: 6px 14px; font-size: 12px; font-weight: 700; color: var(--accent-gold); border-color: var(--border-color);">
+                                📞 011-11494251
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: Pink Bus M10A Official Timetable Card (Placed AFTER Campus Shuttle Schedule) -->
+                <div class="card" style="margin-top: 24px; border-color: rgba(231, 78, 159, 0.4); position: relative; overflow: hidden;">
                     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: linear-gradient(90deg, #e74e9f 0%, #ff66b2 100%);"></div>
-                    <h3 class="card-title" style="color: #e74e9f; border-bottom-color: rgba(231, 78, 159, 0.15);">
-                        <svg viewBox="0 0 24 24" style="color: #e74e9f; fill: currentColor;"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>
-                        <span id="titlePublicBus">Bus M10A (To/From UTeM)</span>
-                    </h3>
                     
-                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 16px;" id="descPublicBus">
-                        Melaka Sentral ⇄ UTeM bus route. Serves UTeM on weekends.
+                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px;">
+                        <h2 class="card-title" style="margin-bottom: 0; color: #e74e9f;">
+                            <svg viewBox="0 0 24 24" style="fill: #e74e9f;"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>
+                            <span id="titlePublicBus">BAS.MY Bus M10A Official Timetable (Pink Bus)</span>
+                        </h2>
+                        <span id="m10aLiveBadge" style="background: #e74e9f; color: #ffffff; padding: 4px 12px; border-radius: 20px; font-size: 11.5px; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 0 10px rgba(231, 78, 159, 0.4);">
+                            Weekend Service to UTeM
+                        </span>
+                    </div>
+
+                    <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;" id="descPublicBus">
+                        Public bus service operating between Melaka Sentral ⇄ Batu Berendam ⇄ MITC ⇄ Zoo Melaka ⇄ UTeM Main Campus.
                     </p>
 
-                    <!-- Route timeline diagram -->
-                    <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 20px;">
+                    <!-- M10A Departure Timetable Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 20px;">
+                        <!-- Melaka Sentral to UTeM -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 16px;">
+                            <h4 style="font-size: 13.5px; font-weight: 800; color: var(--accent-gold); margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                🚌 From Melaka Sentral ➔ UTeM
+                            </h4>
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center;">
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">06:00</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">07:15</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">08:30</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">09:45</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">11:00</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">12:15</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">13:30</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">14:45</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">16:00</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">17:15</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">18:30</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: var(--accent-gold);">20:00</div>
+                            </div>
+                        </div>
+
+                        <!-- UTeM to Melaka Sentral -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 16px;">
+                            <h4 style="font-size: 13.5px; font-weight: 800; color: #e74e9f; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                                🚌 From UTeM / Zoo Melaka ➔ Melaka Sentral
+                            </h4>
+                            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; text-align: center;">
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">07:15</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">08:30</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">09:45</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">11:00</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">12:15</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">13:30</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">14:45</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">16:00</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">17:15</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">18:30</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">19:45</div>
+                                <div style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-color); padding: 8px; border-radius: 8px; font-weight: 700; font-size: 13px; color: #e74e9f;">21:00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Route Timeline Diagram -->
+                    <div style="background-color: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px;">
                         <h4 style="font-size: 13px; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 16px;" id="labelRouteTimeline">M10A Route Stops</h4>
-                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
                             <div style="flex: 1; min-width: 110px; text-align: center;">
-                                <div style="width: 24px; height: 24px; border-radius: 50%; background-color: var(--accent-gold); color: #000; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 6px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);">1</div>
+                                <div class="pulse-live-dot" style="width: 24px; height: 24px; border-radius: 50%; background-color: var(--accent-gold); color: #000; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; font-size: 12px; margin-bottom: 6px; box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);">1</div>
                                 <div style="font-size: 13px; font-weight: 600; color: var(--text-primary);">Melaka Sentral</div>
                                 <div style="font-size: 10px; color: var(--text-muted);">Main Hub</div>
                             </div>
@@ -516,64 +838,14 @@
                         </div>
                     </div>
                     
-                    <!-- Detailed Schedule & Route Info from bas.my -->
+                    <!-- Detailed Schedule & Route Info -->
                     <div style="margin-top: 16px; font-size: 13px; color: var(--text-secondary); line-height: 1.5; border-top: 1px dashed var(--border-color); padding-top: 12px;">
                         <div style="font-weight: 700; color: var(--accent-gold); margin-bottom: 4px;" id="labelM10ADetails">M10A Schedule & Operations:</div>
                         <ul style="margin: 0; padding-left: 18px; list-style-type: square; display: flex; flex-direction: column; gap: 3px;">
                             <li id="m10aDetail1"><strong>Weekdays:</strong> Melaka Sentral ⇄ MITC (via Batu Berendam)</li>
-                            <li id="m10aDetail2"><strong>Weekends:</strong> Extends directly to Zoo Melaka & UTeM</li>
-                            <li id="m10aDetail3"><strong>Hours:</strong> 6:00 AM – 8:00 PM (Cashless: TNG, Debit, QR)</li>
+                            <li id="m10aDetail2"><strong>Weekends & Public Holidays:</strong> Extends directly to Zoo Melaka & UTeM Main Campus</li>
+                            <li id="m10aDetail3"><strong>Operating Hours:</strong> 6:00 AM – 8:00 PM (Cashless payments: Touch 'n Go, Debit Card, QR)</li>
                         </ul>
-                    </div>
-                </div>
-
-                <!-- Internal Shuttle Schedules -->
-                <div class="card">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z"/></svg>
-                        UTeM Campus Transit Bus Timings
-                    </h2>
-
-                    <!-- Route Selector Pills -->
-                    <div class="bus-routes-selector">
-                        <div class="bus-route-pill active" data-route="ftmk">Main Campus ⇄ FTMK (Tech Campus)</div>
-                    </div>
-
-                    <div class="bus-schedule-box">
-                        <!-- Left Table -->
-                        <div class="gpa-table-container">
-                            <table class="gpa-table">
-                                <thead>
-                                    <tr>
-                                        <th>Departure Time</th>
-                                        <th>Schedule Day Type</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="busRouteTableBody">
-                                    <!-- Populated by JS -->
-                                </tbody>
-                            </table>
-                        </div>
-
-                        <!-- Right Live Card Info -->
-                        <div class="bus-next-alert">
-                            <div class="bus-status-tag active-now" id="nextBusStatusTag">Active Service</div>
-                            <h3 style="font-size: 16px; margin-top: 4px;" id="nextBusRouteTitle">Main Campus ⇄ FTMK</h3>
-                            
-                            <div style="margin-top: 12px;">
-                                <span class="form-label" style="font-size: 11px; text-transform: uppercase;">Next Departure Time:</span>
-                                <div style="font-size: 36px; font-weight: 800; color: var(--accent-gold);" id="nextBusTimeVal">08:00</div>
-                            </div>
-                            
-                            <div style="margin-top: 8px;">
-                                <div style="font-size: 16px; font-weight: 600; color: var(--text-primary);" id="nextBusCountdownVal">Arriving in 12 minutes</div>
-                            </div>
-                            
-                            <p style="font-size: 12px; color: var(--text-muted); margin-top: 12px; line-height: 1.4;">
-                                Note: Shuttle bus arrival times may vary slightly based on traffic conditions on Lebuhraya Ayer Keroh. Please reach the boarding point 5 minutes early.
-                            </p>
-                        </div>
                     </div>
                 </div>
 
@@ -789,6 +1061,41 @@
                         <span id="titleHealthTab">Pusat Kesihatan UTeM (PKU)</span>
                     </h2>
 
+                    <!-- UTeM Campus Emergency Hotline Quick Action Card -->
+                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; box-shadow: 0 0 16px rgba(239, 68, 68, 0.15);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+                            <h3 style="font-size: 16px; font-weight: 800; color: #ef4444; margin: 0; display: flex; align-items: center; gap: 8px;">
+                                🚨 UTeM Campus Emergency Hotlines (24/7 Response)
+                            </h3>
+                            <span style="background: #ef4444; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 800;">
+                                Emergency Priority
+                            </span>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
+                            <!-- Hotline 1: Security Unit -->
+                            <div style="background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                                <div>
+                                    <strong style="color: var(--text-primary); font-size: 13px; display: block;">Pejabat Keselamatan UTeM (Security Unit)</strong>
+                                    <span style="color: var(--text-muted); font-size: 11.5px;">Campus Incident & Emergency Dispatch</span>
+                                </div>
+                                <a href="tel:062701200" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-weight: 800; background: #ef4444; border: none; color: #fff; text-decoration: none; flex-shrink: 0;">
+                                    📞 06-270 1200
+                                </a>
+                            </div>
+
+                            <!-- Hotline 2: PKU Ambulance -->
+                            <div style="background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+                                <div>
+                                    <strong style="color: var(--text-primary); font-size: 13px; display: block;">PKU Emergency Ambulance & Clinic</strong>
+                                    <span style="color: var(--text-muted); font-size: 11.5px;">Medical Assistance & Urgent Care</span>
+                                </div>
+                                <a href="tel:062701300" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-weight: 800; background: #10b981; border: none; color: #fff; text-decoration: none; flex-shrink: 0;">
+                                    📞 06-270 1300
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                         
                         <!-- Operating Hours -->
@@ -834,10 +1141,20 @@
                             </div>
 
                             <div style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
-                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelEmergKit">Borrow Emergency First Aid Kits:</h4>
+                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary);" id="labelEmergKit">Borrow Emergency First Aid Kits:</h4>
                                 <a href="https://forms.office.com/pages/responsepage.aspx?id=Vut-Z9_ydUaeDMzWAKkVgGQQ4HDQiuVKqFEd44j-gG5UOEhLSldKODZGQlZQQ1NaQlVDOFM1RTNOSy4u&origin=QRCode&route=shorturl" target="_blank" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnEmergLink">
                                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/></svg>
                                     First Aid Request Form ➔
+                                </a>
+                            </div>
+
+                            <div style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                                <h4 style="font-size: 13px; font-weight: 600; color: #a855f7; margin-bottom: 4px;">🧠 Counselling & Mental Health Support:</h4>
+                                <p style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 8px;">
+                                    Confidential 1-on-1 counseling sessions with certified UTeM Unit Kaunseling & Kerjaya counselors.
+                                </p>
+                                <a href="mailto:kaunseling@utem.edu.my" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; color: #a855f7; border-color: rgba(168, 85, 247, 0.4); font-weight: 700;">
+                                    ✉️ Email UTeM Counselor ➔
                                 </a>
                             </div>
                         </div>
@@ -885,8 +1202,26 @@
                     </p>
 
                     <!-- Scholarship Cards Grid -->
-                    <div style="display: flex; flex-direction: column; gap: 16px;" id="scholarshipsContainer">
+                    <div class="scholarships-grid" id="scholarshipList" style="display: grid; grid-template-columns: 1fr; gap: 16px;">
                         
+                        <!-- CARD 0: UTEM STUDENT WELFARE & ZAKAT EMERGENCY AID -->
+                        <div class="scholarship-card" data-category="yayasan" style="background: rgba(13, 21, 39, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition); box-shadow: 0 0 16px rgba(212, 175, 55, 0.15);">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
+                                <div>
+                                    <span style="display: inline-block; padding: 3px 10px; border-radius: 10px; background: rgba(212, 175, 55, 0.2); color: var(--accent-gold); font-size: 11px; font-weight: 800; text-transform: uppercase; margin-bottom: 6px; border: 1px solid rgba(212, 175, 55, 0.3);">UTeM Internal Welfare</span>
+                                    <h3 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 0;">UTeM Zakat & Emergency Student Welfare Fund (Tabung Kebajikan Pelajar UTeM)</h3>
+                                </div>
+                                <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 800;">✦ Open All Year Round</span>
+                            </div>
+                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
+                                Official emergency financial aid provided by UTeM Pusat Islam and Pejabat Hal Ehwal Pelajar (HEP) for Muslim & Non-Muslim B40 undergraduates facing sudden financial hardship, medical emergencies, or living expense distress.
+                            </p>
+                            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
+                                <span style="color: var(--text-secondary);"><strong>Eligible:</strong> All UTeM Undergraduates Facing Emergency Need</span>
+                                <a href="https://pusatislam.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 800; text-decoration: none;">UTeM Pusat Islam Portal ➔</a>
+                            </div>
+                        </div>
+
                         <!-- CARD 1: MARA TESP / YTP -->
                         <div class="scholarship-card" data-category="mara" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
                             <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
@@ -956,7 +1291,7 @@
                             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
                                 <span style="color: var(--text-secondary);"><strong>Target:</strong> High-Achieving Undergraduates</span>
                                 <div style="display: flex; gap: 12px;">
-                                    <a href="https://www.ytar.org.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">YTAR Site ➔</a>
+                                    <a href="https://www.yayasantar.org.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">YTAR Site ➔</a>
                                     <a href="https://www.yayasanbankrakyat.com.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">YBR Site ➔</a>
                                 </div>
                             </div>
@@ -976,7 +1311,7 @@
                             </p>
                             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
                                 <span style="color: var(--text-secondary);"><strong>Target:</strong> Engineering & Tech Degree Students</span>
-                                <a href="https://myscholarship.jpa.gov.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">JPA MyScholarship Portal ➔</a>
+                                <a href="https://esilav2.jpa.gov.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">JPA eSILA Portal ➔</a>
                             </div>
                         </div>
 
@@ -990,11 +1325,11 @@
                                 <span style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;">✦ Status: Open Year-Round</span>
                             </div>
                             <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
-                                Emergency financial aid, zakat assistance, food vouchers, and medical assistance managed directly by Pejabat Hal Ehwal Pelajar & Alumni (HEPA UTeM) for active students facing financial hardship.
+                                Emergency financial aid, zakat assistance, food vouchers, and medical assistance managed directly by Pejabat Hal Ehwal Pelajar & Alumni (HEP UTeM) for active students facing financial hardship.
                             </p>
                             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
                                 <span style="color: var(--text-secondary);"><strong>Target:</strong> Active UTeM Students in Need</span>
-                                <a href="https://hepa.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">UTeM HEPA Welfare Portal ➔</a>
+                                <a href="https://hep.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">UTeM HEP Welfare Portal ➔</a>
                             </div>
                         </div>
 
@@ -1033,7 +1368,7 @@
                             </p>
                             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
                                 <span style="color: var(--text-secondary);"><strong>Target:</strong> Engineering, IT & Science Degree Students</span>
-                                <a href="https://www.petronas.com/careers/students-graduates/pesp" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">PETRONAS PESP Portal ➔</a>
+                                <a href="https://www.petronas.com/careers/students-and-graduates/education-sponsorship-programme" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">PETRONAS PESP Portal ➔</a>
                             </div>
                         </div>
 
@@ -1051,7 +1386,7 @@
                             </p>
                             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 12.5px; border-top: 1px solid var(--border-color); padding-top: 10px; margin-top: 4px;">
                                 <span style="color: var(--text-secondary);"><strong>Target:</strong> Engineering & Technology Undergraduates</span>
-                                <a href="https://www.uem.com.my/yayasanuem_scholarship.aff" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">Yayasan UEM Portal ➔</a>
+                                <a href="https://www.uem.com.my/yayasan.online" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; text-decoration: none;">Yayasan UEM Portal ➔</a>
                             </div>
                         </div>
 
@@ -1238,5 +1573,10 @@
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
     <script src="script.js"></script>
+
+    <!-- Floating Back to Top Button -->
+    <button id="backToTopBtn" aria-label="Back to Top" style="display: none; position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 50%; background: var(--bg-card); border: 2px solid var(--accent-gold); color: var(--accent-gold); font-size: 18px; font-weight: 800; cursor: pointer; z-index: 1005; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5), 0 0 12px rgba(212, 175, 55, 0.3); transition: var(--transition); align-items: center; justify-content: center;">
+        ↑
+    </button>
 </body>
 </html>

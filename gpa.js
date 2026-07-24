@@ -31,12 +31,12 @@ function addCalculatorRow(subjName = '', credit = 3, grade = 'A') {
         <td><input type="text" placeholder="Subject Title (Optional)" value="${subjName}" class="subj-name-input"></td>
         <td>
             <select class="subj-credit-select">
-                <option value="3" ${credit == 3 ? 'selected' : ''}>3 Credits (Default)</option>
-                <option value="1" ${credit == 1 ? 'selected' : ''}>1 Credit (Lab/Co-curriculum)</option>
-                <option value="2" ${credit == 2 ? 'selected' : ''}>2 Credits (Short Course)</option>
-                <option value="4" ${credit == 4 ? 'selected' : ''}>4 Credits (Major/FYP)</option>
-                <option value="5" ${credit == 5 ? 'selected' : ''}>5 Credits</option>
-                <option value="6" ${credit == 6 ? 'selected' : ''}>6 Credits</option>
+                <option value="3" ${credit == 3 ? 'selected' : ''}>3 (Default)</option>
+                <option value="1" ${credit == 1 ? 'selected' : ''}>1 (Lab / Co-curr)</option>
+                <option value="2" ${credit == 2 ? 'selected' : ''}>2 (Short Course)</option>
+                <option value="4" ${credit == 4 ? 'selected' : ''}>4 (Major / FYP)</option>
+                <option value="5" ${credit == 5 ? 'selected' : ''}>5</option>
+                <option value="6" ${credit == 6 ? 'selected' : ''}>6</option>
             </select>
         </td>
         <td>
@@ -116,6 +116,16 @@ function calculateGpa() {
 
     if (calculatedCgpaVal) calculatedCgpaVal.textContent = targetCGPA.toFixed(2);
 
+    // Dean's List Badge (Displayed strictly for 3.50 - 4.00)
+    const deansListBadge = document.getElementById("deansListBadge");
+    if (deansListBadge) {
+        if (currentGPA >= 3.50 || targetCGPA >= 3.50) {
+            deansListBadge.style.display = "flex";
+        } else {
+            deansListBadge.style.display = "none";
+        }
+    }
+
     if (gpaEstimationNote) {
         if (noteText) {
             gpaEstimationNote.style.display = "block";
@@ -138,16 +148,41 @@ if (clearGpaBtn) {
         if (gpaRowsContainer) gpaRowsContainer.innerHTML = '';
         if (prevCgpaInput) prevCgpaInput.value = '';
         if (prevCreditsInput) prevCreditsInput.value = '';
+        // Add 1 single fresh subject row for clean entry
         addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 4, 'B+');
-        addCalculatorRow('', 3, 'A-');
         calculateGpa();
     });
 }
 
 if (prevCgpaInput) prevCgpaInput.addEventListener("input", calculateGpa);
 if (prevCreditsInput) prevCreditsInput.addEventListener("input", calculateGpa);
+
+// Course Lookup & Auto-Fill Handler
+const btnAutoFillCourse = document.getElementById("btnAutoFillCourse");
+const courseLookupSelect = document.getElementById("courseLookupSelect");
+
+if (btnAutoFillCourse && courseLookupSelect) {
+    btnAutoFillCourse.addEventListener("click", () => {
+        const val = courseLookupSelect.value;
+        if (!val) {
+            if (typeof showToast === "function") {
+                showToast("Please choose a course code from the dropdown.", "warning");
+            }
+            return;
+        }
+
+        const parts = val.split("|");
+        if (parts.length >= 3) {
+            const courseTitle = `${parts[0]} - ${parts[1]}`;
+            const credits = parseInt(parts[2], 10) || 3;
+            addCalculatorRow(courseTitle, credits, 'A');
+            calculateGpa();
+            if (typeof showToast === "function") {
+                showToast(`➕ Added ${courseTitle} (${credits} Credits) to calculator!`, "success");
+            }
+        }
+    });
+}
 
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {

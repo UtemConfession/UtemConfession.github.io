@@ -187,12 +187,13 @@ function initGoogleAuth() {
             }
         }, true);
 
+        const buttonWidth = Math.min(260, Math.max(180, window.innerWidth - 140));
         google.accounts.id.renderButton(confessionContainer, {
             theme: "filled_blue",
             size: "large",
             shape: "rectangular",
             text: "continue_with",
-            width: 280
+            width: buttonWidth
         });
     }
 
