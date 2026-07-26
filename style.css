@@ -954,24 +954,107 @@ textarea.form-control {
     border-color: transparent;
     box-shadow: var(--glow-shadow);
 }
+
+/* Bus Sub-Tabs & Semester Toggle Buttons */
+.bus-sub-tabs {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 14px;
+}
+.bus-sub-tab-btn {
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+.bus-sub-tab-btn:hover {
+    border-color: var(--accent-gold);
+    color: var(--text-primary);
+}
+.bus-sub-tab-btn.active {
+    background: var(--gold-gradient) !important;
+    color: #000000 !important;
+    border-color: transparent !important;
+    font-weight: 800 !important;
+    box-shadow: var(--glow-shadow);
+}
+.bus-sub-tab-btn.active-pink {
+    background: linear-gradient(135deg, #e74e9f 0%, #ff66b2 100%) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 14px rgba(231, 78, 159, 0.35);
+}
+
+.semester-toggle-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+    background: rgba(13, 21, 39, 0.6);
+    padding: 4px;
+    border-radius: 24px;
+    border: 1px solid var(--border-color);
+    width: fit-content;
+    max-width: 100%;
+}
+.semester-toggle-btn {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12.5px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    transition: var(--transition);
+}
+.semester-toggle-btn.active {
+    background: var(--bg-card);
+    color: var(--accent-gold);
+    border: 1px solid var(--accent-gold);
+    font-weight: 700;
+}
 .bus-schedule-box {
     display: grid;
     grid-template-columns: 1.5fr 1fr;
     gap: 24px;
 }
-@media (max-width: 850px) {
-    .bus-schedule-box {
-        grid-template-columns: 1fr;
-    }
-}
 .bus-next-alert {
     background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
     border-left: 4px solid var(--accent-gold);
     padding: 20px;
-    border-radius: 0 12px 12px 0;
+    border-radius: 12px;
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+@media (max-width: 850px) {
+    .bus-schedule-box {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    .bus-next-alert {
+        border-left: 1px solid var(--border-color);
+        border-top: 3.5px solid var(--accent-gold);
+        padding: 16px;
+        border-radius: 12px;
+    }
+    .bus-route-pill {
+        padding: 8px 14px;
+        font-size: 12.5px;
+    }
 }
 .bus-status-tag {
     align-self: flex-start;
@@ -1414,6 +1497,61 @@ footer {
     background: rgba(16, 185, 129, 0.12);
     border: 1px solid rgba(16, 185, 129, 0.3);
     color: #10b981;
+}
+
+/* --- ADSENSE CLS (CUMULATIVE LAYOUT SHIFT) PREVENTION UTILITIES --- */
+.ad-slot-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 18px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(13, 21, 39, 0.35);
+    border: 1px dashed rgba(212, 175, 55, 0.2);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+.ad-slot-container::before {
+    content: 'ADVERTISEMENT';
+    font-size: 8.5px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-muted);
+    opacity: 0.5;
+    position: absolute;
+    top: 4px;
+    right: 8px;
+    pointer-events: none;
+}
+
+/* Horizontal Banner Slots (e.g. In-Feed, Between Sections) */
+.ad-slot-banner {
+    min-height: 90px;
+}
+
+/* Rectangle / In-Feed Post Slots */
+.ad-slot-feed {
+    min-height: 250px;
+}
+
+/* Sidebar / Vertical Banner Slots */
+.ad-slot-sidebar {
+    min-height: 600px;
+}
+
+@media (max-width: 640px) {
+    .ad-slot-banner {
+        min-height: 75px;
+    }
+    .ad-slot-feed {
+        min-height: 200px;
+    }
 }
 
 .google-btn-wrapper {

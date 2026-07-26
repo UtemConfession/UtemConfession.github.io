@@ -10,32 +10,32 @@ const nextBusCountdownVal = document.getElementById("nextBusCountdownVal");
 const busRoutesData = {
     // --- SPECIAL SEMESTER TIMETABLES (21 JULAI 2026) ---
     kt: {
-        name: "Kampus Teknologi (KT / FTMK) Shuttle",
+        name: "Kampus Teknologi (KT - Ayer Keroh) Shuttle",
         type: "special",
         schedules: [
             {
-                direction: "Satria > Lestari > Al-Jazari > KT",
+                direction: "Satria > Lestari > Al-Jazari > KT (Kampus Teknologi)",
                 monThu: ["07:30 - 08:00", "13:30 - 14:00"],
                 friday: ["07:30 - 08:00"]
             },
             {
-                direction: "KT > Satria > Lestari > Al-Jazari",
+                direction: "KT (Kampus Teknologi) > Satria > Lestari > Al-Jazari",
                 monThu: ["13:00 - 13:30", "17:00 - 17:30"],
                 friday: ["13:00"]
             }
         ]
     },
     ki: {
-        name: "Hop On Campus (KI - Kampus Induk)",
+        name: "Hop On Campus (KI - Kampus Induk Main Campus / FTMK)",
         type: "special",
         schedules: [
             {
-                direction: "Satria > Lestari > Al-Jazari > KI",
+                direction: "Satria > Lestari > Al-Jazari > KI (Kampus Induk)",
                 monThu: ["07:30 - 08:00", "13:30 - 14:00"],
                 friday: ["07:30 - 08:00", "14:30"]
             },
             {
-                direction: "KI > Satria > Lestari > Al-Jazari",
+                direction: "KI (Kampus Induk) > Satria > Lestari > Al-Jazari",
                 monThu: ["13:00 - 13:30", "16:00 - 16:30", "17:30 - 18:00"],
                 friday: ["13:00", "17:00"]
             }
@@ -46,12 +46,12 @@ const busRoutesData = {
         type: "special",
         schedules: [
             {
-                direction: "EP > KT > KI",
+                direction: "EP > KT (Kampus Teknologi) > KI (Kampus Induk)",
                 monThu: ["08:00", "13:00"],
                 friday: ["08:00", "14:30"]
             },
             {
-                direction: "KI > KT > EP",
+                direction: "KI (Kampus Induk) > KT (Kampus Teknologi) > EP",
                 monThu: ["14:00", "17:30"],
                 friday: ["12:30", "17:30"]
             }
@@ -60,19 +60,19 @@ const busRoutesData = {
 
     // --- REGULAR SEMESTER TIMETABLES (FULL WEEKEND & WEEKDAY RUNS) ---
     ftmk_regular: {
-        name: "Main Campus ⇄ Technology Campus (FTMK)",
+        name: "Kampus Induk (FTMK / Main) ⇄ Kampus Teknologi (Ayer Keroh)",
         type: "regular",
         weekdays: ["07:30","08:00","08:30","09:00","09:30","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30","17:00","17:30","18:30","20:00"],
         weekends: ["09:00","11:00","13:00","15:00","17:00","19:00","21:00"]
     },
     satria_regular: {
-        name: "Satria College ⇄ Main Campus",
+        name: "Kolej Satria ⇄ Kampus Induk (Main Campus)",
         type: "regular",
         weekdays: ["07:15","07:30","07:45","08:00","08:15","08:30","08:45","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","21:00","22:00"],
         weekends: ["08:00","08:30","09:00","09:30","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00"]
     },
     lestari_regular: {
-        name: "Lestari College ⇄ Main Campus",
+        name: "Kolej Lestari ⇄ Kampus Induk (Main Campus)",
         type: "regular",
         weekdays: ["07:20","07:40","08:00","08:20","08:40","09:00","09:20","09:40","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:20","17:40","18:00","18:30","19:00","19:30","20:00","21:00"],
         weekends: ["08:30","09:15","10:00","10:45","11:30","12:15","13:00","13:45","14:30","15:15","16:00","16:45","17:30","18:15","19:00","19:45","20:30"]
@@ -104,7 +104,7 @@ function updateBusScheduleDisplay() {
             headerTr.style.background = "rgba(212, 175, 55, 0.12)";
             headerTr.innerHTML = `
                 <td colspan="3" style="font-weight: 800; color: var(--accent-gold); font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; padding: 10px 14px;">
-                    🔄 Route: ${sec.direction}
+                    ${sec.direction}
                 </td>
             `;
             busRouteTableBody.appendChild(headerTr);
@@ -117,10 +117,14 @@ function updateBusScheduleDisplay() {
 
                 if (isToday) allTimesToday.push(startTime);
 
+                const isMs = typeof currentLang !== 'undefined' && currentLang === 'ms';
+                const dayText = isMs ? "Isnin – Khamis" : "Mon – Thu";
+                const statusText = isToday ? (isUpcoming ? (isMs ? "✦ Terjadual" : "✦ Scheduled") : (isMs ? "Telah Berlepas" : "Departed")) : (isMs ? "Bukan Hari Ini" : "Not Today");
+
                 tr.innerHTML = `
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${timeRange}</td>
-                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>Isnin – Khamis</td>
-                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${isToday ? (isUpcoming ? "✦ Scheduled" : "Departed") : "Mon–Thu Only"}</td>
+                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${dayText}</td>
+                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${statusText}</td>
                 `;
                 busRouteTableBody.appendChild(tr);
             });
@@ -133,10 +137,14 @@ function updateBusScheduleDisplay() {
 
                 if (isToday) allTimesToday.push(startTime);
 
+                const isMs = typeof currentLang !== 'undefined' && currentLang === 'ms';
+                const dayText = isMs ? "Jumaat" : "Friday";
+                const statusText = isToday ? (isUpcoming ? (isMs ? "✦ Terjadual" : "✦ Scheduled") : (isMs ? "Telah Berlepas" : "Departed")) : (isMs ? "Bukan Hari Ini" : "Not Today");
+
                 tr.innerHTML = `
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${timeRange}</td>
-                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>Jumaat</td>
-                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${isToday ? (isUpcoming ? "✦ Scheduled" : "Departed") : "Friday Only"}</td>
+                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${dayText}</td>
+                    <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${statusText}</td>
                 `;
                 busRouteTableBody.appendChild(tr);
             });
@@ -232,9 +240,16 @@ function updateBusScheduleDisplay() {
             nextBusCountdownVal.textContent = "Service Ended for Today";
         }
     }
+}
 
-    // Update Bus M10A live route status badge
+// Standalone function for Bus M10A Live Countdown (runs independently of internal shuttle returns)
+function updateM10ANextDeparture() {
     const m10aLiveBadge = document.getElementById("m10aLiveBadge");
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    const currentFormattedTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
+
     if (m10aLiveBadge) {
         if (isWeekend) {
             m10aLiveBadge.style.background = "#e74e9f";
@@ -243,6 +258,56 @@ function updateBusScheduleDisplay() {
             m10aLiveBadge.style.background = "#3b82f6";
             m10aLiveBadge.textContent = "🟡 Weekday Route Active (Melaka Sentral ⇄ MITC)";
         }
+    }
+
+    const m10aUTeMTimes = ["07:15","08:30","09:45","11:00","12:15","13:30","14:45","16:00","17:15","18:30","19:45","21:00"];
+    const m10aNextBusTimeVal = document.getElementById("m10aNextBusTimeVal");
+    const m10aNextBusCountdownVal = document.getElementById("m10aNextBusCountdownVal");
+    const m10aNextBusStatusTag = document.getElementById("m10aNextBusStatusTag");
+    
+    if (!m10aNextBusTimeVal || !m10aNextBusCountdownVal) return;
+
+    const upcomingM10A = m10aUTeMTimes.find(t => t > currentFormattedTime);
+
+    if (upcomingM10A) {
+        if (m10aNextBusStatusTag) {
+            m10aNextBusStatusTag.className = "bus-status-tag active-now";
+            m10aNextBusStatusTag.style.background = "rgba(231, 78, 159, 0.15)";
+            m10aNextBusStatusTag.style.color = "#e74e9f";
+            m10aNextBusStatusTag.textContent = "Active Service Today";
+        }
+        m10aNextBusTimeVal.textContent = upcomingM10A;
+
+        const nextBusDate = new Date();
+        const [hours, minutes] = upcomingM10A.split(":").map(Number);
+        nextBusDate.setHours(hours, minutes, 0, 0);
+
+        const minutesDiff = Math.floor((nextBusDate.getTime() - now.getTime()) / (1000 * 60));
+        if (minutesDiff < 60) {
+            m10aNextBusCountdownVal.textContent = `Departs in ${minutesDiff} minutes`;
+        } else {
+            const hrs = Math.floor(minutesDiff / 60);
+            const mins = minutesDiff % 60;
+            m10aNextBusCountdownVal.textContent = `Departs in ${hrs}h ${mins}m`;
+        }
+    } else {
+        // Service ended for today — calculate exact time until tomorrow 07:15 AM
+        if (m10aNextBusStatusTag) {
+            m10aNextBusStatusTag.className = "bus-status-tag inactive";
+            m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
+            m10aNextBusStatusTag.style.color = "#ef4444";
+            m10aNextBusStatusTag.textContent = "Service Ended For Today";
+        }
+        m10aNextBusTimeVal.textContent = "07:15 (Tomorrow)";
+
+        const tomorrowBusDate = new Date();
+        tomorrowBusDate.setDate(tomorrowBusDate.getDate() + 1);
+        tomorrowBusDate.setHours(7, 15, 0, 0);
+
+        const minutesDiff = Math.floor((tomorrowBusDate.getTime() - now.getTime()) / (1000 * 60));
+        const hrs = Math.floor(minutesDiff / 60);
+        const mins = minutesDiff % 60;
+        m10aNextBusCountdownVal.textContent = `First bus departs tomorrow in ${hrs}h ${mins}m`;
     }
 }
 
@@ -255,5 +320,60 @@ document.querySelectorAll(".bus-route-pill").forEach(pill => {
     });
 });
 
-// Refresh bus countdown every minute
-setInterval(updateBusScheduleDisplay, 60000);
+// Refresh bus countdowns every minute
+function refreshAllBusSchedules() {
+    updateBusScheduleDisplay();
+    updateM10ANextDeparture();
+}
+
+refreshAllBusSchedules();
+setInterval(refreshAllBusSchedules, 60000);
+
+// --- SUB-TAB & SEMESTER TOGGLE EVENT LISTENERS ---
+const busTabInternal = document.getElementById("busTabInternal");
+const busTabPublic   = document.getElementById("busTabPublic");
+const panelInternal  = document.getElementById("panelInternalShuttle");
+const panelPublic    = document.getElementById("panelPublicBus");
+
+if (busTabInternal && busTabPublic && panelInternal && panelPublic) {
+    busTabInternal.addEventListener("click", () => {
+        busTabInternal.classList.add("active");
+        busTabPublic.classList.remove("active", "active-pink");
+        panelInternal.style.display = "block";
+        panelPublic.style.display   = "none";
+    });
+
+    busTabPublic.addEventListener("click", () => {
+        busTabPublic.classList.add("active", "active-pink");
+        busTabInternal.classList.remove("active");
+        panelPublic.style.display   = "block";
+        panelInternal.style.display = "none";
+    });
+}
+
+const semToggleSpecial = document.getElementById("semToggleSpecial");
+const semToggleRegular = document.getElementById("semToggleRegular");
+const pillsSpecialSem  = document.getElementById("pillsSpecialSem");
+const pillsRegularSem  = document.getElementById("pillsRegularSem");
+
+if (semToggleSpecial && semToggleRegular && pillsSpecialSem && pillsRegularSem) {
+    semToggleSpecial.addEventListener("click", () => {
+        semToggleSpecial.classList.add("active");
+        semToggleRegular.classList.remove("active");
+        pillsSpecialSem.style.display = "flex";
+        pillsRegularSem.style.display = "none";
+        
+        const firstPill = pillsSpecialSem.querySelector(".bus-route-pill");
+        if (firstPill) firstPill.click();
+    });
+
+    semToggleRegular.addEventListener("click", () => {
+        semToggleRegular.classList.add("active");
+        semToggleSpecial.classList.remove("active");
+        pillsRegularSem.style.display = "flex";
+        pillsSpecialSem.style.display = "none";
+        
+        const firstPill = pillsRegularSem.querySelector(".bus-route-pill");
+        if (firstPill) firstPill.click();
+    });
+}

@@ -110,21 +110,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Floating Back to Top Button
-    const backToTopBtn = document.getElementById("backToTopBtn");
-    if (backToTopBtn) {
-        window.addEventListener("scroll", () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.style.display = "flex";
-            } else {
-                backToTopBtn.style.display = "none";
-            }
-        });
-        backToTopBtn.addEventListener("click", () => {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-    }
-
     // UTeM Live Campus Weather Fetcher (Open-Meteo API for Durian Tunggal / Ayer Keroh)
     async function fetchCampusWeather() {
         const weatherText = document.getElementById("weatherText");

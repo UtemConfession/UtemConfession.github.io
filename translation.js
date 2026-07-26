@@ -532,12 +532,12 @@ function setLanguage(lang) {
 
     document.querySelectorAll(".bus-route-pill").forEach(pill => {
         const routeKey = pill.getAttribute("data-route");
-        if (routeKey === "kt") pill.textContent = lang === "en" ? "Kampus Teknologi (KT)" : "Kampus Teknologi (KT)";
-        else if (routeKey === "ki") pill.textContent = lang === "en" ? "Hop On Campus (KI)" : "Hop On Campus (KI)";
-        else if (routeKey === "ep") pill.textContent = lang === "en" ? "Emerald Park (EP)" : "Emerald Park (EP)";
-        else if (routeKey === "ftmk_regular") pill.textContent = lang === "en" ? "Main ⇄ FTMK (Regular)" : "Induk ⇄ FTMK (Biasa)";
-        else if (routeKey === "satria_regular") pill.textContent = lang === "en" ? "Satria ⇄ Main (Regular)" : "Satria ⇄ Induk (Biasa)";
-        else if (routeKey === "lestari_regular") pill.textContent = lang === "en" ? "Lestari ⇄ Main (Regular)" : "Lestari ⇄ Induk (Biasa)";
+        if (routeKey === "kt") pill.textContent = lang === "en" ? "Kampus Teknologi (KT - Ayer Keroh)" : "Kampus Teknologi (KT - Ayer Keroh)";
+        else if (routeKey === "ki") pill.textContent = lang === "en" ? "Hop On Campus (KI - Induk)" : "Hop On Campus (KI - Induk)";
+        else if (routeKey === "ep") pill.textContent = lang === "en" ? "Emerald Park (EP - Off-Campus)" : "Emerald Park (EP - Luar)";
+        else if (routeKey === "ftmk_regular") pill.textContent = lang === "en" ? "Induk (FTMK) ⇄ Teknologi (Regular)" : "Induk (FTMK) ⇄ Teknologi (Biasa)";
+        else if (routeKey === "satria_regular") pill.textContent = lang === "en" ? "Satria ⇄ Induk (Regular)" : "Satria ⇄ Induk (Biasa)";
+        else if (routeKey === "lestari_regular") pill.textContent = lang === "en" ? "Lestari ⇄ Induk (Regular)" : "Lestari ⇄ Induk (Biasa)";
     });
 
     const busThs = document.querySelectorAll("#bus-tab .gpa-table th");
@@ -554,7 +554,7 @@ function setLanguage(lang) {
     if (departureLabel) departureLabel.textContent = t.label_next_departure;
 
     const titlePublicBus = document.getElementById("titlePublicBus");
-    if (titlePublicBus) titlePublicBus.textContent = t.title_public_bus;
+    if (titlePublicBus) titlePublicBus.textContent = t.title_public_bus || "Bus M10A Pink Bus";
 
     const descPublicBus = document.getElementById("descPublicBus");
     if (descPublicBus) descPublicBus.textContent = t.desc_public_bus;
@@ -833,6 +833,7 @@ function setLanguage(lang) {
 
     // Trigger dependent dynamic updates
     updateBusScheduleDisplay();
+    if (typeof updateM10ANextDeparture === 'function') updateM10ANextDeparture();
     const activeCalBtn = document.querySelector(".cal-filter-btn.active");
     const category = activeCalBtn ? activeCalBtn.getAttribute("data-category") : 'all';
     const calSearch = document.getElementById("calendarSearch");
