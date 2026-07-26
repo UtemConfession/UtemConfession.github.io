@@ -386,7 +386,7 @@ if (agreeImageRules) {
     agreeImageRules.addEventListener("change", updateImageSubmitButton);
 }
 
-function compressImage(file, maxWidth = 1200, maxHeight = 1200, quality = 0.82) {
+function compressImage(file, maxWidth = 800, maxHeight = 800, quality = 0.68) {
     return new Promise((resolve, reject) => {
         const image = new Image();
         const reader = new FileReader();
@@ -473,15 +473,12 @@ if (submitImageBtn) {
                 caption: caption,
                 imageBase64: base64Data,
                 fileName: selectedImageFile.name,
-                mimeType: selectedImageFile.type || "image/jpeg",
+                mimeType: "image/jpeg",
                 timestamp: timestamp
             },
             idToken: idToken,
             type: "image",
             caption: caption,
-            imageBase64: base64Data,
-            fileName: selectedImageFile.name,
-            mimeType: selectedImageFile.type || "image/jpeg",
             timestamp: timestamp
         };
 
