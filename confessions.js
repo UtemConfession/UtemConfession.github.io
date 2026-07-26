@@ -40,6 +40,28 @@ function formatBytes(bytes) {
     return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + " " + sizes[i];
 }
 
+// Helper to perform fetch with auto-retry on network interruption
+async function fetchWithRetry(url, options, maxRetries = 2) {
+    let lastError = null;
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+            const response = await fetch(url, options);
+            if (response.ok) return response;
+            lastError = new Error(`Server returned HTTP ${response.status}`);
+        } catch (err) {
+            lastError = err;
+            console.warn(`Confession submission attempt ${attempt} failed. Retrying in 1.5s...`, err);
+            if (attempt < maxRetries) {
+                if (typeof showStatus === "function") {
+                    showStatus(`Connection interrupted. Auto-retrying submission (Attempt ${attempt + 1})...`, "warning");
+                }
+                await new Promise(res => setTimeout(res, 1500));
+            }
+        }
+    }
+    throw lastError;
+}
+
 // -------------------------------------------------------------
 // 1. Mode Sub-Tab Switcher Logic
 // -------------------------------------------------------------
@@ -192,26 +214,6 @@ if (submitBtn) {
             type: "text",
             timestamp: submission.timestamp
         };
-
-// Helper to perform fetch with auto-retry on network interruption
-async function fetchWithRetry(url, options, maxRetries = 2) {
-    let lastError = null;
-    for (let attempt = 1; attempt <= maxRetries; attempt++) {
-        try {
-            const response = await fetch(url, options);
-            if (response.ok) return response;
-            lastError = new Error(`Server returned HTTP ${response.status}`);
-        } catch (err) {
-            lastError = err;
-            console.warn(`Confession submission attempt ${attempt} failed. Retrying in 1.5s...`, err);
-            if (attempt < maxRetries) {
-                showStatus(`Connection interrupted. Auto-retrying submission (Attempt ${attempt + 1})...`, "warning");
-                await new Promise(res => setTimeout(res, 1500));
-            }
-        }
-    }
-    throw lastError;
-}
 
         try {
             const response = await fetchWithRetry(APPS_SCRIPT_WEBHOOK, {
@@ -522,7 +524,8 @@ if (submitImageBtn) {
             }
         } catch (error) {
             console.error("Image Submission Error:", error);
-            showStatus("Unable to submit image. Ensure your Apps Script Web App access is set to 'Anyone'.", "error");
+            const errDetail = error && error.message ? `: ${error.message}` : "";
+            showStatus(`Unable to submit image${errDetail}. Ensure your Apps Script Web App access is set to 'Anyone'.`, "error");
         } finally {
             submitImageBtn.textContent = "Submit Image";
             updateImageSubmitButton();
