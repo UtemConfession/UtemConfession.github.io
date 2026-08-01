@@ -24,10 +24,11 @@ function signOut() {
     const authNotice = document.getElementById("authNotice");
 
     if (userInfo) userInfo.style.display = "none";
-    if (gSigninBtn) gSigninBtn.style.display = "block";
+    if (gSigninBtn) gSigninBtn.style.display = "flex";
     if (authNotice) {
+        authNotice.style.display = "flex";
         authNotice.className = "auth-notice warning";
-        authNotice.innerHTML = "🔒 <strong>Sign in required</strong>";
+        authNotice.innerHTML = `<svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: text-bottom; margin-right: 4px;"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg><span>Sign in required to submit a confession</span>`;
     }
 
     if (typeof window.updateSubmitButton === "function") {
@@ -64,23 +65,47 @@ function updateAuthUI() {
     const userInfo = document.getElementById("userInfo");
     const gSigninBtn = document.getElementById("g_id_signin");
     const userAvatar = document.getElementById("userAvatar");
+    const userAvatarFallback = document.getElementById("userAvatarFallback");
     const userName = document.getElementById("userName");
+    const userEmail = document.getElementById("userEmail");
     const authNotice = document.getElementById("authNotice");
 
-    if (userAvatar && currentUser.picture) {
-        userAvatar.src = currentUser.picture;
+    if (userAvatar) {
+        userAvatar.referrerPolicy = "no-referrer";
+        const avatarUrl = currentUser.picture;
+        if (avatarUrl) {
+            userAvatar.src = avatarUrl;
+            userAvatar.style.display = "block";
+            if (userAvatarFallback) userAvatarFallback.style.display = "none";
+
+            userAvatar.onerror = function() {
+                this.style.display = "none";
+                if (userAvatarFallback) {
+                    userAvatarFallback.style.display = "flex";
+                    const initial = (currentUser.name || currentUser.email || "U").charAt(0).toUpperCase();
+                    userAvatarFallback.innerHTML = `<span>${initial}</span>`;
+                }
+            };
+        } else {
+            userAvatar.style.display = "none";
+            if (userAvatarFallback) {
+                userAvatarFallback.style.display = "flex";
+                const initial = (currentUser.name || currentUser.email || "U").charAt(0).toUpperCase();
+                userAvatarFallback.innerHTML = `<span>${initial}</span>`;
+            }
+        }
     }
+
     if (userName && currentUser.name) {
         userName.textContent = currentUser.name;
+    }
+    if (userEmail && currentUser.email) {
+        userEmail.textContent = currentUser.email;
     }
 
     if (userInfo) userInfo.style.display = "flex";
     if (gSigninBtn) gSigninBtn.style.display = "none";
-
-    if (authNotice) {
-        authNotice.className = "auth-notice success";
-        authNotice.innerHTML = `✓ Signed in as <strong>${currentUser.name}</strong> (${currentUser.email})`;
-    }
+    if (authNotice) authNotice.style.display = "none";
 }
 
 function parseJwt(token) {
@@ -192,9 +217,9 @@ function initGoogleAuth() {
             }
         }, true);
 
-        const buttonWidth = Math.min(260, Math.max(180, window.innerWidth - 140));
+        const buttonWidth = Math.min(320, Math.max(220, window.innerWidth - 60));
         google.accounts.id.renderButton(confessionContainer, {
-            theme: "filled_blue",
+            theme: "filled_black",
             size: "large",
             shape: "rectangular",
             text: "continue_with",

@@ -10,48 +10,48 @@ const nextBusCountdownVal = document.getElementById("nextBusCountdownVal");
 const busRoutesData = {
     // --- SPECIAL SEMESTER TIMETABLES (21 JULAI 2026) ---
     kt: {
-        name: "Kampus Teknologi (KT - Ayer Keroh) Shuttle",
+        name: "KT Shuttle (Ayer Keroh)",
         type: "special",
         schedules: [
             {
-                direction: "Satria > Lestari > Al-Jazari > KT (Kampus Teknologi)",
+                direction: "Satria > Lestari > AJ > KT",
                 monThu: ["07:30 - 08:00", "13:30 - 14:00"],
                 friday: ["07:30 - 08:00"]
             },
             {
-                direction: "KT (Kampus Teknologi) > Satria > Lestari > Al-Jazari",
+                direction: "KT > Satria > Lestari > AJ",
                 monThu: ["13:00 - 13:30", "17:00 - 17:30"],
                 friday: ["13:00"]
             }
         ]
     },
     ki: {
-        name: "Hop On Campus (KI - Kampus Induk Main Campus / FTMK)",
+        name: "KI Shuttle (Kampus Induk / FTMK)",
         type: "special",
         schedules: [
             {
-                direction: "Satria > Lestari > Al-Jazari > KI (Kampus Induk)",
+                direction: "Satria > Lestari > AJ > KI",
                 monThu: ["07:30 - 08:00", "13:30 - 14:00"],
                 friday: ["07:30 - 08:00", "14:30"]
             },
             {
-                direction: "KI (Kampus Induk) > Satria > Lestari > Al-Jazari",
+                direction: "KI > Satria > Lestari > AJ",
                 monThu: ["13:00 - 13:30", "16:00 - 16:30", "17:30 - 18:00"],
                 friday: ["13:00", "17:00"]
             }
         ]
     },
     ep: {
-        name: "Emerald Park Off-Campus (EP) Shuttle",
+        name: "Emerald Park (EP) Shuttle",
         type: "special",
         schedules: [
             {
-                direction: "EP > KT (Kampus Teknologi) > KI (Kampus Induk)",
+                direction: "EP > KT > KI",
                 monThu: ["08:00", "13:00"],
                 friday: ["08:00", "14:30"]
             },
             {
-                direction: "KI (Kampus Induk) > KT (Kampus Teknologi) > EP",
+                direction: "KI > KT > EP",
                 monThu: ["14:00", "17:30"],
                 friday: ["12:30", "17:30"]
             }
@@ -60,19 +60,19 @@ const busRoutesData = {
 
     // --- REGULAR SEMESTER TIMETABLES (FULL WEEKEND & WEEKDAY RUNS) ---
     ftmk_regular: {
-        name: "Kampus Induk (FTMK / Main) ⇄ Kampus Teknologi (Ayer Keroh)",
+        name: "KI (FTMK) ⇄ KT (Ayer Keroh)",
         type: "regular",
         weekdays: ["07:30","08:00","08:30","09:00","09:30","10:00","11:00","12:00","13:00","14:00","15:00","16:00","16:30","17:00","17:30","18:30","20:00"],
         weekends: ["09:00","11:00","13:00","15:00","17:00","19:00","21:00"]
     },
     satria_regular: {
-        name: "Kolej Satria ⇄ Kampus Induk (Main Campus)",
+        name: "Kolej Satria ⇄ KI",
         type: "regular",
         weekdays: ["07:15","07:30","07:45","08:00","08:15","08:30","08:45","09:00","09:30","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:30","18:00","18:30","19:00","19:30","20:00","21:00","22:00"],
         weekends: ["08:00","08:30","09:00","09:30","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00"]
     },
     lestari_regular: {
-        name: "Kolej Lestari ⇄ Kampus Induk (Main Campus)",
+        name: "Kolej Lestari ⇄ KI",
         type: "regular",
         weekdays: ["07:20","07:40","08:00","08:20","08:40","09:00","09:20","09:40","10:00","10:30","11:00","11:30","12:00","12:30","13:00","13:30","14:00","14:30","15:00","15:30","16:00","16:30","17:00","17:20","17:40","18:00","18:30","19:00","19:30","20:00","21:00"],
         weekends: ["08:30","09:15","10:00","10:45","11:30","12:15","13:00","13:45","14:30","15:15","16:00","16:45","17:30","18:15","19:00","19:45","20:30"]

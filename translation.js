@@ -7,29 +7,30 @@ const translations = {
         nav_calendar: "Academic Calendar",
         nav_gpa: "GPA Calculator",
         nav_exams: "Past Year Exams",
-        nav_links: "Important Links",
+        nav_links: "Wi-Fi & Links",
         nav_buses: "Bus Schedules",
-        nav_service: "Student Service",
         nav_library: "Library (PLH)",
         nav_health: "Health Center (PKU)",
-        nav_marketplace: "Marketplace",
+        nav_marketplace: "Marketplace & Services",
         nav_scholarships: "Scholarship",
 
         mobile_nav_gpa: "GPA Calc",
         mobile_nav_archive: "Archive",
-        mobile_nav_links: "Links",
+        mobile_nav_links: "Wi-Fi & Links",
         mobile_nav_buses: "Buses",
-        mobile_nav_service: "Services",
         mobile_nav_calendar: "Calendar",
         mobile_nav_exams: "Exams",
         mobile_nav_health: "Health",
         mobile_nav_library: "Library",
-        mobile_nav_marketplace: "Market",
+        mobile_nav_marketplace: "Marketplace",
         mobile_nav_scholarships: "Scholarship",
+
+        title_important_links: "UTeM Wi-Fi & Links",
+        desc_important_links: "Quick access to campus Wi-Fi credentials, LibProxy registration, VPN setup, official portals, and student channels.",
 
         title_submit_confession: "Submit Confession",
         label_submit_confession: "",
-        placeholder_confession: "type here to confess...",
+        placeholder_confession: "Type here to confess...",
         checkbox_rules: "I agree to follow the confession rules. I understand illegal or abusive submissions will be rejected.",
         btn_submit: "Submit Confession",
         btn_submit_google: "Submit via Google Form ➔",
@@ -71,8 +72,8 @@ const translations = {
         title_bus_transit: "UTeM Campus Shuttle Timetable (Semester Khas & Regular)",
         label_next_departure: "Next Scheduled Departure:",
         label_note: "Note: Shuttle bus arrival times may vary based on traffic conditions on Lebuhraya Ayer Keroh. Please reach boarding points 5 minutes early.",
-        th_departure: "Departure / Departure Slot",
-        th_day_type: "Operating Days",
+        th_departure: "Departure",
+        th_day_type: "Days",
         th_status: "Status",
 
         title_public_bus: "BAS.MY Bus M10A Official Timetable (Pink Bus)",
@@ -196,7 +197,38 @@ const translations = {
         cat_holiday: "Holiday",
 
         lang_label: "Language",
-        theme_switcher_label: "Dark Theme"
+        theme_switcher_label: "Dark Theme",
+
+        // Cards under Wi-Fi & Links tab
+        card_libproxy_title: "LibProxy Account Registration",
+        card_libproxy_sub: "Off-Campus EZProxy Access",
+        card_libproxy_desc: "Video guide for UTeM students to register and activate LibProxy for off-campus e-journals and library databases.",
+        card_libproxy_btn: "▶ Watch Video Guide ➔",
+
+        card_vpn_title: "SoftEther VPN Download",
+        card_vpn_sub: "Off-Campus Library Access",
+        card_vpn_desc: "Official UTeM SoftEther VPN client guide for off-campus library database and e-journal access.",
+        card_vpn_btn: "Download SoftEther VPN ➔",
+
+        card_staff_title: "UTeM Staff Directory",
+        card_staff_sub: "Lecturer & Staff Search",
+        card_staff_desc: "Search portal for UTeM lecturer emails, room numbers, extensions, and department staff.",
+        card_staff_btn: "Open Staff Directory ➔",
+
+        card_mpp_title: "MPP UTeM Official",
+        card_mpp_sub: "Majlis Perwakilan Pelajar",
+        card_mpp_desc: "Official Instagram of UTeM Student Representative Council for announcements and student welfare.",
+        card_mpp_btn: "Visit MPP Instagram ➔",
+
+        card_aduan_title: "MOHE e-Aduan (SPAB)",
+        card_aduan_sub: "Public Complaints System",
+        card_aduan_desc: "Ministry of Higher Education (KPT/MOHE) public complaints portal for inquiries and feedback.",
+        card_aduan_btn: "Open e-Aduan Portal ➔",
+
+        card_konvo_title: "UTeM Convocation & Alumni",
+        card_konvo_sub: "Graduation & Robe Collection",
+        card_konvo_desc: "Official portal for convocation session schedules, academic robe collection, and alumni updates.",
+        card_konvo_btn: "Open Konvo Portal ➔"
     },
     ms: {
         nav_confessions: "Pengakuan",
@@ -204,25 +236,26 @@ const translations = {
         nav_calendar: "Kalendar Akademik",
         nav_gpa: "Kalkulator GPA",
         nav_exams: "Kertas Exam Lepas",
-        nav_links: "Pautan Penting",
+        nav_links: "Wi-Fi & Pautan",
         nav_buses: "Jadual Bas",
-        nav_service: "Perkhidmatan Pelajar",
         nav_library: "Perpustakaan (PLH)",
         nav_health: "Pusat Kesihatan (PKU)",
-        nav_marketplace: "Pasar Pelajar",
+        nav_marketplace: "Pasar & Perkhidmatan",
         nav_scholarships: "Biasiswa",
 
         mobile_nav_gpa: "GPA Calc",
         mobile_nav_archive: "Arkib",
-        mobile_nav_links: "Pautan",
+        mobile_nav_links: "Wi-Fi & Pautan",
         mobile_nav_buses: "Bas",
-        mobile_nav_service: "Servis",
         mobile_nav_calendar: "Kalendar",
         mobile_nav_exams: "Exam",
         mobile_nav_health: "PKU",
         mobile_nav_library: "Perpustakaan",
         mobile_nav_marketplace: "Pasar",
         mobile_nav_scholarships: "Biasiswa",
+
+        title_important_links: "Wi-Fi & Pautan Rasmi UTeM",
+        desc_important_links: "Akses pantas ke kata laluan Wi-Fi kampus, panduan LibProxy, persediaan VPN, portal rasmi, dan saluran pelajar.",
 
         title_submit_confession: "Hantar Pengakuan",
         label_submit_confession: "",
@@ -268,8 +301,8 @@ const translations = {
         title_bus_transit: "Jadual Masa Shuttle Kampus UTeM (Semester Khas & Biasa)",
         label_next_departure: "Pelepasan Dijadualkan Seterusnya:",
         label_note: "Nota: Masa ketibaan bas shuttle mungkin berbeza mengikut keadaan trafik di Lebuhraya Ayer Keroh. Sila berada di tempat menunggu 5 minit awal.",
-        th_departure: "Masa / Slot Pelepasan",
-        th_day_type: "Hari Beroperasi",
+        th_departure: "Pelepasan",
+        th_day_type: "Hari",
         th_status: "Status",
 
         title_public_bus: "Jadual Masa Rasmi Bas M10A BAS.MY (Bas Pink)",
@@ -393,13 +426,45 @@ const translations = {
         cat_holiday: "Cuti Umum",
 
         lang_label: "Bahasa",
-        theme_switcher_label: "Tema Gelap"
+        theme_switcher_label: "Tema Gelap",
+
+        // Cards under Wi-Fi & Links tab
+        card_libproxy_title: "Pendaftaran Akaun LibProxy",
+        card_libproxy_sub: "Akses EZProxy Luar Kampus",
+        card_libproxy_desc: "Panduan video pendaftaran dan pengaktifan akaun LibProxy bagi akses e-jurnal dan pangkalan data perpustakaan dari rumah.",
+        card_libproxy_btn: "▶ Tonton Panduan Video ➔",
+
+        card_vpn_title: "Muat Turun SoftEther VPN",
+        card_vpn_sub: "Akses Perpustakaan Luar Kampus",
+        card_vpn_desc: "Panduan rasmi klien SoftEther VPN UTeM untuk capaian pangkalan data perpustakaan dan e-jurnal dari rumah.",
+        card_vpn_btn: "Muat Turun SoftEther VPN ➔",
+
+        card_staff_title: "Direktori Staf UTeM",
+        card_staff_sub: "Carian Pensyarah & Staf",
+        card_staff_desc: "Portal carian e-mel pensyarah, nombor bilik, sambungan telefon, dan staf jabatan UTeM.",
+        card_staff_btn: "Buka Direktori Staf ➔",
+
+        card_mpp_title: "MPP UTeM Rasmi",
+        card_mpp_sub: "Majlis Perwakilan Pelajar",
+        card_mpp_desc: "Saluran Instagram rasmi Majlis Perwakilan Pelajar UTeM bagi pengumuman dan kebajikan pelajar.",
+        card_mpp_btn: "Lawati Instagram MPP ➔",
+
+        card_aduan_title: "e-Aduan KPT (SPAB)",
+        card_aduan_sub: "Sistem Aduan Awam Kementerian",
+        card_aduan_desc: "Portal aduan awam Kementerian Pendidikan Tinggi (KPT) bagi maklum balas dan pertanyaan.",
+        card_aduan_btn: "Buka Portal e-Aduan ➔",
+
+        card_konvo_title: "Konvokesyen & Alumni UTeM",
+        card_konvo_sub: "Jadual Graduasi & Jubah",
+        card_konvo_desc: "Portal rasmi untuk jadual sesi konvokesyen, pengambilan jubah akademik, dan alumni UTeM.",
+        card_konvo_btn: "Buka Portal Konvo ➔"
     }
 };
 
 let currentLang = localStorage.getItem("lang") || "en";
 
 function setLanguage(lang) {
+    currentLang = lang;
     const t = translations[lang];
     if (!t) return;
 
@@ -412,7 +477,6 @@ function setLanguage(lang) {
         "exams-tab": { desktop: t.nav_exams, mobile: t.mobile_nav_exams },
         "links-tab": { desktop: t.nav_links, mobile: t.mobile_nav_links },
         "bus-tab": { desktop: t.nav_buses, mobile: t.mobile_nav_buses },
-        "service-tab": { desktop: t.nav_service, mobile: t.mobile_nav_service },
         "library-tab": { desktop: t.nav_library, mobile: t.mobile_nav_library },
         "health-tab": { desktop: t.nav_health, mobile: t.mobile_nav_health },
         "marketplace-tab": { desktop: t.nav_marketplace, mobile: t.mobile_nav_marketplace },
@@ -427,8 +491,8 @@ function setLanguage(lang) {
         }
     });
 
-    // 2. Mobile bottom nav buttons
-    document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn").forEach(btn => {
+    // 2. Mobile bottom nav buttons & drawer buttons
+    document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn, .mobile-drawer-grid .drawer-item-btn").forEach(btn => {
         const tab = btn.getAttribute("data-tab");
         const span = btn.querySelector("span");
         if (tab && span && tabNavMap[tab]) {
@@ -519,31 +583,117 @@ function setLanguage(lang) {
         priorLabels[1].textContent = t.label_prior_credits;
     }
 
-    // 6. Important Links
+    // 6. Wi-Fi & Links
     const titleLinks = document.querySelector("#links-tab .card-title");
-    if (titleLinks) updateNodeText(titleLinks, t.title_important_links || "UTeM Important Links & Portals");
+    if (titleLinks) updateNodeText(titleLinks, t.title_important_links || "UTeM Wi-Fi & Links");
 
     const descImportantLinks = document.getElementById("descImportantLinks");
     if (descImportantLinks) descImportantLinks.textContent = t.desc_important_links || "Quick access to essential official campus portals, VPN clients, student council channels, and academic systems.";
+
+    const libproxyTitle = document.getElementById("libproxyTitle");
+    if (libproxyTitle) libproxyTitle.textContent = t.card_libproxy_title;
+    const libproxySub = document.getElementById("libproxySub");
+    if (libproxySub) libproxySub.textContent = t.card_libproxy_sub;
+    const libproxyDesc = document.getElementById("libproxyDesc");
+    if (libproxyDesc) libproxyDesc.textContent = t.card_libproxy_desc;
+    const libproxyBtn = document.getElementById("libproxyBtn");
+    if (libproxyBtn) updateNodeText(libproxyBtn, t.card_libproxy_btn);
+
+    const vpnTitle = document.getElementById("vpnTitle");
+    if (vpnTitle) vpnTitle.textContent = t.card_vpn_title;
+    const vpnSub = document.getElementById("vpnSub");
+    if (vpnSub) vpnSub.textContent = t.card_vpn_sub;
+    const vpnDesc = document.getElementById("vpnDesc");
+    if (vpnDesc) vpnDesc.textContent = t.card_vpn_desc;
+    const vpnBtn = document.getElementById("vpnBtn");
+    if (vpnBtn) updateNodeText(vpnBtn, t.card_vpn_btn);
+
+    const staffDirTitle = document.getElementById("staffDirTitle");
+    if (staffDirTitle) staffDirTitle.textContent = t.card_staff_title;
+    const staffDirSub = document.getElementById("staffDirSub");
+    if (staffDirSub) staffDirSub.textContent = t.card_staff_sub;
+    const staffDirDesc = document.getElementById("staffDirDesc");
+    if (staffDirDesc) staffDirDesc.textContent = t.card_staff_desc;
+    const staffDirBtn = document.getElementById("staffDirBtn");
+    if (staffDirBtn) updateNodeText(staffDirBtn, t.card_staff_btn);
+
+    const mppTitle = document.getElementById("mppTitle");
+    if (mppTitle) mppTitle.textContent = t.card_mpp_title;
+    const mppSub = document.getElementById("mppSub");
+    if (mppSub) mppSub.textContent = t.card_mpp_sub;
+    const mppDesc = document.getElementById("mppDesc");
+    if (mppDesc) mppDesc.textContent = t.card_mpp_desc;
+    const mppBtn = document.getElementById("mppBtn");
+    if (mppBtn) updateNodeText(mppBtn, t.card_mpp_btn);
+
+    const aduanTitle = document.getElementById("aduanTitle");
+    if (aduanTitle) aduanTitle.textContent = t.card_aduan_title;
+    const aduanSub = document.getElementById("aduanSub");
+    if (aduanSub) aduanSub.textContent = t.card_aduan_sub;
+    const aduanDesc = document.getElementById("aduanDesc");
+    if (aduanDesc) aduanDesc.textContent = t.card_aduan_desc;
+    const aduanBtn = document.getElementById("aduanBtn");
+    if (aduanBtn) updateNodeText(aduanBtn, t.card_aduan_btn);
+
+    const konvoTitle = document.getElementById("konvoTitle");
+    if (konvoTitle) konvoTitle.textContent = t.card_konvo_title;
+    const konvoSub = document.getElementById("konvoSub");
+    if (konvoSub) konvoSub.textContent = t.card_konvo_sub;
+    const konvoDesc = document.getElementById("konvoDesc");
+    if (konvoDesc) konvoDesc.textContent = t.card_konvo_desc;
+    const konvoBtn = document.getElementById("konvoBtn");
+    if (konvoBtn) updateNodeText(konvoBtn, t.card_konvo_btn);
+
+    // Marketplace & Services Tab
+    const titleMarketplace = document.getElementById("titleMarketplace");
+    if (titleMarketplace) updateNodeText(titleMarketplace, lang === "en" ? "UTeM Marketplace & Student Services" : "Pasar & Perkhidmatan Pelajar UTeM");
+    
+    const descMarketplace = document.getElementById("descMarketplace");
+    if (descMarketplace) descMarketplace.textContent = lang === "en" 
+        ? "One-stop campus platform for UTeM students to buy & sell pre-loved items, textbooks, gadgets, and offer student services like Grab, Personal Shopper, and printing."
+        : "Platform sehenti kampus untuk pelajar UTeM membeli & menjual barangan terpakai, buku teks, gajet, dan menawarkan perkhidmatan seperti Grab, Personal Shopper, dan percetakan.";
+
+    const badgeMarketplace = document.getElementById("badgeMarketplace");
+    if (badgeMarketplace) badgeMarketplace.textContent = lang === "en" ? "Student Deals & Services Hub" : "Pusat Barangan & Perkhidmatan Pelajar";
+
+    const titleMarketItems = document.getElementById("titleMarketItems");
+    if (titleMarketItems) titleMarketItems.textContent = lang === "en" ? "🛒 Pre-loved Items & Marketplace" : "🛒 Barangan Terpakai & Pasar Pelajar";
+
+    const subMarketItems = document.getElementById("subMarketItems");
+    if (subMarketItems) subMarketItems.textContent = lang === "en" ? "Buy & Sell Student Essentials" : "Beli & Jual Keperluan Pelajar";
+
+    const titleMarketServices = document.getElementById("titleMarketServices");
+    if (titleMarketServices) titleMarketServices.textContent = lang === "en" ? "🚘 Student Services Directory" : "🚘 Direktori Perkhidmatan Pelajar";
+
+    const subMarketServices = document.getElementById("subMarketServices");
+    if (subMarketServices) subMarketServices.textContent = lang === "en" ? "Campus Runners & Services" : "Pelari Kampus & Perkhidmatan";
+
+    const sellerNoticeMarketplace = document.getElementById("sellerNoticeMarketplace");
+    if (sellerNoticeMarketplace) sellerNoticeMarketplace.innerHTML = lang === "en"
+        ? '<strong>Want to list pre-loved items or promote your student service?</strong> Share in the official Telegram group or contact admin email at: <a href="mailto:admin@utemconfessions.com" style="color: var(--accent-gold); font-weight: 700;">admin@utemconfessions.com</a>'
+        : '<strong>Ingin menjual barangan terpakai atau mempromosikan servis anda?</strong> Kongsi di kumpulan Telegram rasmi atau hubungi e-mel pentadbir di: <a href="mailto:admin@utemconfessions.com" style="color: var(--accent-gold); font-weight: 700;">admin@utemconfessions.com</a>';
 
     // 7. Bus Transit (Minggu Semester Khas & Regular)
     const busTitle = document.querySelector("#bus-tab .card-title");
     if (busTitle) updateNodeText(busTitle, t.title_bus_transit || "UTeM Campus Shuttle Timetable (Semester Khas & Regular)");
 
+    const labelRadarTitle = document.getElementById("labelRadarTitle");
+    if (labelRadarTitle) labelRadarTitle.textContent = lang === "en" ? "UTeM Shuttle Route Radar" : "Radar Laluan Bas UTeM";
+
     document.querySelectorAll(".bus-route-pill").forEach(pill => {
         const routeKey = pill.getAttribute("data-route");
-        if (routeKey === "kt") pill.textContent = lang === "en" ? "Kampus Teknologi (KT - Ayer Keroh)" : "Kampus Teknologi (KT - Ayer Keroh)";
-        else if (routeKey === "ki") pill.textContent = lang === "en" ? "Hop On Campus (KI - Induk)" : "Hop On Campus (KI - Induk)";
-        else if (routeKey === "ep") pill.textContent = lang === "en" ? "Emerald Park (EP - Off-Campus)" : "Emerald Park (EP - Luar)";
-        else if (routeKey === "ftmk_regular") pill.textContent = lang === "en" ? "Induk (FTMK) ⇄ Teknologi (Regular)" : "Induk (FTMK) ⇄ Teknologi (Biasa)";
-        else if (routeKey === "satria_regular") pill.textContent = lang === "en" ? "Satria ⇄ Induk (Regular)" : "Satria ⇄ Induk (Biasa)";
-        else if (routeKey === "lestari_regular") pill.textContent = lang === "en" ? "Lestari ⇄ Induk (Regular)" : "Lestari ⇄ Induk (Biasa)";
+        if (routeKey === "kt") pill.textContent = "KT (Ayer Keroh)";
+        else if (routeKey === "ki") pill.textContent = "KI (Induk)";
+        else if (routeKey === "ep") pill.textContent = "EP (Off-Campus)";
+        else if (routeKey === "ftmk_regular") pill.textContent = lang === "en" ? "KI ⇄ KT (Regular)" : "KI ⇄ KT (Biasa)";
+        else if (routeKey === "satria_regular") pill.textContent = lang === "en" ? "Satria ⇄ KI (Regular)" : "Satria ⇄ KI (Biasa)";
+        else if (routeKey === "lestari_regular") pill.textContent = lang === "en" ? "Lestari ⇄ KI (Regular)" : "Lestari ⇄ KI (Biasa)";
     });
 
     const busThs = document.querySelectorAll("#bus-tab .gpa-table th");
     if (busThs.length >= 3) {
-        busThs[0].textContent = t.th_departure || "Departure / Departure Slot";
-        busThs[1].textContent = t.th_day_type || "Operating Days";
+        busThs[0].textContent = t.th_departure || "Departure";
+        busThs[1].textContent = t.th_day_type || "Days";
         busThs[2].textContent = t.th_status || "Status";
     }
 
@@ -787,16 +937,6 @@ function setLanguage(lang) {
     const labelLibRef = document.getElementById("labelLibRef");
     if (labelLibRef) labelLibRef.textContent = t.label_lib_ref;
 
-    // 11. Marketplace
-    const badgeMarketplace = document.getElementById("badgeMarketplace");
-    if (badgeMarketplace) badgeMarketplace.textContent = t.badge_marketplace;
-
-    const titleMarketplace = document.getElementById("titleMarketplace");
-    if (titleMarketplace) titleMarketplace.textContent = t.title_marketplace;
-
-    const descMarketplace = document.getElementById("descMarketplace");
-    if (descMarketplace) descMarketplace.textContent = t.desc_marketplace;
-
     // 12. Scholarship Tracker
     const titleScholarships = document.querySelector("#scholarships-tab .card-title");
     if (titleScholarships) updateNodeText(titleScholarships, t.title_scholarships);
@@ -814,7 +954,7 @@ function setLanguage(lang) {
         updateNodeText(btnContactAdminRemoval, t.btn_contact_admin_removal);
     }
 
-    // 13. Footer
+    // 14. Footer
     const footerDiv = document.querySelector("footer div");
     if (footerDiv) {
         footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;
@@ -831,13 +971,19 @@ function setLanguage(lang) {
         footerLinks[2].textContent = t.footer_privacy;
     }
 
-    // Trigger dependent dynamic updates
-    updateBusScheduleDisplay();
-    if (typeof updateM10ANextDeparture === 'function') updateM10ANextDeparture();
-    const activeCalBtn = document.querySelector(".cal-filter-btn.active");
-    const category = activeCalBtn ? activeCalBtn.getAttribute("data-category") : 'all';
-    const calSearch = document.getElementById("calendarSearch");
-    renderCalendarEvents(category, calSearch ? calSearch.value : '');
+    // Trigger dependent dynamic updates safely
+    try {
+        if (typeof updateBusScheduleDisplay === 'function') updateBusScheduleDisplay();
+        if (typeof updateM10ANextDeparture === 'function') updateM10ANextDeparture();
+        if (typeof renderCalendarEvents === 'function') {
+            const activeCalBtn = document.querySelector(".cal-filter-btn.active");
+            const category = activeCalBtn ? activeCalBtn.getAttribute("data-category") : 'all';
+            const calSearch = document.getElementById("calendarSearch");
+            renderCalendarEvents(category, calSearch ? calSearch.value : '');
+        }
+    } catch (e) {
+        console.warn("Dynamic component translation warning:", e);
+    }
 }
 
 function toggleLanguage() {

@@ -7,94 +7,102 @@ const calendarTimeline = document.getElementById("calendarTimeline");
 const academicEvents = [
     // --- SEMESTER 1 (2026/2027) ---
     { 
-        startDate: "2026-10-12", 
-        endDate: "2026-11-27", 
+        startDate: "2026-09-28", 
+        endDate: "2026-11-06", 
         title: "Semester 1 — Lecture Phase 1", 
         category: "academic",
-        duration: "7 Weeks",
-        desc: "Main undergraduate lecture & lab sessions"
+        duration: "6 Weeks",
+        desc: "Main undergraduate lecture & lab sessions (Part 1)"
     },
     { 
-        startDate: "2026-11-28", 
-        endDate: "2026-12-06", 
+        startDate: "2026-11-07", 
+        endDate: "2026-11-15", 
         title: "Mid-Semester 1 Break", 
         category: "break",
         duration: "9 Days",
         desc: "Mid-term recess for students"
     },
     { 
-        startDate: "2026-12-07", 
-        endDate: "2027-01-15", 
+        startDate: "2026-11-16", 
+        endDate: "2027-01-08", 
         title: "Semester 1 — Lecture Phase 2", 
         category: "academic",
-        duration: "6 Weeks",
+        duration: "8 Weeks",
         desc: "Final teaching weeks & project submission"
     },
     { 
-        startDate: "2027-01-16", 
-        endDate: "2027-01-24", 
+        startDate: "2027-01-09", 
+        endDate: "2027-01-17", 
         title: "Study & Revision Week", 
         category: "break",
         duration: "9 Days",
-        desc: "Preparation period for final exams"
+        desc: "Preparation period for final examinations"
     },
     { 
-        startDate: "2027-01-25", 
-        endDate: "2027-02-07", 
+        startDate: "2027-01-18", 
+        endDate: "2027-01-31", 
         title: "Semester 1 Final Examinations", 
         category: "exam",
         duration: "2 Weeks",
         desc: "End-of-semester examination period"
     },
     { 
-        startDate: "2027-02-08", 
-        endDate: "2027-03-15", 
+        startDate: "2027-02-01", 
+        endDate: "2027-03-21", 
         title: "Semester Break (Inter-Semester Holiday)", 
         category: "break",
-        duration: "5 Weeks",
-        desc: "End of Semester 1 vacation"
+        duration: "7 Weeks",
+        desc: "End of Semester 1 vacation & inter-semester break"
     },
 
     // --- SEMESTER 2 (2026/2027) ---
     { 
-        startDate: "2027-03-16", 
-        endDate: "2027-05-09", 
+        startDate: "2027-03-22", 
+        endDate: "2027-05-07", 
         title: "Semester 2 — Lecture Phase 1", 
         category: "academic",
-        duration: "8 Weeks",
-        desc: "Semester 2 undergraduate lecture sessions"
+        duration: "7 Weeks",
+        desc: "Semester 2 undergraduate lecture sessions (Part 1)"
     },
     { 
-        startDate: "2027-05-10", 
-        endDate: "2027-05-18", 
+        startDate: "2027-05-08", 
+        endDate: "2027-05-16", 
         title: "Mid-Semester 2 Break", 
         category: "break",
         duration: "9 Days",
         desc: "Mid-term recess"
     },
     { 
-        startDate: "2027-05-19", 
-        endDate: "2027-07-04", 
+        startDate: "2027-05-17", 
+        endDate: "2027-07-02", 
         title: "Semester 2 — Lecture Phase 2", 
         category: "academic",
         duration: "7 Weeks",
         desc: "Lecture phase continuation & final assignments"
     },
     { 
-        startDate: "2027-07-05", 
-        endDate: "2027-07-12", 
+        startDate: "2027-07-03", 
+        endDate: "2027-07-11", 
         title: "Study & Revision Week", 
         category: "break",
-        duration: "8 Days",
+        duration: "9 Days",
         desc: "Revision week before finals"
     },
     { 
-        startDate: "2027-07-13", 
+        startDate: "2027-07-12", 
         endDate: "2027-07-25", 
         title: "Semester 2 Final Examinations", 
         category: "exam",
         duration: "2 Weeks",
-        desc: "Semester 2 final exams"
+        desc: "Semester 2 final examinations"
+    },
+    { 
+        startDate: "2027-07-26", 
+        endDate: "2027-09-26", 
+        title: "Long Vacation / Inter-Session Break", 
+        category: "break",
+        duration: "9 Weeks",
+        desc: "End of Session 2026/2027 long vacation"
     },
 
     // --- PUBLIC HOLIDAYS & SPECIAL DATES ---
@@ -104,10 +112,10 @@ const academicEvents = [
     { startDate: "2026-11-08", endDate: "2026-11-08", title: "Deepavali Festival Holiday", category: "holiday", duration: "1 Day" },
     { startDate: "2026-12-25", endDate: "2026-12-25", title: "Christmas Day Holiday", category: "holiday", duration: "1 Day" },
     { startDate: "2027-01-01", endDate: "2027-01-01", title: "New Year's Day 2027", category: "holiday", duration: "1 Day" },
-    { startDate: "2027-02-17", endDate: "2027-02-18", title: "Chinese New Year (CNY Holiday)", category: "holiday", duration: "2 Days" },
-    { startDate: "2027-03-20", endDate: "2027-03-21", title: "Hari Raya Aidilfitri Holiday", category: "holiday", duration: "2 Days" },
+    { startDate: "2027-02-06", endDate: "2027-02-07", title: "Chinese New Year (CNY Holiday)", category: "holiday", duration: "2 Days" },
+    { startDate: "2027-03-09", endDate: "2027-03-10", title: "Hari Raya Aidilfitri Holiday", category: "holiday", duration: "2 Days" },
     { startDate: "2027-05-01", endDate: "2027-05-01", title: "Labour Day Holiday", category: "holiday", duration: "1 Day" },
-    { startDate: "2027-05-21", endDate: "2027-05-21", title: "Wesak Day Holiday", category: "holiday", duration: "1 Day" }
+    { startDate: "2027-05-20", endDate: "2027-05-20", title: "Wesak Day Holiday", category: "holiday", duration: "1 Day" }
 ];
 
 const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
