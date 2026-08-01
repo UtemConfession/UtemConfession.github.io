@@ -176,6 +176,20 @@ const translations = {
         notice_archive_takedown: "Content Removal Request: If a confession post involves you and you wish to have it removed from the archive, please contact the admin team via email or Telegram.",
         btn_contact_admin_removal: "Contact Admin ➔",
 
+        nav_support: "Support Us",
+        title_support: "Support UTeM Confessions Pro Max",
+        desc_support: "Help keep our student portal, GPA calculator, bus schedules, and exam archives 100% free and accessible for all UTeM undergraduates.",
+        label_free_support: "Option 1: Free Partner Support",
+        title_partner_deals: "Explore Partner Offers & Student Deals 🎁",
+        desc_partner_deals: "Visiting our sponsored partner offers helps fund site hosting, domain registration, and server maintenance at zero financial cost to you!",
+        btn_partner_deals: "Explore Partner Offers & Student Deals ➔",
+        label_coffee_support: "Option 2: Voluntary Admin Tip",
+        title_coffee: "Buy the Admin Team a Coffee ☕",
+        desc_coffee: "If our GPA tool, bus routes, or exam prep guides helped you pass your semester, feel free to send our student volunteer team a small tip!",
+        btn_contact_admin_tip: "Contact Admin / DuitNow Tip ➔",
+        label_transparency_title: "Our Transparency Promise:",
+        desc_transparency: "UTeM Confessions Pro Max remains 100% free for all students. We use non-intrusive ads and partner offers solely to cover platform hosting fees. Thank you for supporting the UTeM student community!",
+
         theme_label_dark: "Dark Theme",
         theme_label_light: "Light Theme",
 
@@ -409,6 +423,20 @@ const translations = {
         notice_archive_takedown: "Permohonan Pemadaman Kandungan: Jika terdapat hantaran pengakuan yang melibatkan anda dan anda mahu ia dipadam daripada arkib, sila hubungi pasukan admin melalui e-mel atau Telegram.",
         btn_contact_admin_removal: "Hubungi Admin ➔",
 
+        nav_support: "Sokong Kami",
+        title_support: "Sokong UTeM Confessions Pro Max",
+        desc_support: "Bantu kekalkan portal pelajar, kalkulator GPA, jadual bas, dan arkib peperiksaan kami 100% percuma dan boleh diakses oleh semua pelajar UTeM.",
+        label_free_support: "Pilihan 1: Sokongan Percuma Rakan Kongsi",
+        title_partner_deals: "Terokai Tawaran Rakan Kongsi & Hadiah Pelajar 🎁",
+        desc_partner_deals: "Melawati tawaran rakan kongsi tajaan membantu membiayai kos pelayan, pendaftaran domain, dan penyelenggaraan platform tanpa sebarang bayaran daripada anda!",
+        btn_partner_deals: "Terokai Tawaran Rakan Kongsi & Hadiah Pelajar ➔",
+        label_coffee_support: "Pilihan 2: Sumbangan Ikhlas Pasukan Admin",
+        title_coffee: "Belanja Pasukan Admin Kopi ☕",
+        desc_coffee: "Jika alat GPA, laluan bas, atau panduan peperiksaan kami membantu anda lulus semester ini, sila hantar sumbangan ikhlas kepada pasukan sukarelawan pelajar kami!",
+        btn_contact_admin_tip: "Hubungi Admin / Sumbangan DuitNow ➔",
+        label_transparency_title: "Janji Ketelusan Kami:",
+        desc_transparency: "UTeM Confessions Pro Max kekal 100% percuma untuk semua pelajar. Kami menggunakan iklan dan tawaran rakan kongsi tanpa gangguan semata-mata untuk menampung kos pelayan. Terima kasih kerana menyokong komuniti pelajar UTeM!",
+
         theme_label_dark: "Tema Gelap",
         theme_label_light: "Tema Terang",
 
@@ -488,7 +516,8 @@ function setLanguage(lang) {
         "library-tab": { desktop: t.nav_library, mobile: t.mobile_nav_library },
         "health-tab": { desktop: t.nav_health, mobile: t.mobile_nav_health },
         "marketplace-tab": { desktop: t.nav_marketplace, mobile: t.mobile_nav_marketplace },
-        "scholarships-tab": { desktop: t.nav_scholarships, mobile: t.mobile_nav_scholarships }
+        "scholarships-tab": { desktop: t.nav_scholarships, mobile: t.mobile_nav_scholarships },
+        "support-tab": { desktop: t.nav_support, mobile: t.nav_support }
     };
 
     // 1. Sidebar nav items
@@ -966,7 +995,53 @@ function setLanguage(lang) {
         updateNodeText(btnContactAdminRemoval, t.btn_contact_admin_removal);
     }
 
-    // 14. Footer
+    // 14. Support Us Tab
+    const navSupport = document.getElementById("navSupport");
+    if (navSupport) navSupport.textContent = t.nav_support;
+
+    const titleSupport = document.getElementById("titleSupport");
+    if (titleSupport) updateNodeText(titleSupport, t.title_support);
+
+    const descSupport = document.getElementById("descSupport");
+    if (descSupport) descSupport.textContent = t.desc_support;
+
+    const labelFreeSupport = document.getElementById("labelFreeSupport");
+    if (labelFreeSupport) labelFreeSupport.textContent = t.label_free_support;
+
+    const titlePartnerDeals = document.getElementById("titlePartnerDeals");
+    if (titlePartnerDeals) titlePartnerDeals.textContent = t.title_partner_deals;
+
+    const descPartnerDeals = document.getElementById("descPartnerDeals");
+    if (descPartnerDeals) descPartnerDeals.textContent = t.desc_partner_deals;
+
+    const btnPartnerDeals1 = document.getElementById("btnPartnerDeals1");
+    if (btnPartnerDeals1) btnPartnerDeals1.textContent = currentLang === "ms" ? "Terokai Tawaran Rakan Kongsi & Hadiah Pelajar 🎁 ➔" : "Explore Partner Offers & Student Deals 🎁 ➔";
+
+    const btnPartnerDeals2 = document.getElementById("btnPartnerDeals2");
+    if (btnPartnerDeals2) btnPartnerDeals2.textContent = currentLang === "ms" ? "Melawat Laman Rakan Kongsi untuk Sokong UTeM Confessions ❤️ ➔" : "Visit Partner Site to Support UTeM Confessions ❤️ ➔";
+
+    const btnPartnerDeals3 = document.getElementById("btnPartnerDeals3");
+    if (btnPartnerDeals3) btnPartnerDeals3.textContent = currentLang === "ms" ? "Terokai Tawaran Tajaan Luar 🌐 ➔" : "Explore External Sponsored Offers 🌐 ➔";
+
+    const labelCoffeeSupport = document.getElementById("labelCoffeeSupport");
+    if (labelCoffeeSupport) labelCoffeeSupport.textContent = t.label_coffee_support;
+
+    const titleCoffee = document.getElementById("titleCoffee");
+    if (titleCoffee) titleCoffee.textContent = t.title_coffee;
+
+    const descCoffee = document.getElementById("descCoffee");
+    if (descCoffee) descCoffee.textContent = t.desc_coffee;
+
+    const btnContactAdminTip = document.getElementById("btnContactAdminTip");
+    if (btnContactAdminTip) btnContactAdminTip.textContent = t.btn_contact_admin_tip;
+
+    const labelTransparencyTitle = document.getElementById("labelTransparencyTitle");
+    if (labelTransparencyTitle) labelTransparencyTitle.textContent = t.label_transparency_title;
+
+    const descTransparency = document.getElementById("descTransparency");
+    if (descTransparency) descTransparency.textContent = t.desc_transparency;
+
+    // 15. Footer
     const footerDiv = document.querySelector("footer div");
     if (footerDiv) {
         footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;

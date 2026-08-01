@@ -2535,6 +2535,275 @@ footer {
     }
 }
 
+/* Confessions Archive Category Filter Pills */
+.archive-cat-pills {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    flex-wrap: wrap !important;
+    margin-bottom: 20px !important;
+}
+
+.archive-pill {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid var(--border-color) !important;
+    color: var(--text-secondary) !important;
+    padding: 8px 14px !important;
+    border-radius: 20px !important;
+    font-size: 12.5px !important;
+    font-weight: 600 !important;
+    cursor: pointer !important;
+    transition: var(--transition) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+}
+
+.archive-pill:hover {
+    background: rgba(212, 175, 55, 0.12) !important;
+    border-color: rgba(212, 175, 55, 0.35) !important;
+    color: var(--accent-gold) !important;
+}
+
+.archive-pill.active {
+    background: var(--gold-gradient) !important;
+    border-color: var(--accent-gold) !important;
+    color: #000000 !important;
+    font-weight: 800 !important;
+    box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3) !important;
+}
+
+/* ==========================================
+   ACADEMIC CALENDAR TIMELINE & EVENT CARDS
+   ========================================== */
+.calendar-timeline {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+    margin-top: 20px !important;
+}
+
+.calendar-event-card {
+    display: flex !important;
+    align-items: stretch !important;
+    background: rgba(13, 21, 39, 0.85) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 14px !important;
+    padding: 16px 20px !important;
+    gap: 20px !important;
+    transition: var(--transition) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    backdrop-filter: blur(8px) !important;
+}
+
+.calendar-event-card:hover {
+    border-color: rgba(212, 175, 55, 0.4) !important;
+    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.12) !important;
+    transform: translateY(-2px) !important;
+}
+
+.calendar-event-card.cat-academic { border-left: 4px solid #3b82f6 !important; }
+.calendar-event-card.cat-break { border-left: 4px solid #10b981 !important; }
+.calendar-event-card.cat-exam { border-left: 4px solid #ef4444 !important; }
+.calendar-event-card.cat-holiday { border-left: 4px solid #eab308 !important; }
+
+.cal-date-range-box {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-width: 170px !important;
+    flex-shrink: 0 !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.06) !important;
+    border-radius: 10px !important;
+    padding: 10px 14px !important;
+}
+
+.cal-start-date, .cal-end-date {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.cal-day {
+    font-size: 17px !important;
+    font-weight: 800 !important;
+    color: var(--accent-gold) !important;
+    line-height: 1.2 !important;
+}
+
+.cal-month {
+    font-size: 11px !important;
+    color: var(--text-muted) !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+}
+
+.cal-arrow {
+    color: var(--text-muted) !important;
+    font-size: 13px !important;
+}
+
+.cal-event-body {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 6px !important;
+    justify-content: center !important;
+}
+
+.cal-event-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 12px !important;
+}
+
+.cal-event-title {
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin: 0 !important;
+}
+
+.cal-duration-pill {
+    background: rgba(212, 175, 55, 0.12) !important;
+    color: var(--accent-gold) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    padding: 3px 10px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    white-space: nowrap !important;
+}
+
+.cal-event-desc {
+    font-size: 12.5px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
+}
+
+.calendar-event-category {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    margin-top: 4px !important;
+    display: inline-block !important;
+}
+.calendar-event-category.cat-academic { color: #60a5fa !important; }
+.calendar-event-category.cat-break { color: #34d399 !important; }
+.calendar-event-category.cat-exam { color: #f87171 !important; }
+.calendar-event-category.cat-holiday { color: #fbbf24 !important; }
+
+/* ==========================================
+   STUDENT GUIDES HUB & ARTICLE CARDS SYSTEM
+   ========================================== */
+.guides-hero {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(13, 21, 39, 0.95) 100%) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    border-radius: 18px !important;
+    padding: 28px !important;
+    margin-bottom: 28px !important;
+    backdrop-filter: blur(12px) !important;
+}
+
+.guides-hero-title {
+    font-size: 24px !important;
+    font-weight: 800 !important;
+    color: var(--accent-gold) !important;
+    margin: 0 0 10px 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+}
+
+.guides-hero-desc {
+    font-size: 14px !important;
+    color: var(--text-secondary) !important;
+    line-height: 1.6 !important;
+    margin: 0 !important;
+}
+
+.guide-card-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 20px !important;
+    margin-bottom: 28px !important;
+}
+
+.guide-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: 16px !important;
+    padding: 22px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    text-decoration: none !important;
+    transition: var(--transition) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.guide-card:hover {
+    border-color: rgba(212, 175, 55, 0.45) !important;
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.18) !important;
+    transform: translateY(-3px) !important;
+}
+
+.guide-card-header {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+}
+
+.guide-tag {
+    align-self: flex-start !important;
+    background: rgba(212, 175, 55, 0.12) !important;
+    color: var(--accent-gold) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    padding: 3px 10px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}
+
+.guide-card-title {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    margin: 0 !important;
+    line-height: 1.35 !important;
+}
+
+.guide-card-snippet {
+    font-size: 13px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+    line-height: 1.5 !important;
+}
+
+.guide-card-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding-top: 14px !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.06) !important;
+    font-size: 12.5px !important;
+    color: var(--text-muted) !important;
+}
+
+.guide-card-readmore {
+    font-weight: 700 !important;
+    color: var(--accent-gold) !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 4px !important;
+}
+
 /* ==========================================
    STANDARDIZED GLOBAL FOOTER SYSTEM
    ========================================== */
