@@ -284,10 +284,10 @@ h1, h2, h3, h4 {
     flex: 1;
     margin-left: 280px;
     padding: 40px;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
     transition: var(--transition);
 }
 
@@ -2152,107 +2152,129 @@ footer {
 
 /* Minimalist Telegram Channel Widget */
 .telegram-widget-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background: linear-gradient(135deg, rgba(42, 171, 238, 0.08) 0%, rgba(13, 21, 39, 0.95) 100%);
-    border: 1px solid rgba(42, 171, 238, 0.25);
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    backdrop-filter: blur(12px);
-    transition: var(--transition);
-    gap: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: linear-gradient(135deg, rgba(42, 171, 238, 0.12) 0%, rgba(13, 21, 39, 0.95) 100%) !important;
+    border: 1px solid rgba(42, 171, 238, 0.3) !important;
+    border-radius: 16px !important;
+    padding: 16px 20px !important;
+    margin-bottom: 20px !important;
+    backdrop-filter: blur(12px) !important;
+    transition: var(--transition) !important;
+    gap: 16px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .telegram-widget-card:hover {
-    border-color: rgba(42, 171, 238, 0.5);
-    box-shadow: 0 8px 30px rgba(42, 171, 238, 0.2);
-    transform: translateY(-2px);
+    border-color: rgba(42, 171, 238, 0.5) !important;
+    box-shadow: 0 8px 30px rgba(42, 171, 238, 0.2) !important;
+    transform: translateY(-2px) !important;
 }
 
 .telegram-widget-left {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
 }
 
 .telegram-icon-circle {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    box-shadow: 0 4px 12px rgba(42, 171, 238, 0.35);
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%) !important;
+    color: #ffffff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+    box-shadow: 0 4px 12px rgba(42, 171, 238, 0.35) !important;
 }
 
 .telegram-widget-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
 }
 
 .telegram-widget-title {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 15px;
-    font-weight: 700;
-    color: var(--text-primary);
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
 }
 
 .telegram-badge {
-    background: rgba(42, 171, 238, 0.18);
-    color: #2AABEE;
-    border: 1px solid rgba(42, 171, 238, 0.3);
-    padding: 2px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 700;
+    background: rgba(42, 171, 238, 0.18) !important;
+    color: #2AABEE !important;
+    border: 1px solid rgba(42, 171, 238, 0.3) !important;
+    padding: 2px 8px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
 }
 
 .telegram-widget-desc {
-    font-size: 12.5px;
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.4;
+    font-size: 12.5px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+    line-height: 1.4 !important;
 }
 
 .telegram-join-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%);
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%) !important;
     color: #ffffff !important;
-    font-size: 13px;
-    font-weight: 700;
-    padding: 10px 18px;
-    border-radius: 25px;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    padding: 10px 18px !important;
+    border-radius: 25px !important;
     text-decoration: none !important;
-    white-space: nowrap;
-    box-shadow: 0 4px 14px rgba(42, 171, 238, 0.35);
-    transition: var(--transition);
+    white-space: nowrap !important;
+    box-shadow: 0 4px 14px rgba(42, 171, 238, 0.35) !important;
+    transition: var(--transition) !important;
 }
 
 .telegram-join-btn:hover {
-    background: linear-gradient(135deg, #34b3f5 0%, #25a7e6 100%);
-    box-shadow: 0 6px 20px rgba(42, 171, 238, 0.5);
-    transform: scale(1.03);
+    background: linear-gradient(135deg, #34b3f5 0%, #25a7e6 100%) !important;
+    box-shadow: 0 6px 20px rgba(42, 171, 238, 0.5) !important;
+    transform: scale(1.03) !important;
 }
 
 @media (max-width: 600px) {
     .telegram-widget-card {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        padding: 12px 14px !important;
+    }
+    .telegram-widget-left {
+        gap: 10px !important;
+    }
+    .telegram-icon-circle {
+        width: 36px !important;
+        height: 36px !important;
+    }
+    .telegram-icon-circle svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+    .telegram-widget-title {
+        font-size: 13.5px !important;
+    }
+    .telegram-widget-desc {
+        font-size: 11px !important;
     }
     .telegram-join-btn {
-        width: 100%;
-        justify-content: center;
+        width: auto !important;
+        padding: 8px 14px !important;
+        font-size: 12px !important;
     }
 }
 
