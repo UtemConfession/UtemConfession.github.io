@@ -13,6 +13,8 @@ const translations = {
         nav_health: "Health Center (PKU)",
         nav_marketplace: "Marketplace & Services",
         nav_scholarships: "Scholarship",
+        nav_guides: "Student Guides Hub",
+        mobile_nav_guides: "Student Guides",
 
         mobile_nav_gpa: "GPA Calc",
         mobile_nav_archive: "Archive",
@@ -156,7 +158,9 @@ const translations = {
         label_lib_address: "",
         label_lib_ref: "Visit official UTeM library site for catalog searches:",
 
-        footer_text: "Unofficial Student Confessions platform.",
+        footer_text: "Unofficial Student Resource & Confessions Platform.",
+        footer_home: "Home",
+        footer_guides: "Student Guides",
         footer_about: "About Us",
         footer_rules: "Confession Rules",
         footer_privacy: "Privacy Policy",
@@ -242,8 +246,10 @@ const translations = {
         nav_health: "Pusat Kesihatan (PKU)",
         nav_marketplace: "Pasar & Perkhidmatan",
         nav_scholarships: "Biasiswa",
+        nav_guides: "Hub Panduan Pelajar",
+        mobile_nav_guides: "Panduan Pelajar",
 
-        mobile_nav_gpa: "GPA Calc",
+        mobile_nav_gpa: "Kalkulator GPA",
         mobile_nav_archive: "Arkib",
         mobile_nav_links: "Wi-Fi & Pautan",
         mobile_nav_buses: "Bas",
@@ -385,7 +391,9 @@ const translations = {
         label_lib_address: "",
         label_lib_ref: "Layari portal perpustakaan rasmi UTeM untuk carian katalog:",
 
-        footer_text: "Platform Pengakuan Pelajar Tidak Rasmi.",
+        footer_text: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi.",
+        footer_home: "Laman Utama",
+        footer_guides: "Panduan Pelajar",
         footer_about: "Tentang Kami",
         footer_rules: "Peraturan Pengakuan",
         footer_privacy: "Dasar Privasi",
@@ -488,6 +496,8 @@ function setLanguage(lang) {
         const tab = item.getAttribute("data-tab");
         if (tab && tabNavMap[tab]) {
             updateNodeText(item, tabNavMap[tab].desktop);
+        } else if (item.getAttribute("href") === "guides.html") {
+            updateNodeText(item, t.nav_guides);
         }
     });
 
@@ -497,6 +507,8 @@ function setLanguage(lang) {
         const span = btn.querySelector("span");
         if (tab && span && tabNavMap[tab]) {
             span.textContent = tabNavMap[tab].mobile;
+        } else if (btn.getAttribute("href") === "guides.html" && span) {
+            span.textContent = t.mobile_nav_guides;
         }
     });
 
@@ -959,17 +971,20 @@ function setLanguage(lang) {
     if (footerDiv) {
         footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;
     }
-    const footerLinks = document.querySelectorAll(".footer-links a");
-    if (footerLinks.length >= 4) {
-        footerLinks[0].textContent = t.footer_about;
-        footerLinks[1].textContent = t.footer_rules;
-        footerLinks[2].textContent = t.footer_privacy;
-        footerLinks[3].textContent = t.footer_terms;
-    } else if (footerLinks.length >= 3) {
-        footerLinks[0].textContent = t.footer_about;
-        footerLinks[1].textContent = t.footer_rules;
-        footerLinks[2].textContent = t.footer_privacy;
-    }
+    const footerLinksMap = {
+        "index.html": t.footer_home || "Home",
+        "guides.html": t.footer_guides || "Student Guides",
+        "about.html": t.footer_about || "About Us",
+        "rules.html": t.footer_rules || "Confession Rules",
+        "privacy.html": t.footer_privacy || "Privacy Policy",
+        "terms.html": t.footer_terms || "Terms of Service"
+    };
+    document.querySelectorAll(".footer-links a").forEach(link => {
+        const href = link.getAttribute("href");
+        if (href && footerLinksMap[href]) {
+            link.textContent = footerLinksMap[href];
+        }
+    });
 
     // Trigger dependent dynamic updates safely
     try {

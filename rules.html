@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Monetag Ad Network Site Verification -->
+    <meta name="monetag" content="afb84bf6a8c64a6877603c52176e7948">
+
     <title>Confession Rules | UTeM Confessions</title>
     <link rel="stylesheet" href="style.css">
     <style>
@@ -137,6 +140,8 @@
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Confessions platform.
                 </div>
                 <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="guides.html">Student Guides</a>
                     <a href="about.html">About Us</a>
                     <a href="rules.html">Confession Rules</a>
                     <a href="privacy.html">Privacy Policy</a>
@@ -292,17 +297,20 @@
             if (footerDiv) {
                 footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;
             }
-            const footerLinks = document.querySelectorAll(".footer-links a");
-            if (footerLinks.length >= 4) {
-                footerLinks[0].textContent = t.footer_about;
-                footerLinks[1].textContent = t.footer_rules;
-                footerLinks[2].textContent = t.footer_privacy;
-                footerLinks[3].textContent = t.footer_terms;
-            } else if (footerLinks.length >= 3) {
-                footerLinks[0].textContent = t.footer_about;
-                footerLinks[1].textContent = t.footer_rules;
-                footerLinks[2].textContent = t.footer_privacy;
-            }
+            const footerLinksMap = {
+                "index.html": t.footer_home || "Home",
+                "guides.html": t.footer_guides || "Student Guides",
+                "about.html": t.footer_about || "About Us",
+                "rules.html": t.footer_rules || "Confession Rules",
+                "privacy.html": t.footer_privacy || "Privacy Policy",
+                "terms.html": t.footer_terms || "Terms of Service"
+            };
+            document.querySelectorAll(".footer-links a").forEach(link => {
+                const href = link.getAttribute("href");
+                if (href && footerLinksMap[href]) {
+                    link.textContent = footerLinksMap[href];
+                }
+            });
 
             // Mobile Nav
             const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
