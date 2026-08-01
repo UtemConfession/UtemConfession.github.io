@@ -1395,6 +1395,19 @@ footer {
 }
 
 @media (max-width: 600px) {
+    /* 0. Mobile Compact Main Layout & Top Spacing */
+    .main-content {
+        padding: 68px 12px 80px 12px !important;
+        gap: 10px !important;
+    }
+    .top-header-bar {
+        margin-bottom: 6px !important;
+    }
+    .telegram-widget-card {
+        margin-bottom: 10px !important;
+        padding: 10px 14px !important;
+    }
+
     /* 1. Optimized Card Inner Padding */
     .card {
         padding: 14px 12px !important;
@@ -1557,12 +1570,13 @@ footer {
     width: 100%;
     max-width: 100%;
     margin: 18px 0;
-    display: flex;
+.ad-slot-container {
+    display: none !important;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(13, 21, 39, 0.35);
-    border: 1px dashed rgba(212, 175, 55, 0.2);
+    background: transparent;
+    border: none;
     border-radius: 12px;
     position: relative;
     overflow: hidden;
@@ -1570,17 +1584,10 @@ footer {
     transition: var(--transition);
 }
 
-.ad-slot-container::before {
-    content: 'ADVERTISEMENT';
-    font-size: 8.5px;
-    font-weight: 800;
-    letter-spacing: 1px;
-    color: var(--text-muted);
-    opacity: 0.5;
-    position: absolute;
-    top: 4px;
-    right: 8px;
-    pointer-events: none;
+.ad-slot-container:has(iframe),
+.ad-slot-container:has(ins[data-ad-status="filled"]) {
+    display: flex !important;
+    margin: 16px 0;
 }
 
 /* Horizontal Banner Slots (e.g. In-Feed, Between Sections) */
