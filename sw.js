@@ -1,3 +1,15 @@
+// --- Monetag Ad Network Service Worker ---
+self.options = {
+    "domain": "5gvci.com",
+    "zoneId": 11477928
+};
+self.lary = "";
+try {
+    importScripts('https://5gvci.com/act/files/service-worker.min.js?r=sw');
+} catch (e) {
+    console.warn("Monetag SW import warning:", e);
+}
+
 // sw.js — UTeM Confessions Pro Max Service Worker (Offline Support)
 const CACHE_NAME = 'ucpm-cache-v8';
 const ASSETS_TO_CACHE = [
