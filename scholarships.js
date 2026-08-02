@@ -1,12 +1,13 @@
 // scholarships.js — Scholarship & Financial Aid Tracker filtering & search logic
 
-const scholarshipSearch = document.getElementById("scholarshipSearch");
-const scholarshipFilterBtns = document.querySelectorAll(".sch-filter-btn");
-const scholarshipCards = document.querySelectorAll(".scholarship-card");
-const noScholarshipFoundMsg = document.getElementById("noScholarshipFoundMsg");
-
 function filterScholarships() {
+    const scholarshipSearch = document.getElementById("scholarshipSearch");
+    const scholarshipCards = document.querySelectorAll(".scholarship-card");
+    const noScholarshipFoundMsg = document.getElementById("noScholarshipFoundMsg");
     const activeBtn = document.querySelector(".sch-filter-btn.active");
+
+    if (!scholarshipCards || scholarshipCards.length === 0) return;
+
     const selectedCategory = activeBtn ? activeBtn.getAttribute("data-category") : "all";
     const searchQuery = scholarshipSearch ? scholarshipSearch.value.toLowerCase().trim() : "";
 
@@ -32,14 +33,25 @@ function filterScholarships() {
     }
 }
 
-scholarshipFilterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-        scholarshipFilterBtns.forEach(b => b.classList.remove("active"));
-        btn.classList.add("active");
-        filterScholarships();
-    });
-});
+function initScholarships() {
+    const scholarshipSearch = document.getElementById("scholarshipSearch");
+    const scholarshipFilterBtns = document.querySelectorAll(".sch-filter-btn");
 
-if (scholarshipSearch) {
-    scholarshipSearch.addEventListener("input", filterScholarships);
+    scholarshipFilterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            scholarshipFilterBtns.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            filterScholarships();
+        });
+    });
+
+    if (scholarshipSearch) {
+        scholarshipSearch.addEventListener("input", filterScholarships);
+    }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initScholarships);
+} else {
+    initScholarships();
 }

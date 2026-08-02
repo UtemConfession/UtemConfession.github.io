@@ -163,30 +163,26 @@ function renderCalendarEvents(filterCategory = 'all', searchQuery = '') {
 
         const item = document.createElement("div");
         item.className = `calendar-event-card cat-${ev.category}`;
-        item.style.cssText = `display: flex; align-items: stretch; background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); border-left: 4px solid ${categoryColor}; border-radius: 14px; padding: 16px 20px; gap: 20px; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15); backdrop-filter: blur(8px); margin-bottom: 14px;`;
         
         item.innerHTML = `
-            <div class="cal-date-range-box" style="display: flex; align-items: center; gap: 12px; min-width: 170px; flex-shrink: 0; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 10px; padding: 10px 14px;">
-                <div class="cal-start-date" style="display: flex; flex-direction: column;">
-                    <span class="cal-day" style="font-size: 17px; font-weight: 800; color: var(--accent-gold); line-height: 1.2;">${start.day}</span>
-                    <span class="cal-month" style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">${start.month} ${start.year}</span>
-                </div>
-                ${isRange ? `
-                    <div class="cal-arrow" style="color: var(--text-muted); font-size: 13px;">➔</div>
-                    <div class="cal-end-date" style="display: flex; flex-direction: column;">
-                        <span class="cal-day" style="font-size: 17px; font-weight: 800; color: var(--accent-gold); line-height: 1.2;">${end.day}</span>
-                        <span class="cal-month" style="font-size: 11px; color: var(--text-muted); font-weight: 600; text-transform: uppercase;">${end.month} ${end.year}</span>
+            <div class="cal-card-content">
+                <div class="cal-card-top-row">
+                    <div class="cal-date-badge">
+                        ${isRange ? `
+                            <span class="cal-date-text"><strong>${start.day} ${start.month}</strong> <span class="cal-arrow">➔</span> <strong>${end.day} ${end.month}</strong></span>
+                            <span class="cal-year">${start.year}</span>
+                        ` : `
+                            <span class="cal-date-text"><strong>${start.day} ${start.month}</strong></span>
+                            <span class="cal-year">${start.year}</span>
+                        `}
                     </div>
-                ` : ''}
-            </div>
-            
-            <div class="cal-event-body" style="flex: 1; display: flex; flex-direction: column; gap: 6px; justify-content: center;">
-                <div class="cal-event-header" style="display: flex; align-items: center; justify-content: space-between; gap: 12px;">
-                    <h4 class="cal-event-title" style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">${ev.title}</h4>
-                    <span class="cal-duration-pill" style="background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; white-space: nowrap;">⏳ ${ev.duration}</span>
+                    <div class="cal-badges-right">
+                        <span class="calendar-event-category cat-${ev.category}">${categoryLabels[ev.category] || ev.category}</span>
+                        <span class="cal-duration-pill">⏳ ${ev.duration}</span>
+                    </div>
                 </div>
-                ${ev.desc ? `<p class="cal-event-desc" style="font-size: 12.5px; color: var(--text-secondary); margin: 0; line-height: 1.4;">${ev.desc}</p>` : ''}
-                <span class="calendar-event-category cat-${ev.category}" style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 4px; display: inline-block; color: ${categoryColor};">${categoryLabels[ev.category] || ev.category}</span>
+                <h3 class="cal-event-title">${ev.title}</h3>
+                ${ev.desc ? `<p class="cal-event-desc">${ev.desc}</p>` : ''}
             </div>
         `;
         calendarTimeline.appendChild(item);

@@ -74,8 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Bind language toggle buttons
     const desktopToggle = document.getElementById("desktopLangToggle");
     const mobileToggle  = document.getElementById("mobileLangToggle");
+    const drawerToggle  = document.getElementById("drawerLangToggle");
     if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
     if (mobileToggle)  mobileToggle.addEventListener("click", toggleLanguage);
+    if (drawerToggle)  drawerToggle.addEventListener("click", toggleLanguage);
 
     // Seed default GPA rows (with clean empty subject titles)
     if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {

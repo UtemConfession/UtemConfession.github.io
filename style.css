@@ -303,7 +303,8 @@ h1, h2, h3, h4 {
     right: 0;
     width: 100%;
     height: 60px;
-    z-index: 1001;
+    z-index: 999999;
+    isolation: isolate;
     justify-content: space-between;
     align-items: center;
     box-sizing: border-box;
@@ -1100,83 +1101,6 @@ textarea.form-control {
     margin-bottom: 20px;
     flex-wrap: wrap;
 }
-.calendar-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-.calendar-event {
-    display: flex;
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    overflow: hidden;
-    transition: var(--transition);
-}
-.calendar-event:hover {
-    border-color: var(--accent-gold);
-    transform: translateX(4px);
-}
-.calendar-event-date-box {
-    background: var(--gold-gradient);
-    color: #000000;
-    width: 85px;
-    padding: 8px 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-weight: 700;
-    flex-shrink: 0;
-}
-.calendar-event-day {
-    font-size: 20px;
-    line-height: 1;
-}
-.calendar-event-month {
-    font-size: 10.5px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-.calendar-event-info {
-    padding: 8px 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 2px;
-    flex: 1;
-}
-.calendar-event-title {
-    font-size: 14.5px;
-    font-weight: 700;
-}
-.calendar-event-category {
-    align-self: flex-start;
-    padding: 2px 7px;
-    border-radius: 8px;
-    font-size: 9.5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-.cat-academic {
-    background-color: rgba(59, 130, 246, 0.1);
-    color: #3b82f6;
-}
-.cat-exam {
-    background-color: rgba(239, 68, 68, 0.1);
-    color: #ef4444;
-}
-.cat-break {
-    background-color: rgba(16, 185, 129, 0.1);
-    color: #10b981;
-}
-.cat-holiday {
-    background-color: rgba(245, 158, 11, 0.1);
-    color: #f59e0b;
-}
-
 /* Secondary Pages Footer Styles */
 footer {
     text-align: center;
@@ -1210,14 +1134,14 @@ footer {
         right: 0 !important;
         width: 100% !important;
         height: 60px !important;
-        z-index: 1001 !important;
+        z-index: 999999 !important;
+        isolation: isolate !important;
+        background-color: var(--bg-secondary) !important;
     }
 
     .top-header-bar {
-        display: flex !important;
-        justify-content: center !important;
-        width: 100% !important;
-        margin-bottom: 14px !important;
+        display: none !important;
+        margin-bottom: 0 !important;
     }
     .top-header-bar .theme-switch-wrapper {
         display: none !important;
@@ -1299,6 +1223,32 @@ footer {
     }
 }
 
+/* ==========================================
+   BOUNDED AD SLOTS & HYBRID AD CONTAINMENT
+   ========================================== */
+.ad-slot-bounded, .ad-container-slot {
+    width: 100% !important;
+    min-height: 60px !important;
+    max-height: 120px !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    position: relative !important;
+    margin: 12px 0 !important;
+    border-radius: 12px !important;
+    background: rgba(13, 21, 39, 0.4) !important;
+    border: 1px dashed rgba(212, 175, 55, 0.15) !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    box-sizing: border-box !important;
+}
+
+.ad-slot-bounded ins.adsbygoogle,
+.ad-container-slot ins.adsbygoogle {
+    max-height: 120px !important;
+    overflow: hidden !important;
+}
+
 /* Slide-Up "More" Tools Drawer Modal Sheet */
 .mobile-drawer-overlay {
     display: none;
@@ -1309,7 +1259,7 @@ footer {
     bottom: 0;
     background: rgba(0, 0, 0, 0.75);
     backdrop-filter: blur(8px);
-    z-index: 1010;
+    z-index: 1000000;
     align-items: flex-end;
     animation: fadeIn 0.25s ease-out;
 }
@@ -1570,7 +1520,6 @@ footer {
     width: 100%;
     max-width: 100%;
     margin: 18px 0;
-.ad-slot-container {
     display: none !important;
     flex-direction: column;
     align-items: center;
@@ -1894,154 +1843,7 @@ footer {
     background: rgba(212, 175, 55, 0.05) !important;
 }
 
-/* Academic Calendar Date Range Cards */
-.calendar-timeline-container {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    margin-top: 16px;
-}
 
-.calendar-event-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-    padding: 16px 20px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    transition: var(--transition);
-    position: relative;
-    overflow: hidden;
-}
-
-.calendar-event-card:hover {
-    border-color: var(--accent-gold);
-    transform: translateY(-2px);
-    box-shadow: var(--glow-shadow);
-}
-
-.calendar-event-card::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--accent-gold);
-}
-
-.calendar-event-card.cat-academic::before { background: #3b82f6; }
-.calendar-event-card.cat-break::before { background: #f59e0b; }
-.calendar-event-card.cat-exam::before { background: #ef4444; }
-.calendar-event-card.cat-holiday::before { background: #10b981; }
-
-.cal-date-range-box {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(15, 23, 42, 0.6);
-    border: 1px solid var(--border-color);
-    padding: 10px 16px;
-    border-radius: 12px;
-    min-width: 210px;
-    justify-content: center;
-    flex-shrink: 0;
-}
-
-.cal-start-date, .cal-end-date {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.cal-day {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--accent-gold);
-    line-height: 1.1;
-}
-
-.cal-month {
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.cal-arrow {
-    color: var(--accent-gold);
-    font-size: 14px;
-    font-weight: 700;
-    opacity: 0.8;
-}
-
-.cal-event-body {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    flex: 1;
-}
-
-.cal-event-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.cal-event-title {
-    font-size: 16px;
-    font-weight: 700;
-    color: var(--text-primary);
-    margin: 0;
-}
-
-.cal-duration-pill {
-    background: rgba(212, 175, 55, 0.15);
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: var(--accent-gold);
-    padding: 3px 10px;
-    border-radius: 20px;
-    font-size: 11.5px;
-    font-weight: 700;
-}
-
-.cal-event-desc {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin: 0;
-    line-height: 1.4;
-}
-
-.calendar-event-category {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 6px;
-    font-size: 10.5px;
-    font-weight: 700;
-    text-transform: uppercase;
-    width: fit-content;
-}
-
-.calendar-event-category.cat-academic { background: rgba(59, 130, 246, 0.15); color: #60a5fa; }
-.calendar-event-category.cat-break { background: rgba(245, 158, 11, 0.15); color: #fbbf24; }
-.calendar-event-category.cat-exam { background: rgba(239, 68, 68, 0.15); color: #f87171; }
-.calendar-event-category.cat-holiday { background: rgba(16, 185, 129, 0.15); color: #34d399; }
-
-@media (max-width: 640px) {
-    .calendar-event-card {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 12px;
-        padding: 14px 16px;
-    }
-    .cal-date-range-box {
-        width: 100%;
-    }
-}
 
 /* --- CONFESSIONS ARCHIVE (SQUARE RAW CONFESSIONS & CATEGORY PILLS) --- */
 .archive-cat-pills {
@@ -2576,99 +2378,130 @@ footer {
 /* ==========================================
    ACADEMIC CALENDAR TIMELINE & EVENT CARDS
    ========================================== */
+/* ==========================================
+   ACADEMIC CALENDAR TIMELINE & EVENT CARDS
+   ========================================== */
 .calendar-timeline {
     display: flex !important;
     flex-direction: column !important;
-    gap: 16px !important;
+    gap: 14px !important;
     margin-top: 20px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .calendar-event-card {
-    display: flex !important;
-    align-items: stretch !important;
-    background: rgba(13, 21, 39, 0.85) !important;
-    border: 1px solid var(--border-color) !important;
-    border-radius: 14px !important;
-    padding: 16px 20px !important;
-    gap: 20px !important;
+    background: rgba(13, 21, 39, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    padding: 20px 22px !important;
     transition: var(--transition) !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
-    backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25) !important;
+    backdrop-filter: blur(12px) !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    position: relative !important;
+    overflow: hidden !important;
 }
 
 .calendar-event-card:hover {
-    border-color: rgba(212, 175, 55, 0.4) !important;
-    box-shadow: 0 6px 24px rgba(212, 175, 55, 0.12) !important;
+    border-color: rgba(212, 175, 55, 0.45) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
     transform: translateY(-2px) !important;
 }
 
+/* Left Colored Category Accent Line */
 .calendar-event-card.cat-academic { border-left: 4px solid #3b82f6 !important; }
 .calendar-event-card.cat-break { border-left: 4px solid #10b981 !important; }
 .calendar-event-card.cat-exam { border-left: 4px solid #ef4444 !important; }
 .calendar-event-card.cat-holiday { border-left: 4px solid #eab308 !important; }
 
-.cal-date-range-box {
+/* Card Content Container */
+.cal-card-content {
     display: flex !important;
-    align-items: center !important;
+    flex-direction: column !important;
     gap: 12px !important;
-    min-width: 170px !important;
-    flex-shrink: 0 !important;
-    background: rgba(255, 255, 255, 0.03) !important;
-    border: 1px solid rgba(255, 255, 255, 0.06) !important;
-    border-radius: 10px !important;
-    padding: 10px 14px !important;
+    width: 100% !important;
 }
 
-.cal-start-date, .cal-end-date {
-    display: flex !important;
-    flex-direction: column !important;
-}
-
-.cal-day {
-    font-size: 17px !important;
-    font-weight: 800 !important;
-    color: var(--accent-gold) !important;
-    line-height: 1.2 !important;
-}
-
-.cal-month {
-    font-size: 11px !important;
-    color: var(--text-muted) !important;
-    font-weight: 600 !important;
-    text-transform: uppercase !important;
-}
-
-.cal-arrow {
-    color: var(--text-muted) !important;
-    font-size: 13px !important;
-}
-
-.cal-event-body {
-    flex: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 6px !important;
-    justify-content: center !important;
-}
-
-.cal-event-header {
+/* Card Top Row (Date Badge on Left, Category & Duration on Right) */
+.cal-card-top-row {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     gap: 12px !important;
+    flex-wrap: wrap !important;
+    width: 100% !important;
 }
 
-.cal-event-title {
-    font-size: 15px !important;
-    font-weight: 700 !important;
-    color: var(--text-primary) !important;
-    margin: 0 !important;
+/* Uniform Compact Date Badge */
+.cal-date-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%) !important;
+    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    padding: 6px 14px !important;
+    border-radius: 12px !important;
+    box-sizing: border-box !important;
 }
+
+.cal-date-text {
+    font-size: 13.5px !important;
+    color: var(--accent-gold) !important;
+    white-space: nowrap !important;
+    letter-spacing: 0.3px !important;
+}
+
+.cal-date-text strong {
+    color: var(--accent-gold) !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+}
+
+.cal-arrow {
+    color: var(--accent-gold) !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    margin: 0 2px !important;
+}
+
+.cal-year {
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    color: var(--text-muted) !important;
+    border-left: 1px solid rgba(212, 175, 55, 0.25) !important;
+    padding-left: 8px !important;
+    margin-left: 2px !important;
+}
+
+/* Badges Container (Right Side) */
+.cal-badges-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-wrap: wrap !important;
+}
+
+.calendar-event-category {
+    font-size: 10px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.6px !important;
+    padding: 4px 10px !important;
+    border-radius: 6px !important;
+    display: inline-block !important;
+}
+
+.calendar-event-category.cat-academic { background: rgba(59, 130, 246, 0.15) !important; color: #60a5fa !important; border: 1px solid rgba(59, 130, 246, 0.3) !important; }
+.calendar-event-category.cat-break { background: rgba(16, 185, 129, 0.15) !important; color: #34d399 !important; border: 1px solid rgba(16, 185, 129, 0.3) !important; }
+.calendar-event-category.cat-exam { background: rgba(239, 68, 68, 0.15) !important; color: #f87171 !important; border: 1px solid rgba(239, 68, 68, 0.3) !important; }
+.calendar-event-category.cat-holiday { background: rgba(234, 179, 8, 0.15) !important; color: #fbbf24 !important; border: 1px solid rgba(234, 179, 8, 0.3) !important; }
 
 .cal-duration-pill {
     background: rgba(212, 175, 55, 0.12) !important;
     color: var(--accent-gold) !important;
-    border: 1px solid rgba(212, 175, 55, 0.3) !important;
+    border: 1px solid rgba(212, 175, 55, 0.25) !important;
     padding: 3px 10px !important;
     border-radius: 12px !important;
     font-size: 11px !important;
@@ -2676,25 +2509,36 @@ footer {
     white-space: nowrap !important;
 }
 
-.cal-event-desc {
-    font-size: 12.5px !important;
-    color: var(--text-secondary) !important;
+/* Event Title & Description */
+.cal-event-title {
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
     margin: 0 !important;
-    line-height: 1.4 !important;
+    line-height: 1.35 !important;
 }
 
-.calendar-event-category {
-    font-size: 11px !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.5px !important;
-    margin-top: 4px !important;
-    display: inline-block !important;
+.cal-event-desc {
+    font-size: 13px !important;
+    color: var(--text-secondary) !important;
+    margin: 0 !important;
+    line-height: 1.45 !important;
 }
-.calendar-event-category.cat-academic { color: #60a5fa !important; }
-.calendar-event-category.cat-break { color: #34d399 !important; }
-.calendar-event-category.cat-exam { color: #f87171 !important; }
-.calendar-event-category.cat-holiday { color: #fbbf24 !important; }
+
+/* Mobile Responsive (< 600px) */
+@media (max-width: 600px) {
+    .calendar-event-card {
+        padding: 16px !important;
+    }
+
+    .cal-card-top-row {
+        gap: 10px !important;
+    }
+
+    .cal-event-title {
+        font-size: 15.5px !important;
+    }
+}
 
 /* ==========================================
    STUDENT GUIDES HUB & ARTICLE CARDS SYSTEM
@@ -2821,13 +2665,17 @@ footer {
     gap: 16px !important;
     backdrop-filter: blur(10px) !important;
     width: 100% !important;
+    max-width: 100% !important;
     box-sizing: border-box !important;
+    overflow: hidden !important;
 }
 
 footer > div:first-child {
     font-size: 13.5px !important;
     color: var(--text-secondary) !important;
     line-height: 1.4 !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
 }
 
 footer > div:first-child strong {
@@ -2837,8 +2685,10 @@ footer > div:first-child strong {
 .footer-links {
     display: flex !important;
     align-items: center !important;
-    gap: 18px !important;
+    gap: 12px 16px !important;
     flex-wrap: wrap !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
 }
 
 .footer-links a {
@@ -2847,6 +2697,8 @@ footer > div:first-child strong {
     font-weight: 600 !important;
     text-decoration: none !important;
     transition: var(--transition) !important;
+    white-space: nowrap !important;
+    display: inline-block !important;
 }
 
 .footer-links a:hover {
@@ -2859,11 +2711,28 @@ footer > div:first-child strong {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 14px !important;
+        padding: 16px !important;
     }
     .footer-links {
         width: 100% !important;
         justify-content: flex-start !important;
-        gap: 14px 18px !important;
+        gap: 10px 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding: 14px 12px !important;
+        border-radius: 12px !important;
+    }
+    footer > div:first-child {
+        font-size: 12.5px !important;
+    }
+    .footer-links {
+        gap: 8px 12px !important;
+    }
+    .footer-links a {
+        font-size: 12px !important;
     }
 }
 

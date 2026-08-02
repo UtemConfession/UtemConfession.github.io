@@ -544,8 +544,13 @@ function setLanguage(lang) {
     // 3. Language toggle buttons
     const desktopToggle = document.getElementById("desktopLangToggle");
     const mobileToggle  = document.getElementById("mobileLangToggle");
+    const drawerToggle  = document.getElementById("drawerLangToggle");
     if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
     if (mobileToggle)  mobileToggle.textContent  = lang === "en" ? "BM" : "EN";
+    if (drawerToggle) {
+        const span = drawerToggle.querySelector("span");
+        if (span) span.textContent = lang === "en" ? "Bahasa Melayu" : "English";
+    }
 
     const langSwitchLabel = document.getElementById("langSwitchLabel");
     if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
