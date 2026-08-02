@@ -2745,57 +2745,9 @@ iframe[style*="position:fixed"] {
     display: none !important;
 }
 
-/* Inline Mobile Hero Header (Option 1) */
+/* Option 2: Hide top mobile hero header */
 .hero-mobile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(13, 21, 39, 0.75);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--border-color);
-    border-radius: 14px;
-    padding: 10px 14px;
-    margin-bottom: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.hero-mobile-brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.hero-mobile-logo {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-}
-
-.hero-mobile-title-container {
-    display: flex;
-    flex-direction: column;
-}
-
-.hero-mobile-title {
-    font-size: 14px;
-    font-weight: 700;
-    color: var(--text-primary);
-    line-height: 1.2;
-}
-
-.hero-mobile-subtitle {
-    font-size: 10px;
-    font-weight: 800;
-    color: var(--accent-gold);
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-@media (min-width: 1024px) {
-    .hero-mobile-header {
-        display: none !important;
-    }
+    display: none !important;
 }
 
 
