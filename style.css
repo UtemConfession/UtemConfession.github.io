@@ -2378,9 +2378,6 @@ footer {
 /* ==========================================
    ACADEMIC CALENDAR TIMELINE & EVENT CARDS
    ========================================== */
-/* ==========================================
-   ACADEMIC CALENDAR TIMELINE & EVENT CARDS
-   ========================================== */
 .calendar-timeline {
     display: flex !important;
     flex-direction: column !important;

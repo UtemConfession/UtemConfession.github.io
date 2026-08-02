@@ -49,6 +49,11 @@
                 <span class="mobile-subtitle">Privacy Policy</span>
             </div>
         </div>
+        <div class="mobile-lang-wrapper">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
+                Bahasa Melayu
+            </button>
+        </div>
     </header>
 
     <div class="app-container">
@@ -90,7 +95,7 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
                     Back to Dashboard
                 </a>
-                <div style="display: flex; align-items: center; gap: 8px;">
+                <div class="top-header-bar" style="display: flex; align-items: center; gap: 8px;">
                     <span class="theme-switch-label" id="langSwitchLabel">Language</span>
                     <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 6px 14px; font-size: 12px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
                         Bahasa Melayu
@@ -318,27 +323,6 @@
                     link.textContent = footerLinksMap[href];
                 }
             });
-
-            // Mobile Nav
-            const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
-            if (mobileNavSpans.length >= 3) {
-                mobileNavSpans[0].textContent = t.nav_home;
-                mobileNavSpans[1].textContent = t.nav_rules;
-                mobileNavSpans[2].textContent = t.nav_privacy;
-            }
-
-            // Button togglers
-            const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggle");
-            if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
-            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "BM" : "EN";
-
-            const langSwitchLabel = document.getElementById("langSwitchLabel");
-            if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
-
-            const themeSwitchLabel = document.getElementById("themeSwitchLabel");
-            if (themeSwitchLabel) themeSwitchLabel.textContent = t.theme_switcher_label;
-        }
 
             // Mobile Nav
             const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
