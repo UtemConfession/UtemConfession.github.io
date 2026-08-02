@@ -1204,7 +1204,7 @@ footer {
         margin-left: 0 !important;
         margin-top: 0 !important;
         width: 100% !important;
-        padding: 220px 10px 76px 10px !important;
+        padding: 215px 10px 76px 10px !important;
         box-sizing: border-box !important;
         gap: 4px !important;
     }
@@ -1444,15 +1444,15 @@ footer {
 @media (max-width: 600px) {
     /* 0. Mobile Compact Main Layout & Top Spacing */
     .main-content {
-        padding: 68px 12px 80px 12px !important;
-        gap: 10px !important;
+        padding: 215px 10px 76px 10px !important;
+        gap: 4px !important;
     }
     .top-header-bar {
-        margin-bottom: 6px !important;
+        margin-bottom: 0 !important;
     }
     .telegram-widget-card {
-        margin-bottom: 10px !important;
-        padding: 10px 14px !important;
+        margin-bottom: 0 !important;
+        padding: 6px 10px !important;
     }
 
     /* 1. Optimized Card Inner Padding */
