@@ -2733,4 +2733,27 @@ footer > div:first-child strong {
     }
 }
 
+/* ==========================================
+   MONETAG IN-PAGE PUSH AD OVERLAY PROTECTION
+   ========================================== */
+/* Universal rule: Push top-floating ad cards below top headers on both Desktop and Mobile */
+body > div[style*="fixed"],
+body > div[style*="position: fixed"],
+body > div[style*="position:fixed"],
+html > div[style*="fixed"],
+div[class*="ipp"][style*="fixed"],
+div[id*="ipp"][style*="fixed"],
+div[style*="z-index"][style*="fixed"],
+iframe[style*="position: fixed"],
+iframe[style*="position:fixed"] {
+    top: 75px !important;
+}
+
+/* Ensure mobile header stays locked at top 0 */
+.mobile-header {
+    top: 0 !important;
+}
+
+
+
 
