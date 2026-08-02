@@ -1204,13 +1204,20 @@ footer {
         margin-left: 0 !important;
         margin-top: 0 !important;
         width: 100% !important;
-        padding: 135px 10px 76px 10px !important;
+        padding: 185px 10px 76px 10px !important;
         box-sizing: border-box !important;
         gap: 4px !important;
     }
 
     .tab-content {
         gap: 4px !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+
+    .confession-layout {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
     }
 
     #adTopBounded {
