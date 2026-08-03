@@ -42,6 +42,8 @@
     
     <!-- Custom Style System -->
     <link rel="stylesheet" href="style.css?v=5.0">
+    <!-- Adsterra Ad Container Styles -->
+    <link rel="stylesheet" href="ads.css">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -146,6 +148,15 @@
                          (adsbygoogle = window.adsbygoogle || []).push({});
                     </script>
                 </div>
+
+                <!-- Adsterra: Desktop Sidebar 160x600 Skyscraper -->
+                <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--sidebar"
+                     id="adSidebarAdsterra"
+                     data-ad-key="5cee424ee6f58a566aa27ce1ba9aed8a"
+                     data-ad-width="160"
+                     data-ad-height="600"
+                     data-ad-size="160x600">
+                </div>
             </div>
         </aside>
 
@@ -185,22 +196,21 @@
                 </div>
 
                 <!-- Minimalist Telegram Channel Widget -->
-                <div class="telegram-widget-card" style="display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(42, 171, 238, 0.15) 0%, rgba(13, 21, 39, 0.95) 100%); border: 1px solid rgba(42, 171, 238, 0.35); border-radius: 16px; padding: 14px 20px; margin-bottom: 0px; gap: 14px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); width: 100%; box-sizing: border-box;">
-                    <div class="telegram-widget-left" style="display: flex; align-items: center; gap: 14px;">
+                <div class="telegram-widget-card" style="display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(42, 171, 238, 0.15) 0%, rgba(13, 21, 39, 0.95) 100%); border: 1px solid rgba(42, 171, 238, 0.35); border-radius: 16px; padding: 14px 20px; margin-bottom: 0px; gap: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); width: 100%; box-sizing: border-box;">
+                    <div class="telegram-widget-left" style="display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1;">
                         <div class="telegram-icon-circle" style="width: 42px; height: 42px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 12px rgba(42, 171, 238, 0.35); overflow: hidden; padding: 2px; box-sizing: border-box;">
                             <img src="UCPMLogo.png" alt="UCPM Logo" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
                         </div>
                         <div class="telegram-widget-info" style="display: flex; flex-direction: column; gap: 2px; min-width: 0;">
-                            <div class="telegram-widget-title" style="display: flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 700; color: #ffffff;">
-                                <span style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" id="telegramWidgetTitleText">UTeM Confessions Pro Max</span>
-                                <span class="telegram-badge" style="background: rgba(42, 171, 238, 0.18); color: #2AABEE; border: 1px solid rgba(42, 171, 238, 0.3); padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: 700;">@utemconf</span>
+                            <div class="telegram-widget-title" style="font-size: 14px; font-weight: 700; color: #ffffff; line-height: 1.25;">
+                                <span id="telegramWidgetTitleText">UTeM Confessions Pro Max</span>
                             </div>
                             <p class="telegram-widget-desc" style="font-size: 12.5px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Daily confessions &amp; campus updates.</p>
                         </div>
                     </div>
-                    <a href="https://t.me/utemconf" target="_blank" rel="noopener noreferrer" class="telegram-join-btn" style="display: inline-flex; align-items: center; gap: 8px; background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); color: #ffffff !important; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 25px; text-decoration: none !important; white-space: nowrap; box-shadow: 0 4px 14px rgba(42, 171, 238, 0.35);">
+                    <a href="https://t.me/utemconf" target="_blank" rel="noopener noreferrer" class="telegram-join-btn" style="display: inline-flex; align-items: center; gap: 6px; background: linear-gradient(135deg, #2AABEE 0%, #229ED9 100%); color: #ffffff !important; font-size: 13px; font-weight: 700; padding: 10px 16px; border-radius: 25px; text-decoration: none !important; white-space: nowrap; box-shadow: 0 4px 14px rgba(42, 171, 238, 0.35); flex-shrink: 0;">
                         <span>To Channel</span>
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
                     </a>
                 </div>
 
@@ -288,44 +298,41 @@
 
                         <!-- SUB-PANEL 2: IMAGE MODE (HIDDEN BY DEFAULT) -->
                         <div id="imageSubmissionPanel" style="display: none;">
-                            <p style="font-size: 12.5px; color: var(--text-secondary); margin-bottom: 14px;">Images are reviewed before posting.</p>
-                            
                             <div class="form-group">
                                 <input type="file" id="imageFileInput" accept="image/jpeg,image/jpg,image/png,image/webp" style="display: none;">
-                                <button type="button" id="chooseImageBtn" class="btn btn-secondary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 12px; font-weight: 700; border-color: var(--border-color);">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="color: var(--accent-gold);"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                                <button type="button" id="chooseImageBtn" class="btn btn-secondary" style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; font-weight: 700; border-color: var(--border-color);">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="color: var(--accent-gold);"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
                                     Choose Image
                                 </button>
 
                                 <!-- Image Preview Card -->
-                                <div id="imagePreviewContainer" style="display: none; margin-top: 12px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 12px; align-items: center; gap: 12px;">
-                                    <img id="imagePreviewImg" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color);">
+                                <div id="imagePreviewContainer" style="display: none; margin-top: 8px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 8px 10px; align-items: center; gap: 10px;">
+                                    <img id="imagePreviewImg" style="width: 40px; height: 40px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-color);">
                                     <div style="flex: 1; min-width: 0;">
-                                        <div id="imagePreviewName" style="font-weight: 700; font-size: 13px; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">filename.jpg</div>
-                                        <div id="imagePreviewSize" style="font-size: 11px; color: var(--text-muted);">0 KB</div>
+                                        <div id="imagePreviewName" style="font-weight: 700; font-size: 12px; color: var(--text-primary); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">filename.jpg</div>
+                                        <div id="imagePreviewSize" style="font-size: 10px; color: var(--text-muted);">0 KB</div>
                                     </div>
-                                    <button id="removeImageBtn" type="button" class="btn btn-sm btn-secondary" style="padding: 4px 10px; font-size: 11px; color: #ef4444; border-color: rgba(239,68,68,0.3);">
+                                    <button id="removeImageBtn" type="button" class="btn btn-sm btn-secondary" style="padding: 3px 8px; font-size: 10px; color: #ef4444; border-color: rgba(239,68,68,0.3);">
                                         ✕ Remove
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="form-group" style="margin-top: 14px;">
-                                <label for="imageCaptionInput" class="form-label">Optional Caption (Max 500 characters)</label>
-                                <textarea id="imageCaptionInput" class="form-control" placeholder="Write an optional caption..." style="min-height: 70px;"></textarea>
+                            <div class="form-group" style="margin-top: 8px;">
+                                <textarea id="imageCaptionInput" class="form-control" placeholder="Write an optional caption..." maxlength="500" style="min-height: 60px;"></textarea>
                                 <div class="char-count" id="imageCharCount">0 / 500 characters</div>
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group" style="margin-bottom: 6px;">
                                 <label class="checkbox-container">
                                     <input type="checkbox" id="agreeImageRules">
                                     <span class="custom-checkmark"></span>
-                                    I agree to follow the confession rules.
+                                    I agree to follow the rules. Images are reviewed before posting.
                                 </label>
                             </div>
 
-                            <div style="margin-top: 12px;">
-                                <button id="submitImageBtn" class="btn btn-primary" style="width: 100%; padding: 12px; font-weight: 700;" disabled>Submit Image</button>
+                            <div style="margin-top: 6px;">
+                                <button id="submitImageBtn" class="btn btn-primary" style="width: 100%; padding: 10px; font-weight: 700;" disabled>Submit Image</button>
                             </div>
                         </div>
                         
@@ -344,6 +351,23 @@
                             <li><strong>Spam:</strong> Submit button has a 30-second delay between posts.</li>
                         </ul>
                     </div>
+                </div>
+
+                <!-- Adsterra: Between Posting Guidelines and AdSense — Desktop 300x250 -->
+                <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--between-sections"
+                     id="adConfessionDesktop"
+                     data-ad-key="6a46dcd2b383751c97fffa8ce43de7a0"
+                     data-ad-width="300"
+                     data-ad-height="250"
+                     data-ad-size="300x250">
+                </div>
+                <!-- Adsterra: Between Posting Guidelines and AdSense — Mobile 320x50 -->
+                <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--between-sections"
+                     id="adConfessionMobile"
+                     data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
+                     data-ad-width="320"
+                     data-ad-height="50"
+                     data-ad-size="320x50">
                 </div>
 
                 <!-- Google AdSense Horizontal Display Banner Unit (Protected from CLS) -->
@@ -1081,6 +1105,23 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Adsterra: Bus Tab Bottom — Desktop 728x90 -->
+                <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--between-sections"
+                     id="adBusDesktop"
+                     data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99"
+                     data-ad-width="728"
+                     data-ad-height="90"
+                     data-ad-size="728x90">
+                </div>
+                <!-- Adsterra: Bus Tab Bottom — Mobile 320x50 -->
+                <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--between-sections"
+                     id="adBusMobile"
+                     data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
+                     data-ad-width="320"
+                     data-ad-height="50"
+                     data-ad-size="320x50">
+                </div>
             </div>
 
             <!-- TAB 11: MARKETPLACE & STUDENT SERVICES -->
@@ -1377,6 +1418,23 @@
                         </a>
                     </div>
                 </div>
+
+                <!-- Adsterra: Health Tab Bottom — Desktop 728x90 -->
+                <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--between-sections"
+                     id="adHealthDesktop"
+                     data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99"
+                     data-ad-width="728"
+                     data-ad-height="90"
+                     data-ad-size="728x90">
+                </div>
+                <!-- Adsterra: Health Tab Bottom — Mobile 320x50 -->
+                <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--between-sections"
+                     id="adHealthMobile"
+                     data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
+                     data-ad-width="320"
+                     data-ad-height="50"
+                     data-ad-size="320x50">
+                </div>
             </div>
 
 
@@ -1570,6 +1628,23 @@
                         No scholarships or loans found matching your criteria.
                     </p>
                 </div>
+
+                <!-- Adsterra: Scholarships Tab Bottom — Desktop 728x90 -->
+                <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--between-sections"
+                     id="adScholarshipsDesktop"
+                     data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99"
+                     data-ad-width="728"
+                     data-ad-height="90"
+                     data-ad-size="728x90">
+                </div>
+                <!-- Adsterra: Scholarships Tab Bottom — Mobile 320x50 -->
+                <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--between-sections"
+                     id="adScholarshipsMobile"
+                     data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
+                     data-ad-width="320"
+                     data-ad-height="50"
+                     data-ad-size="320x50">
+                </div>
             </div>
 
             <!-- TAB 12: CONFESSIONS ARCHIVE -->
@@ -1723,6 +1798,23 @@
                 </div>
             </section>
 
+            <!-- Adsterra: Above Footer — Desktop 728x90 -->
+            <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--above-footer"
+                 id="adFooterDesktop"
+                 data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99"
+                 data-ad-width="728"
+                 data-ad-height="90"
+                 data-ad-size="728x90">
+            </div>
+            <!-- Adsterra: Above Footer — Mobile 320x50 -->
+            <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--above-footer"
+                 id="adFooterMobile"
+                 data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
+                 data-ad-width="320"
+                 data-ad-height="50"
+                 data-ad-size="320x50">
+            </div>
+
             <!-- Universal Footer -->
             <footer>
                 <div>
@@ -1834,6 +1926,9 @@
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
     <script src="script.js"></script>
+
+    <!-- Adsterra Banner Ad Loader (must load after DOM is ready) -->
+    <script src="ads.js"></script>
 
 </body>
 </html>

@@ -1206,11 +1206,11 @@ footer {
         width: 100% !important;
         padding: 150px 10px 76px 10px !important;
         box-sizing: border-box !important;
-        gap: 4px !important;
+        gap: 2px !important;
     }
 
     .tab-content {
-        gap: 4px !important;
+        gap: 2px !important;
         margin-top: 0 !important;
         padding-top: 0 !important;
     }
@@ -1218,7 +1218,7 @@ footer {
     .confession-layout {
         margin-top: 0 !important;
         padding-top: 0 !important;
-        gap: 4px !important;
+        gap: 2px !important;
     }
 
     #adTopBounded {
@@ -1241,35 +1241,25 @@ footer {
     }
 
     .telegram-widget-card {
-        padding: 6px 10px !important;
+        padding: 8px 10px !important;
         margin-top: 0 !important;
         margin-bottom: 0 !important;
         border-radius: 12px !important;
-        gap: 6px !important;
+        gap: 8px !important;
     }
 
     .telegram-widget-left {
-        gap: 10px !important;
+        gap: 8px !important;
     }
 
     .telegram-icon-circle {
-        width: 32px !important;
-        height: 32px !important;
-    }
-
-    .telegram-icon-circle svg {
-        width: 17px !important;
-        height: 17px !important;
+        width: 30px !important;
+        height: 30px !important;
     }
 
     .telegram-widget-title {
-        font-size: 13px !important;
-        gap: 6px !important;
-    }
-
-    .telegram-badge {
-        font-size: 10px !important;
-        padding: 1px 6px !important;
+        font-size: 12px !important;
+        line-height: 1.2 !important;
     }
 
     .telegram-widget-desc {
@@ -1281,6 +1271,11 @@ footer {
         font-size: 11.5px !important;
         border-radius: 18px !important;
         gap: 4px !important;
+    }
+
+    .telegram-join-btn svg {
+        width: 12px !important;
+        height: 12px !important;
     }
 
     .card {
@@ -1302,16 +1297,16 @@ footer {
     }
 
     .google-auth-box {
-        padding: 8px 10px !important;
-        margin-bottom: 6px !important;
+        padding: 6px 8px !important;
+        margin-bottom: 4px !important;
         border-radius: 10px !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
 
     .auth-notice {
         padding: 5px 8px !important;
         font-size: 11px !important;
-        margin-bottom: 6px !important;
+        margin-bottom: 4px !important;
     }
 
     /* Confession form compact */
@@ -1320,12 +1315,12 @@ footer {
     }
 
     .form-group {
-        margin-bottom: 10px !important;
-        gap: 4px !important;
+        margin-bottom: 8px !important;
+        gap: 3px !important;
     }
 
     textarea.form-control {
-        min-height: 100px !important;
+        min-height: 90px !important;
         padding: 10px 12px !important;
         font-size: 14px !important;
     }
@@ -1335,8 +1330,17 @@ footer {
     }
 
     .checkbox-container {
-        font-size: 12px !important;
+        font-size: 11.5px !important;
         gap: 8px !important;
+    }
+
+    /* Image submission panel compact */
+    #imageSubmissionPanel .form-group {
+        margin-bottom: 6px !important;
+    }
+
+    #imageSubmissionPanel textarea.form-control {
+        min-height: 55px !important;
     }
 
     /* GPA results compact */
@@ -1525,14 +1529,30 @@ footer {
     /* 0. Mobile Compact Main Layout & Top Spacing */
     .main-content {
         padding: 150px 10px 76px 10px !important;
-        gap: 2px !important;
+        gap: 0px !important;
     }
     .top-header-bar {
         margin-bottom: 0 !important;
     }
+    .tab-content {
+        gap: 0px !important;
+    }
     .telegram-widget-card {
         margin-bottom: 0 !important;
-        padding: 6px 10px !important;
+        padding: 6px 8px !important;
+        border-radius: 10px !important;
+        gap: 6px !important;
+    }
+    .telegram-widget-title {
+        font-size: 11px !important;
+    }
+    .telegram-icon-circle {
+        width: 26px !important;
+        height: 26px !important;
+    }
+    .telegram-join-btn {
+        padding: 5px 10px !important;
+        font-size: 11px !important;
     }
 
     /* 1. Optimized Card Inner Padding */
@@ -1666,13 +1686,13 @@ footer {
 
     /* 6. Confession form extra compact */
     .confession-layout {
-        gap: 2px !important;
+        gap: 0px !important;
     }
 
     .google-auth-box {
-        padding: 6px 8px !important;
-        margin-bottom: 4px !important;
-        gap: 6px !important;
+        padding: 5px 6px !important;
+        margin-bottom: 2px !important;
+        gap: 4px !important;
     }
 
     .auth-notice {
@@ -1681,22 +1701,31 @@ footer {
     }
 
     .form-group {
-        margin-bottom: 8px !important;
-        gap: 3px !important;
+        margin-bottom: 6px !important;
+        gap: 2px !important;
     }
 
     textarea.form-control {
-        min-height: 90px !important;
+        min-height: 80px !important;
         padding: 8px 10px !important;
         font-size: 13.5px !important;
     }
 
     .confession-sub-tabs {
-        margin-bottom: 6px !important;
+        margin-bottom: 4px !important;
     }
 
     .checkbox-container {
-        font-size: 11.5px !important;
+        font-size: 11px !important;
+    }
+
+    /* Image submission panel extra compact */
+    #imageSubmissionPanel .form-group {
+        margin-bottom: 4px !important;
+    }
+
+    #imageSubmissionPanel textarea.form-control {
+        min-height: 50px !important;
     }
 
     /* 7. Countdown compact */

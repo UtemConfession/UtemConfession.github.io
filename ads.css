@@ -1,0 +1,87 @@
+/* =============================================================
+   ADSTERRA BANNER AD — RESPONSIVE CONTAINER STYLES
+   ads.css — Minimal, non-intrusive ad slot styling.
+   DO NOT modify existing site layout or design.
+   ============================================================= */
+
+/* --- Base Ad Container --- */
+.adsterra-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 20px auto;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Prevent layout shift — reserve minimum height */
+.adsterra-slot[data-ad-size="320x50"]  { min-height: 50px;  max-width: 320px; }
+.adsterra-slot[data-ad-size="468x60"]  { min-height: 60px;  max-width: 468px; }
+.adsterra-slot[data-ad-size="728x90"]  { min-height: 90px;  max-width: 728px; }
+.adsterra-slot[data-ad-size="300x250"] { min-height: 250px; max-width: 300px; }
+.adsterra-slot[data-ad-size="160x600"] { min-height: 600px; max-width: 160px; }
+.adsterra-slot[data-ad-size="160x300"] { min-height: 300px; max-width: 160px; }
+
+/* --- Responsive Visibility --- */
+
+/* Mobile Only: hidden on screens >= 768px */
+.adsterra-slot--mobile-only {
+    display: flex;
+}
+
+/* Desktop Only: hidden on screens < 768px */
+.adsterra-slot--desktop-only {
+    display: flex;
+}
+
+/* Sidebar ad slot (desktop sidebar only) */
+.adsterra-slot--sidebar {
+    margin: 16px auto;
+}
+
+/* Above-footer spacing */
+.adsterra-slot--above-footer {
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+/* Between-section spacing */
+.adsterra-slot--between-sections {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* === DESKTOP: >= 768px === */
+@media (min-width: 768px) {
+    .adsterra-slot--mobile-only {
+        display: none !important;
+    }
+    .adsterra-slot--desktop-only {
+        display: flex;
+    }
+}
+
+/* === MOBILE: < 768px === */
+@media (max-width: 767px) {
+    .adsterra-slot--desktop-only {
+        display: none !important;
+    }
+    .adsterra-slot--mobile-only {
+        display: flex;
+    }
+    /* Tighter spacing on mobile */
+    .adsterra-slot {
+        margin: 14px auto;
+    }
+    .adsterra-slot--above-footer {
+        margin-top: 16px;
+        margin-bottom: 6px;
+    }
+    .adsterra-slot--between-sections {
+        margin-top: 14px;
+        margin-bottom: 14px;
+    }
+}
