@@ -78,6 +78,12 @@
                 <h1 class="brand-title">UTeM Confessions</h1>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
+            <!-- Sidebar Language Toggle -->
+            <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
+                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; transition: all 0.2s;">
+                    Bahasa Melayu
+                </button>
+            </div>
 
             <!-- Tab Items -->
             <ul class="nav-menu">
@@ -162,15 +168,6 @@
 
         <!-- Main Dashboard View Panel -->
         <main class="main-content">
-            <!-- Desktop Top Language Switcher Bar -->
-            <div class="top-header-bar" style="display: flex; justify-content: flex-end; align-items: center; margin-bottom: 8px;">
-                <div class="theme-switch-wrapper" style="margin-bottom: 0;">
-                    <span class="theme-switch-label" id="langSwitchLabel">Language</span>
-                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="padding: 6px 14px; font-size: 12px; font-weight: 700; border-color: var(--border-color); color: var(--accent-gold);">
-                        Bahasa Melayu
-                    </button>
-                </div>
-            </div>
             
             <!-- Bounded Top Ad Container (Hybrid Protection against top overlays) -->
             <div class="ad-slot-bounded" id="adTopBounded">
@@ -1187,7 +1184,7 @@
 
                     <!-- Combined Seller / Provider Contact Notice -->
                     <div style="margin: 24px auto 0 auto; max-width: 640px; padding: 16px 20px; border-radius: 12px; background: rgba(212, 175, 55, 0.08); border: 1px dashed var(--accent-gold); font-size: 13.5px; color: var(--text-primary); line-height: 1.6; text-align: center;" id="sellerNoticeMarketplace">
-                        <strong>Want to list pre-loved items or promote your student service?</strong> Share in the official Telegram group or contact admin email at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>
+                        <strong>Want to list items or promote your student services?</strong> Feel free to contact admin email with your details at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>
                     </div>
                 </div>
             </div>
@@ -1860,9 +1857,13 @@
     <div id="mobileMoreDrawer" class="mobile-drawer-overlay">
         <div class="mobile-drawer-sheet">
             <div class="mobile-drawer-header">
-                <div class="mobile-drawer-title">
+                <div class="mobile-drawer-title" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z"/></svg>
                     <span>Campus Services & Tools</span>
+                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="drawerLangToggle" type="button" style="padding: 2px 8px; font-size: 11px; margin-left: auto; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; height: 24px;">
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="margin: 0;"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2.1l1.1-3h4.6l1.1 3H23l-4.5-12zm-2.62 7l1.62-4.41L19.12 17h-3.24z"/></svg>
+                        <span>Bahasa Melayu</span>
+                    </button>
                 </div>
                 <button id="closeMobileDrawerBtn" class="mobile-drawer-close-btn" type="button" aria-label="Close Tools Menu">&times;</button>
             </div>
@@ -1891,10 +1892,7 @@
                     <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/></svg>
                     <span>Archive</span>
                 </button>
-                <button class="drawer-item-btn" id="drawerLangToggle" type="button" style="border-color: var(--accent-gold);">
-                    <svg viewBox="0 0 24 24"><path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2.1l1.1-3h4.6l1.1 3H23l-4.5-12zm-2.62 7l1.62-4.41L19.12 17h-3.24z"/></svg>
-                    <span>Bahasa Melayu</span>
-                </button>
+
                 <button class="drawer-item-btn" data-tab="support-tab">
                     <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     <span id="drawerSupport">Support Us</span>

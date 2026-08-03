@@ -722,7 +722,7 @@ function setLanguage(lang) {
 
     const sellerNoticeMarketplace = document.getElementById("sellerNoticeMarketplace");
     if (sellerNoticeMarketplace) sellerNoticeMarketplace.innerHTML = lang === "en"
-        ? '<strong>Want to list pre-loved items or promote your student service?</strong> Share in the official Telegram group or contact admin email at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>'
+        ? '<strong>Want to list items or promote your student services?</strong> Feel free to contact admin email with your details at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>'
         : '<strong>Ingin menjual barangan terpakai atau mempromosikan servis anda?</strong> Kongsi di kumpulan Telegram rasmi atau hubungi e-mel pentadbir di: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>';
 
     // 7. Bus Transit (Minggu Semester Khas & Regular)
