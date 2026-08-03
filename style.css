@@ -1218,6 +1218,7 @@ footer {
     .confession-layout {
         margin-top: 0 !important;
         padding-top: 0 !important;
+        gap: 4px !important;
     }
 
     #adTopBounded {
@@ -1283,36 +1284,115 @@ footer {
     }
 
     .card {
-        padding: 14px 14px !important;
-        margin-bottom: 10px !important;
-        border-radius: 14px !important;
-    }
-
-    .card-title {
-        font-size: 15.5px !important;
-        margin-bottom: 10px !important;
-    }
-
-    .card-title svg {
-        width: 18px !important;
-        height: 18px !important;
-    }
-
-    .google-auth-box {
-        padding: 10px 12px !important;
-        margin-bottom: 8px !important;
+        padding: 12px 12px !important;
+        margin-bottom: 4px !important;
         border-radius: 12px !important;
     }
 
-    .auth-notice {
-        padding: 6px 10px !important;
-        font-size: 11.5px !important;
+    .card-title {
+        font-size: 14.5px !important;
         margin-bottom: 8px !important;
+        padding-bottom: 8px !important;
+        gap: 8px !important;
+    }
+
+    .card-title svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+
+    .google-auth-box {
+        padding: 8px 10px !important;
+        margin-bottom: 6px !important;
+        border-radius: 10px !important;
+        gap: 8px !important;
+    }
+
+    .auth-notice {
+        padding: 5px 8px !important;
+        font-size: 11px !important;
+        margin-bottom: 6px !important;
+    }
+
+    /* Confession form compact */
+    .confession-sub-tabs {
+        margin-bottom: 8px !important;
+    }
+
+    .form-group {
+        margin-bottom: 10px !important;
+        gap: 4px !important;
+    }
+
+    textarea.form-control {
+        min-height: 100px !important;
+        padding: 10px 12px !important;
+        font-size: 14px !important;
+    }
+
+    .form-label {
+        font-size: 12.5px !important;
+    }
+
+    .checkbox-container {
+        font-size: 12px !important;
+        gap: 8px !important;
+    }
+
+    /* GPA results compact */
+    .gpa-results-bar {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 6px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .gpa-result-card {
+        padding: 8px 6px !important;
+        border-radius: 10px !important;
+    }
+
+    .gpa-result-val {
+        font-size: 22px !important;
+    }
+
+    .gpa-grid {
+        gap: 10px !important;
+    }
+
+    .cgpa-calc-box {
+        padding: 12px !important;
+        gap: 10px !important;
+        margin-top: 12px !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .gpa-btn-row {
+        margin-top: 10px !important;
+        gap: 8px !important;
+    }
+
+    /* Calendar compact */
+    .calendar-controls {
+        gap: 8px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .cal-filter-btn {
+        padding: 4px 10px !important;
+        font-size: 11px !important;
     }
 
     footer {
         flex-direction: column;
-        margin-bottom: 24px;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 16px;
+        padding: 12px !important;
+        gap: 10px;
+    }
+
+    .footer-links {
+        justify-content: center;
     }
 }
 
@@ -1445,7 +1525,7 @@ footer {
     /* 0. Mobile Compact Main Layout & Top Spacing */
     .main-content {
         padding: 150px 10px 76px 10px !important;
-        gap: 4px !important;
+        gap: 2px !important;
     }
     .top-header-bar {
         margin-bottom: 0 !important;
@@ -1457,11 +1537,28 @@ footer {
 
     /* 1. Optimized Card Inner Padding */
     .card {
-        padding: 14px 12px !important;
-        border-radius: 12px !important;
+        padding: 10px 10px !important;
+        border-radius: 10px !important;
+        margin-bottom: 2px !important;
+    }
+
+    .card-title {
+        font-size: 13.5px !important;
+        margin-bottom: 6px !important;
+        padding-bottom: 6px !important;
+        gap: 6px !important;
+    }
+
+    .card-title svg {
+        width: 15px !important;
+        height: 15px !important;
     }
 
     /* 2. GPA Table Mobile Touch Card Stacking */
+    .gpa-table {
+        min-width: unset !important;
+        width: 100% !important;
+    }
     .gpa-table, .gpa-table tbody, .gpa-table tr, .gpa-table td {
         display: block !important;
         width: 100% !important;
@@ -1473,12 +1570,12 @@ footer {
     .gpa-subject-row {
         background: rgba(13, 21, 39, 0.6) !important;
         border: 1px solid var(--border-color) !important;
-        border-radius: 12px !important;
-        padding: 10px 12px !important;
-        margin-bottom: 12px !important;
+        border-radius: 10px !important;
+        padding: 8px 10px !important;
+        margin-bottom: 6px !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 8px !important;
+        gap: 6px !important;
     }
     .gpa-subject-row td {
         padding: 0 !important;
@@ -1489,34 +1586,132 @@ footer {
         justify-content: flex-end !important;
     }
 
+    .gpa-table select, .gpa-table input {
+        padding: 6px 8px !important;
+        font-size: 13px !important;
+        border-radius: 6px !important;
+    }
+
+    .gpa-table-container {
+        overflow-x: hidden !important;
+    }
+
     /* 3. Dean's List Badge Scaling */
     #deansListBadge {
-        font-size: 11.5px !important;
-        padding: 8px 10px !important;
+        font-size: 11px !important;
+        padding: 6px 8px !important;
         text-align: center !important;
-        margin-top: 10px !important;
+        margin-top: 6px !important;
+        border-radius: 8px !important;
     }
 
     /* 4. Touch Table Scroll Containers */
-    .table-responsive, .bus-table-container, .gpa-table-container {
+    .table-responsive, .bus-table-container {
         position: relative;
         overflow-x: auto;
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
     }
 
+    /* 5. GPA Results Bar Compact */
+    .gpa-results-bar {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 4px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .gpa-result-card {
+        padding: 6px 4px !important;
+        border-radius: 8px !important;
+    }
+
+    .gpa-result-card .form-label {
+        font-size: 10px !important;
+        line-height: 1.2 !important;
+    }
+
+    .gpa-result-val {
+        font-size: 20px !important;
+        margin-top: 2px !important;
+    }
+
+    .cgpa-calc-box {
+        padding: 10px !important;
+        gap: 8px !important;
+        margin-top: 8px !important;
+        grid-template-columns: 1fr !important;
+        border-radius: 10px !important;
+    }
+
+    .cgpa-calc-box .form-control {
+        padding: 8px 10px !important;
+        font-size: 13px !important;
+    }
+
+    .gpa-btn-row {
+        margin-top: 8px !important;
+        gap: 6px !important;
+    }
+
+    .gpa-btn-row .btn {
+        padding: 6px 10px !important;
+        font-size: 11.5px !important;
+    }
+
+    #gpaEstimationNote {
+        font-size: 11px !important;
+        padding: 6px 10px !important;
+        margin-top: 8px !important;
+    }
+
+    /* 6. Confession form extra compact */
+    .confession-layout {
+        gap: 2px !important;
+    }
+
+    .google-auth-box {
+        padding: 6px 8px !important;
+        margin-bottom: 4px !important;
+        gap: 6px !important;
+    }
+
+    .auth-notice {
+        padding: 4px 6px !important;
+        font-size: 10.5px !important;
+    }
+
+    .form-group {
+        margin-bottom: 8px !important;
+        gap: 3px !important;
+    }
+
+    textarea.form-control {
+        min-height: 90px !important;
+        padding: 8px 10px !important;
+        font-size: 13.5px !important;
+    }
+
+    .confession-sub-tabs {
+        margin-bottom: 6px !important;
+    }
+
+    .checkbox-container {
+        font-size: 11.5px !important;
+    }
+
+    /* 7. Countdown compact */
     .countdown-timer {
-        gap: 10px;
+        gap: 8px;
     }
     .countdown-segment {
-        min-width: 70px;
-        padding: 12px;
+        min-width: 60px;
+        padding: 10px;
     }
     .countdown-number {
-        font-size: 28px;
+        font-size: 24px;
     }
     .countdown-label {
-        font-size: 9px;
+        font-size: 8px;
     }
 }
 
@@ -2621,16 +2816,92 @@ footer {
 
 /* Mobile Responsive (< 600px) */
 @media (max-width: 600px) {
+    .calendar-timeline {
+        gap: 6px !important;
+        margin-top: 10px !important;
+    }
+
     .calendar-event-card {
-        padding: 16px !important;
+        padding: 10px 12px !important;
+        border-radius: 10px !important;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .calendar-event-card:hover {
+        transform: none !important;
+    }
+
+    .cal-card-content {
+        gap: 6px !important;
     }
 
     .cal-card-top-row {
-        gap: 10px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+    }
+
+    .cal-date-badge {
+        padding: 4px 10px !important;
+        border-radius: 8px !important;
+        gap: 6px !important;
+    }
+
+    .cal-date-text {
+        font-size: 11.5px !important;
+        letter-spacing: 0.2px !important;
+    }
+
+    .cal-arrow {
+        font-size: 10px !important;
+    }
+
+    .cal-year {
+        font-size: 10px !important;
+        padding-left: 6px !important;
+    }
+
+    .cal-badges-right {
+        gap: 6px !important;
+    }
+
+    .calendar-event-category {
+        font-size: 8.5px !important;
+        padding: 2px 7px !important;
+        letter-spacing: 0.4px !important;
+        border-radius: 5px !important;
+    }
+
+    .cal-duration-pill {
+        font-size: 10px !important;
+        padding: 2px 8px !important;
+        border-radius: 10px !important;
     }
 
     .cal-event-title {
-        font-size: 15.5px !important;
+        font-size: 14px !important;
+        line-height: 1.3 !important;
+    }
+
+    .cal-event-desc {
+        font-size: 11.5px !important;
+        line-height: 1.35 !important;
+    }
+
+    /* Calendar filter buttons compact */
+    .calendar-controls {
+        gap: 6px !important;
+        margin-bottom: 8px !important;
+    }
+
+    .calendar-controls .btn {
+        padding: 4px 8px !important;
+        font-size: 10.5px !important;
+    }
+
+    .calendar-controls input.form-control {
+        padding: 6px 10px !important;
+        font-size: 12px !important;
     }
 }
 
@@ -2803,30 +3074,43 @@ footer > div:first-child strong {
 @media (max-width: 900px) {
     footer {
         flex-direction: column !important;
-        align-items: flex-start !important;
-        gap: 14px !important;
-        padding: 16px !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 10px !important;
+        padding: 12px !important;
+        margin-top: 20px !important;
+        margin-bottom: 16px !important;
+    }
+    footer > div:first-child {
+        font-size: 11.5px !important;
+        line-height: 1.35 !important;
     }
     .footer-links {
         width: 100% !important;
-        justify-content: flex-start !important;
-        gap: 10px 14px !important;
+        justify-content: center !important;
+        gap: 6px 10px !important;
+    }
+    .footer-links a {
+        font-size: 11.5px !important;
     }
 }
 
 @media (max-width: 480px) {
     footer {
-        padding: 14px 12px !important;
-        border-radius: 12px !important;
+        padding: 10px 8px !important;
+        border-radius: 10px !important;
+        gap: 8px !important;
+        margin-top: 14px !important;
+        margin-bottom: 10px !important;
     }
     footer > div:first-child {
-        font-size: 12.5px !important;
+        font-size: 11px !important;
     }
     .footer-links {
-        gap: 8px 12px !important;
+        gap: 5px 8px !important;
     }
     .footer-links a {
-        font-size: 12px !important;
+        font-size: 10.5px !important;
     }
 }
 

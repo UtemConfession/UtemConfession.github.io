@@ -182,11 +182,14 @@ const translations = {
         label_free_support: "Option 1: Free Partner Support",
         title_partner_deals: "Explore Partner Offers & Student Deals 🎁",
         desc_partner_deals: "Visiting our sponsored partner offers helps fund site hosting, domain registration, and server maintenance at zero financial cost to you!",
-        btn_partner_deals: "Explore Partner Offers & Student Deals ➔",
+        btn_partner_deals1: "Explore Partner Offers & Student Deals 🎁 ➔",
+        btn_partner_deals2: "Visit Partner Site to Support UTeM Confessions ❤️ ➔",
+        btn_partner_deals3: "Explore External Sponsored Offers 🌐 ➔",
         label_coffee_support: "Option 2: Voluntary Admin Tip",
         title_coffee: "Buy the Admin Team a Coffee ☕",
         desc_coffee: "If our GPA tool, bus routes, or exam prep guides helped you pass your semester, feel free to send our student volunteer team a small tip!",
-        btn_contact_admin_tip: "Contact Admin / DuitNow Tip ➔",
+        btn_kofi_support: "Buy Us a Coffee on Ko-fi ☕ ➔",
+        btn_contact_admin_tip: "Contact Admin on Telegram ➔",
         label_transparency_title: "Our Transparency Promise:",
         desc_transparency: "UTeM Confessions Pro Max remains 100% free for all students. We use non-intrusive ads and partner offers solely to cover platform hosting fees. Thank you for supporting the UTeM student community!",
 
@@ -428,12 +431,15 @@ const translations = {
         desc_support: "Bantu kekalkan portal pelajar, kalkulator GPA, jadual bas, dan arkib peperiksaan kami 100% percuma dan boleh diakses oleh semua pelajar UTeM.",
         label_free_support: "Pilihan 1: Sokongan Percuma Rakan Kongsi",
         title_partner_deals: "Terokai Tawaran Rakan Kongsi & Hadiah Pelajar 🎁",
-        desc_partner_deals: "Melawati tawaran rakan kongsi tajaan membantu membiayai kos pelayan, pendaftaran domain, dan penyelenggaraan platform tanpa sebarang bayaran daripada anda!",
-        btn_partner_deals: "Terokai Tawaran Rakan Kongsi & Hadiah Pelajar ➔",
+        desc_partner_deals: "Lawat tawaran tajaan membantu sedikit kos pelayan, pendaftaran domain, dan penyelenggaraan platform tanpa sebarang bayaran daripada anda!",
+        btn_partner_deals1: "Terokai Tawaran Rakan Kongsi & Hadiah Pelajar 🎁 ➔",
+        btn_partner_deals2: "Lawat Laman Rakan Kongsi untuk menyokong laman ini ❤️ ➔",
+        btn_partner_deals3: "Terokai Tawaran Tajaan Luar 🌐 ➔",
         label_coffee_support: "Pilihan 2: Sumbangan Ikhlas Pasukan Admin",
         title_coffee: "Belanja Pasukan Admin Kopi ☕",
-        desc_coffee: "Jika alat GPA, laluan bas, atau panduan peperiksaan kami membantu anda lulus semester ini, sila hantar sumbangan ikhlas kepada pasukan sukarelawan pelajar kami!",
-        btn_contact_admin_tip: "Hubungi Admin / Sumbangan DuitNow ➔",
+        desc_coffee: "Jika alat GPA, laluan bas, atau panduan peperiksaan kami membantu anda dalam semester ini, segala sumbangan ikhlas kepada pasukan sukarelawan pelajar kami amatlah dihargai!",
+        btn_kofi_support: "Belanja Kami Kopi di Ko-fi ☕ ➔",
+        btn_contact_admin_tip: "Hubungi Admin di Telegram ➔",
         label_transparency_title: "Janji Ketelusan Kami:",
         desc_transparency: "UTeM Confessions Pro Max kekal 100% percuma untuk semua pelajar. Kami menggunakan iklan dan tawaran rakan kongsi tanpa gangguan semata-mata untuk menampung kos pelayan. Terima kasih kerana menyokong komuniti pelajar UTeM!",
 
@@ -716,8 +722,8 @@ function setLanguage(lang) {
 
     const sellerNoticeMarketplace = document.getElementById("sellerNoticeMarketplace");
     if (sellerNoticeMarketplace) sellerNoticeMarketplace.innerHTML = lang === "en"
-        ? '<strong>Want to list pre-loved items or promote your student service?</strong> Share in the official Telegram group or contact admin email at: <a href="mailto:admin@utemconfessions.com" style="color: var(--accent-gold); font-weight: 700;">admin@utemconfessions.com</a>'
-        : '<strong>Ingin menjual barangan terpakai atau mempromosikan servis anda?</strong> Kongsi di kumpulan Telegram rasmi atau hubungi e-mel pentadbir di: <a href="mailto:admin@utemconfessions.com" style="color: var(--accent-gold); font-weight: 700;">admin@utemconfessions.com</a>';
+        ? '<strong>Want to list pre-loved items or promote your student service?</strong> Share in the official Telegram group or contact admin email at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>'
+        : '<strong>Ingin menjual barangan terpakai atau mempromosikan servis anda?</strong> Kongsi di kumpulan Telegram rasmi atau hubungi e-mel pentadbir di: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>';
 
     // 7. Bus Transit (Minggu Semester Khas & Regular)
     const busTitle = document.querySelector("#bus-tab .card-title");
@@ -1023,7 +1029,7 @@ function setLanguage(lang) {
     if (btnPartnerDeals1) btnPartnerDeals1.textContent = currentLang === "ms" ? "Terokai Tawaran Rakan Kongsi & Hadiah Pelajar 🎁 ➔" : "Explore Partner Offers & Student Deals 🎁 ➔";
 
     const btnPartnerDeals2 = document.getElementById("btnPartnerDeals2");
-    if (btnPartnerDeals2) btnPartnerDeals2.textContent = currentLang === "ms" ? "Melawat Laman Rakan Kongsi untuk Sokong UTeM Confessions ❤️ ➔" : "Visit Partner Site to Support UTeM Confessions ❤️ ➔";
+    if (btnPartnerDeals2) btnPartnerDeals2.textContent = currentLang === "ms" ? "Lawat Laman Rakan Kongsi untuk menyokong laman ini ❤️ ➔" : "Visit Partner Site to Support UTeM Confessions ❤️ ➔";
 
     const btnPartnerDeals3 = document.getElementById("btnPartnerDeals3");
     if (btnPartnerDeals3) btnPartnerDeals3.textContent = currentLang === "ms" ? "Terokai Tawaran Tajaan Luar 🌐 ➔" : "Explore External Sponsored Offers 🌐 ➔";
@@ -1036,6 +1042,9 @@ function setLanguage(lang) {
 
     const descCoffee = document.getElementById("descCoffee");
     if (descCoffee) descCoffee.textContent = t.desc_coffee;
+
+    const btnKofiSupport = document.getElementById("btnKofiSupport");
+    if (btnKofiSupport) btnKofiSupport.textContent = t.btn_kofi_support || "Buy Us a Coffee on Ko-fi ☕ ➔";
 
     const btnContactAdminTip = document.getElementById("btnContactAdminTip");
     if (btnContactAdminTip) btnContactAdminTip.textContent = t.btn_contact_admin_tip;
