@@ -1204,7 +1204,7 @@ footer {
         margin-left: 0 !important;
         margin-top: 0 !important;
         width: 100% !important;
-        padding: 245px 10px 76px 10px !important;
+        padding: 150px 10px 76px 10px !important;
         box-sizing: border-box !important;
         gap: 4px !important;
     }
@@ -1444,7 +1444,7 @@ footer {
 @media (max-width: 600px) {
     /* 0. Mobile Compact Main Layout & Top Spacing */
     .main-content {
-        padding: 245px 10px 76px 10px !important;
+        padding: 150px 10px 76px 10px !important;
         gap: 4px !important;
     }
     .top-header-bar {
