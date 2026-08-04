@@ -250,13 +250,15 @@ function updateM10ANextDeparture() {
     const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
     const currentFormattedTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
 
+    const isMs = typeof currentLang !== 'undefined' && currentLang === 'ms';
+
     if (m10aLiveBadge) {
         if (isWeekend) {
             m10aLiveBadge.style.background = "#e74e9f";
-            m10aLiveBadge.textContent = "🟢 Weekend Service Active (Zoo Melaka ⇄ UTeM)";
+            m10aLiveBadge.textContent = isMs ? "🟢 Servis Hujung Minggu (Zoo Melaka ⇄ UTeM)" : "🟢 Weekend Service Active (Zoo Melaka ⇄ UTeM)";
         } else {
             m10aLiveBadge.style.background = "#3b82f6";
-            m10aLiveBadge.textContent = "🟡 Weekday Route Active (Melaka Sentral ⇄ MITC)";
+            m10aLiveBadge.textContent = isMs ? "🟡 Laluan Hari Bekerja (Melaka Sentral ⇄ MITC)" : "🟡 Weekday Route Active (Melaka Sentral ⇄ MITC)";
         }
     }
 
@@ -267,6 +269,18 @@ function updateM10ANextDeparture() {
     
     if (!m10aNextBusTimeVal || !m10aNextBusCountdownVal) return;
 
+    if (!isWeekend) {
+        if (m10aNextBusStatusTag) {
+            m10aNextBusStatusTag.className = "bus-status-tag inactive";
+            m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
+            m10aNextBusStatusTag.style.color = "#ef4444";
+            m10aNextBusStatusTag.textContent = isMs ? "Hujung Minggu Sahaja" : "Weekend Only Service";
+        }
+        m10aNextBusTimeVal.textContent = "N/A";
+        m10aNextBusCountdownVal.textContent = isMs ? "Bas tamat di MITC hari bekerja. Tiada bas UTeM." : "Bus terminates at MITC on weekdays. No UTeM service.";
+        return;
+    }
+
     const upcomingM10A = m10aUTeMTimes.find(t => t > currentFormattedTime);
 
     if (upcomingM10A) {
@@ -274,7 +288,7 @@ function updateM10ANextDeparture() {
             m10aNextBusStatusTag.className = "bus-status-tag active-now";
             m10aNextBusStatusTag.style.background = "rgba(231, 78, 159, 0.15)";
             m10aNextBusStatusTag.style.color = "#e74e9f";
-            m10aNextBusStatusTag.textContent = "Active Service Today";
+            m10aNextBusStatusTag.textContent = isMs ? "Beroperasi Hari Ini" : "Active Service Today";
         }
         m10aNextBusTimeVal.textContent = upcomingM10A;
 
@@ -284,30 +298,38 @@ function updateM10ANextDeparture() {
 
         const minutesDiff = Math.floor((nextBusDate.getTime() - now.getTime()) / (1000 * 60));
         if (minutesDiff < 60) {
-            m10aNextBusCountdownVal.textContent = `Departs in ${minutesDiff} minutes`;
+            m10aNextBusCountdownVal.textContent = isMs ? `Berlepas dlm ${minutesDiff} minit` : `Departs in ${minutesDiff} mins`;
         } else {
             const hrs = Math.floor(minutesDiff / 60);
             const mins = minutesDiff % 60;
-            m10aNextBusCountdownVal.textContent = `Departs in ${hrs}h ${mins}m`;
+            m10aNextBusCountdownVal.textContent = isMs ? `Berlepas dlm ${hrs}j ${mins}m` : `Departs in ${hrs}h ${mins}m`;
         }
     } else {
-        // Service ended for today — calculate exact time until tomorrow 07:15 AM
-        if (m10aNextBusStatusTag) {
-            m10aNextBusStatusTag.className = "bus-status-tag inactive";
-            m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
-            m10aNextBusStatusTag.style.color = "#ef4444";
-            m10aNextBusStatusTag.textContent = "Service Ended For Today";
+        if (dayOfWeek === 6) { // Saturday, next bus is Sunday
+            if (m10aNextBusStatusTag) {
+                m10aNextBusStatusTag.className = "bus-status-tag inactive";
+                m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
+                m10aNextBusStatusTag.style.color = "#ef4444";
+                m10aNextBusStatusTag.textContent = isMs ? "Tamat Operasi (Hari Ini)" : "Service Ended For Today";
+            }
+            m10aNextBusTimeVal.textContent = isMs ? "07:15 (Esok)" : "07:15 (Tomorrow)";
+            const tomorrowBusDate = new Date();
+            tomorrowBusDate.setDate(tomorrowBusDate.getDate() + 1);
+            tomorrowBusDate.setHours(7, 15, 0, 0);
+            const minutesDiff = Math.floor((tomorrowBusDate.getTime() - now.getTime()) / (1000 * 60));
+            const hrs = Math.floor(minutesDiff / 60);
+            const mins = minutesDiff % 60;
+            m10aNextBusCountdownVal.textContent = isMs ? `Bas esok berlepas dlm ${hrs}j ${mins}m` : `Next bus tomorrow in ${hrs}h ${mins}m`;
+        } else { // Sunday, next bus is next Saturday
+            if (m10aNextBusStatusTag) {
+                m10aNextBusStatusTag.className = "bus-status-tag inactive";
+                m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
+                m10aNextBusStatusTag.style.color = "#ef4444";
+                m10aNextBusStatusTag.textContent = isMs ? "Tamat Operasi (Minggu Ini)" : "Service Ended For Weekend";
+            }
+            m10aNextBusTimeVal.textContent = "N/A";
+            m10aNextBusCountdownVal.textContent = isMs ? "Operasi tamat. Servis seterusnya Sabtu depan." : "Weekend service ended. Next UTeM service on Saturday.";
         }
-        m10aNextBusTimeVal.textContent = "07:15 (Tomorrow)";
-
-        const tomorrowBusDate = new Date();
-        tomorrowBusDate.setDate(tomorrowBusDate.getDate() + 1);
-        tomorrowBusDate.setHours(7, 15, 0, 0);
-
-        const minutesDiff = Math.floor((tomorrowBusDate.getTime() - now.getTime()) / (1000 * 60));
-        const hrs = Math.floor(minutesDiff / 60);
-        const mins = minutesDiff % 60;
-        m10aNextBusCountdownVal.textContent = `First bus departs tomorrow in ${hrs}h ${mins}m`;
     }
 }
 

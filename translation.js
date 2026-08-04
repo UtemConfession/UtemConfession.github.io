@@ -97,14 +97,14 @@ const translations = {
         m10a_detail3: "<strong>Hours:</strong> 6:00 AM – 8:00 PM (Cashless: TNG, Debit, QR)",
 
         title_calendar: "Academic Calendar (2026/2027)",
-        btn_cal_all: "All Dates",
-        btn_cal_academic: "Lecture Weeks",
+        btn_cal_all: "All",
+        btn_cal_academic: "Lectures",
         btn_cal_exam: "Exams",
         btn_cal_break: "Breaks",
         btn_cal_holiday: "Holidays",
         placeholder_search_cal: "Search calendar events...",
         calendar_sources_label: "Official Academic Calendar Reference:",
-        calendar_link_label: "Official UTeM Academic Calendar Session 2026/2027 (PDF) ➔",
+        calendar_link_label: "Official PDF ➔",
         title_past_exams_tab: "UTeM Past Year Exam Papers",
         desc_past_exams_tab: "Access the official UTeM library repository to search, browse, and download past semester examination papers for your courses.",
         label_past_exams_lib: "Official Exam Paper Database:",
@@ -188,6 +188,7 @@ const translations = {
         label_coffee_support: "Option 2: Voluntary Admin Tip",
         title_coffee: "Buy the Admin Team a Coffee ☕",
         desc_coffee: "If our GPA tool, bus routes, or exam prep guides helped you pass your semester, feel free to send our student volunteer team a small tip!",
+        notice_kofi_currency: "*Please note: Tips are accepted in USD ($) only due to Ko-fi's platform limitations. This is normal and secure.",
         btn_kofi_support: "Buy Us a Coffee on Ko-fi ☕ ➔",
         btn_contact_admin_tip: "Contact Admin on Telegram ➔",
         label_transparency_title: "Our Transparency Promise:",
@@ -249,7 +250,12 @@ const translations = {
         card_konvo_title: "UTeM Convocation & Alumni",
         card_konvo_sub: "Graduation & Robe Collection",
         card_konvo_desc: "Official portal for convocation session schedules, academic robe collection, and alumni updates.",
-        card_konvo_btn: "Open Konvo Portal ➔"
+        card_konvo_btn: "Open Konvo Portal ➔",
+
+        card_vehicle_title: "Student Vehicle Form",
+        card_vehicle_sub: "Campus Driving & Parking",
+        card_vehicle_desc: "Download the official UTeM student vehicle application form for campus driving and parking access.",
+        card_vehicle_btn: "Download Form ➔"
     },
     ms: {
         nav_confessions: "Pengakuan",
@@ -347,14 +353,14 @@ const translations = {
         m10a_detail3: "<strong>Waktu:</strong> 6:00 AM – 8:00 PM (Tanpa Tunai: TNG, Kad Debit, QR)",
 
         title_calendar: "Kalendar Akademik (2026/2027)",
-        btn_cal_all: "Semua Tarikh",
-        btn_cal_academic: "Minggu Kuliah",
+        btn_cal_all: "Semua",
+        btn_cal_academic: "Kuliah",
         btn_cal_exam: "Peperiksaan",
         btn_cal_break: "Cuti Belajar",
         btn_cal_holiday: "Cuti Umum",
         placeholder_search_cal: "Cari acara kalendar...",
         calendar_sources_label: "Rujukan Kalendar Akademik Rasmi:",
-        calendar_link_label: "Kalendar Akademik Rasmi Sesi UTeM 2026/2027 (PDF) ➔",
+        calendar_link_label: "PDF Rasmi ➔",
         title_past_exams_tab: "Kertas Peperiksaan Tahun Lepas UTeM",
         desc_past_exams_tab: "Akses repositori rasmi perpustakaan UTeM untuk mencari, menyemak imbas dan memuat turun kertas soalan peperiksaan semester lepas bagi kursus anda.",
         label_past_exams_lib: "Pangkalan Data Kertas Peperiksaan Rasmi:",
@@ -438,6 +444,7 @@ const translations = {
         label_coffee_support: "Pilihan 2: Sumbangan Ikhlas Pasukan Admin",
         title_coffee: "Belanja Pasukan Admin Kopi ☕",
         desc_coffee: "Jika alat GPA, laluan bas, atau panduan peperiksaan kami membantu anda dalam semester ini, segala sumbangan ikhlas kepada pasukan sukarelawan pelajar kami amatlah dihargai!",
+        notice_kofi_currency: "*Sila ambil maklum: Tip/Sumbangan hanya diterima dalam nilai USD ($) disebabkan oleh had platform Ko-fi. Ini adalah normal dan selamat.",
         btn_kofi_support: "Belanja Kami Kopi di Ko-fi ☕ ➔",
         btn_contact_admin_tip: "Hubungi Admin di Telegram ➔",
         label_transparency_title: "Janji Ketelusan Kami:",
@@ -499,7 +506,12 @@ const translations = {
         card_konvo_title: "Konvokesyen & Alumni UTeM",
         card_konvo_sub: "Jadual Graduasi & Jubah",
         card_konvo_desc: "Portal rasmi untuk jadual sesi konvokesyen, pengambilan jubah akademik, dan alumni UTeM.",
-        card_konvo_btn: "Buka Portal Konvo ➔"
+        card_konvo_btn: "Buka Portal Konvo ➔",
+
+        card_vehicle_title: "Borang Kenderaan Pelajar",
+        card_vehicle_sub: "Memandu & Meletak Kenderaan",
+        card_vehicle_desc: "Muat turun borang permohonan kenderaan pelajar rasmi UTeM untuk akses memandu dan meletak kenderaan di kampus.",
+        card_vehicle_btn: "Muat Turun Borang ➔"
     }
 };
 
@@ -737,9 +749,9 @@ function setLanguage(lang) {
         if (routeKey === "kt") pill.textContent = "KT (Ayer Keroh)";
         else if (routeKey === "ki") pill.textContent = "KI (Induk)";
         else if (routeKey === "ep") pill.textContent = "EP (Off-Campus)";
-        else if (routeKey === "ftmk_regular") pill.textContent = lang === "en" ? "KI ⇄ KT (Regular)" : "KI ⇄ KT (Biasa)";
-        else if (routeKey === "satria_regular") pill.textContent = lang === "en" ? "Satria ⇄ KI (Regular)" : "Satria ⇄ KI (Biasa)";
-        else if (routeKey === "lestari_regular") pill.textContent = lang === "en" ? "Lestari ⇄ KI (Regular)" : "Lestari ⇄ KI (Biasa)";
+        else if (routeKey === "ftmk_regular") pill.textContent = "KI ⇄ KT";
+        else if (routeKey === "satria_regular") pill.textContent = "Satria ⇄ KI";
+        else if (routeKey === "lestari_regular") pill.textContent = "Lestari ⇄ KI";
     });
 
     const busThs = document.querySelectorAll("#bus-tab .gpa-table th");
@@ -989,6 +1001,19 @@ function setLanguage(lang) {
     const labelLibRef = document.getElementById("labelLibRef");
     if (labelLibRef) labelLibRef.textContent = t.label_lib_ref;
 
+    // Vehicle Form Card
+    const vehicleTitle = document.getElementById("vehicleTitle");
+    if (vehicleTitle) vehicleTitle.textContent = t.card_vehicle_title;
+
+    const vehicleSub = document.getElementById("vehicleSub");
+    if (vehicleSub) vehicleSub.textContent = t.card_vehicle_sub;
+
+    const vehicleDesc = document.getElementById("vehicleDesc");
+    if (vehicleDesc) vehicleDesc.textContent = t.card_vehicle_desc;
+
+    const vehicleBtn = document.getElementById("vehicleBtn");
+    if (vehicleBtn) updateNodeText(vehicleBtn, t.card_vehicle_btn);
+
     // 12. Scholarship Tracker
     const titleScholarships = document.querySelector("#scholarships-tab .card-title");
     if (titleScholarships) updateNodeText(titleScholarships, t.title_scholarships);
@@ -1042,6 +1067,9 @@ function setLanguage(lang) {
 
     const descCoffee = document.getElementById("descCoffee");
     if (descCoffee) descCoffee.textContent = t.desc_coffee;
+
+    const noticeKofiCurrency = document.getElementById("noticeKofiCurrency");
+    if (noticeKofiCurrency) noticeKofiCurrency.textContent = t.notice_kofi_currency;
 
     const btnKofiSupport = document.getElementById("btnKofiSupport");
     if (btnKofiSupport) btnKofiSupport.textContent = t.btn_kofi_support || "Buy Us a Coffee on Ko-fi ☕ ➔";

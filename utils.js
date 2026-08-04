@@ -45,3 +45,13 @@ function showToast(msg, type = "info", duration = 4000) {
 function showStatus(msg, type) {
     showToast(msg, type || "info", 5000);
 }
+
+function escapeHtml(text) {
+    if (!text) return "";
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}

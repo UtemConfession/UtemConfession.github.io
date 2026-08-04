@@ -26,7 +26,7 @@ const ASSETS_TO_CACHE = [
     './health.js',
     './library.js',
     './scholarships.js',
-    './archive.js',
+//    './archive.js',
     './script.js',
     './authentication.js',
     './UCPMLogo.png'

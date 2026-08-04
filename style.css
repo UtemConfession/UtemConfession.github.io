@@ -283,12 +283,33 @@ h1, h2, h3, h4 {
 .main-content {
     flex: 1;
     margin-left: 280px;
-    padding: 40px;
+    padding: 140px 40px 40px 40px;
     min-height: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
     transition: var(--transition);
+    position: relative;
+}
+
+/* Desktop Top Ad Banner */
+.desktop-top-ad-banner {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 728px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    z-index: 100;
+}
+@media (max-width: 1023px) {
+    .desktop-top-ad-banner {
+        display: none !important;
+    }
 }
 
 /* Mobile Header (Full Width Fixed Top Header Bar) */
@@ -379,7 +400,7 @@ h1, h2, h3, h4 {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 64px;
+    height: 52px;
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
     z-index: 1000;
@@ -576,7 +597,7 @@ h1, h2, h3, h4 {
     box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.1);
 }
 textarea.form-control {
-    resize: vertical;
+    resize: none;
     min-height: 150px;
 }
 
@@ -1156,7 +1177,7 @@ footer {
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
-        height: 58px !important;
+        height: 50px !important;
         background-color: rgba(13, 21, 39, 0.95) !important;
         border-top: 1px solid var(--border-color) !important;
         border-right: none !important;
@@ -1178,7 +1199,7 @@ footer {
         height: 100% !important;
         min-width: unset !important;
         width: auto !important;
-        padding: 4px 2px !important;
+        padding: 2px 0 !important;
         background: transparent !important;
         border: none !important;
         color: var(--text-secondary) !important;
@@ -2173,7 +2194,7 @@ footer {
 
 
 
-/* --- CONFESSIONS ARCHIVE (SQUARE RAW CONFESSIONS & CATEGORY PILLS) --- */
+/* --- CONFESSIONS ARCHIVE (SQUARE RAW CONFESSIONS & CATEGORY PILLS) --- 
 .archive-cat-pills {
     display: flex;
     gap: 8px;
@@ -2253,6 +2274,7 @@ footer {
         line-height: 1.45;
     }
 }
+*/
 
 /* 1. Static Transit Radar Vector Map inside Bus Tab */
 .transit-radar-card {
@@ -2663,9 +2685,95 @@ footer {
     .guide-card-grid {
         grid-template-columns: 1fr;
     }
+
+    /* ── Mobile Card Layout for Structured Tables ── */
+    .table-responsive {
+        border: none;
+        border-radius: 0;
+        overflow: visible;
+        margin: 16px 0;
+    }
+
+    .structured-table {
+        display: block;
+        width: 100%;
+    }
+
+    .structured-table thead {
+        display: none;
+    }
+
+    .structured-table tbody {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .structured-table tr {
+        display: flex;
+        flex-direction: column;
+        background: rgba(13, 21, 39, 0.65);
+        border: 1px solid var(--border-color);
+        border-left: 3.5px solid var(--accent-gold);
+        border-radius: 12px;
+        padding: 14px 14px 12px 14px;
+        gap: 6px;
+        transition: border-color 0.2s ease;
+    }
+
+    .structured-table tr:hover {
+        border-color: rgba(212, 175, 55, 0.4);
+    }
+
+    .structured-table td {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        padding: 0;
+        border-bottom: none;
+        font-size: 12.5px;
+        line-height: 1.45;
+        color: var(--text-secondary);
+    }
+
+    /* Route name (first cell) becomes card header */
+    .structured-table td:first-child {
+        font-size: 14px;
+        color: var(--text-primary);
+        padding-bottom: 6px;
+        margin-bottom: 2px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .structured-table td:first-child strong {
+        color: var(--text-primary);
+        font-weight: 700;
+    }
+
+    /* Inline labels from data-label attribute */
+    .structured-table td[data-label]:not(:first-child)::before {
+        content: attr(data-label);
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: var(--accent-gold);
+        opacity: 0.85;
+    }
+
+    /* Frequency cell gets a subtle highlight */
+    .structured-table td[data-label="Frequency"] {
+        background: rgba(212, 175, 55, 0.06);
+        border-radius: 8px;
+        padding: 6px 8px;
+        margin-top: 2px;
+        font-weight: 600;
+        font-size: 12px;
+        color: var(--accent-gold);
+    }
 }
 
-/* Confessions Archive Category Filter Pills */
+/* Confessions Archive Category Filter Pills 
 .archive-cat-pills {
     display: flex !important;
     align-items: center !important;
@@ -2702,6 +2810,7 @@ footer {
     font-weight: 800 !important;
     box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3) !important;
 }
+*/
 
 /* ==========================================
    ACADEMIC CALENDAR TIMELINE & EVENT CARDS

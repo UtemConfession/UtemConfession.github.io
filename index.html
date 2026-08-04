@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTRN9SHLDP"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTRN95HLDP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-XTRN9SHLDP');
+      gtag('config', 'G-XTRN95HLDP');
     </script>
 
     <meta charset="UTF-8">
@@ -32,12 +32,79 @@
       })();
     </script>
     
+    <!-- In-App Browser Detector (Telegram/FB/IG) -->
+    <script>
+      (function() {
+        var ua = navigator.userAgent || navigator.vendor || window.opera;
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+        var isTelegram = (ua.indexOf("Telegram") > -1);
+        var isInstaFB = (ua.indexOf("Instagram") > -1 || ua.indexOf("FBAV") > -1 || ua.indexOf("FBAN") > -1);
+        
+        if (isMobile && (isTelegram || isInstaFB)) {
+          document.addEventListener("DOMContentLoaded", function() {
+            var overlay = document.createElement("div");
+            overlay.style.position = "fixed";
+            overlay.style.top = "0";
+            overlay.style.left = "0";
+            overlay.style.width = "100%";
+            overlay.style.height = "100%";
+            overlay.style.backgroundColor = "#060b19"; // matches var(--bg-primary)
+            overlay.style.zIndex = "9999999";
+            overlay.style.display = "flex";
+            overlay.style.flexDirection = "column";
+            overlay.style.justifyContent = "center";
+            overlay.style.alignItems = "center";
+            overlay.style.padding = "40px";
+            overlay.style.textAlign = "center";
+            overlay.style.color = "#ffffff";
+            overlay.style.fontFamily = "'Outfit', sans-serif";
+            
+            var icon = document.createElement("div");
+            icon.innerHTML = '<svg viewBox="0 0 24 24" width="72" height="72" fill="#d4af37"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>';
+            icon.style.marginBottom = "24px";
+            icon.style.filter = "drop-shadow(0 0 15px rgba(212, 175, 55, 0.4))";
+            
+            var title = document.createElement("h2");
+            title.innerText = "Browser Not Supported";
+            title.style.margin = "0 0 16px 0";
+            title.style.fontSize = "26px";
+            title.style.fontWeight = "700";
+            title.style.color = "#d4af37";
+            
+            var desc = document.createElement("p");
+            desc.innerText = "You are currently using Telegram or another in-app browser. Google Sign-In is blocked here.\n\nPlease tap the menu (•••) at the top right corner and select 'Open in browser' or 'Open in Chrome/Safari' to continue.";
+            desc.style.lineHeight = "1.6";
+            desc.style.fontSize = "16px";
+            desc.style.color = "#94a3b8";
+            desc.style.whiteSpace = "pre-line";
+            
+            overlay.appendChild(icon);
+            overlay.appendChild(title);
+            overlay.appendChild(desc);
+            document.body.appendChild(overlay);
+            
+            // Try to force redirect on Android
+            if (ua.indexOf("Android") > -1) {
+                var intentUrl = "intent://" + location.host + location.pathname + location.search + "#Intent;scheme=https;package=com.android.chrome;end;";
+                window.location.href = intentUrl;
+            }
+          });
+        }
+      })();
+    </script>
+    
     <!-- SEO Optimization -->
     <title>UTeM Confession Pro Max | Student Services & Resources Hub</title>
     <meta name="description" content="Submit anonymous confessions to UTeM Confession Pro Max. Access student resources like GPA calculator, exam countdown, campus map, bus schedules, and academic calendar.">
     <meta name="keywords" content="UTeM, Universiti Teknikal Malaysia Melaka, UTeM Confession, GPA Calculator, Bus Schedule, Campus Map, Exam Countdown, Academic Calendar">
     <meta name="author" content="UTeM Confessions">
     
+    <!-- Open Graph & Social Meta Tags -->
+    <meta property="og:title" content="UTeM Confession Pro Max">
+    <meta property="og:description" content="Submit anonymous confessions to UTeM Confession Pro Max. Access student resources like GPA calculator, exam countdown, campus map, bus schedules, and academic calendar.">
+    <meta property="og:image" content="UCPMLogo.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
 
     
     <!-- Custom Style System -->
@@ -127,10 +194,10 @@
                     <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
                     Scholarship
                 </li>
-                <li class="nav-item" data-tab="archive-tab" id="desktopArchiveTab">
+                <!-- <li class="nav-item" data-tab="archive-tab" id="desktopArchiveTab">
                     <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/></svg>
                     Confessions Archive
-                </li>
+                </li> -->
                 <li class="nav-item" data-tab="support-tab" id="desktopSupportTab">
                     <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
                     Support Us
@@ -168,6 +235,16 @@
 
         <!-- Main Dashboard View Panel -->
         <main class="main-content">
+            <!-- Desktop Top Ad Banner -->
+            <div class="desktop-top-ad-banner">
+                <ins class="adsbygoogle"
+                     style="display:inline-block;width:728px;height:90px"
+                     data-ad-client="ca-pub-1444529930367815"
+                     data-ad-slot="7411190923"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </div>
             
             <!-- Bounded Top Ad Container (Hybrid Protection against top overlays) -->
             <div class="ad-slot-bounded" id="adTopBounded">
@@ -398,8 +475,8 @@
                     <!-- Filter Options -->
                     <div class="calendar-controls">
                         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                            <button class="btn btn-secondary btn-sm cal-filter-btn active" data-category="all">All Dates</button>
-                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="academic">Lecture Weeks</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn active" data-category="all">All</button>
+                            <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="academic">Lectures</button>
                             <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="exam">Exams</button>
                             <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="break">Breaks</button>
                             <button class="btn btn-secondary btn-sm cal-filter-btn" data-category="holiday">Holidays</button>
@@ -743,6 +820,24 @@
                                 Open Konvo Portal ➔
                             </a>
                         </div>
+                        <!-- CARD 9: VEHICLE APPLICATION FORM -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px;">
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(245, 158, 11, 0.15); color: #f59e0b; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;">
+                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>
+                                </div>
+                                <div>
+                                    <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;" id="vehicleTitle">Student Vehicle Form</h3>
+                                    <span style="font-size: 11px; color: var(--text-muted);" id="vehicleSub">Campus Driving & Parking</span>
+                                </div>
+                            </div>
+                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;" id="vehicleDesc">
+                                Download the official UTeM student vehicle application form for campus driving and parking access.
+                            </p>
+                            <a href="https://hep.utem.edu.my/wp-content/uploads/BORANG%20PERMOHONAN%20MEMBAWA%20KENDERAAN%20PELAJAR_SEMAKAN%204.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; font-weight: 700; color: #f59e0b; border-color: rgba(245, 158, 11, 0.3);" id="vehicleBtn">
+                                Download Form ➔
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -790,9 +885,9 @@
 
                     <!-- Regular Semester Route Pills (Hidden by default) -->
                     <div id="pillsRegularSem" class="bus-routes-selector" style="display: none; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;">
-                        <div class="bus-route-pill" data-route="ftmk_regular">KI ⇄ KT (Regular)</div>
-                        <div class="bus-route-pill" data-route="satria_regular">Satria ⇄ KI (Regular)</div>
-                        <div class="bus-route-pill" data-route="lestari_regular">Lestari ⇄ KI (Regular)</div>
+                        <div class="bus-route-pill" data-route="ftmk_regular">KI ⇄ KT</div>
+                        <div class="bus-route-pill" data-route="satria_regular">Satria ⇄ KI</div>
+                        <div class="bus-route-pill" data-route="lestari_regular">Lestari ⇄ KI</div>
                     </div>
 
                     <!-- CONCEPT 1: Static Shuttle Route Radar & Transit Vector Map -->
@@ -1645,6 +1740,7 @@
             </div>
 
             <!-- TAB 12: CONFESSIONS ARCHIVE -->
+            <!-- TAB 12: CONFESSIONS ARCHIVE (COMMENTED OUT FOR NOW)
             <div class="tab-content" id="archive-tab">
                 <div class="card">
                     <h2 class="card-title">
@@ -1656,7 +1752,6 @@
                         Browse approved raw student confessions. Use keyword search to find specific posts.
                     </p>
 
-                    <!-- Controls: Search bar & Sort -->
                     <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
                         <div style="flex: 1; min-width: 240px; position: relative;">
                             <input type="text" id="archiveSearch" placeholder="🔍 Search confessions by keyword..." class="form-control">
@@ -1672,7 +1767,6 @@
                         </div>
                     </div>
 
-                    <!-- Main Category Selection Pills (with Emojis) -->
                     <div class="archive-cat-pills" id="archiveCatPills" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
                         <button class="archive-pill active" data-cat="all" style="background: linear-gradient(135deg, #d4af37 0%, #ffeb3b 100%); border: 1px solid #d4af37; color: #000000; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);">🗣️ All</button>
                         <button class="archive-pill" data-cat="rant" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">🔥 Rant</button>
@@ -1684,11 +1778,9 @@
                         <button class="archive-pill" data-cat="lost" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">🔍 Lost &amp; Found</button>
                     </div>
 
-                    <!-- Confessions Cards Container (Square Cards Grid) -->
                     <div id="archiveContainer" class="archive-grid">
                     </div>
 
-                    <!-- Content Removal Disclaimer Box -->
                     <div style="margin-top: 28px; padding: 16px 20px; border-radius: 12px; background: rgba(239, 68, 68, 0.08); border: 1px dashed rgba(239, 68, 68, 0.35); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
                         <div style="display: flex; align-items: center; gap: 10px; flex: 1; min-width: 260px;">
                             <svg viewBox="0 0 24 24" width="22" height="22" fill="#ef4444" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/></svg>
@@ -1700,7 +1792,7 @@
                         </a>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- TAB 12: SUPPORT US -->
             <div class="tab-content" id="support-tab">
@@ -1748,6 +1840,9 @@
                                 <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;" id="descCoffee">
                                     If our GPA tool, bus routes, or exam prep guides helped you pass your semester, feel free to send our student volunteer team a small tip!
                                 </p>
+                                <p style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin: 0; font-style: italic;" id="noticeKofiCurrency">
+                                    *Please note: Tips are accepted in USD ($) only due to Ko-fi's platform limitations. This is normal and secure.
+                                </p>
                             </div>
 
                             <!-- Ko-fi Official Widget Container -->
@@ -1764,6 +1859,23 @@
 
                     </div>
                 </div>
+            </div>
+
+            <!-- Adsterra: End of Tabs — Desktop 728x90 -->
+            <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--between-sections"
+                 id="adEndOfTabsDesktop"
+                 data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99"
+                 data-ad-width="728"
+                 data-ad-height="90"
+                 data-ad-size="728x90">
+            </div>
+            <!-- Adsterra: End of Tabs — Mobile 320x50 -->
+            <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--between-sections"
+                 id="adEndOfTabsMobile"
+                 data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
+                 data-ad-width="320"
+                 data-ad-height="50"
+                 data-ad-size="320x50">
             </div>
 
             <!-- Static Crawlable Overview Section for Google AdSense & Search Engines -->
@@ -1888,10 +2000,10 @@
                     <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/></svg>
                     <span>Scholarships</span>
                 </button>
-                <button class="drawer-item-btn" data-tab="archive-tab">
+<!--                <button class="drawer-item-btn" data-tab="archive-tab">
                     <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/></svg>
                     <span>Archive</span>
-                </button>
+                </button> -->
 
                 <button class="drawer-item-btn" data-tab="support-tab">
                     <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
@@ -1920,7 +2032,7 @@
     <script src="health.js"></script>
     <script src="library.js"></script>
     <script src="scholarships.js"></script>
-    <script src="archive.js"></script>
+    <!-- <script src="archive.js"></script> -->
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
     <script src="script.js"></script>
@@ -1930,3 +2042,4 @@
 
 </body>
 </html>
+

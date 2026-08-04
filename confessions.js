@@ -153,7 +153,14 @@ function clearDraftConfession() {
 }
 
 if (confessionText) {
+    confessionText.style.overflowY = 'hidden'; // Hide scrollbar for clean auto-expansion
     loadDraftConfession();
+    
+    // Auto-resize on initial load if there's drafted text
+    if (confessionText.value) {
+        confessionText.style.height = 'auto';
+        confessionText.style.height = confessionText.scrollHeight + 'px';
+    }
 
     confessionText.addEventListener("input", () => {
         let length = confessionText.value.length;
@@ -164,6 +171,11 @@ if (confessionText) {
         if (charCount) {
             charCount.textContent = `${length} / 10000 characters`;
         }
+        
+        // Auto-resize textarea
+        confessionText.style.height = 'auto';
+        confessionText.style.height = confessionText.scrollHeight + 'px';
+
         saveDraftConfession();
         updateSubmitButton();
     });
@@ -280,9 +292,9 @@ function validateImageFile(file) {
         return false;
     }
 
-    const maxSize = 10 * 1024 * 1024; // 10 MB limit
+    const maxSize = 5 * 1024 * 1024; // 5 MB limit
     if (file.size > maxSize) {
-        showStatus("File size exceeds 10 MB limit. Please select a smaller image.", "error");
+        showStatus("File size exceeds 5 MB limit. Please select a smaller image.", "error");
         return false;
     }
 

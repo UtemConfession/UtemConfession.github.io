@@ -147,17 +147,17 @@ function openArchiveModal(item) {
     body.innerHTML = `
         <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
             <span style="background:rgba(59,130,246,0.2); color:#60a5fa; font-weight:600; font-size:0.8rem; padding:4px 10px; border-radius:12px;">
-                ${item.category || "General"}
+                ${escapeHtml(item.category) || "General"}
             </span>
-            ${item.emotion && item.emotion !== "Neutral" ? `<span style="background:rgba(236,72,153,0.2); color:#f472b6; font-size:0.8rem; padding:4px 10px; border-radius:12px;">${item.emotion}</span>` : ""}
-            <span style="font-size:0.8rem; color:var(--text-muted, #94a3b8);">${item.date || ""}</span>
+            ${item.emotion && item.emotion !== "Neutral" ? `<span style="background:rgba(236,72,153,0.2); color:#f472b6; font-size:0.8rem; padding:4px 10px; border-radius:12px;">${escapeHtml(item.emotion)}</span>` : ""}
+            <span style="font-size:0.8rem; color:var(--text-muted, #94a3b8);">${escapeHtml(item.date) || ""}</span>
         </div>
-        ${item.title ? `<h3 style="margin: 0 0 12px 0; font-size: 1.25rem; color: #f8fafc; font-weight: 700;">${item.title}</h3>` : ""}
-        <div style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; white-space: pre-wrap; margin-bottom: 16px; border-left: 3px solid #3b82f6; padding-left: 12px;">${item.content}</div>
+        ${item.title ? `<h3 style="margin: 0 0 12px 0; font-size: 1.25rem; color: #f8fafc; font-weight: 700;">${escapeHtml(item.title)}</h3>` : ""}
+        <div style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; white-space: pre-wrap; margin-bottom: 16px; border-left: 3px solid #3b82f6; padding-left: 12px;">${escapeHtml(item.content)}</div>
         ${tagsHtml ? `<div style="margin-bottom: 16px;">${tagsHtml}</div>` : ""}
         <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
-            <span>⭐ Rating: ${item.interestingScore || 50}/100</span>
-            ${item.telegramLink ? `<a href="${item.telegramLink}" target="_blank" rel="noopener" style="color:#38bdf8; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">✈️ Open in Telegram</a>` : ""}
+            <span>⭐ Rating: ${escapeHtml(item.interestingScore) || 50}/100</span>
+            ${item.telegramLink ? `<a href="${escapeHtml(item.telegramLink)}" target="_blank" rel="noopener" style="color:#38bdf8; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">✈️ Open in Telegram</a>` : ""}
         </div>
     `;
 
@@ -275,9 +275,10 @@ function renderArchiveConfessions() {
         const isLongText = item.content.length > 140;
         const displayText = isLongText ? item.content.substring(0, 137).trim() + "..." : item.content;
 
-        let cardHeaderHtml = `<div class="archive-card-header" style="margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
-            ${item.category ? `<span class="archive-badge-cat" style="font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; background: rgba(59, 130, 246, 0.15); color: #60a5fa; font-weight: 600;">${item.category}</span>` : ""}
-            ${item.emotion && item.emotion !== "Neutral" ? `<span class="archive-badge-emotion" style="font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; background: rgba(236, 72, 153, 0.15); color: #f472b6;">${item.emotion}</span>` : ""}
+        let cardHeaderHtml = `
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px;">
+            <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">${escapeHtml(formatArchiveDate(item.timestamp))}</div>
+            ${item.emotion && item.emotion !== "Neutral" ? `<span class="archive-badge-emotion" style="font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; background: rgba(236, 72, 153, 0.15); color: #f472b6;">${escapeHtml(item.emotion)}</span>` : ""}
         </div>`;
 
         let readMoreBtnHtml = isLongText ? `
@@ -298,8 +299,8 @@ function renderArchiveConfessions() {
         card.innerHTML = `
             <div>
                 ${cardHeaderHtml}
-                ${item.title ? `<h4 style="margin: 4px 0 8px 0; font-size: 0.95rem; color: #f8fafc; font-weight: 600;">${item.title}</h4>` : ""}
-                <p class="archive-card-content" style="margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">${displayText}</p>
+                ${item.title ? `<h4 style="margin: 4px 0 8px 0; font-size: 0.95rem; color: #f8fafc; font-weight: 600;">${escapeHtml(item.title)}</h4>` : ""}
+                <p class="archive-card-content" style="margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">${escapeHtml(displayText)}</p>
                 ${readMoreBtnHtml}
             </div>
             ${telegramHtml}

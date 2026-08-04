@@ -83,7 +83,7 @@ function updateAuthUI() {
                 if (userAvatarFallback) {
                     userAvatarFallback.style.display = "flex";
                     const initial = (currentUser.name || currentUser.email || "U").charAt(0).toUpperCase();
-                    userAvatarFallback.innerHTML = `<span>${initial}</span>`;
+                    userAvatarFallback.innerHTML = `<span>${escapeHtml(initial)}</span>`;
                 }
             };
         } else {
@@ -91,7 +91,7 @@ function updateAuthUI() {
             if (userAvatarFallback) {
                 userAvatarFallback.style.display = "flex";
                 const initial = (currentUser.name || currentUser.email || "U").charAt(0).toUpperCase();
-                userAvatarFallback.innerHTML = `<span>${initial}</span>`;
+                userAvatarFallback.innerHTML = `<span>${escapeHtml(initial)}</span>`;
             }
         }
     }
