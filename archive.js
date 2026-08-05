@@ -157,7 +157,7 @@ function openArchiveModal(item) {
         ${tagsHtml ? `<div style="margin-bottom: 16px;">${tagsHtml}</div>` : ""}
         <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
             <span>⭐ Rating: ${escapeHtml(item.interestingScore) || 50}/100</span>
-            ${item.telegramLink ? `<a href="${escapeHtml(item.telegramLink)}" target="_blank" rel="noopener" style="color:#38bdf8; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">✈️ Open in Telegram</a>` : ""}
+            ${item.telegramLink ? `<a href="${escapeHtml(item.telegramLink)}" target="_blank" rel="noopener noreferrer" style="color:#38bdf8; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">✈️ Open in Telegram</a>` : ""}
         </div>
     `;
 
@@ -290,7 +290,7 @@ function renderArchiveConfessions() {
 
         let telegramHtml = item.telegramLink ? `
             <div style="margin-top: 10px; text-align: right;">
-                <a href="${item.telegramLink}" target="_blank" rel="noopener" style="font-size: 0.8rem; color: #38bdf8; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                <a href="${item.telegramLink}" target="_blank" rel="noopener noreferrer" style="font-size: 0.8rem; color: #38bdf8; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
                     ✈️ View on Telegram
                 </a>
             </div>

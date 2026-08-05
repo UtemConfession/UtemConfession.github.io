@@ -17,7 +17,7 @@ function getCurrentUser() {
 function signOut() {
     currentUserToken = null;
     currentUser = null;
-    localStorage.removeItem(TOKEN_KEY);
+    try { localStorage.removeItem(TOKEN_KEY); } catch (e) { }
 
     const userInfo = document.getElementById("userInfo");
     const gSigninBtn = document.getElementById("g_id_signin");
@@ -48,7 +48,11 @@ function handleCredentialResponse(response) {
     }
 
     // Save to localStorage for persistent login across sessions
-    localStorage.setItem(TOKEN_KEY, response.credential);
+    try {
+        localStorage.setItem(TOKEN_KEY, response.credential);
+    } catch (e) {
+        console.warn("localStorage is unavailable (cookies may be blocked). Login will not persist across reloads.");
+    }
 
     console.log("Signed in successfully as:", currentUser.name, "(" + currentUser.email + ")");
 
@@ -78,7 +82,7 @@ function updateAuthUI() {
             userAvatar.style.display = "block";
             if (userAvatarFallback) userAvatarFallback.style.display = "none";
 
-            userAvatar.onerror = function() {
+            userAvatar.onerror = function () {
                 this.style.display = "none";
                 if (userAvatarFallback) {
                     userAvatarFallback.style.display = "flex";
@@ -151,19 +155,20 @@ function checkOAuthRedirectHash() {
 
 // Loads cached token from localStorage on page load
 function loadSavedSession() {
-    const savedToken = localStorage.getItem(TOKEN_KEY);
+    let savedToken = null;
+    try { savedToken = localStorage.getItem(TOKEN_KEY); } catch (e) { }
     if (!savedToken) return false;
 
     const parsed = parseJwt(savedToken);
     if (!parsed) {
-        localStorage.removeItem(TOKEN_KEY);
+        try { localStorage.removeItem(TOKEN_KEY); } catch (e) { }
         return false;
     }
 
     // Check expiration (exp is in seconds)
     if (parsed.exp && parsed.exp * 1000 < Date.now()) {
         console.log("Saved session expired. Removing token.");
-        localStorage.removeItem(TOKEN_KEY);
+        try { localStorage.removeItem(TOKEN_KEY); } catch (e) { }
         return false;
     }
 

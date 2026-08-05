@@ -126,30 +126,32 @@ const DRAFT_KEY = "ucpm_draft_confession";
 
 function loadDraftConfession() {
     if (!confessionText) return;
-    const savedDraft = localStorage.getItem(DRAFT_KEY);
-    if (savedDraft && !confessionText.value) {
-        confessionText.value = savedDraft;
-        const len = savedDraft.length;
-        if (charCount) charCount.textContent = `${len} / 10000 characters`;
-        updateSubmitButton();
-        if (typeof showToast === "function") {
-            showToast("💾 Restored your saved confession draft!", "info", 3500);
+    try {
+        const savedDraft = localStorage.getItem(DRAFT_KEY);
+        if (savedDraft && !confessionText.value) {
+            confessionText.value = savedDraft;
+            const len = savedDraft.length;
+            if (charCount) charCount.textContent = `${len} / 10000 characters`;
+            updateSubmitButton();
+            if (typeof showToast === "function") {
+                showToast("💾 Restored your saved confession draft!", "info", 3500);
+            }
         }
-    }
+    } catch (e) {}
 }
 
 function saveDraftConfession() {
     if (!confessionText) return;
     const val = confessionText.value;
     if (val.trim().length > 0) {
-        localStorage.setItem(DRAFT_KEY, val);
+        try { localStorage.setItem(DRAFT_KEY, val); } catch (e) {}
     } else {
-        localStorage.removeItem(DRAFT_KEY);
+        try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
     }
 }
 
 function clearDraftConfession() {
-    localStorage.removeItem(DRAFT_KEY);
+    try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
 }
 
 if (confessionText) {

@@ -31,7 +31,7 @@ function showToast(msg, type = "info", duration = 4000) {
 
     toast.innerHTML = `
         <span style="font-size: 16px;">${icon}</span>
-        <span style="flex: 1; font-size: 13px; font-weight: 600; line-height: 1.4;">${msg}</span>
+        <span style="flex: 1; font-size: 13px; font-weight: 600; line-height: 1.4;">${escapeHtml(msg)}</span>
     `;
 
     toastContainer.appendChild(toast);

@@ -9,10 +9,10 @@ localStorage.setItem("theme", "dark");
 
 
 // --- TAB NAVIGATION SYSTEM ---
-const navItems       = document.querySelectorAll(".nav-item");
-const mobileNavBtns  = document.querySelectorAll(".mobile-nav-btn[data-tab]");
+const navItems = document.querySelectorAll(".nav-item");
+const mobileNavBtns = document.querySelectorAll(".mobile-nav-btn[data-tab]");
 const drawerItemBtns = document.querySelectorAll(".drawer-item-btn[data-tab]");
-const tabContents    = document.querySelectorAll(".tab-content");
+const tabContents = document.querySelectorAll(".tab-content");
 
 function switchTab(tabId) {
     if (!tabId) return;
@@ -45,9 +45,9 @@ drawerItemBtns.forEach(btn => {
 });
 
 // --- MOBILE "MORE" DRAWER CONTROLLER ---
-const openDrawerBtn  = document.getElementById("openMobileDrawerBtn");
+const openDrawerBtn = document.getElementById("openMobileDrawerBtn");
 const closeDrawerBtn = document.getElementById("closeMobileDrawerBtn");
-const drawerOverlay  = document.getElementById("mobileMoreDrawer");
+const drawerOverlay = document.getElementById("mobileMoreDrawer");
 
 function openMobileDrawer() {
     if (drawerOverlay) drawerOverlay.classList.add("active");
@@ -57,7 +57,7 @@ function closeMobileDrawer() {
     if (drawerOverlay) drawerOverlay.classList.remove("active");
 }
 
-if (openDrawerBtn)  openDrawerBtn.addEventListener("click", openMobileDrawer);
+if (openDrawerBtn) openDrawerBtn.addEventListener("click", openMobileDrawer);
 if (closeDrawerBtn) closeDrawerBtn.addEventListener("click", closeMobileDrawer);
 if (drawerOverlay) {
     drawerOverlay.addEventListener("click", (e) => {
@@ -73,11 +73,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Bind language toggle buttons
     const desktopToggle = document.getElementById("desktopLangToggle");
-    const mobileToggle  = document.getElementById("mobileLangToggle");
-    const drawerToggle  = document.getElementById("drawerLangToggle");
+    const mobileToggle = document.getElementById("mobileLangToggle");
+    const drawerToggle = document.getElementById("drawerLangToggle");
     if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
-    if (mobileToggle)  mobileToggle.addEventListener("click", toggleLanguage);
-    if (drawerToggle)  drawerToggle.addEventListener("click", toggleLanguage);
+    if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
+    if (drawerToggle) drawerToggle.addEventListener("click", toggleLanguage);
 
     // Seed default GPA rows (with clean empty subject titles)
     if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Melaka public bus route lookup
     const melakaDestSelect = document.getElementById("melakaDestSelect");
-    const lookupResultBox  = document.getElementById("lookupResultBox");
+    const lookupResultBox = document.getElementById("lookupResultBox");
 
     if (melakaDestSelect && lookupResultBox) {
         melakaDestSelect.addEventListener("change", (e) => {
