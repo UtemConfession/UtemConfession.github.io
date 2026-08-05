@@ -230,8 +230,6 @@ h1, h2, h3, h4 {
     padding-top: 16px;
     border-top: 1px solid var(--border-color);
     flex-shrink: 0;
-    max-height: 280px;
-    overflow: hidden;
 }
 
 /* Telegram / Social App In-App Browser Warning Alert */
