@@ -524,6 +524,11 @@
                             🏆 Anugerah Dekan (Dean's List) Eligible!
                         </div>
 
+                        <!-- First Class Badge Container -->
+                        <div id="firstClassBadge" style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 10px; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(42, 171, 238, 0.18) 0%, rgba(34, 158, 217, 0.08) 100%); border: 1px solid rgba(42, 171, 238, 0.4); color: #2AABEE; font-weight: 800; font-size: 13px; text-shadow: 0 0 8px rgba(42, 171, 238, 0.3); box-shadow: 0 0 14px rgba(42, 171, 238, 0.15);">
+                            🎓 Kelas Pertama (First Class) Eligible!
+                        </div>
+
                         <!-- Main Table Inputs -->
                         <div class="gpa-table-container">
                             <table class="gpa-table">
@@ -585,7 +590,7 @@
                         </p>
 
                         <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <input type="text" id="examSubjectInput" class="form-control" placeholder="e.g. Data Communication, Calculus, Software Engineering, BITP 1113..." style="flex: 1; min-width: 240px; padding: 12px 16px; font-size: 14px;">
+                            <input type="text" id="examSubjectInput" class="form-control" placeholder="e.g. BITM, Software Engineering, BITP 1113..." style="flex: 1; min-width: 240px; padding: 12px 16px; font-size: 14px;">
                             <button type="button" id="btnSearchExams" class="btn btn-primary" style="padding: 12px 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;">
                                 🔎 Search Papers ➔
                             </button>
@@ -594,11 +599,31 @@
                         <!-- Popular Quick Search Tags -->
                         <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 14px;">
                             <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Quick Subjects:</span>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Data Communication')">Data Communication</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Software Engineering')">Software Engineering</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Algorithm')">Algorithm</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Artificial Intelligence')">Artificial Intelligence</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Business Ethics')">Business Ethics</button>
                             <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Calculus')">Calculus</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Operating Systems')">Operating Systems</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Computer Architecture')">Computer Architecture</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Computer Networks')">Computer Networks</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Control Systems')">Control Systems</button>
                             <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Cyber Security')">Cyber Security</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Data Communication')">Data Communication</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Data Structures')">Data Structures</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Database Systems')">Database Systems</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Digital Electronics')">Digital Electronics</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Fluid Mechanics')">Fluid Mechanics</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Human Computer Interaction')">Human Computer Interaction</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Human Resource Management')">Human Resource Management</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Information Security')">Information Security</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Machine Learning')">Machine Learning</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Manufacturing Processes')">Manufacturing Processes</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Microprocessor')">Microprocessor</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Operating Systems')">Operating Systems</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Project Management')">Project Management</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Software Engineering')">Software Engineering</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Technopreneurship')">Technopreneurship</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Thermodynamics')">Thermodynamics</button>
+                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn" onclick="searchExamSubject('Web Development')">Web Development</button>
                         </div>
                     </div>
                     
@@ -886,8 +911,8 @@
                     <!-- Regular Semester Route Pills (Hidden by default) -->
                     <div id="pillsRegularSem" class="bus-routes-selector" style="display: none; gap: 8px; flex-wrap: wrap; margin-bottom: 18px;">
                         <div class="bus-route-pill" data-route="ftmk_regular">KI ⇄ KT</div>
-                        <div class="bus-route-pill" data-route="satria_regular">Satria ⇄ KI</div>
-                        <div class="bus-route-pill" data-route="lestari_regular">Lestari ⇄ KI</div>
+                        <div class="bus-route-pill" data-route="satria_regular">Satria ⇄ Fakulti</div>
+                        <div class="bus-route-pill" data-route="lestari_regular">Lestari ⇄ Fakulti</div>
                     </div>
 
                     <!-- CONCEPT 1: Static Shuttle Route Radar & Transit Vector Map -->

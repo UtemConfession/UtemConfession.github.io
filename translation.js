@@ -309,8 +309,8 @@ const translations = {
         th_credits: "Kredit",
         th_grade: "Gred Dicapai",
         th_actions: "Tindakan",
-        btn_add_subject: "➕ Tambah Baris Subjek",
-        btn_clear_gpa: "✕ Kosongkan Entri",
+        btn_add_subject: "➕ Tambah Baris",
+        btn_clear_gpa: "✕ Padam Semua",
         label_prior_cgpa: "CGPA Kumulatif Terdahulu",
         label_prior_credits: "Kredit Dikumpul Terdahulu (Jumlah)",
 
@@ -328,7 +328,7 @@ const translations = {
         opt_custom: "Tetapkan Tarikh Khas...",
 
         title_bus_transit: "Jadual Masa Shuttle Kampus UTeM (Semester Khas & Biasa)",
-        label_next_departure: "Pelepasan Dijadualkan Seterusnya:",
+        label_next_departure: "Pelepasan Seterusnya:",
         label_note: "Nota: Masa ketibaan bas shuttle mungkin berbeza mengikut keadaan trafik di Lebuhraya Ayer Keroh. Sila berada di tempat menunggu 5 minit awal.",
         th_departure: "Pelepasan",
         th_day_type: "Hari",
@@ -620,6 +620,12 @@ function setLanguage(lang) {
     const gpaTitle = document.querySelector("#gpa-tab .card-title");
     updateNodeText(gpaTitle, t.title_gpa_calc);
 
+    const deansListBadge = document.getElementById("deansListBadge");
+    if (deansListBadge) deansListBadge.textContent = lang === "en" ? "🏆 Dean's List (Anugerah Dekan) Eligible!" : "🏆 Layak Anugerah Dekan (Dean's List)!";
+    
+    const firstClassBadge = document.getElementById("firstClassBadge");
+    if (firstClassBadge) firstClassBadge.textContent = lang === "en" ? "🎓 First Class (Kelas Pertama) Eligible!" : "🎓 Layak Kelas Pertama (First Class)!";
+
     const gpaLabels = document.querySelectorAll("#gpa-tab .gpa-result-card .form-label");
     if (gpaLabels.length >= 3) {
         gpaLabels[0].textContent = t.label_sem_gpa;
@@ -735,7 +741,7 @@ function setLanguage(lang) {
     const sellerNoticeMarketplace = document.getElementById("sellerNoticeMarketplace");
     if (sellerNoticeMarketplace) sellerNoticeMarketplace.innerHTML = lang === "en"
         ? '<strong>Want to list items or promote your student services?</strong> Feel free to contact admin email with your details at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>'
-        : '<strong>Ingin menjual barangan terpakai atau mempromosikan servis anda?</strong> Kongsi di kumpulan Telegram rasmi atau hubungi e-mel pentadbir di: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>';
+        : '<strong>Ingin menjual barangan terpakai atau mempromosikan servis anda?</strong> Hubungi admin di: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>';
 
     // 7. Bus Transit (Minggu Semester Khas & Regular)
     const busTitle = document.querySelector("#bus-tab .card-title");
@@ -750,8 +756,8 @@ function setLanguage(lang) {
         else if (routeKey === "ki") pill.textContent = "KI (Induk)";
         else if (routeKey === "ep") pill.textContent = "EP (Off-Campus)";
         else if (routeKey === "ftmk_regular") pill.textContent = "KI ⇄ KT";
-        else if (routeKey === "satria_regular") pill.textContent = "Satria ⇄ KI";
-        else if (routeKey === "lestari_regular") pill.textContent = "Lestari ⇄ KI";
+        else if (routeKey === "satria_regular") pill.textContent = "Satria ⇄ Fakulti";
+        else if (routeKey === "lestari_regular") pill.textContent = "Lestari ⇄ Fakulti";
     });
 
     const busThs = document.querySelectorAll("#bus-tab .gpa-table th");

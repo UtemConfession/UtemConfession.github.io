@@ -126,6 +126,16 @@ function calculateGpa() {
         }
     }
 
+    // First Class Badge (Displayed strictly for 3.75 - 4.00)
+    const firstClassBadge = document.getElementById("firstClassBadge");
+    if (firstClassBadge) {
+        if (currentGPA >= 3.75 || targetCGPA >= 3.75) {
+            firstClassBadge.style.display = "flex";
+        } else {
+            firstClassBadge.style.display = "none";
+        }
+    }
+
     if (gpaEstimationNote) {
         if (noteText) {
             gpaEstimationNote.style.display = "block";
@@ -187,17 +197,17 @@ if (btnAutoFillCourse && courseLookupSelect) {
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
         if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {
-            addCalculatorRow('', 3, 'A');
-            addCalculatorRow('', 3, 'A');
-            addCalculatorRow('', 4, 'B+');
-            addCalculatorRow('', 3, 'A-');
+            addCalculatorRow('', 3, 'B');
+            addCalculatorRow('', 3, 'B');
+            addCalculatorRow('', 3, 'B');
+            addCalculatorRow('', 3, 'B');
         }
     });
 } else {
     if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {
-        addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 4, 'B+');
-        addCalculatorRow('', 3, 'A-');
+        addCalculatorRow('', 3, 'B');
+        addCalculatorRow('', 3, 'B');
+        addCalculatorRow('', 3, 'B');
+        addCalculatorRow('', 3, 'B');
     }
 }

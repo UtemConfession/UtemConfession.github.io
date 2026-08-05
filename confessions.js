@@ -370,6 +370,14 @@ if (imageDropZone) {
 }
 
 if (imageCaptionInput) {
+    imageCaptionInput.style.overflowY = 'hidden'; // Hide scrollbar for clean auto-expansion
+    
+    // Auto-resize on initial load if there's text
+    if (imageCaptionInput.value) {
+        imageCaptionInput.style.height = 'auto';
+        imageCaptionInput.style.height = imageCaptionInput.scrollHeight + 'px';
+    }
+
     imageCaptionInput.addEventListener("input", () => {
         let length = imageCaptionInput.value.length;
         if (length > 500) {
@@ -379,6 +387,10 @@ if (imageCaptionInput) {
         if (imageCharCount) {
             imageCharCount.textContent = `${length} / 500 characters`;
         }
+        
+        // Auto-resize textarea
+        imageCaptionInput.style.height = 'auto';
+        imageCaptionInput.style.height = imageCaptionInput.scrollHeight + 'px';
     });
 }
 
