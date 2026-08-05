@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://utemconfession.github.io/sitemap.xml
