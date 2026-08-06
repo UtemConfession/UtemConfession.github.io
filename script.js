@@ -1,6 +1,6 @@
 // script.js — Application entry point & initialization
 // Depends on: utils.js, translation.js, confessions.js, gpa.js,
-//             countdown.js, bus.js, lookup.js, calendar.js,
+//             bus.js, lookup.js, calendar.js,
 //             health.js, library.js
 
 // --- DARK MODE: Permanently locked ---
