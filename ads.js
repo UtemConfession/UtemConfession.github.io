@@ -41,42 +41,25 @@
         if (isMobile && container.classList.contains('adsterra-slot--desktop-only')) return;
         if (!isMobile && container.classList.contains('adsterra-slot--mobile-only')) return;
 
-        // Create a sandboxed iframe to load the ad scripts.
-        // This isolates the ad code and prevents it from redirecting the parent window.
-        var iframe = document.createElement('iframe');
-        iframe.style.width = width + 'px';
-        iframe.style.height = height + 'px';
-        iframe.style.border = 'none';
-        iframe.style.overflow = 'hidden';
-        iframe.scrolling = 'no';
-        
-        // sandbox permissions: allow scripts, same-origin, popups, and forms.
-        // DO NOT include "allow-top-navigation" or "allow-top-navigation-by-user-activation".
-        // This blocks any malicious redirect scripts from hijacking the top window.
-        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms');
-
-        var htmlContent = 
-            '<!DOCTYPE html>' +
-            '<html>' +
-            '<head>' +
-            '<style>body { margin: 0; padding: 0; overflow: hidden; background: transparent; }</style>' +
-            '</head>' +
-            '<body>' +
-            '<script type="text/javascript">' +
-            'var atOptions = {' +
+        // Create the atOptions script
+        var optScript = document.createElement('script');
+        optScript.type = 'text/javascript';
+        optScript.textContent =
+            'atOptions = {' +
             "'key': '" + key + "'," +
             "'format': 'iframe'," +
             "'height': " + height + "," +
             "'width': " + width + "," +
             "'params': {}" +
-            '};' +
-            '</script>' +
-            '<script type="text/javascript" src="https://www.highperformanceformat.com/' + key + '/invoke.js"></script>' +
-            '</body>' +
-            '</html>';
+            '};';
+        container.appendChild(optScript);
 
-        iframe.srcdoc = htmlContent;
-        container.appendChild(iframe);
+        // Create the invoke script
+        var invokeScript = document.createElement('script');
+        invokeScript.type = 'text/javascript';
+        invokeScript.src = 'https://www.highperformanceformat.com/' + key + '/invoke.js';
+        invokeScript.async = true;
+        container.appendChild(invokeScript);
     }
 
     /**
