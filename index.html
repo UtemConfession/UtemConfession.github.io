@@ -43,6 +43,12 @@
             var isInstaFB = (ua.indexOf("Instagram") > -1 || ua.indexOf("FBAV") > -1 || ua.indexOf("FBAN") > -1);
 
             if (isMobile && (isTelegram || isInstaFB)) {
+                // Try to force redirect on Android immediately to avoid loading the page/DOM
+                if (ua.indexOf("Android") > -1) {
+                    var intentUrl = "intent://" + location.host + location.pathname + location.search + "#Intent;scheme=https;package=com.android.chrome;end;";
+                    window.location.href = intentUrl;
+                }
+
                 document.addEventListener("DOMContentLoaded", function () {
                     var overlay = document.createElement("div");
                     overlay.style.position = "fixed";
@@ -79,17 +85,41 @@
                     desc.style.fontSize = "16px";
                     desc.style.color = "#94a3b8";
                     desc.style.whiteSpace = "pre-line";
+                    desc.style.marginBottom = "24px";
+
+                    var copyBtn = document.createElement("button");
+                    copyBtn.innerText = "Copy Website Link";
+                    copyBtn.style.padding = "12px 24px";
+                    copyBtn.style.fontSize = "15px";
+                    copyBtn.style.fontWeight = "600";
+                    copyBtn.style.color = "#060b19";
+                    copyBtn.style.backgroundColor = "#d4af37";
+                    copyBtn.style.border = "none";
+                    copyBtn.style.borderRadius = "30px";
+                    copyBtn.style.cursor = "pointer";
+                    copyBtn.style.transition = "transform 0.2s, background-color 0.2s";
+                    copyBtn.style.boxShadow = "0 4px 15px rgba(212, 175, 55, 0.3)";
+
+                    copyBtn.addEventListener("click", function() {
+                        navigator.clipboard.writeText(window.location.href).then(function() {
+                            copyBtn.innerText = "Link Copied! Paste in Safari/Chrome";
+                            copyBtn.style.backgroundColor = "#10b981";
+                            copyBtn.style.color = "#ffffff";
+                            setTimeout(function() {
+                                copyBtn.innerText = "Copy Website Link";
+                                copyBtn.style.backgroundColor = "#d4af37";
+                                copyBtn.style.color = "#060b19";
+                            }, 3000);
+                        }).catch(function() {
+                            alert("Failed to copy link automatically. Please copy the URL from the browser bar.");
+                        });
+                    });
 
                     overlay.appendChild(icon);
                     overlay.appendChild(title);
                     overlay.appendChild(desc);
+                    overlay.appendChild(copyBtn);
                     document.body.appendChild(overlay);
-
-                    // Try to force redirect on Android
-                    if (ua.indexOf("Android") > -1) {
-                        var intentUrl = "intent://" + location.host + location.pathname + location.search + "#Intent;scheme=https;package=com.android.chrome;end;";
-                        window.location.href = intentUrl;
-                    }
                 });
             }
         })();

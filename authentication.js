@@ -130,12 +130,30 @@ function parseJwt(token) {
 }
 
 // Redirects full window to Google OAuth endpoint (for In-App Telegram Browsers)
+// Also handles forcing external browser redirect if possible, to avoid disallowed_useragent errors.
 function triggerGoogleRedirectAuth() {
+    const ua = (navigator.userAgent || navigator.vendor || window.opera || "").toLowerCase();
+    if (ua.includes("android")) {
+        const intentUrl = "intent://" + window.location.host + window.location.pathname + window.location.search + "#Intent;scheme=https;package=com.android.chrome;end;";
+        window.location.href = intentUrl;
+        return;
+    }
+
     const redirectUri = window.location.origin + window.location.pathname;
     const scope = encodeURIComponent("openid profile email");
     const nonce = Date.now();
     const oauthUrl = `https://accounts.google.com/o/oauth2/v2/auth?client_id=${CLIENT_ID}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=id_token&scope=${scope}&nonce=${nonce}`;
-    window.location.href = oauthUrl;
+
+    if (isTelegramInAppBrowser()) {
+        alert("Google Sign-In is blocked in app-embedded browsers by Google. Please tap the menu (...) at the top right and select 'Open in Safari' or 'Open in Chrome' to sign in.");
+        const tgNotice = document.getElementById("telegramInAppNotice");
+        if (tgNotice) {
+            tgNotice.style.display = "block";
+            tgNotice.scrollIntoView({ behavior: "smooth" });
+        }
+    } else {
+        window.location.href = oauthUrl;
+    }
 }
 
 // Checks if page was redirected back from Google OAuth with id_token in hash
