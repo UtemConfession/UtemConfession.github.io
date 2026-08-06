@@ -1642,8 +1642,8 @@ footer {
         overflow-x: hidden !important;
     }
 
-    /* 3. Dean's List Badge Scaling */
-    #deansListBadge {
+    /* 3. Dean's List and First Class Badge Scaling */
+    #deansListBadge, #firstClassBadge {
         font-size: 11px !important;
         padding: 6px 8px !important;
         text-align: center !important;
