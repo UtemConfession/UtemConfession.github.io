@@ -55,15 +55,3 @@ function escapeHtml(text) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 }
-
-function formatArchiveDate(rawDate) {
-    if (!rawDate) return "Recent";
-    try {
-        const d = new Date(rawDate);
-        if (isNaN(d.getTime())) return String(rawDate);
-        return d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric", hour: "2-digit", minute: "2-digit" });
-    } catch (e) {
-        return String(rawDate);
-    }
-}
-

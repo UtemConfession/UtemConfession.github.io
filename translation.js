@@ -36,13 +36,6 @@ const translations = {
         checkbox_rules: "I agree to follow the confession rules. I understand illegal or abusive submissions will be rejected.",
         btn_submit: "Submit Confession",
         btn_submit_google: "Submit via Google Form ➔",
-        tab_text_mode: "Text",
-        tab_image_mode: "Photo",
-        btn_choose_image: "Choose Image",
-        btn_remove_image: "✕ Remove",
-        placeholder_image_caption: "Write an optional caption...",
-        checkbox_image_rules: "I agree to follow the rules. Images are reviewed before posting.",
-        btn_submit_image: "Submit Image",
         title_guidelines: "Submission Guidelines",
 
         guide_anon_title: "Anonymous:",
@@ -180,49 +173,6 @@ const translations = {
 
         title_scholarships: "Scholarship & Financial Aid",
         desc_scholarships: "Discover government loans, MARA schemes, state foundation grants, corporate awards, and university financial assistance available for UTeM and Malaysian university students.",
-        desc_zakat_fund: "Official emergency financial aid provided by UTeM Pusat Islam and Pejabat Hal Ehwal Pelajar (HEP) for B40 undergraduates facing sudden financial hardship, medical emergencies, or living expense distress.",
-        badge_zakat_open: "✦ Open All Year Round",
-        eligible_zakat_text: "All UTeM Undergraduates Facing Emergency Need",
-
-        tag_mara: "MARA Sponsorship",
-        badge_mara: "✦ Cycle Deadlines: March & August",
-        desc_mara: "Convertible loan & sponsorship scheme for Bumiputera students pursuing Diploma, Degree, and Professional studies at IPTA/IPTS in Malaysia including UTeM engineering & IT faculties.",
-        target_mara: "Full-time Diploma / Bachelor Students",
-
-        tag_ptptn: "National Education Loan",
-        badge_ptptn: "✦ Deadlines: April 30 & Sept 30",
-        desc_ptptn: "Primary tertiary education loan scheme for Malaysian undergraduates. First-Class Honours graduates from UTeM may qualify for complete loan-to-scholarship conversion (bebas bayaran balik).",
-        target_ptptn: "All Malaysian Undergraduates",
-
-        tag_yayasanmelaka: "State Foundation",
-        badge_yayasanmelaka: "✦ Deadlines: Open Quarterly",
-        desc_yayasanmelaka: "Financial aid & tertiary education grants provided by state foundations (Yayasan Melaka, Yayasan Pelajaran MARA, Yayasan Johor, Yayasan Selangor, etc.) for eligible state-born or resident students.",
-        target_yayasanmelaka: "Melaka Born / Resident Students",
-
-        tag_ytar: "Foundation Grant",
-        badge_ytar: "✦ Deadline: April - August Annually",
-        desc_ytar: "Prestigious undergraduate scholarships and Pembiayaan Pendidikan Boleh Ubah (PPBU) offering full tuition, monthly allowances, and leadership development programs for high-achieving undergraduates.",
-        target_ytar: "High-Achieving Undergraduates",
-
-        tag_jpa: "Federal Government",
-        badge_jpa: "✦ Deadline: May - June Annually",
-        desc_jpa: "Jabatan Perkhidmatan Awam (JPA) undergraduate sponsorship for Malaysian students pursuing Degree programs in engineering, computer science, technology, and applied sciences.",
-        target_jpa: "Engineering & Tech Degree Students",
-
-        tag_utemhep: "UTeM Campus Aid",
-        badge_utemhep: "✦ Status: Open Year-Round",
-        desc_utemhep: "Emergency financial aid, zakat assistance, food vouchers, and medical assistance managed directly by Pejabat Hal Ehwal Pelajar & Alumni (HEP UTeM) for active students facing financial hardship.",
-        target_utemhep: "Active UTeM Students in Need",
-
-        tag_gamuda: "Corporate Sponsorship",
-        badge_gamuda: "✦ Cycle: April - May Annually",
-        desc_gamuda: "Full tertiary scholarship by Gamuda Foundation covering tuition fees, living allowances, accommodation, computer allowance, and guaranteed career placement within Gamuda Group for Engineering, IT, Software Engineering, Quantity Surveying, and Environmental Science undergraduates.",
-        target_gamuda: "Engineering, IT & Built Environment Undergraduates",
-
-        tag_ytm: "Corporate Sponsorship",
-        badge_ytm: "✦ Cycle: May - July Annually",
-        desc_ytm: "Telekom Malaysia foundation scholarship for high-performing Malaysian students pursuing Computer Science, Software Engineering, Cybersecurity, AI, and Telecommunication Engineering.",
-        target_ytm: "Computer Science, IT & Engineering Students",
         notice_archive_takedown: "Content Removal Request: If a confession post involves you and you wish to have it removed from the archive, please contact the admin team via email or Telegram.",
         btn_contact_admin_removal: "Contact Admin ➔",
 
@@ -342,13 +292,6 @@ const translations = {
         checkbox_rules: "Saya bersetuju mematuhi peraturan pengakuan. Saya faham bahawa hantaran biadap atau melanggar undang-undang akan ditolak.",
         btn_submit: "Hantar Pengakuan",
         btn_submit_google: "Hantar melalui Google Form ➔",
-        tab_text_mode: "Text",
-        tab_image_mode: "Photo",
-        btn_choose_image: "Pilih Gambar",
-        btn_remove_image: "✕ Padam",
-        placeholder_image_caption: "Write an optional caption...",
-        checkbox_image_rules: "Saya bersetuju untuk mematuhi peraturan. Gambar akan disemak sebelum diterbitkan.",
-        btn_submit_image: "Hantar Gambar",
         title_guidelines: "Garis Panduan Hantaran",
 
         guide_anon_title: "Rawak:",
@@ -486,49 +429,6 @@ const translations = {
 
         title_scholarships: "Biasiswa & Bantuan Kewangan",
         desc_scholarships: "Ketahui pinjaman kerajaan, skim MARA, hibah yayasan negeri, biasiswa korporat, dan bantuan kewangan universiti untuk pelajar UTeM dan IPT Malaysia.",
-        desc_zakat_fund: "Bantuan kewangan kecemasan rasmi yang disediakan oleh Pusat Islam UTeM dan Pejabat Hal Ehwal Pelajar (HEP) untuk pelajar ijazah sarjana muda B40 yang menghadapi kesukaran kewangan mendadak, kecemasan perubatan, atau kesusahan perbelanjaan sara hidup.",
-        badge_zakat_open: "✦ Dibuka Sepanjang Tahun",
-        eligible_zakat_text: "Semua Pelajar Ijazah Sarjana Muda UTeM yang Menghadapi Keperluan Kecemasan",
-
-        tag_mara: "Penajaan MARA",
-        badge_mara: "✦ Tarikh Akhir Permohonan: Mac & Ogos",
-        desc_mara: "Skim pinjaman boleh ubah & penajaan untuk pelajar Bumiputera yang mengikuti pengajian Diploma, Ijazah, dan Profesional di IPTA/IPTS Malaysia termasuk fakulti kejuruteraan & IT UTeM.",
-        target_mara: "Pelajar Sepenuh Masa Diploma / Ijazah Sarjana Muda",
-
-        tag_ptptn: "Pinjaman Pendidikan Nasional",
-        badge_ptptn: "✦ Tarikh Akhir: 30 April & 30 Sept",
-        desc_ptptn: "Skim pinjaman pendidikan tinggi utama untuk pelajar ijazah sarjana muda Malaysia. Graduan Ijazah Kelas Pertama UTeM layak memohon pengecualian bayaran balik (tukar ke biasiswa).",
-        target_ptptn: "Semua Pelajar Ijazah Sarjana Muda Malaysia",
-
-        tag_yayasanmelaka: "Yayasan Negeri",
-        badge_yayasanmelaka: "✦ Tarikh Akhir: Dibuka Setiap Suku Tahun",
-        desc_yayasanmelaka: "Bantuan kewangan & geran pendidikan tinggi oleh yayasan negeri (Yayasan Melaka, Yayasan Pelajaran MARA, Yayasan Johor, Yayasan Selangor, dll.) untuk pelajar anak negeri atau pemastautin.",
-        target_yayasanmelaka: "Pelajar Anak Negeri Melaka / Pemastautin",
-
-        tag_ytar: "Geran Yayasan",
-        badge_ytar: "✦ Tarikh Akhir: April - Ogos Setiap Tahun",
-        desc_ytar: "Biasiswa berprestij ijazah sarjana muda dan Pembiayaan Pendidikan Boleh Ubah (PPBU) yang menawarkan yuran pengajian penuh, elaun bulanan, dan program pembangunan kepimpinan untuk pelajar cemerlang.",
-        target_ytar: "Pelajar Ijazah Sarjana Muda Pencapaian Tinggi",
-
-        tag_jpa: "Kerajaan Persekutuan",
-        badge_jpa: "✦ Tarikh Akhir: Mei - Jun Setiap Tahun",
-        desc_jpa: "Penajaan ijazah sarjana muda Jabatan Perkhidmatan Awam (JPA) untuk pelajar Malaysia yang mengikuti program Ijazah dalam bidang kejuruteraan, sains komputer, teknologi, dan sains gunaan.",
-        target_jpa: "Pelajar Ijazah Kejuruteraan & Teknologi",
-
-        tag_utemhep: "Bantuan Kampus UTeM",
-        badge_utemhep: "✦ Status: Dibuka Sepanjang Tahun",
-        desc_utemhep: "Bantuan kewangan kecemasan, bantuan zakat, baucer makanan, dan bantuan perubatan yang diuruskan terus oleh Pejabat Hal Ehwal Pelajar & Alumni (HEP UTeM) untuk pelajar aktif yang menghadapi kesukaran kewangan.",
-        target_utemhep: "Pelajar Aktif UTeM yang Memerlukan",
-
-        tag_gamuda: "Penajaan Korporat",
-        badge_gamuda: "✦ Tarikh Permohonan: April - Mei Setiap Tahun",
-        desc_gamuda: "Biasiswa pengajian tinggi penuh oleh Yayasan Gamuda merangkumi yuran pengajian, elaun sara hidup, penginapan, elaun komputer, dan jaminan penempatan kerjaya dalam Kumpulan Gamuda untuk pelajar Kejuruteraan, IT, Sains Komputer, Ukur Bahan, dan Sains Alam Sekitar.",
-        target_gamuda: "Pelajar Kejuruteraan, IT & Alam Bina",
-
-        tag_ytm: "Penajaan Korporat",
-        badge_ytm: "✦ Tarikh Permohonan: Mei - Julai Setiap Tahun",
-        desc_ytm: "Biasiswa yayasan Telekom Malaysia untuk pelajar cemerlang Malaysia yang mengikuti pengajian Sains Komputer, Kejuruteraan Perisian, Keselamatan Siber, AI, dan Kejuruteraan Telekomunikasi.",
-        target_ytm: "Pelajar Sains Komputer, IT & Kejuruteraan",
         notice_archive_takedown: "Permohonan Pemadaman Kandungan: Jika terdapat hantaran pengakuan yang melibatkan anda dan anda mahu ia dipadam daripada arkib, sila hubungi pasukan admin melalui e-mel atau Telegram.",
         btn_contact_admin_removal: "Hubungi Admin ➔",
 
@@ -698,36 +598,6 @@ function setLanguage(lang) {
     const sBtn = document.getElementById("submitBtn");
     if (sBtn && sBtn.textContent !== "Submitting..." && sBtn.textContent !== "Menghantar...") {
         sBtn.textContent = t.btn_submit;
-    }
-
-    // Image Submission Panel Translations
-    const tabTextMode = document.getElementById("tabTextMode");
-    if (tabTextMode) tabTextMode.textContent = t.tab_text_mode || "Text";
-
-    const tabImageMode = document.getElementById("tabImageMode");
-    if (tabImageMode) tabImageMode.textContent = t.tab_image_mode || "Photo";
-
-    const chooseImgBtn = document.getElementById("chooseImageBtn");
-    if (chooseImgBtn) updateNodeText(chooseImgBtn, t.btn_choose_image || "Choose Image");
-
-    const removeImgBtn = document.getElementById("removeImageBtn");
-    if (removeImgBtn) updateNodeText(removeImgBtn, t.btn_remove_image || "✕ Remove");
-
-    const imgCapInput = document.getElementById("imageCaptionInput");
-    if (imgCapInput) imgCapInput.setAttribute("placeholder", t.placeholder_image_caption || "Write an optional caption...");
-
-    const imgCharLabel = document.getElementById("imageCharCount");
-    if (imgCharLabel && imgCapInput) {
-        const len = imgCapInput.value.length;
-        imgCharLabel.textContent = lang === "en" ? `${len} / 500 characters` : `${len} / 500 aksara`;
-    }
-
-    const agreeImgRulesLabel = document.getElementById("agreeImageRulesLabel");
-    if (agreeImgRulesLabel) agreeImgRulesLabel.textContent = t.checkbox_image_rules || "I agree to follow the rules. Images are reviewed before posting.";
-
-    const sImgBtn = document.getElementById("submitImageBtn");
-    if (sImgBtn && !sImgBtn.textContent.includes("Compressing") && !sImgBtn.textContent.includes("Memproses")) {
-        sImgBtn.textContent = t.btn_submit_image || "Submit Image";
     }
 
     const gFormBtn = document.querySelector("#confession-tab .btn-gold-outline");
@@ -1156,37 +1026,6 @@ function setLanguage(lang) {
 
     const descScholarships = document.getElementById("descScholarships");
     if (descScholarships) descScholarships.textContent = t.desc_scholarships;
-
-    const descZakatFund = document.getElementById("descZakatFund");
-    if (descZakatFund) descZakatFund.textContent = t.desc_zakat_fund;
-
-    const badgeZakatOpen = document.getElementById("badgeZakatOpen");
-    if (badgeZakatOpen) badgeZakatOpen.textContent = t.badge_zakat_open;
-
-    const eligibleZakatText = document.getElementById("eligibleZakatText");
-    if (eligibleZakatText) eligibleZakatText.textContent = t.eligible_zakat_text;
-
-    document.querySelectorAll("#scholarships-tab .label-target-prefix").forEach(el => {
-        el.textContent = lang === "ms" ? "Sasaran:" : "Target:";
-    });
-    document.querySelectorAll("#scholarships-tab .label-eligible-prefix").forEach(el => {
-        el.textContent = lang === "ms" ? "Kelayakan:" : "Eligible:";
-    });
-
-    const cardIds = ["Mara", "Ptptn", "YayasanMelaka", "Ytar", "Jpa", "UtemHep", "Gamuda", "Ytm"];
-    cardIds.forEach(id => {
-        const tag = document.getElementById("tag" + id);
-        if (tag && t["tag_" + id.toLowerCase()]) tag.textContent = t["tag_" + id.toLowerCase()];
-
-        const badge = document.getElementById("badge" + id);
-        if (badge && t["badge_" + id.toLowerCase()]) badge.textContent = t["badge_" + id.toLowerCase()];
-
-        const desc = document.getElementById("desc" + id);
-        if (desc && t["desc_" + id.toLowerCase()]) desc.textContent = t["desc_" + id.toLowerCase()];
-
-        const target = document.getElementById("target" + id);
-        if (target && t["target_" + id.toLowerCase()]) target.textContent = t["target_" + id.toLowerCase()];
-    });
 
     // 13. Archive Takedown Notice
     const noticeArchiveTakedown = document.getElementById("noticeArchiveTakedown");
