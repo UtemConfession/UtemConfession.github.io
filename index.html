@@ -1749,20 +1749,26 @@
                                 </div>
                             </div>
 
-                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                <span
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="marketplaceCategoryFilters">
+                                <button class="marketplace-filter-btn" data-category="All"
+                                    style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">
+                                    All</button>
+                                <button class="marketplace-filter-btn" data-category="Textbooks & Notes"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">📚
-                                    Textbooks & Notes</span>
-                                <span
+                                    Textbooks & Notes</button>
+                                <button class="marketplace-filter-btn" data-category="Tech & Electronics"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">💻
-                                    Tech & Electronics</span>
-                                <span
+                                    Tech & Electronics</button>
+                                <button class="marketplace-filter-btn" data-category="Hostel Essentials"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">🏠
-                                    Hostel Essentials</span>
-                                <span
+                                    Hostel Essentials</button>
+                                <button class="marketplace-filter-btn" data-category="Bicycles & Commute"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">🚴
-                                    Bicycles & Commute</span>
+                                    Bicycles & Commute</button>
                             </div>
+                            
+                            <!-- Container for dynamic marketplace listings -->
+                            <div id="marketplaceListingsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 16px;"></div>
                         </div>
 
                         <!-- SECTION 2: STUDENT SERVICES DIRECTORY -->
@@ -1784,20 +1790,26 @@
                                 </div>
                             </div>
 
-                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-                                <span
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="servicesCategoryFilters">
+                                <button class="service-filter-btn" data-category="All"
+                                    style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">
+                                    All</button>
+                                <button class="service-filter-btn" data-category="Student Grab / Transport"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">🚗
-                                    Student Grab / Transport</span>
-                                <span
+                                    Student Grab / Transport</button>
+                                <button class="service-filter-btn" data-category="Personal Shopper (PS)"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">🛍️
-                                    Personal Shopper (PS)</span>
-                                <span
+                                    Personal Shopper (PS)</button>
+                                <button class="service-filter-btn" data-category="Campus Runners"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">🏃
-                                    Campus Runners</span>
-                                <span
+                                    Campus Runners</button>
+                                <button class="service-filter-btn" data-category="Printing & Assignments"
                                     style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); padding: 6px 12px; border-radius: 8px; font-size: 12px; color: var(--text-primary); font-weight: 600;">🖨️
-                                    Printing & Assignments</span>
+                                    Printing & Assignments</button>
                             </div>
+                            
+                            <!-- Container for dynamic services listings -->
+                            <div id="servicesListingsContainer" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 16px;"></div>
                         </div>
 
                     </div>
@@ -2883,6 +2895,7 @@
     <script src="health.js"></script>
     <script src="library.js"></script>
     <script src="scholarships.js"></script>
+    <script src="marketplace.js"></script>
     <!-- <script src="archive.js"></script> -->
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
