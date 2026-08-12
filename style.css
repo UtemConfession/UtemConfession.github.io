@@ -1452,6 +1452,35 @@ footer {
     overflow: hidden !important;
 }
 
+/* Activities Full Screen / Modal Card Responsive Ad Clearance Overlay */
+.activity-modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    z-index: 2000;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 140px 16px 70px 16px;
+    box-sizing: border-box;
+}
+.activity-modal-overlay #activityModalContent {
+    max-height: calc(100vh - 210px);
+}
+@media (min-width: 768px) {
+    .activity-modal-overlay {
+        padding: 20px;
+        align-items: center;
+    }
+    .activity-modal-overlay #activityModalContent {
+        max-height: 90vh;
+    }
+}
+
 /* Slide-Up "More" Tools Drawer Modal Sheet */
 .mobile-drawer-overlay {
     display: none;

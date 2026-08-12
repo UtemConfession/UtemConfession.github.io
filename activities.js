@@ -269,9 +269,46 @@ function renderActivities() {
 }
 
 function setupActivitiesModal() {
+    if (document.getElementById("activityModalOverlay")) return;
+
+    if (!document.getElementById("activityModalStyles")) {
+        const style = document.createElement("style");
+        style.id = "activityModalStyles";
+        style.innerHTML = `
+            .activity-modal-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                backdrop-filter: blur(5px);
+                z-index: 2000;
+                align-items: flex-start;
+                justify-content: center;
+                padding: 140px 16px 70px 16px;
+                box-sizing: border-box;
+            }
+            .activity-modal-overlay #activityModalContent {
+                max-height: calc(100vh - 210px);
+            }
+            @media (min-width: 768px) {
+                .activity-modal-overlay {
+                    padding: 20px;
+                    align-items: center;
+                }
+                .activity-modal-overlay #activityModalContent {
+                    max-height: 90vh;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+
     const modalHTML = `
-    <div id="activityModalOverlay" role="dialog" aria-modal="true" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); backdrop-filter: blur(5px); z-index: 2000; align-items: center; justify-content: center; padding: 20px;">
-        <div id="activityModalContent" class="card" tabindex="-1" style="width: 100%; max-width: 650px; max-height: 90vh; overflow-y: auto; position: relative; padding: 0; background: var(--bg-card); display: flex; flex-direction: column;">
+    <div id="activityModalOverlay" class="activity-modal-overlay" role="dialog" aria-modal="true">
+        <div id="activityModalContent" class="card" tabindex="-1" style="width: 100%; max-width: 650px; overflow-y: auto; position: relative; padding: 0; background: var(--bg-card); display: flex; flex-direction: column;">
             <button id="closeActivityModalBtn" aria-label="Close" style="position: absolute; top: 16px; right: 16px; background: rgba(0,0,0,0.5); border: none; color: #fff; width: 36px; height: 36px; border-radius: 50%; cursor: pointer; font-size: 20px; display: flex; align-items: center; justify-content: center; z-index: 10;">&times;</button>
             <div id="activityModalBody" style="display: flex; flex-direction: column;"></div>
         </div>
