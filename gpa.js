@@ -147,6 +147,15 @@ function calculateGpa() {
             gpaEstimationNote.style.display = "none";
         }
     }
+
+    // Trigger ad loading after calculation
+    const gpaAdContainer = document.getElementById("gpaAdContainer");
+    if (gpaAdContainer) {
+        gpaAdContainer.style.display = "block";
+        if (window.initAdsInContainer) {
+            setTimeout(() => window.initAdsInContainer(gpaAdContainer), 50);
+        }
+    }
 }
 
 if (addRowBtn) {

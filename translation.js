@@ -1,7 +1,8 @@
-// translation.js — All UI strings (EN/BM) and setLanguage / toggleLanguage
+﻿// translation.js — All UI strings (EN/BM) and setLanguage / toggleLanguage
 
 const translations = {
     en: {
+        nav_activities: "Activities",
         nav_confessions: "Confessions",
         nav_archive: "Confessions Archive",
         nav_calendar: "Academic Calendar",
@@ -258,6 +259,7 @@ const translations = {
         card_vehicle_btn: "Download Form ➔"
     },
     ms: {
+        nav_activities: "Aktiviti",
         nav_confessions: "Pengakuan",
         nav_archive: "Arkib Pengakuan",
         nav_calendar: "Kalendar Akademik",
@@ -524,7 +526,8 @@ function setLanguage(lang) {
 
     // Mapped navigation dictionary by data-tab attribute
     const tabNavMap = {
-        "confession-tab": { desktop: t.nav_confessions, mobile: t.nav_confessions },
+        "activities-tab": { desktop: t.nav_activities, mobile: t.nav_activities },
+          "confession-tab": { desktop: t.nav_confessions, mobile: t.nav_confessions },
         "archive-tab": { desktop: t.nav_archive, mobile: t.mobile_nav_archive },
         "calendar-tab": { desktop: t.nav_calendar, mobile: t.mobile_nav_calendar },
         "gpa-tab": { desktop: t.nav_gpa, mobile: t.mobile_nav_gpa },
@@ -1062,7 +1065,21 @@ function setLanguage(lang) {
     const btnPartnerDeals2 = document.getElementById("btnPartnerDeals2");
     if (btnPartnerDeals2) btnPartnerDeals2.textContent = currentLang === "ms" ? "Lawat Laman Rakan Kongsi untuk menyokong laman ini ❤️ ➔" : "Visit Partner Site to Support UTeM Confessions ❤️ ➔";
 
-    const btnPartnerDeals3 = document.getElementById("btnPartnerDeals3");
+          const activitiesTitle = document.getElementById("activitiesTitle");
+      if (activitiesTitle) activitiesTitle.textContent = lang === "ms" ? "Teroka Melaka" : "Explore Melaka";
+      const descActivities = document.getElementById("descActivities");
+      if (descActivities) descActivities.textContent = lang === "ms" ? "Temui aktiviti menarik di sekitar Melaka, dari tapak bersejarah hingga kawasan alam semula jadi yang tersembunyi." : "Discover things to do around Melaka, from historical sites to hidden nature spots.";
+      const activitiesSearch = document.getElementById("activitiesSearch");
+      if (activitiesSearch) activitiesSearch.placeholder = lang === "ms" ? "🔍 Cari tempat, lokasi..." : "🔍 Search attractions, location...";
+      
+      const activitiesTypeSelect = document.getElementById("activitiesTypeSelect");
+      if (activitiesTypeSelect) {
+          activitiesTypeSelect.options[0].text = lang === "ms" ? "🌍 Semua Jenis" : "🌍 All Types";
+          activitiesTypeSelect.options[1].text = lang === "ms" ? "🏠 Tertutup" : "🏠 Indoor";
+          activitiesTypeSelect.options[2].text = lang === "ms" ? "☀️ Luar" : "☀️ Outdoor";
+      }
+
+      const btnPartnerDeals3 = document.getElementById("btnPartnerDeals3");
     if (btnPartnerDeals3) btnPartnerDeals3.textContent = currentLang === "ms" ? "Terokai Tawaran Tajaan Luar 🌐 ➔" : "Explore External Sponsored Offers 🌐 ➔";
 
     const labelCoffeeSupport = document.getElementById("labelCoffeeSupport");
@@ -1119,6 +1136,8 @@ function setLanguage(lang) {
             const calSearch = document.getElementById("calendarSearch");
             renderCalendarEvents(category, calSearch ? calSearch.value : '');
         }
+        try { applyScholarshipTranslations(); } catch (err) { console.warn('Scholarship translation error:', err); }
+        try { if(typeof refreshActivitiesTranslations === 'function') refreshActivitiesTranslations(); } catch (err) { console.warn('Activities translation error:', err); }
     } catch (e) {
         console.warn("Dynamic component translation warning:", e);
     }
@@ -1129,3 +1148,93 @@ function toggleLanguage() {
     localStorage.setItem("lang", currentLang);
     setLanguage(currentLang);
 }
+
+
+// ---- SCHOLARSHIPS TRANSLATION DICTIONARY ----
+const scholarshipDict = {
+    "Bantuan Kewangan Kecemasan (UTeM Pusat Islam)": { ms: "Bantuan Kewangan Kecemasan (UTeM Pusat Islam)" },
+    "Official emergency financial aid provided by UTeM Pusat Islam and Pejabat Hal Ehwal Pelajar (HEP) for B40 undergraduates facing sudden financial hardship, medical emergencies, or living expense distress.": { ms: "Bantuan kewangan kecemasan rasmi yang disediakan oleh Pusat Islam UTeM dan Pejabat Hal Ehwal Pelajar (HEP) untuk pelajar prasiswazah B40 yang menghadapi kesulitan kewangan mengejut, kecemasan perubatan, atau kesukaran sara hidup." },
+    "PTPTN Higher Education Loan (Pinjaman PTPTN)": { ms: "Pinjaman Pendidikan Tinggi PTPTN" },
+    "Primary tertiary education loan scheme for Malaysian undergraduates. First-Class Honours graduates from UTeM may qualify for complete loan-to-scholarship conversion (bebas bayaran balik).": { ms: "Skim pinjaman pendidikan tertiari utama untuk pelajar prasiswazah Malaysia. Graduan Kelas Pertama UTeM mungkin layak mendapat penukaran pinjaman kepada biasiswa sepenuhnya (bebas bayaran balik)." },
+    "State Scholarships & Foundations": { ms: "Biasiswa & Yayasan Negeri" },
+    "Scholarships offered by all states in Malaysia for students from their respective states studying in local universities. Select a state to view available scholarships.": { ms: "Biasiswa yang ditawarkan oleh semua negeri di Malaysia untuk pelajar dari negeri masing-masing yang belajar di universiti tempatan. Pilih negeri untuk melihat biasiswa yang ada." },
+    "Yayasan Tunku Abdul Rahman (YTAR) & Yayasan Bank Rakyat (YBR)": { ms: "Yayasan Tunku Abdul Rahman (YTAR) & Yayasan Bank Rakyat (YBR)" },
+    "Prestigious undergraduate scholarships and Pembiayaan Pendidikan Boleh Ubah (PPBU) offering full tuition, monthly allowances, and leadership development programs for high-achieving undergraduates.": { ms: "Biasiswa prasiswazah berprestij dan Pembiayaan Pendidikan Boleh Ubah (PPBU) yang menawarkan yuran pengajian penuh, elaun bulanan, dan program pembangunan kepimpinan untuk pelajar prasiswazah cemerlang." },
+    "Yayasan TM (YTM) Future Leaders Scholarship": { ms: "Biasiswa Pemimpin Masa Depan Yayasan TM (YTM)" },
+    "Telekom Malaysia foundation scholarship for high-performing Malaysian students pursuing Computer Science, Software Engineering, Cybersecurity, AI, and Telecommunication Engineering.": { ms: "Biasiswa yayasan Telekom Malaysia untuk pelajar Malaysia berprestasi tinggi dalam Sains Komputer, Kejuruteraan Perisian, Keselamatan Siber, AI, dan Kejuruteraan Telekomunikasi." },
+    "JPA MyScholarship (Program Penajaan JPA PIDN/LSPN)": { ms: "JPA MyScholarship (Program Penajaan JPA PIDN/LSPN)" },
+    "Jabatan Perkhidmatan Awam (JPA) undergraduate sponsorship for Malaysian students pursuing Degree programs in engineering, computer science, technology, and applied sciences.": { ms: "Penajaan prasiswazah Jabatan Perkhidmatan Awam (JPA) untuk pelajar Malaysia dalam program Ijazah sarjana muda bagi bidang kejuruteraan, sains komputer, teknologi, dan sains gunaan." },
+    "Biasiswa Gamuda Scholarship (Yayasan Gamuda)": { ms: "Biasiswa Gamuda (Yayasan Gamuda)" },
+    "Full scholarship program prioritizing B40 and M40 students. Includes tuition fees, living allowances, accommodation, and guaranteed job placement in Gamuda group upon graduation.": { ms: "Program biasiswa penuh mengutamakan pelajar B40 dan M40. Merangkumi yuran pengajian, elaun sara hidup, penginapan, dan jaminan penempatan pekerjaan di kumpulan Gamuda selepas tamat pengajian." },
+    "Kijang Scholarship (Bank Negara Malaysia)": { ms: "Biasiswa Kijang (Bank Negara Malaysia)" },
+    "Highly competitive scholarship by BNM focusing on Economics, Accounting, Finance, Actuarial Science, Mathematics, Law, and Computer Science programs.": { ms: "Biasiswa berdaya saing tinggi oleh BNM yang menumpukan pada program Ekonomi, Perakaunan, Kewangan, Sains Aktuari, Matematik, Undang-undang, dan Sains Komputer." },
+    "MARA Tertiary Education Sponsorship (TESP)": { ms: "Penajaan Pendidikan Tertiari MARA (TESP)" },
+    "Majlis Amanah Rakyat (MARA) convertible loan for Bumiputera students pursuing targeted degrees at selected universities. Excellent CGPA can convert loan to 100% scholarship.": { ms: "Pinjaman boleh ubah Majlis Amanah Rakyat (MARA) untuk pelajar Bumiputera yang mengikuti ijazah sasaran di universiti terpilih. CGPA cemerlang boleh menukar pinjaman kepada 100% biasiswa." },
+    "Bantuan Kewangan Asnaf & Zakat IPT": { ms: "Bantuan Kewangan Asnaf & Zakat IPT" },
+    "Emergency financial aid, zakat assistance, food vouchers, and medical assistance managed directly by Pejabat Hal Ehwal Pelajar & Alumni (HEP UTeM) for active students facing financial hardship.": { ms: "Bantuan kewangan kecemasan, bantuan zakat, baucar makanan, dan bantuan perubatan yang diuruskan terus oleh Pejabat Hal Ehwal Pelajar & Alumni (HEP UTeM) untuk pelajar aktif yang menghadapi masalah kewangan." },
+    
+    "Maklumat tajaan dan permohonan boleh diakses melalui Portal Rasmi Yayasan Pelajaran Johor (YPJ). Mendaftar dan memohon Pinjaman Pelajaran Dalam Negara atau bantuan di Portal Bantuan YPJ atau sistem pengurusan YPJ Prolims.": { en: "Sponsorship and application info is accessible via the Official Portal of Yayasan Pelajaran Johor (YPJ). Register and apply for Domestic Education Loans or assistance at the YPJ Aid Portal or YPJ Prolims system." },
+    "Info mengenai Biasiswa Kerajaan Negeri Kedah diuruskan oleh Seksyen Pembiayaan Pendidikan Negeri Kedah (SPPNK). Bagi Derma Siswa atau bantuan pendidikan Zakat, rujuk Lembaga Zakat Negeri Kedah.": { en: "Info on Kedah State Gov Scholarships is managed by the Kedah Education Financing Section (SPPNK). For Student Donations or Zakat education aid, refer to the Kedah State Zakat Board." },
+    "Segala maklumat mengenai Biasiswa Yayasan Kelantan dihoskan di Laman Utama YAKIN. Menghantar permohonan Pinjaman Pelajaran secara terus melalui Sistem eSPMB YAKIN.": { en: "All info on Yayasan Kelantan Scholarships is hosted on the YAKIN Main Page. Submit Education Loan applications directly via the YAKIN eSPMB System." },
+    "Info lengkap mengenai Pinjaman Wang Pengajian Tinggi (PWPT) dan Bantuan Awal IPT dipaparkan di laman TAPEM.": { en: "Complete info on Higher Education Money Loans (PWPT) and IPT Early Aid is displayed on the TAPEM page." },
+    "Maklumat mengenai Anugerah Siswazah Cemerlang dan pinjaman pendidikan terbuka. Permohonan bantuan sara hidup mahasiswa anak negeri diisi secara dalam talian melalui Halaman Pembangunan Insan YNS.": { en: "Information on Outstanding Graduate Awards and open education loans. Applications for state student living allowances are filled online via the YNS Human Development Page." },
+    "Semua terma Biasiswa Cemerlang dan Skim Pinjaman boleh disemak di Laman Web Rasmi Yayasan Pahang. Memohon inisiatif bantuan siswa secara online melalui portal eSiswa Kerajaan Negeri Pahang.": { en: "All terms for Excellence Scholarships and Loan Schemes can be checked on the Yayasan Pahang Official Website. Apply for student aid initiatives online via the Pahang State Gov eSiswa portal." },
+    "Syarat kelayakan serta borang pendaftaran elektronik untuk Penang Scholar dan Mutiara Scholar terletak di portal rasmi Penang Future Foundation (PFF).": { en: "Eligibility requirements and electronic registration forms for Penang Scholar and Mutiara Scholar are located on the official Penang Future Foundation (PFF) portal." },
+    "Panduan mengenai Dermasiswa dan skim bantuan siswa boleh dirujuk di Laman Utama Yayasan Perak. Borang online untuk Insentif Siswa IPT boleh diakses di Halaman INSISYP Yayasan Perak.": { en: "Guides on Dermasiswa and student aid schemes can be referred to on the Yayasan Perak Main Page. Online forms for IPT Student Incentives can be accessed on the Yayasan Perak INSISYP Page." },
+    "Bantuan awal pengajian IPT daripada Majlis Agama Islam Perlis boleh disemak melalui Portal Rasmi MAIPs. Info dana pendidikan negeri boleh dirujuk melalui Portal Rasmi Yayasan Islam Perlis.": { en: "Early IPT study aid from the Perlis Islamic Religious Council can be checked via the MAIPs Official Portal. Info on state education funds can be referred to via the Yayasan Islam Perlis Official Portal." },
+    "Urusan Biasiswa Kerajaan Negeri Sabah dibuat sepenuhnya secara online di portal bersepadu BKNS. Maklumat alternatif tajaan tempatan boleh disemak melalui Bahagian Pembangunan Pendidikan Yayasan Sabah.": { en: "Sabah State Gov Scholarship matters are done fully online on the integrated BKNS portal. Alternative local sponsorship info can be checked via the Yayasan Sabah Education Development Division." },
+    "Program biasiswa negeri, pinjaman boleh ubah tanpa faedah, dan insentif penerbangan IPT dipaparkan di Laman Web Rasmi Yayasan Sarawak. Hantar dokumen dan isi borang menggunakan Sistem Yayasan Sarawak Student Portal (YSSP).": { en: "State scholarship programs, interest-free convertible loans, and IPT flight incentives are displayed on the Yayasan Sarawak Official Website. Submit documents and fill forms using the Yayasan Sarawak Student Portal (YSSP) System." },
+    "Biasiswa TKWBNS dan Pinjaman Terbuka boleh melayari Portal Bahagian Sektoral Kerajaan Negeri Selangor. Urusan permohonan RM1,000 bantuan pendaftaran kolej pertama kali diuruskan melalui Portal Rasmi HPIPT Selangor.": { en: "For TKWBNS Scholarships and Open Loans, visit the Selangor State Gov Sectoral Division Portal. Applications for the RM1,000 first-time college registration aid are managed via the Official Selangor HPIPT Portal." },
+    "Permohonan Skim Pelajar Cemerlang serta Pinjaman Pendidikan diuruskan secara berpusat di Portal Rasmi Yayasan Terengganu. Pendaftaran akaun dan borang digital melalui Sistem Terengganu Advance Education (TAE).": { en: "Applications for Excellent Student Schemes and Education Loans are managed centrally at the Yayasan Terengganu Official Portal. Account registration and digital forms via the Terengganu Advance Education (TAE) System." },
+    "Skim Biasiswa Menara Gading serta program bantuan asnaf boleh disemak di Laman Utama Yayasan Wilayah Persekutuan. Pelajar Muslim boleh memohon Bantuan Am Pelajaran IPT melalui Sistem eBantuan MAIWP.": { en: "Menara Gading Scholarship Schemes and asnaf aid programs can be checked on the Yayasan Wilayah Persekutuan Main Page. Muslim students can apply for General IPT Education Aid via the MAIWP eBantuan System." },
+    
+    "Biasiswa & Pinjaman Yayasan Pelajaran Johor (YPJ)": { en: "Yayasan Pelajaran Johor (YPJ) Scholarships & Loans" },
+    "Biasiswa Kerajaan Negeri Kedah & iPINJAM": { en: "Kedah State Government Scholarships & iPINJAM" },
+    "Yayasan Kelantan Darulnaim (YAKIN)": { en: "Yayasan Kelantan Darulnaim (YAKIN)" },
+    "Tabung Amanah Pendidikan Negeri Melaka (TAPEM)": { en: "Melaka State Education Trust Fund (TAPEM)" },
+    "Yayasan Negeri Sembilan (YNS)": { en: "Yayasan Negeri Sembilan (YNS)" },
+    "Yayasan Pahang & eSiswa": { en: "Yayasan Pahang & eSiswa" },
+    "Penang Future Foundation (PFF)": { en: "Penang Future Foundation (PFF)" },
+    "Yayasan Perak & INSISYP": { en: "Yayasan Perak & INSISYP" },
+    "Yayasan Islam Perlis & MAIPs": { en: "Yayasan Islam Perlis & MAIPs" },
+    "Biasiswa Kerajaan Negeri Sabah (BKNS) & Yayasan Sabah": { en: "Sabah State Gov Scholarships (BKNS) & Yayasan Sabah" },
+    "Yayasan Sarawak (YSSP)": { en: "Yayasan Sarawak (YSSP)" },
+    "Biasiswa Kerajaan Negeri Selangor & HPIPT": { en: "Selangor State Gov Scholarships & HPIPT" },
+    "Yayasan Terengganu (YT) & TAE": { en: "Yayasan Terengganu (YT) & TAE" },
+    "Yayasan Wilayah Persekutuan & MAIWP": { en: "Yayasan Wilayah Persekutuan & MAIWP" },
+
+    "Target:": { ms: "Sasaran:" },
+    "Sasaran:": { en: "Target:" }
+};
+
+function applyScholarshipTranslations() {
+    const cards = document.querySelectorAll('#scholarships-tab .scholarship-card, #stateScholarshipsResult .state-panel');
+    cards.forEach(card => {
+        const titleEl = card.querySelector('h3, h4');
+        const descEl = card.querySelector('p');
+        const targetEl = card.querySelector('strong'); 
+        
+        [titleEl, descEl, targetEl].forEach(el => {
+            if (!el) return;
+            
+            if (!el.hasAttribute('data-orig-text')) {
+                el.setAttribute('data-orig-text', el.textContent.replace(/\s+/g, ' ').trim());
+            }
+            
+            const orig = el.getAttribute('data-orig-text');
+            const map = scholarshipDict[orig];
+            
+            if (map) {
+                if (currentLang === 'ms' && map.ms) {
+                    el.textContent = map.ms;
+                } else if (currentLang === 'en' && map.en) {
+                    el.textContent = map.en;
+                } else {
+                    el.textContent = orig;
+                }
+            }
+        });
+    });
+}
+
+

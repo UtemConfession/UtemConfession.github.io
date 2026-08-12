@@ -351,11 +351,15 @@ function initMarketplace() {
             btn.addEventListener("mouseover", () => {
                 if (!btn.classList.contains("active")) {
                     btn.style.background = "rgba(255, 255, 255, 0.1)";
+                } else {
+                    btn.style.opacity = "0.85";
                 }
             });
             btn.addEventListener("mouseout", () => {
                 if (!btn.classList.contains("active")) {
                     btn.style.background = "rgba(13, 21, 39, 0.8)";
+                } else {
+                    btn.style.opacity = "1";
                 }
             });
         });
@@ -376,15 +380,49 @@ function initMarketplace() {
             btn.addEventListener("mouseover", () => {
                 if (!btn.classList.contains("active")) {
                     btn.style.background = "rgba(255, 255, 255, 0.1)";
+                } else {
+                    btn.style.opacity = "0.85";
                 }
             });
             btn.addEventListener("mouseout", () => {
                 if (!btn.classList.contains("active")) {
                     btn.style.background = "rgba(13, 21, 39, 0.8)";
+                } else {
+                    btn.style.opacity = "1";
                 }
             });
         });
     }
+
+    // Setup mobile horizontal scroll layout for filter pill containers
+    [filterBtns, serviceFilterBtns].forEach(group => {
+        if (group.length && group[0].parentElement) {
+            const parent = group[0].parentElement;
+            parent.style.userSelect = "none";
+            parent.style.webkitUserSelect = "none";
+            
+            function applyResponsiveFilterLayout() {
+                if (window.innerWidth <= 768) {
+                    parent.style.flexWrap = "nowrap";
+                    parent.style.overflowX = "auto";
+                    parent.style.webkitOverflowScrolling = "touch";
+                    parent.style.scrollbarWidth = "none";
+                    parent.style.paddingBottom = "4px";
+                    group.forEach(btn => {
+                        btn.style.flexShrink = "0";
+                        btn.style.whiteSpace = "nowrap";
+                    });
+                } else {
+                    parent.style.flexWrap = "wrap";
+                    parent.style.overflowX = "visible";
+                    parent.style.paddingBottom = "0px";
+                }
+            }
+
+            applyResponsiveFilterLayout();
+            window.addEventListener("resize", applyResponsiveFilterLayout);
+        }
+    });
 
     // Set initial state
     if (filterBtns.length) updateActiveFilter(activeMarketplaceCategory);

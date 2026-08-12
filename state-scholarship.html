@@ -225,13 +225,6 @@
                     </svg>
                     Health Center (PKU)
                 </li>
-                <li class="nav-item" data-tab="activities-tab" id="desktopActivitiesTab">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
-                    </svg>
-                    Explore Melaka
-                </li>
                 <li class="nav-item" data-tab="scholarships-tab" id="desktopScholarshipsTab">
                     <svg viewBox="0 0 24 24">
                         <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
@@ -2250,68 +2243,6 @@
                     id="adHealthMobile" data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b" data-ad-width="320"
                     data-ad-height="50" data-ad-size="320x50">
                 </div>
-            </div>
-
-
-
-            <!-- TAB: ACTIVITIES / EXPLORE MELAKA -->
-
-            <div class="tab-content" id="activities-tab" style="min-width: 0;">
-                <div class="card" style="padding-bottom: 16px; min-width: 0;">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24">
-                            <path
-                                d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
-                        </svg>
-                        <span id="activitiesTitle">Explore Melaka</span>
-                    </h2>
-                    <p style="margin-bottom: 24px; line-height: 1.6; color: var(--text-secondary);" id="descActivities">
-                        Discover things to do around Melaka, from historical sites to hidden nature spots.
-                    </p>
-
-                    <!-- Search and Filters -->
-                    <div
-                        style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
-                        <div style="flex: 1; min-width: 240px; position: relative;">
-                            <input type="text" id="activitiesSearch"
-                                placeholder="🔍 Search attractions, tags, location..." class="form-control">
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
-                            <select id="activitiesSortSelect" class="form-control"
-                                style="width: auto; padding: 10px 14px; font-weight: 600; margin-right: 4px;">
-                                <option value="recommended">⭐ Recommended</option>
-                                <option value="free">💰 Free / Low-cost</option>
-                            </select>
-                            <select id="activitiesTypeSelect" class="form-control"
-                                style="width: auto; padding: 10px 14px; font-weight: 600;">
-                                <option value="all">🌍 All Types</option>
-                                <option value="indoor">🏠 Indoor</option>
-                                <option value="outdoor">☀️ Outdoor</option>
-                            </select>
-                            <span id="activitiesCountBadge"
-                                style="font-size: 12px; font-weight: 700; color: var(--accent-gold); background: rgba(212, 175, 55, 0.15); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                                0 Found
-                            </span>
-                        </div>
-                    </div>
-
-                    <!-- Category Chips -->
-                    <div id="activitiesCategoryChips" class="archive-cat-pills"
-                        style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-                        <!-- Generated dynamically by activities.js -->
-                    </div>
-
-                    <!-- Activities Grid -->
-                    <div id="activitiesGrid"
-                        style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
-                        <!-- Cards generated dynamically -->
-                    </div>
-
-                    <p id="noActivitiesFoundMsg"
-                        style="display: none; text-align: center; color: var(--text-muted); padding: 40px 0;">
-                        No activities found matching your criteria.
-                    </p>
-                </div>
                 <!-- --- UCPM AD SLOT --- -->
                 <div class="ucpm-ad-container"
                     style="margin: 2.5rem auto; text-align: center; max-width: 100%; overflow: hidden;">
@@ -3601,13 +3532,6 @@
                     </svg>
                     <span>Marketplace & Services</span>
                 </button>
-                <button class="drawer-item-btn" data-tab="activities-tab">
-                    <svg viewBox="0 0 24 24">
-                        <path
-                            d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
-                    </svg>
-                    <span>Explore Melaka</span>
-                </button>
                 <button class="drawer-item-btn" data-tab="scholarships-tab">
                     <svg viewBox="0 0 24 24">
                         <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
@@ -3652,8 +3576,6 @@
 
     <!-- Utilities (must load first — helpers used by all modules) -->
     <script src="utils.js"></script>
-    <script src="activities-data.js"></script>
-    <script src="activities.js"></script>
     <script src="translation.js"></script>
 
     <!-- Feature modules (depend on utils.js + translation.js) -->
@@ -3665,7 +3587,6 @@
     <script src="health.js"></script>
     <script src="library.js"></script>
     <script src="scholarships.js"></script>
-    <script src="marketplace.js"></script>
     <!-- <script src="archive.js"></script> -->
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
@@ -3674,6 +3595,64 @@
     <!-- Adsterra Banner Ad Loader (must load after DOM is ready) -->
     <script src="ads.js"></script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const state = urlParams.get('state');
+
+            if (state) {
+                // 1. Force the Scholarship Tab to be active
+                const allNavItems = document.querySelectorAll('.nav-item');
+                const allTabContents = document.querySelectorAll('.tab-content');
+
+                allNavItems.forEach(nav => nav.classList.remove('active'));
+                allTabContents.forEach(tab => tab.classList.remove('active'));
+
+                const schNav = document.querySelector('[data-tab="scholarships-tab"]');
+                if (schNav) schNav.classList.add('active');
+
+                const schTab = document.getElementById('scholarships-tab');
+                if (schTab) schTab.classList.add('active');
+
+                // 2. Display the correct state panel
+                const resultContainer = document.getElementById('stateScholarshipsResult');
+                const allPanels = document.querySelectorAll('.state-panel');
+                const statePills = document.querySelectorAll('.state-pill');
+
+                if (resultContainer) resultContainer.style.display = 'flex';
+
+                allPanels.forEach(panel => panel.style.display = 'none');
+
+                const targetPanel = document.getElementById('panel-state-' + state);
+                if (targetPanel) {
+                    targetPanel.style.display = 'flex';
+                } else {
+                    const def = document.getElementById('panel-state-default');
+                    if (def) def.style.display = 'block';
+                }
+
+                // 3. Highlight the selected state pill
+                statePills.forEach(p => {
+                    if (p.getAttribute('href') && p.getAttribute('href').includes('state=' + state)) {
+                        p.style.background = 'var(--gold-gradient)';
+                        p.style.color = '#000';
+                        p.style.borderColor = 'transparent';
+                    }
+                });
+
+                // 4. Scroll down to the panel
+                setTimeout(() => {
+                    if (resultContainer) {
+                        resultContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    }
+                }, 300);
+
+                // Clean the URL so that reloading the page defaults to the standard state
+                window.history.replaceState({}, document.title, window.location.pathname);
+            }
+        });
+    </script>
+    <script src="marketplace.js"></script>
 </body>
 
 </html>

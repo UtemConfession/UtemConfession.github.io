@@ -26,7 +26,16 @@ function switchTab(tabId) {
         btn.classList.toggle("active", btn.getAttribute("data-tab") === tabId);
     });
     tabContents.forEach(panel => {
-        panel.classList.toggle("active", panel.id === tabId);
+        const isActive = panel.id === tabId;
+        panel.classList.toggle("active", isActive);
+        
+        // Lazy-load ads if the panel becomes active
+        if (isActive && window.initAdsInContainer) {
+            // Slight delay to allow DOM to render so AdSense can calculate width
+            setTimeout(() => {
+                window.initAdsInContainer(panel);
+            }, 50);
+        }
     });
     closeMobileDrawer();
     window.scrollTo({ top: 0, behavior: 'instant' });

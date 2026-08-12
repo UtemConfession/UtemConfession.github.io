@@ -110,6 +110,8 @@ h1, h2, h3, h4 {
     display: flex;
     flex: 1;
     position: relative;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* Sidebar Navigation */
@@ -283,6 +285,7 @@ h1, h2, h3, h4 {
     margin-left: 280px;
     padding: 50px 40px 40px 40px;
     min-height: auto;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: 20px;
