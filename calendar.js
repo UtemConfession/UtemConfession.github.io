@@ -130,8 +130,9 @@ function formatDateParts(dateString) {
 }
 
 function renderCalendarEvents(filterCategory = 'all', searchQuery = '') {
-    if (!calendarTimeline) return;
-    calendarTimeline.innerHTML = '';
+    const timeline = document.getElementById("calendarTimeline");
+    if (!timeline) return;
+    timeline.innerHTML = '';
 
     const sorted = [...academicEvents].sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
     const query = searchQuery.toLowerCase().trim();
@@ -185,11 +186,11 @@ function renderCalendarEvents(filterCategory = 'all', searchQuery = '') {
                 ${ev.desc ? `<p class="cal-event-desc">${ev.desc}</p>` : ''}
             </div>
         `;
-        calendarTimeline.appendChild(item);
+        timeline.appendChild(item);
     });
 
     if (eventsFound === 0) {
-        calendarTimeline.innerHTML = `<p style="text-align: center; color: var(--text-muted); padding: 40px 0;">No matching academic events found.</p>`;
+        timeline.innerHTML = `<p style="text-align: center; color: var(--text-muted); padding: 40px 0;">No matching academic events found.</p>`;
     }
 }
 

@@ -311,7 +311,7 @@ const activitiesData = [
         fullDesc: { en: "The Stadthuys is believed to be the oldest-surviving Dutch building in the East. Its bright terracotta red color makes it the centerpiece of Melaka's historic district.", ms: "Stadthuys dipercayai bangunan Belanda tertua yang masih wujud di Timur. Warna merah terakota yang terang menjadikannya pusat perhatian di daerah bersejarah Melaka." },
         openingHours: { en: "9:00 AM - 5:00 PM (Museum)", ms: "9:00 AM - 5:00 PM (Muzium)" },
         bestTime: { en: "Early Morning for photos", ms: "Awal pagi untuk gambar" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/stadthuys.org&utm_campaign=api&utm_content=thumbnail", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/stadthuys.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "christ-church", categoryId: "historical", type: "indoor",

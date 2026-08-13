@@ -82,6 +82,14 @@ const busRoutesData = {
 let currentBusRoute = 'kt';
 
 function updateBusScheduleDisplay() {
+    const tableBody = document.getElementById("busRouteTableBody") || busRouteTableBody;
+    const routeTitle = document.getElementById("nextBusRouteTitle") || nextBusRouteTitle;
+    const statusTag = document.getElementById("nextBusStatusTag") || nextBusStatusTag;
+    const timeVal = document.getElementById("nextBusTimeVal") || nextBusTimeVal;
+    const countdownVal = document.getElementById("nextBusCountdownVal") || nextBusCountdownVal;
+
+    if (!tableBody) return;
+
     const route = busRoutesData[currentBusRoute];
     if (!route) return;
 
@@ -93,8 +101,8 @@ function updateBusScheduleDisplay() {
     const currentFormattedTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
     const isMs = typeof currentLang !== 'undefined' && currentLang === 'ms';
 
-    busRouteTableBody.innerHTML = '';
-    nextBusRouteTitle.textContent = route.name;
+    tableBody.innerHTML = '';
+    if (routeTitle) routeTitle.textContent = route.name;
 
     // --- CASE A: SPECIAL SEMESTER TIMETABLES ---
     if (route.type === "special") {
@@ -108,7 +116,7 @@ function updateBusScheduleDisplay() {
                     ${sec.direction}
                 </td>
             `;
-            busRouteTableBody.appendChild(headerTr);
+            tableBody.appendChild(headerTr);
 
             sec.monThu.forEach(timeRange => {
                 const tr = document.createElement("tr");
@@ -126,7 +134,7 @@ function updateBusScheduleDisplay() {
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${dayText}</td>
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${statusText}</td>
                 `;
-                busRouteTableBody.appendChild(tr);
+                tableBody.appendChild(tr);
             });
 
             sec.friday.forEach(timeRange => {
@@ -145,15 +153,17 @@ function updateBusScheduleDisplay() {
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${dayText}</td>
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${statusText}</td>
                 `;
-                busRouteTableBody.appendChild(tr);
+                tableBody.appendChild(tr);
             });
         });
 
         if (isWeekend) {
-            nextBusStatusTag.className = "bus-status-tag inactive";
-            nextBusStatusTag.textContent = isMs ? "Hujung Minggu — Tiada Servis" : "Weekend — No Service";
-            nextBusTimeVal.textContent = "N/A";
-            nextBusCountdownVal.textContent = isMs ? "Bas shuttle beroperasi Isnin–Jumaat sahaja semasa Semester Khas." : "Shuttle buses operate Mon–Fri only during Special Semester.";
+            if (statusTag) {
+                statusTag.className = "bus-status-tag inactive";
+                statusTag.textContent = isMs ? "Hujung Minggu — Tiada Servis" : "Weekend — No Service";
+            }
+            if (timeVal) timeVal.textContent = "N/A";
+            if (countdownVal) countdownVal.textContent = isMs ? "Bas shuttle beroperasi Isnin–Jumaat sahaja semasa Semester Khas." : "Shuttle buses operate Mon–Fri only during Special Semester.";
             return;
         }
 
@@ -161,27 +171,33 @@ function updateBusScheduleDisplay() {
         const upcomingTime = allTimesToday.find(t => t > currentFormattedTime);
 
         if (upcomingTime) {
-            nextBusStatusTag.className = "bus-status-tag active-now";
-            nextBusStatusTag.textContent = isFriday ? (isMs ? "Servis Aktif Jumaat" : "Friday Active Service") : (isMs ? "Servis Aktif Isnin–Khamis" : "Mon–Thu Active Service");
-            nextBusTimeVal.textContent = upcomingTime;
+            if (statusTag) {
+                statusTag.className = "bus-status-tag active-now";
+                statusTag.textContent = isFriday ? (isMs ? "Servis Aktif Jumaat" : "Friday Active Service") : (isMs ? "Servis Aktif Isnin–Khamis" : "Mon–Thu Active Service");
+            }
+            if (timeVal) timeVal.textContent = upcomingTime;
 
             const nextBusDate = new Date();
             const [hours, minutes] = upcomingTime.split(":").map(Number);
             nextBusDate.setHours(hours, minutes, 0, 0);
 
             const minutesDiff = Math.floor((nextBusDate.getTime() - now.getTime()) / (1000 * 60));
-            if (minutesDiff < 60) {
-                nextBusCountdownVal.textContent = isMs ? `Tiba dalam ${minutesDiff} minit` : `Arriving in ${minutesDiff} minutes`;
-            } else {
-                const hrs = Math.floor(minutesDiff / 60);
-                const mins = minutesDiff % 60;
-                nextBusCountdownVal.textContent = isMs ? `Tiba dalam ${hrs}j ${mins}m` : `Arriving in ${hrs}h ${mins}m`;
+            if (countdownVal) {
+                if (minutesDiff < 60) {
+                    countdownVal.textContent = isMs ? `Tiba dalam ${minutesDiff} minit` : `Arriving in ${minutesDiff} minutes`;
+                } else {
+                    const hrs = Math.floor(minutesDiff / 60);
+                    const mins = minutesDiff % 60;
+                    countdownVal.textContent = isMs ? `Tiba dalam ${hrs}j ${mins}m` : `Arriving in ${hrs}h ${mins}m`;
+                }
             }
         } else {
-            nextBusStatusTag.className = "bus-status-tag inactive";
-            nextBusStatusTag.textContent = isMs ? "Servis Tamat Untuk Hari Ini" : "Service Ended for Today";
-            nextBusTimeVal.textContent = "N/A";
-            nextBusCountdownVal.textContent = isMs ? "Semua bas berjadual hari ini sudah berlepas." : "All scheduled buses for today have departed.";
+            if (statusTag) {
+                statusTag.className = "bus-status-tag inactive";
+                statusTag.textContent = isMs ? "Servis Tamat Untuk Hari Ini" : "Service Ended for Today";
+            }
+            if (timeVal) timeVal.textContent = "N/A";
+            if (countdownVal) countdownVal.textContent = isMs ? "Semua bas berjadual hari ini sudah berlepas." : "All scheduled buses for today have departed.";
         }
     } 
     // --- CASE B: REGULAR SEMESTER TIMETABLES ---
@@ -207,16 +223,18 @@ function updateBusScheduleDisplay() {
                 <td ${rowClass}>${scheduleTypeLabel}</td>
                 <td ${rowClass}>${isUpcoming ? (nextBusTime === time ? (isMs ? "✦ Bas Seterusnya" : "✦ Next Bus") : (isMs ? "Mengikut Jadual" : "Scheduled")) : (isMs ? "Sudah Berlepas" : "Departed")}</td>
             `;
-            busRouteTableBody.appendChild(tr);
+            tableBody.appendChild(tr);
         });
 
         if (!nextBusFound && scheduleTimes.length > 0) {
             nextBusTime = scheduleTimes[0];
         }
 
-        nextBusStatusTag.className = "bus-status-tag active-now";
-        nextBusStatusTag.textContent = isWeekend ? (isMs ? "Servis Aktif Hujung Minggu" : "Weekend Active Service") : (isMs ? "Servis Aktif Hari Bekerja" : "Weekday Active Service");
-        nextBusTimeVal.textContent = nextBusTime || "N/A";
+        if (statusTag) {
+            statusTag.className = "bus-status-tag active-now";
+            statusTag.textContent = isWeekend ? (isMs ? "Servis Aktif Hujung Minggu" : "Weekend Active Service") : (isMs ? "Servis Aktif Hari Bekerja" : "Weekday Active Service");
+        }
+        if (timeVal) timeVal.textContent = nextBusTime || "N/A";
 
         if (nextBusTime) {
             const nextBusDate = new Date();
@@ -228,15 +246,17 @@ function updateBusScheduleDisplay() {
             }
 
             const minutesDiff = Math.floor((nextBusDate.getTime() - now.getTime()) / (1000 * 60));
-            if (minutesDiff < 60) {
-                nextBusCountdownVal.textContent = isMs ? `Tiba dalam ${minutesDiff} minit` : `Arriving in ${minutesDiff} minutes`;
-            } else {
-                const hrs = Math.floor(minutesDiff / 60);
-                const mins = minutesDiff % 60;
-                nextBusCountdownVal.textContent = isMs ? `Tiba dalam ${hrs}j ${mins}m` : `Arriving in ${hrs}h ${mins}m`;
+            if (countdownVal) {
+                if (minutesDiff < 60) {
+                    countdownVal.textContent = isMs ? `Tiba dalam ${minutesDiff} minit` : `Arriving in ${minutesDiff} minutes`;
+                } else {
+                    const hrs = Math.floor(minutesDiff / 60);
+                    const mins = minutesDiff % 60;
+                    countdownVal.textContent = isMs ? `Tiba dalam ${hrs}j ${mins}m` : `Arriving in ${hrs}h ${mins}m`;
+                }
             }
         } else {
-            nextBusCountdownVal.textContent = isMs ? "Servis Tamat Untuk Hari Ini" : "Service Ended for Today";
+            if (countdownVal) countdownVal.textContent = isMs ? "Servis Tamat Untuk Hari Ini" : "Service Ended for Today";
         }
     }
 }

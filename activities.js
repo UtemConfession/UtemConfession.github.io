@@ -28,6 +28,18 @@ document.addEventListener("DOMContentLoaded", () => {
     setupActivitiesModal();
     renderActivities();
     
+    // Deep linking support (?id=activity_id or #activity_id)
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetId = urlParams.get('id') || (window.location.hash ? window.location.hash.replace('#', '') : null);
+    if (targetId && typeof activitiesData !== 'undefined') {
+        const matchedItem = activitiesData.find(item => item.id === targetId);
+        if (matchedItem) {
+            setTimeout(() => {
+                openActivityModal(matchedItem);
+            }, 150);
+        }
+    }
+
     window.refreshActivitiesTranslations = function() {
         renderCategoryChips();
         renderActivities();

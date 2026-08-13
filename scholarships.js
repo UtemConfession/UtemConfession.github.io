@@ -1,4 +1,4 @@
-// scholarships.js — Scholarship & Financial Aid Tracker filtering & search logic
+// scholarships.js — Scholarship & Financial Aid Tracker filtering, search & state selection logic
 
 function filterScholarships() {
     const scholarshipSearch = document.getElementById("scholarshipSearch");
@@ -33,9 +33,53 @@ function filterScholarships() {
     }
 }
 
+function handleStatePillClick(stateId, e) {
+    if (e) e.preventDefault();
+
+    const resultContainer = document.getElementById("stateScholarshipsResult");
+    const allPanels = document.querySelectorAll(".state-panel");
+    const statePills = document.querySelectorAll(".state-pill");
+
+    if (!resultContainer) return;
+
+    resultContainer.style.display = "flex";
+    allPanels.forEach(panel => panel.style.display = "none");
+
+    const targetPanel = document.getElementById("panel-state-" + stateId);
+    if (targetPanel) {
+        targetPanel.style.display = "flex";
+    } else {
+        const def = document.getElementById("panel-state-default");
+        if (def) def.style.display = "block";
+    }
+
+    statePills.forEach(p => {
+        const pState = p.getAttribute("data-state") || (p.getAttribute("href") && p.getAttribute("href").includes("state=") ? p.getAttribute("href").split("state=")[1] : "");
+        if (pState === stateId) {
+            p.style.background = "var(--gold-gradient)";
+            p.style.color = "#000";
+            p.style.borderColor = "transparent";
+            p.style.fontWeight = "800";
+        } else {
+            p.style.background = "var(--bg-secondary)";
+            p.style.color = "var(--text-primary)";
+            p.style.borderColor = "var(--border-color)";
+            p.style.fontWeight = "normal";
+        }
+    });
+
+    setTimeout(() => {
+        const scrollTarget = targetPanel || resultContainer;
+        if (scrollTarget) {
+            scrollTarget.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    }, 100);
+}
+
 function initScholarships() {
     const scholarshipSearch = document.getElementById("scholarshipSearch");
     const scholarshipFilterBtns = document.querySelectorAll(".sch-filter-btn");
+    const statePills = document.querySelectorAll(".state-pill");
 
     scholarshipFilterBtns.forEach(btn => {
         btn.addEventListener("click", () => {
@@ -47,6 +91,22 @@ function initScholarships() {
 
     if (scholarshipSearch) {
         scholarshipSearch.addEventListener("input", filterScholarships);
+    }
+
+    statePills.forEach(pill => {
+        pill.addEventListener("click", (e) => {
+            const stateId = pill.getAttribute("data-state") || (pill.getAttribute("href") && pill.getAttribute("href").includes("state=") ? pill.getAttribute("href").split("state=")[1] : "");
+            if (stateId) {
+                handleStatePillClick(stateId, e);
+            }
+        });
+    });
+
+    // Handle direct URL parameter ?state=...
+    const urlParams = new URLSearchParams(window.location.search);
+    const stateParam = urlParams.get("state");
+    if (stateParam) {
+        handleStatePillClick(stateParam);
     }
 }
 

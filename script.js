@@ -1,11 +1,41 @@
 // script.js — Application entry point & initialization
-// Depends on: utils.js, translation.js, confessions.js, gpa.js,
-//             bus.js, lookup.js, calendar.js,
-//             health.js, library.js
+// Depends on: utils.js, translation.js, confessions.js
 
 // --- DARK MODE: Permanently locked ---
 document.body.classList.remove("light-theme");
 localStorage.setItem("theme", "dark");
+
+
+// --- LEGACY TAB ROUTER MAPPING ---
+const tabToPageMap = {
+    "calendar-tab": "calendar.html",
+    "bus-tab": "bus.html",
+    "library-tab": "library.html",
+    "health-tab": "health.html",
+    "gpa-tab": "gpa.html",
+    "scholarships-tab": "scholarships.html",
+    "exams-tab": "exams.html",
+    "links-tab": "wifi.html",
+    "support-tab": "support.html",
+    "activities-tab": "activities.html",
+    "marketplace-tab": "marketplace.html"
+};
+
+// Check and handle hash redirect on load and hash change
+function handleHashRedirect() {
+    if (window.location.hash) {
+        const hashId = window.location.hash.replace('#', '');
+        if (tabToPageMap[hashId]) {
+            window.location.href = tabToPageMap[hashId];
+            return true;
+        }
+    }
+    return false;
+}
+
+// Run hash redirect check immediately
+handleHashRedirect();
+window.addEventListener("hashchange", handleHashRedirect);
 
 
 // --- TAB NAVIGATION SYSTEM ---
@@ -16,6 +46,13 @@ const tabContents = document.querySelectorAll(".tab-content");
 
 function switchTab(tabId) {
     if (!tabId) return;
+
+    // If tab corresponds to a standalone page, redirect immediately
+    if (tabToPageMap[tabId]) {
+        window.location.href = tabToPageMap[tabId];
+        return;
+    }
+
     navItems.forEach(item => {
         item.classList.toggle("active", item.getAttribute("data-tab") === tabId);
     });
@@ -28,10 +65,9 @@ function switchTab(tabId) {
     tabContents.forEach(panel => {
         const isActive = panel.id === tabId;
         panel.classList.toggle("active", isActive);
-        
+
         // Lazy-load ads if the panel becomes active
         if (isActive && window.initAdsInContainer) {
-            // Slight delay to allow DOM to render so AdSense can calculate width
             setTimeout(() => {
                 window.initAdsInContainer(panel);
             }, 50);
@@ -87,39 +123,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
     if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
     if (drawerToggle) drawerToggle.addEventListener("click", toggleLanguage);
-
-    // Seed default GPA rows (with clean empty subject titles)
-    if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {
-        gpaRowsContainer.innerHTML = '';
-        addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 3, 'A');
-        addCalculatorRow('', 3, 'A');
-        calculateGpa();
-    }
-
-    // Load initial bus schedules
-    updateBusScheduleDisplay();
-
-    // Load initial calendar
-    renderCalendarEvents('all', '');
-
-    // Melaka public bus route lookup
-    const melakaDestSelect = document.getElementById("melakaDestSelect");
-    const lookupResultBox = document.getElementById("lookupResultBox");
-
-    if (melakaDestSelect && lookupResultBox) {
-        melakaDestSelect.addEventListener("change", (e) => {
-            const val = e.target.value;
-            if (val && lookupDetails[val]) {
-                lookupResultBox.innerHTML = lookupDetails[val][currentLang];
-                lookupResultBox.style.display = 'block';
-            } else {
-                lookupResultBox.style.display = 'none';
-            }
-        });
-    }
 
     // UTeM Live Campus Weather Fetcher (Open-Meteo API for Durian Tunggal / Ayer Keroh)
     async function fetchCampusWeather() {

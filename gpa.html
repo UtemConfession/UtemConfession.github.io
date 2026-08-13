@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTRN95HLDP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XTRN95HLDP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-site-verification" content="dwqgpqLYOpqd92hDyGq43MGexJ2DRGy8NZBVFKBzSeA" />
+
+    <!-- Monetag Ad Network Site Verification & In-Page Push Tag -->
+    <meta name="monetag" content="afb84bf6a8c64a6877603c52176e7948">
+    <script>(function (s) { s.dataset.zone = '11478366', s.src = 'https://nap5k.com/tag.min.js' })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+
+    <!-- Adsterra Social Bar Loader -->
+    <script>
+        (function () {
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+            if (!isMobile) {
+                var s = document.createElement('script');
+                s.src = 'https://pl30658697.effectivecpmnetwork.com/d6/7c/d5/d67cd58efb7df19a04feb10b3c7472c9.js';
+                s.async = true;
+                (document.head || document.body).appendChild(s);
+            }
+        })();
+    </script>
+
+    <!-- SEO Optimization -->
+    <title>UTeM GPA Calculator & CGPA Scale | Anugerah Dekan Target</title>
+    <meta name="description"
+        content="Calculate your UTeM semester GPA and cumulative CGPA. Estimate Dean's List (Anugerah Dekan) and First Class (Kelas Pertama) honors thresholds across all UTeM faculties.">
+    <meta name="keywords"
+        content="UTeM GPA Calculator, UTeM CGPA Calculator, Anugerah Dekan UTeM, UTeM Grade Scale, UTeM GPA Scale, UTeM First Class Honours">
+    <meta name="author" content="UTeM Confessions Pro Max">
+    <link rel="canonical" href="https://utemconfession.github.io/gpa.html">
+
+    <!-- Open Graph & Social Meta Tags -->
+    <meta property="og:title" content="UTeM GPA Calculator & CGPA Scale | Anugerah Dekan Target">
+    <meta property="og:description"
+        content="Calculate semester GPA, cumulative CGPA, and track Anugerah Dekan (Dean's List) eligibility for UTeM undergraduates.">
+    <meta property="og:image" content="UCPMLogo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://utemconfession.github.io/gpa.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Custom Style System -->
+    <link rel="stylesheet" href="style.css?v=5.0">
+    <!-- Adsterra Ad Container Styles -->
+    <link rel="stylesheet" href="ads.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
+        crossorigin="anonymous"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "UTeM GPA & CGPA Calculator",
+      "description": "Interactive GPA and CGPA calculator tailored to Universiti Teknikal Malaysia Melaka credit-hour system.",
+      "url": "https://utemconfession.github.io/gpa.html",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All"
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Mobile Header -->
+    <header class="mobile-header">
+        <div class="mobile-brand">
+            <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none; color: inherit;">
+                <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="mobile-logo-img">
+                <div class="mobile-title-container">
+                    <span class="mobile-title">UTeM Confessions</span>
+                    <span class="mobile-subtitle">GPA Calculator</span>
+                </div>
+            </a>
+        </div>
+        <div class="mobile-lang-wrapper">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
+                Bahasa Melayu
+            </button>
+        </div>
+    </header>
+
+    <div class="app-container">
+
+        <!-- Desktop Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand-section">
+                <a href="index.html" style="text-decoration: none; color: inherit; display: flex; flex-direction: column; align-items: center;">
+                    <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="brand-logo-img">
+                    <h1 class="brand-title">UTeM Confessions</h1>
+                    <span class="brand-subtitle">Pro Max</span>
+                </a>
+            </div>
+
+            <!-- Sidebar Language Toggle -->
+            <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
+                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle"
+                    style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; transition: all 0.2s;">
+                    Bahasa Melayu
+                </button>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-menu">
+                <a href="index.html#confession-tab" class="nav-item" data-tab="confession-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
+                    </svg>
+                    Confessions
+                </a>
+                <a href="calendar.html" class="nav-item" data-tab="calendar-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" />
+                    </svg>
+                    Academic Calendar
+                </a>
+                <a href="gpa.html" class="nav-item active" data-tab="gpa-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
+                    </svg>
+                    GPA Calculator
+                </a>
+                <a href="exams.html" class="nav-item" data-tab="exams-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" />
+                    </svg>
+                    Past Year Exams
+                </a>
+                <a href="wifi.html" class="nav-item" data-tab="links-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
+                    </svg>
+                    Wi-Fi & Links
+                </a>
+                <a href="bus.html" class="nav-item" data-tab="bus-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z" />
+                    </svg>
+                    Bus Schedules
+                </a>
+                <a href="marketplace.html" class="nav-item" data-tab="marketplace-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
+                    </svg>
+                    Marketplace & Services
+                </a>
+                <a href="library.html" class="nav-item" data-tab="library-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
+                    </svg>
+                    Library (PLH)
+                </a>
+                <a href="health.html" class="nav-item" data-tab="health-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
+                    </svg>
+                    Health Center (PKU)
+                </a>
+                <a href="activities.html" class="nav-item" data-tab="activities-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
+                    </svg>
+                    Explore Melaka
+                </a>
+                <a href="scholarships.html" class="nav-item" data-tab="scholarships-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                    </svg>
+                    Scholarship
+                </a>
+                <a href="support.html" class="nav-item" data-tab="support-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                    Support Us
+                </a>
+                <a href="guides.html" class="nav-item" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                    </svg>
+                    Student Guides Hub
+                </a>
+            </ul>
+
+            <div class="sidebar-footer">
+                <!-- Google AdSense Sidebar Multiplex Unit -->
+                <div class="ad-slot ad-sidebar" id="adSidebar">
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1444529930367815"
+                        data-ad-slot="7411190923" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
+                </div>
+
+                <!-- Adsterra: Desktop Sidebar 160x600 Skyscraper -->
+                <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--sidebar" id="adSidebarAdsterra"
+                    data-ad-key="5cee424ee6f58a566aa27ce1ba9aed8a" data-ad-width="160" data-ad-height="600"
+                    data-ad-size="160x600">
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Desktop Top Ad Banner -->
+            <div class="desktop-top-ad-banner">
+                <ins class="adsbygoogle" style="display:inline-block;width:728px;height:90px"
+                    data-ad-client="ca-pub-1444529930367815" data-ad-slot="7411190923"></ins>
+            </div>
+
+            <!-- Bounded Top Ad Container -->
+            <div class="ad-slot-bounded" id="adTopBounded">
+                <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+                    data-ad-format="fluid" data-ad-client="ca-pub-1444529930367815" data-ad-slot="7411190923"></ins>
+
+                <!-- Adsterra: Desktop Top Banner 728x90 -->
+                <div class="adsterra-slot adsterra-slot--desktop-only" id="adTopAdsterraDesktop"
+                    data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99" data-ad-width="728" data-ad-height="90"
+                    data-ad-size="728x90" style="margin: 15px auto 20px auto;">
+                </div>
+            </div>
+
+            <!-- GPA CALCULATOR MAIN CONTAINER -->
+            <div class="tab-content active" id="gpa-tab">
+                <div class="gpa-grid">
+
+                    <div class="card">
+                        <h2 class="card-title">
+                            <svg viewBox="0 0 24 24">
+                                <path
+                                    d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
+                            </svg>
+                            UTeM Semester GPA & CGPA Calculator
+                        </h2>
+
+                        <!-- Top results cards -->
+                        <div class="gpa-results-bar">
+                            <div class="gpa-result-card">
+                                <div class="form-label">Current Semester GPA</div>
+                                <div class="gpa-result-val" id="currentSemGpa">4.00</div>
+                            </div>
+                            <div class="gpa-result-card">
+                                <div class="form-label">Semester Credit Hours</div>
+                                <div class="gpa-result-val" id="totalCreditsVal">14</div>
+                            </div>
+                            <div class="gpa-result-card"
+                                style="border-color: var(--accent-gold); box-shadow: var(--glow-shadow);">
+                                <div class="form-label" style="color: var(--accent-gold);">Estimated CGPA</div>
+                                <div class="gpa-result-val" id="calculatedCgpa"
+                                    style="text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);">4.00</div>
+                            </div>
+                        </div>
+
+                        <!-- Anugerah Dekan Badge Container -->
+                        <div id="deansListBadge"
+                            style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(255, 215, 0, 0.08) 100%); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--accent-gold); font-weight: 800; font-size: 13px; text-shadow: 0 0 8px rgba(212, 175, 55, 0.3); box-shadow: 0 0 14px rgba(212, 175, 55, 0.15);">
+                            🏆 Anugerah Dekan (Dean's List) Eligible!
+                        </div>
+
+                        <!-- First Class Badge Container -->
+                        <div id="firstClassBadge"
+                            style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(42, 171, 238, 0.18) 0%, rgba(34, 158, 217, 0.08) 100%); border: 1px solid rgba(42, 171, 238, 0.4); color: #2AABEE; font-weight: 800; font-size: 13px; text-shadow: 0 0 8px rgba(42, 171, 238, 0.3); box-shadow: 0 0 14px rgba(42, 171, 238, 0.15);">
+                            🎓 Kelas Pertama (First Class) Eligible!
+                        </div>
+
+                        <!-- Main Table Inputs -->
+                        <div class="gpa-table-container">
+                            <table class="gpa-table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 40%;">Course Title (Optional)</th>
+                                        <th style="width: 25%;">Credits</th>
+                                        <th style="width: 25%;">Grade Achieved</th>
+                                        <th style="width: 10%;">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="gpaRows">
+                                    <!-- Populated dynamically by gpa.js -->
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="gpa-btn-row">
+                            <button id="addRowBtn" class="btn btn-secondary btn-sm" type="button">➕ Add Subject Row</button>
+                            <button id="clearGpaBtn" class="btn btn-danger btn-sm" type="button">✕ Clear All Entries</button>
+                        </div>
+
+                        <!-- CGPA Cumulative box -->
+                        <div class="cgpa-calc-box">
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="prevCgpa" class="form-label">Prior Cumulative CGPA (Optional)</label>
+                                <input type="number" id="prevCgpa" class="form-control" step="0.01" min="0.00"
+                                    max="4.00" placeholder="e.g. 3.65">
+                            </div>
+                            <div class="form-group" style="margin-bottom: 0;">
+                                <label for="prevCredits" class="form-label">Prior Earned Credits (Optional)</label>
+                                <input type="number" id="prevCredits" class="form-control" step="1" min="0"
+                                    placeholder="e.g. 45 (leave blank to estimate)">
+                            </div>
+                        </div>
+
+                        <div id="gpaEstimationNote"
+                            style="display: none; font-size: 12.5px; color: var(--accent-gold); background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); padding: 8px 14px; border-radius: 8px; margin-top: 14px; text-align: center; font-weight: 600;">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- --- UCPM AD SLOT --- -->
+                <div class="ucpm-ad-container" style="margin: 2.5rem auto; text-align: center; max-width: 100%; overflow: hidden;">
+                    <div class="adsterra-slot adsterra-slot--desktop-only" data-ad-key="80b74d4715509930f9a263de709404c0" data-ad-width="728" data-ad-height="90"></div>
+                    <div class="adsterra-slot adsterra-slot--mobile-only" data-ad-key="e9bf05d39e3ecb001d2ce3d6a2f4fcff" data-ad-width="320" data-ad-height="50"></div>
+                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1444529930367815" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                </div>
+                <!-- --- END UCPM AD SLOT --- -->
+            </div>
+
+            <!-- Crawlable Feature-Specific SEO Overview Section -->
+            <section class="card content-card" style="margin-top: 20px; max-width: 100%; border-color: rgba(212, 175, 55, 0.25);">
+                <h2 style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
+                    </svg>
+                    UTeM GPA & CGPA Calculation Scale Guide
+                </h2>
+                <p style="color: var(--text-secondary); line-height: 1.6; font-size: 13.5px; margin-bottom: 16px;">
+                    Calculate semester <strong>GPA (Grade Point Average)</strong> and cumulative <strong>CGPA</strong> for Universiti Teknikal Malaysia Melaka undergraduates. UTeM uses the 4.00 quality point system where <strong>A = 4.00, A- = 3.70, B+ = 3.30, B = 3.00, B- = 2.70, C+ = 2.30, C = 2.00, C- = 1.70, D+ = 1.30, D = 1.00, F = 0.00</strong>. Students achieving a semester GPA of 3.50 or higher earn <strong>Anugerah Dekan (Dean's List)</strong> recognition.
+                </p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                    <a href="calendar.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📅 Academic Calendar 2026/2027</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Check final examination weeks and grade release dates for this session.</span>
+                    </a>
+                    <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Papers</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Prepare for final exams using official UTeM library past semester question papers.</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Adsterra: Above Footer -->
+            <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--above-footer" id="adFooterDesktop"
+                data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99" data-ad-width="728" data-ad-height="90" data-ad-size="728x90">
+            </div>
+            <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--above-footer" id="adFooterMobile"
+                data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b" data-ad-width="320" data-ad-height="50" data-ad-size="320x50">
+            </div>
+
+            <!-- Universal Footer -->
+            <footer>
+                <div>
+                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="guides.html">Student Guides</a>
+                    <a href="about.html">About Us</a>
+                    <a href="rules.html">Confession Rules</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav class="mobile-bottom-nav">
+        <a href="index.html#confession-tab" class="mobile-nav-btn" data-tab="confession-tab" style="text-decoration: none; color: inherit;">
+            <svg viewBox="0 0 24 24">
+                <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-6 12H6v-2h8v2zm4-3H6V9h12v2zm0-3H6V6h12v2z" />
+            </svg>
+            <span>Confessions</span>
+        </a>
+        <a href="calendar.html" class="mobile-nav-btn" data-tab="calendar-tab" style="text-decoration: none; color: inherit;">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
+            </svg>
+            <span>Calendar</span>
+        </a>
+        <a href="gpa.html" class="mobile-nav-btn active" data-tab="gpa-tab" style="text-decoration: none; color: inherit;">
+            <svg viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
+            </svg>
+            <span>GPA Calc</span>
+        </a>
+        <a href="bus.html" class="mobile-nav-btn" data-tab="bus-tab" style="text-decoration: none; color: inherit;">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z" />
+            </svg>
+            <span>Buses</span>
+        </a>
+        <button class="mobile-nav-btn" id="openMobileDrawerBtn" type="button" aria-label="Open More Tools Menu">
+            <svg viewBox="0 0 24 24">
+                <path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" />
+            </svg>
+            <span>More</span>
+        </button>
+    </nav>
+
+    <!-- Slide-Up "More" Tools Drawer Modal -->
+    <div id="mobileMoreDrawer" class="mobile-drawer-overlay">
+        <div class="mobile-drawer-sheet">
+            <div class="mobile-drawer-header">
+                <div class="mobile-drawer-title" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                        <path d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" />
+                    </svg>
+                    <span>Campus Services & Tools</span>
+                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="drawerLangToggle" type="button"
+                        style="padding: 2px 8px; font-size: 11px; margin-left: auto; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; height: 24px;">
+                        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="margin: 0;">
+                            <path d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2.1l1.1-3h4.6l1.1 3H23l-4.5-12zm-2.62 7l1.62-4.41L19.12 17h-3.24z" />
+                        </svg>
+                        <span>Bahasa Melayu</span>
+                    </button>
+                </div>
+                <button id="closeMobileDrawerBtn" class="mobile-drawer-close-btn" type="button" aria-label="Close Tools Menu">&times;</button>
+            </div>
+            <div class="mobile-drawer-grid">
+                <a href="guides.html" class="drawer-item-btn" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" /></svg>
+                    <span>Student Guides</span>
+                </a>
+                <a href="exams.html" class="drawer-item-btn" data-tab="exams-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" /></svg>
+                    <span>Past Year Exams</span>
+                </a>
+                <a href="wifi.html" class="drawer-item-btn" data-tab="links-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" /></svg>
+                    <span>Wi-Fi & Links</span>
+                </a>
+                <a href="library.html" class="drawer-item-btn" data-tab="library-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" /></svg>
+                    <span id="drawerLibrary">Library</span>
+                </a>
+                <a href="health.html" class="drawer-item-btn" data-tab="health-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" /></svg>
+                    <span id="drawerHealth">Health Center</span>
+                </a>
+                <a href="marketplace.html" class="drawer-item-btn" data-tab="marketplace-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" /></svg>
+                    <span>Marketplace & Services</span>
+                </a>
+                <a href="activities.html" class="drawer-item-btn" data-tab="activities-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" /></svg>
+                    <span>Explore Melaka</span>
+                </a>
+                <a href="scholarships.html" class="drawer-item-btn" data-tab="scholarships-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" /></svg>
+                    <span>Scholarships</span>
+                </a>
+                <a href="support.html" class="drawer-item-btn" data-tab="support-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
+                    <span id="drawerSupport">Support Us</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Utilities & GPA Calculator Engine -->
+    <script src="utils.js"></script>
+    <script src="gpa.js"></script>
+    <script src="translation.js"></script>
+
+    <!-- Application Initialization & Shared Navigation -->
+    <script src="script.js"></script>
+
+    <!-- Adsterra Banner Ad Loader -->
+    <script src="ads.js"></script>
+
+</body>
+
+</html>

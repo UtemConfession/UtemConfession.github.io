@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+    <script>
+        // Automatic redirect from legacy state-scholarship.html to standalone scholarships.html
+        (function() {
+            var search = window.location.search || '';
+            window.location.replace('scholarships.html' + search);
+        })();
+    </script>
     <!-- Google Analytics 4 (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTRN95HLDP"></script>
     <script>
