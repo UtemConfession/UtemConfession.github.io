@@ -1,10 +1,8 @@
 /**
  * =============================================================
  * SITE-WIDE AD MONETIZATION LOADER
- * ads.js — Centralized loader for Adsterra and AdSense ads.
+ * ads.js — Centralized loader for AdSense ads.
  *
- * Adsterra: Add containers with the class "adsterra-slot" and
- *           data attributes: data-ad-key, data-ad-width, data-ad-height.
  * AdSense:  Add <ins class="adsbygoogle" ...> inside the container. 
  *           Do NOT add inline (adsbygoogle = window.adsbygoogle || []).push({});
  *
@@ -28,80 +26,9 @@
      * Check if the slot should be blocked based on device class
      */
     function isSlotBlockedByDevice(element) {
-        if (isMobile && (element.classList.contains('ad-slot--desktop-only') || element.classList.contains('adsterra-slot--desktop-only'))) return true;
-        if (!isMobile && (element.classList.contains('ad-slot--mobile-only') || element.classList.contains('adsterra-slot--mobile-only'))) return true;
+        if (isMobile && element.classList.contains('ad-slot--desktop-only')) return true;
+        if (!isMobile && element.classList.contains('ad-slot--mobile-only')) return true;
         return false;
-    }
-
-    var adsterraQueue = [];
-    var isProcessingAdsterra = false;
-
-    function processAdsterraQueue() {
-        if (adsterraQueue.length === 0) {
-            isProcessingAdsterra = false;
-            return;
-        }
-        isProcessingAdsterra = true;
-        var slot = adsterraQueue.shift();
-
-        // Create the atOptions script
-        var optScript = document.createElement('script');
-        optScript.type = 'text/javascript';
-        optScript.textContent =
-            'atOptions = {' +
-            "'key': '" + slot.key + "'," +
-            "'format': 'iframe'," +
-            "'height': " + slot.height + "," +
-            "'width': " + slot.width + "," +
-            "'params': {}" +
-            '};';
-        slot.container.appendChild(optScript);
-
-        // Create the invoke script
-        var invokeScript = document.createElement('script');
-        invokeScript.type = 'text/javascript';
-        invokeScript.src = 'https://' + slot.domain + '/' + slot.key + '/invoke.js';
-        invokeScript.async = true;
-        
-        // Wait for script to finish before loading next
-        invokeScript.onload = processAdsterraQueue;
-        invokeScript.onerror = processAdsterraQueue;
-        
-        slot.container.appendChild(invokeScript);
-    }
-
-    /**
-     * Inject an Adsterra iframe-format ad into a target container.
-     */
-    function loadAdsterraAd(container) {
-        var key    = container.getAttribute('data-ad-key');
-        var width  = parseInt(container.getAttribute('data-ad-width'), 10);
-        var height = parseInt(container.getAttribute('data-ad-height'), 10);
-        var slotId = container.id || key;
-
-        // Prevent double-loading
-        if (!key || loadedSlots['adsterra_' + slotId]) return;
-        loadedSlots['adsterra_' + slotId] = true;
-
-        if (isSlotBlockedByDevice(container)) return;
-
-        // Map specific keys to their required Adsterra CDN domains
-        var domain = 'www.highperformanceformat.com'; // default
-        if (key === '3f0e9d18402f36cd0e01379deb26a60b') {
-            domain = 'unprofessionalginger.com';
-        }
-
-        adsterraQueue.push({
-            container: container,
-            key: key,
-            width: width,
-            height: height,
-            domain: domain
-        });
-
-        if (!isProcessingAdsterra) {
-            processAdsterraQueue();
-        }
     }
 
     /**
@@ -133,19 +60,7 @@
     window.initAdsInContainer = function(containerElement) {
         if (!containerElement) return;
 
-        // 1. Load Adsterra ads
-        var adsterraSlots = containerElement.querySelectorAll('.adsterra-slot[data-ad-key]');
-        for (var i = 0; i < adsterraSlots.length; i++) {
-            loadAdsterraAd(adsterraSlots[i]);
-        }
-        
-        // Also check if the container itself is an ad slot
-        if (containerElement.classList.contains('adsterra-slot') && containerElement.hasAttribute('data-ad-key')) {
-             loadAdsterraAd(containerElement);
-        }
-
-        // 2. Load AdSense ads (by triggering push for ins tags within this container)
-        // We find containers that might wrap adsense or direct ins tags
+        // Load AdSense ads (by triggering push for ins tags within this container)
         loadAdSenseAd(containerElement);
     };
 
@@ -153,16 +68,6 @@
      * Discover all ads that are currently visible on page load (outside tabs or inside the active tab).
      */
     function initGlobalAds() {
-        // Initialize ads that are not inside a hidden tab
-        var allAdsterra = document.querySelectorAll('.adsterra-slot[data-ad-key]');
-        for (var i = 0; i < allAdsterra.length; i++) {
-            var slot = allAdsterra[i];
-            var parentTab = slot.closest('.tab-content');
-            if (!parentTab || parentTab.classList.contains('active')) {
-                loadAdsterraAd(slot);
-            }
-        }
-
         var allAdsenseIns = document.querySelectorAll('ins.adsbygoogle');
         for (var j = 0; j < allAdsenseIns.length; j++) {
             var ins = allAdsenseIns[j];

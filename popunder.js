@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var POPUNDER_KEY = 'lastPopunderTime';
-    var POPUNDER_COOLDOWN = 3600000; // 1 hour in milliseconds
+    var POPUNDER_COOLDOWN = 900000; // 15 minutes in milliseconds
 
     var lastTime = localStorage.getItem(POPUNDER_KEY);
     var now = Date.now();
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update the timestamp in localStorage
         localStorage.setItem(POPUNDER_KEY, now.toString());
-        console.log("Monetag Popunder injected. Next injection allowed in 1 hour.");
+        console.log("Monetag Popunder injected. Next injection allowed in 15 minutes.");
     } else {
         var remainingMinutes = Math.floor((POPUNDER_COOLDOWN - (now - parseInt(lastTime, 10))) / 60000);
         console.log("Monetag Popunder blocked by frequency cap. Next injection in " + remainingMinutes + " minutes.");
