@@ -4,7 +4,7 @@ const activitiesCategories = [
     { id: "all", en: "All Activities", ms: "Semua Aktiviti", icon: "🌍" },
     { id: "historical", en: "History & Landmarks", ms: "Sejarah & Mercu Tanda", icon: "🏛️" },
     { id: "heritage", en: "Heritage & Museums", ms: "Warisan & Muzium", icon: "🏺" },
-    { id: "unusual_museums", en: "Unusual Museums", ms: "Muzium Unik", icon: "👻" },
+    { id: "unique_museums", en: "Unique Museums", ms: "Muzium Unik", icon: "👻" },
     { id: "nature", en: "Nature & Parks", ms: "Alam & Taman", icon: "🌳" },
     { id: "beaches", en: "Beaches", ms: "Pantai", icon: "🏖️" },
     { id: "zoo_animals", en: "Zoo & Animals", ms: "Zoo & Haiwan", icon: "🐘" },
@@ -15,7 +15,7 @@ const activitiesCategories = [
     { id: "hot_springs", en: "Hot Springs", ms: "Kolam Air Panas", icon: "♨️" },
     { id: "night_activities", en: "Night Activities", ms: "Aktiviti Malam", icon: "🌙" },
     { id: "educational", en: "Educational", ms: "Pendidikan", icon: "🔭" },
-    { id: "different_unusual", en: "Unusual Places", ms: "Tempat Unik", icon: "✨" }
+    { id: "unique_places", en: "Unique Places", ms: "Tempat Unik", icon: "✨" }
 ];
 
 let activeCategory = "all";

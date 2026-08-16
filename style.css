@@ -83,7 +83,7 @@ body {
     background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--border-color);
+    background: rgba(var(--accent-gold-rgb), 0.6);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -283,7 +283,7 @@ h1, h2, h3, h4 {
 .main-content {
     flex: 1;
     margin-left: 280px;
-    padding: 50px 40px 40px 40px;
+    padding: 24px 40px 40px 40px;
     min-height: auto;
     min-width: 0;
     display: flex;
@@ -1226,7 +1226,7 @@ footer {
         margin-left: 0 !important;
         margin-top: 0 !important;
         width: 100% !important;
-        padding: 150px 10px 76px 10px !important;
+        padding: 16px 10px 76px 10px !important;
         box-sizing: border-box !important;
         gap: 2px !important;
     }
@@ -1579,7 +1579,7 @@ footer {
 @media (max-width: 600px) {
     /* 0. Mobile Compact Main Layout & Top Spacing */
     .main-content {
-        padding: 150px 10px 76px 10px !important;
+        padding: 16px 10px 76px 10px !important;
         gap: 0px !important;
     }
     .top-header-bar {

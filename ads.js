@@ -33,6 +33,43 @@
         return false;
     }
 
+    var adsterraQueue = [];
+    var isProcessingAdsterra = false;
+
+    function processAdsterraQueue() {
+        if (adsterraQueue.length === 0) {
+            isProcessingAdsterra = false;
+            return;
+        }
+        isProcessingAdsterra = true;
+        var slot = adsterraQueue.shift();
+
+        // Create the atOptions script
+        var optScript = document.createElement('script');
+        optScript.type = 'text/javascript';
+        optScript.textContent =
+            'atOptions = {' +
+            "'key': '" + slot.key + "'," +
+            "'format': 'iframe'," +
+            "'height': " + slot.height + "," +
+            "'width': " + slot.width + "," +
+            "'params': {}" +
+            '};';
+        slot.container.appendChild(optScript);
+
+        // Create the invoke script
+        var invokeScript = document.createElement('script');
+        invokeScript.type = 'text/javascript';
+        invokeScript.src = 'https://' + slot.domain + '/' + slot.key + '/invoke.js';
+        invokeScript.async = true;
+        
+        // Wait for script to finish before loading next
+        invokeScript.onload = processAdsterraQueue;
+        invokeScript.onerror = processAdsterraQueue;
+        
+        slot.container.appendChild(invokeScript);
+    }
+
     /**
      * Inject an Adsterra iframe-format ad into a target container.
      */
@@ -48,25 +85,23 @@
 
         if (isSlotBlockedByDevice(container)) return;
 
-        // Create the atOptions script
-        var optScript = document.createElement('script');
-        optScript.type = 'text/javascript';
-        optScript.textContent =
-            'atOptions = {' +
-            "'key': '" + key + "'," +
-            "'format': 'iframe'," +
-            "'height': " + height + "," +
-            "'width': " + width + "," +
-            "'params': {}" +
-            '};';
-        container.appendChild(optScript);
+        // Map specific keys to their required Adsterra CDN domains
+        var domain = 'www.highperformanceformat.com'; // default
+        if (key === '3f0e9d18402f36cd0e01379deb26a60b') {
+            domain = 'unprofessionalginger.com';
+        }
 
-        // Create the invoke script
-        var invokeScript = document.createElement('script');
-        invokeScript.type = 'text/javascript';
-        invokeScript.src = 'https://www.highperformanceformat.com/' + key + '/invoke.js';
-        invokeScript.async = true;
-        container.appendChild(invokeScript);
+        adsterraQueue.push({
+            container: container,
+            key: key,
+            width: width,
+            height: height,
+            domain: domain
+        });
+
+        if (!isProcessingAdsterra) {
+            processAdsterraQueue();
+        }
     }
 
     /**

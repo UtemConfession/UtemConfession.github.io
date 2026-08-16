@@ -387,7 +387,8 @@ if (imageCaptionInput) {
             length = 500;
         }
         if (imageCharCount) {
-            imageCharCount.textContent = `${length} / 500 characters`;
+            const currentLang = localStorage.getItem("lang") || "en";
+            imageCharCount.textContent = currentLang === "en" ? `${length} / 500 characters` : `${length} / 500 aksara`;
         }
         
         // Auto-resize textarea
@@ -532,14 +533,20 @@ if (submitImageBtn) {
                 showStatus(result.message || "Image confession published successfully!", "success");
                 clearImageSelection();
                 if (imageCaptionInput) imageCaptionInput.value = "";
-                if (imageCharCount) imageCharCount.textContent = "0 / 500 characters";
+                if (imageCharCount) {
+                    const currentLang = localStorage.getItem("lang") || "en";
+                    imageCharCount.textContent = currentLang === "en" ? "0 / 500 characters" : "0 / 500 aksara";
+                }
                 agreeImageRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
             } else if (result && result.status === "rejected") {
                 showStatus(result.message || "Your image submission was rejected by automated moderation.", "error");
                 clearImageSelection();
                 if (imageCaptionInput) imageCaptionInput.value = "";
-                if (imageCharCount) imageCharCount.textContent = "0 / 500 characters";
+                if (imageCharCount) {
+                    const currentLang = localStorage.getItem("lang") || "en";
+                    imageCharCount.textContent = currentLang === "en" ? "0 / 500 characters" : "0 / 500 aksara";
+                }
                 agreeImageRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
             } else {

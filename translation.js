@@ -16,6 +16,8 @@ const translations = {
         nav_scholarships: "Scholarship",
         nav_guides: "Student Guides Hub",
         mobile_nav_guides: "Student Guides",
+        nav_updates: "Updates",
+        mobile_nav_updates: "Updates",
 
         mobile_nav_gpa: "GPA Calc",
         mobile_nav_archive: "Archive",
@@ -37,6 +39,10 @@ const translations = {
         checkbox_rules: "I agree to follow the confession rules. I understand illegal or abusive submissions will be rejected.",
         btn_submit: "Submit Confession",
         btn_submit_google: "Submit via Google Form ➔",
+        btn_choose_image: "Choose Image",
+        placeholder_image_caption: "Write an optional caption...",
+        checkbox_image_rules: "I agree to follow the rules. Images are reviewed before posting.",
+        btn_submit_image: "Submit Image",
         title_guidelines: "Submission Guidelines",
 
         guide_anon_title: "Anonymous:",
@@ -45,6 +51,20 @@ const translations = {
         guide_respect_desc: "No targeted bullying, sexual harassment, or hate speech towards students or lecturers.",
         guide_spam_title: "No Spam:",
         guide_spam_desc: "Submit button has a 30-second delay between submissions.",
+        guide_mod_title: "Moderation:",
+        guide_mod_desc: "Image submissions are read and reviewed by human moderators before being published.",
+        guide_image_title: "Images:",
+        guide_image_desc: "Do not upload NSFW content, private images of individuals, or screenshots of social media posts containing visible faces or personal information.",
+        guide_impersonation_title: "Impersonation:",
+        guide_impersonation_desc: "Don't pretend to be another student, lecturer, staff member, or organization in a way that could mislead others.",
+        guide_threats_title: "Threats:",
+        guide_threats_desc: "Threats of violence, intimidation, or encouragement of harm are not allowed.",
+        guide_accusations_title: "Accusations:",
+        guide_accusations_desc: "Do not post unproven allegations about identifiable people. Keep discussions factual and anonymous.",
+        guide_connections_title: "Connections:",
+        guide_connections_desc: "Posts seeking friendship, companionship, study partners, or other forms of connections are required to be respectful of boundaries, moral standards and responses.",
+        guide_think_title: "Think Before You Post:",
+        guide_think_desc: "Once published, a confession may be seen, shared, or screenshotted by others.",
 
         title_gpa_calc: "UTeM Semester GPA & CGPA Calculator",
         label_sem_gpa: "Current Semester GPA",
@@ -93,8 +113,8 @@ const translations = {
         opt_dest_paya: "Paya Luboh - Route M16",
         bus_sources_label: "Official Data Sources & Reference Links:",
         label_m10a_details: "M10A Schedule & Operations:",
-        m10a_detail1: "<strong>Weekdays:</strong> Melaka Sentral ⇄ MITC (via Batu Berendam)",
-        m10a_detail2: "<strong>Weekends:</strong> Extends directly to Zoo Melaka & UTeM",
+        m10a_detail1: "<strong>Weekdays (Mon-Thu):</strong> Melaka Sentral ⇄ MITC (via Batu Berendam)",
+        m10a_detail2: "<strong>Weekends (Fri-Sun):</strong> Extends directly to Zoo Melaka & UTeM",
         m10a_detail3: "<strong>Hours:</strong> 6:00 AM – 8:00 PM (Cashless: TNG, Debit, QR)",
 
         title_calendar: "Academic Calendar (2026/2027)",
@@ -273,6 +293,8 @@ const translations = {
         nav_scholarships: "Biasiswa",
         nav_guides: "Hub Panduan Pelajar",
         mobile_nav_guides: "Panduan Pelajar",
+        nav_updates: "Kemas Kini",
+        mobile_nav_updates: "Kemas Kini",
 
         mobile_nav_gpa: "Kalkulator GPA",
         mobile_nav_archive: "Arkib",
@@ -294,6 +316,10 @@ const translations = {
         checkbox_rules: "Saya bersetuju mematuhi peraturan pengakuan. Saya faham bahawa hantaran biadap atau melanggar undang-undang akan ditolak.",
         btn_submit: "Hantar Pengakuan",
         btn_submit_google: "Hantar melalui Google Form ➔",
+        btn_choose_image: "Pilih Imej",
+        placeholder_image_caption: "Tulis kapsyen pilihan...",
+        checkbox_image_rules: "Saya bersetuju mematuhi peraturan. Imej akan disemak sebelum disiarkan.",
+        btn_submit_image: "Hantar Imej",
         title_guidelines: "Garis Panduan Hantaran",
 
         guide_anon_title: "Rawak:",
@@ -302,6 +328,20 @@ const translations = {
         guide_respect_desc: "Tiada pembulian bersasar, gangguan seksual, atau kata-kata kebencian terhadap pelajar atau pensyarah.",
         guide_spam_title: "Spam:",
         guide_spam_desc: "Butang hantar mempunyai had kelewatan 30 saat antara hantaran.",
+        guide_mod_title: "Semakan:",
+        guide_mod_desc: "Hantaran imej dibaca dan disemak oleh moderator manusia sebelum disiarkan.",
+        guide_image_title: "Imej:",
+        guide_image_desc: "Jangan muat naik kandungan NSFW, gambar peribadi individu, atau tangkapan skrin media sosial yang mengandungi wajah yang jelas atau maklumat peribadi.",
+        guide_impersonation_title: "Penyamaran:",
+        guide_impersonation_desc: "Jangan menyamar sebagai pelajar, pensyarah, kakitangan, atau organisasi lain dengan cara yang boleh mengelirukan orang lain.",
+        guide_threats_title: "Ancaman:",
+        guide_threats_desc: "Ancaman keganasan, ugutan, atau galakan untuk mendatangkan mudarat adalah tidak dibenarkan sama sekali.",
+        guide_accusations_title: "Tuduhan:",
+        guide_accusations_desc: "Jangan siarkan tuduhan tanpa bukti terhadap individu tertentu. Kekalkan perbincangan secara fakta dan tanpa nama.",
+        guide_connections_title: "Kenalan:",
+        guide_connections_desc: "Hantaran yang mencari persahabatan, teman, rakan belajar, atau bentuk hubungan lain diwajibkan untuk menghormati batasan, standard moral, dan maklum balas.",
+        guide_think_title: "Fikir Sebelum Kongsi:",
+        guide_think_desc: "Setelah disiarkan, pengakuan mungkin dilihat, dikongsi, atau ditangkap layar oleh orang lain.",
 
         title_gpa_calc: "Kalkulator GPA & CGPA Semester UTeM",
         label_sem_gpa: "GPA Semester Semasa",
@@ -350,8 +390,8 @@ const translations = {
         opt_dest_paya: "Paya Luboh - Laluan M16",
         bus_sources_label: "Sumber Data Rasmi & Pautan Rujukan:",
         label_m10a_details: "Jadual & Operasi M10A:",
-        m10a_detail1: "<strong>Hari Bekerja:</strong> Melaka Sentral ⇄ MITC (melalui Batu Berendam)",
-        m10a_detail2: "<strong>Hujung Minggu:</strong> Dilanjutkan ke Zoo Melaka & UTeM",
+        m10a_detail1: "<strong>Isnin-Khamis:</strong> Melaka Sentral ⇄ MITC (melalui Batu Berendam)",
+        m10a_detail2: "<strong>Jumaat-Ahad:</strong> Dilanjutkan ke Zoo Melaka & UTeM",
         m10a_detail3: "<strong>Waktu:</strong> 6:00 AM – 8:00 PM (Tanpa Tunai: TNG, Kad Debit, QR)",
 
         title_calendar: "Kalendar Akademik (2026/2027)",
@@ -538,7 +578,8 @@ function setLanguage(lang) {
         "health-tab": { desktop: t.nav_health, mobile: t.mobile_nav_health },
         "marketplace-tab": { desktop: t.nav_marketplace, mobile: t.mobile_nav_marketplace },
         "scholarships-tab": { desktop: t.nav_scholarships, mobile: t.mobile_nav_scholarships },
-        "support-tab": { desktop: t.nav_support, mobile: t.nav_support }
+        "support-tab": { desktop: t.nav_support, mobile: t.nav_support },
+        "updates-tab": { desktop: t.nav_updates, mobile: t.mobile_nav_updates }
     };
 
     const hrefNavMap = {
@@ -554,6 +595,7 @@ function setLanguage(lang) {
         "activities.html": { desktop: t.nav_activities, mobile: t.nav_activities },
         "marketplace.html": { desktop: t.nav_marketplace, mobile: t.mobile_nav_marketplace },
         "guides.html": { desktop: t.nav_guides, mobile: t.mobile_nav_guides },
+        "updates.html": { desktop: t.nav_updates, mobile: t.mobile_nav_updates },
         "index.html": { desktop: t.nav_confessions, mobile: t.nav_confessions },
         "index.html#confession-tab": { desktop: t.nav_confessions, mobile: t.nav_confessions },
         "index.html#calendar-tab": { desktop: t.nav_calendar, mobile: t.mobile_nav_calendar },
@@ -566,7 +608,8 @@ function setLanguage(lang) {
         "index.html#health-tab": { desktop: t.nav_health, mobile: t.mobile_nav_health },
         "index.html#activities-tab": { desktop: t.nav_activities, mobile: t.nav_activities },
         "index.html#scholarships-tab": { desktop: t.nav_scholarships, mobile: t.mobile_nav_scholarships },
-        "index.html#support-tab": { desktop: t.nav_support, mobile: t.nav_support }
+        "index.html#support-tab": { desktop: t.nav_support, mobile: t.nav_support },
+        "index.html#updates-tab": { desktop: t.nav_updates, mobile: t.mobile_nav_updates }
     };
 
     // 1. Sidebar nav items
@@ -642,13 +685,27 @@ function setLanguage(lang) {
     updateNodeText(guidelinesTitle, t.title_guidelines);
 
     const guides = document.querySelectorAll("#confession-tab .guide-list li");
-    if (guides.length >= 3) {
+    if (guides.length >= 10) {
         guides[0].querySelector("strong").textContent = t.guide_anon_title;
         updateNodeText(guides[0], t.guide_anon_desc);
         guides[1].querySelector("strong").textContent = t.guide_respect_title;
         updateNodeText(guides[1], t.guide_respect_desc);
         guides[2].querySelector("strong").textContent = t.guide_spam_title;
         updateNodeText(guides[2], t.guide_spam_desc);
+        guides[3].querySelector("strong").textContent = t.guide_mod_title;
+        updateNodeText(guides[3], t.guide_mod_desc);
+        guides[4].querySelector("strong").textContent = t.guide_image_title;
+        updateNodeText(guides[4], t.guide_image_desc);
+        guides[5].querySelector("strong").textContent = t.guide_impersonation_title;
+        updateNodeText(guides[5], t.guide_impersonation_desc);
+        guides[6].querySelector("strong").textContent = t.guide_threats_title;
+        updateNodeText(guides[6], t.guide_threats_desc);
+        guides[7].querySelector("strong").textContent = t.guide_accusations_title;
+        updateNodeText(guides[7], t.guide_accusations_desc);
+        guides[8].querySelector("strong").textContent = t.guide_connections_title;
+        updateNodeText(guides[8], t.guide_connections_desc);
+        guides[9].querySelector("strong").textContent = t.guide_think_title;
+        updateNodeText(guides[9], t.guide_think_desc);
     }
 
     // 5. GPA Calculator
@@ -767,16 +824,26 @@ function setLanguage(lang) {
     const subMarketItems = document.getElementById("subMarketItems");
     if (subMarketItems) subMarketItems.textContent = lang === "en" ? "Buy & Sell Student Essentials" : "Beli & Jual Keperluan Pelajar";
 
+    const descMarketItems = document.getElementById("descMarketItems");
+    if (descMarketItems) descMarketItems.textContent = lang === "en" 
+        ? "Buy & sell student essentials directly with fellow UTeM students. From mechanical keyboards and electronics to textbooks and hostel gear." 
+        : "Beli & jual keperluan pelajar secara terus dengan rakan pelajar UTeM. Dari papan kekunci mekanikal dan barangan elektronik kepada buku teks dan kelengkapan asrama.";
+
     const titleMarketServices = document.getElementById("titleMarketServices");
     if (titleMarketServices) titleMarketServices.textContent = lang === "en" ? "🚘 Student Services Directory" : "🚘 Direktori Perkhidmatan Pelajar";
 
     const subMarketServices = document.getElementById("subMarketServices");
     if (subMarketServices) subMarketServices.textContent = lang === "en" ? "Campus Runners & Services" : "Pelari Kampus & Perkhidmatan";
 
+    const descMarketServices = document.getElementById("descMarketServices");
+    if (descMarketServices) descMarketServices.textContent = lang === "en" 
+        ? "Discover trusted student-run services around campus, including campus Grab drivers, personal shoppers, print runners, and project helpers." 
+        : "Temui perkhidmatan pelajar yang dipercayai di sekitar kampus, termasuk pemandu Grab kampus, pembeli peribadi (personal shopper), pelari cetakan (print runners), dan pembantu projek.";
+
     const sellerNoticeMarketplace = document.getElementById("sellerNoticeMarketplace");
     if (sellerNoticeMarketplace) sellerNoticeMarketplace.innerHTML = lang === "en"
-        ? '<strong>Want to list items or promote your student services?</strong> Feel free to contact admin email with your details at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>'
-        : '<strong>Ingin menjual barangan terpakai atau mempromosikan servis anda?</strong> Hubungi admin di: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); font-weight: 700;">utemconfessionpromax@duck.com</a>';
+        ? 'Got something to offer or sell? Get listed here! 🚀 <br><span style="color: var(--text-secondary); font-size: 14px;">Send your info to our admin at: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">utemconfessionpromax@duck.com</a></span>'
+        : 'Ada barang nak jual atau servis nak ditawarkan? Iklankan di sini! 🚀 <br><span style="color: var(--text-secondary); font-size: 14px;">Hantar butiran anda kepada admin di: <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;">utemconfessionpromax@duck.com</a></span>';
 
     // 7. Bus Transit (Minggu Semester Khas & Regular)
     const titleCampusBus = document.getElementById("title_campus_bus");
@@ -1023,6 +1090,28 @@ function setLanguage(lang) {
 
     const descLibBookingText = document.getElementById("descLibBookingText");
     if (descLibBookingText) descLibBookingText.textContent = t.desc_lib_booking_text;
+
+    const btnGoogle = document.getElementById("btnGoogleForm");
+    if (btnGoogle) updateNodeText(btnGoogle, t.btn_submit_google);
+
+    const btnChooseImage = document.getElementById("chooseImageBtn");
+    if (btnChooseImage) updateNodeText(btnChooseImage, t.btn_choose_image);
+
+    const imageCaptionInput = document.getElementById("imageCaptionInput");
+    if (imageCaptionInput) imageCaptionInput.placeholder = t.placeholder_image_caption;
+
+    const agreeImageLabel = document.getElementById("agreeImageRulesLabel");
+    if (agreeImageLabel) updateNodeText(agreeImageLabel, t.checkbox_image_rules);
+
+    const btnSubmitImage = document.getElementById("submitImageBtn");
+    if (btnSubmitImage) updateNodeText(btnSubmitImage, t.btn_submit_image);
+
+    // Update image character count immediately
+    const imgCharCountLabel = document.getElementById("imageCharCount");
+    if (imgCharCountLabel && imageCaptionInput) {
+        const len = imageCaptionInput.value.length;
+        imgCharCountLabel.textContent = lang === "en" ? `${len} / 500 characters` : `${len} / 500 aksara`;
+    }
 
     const btnLibMail = document.getElementById("btnLibMail");
     if (btnLibMail) updateNodeText(btnLibMail, t.btn_lib_mail);

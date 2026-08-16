@@ -13,6 +13,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Adsterra Social Bar (Option 1: Desktop-Only Responsive Loader) -->
+    <script>
+      (function() {
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
+        if (!isMobile) {
+          var s = document.createElement('script');
+          s.src = 'https://pl30658697.effectivecpmnetwork.com/d6/7c/d5/d67cd58efb7df19a04feb10b3c7472c9.js';
+          s.async = true;
+          (document.head || document.body).appendChild(s);
+        }
+      })();
+    </script>
 
     <title>UTeM Student Guides & Resource Hub | UTeM Confessions Pro Max</title>
     <meta name="description" content="Explore comprehensive student guides for Universiti Teknikal Malaysia Melaka (UTeM). Learn GPA calculation, shuttle bus routes, library services, Wi-Fi setup, and past year exam tips.">
@@ -45,9 +57,6 @@
       "url": "https://utemconfession.github.io/guides.html"
     }
     </script>
-    <!-- Monetag Popunder (1-Hour Cap) -->
-    <script src="popunder.js"></script>
-    <!-- Monetag Vignette Banner with 15 Min Cooldown -->
     <script src="vignette.js"></script>
 </head>
 <body>
@@ -183,19 +192,23 @@
                     </div>
                 </a>
 
-                <!-- Guide 5: Top 10 Study Places -->
-                <a href="guide-top-10-study-places.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
-                    <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagStudy" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Campus Life & Academics</span>
-                        <h2 class="guide-card-title" id="titleStudy" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">Top 10 Best Study Places at UTeM</h2>
-                        <p class="guide-card-snippet" id="snippetStudy" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Discover the best hidden gems and quiet spots for studying, completing assignments, and holding group discussions across UTeM campuses.</p>
-                    </div>
-                    <div class="guide-card-footer" style="display: flex; align-items: center; justify-content: space-between; padding-top: 14px; border-top: 1px solid rgba(255, 255, 255, 0.06); font-size: 12.5px; color: var(--text-muted);">
-                        <span id="readStudy">🕒 12 Min Read</span>
-                        <span class="guide-card-readmore" id="linkStudy" style="font-weight: 700; color: var(--accent-gold); display: inline-flex; align-items: center; gap: 4px;">Read Guide &rarr;</span>
-                    </div>
-                </a>
+            </div>
 
+            <!-- Adsterra: Between Guide Cards and SEO Card � Desktop 300x250 -->
+            <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--between-sections"
+                 id="adGuidesMidDesktop"
+                 data-ad-key="6a46dcd2b383751c97fffa8ce43de7a0"
+                 data-ad-width="300"
+                 data-ad-height="250"
+                 data-ad-size="300x250">
+            </div>
+            <!-- Adsterra: Between Guide Cards and SEO Card � Mobile 320x50 -->
+            <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--between-sections"
+                 id="adGuidesMidMobile"
+                 data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
+                 data-ad-width="320"
+                 data-ad-height="50"
+                 data-ad-size="320x50">
             </div>
 
             <!-- Static Overview Card for SEO -->
@@ -216,15 +229,15 @@
                      data-full-width-responsive="true"></ins>
             </div>
 
-            <!-- Adsterra: Above Footer  Desktop 728x90 -->
+            <!-- Adsterra: Above Footer � Desktop 728x90 -->
             <div class="adsterra-slot adsterra-slot--desktop-only adsterra-slot--above-footer"
                  id="adGuidesFooterDesktop"
-                 data-ad-key="3f0e9d18402f36cd0e01379deb26a60b"
-                 data-ad-width="468"
-                 data-ad-height="60"
-                 data-ad-size="468x60">
+                 data-ad-key="f2cdf68d7bb7ff0b278a15bb52267e99"
+                 data-ad-width="728"
+                 data-ad-height="90"
+                 data-ad-size="728x90">
             </div>
-            <!-- Adsterra: Above Footer  Mobile 320x50 -->
+            <!-- Adsterra: Above Footer � Mobile 320x50 -->
             <div class="adsterra-slot adsterra-slot--mobile-only adsterra-slot--above-footer"
                  id="adGuidesFooterMobile"
                  data-ad-key="acb6e46debc0d09c1a5f2c28e89a607b"
@@ -296,11 +309,6 @@
                 snippetExam: "How to leverage past year examination paper repositories, organize syllabus revision, and comply with UTeM exam hall regulations.",
                 readExam: "🕒 7 Min Read",
                 linkExam: "Read Guide ➔",
-                tagStudy: "Campus Life & Academics",
-                titleStudy: "Top 10 Best Study Places at UTeM",
-                snippetStudy: "Discover the best hidden gems and quiet spots for studying, completing assignments, and holding group discussions across UTeM campuses.",
-                readStudy: "🕒 12 Min Read",
-                linkStudy: "Read Guide ➔",
                 aboutCardTitle: "About UTeM Confessions Pro Max Student Resources",
                 aboutCardDesc: "Universiti Teknikal Malaysia Melaka (UTeM) is Malaysia's premier public technical university, comprising faculties across engineering, information technology, technology management, and computer science. Our student resource guides are continuously updated by fellow UTeM undergraduates to provide accurate, reliable, and practical advice for navigating campus life.",
                 footerText: "Unofficial Student Resource & Confessions Platform.",
@@ -342,11 +350,6 @@
                 snippetExam: "Cara memanfaatkan repositori soalan peperiksaan tahun lepas, menyusun ulangkaji subjek, dan mematuhi peraturan dewan peperiksaan UTeM.",
                 readExam: "🕒 Bacaan 7 Minit",
                 linkExam: "Baca Panduan ?",
-                tagStudy: "Kehidupan Kampus & Akademik",
-                titleStudy: "10 Tempat Belajar Terbaik di UTeM",
-                snippetStudy: "Ketahui permata tersembunyi dan kawasan tenang terbaik untuk belajar, menyiapkan tugasan, dan mengadakan perbincangan kumpulan di seluruh kampus UTeM.",
-                readStudy: "🕒 Bacaan 12 Minit",
-                linkStudy: "Baca Panduan ?",
                 aboutCardTitle: "Mengenai Sumber Pelajar UTeM Confessions Pro Max",
                 aboutCardDesc: "Universiti Teknikal Malaysia Melaka (UTeM) ialah universiti awam teknikal terkemuka di Malaysia yang merangkumi fakulti kejuruteraan, teknologi maklumat, pengurusan teknologi, dan sains komputer. Panduan sumber pelajar kami dikemas kini secara berkala oleh rakan mahasiswa UTeM untuk memberikan nasihat yang tepat, dipercayai, dan praktikal.",
                 footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi.",

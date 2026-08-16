@@ -266,7 +266,7 @@ function updateM10ANextDeparture() {
     const m10aLiveBadge = document.getElementById("m10aLiveBadge");
     const now = new Date();
     const dayOfWeek = now.getDay();
-    const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6;
     const currentFormattedTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
 
     const isMs = typeof currentLang !== 'undefined' && currentLang === 'ms';
@@ -274,14 +274,14 @@ function updateM10ANextDeparture() {
     if (m10aLiveBadge) {
         if (isWeekend) {
             m10aLiveBadge.style.background = "#e74e9f";
-            m10aLiveBadge.textContent = isMs ? "🟢 Servis Hujung Minggu (Zoo Melaka ⇄ UTeM)" : "🟢 Weekend Service Active (Zoo Melaka ⇄ UTeM)";
+            m10aLiveBadge.textContent = isMs ? "🟢 Servis Jumaat-Ahad (Zoo Melaka ⇄ UTeM)" : "🟢 Friday-Sunday Service Active (Zoo Melaka ⇄ UTeM)";
         } else {
             m10aLiveBadge.style.background = "#3b82f6";
-            m10aLiveBadge.textContent = isMs ? "🟡 Laluan Hari Bekerja (Melaka Sentral ⇄ MITC)" : "🟡 Weekday Route Active (Melaka Sentral ⇄ MITC)";
+            m10aLiveBadge.textContent = isMs ? "🟡 Laluan Isnin-Khamis (Melaka Sentral ⇄ MITC)" : "🟡 Mon-Thu Route Active (Melaka Sentral ⇄ MITC)";
         }
     }
 
-    const m10aUTeMTimes = ["07:15","08:30","09:45","11:00","12:15","13:30","14:45","16:00","17:15","18:30","19:45","21:00"];
+    const m10aUTeMTimes = ["07:30","09:30","11:30","13:30","15:30","17:30","19:30"];
     const m10aNextBusTimeVal = document.getElementById("m10aNextBusTimeVal");
     const m10aNextBusCountdownVal = document.getElementById("m10aNextBusCountdownVal");
     const m10aNextBusStatusTag = document.getElementById("m10aNextBusStatusTag");
@@ -293,10 +293,10 @@ function updateM10ANextDeparture() {
             m10aNextBusStatusTag.className = "bus-status-tag inactive";
             m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
             m10aNextBusStatusTag.style.color = "#ef4444";
-            m10aNextBusStatusTag.textContent = isMs ? "Hujung Minggu Sahaja" : "Weekend Only Service";
+            m10aNextBusStatusTag.textContent = isMs ? "Jumaat-Ahad Sahaja" : "Friday-Sunday Only";
         }
         m10aNextBusTimeVal.textContent = "N/A";
-        m10aNextBusCountdownVal.textContent = isMs ? "Bas tamat di MITC hari bekerja. Tiada bas UTeM." : "Bus terminates at MITC on weekdays. No UTeM service.";
+        m10aNextBusCountdownVal.textContent = isMs ? "Bas tamat di MITC (Isnin-Khamis). Tiada bas UTeM." : "Bus terminates at MITC (Mon-Thu). No UTeM service.";
         return;
     }
 

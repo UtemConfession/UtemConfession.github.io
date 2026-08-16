@@ -18,7 +18,8 @@ const tabToPageMap = {
     "links-tab": "wifi.html",
     "support-tab": "support.html",
     "activities-tab": "activities.html",
-    "marketplace-tab": "marketplace.html"
+    "marketplace-tab": "marketplace.html",
+    "updates-tab": "updates.html"
 };
 
 // Check and handle hash redirect on load and hash change

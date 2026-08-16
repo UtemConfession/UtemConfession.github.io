@@ -27,7 +27,6 @@ const categoryIcons = {
     "Textbooks & Notes": "📚",
     "Tech & Electronics": "💻",
     "Hostel Essentials": "🏠",
-    "Bicycles & Commute": "🚴",
     "Student Grab / Transport": "🚗",
     "Personal Shopper (PS)": "🛍️",
     "Campus Runners": "🏃",
