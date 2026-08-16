@@ -299,11 +299,11 @@ function setupActivitiesModal() {
                 z-index: 2000;
                 align-items: flex-start;
                 justify-content: center;
-                padding: 140px 16px 70px 16px;
+                padding: 16px 16px 80px 16px;
                 box-sizing: border-box;
             }
             .activity-modal-overlay #activityModalContent {
-                max-height: calc(100vh - 210px);
+                max-height: calc(100vh - 96px);
             }
             @media (min-width: 768px) {
                 .activity-modal-overlay {

@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     var VIGNETTE_KEY = 'lastVignetteTime';
-    var VIGNETTE_COOLDOWN = 15 * 60 * 1000; // 15 minutes in milliseconds
+    var VIGNETTE_COOLDOWN = 10 * 60 * 1000; // 10 minutes in milliseconds
 
     var lastTime = localStorage.getItem(VIGNETTE_KEY);
     var now = Date.now();
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Update the timestamp in localStorage
         localStorage.setItem(VIGNETTE_KEY, now.toString());
-        console.log("Monetag Vignette injected. Next injection allowed in 15 minutes.");
+        console.log("Monetag Vignette injected. Next injection allowed in 10 minutes.");
     } else {
         var remainingMinutes = Math.floor((VIGNETTE_COOLDOWN - (now - parseInt(lastTime, 10))) / 60000);
         console.log("Monetag Vignette blocked by frequency cap. Next injection in " + remainingMinutes + " minutes.");
