@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,45 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "UTeM Health Center (Pusat Kesihatan PKU)",
-      "description": "Clinic operating hours, emergency response hotlines, dental e-appointments, and first-aid kits at Universiti Teknikal Malaysia Melaka.",
-      "url": "https://utemconfession.github.io/health.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "MedicalWebPage",
+        "name": "UTeM Health Center (Pusat Kesihatan PKU) Guide",
+        "description": "Clinic operating hours, emergency response hotlines, MC endorsement rules, dental appointments, and counseling services at Universiti Teknikal Malaysia Melaka.",
+        "url": "https://utemconfession.github.io/health.html"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I get private clinic MCs validated by PKU for missed exams?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Medical certificates (MC) issued by external private clinics must be presented in person to PKU within 48 hours of issue for official endorsement by a UTeM Medical Officer before submission to your faculty dean's office."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are medical consultations and dispensary medications free for UTeM students?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, basic primary outpatient consultations, standard dispensary medications, and minor treatments at PKU are covered by student health service fees included in your semester registration."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I request ambulance transport for after-hours on-campus emergencies?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Contact the 24/7 UTeM Security Control Centre (Pejabat Keselamatan) immediately at 06-270 1234 or 06-270 1999 to dispatch the on-duty campus emergency response vehicle or coordinate with 999."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
     <script src="vignette.js"></script>
@@ -314,6 +346,30 @@
 
                     </div>
 
+                    <!-- Medical Leave (MC) & Policies -->
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 20px;">
+                        <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z" />
+                            </svg>
+                            <span id="labelHealthPolicies">Medical Leave (MC) &amp; Policies</span>
+                        </h3>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.5;">
+                            <li>
+                                <strong style="color: var(--text-primary);" id="labelHealthExtMc">External Private-Clinic MCs:</strong>
+                                <span id="descHealthExtMc">Medical certificates (MC) from external private clinics must be endorsed/validated by PKU UTeM before they are accepted by faculties.</span>
+                            </li>
+                            <li style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+                                <strong style="color: var(--text-primary);" id="labelHealthExamAbsence">Examination Absence:</strong>
+                                <span id="descHealthExamAbsence">Absence from final exams due to medical reasons requires a verified MC/Endorsement submitted to your faculty/academic division.</span>
+                            </li>
+                            <li style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+                                <strong style="color: var(--text-primary);" id="labelHealthCoverage">Student Medical Coverage:</strong>
+                                <span id="descHealthCoverage">Active/registered UTeM students are covered for outpatient treatment and basic dental care at PKU under the student health scheme.</span>
+                            </li>
+                        </ul>
+                    </div>
+
                     <!-- Contact Information -->
                     <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
                         <div>
@@ -354,19 +410,76 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
                     </svg>
-                    UTeM Pusat Kesihatan Universiti (PKU) Student Health Guide
+                    UTeM Pusat Kesihatan Universiti (PKU) Student Healthcare Guide
                 </h2>
-                <p style="color: var(--text-secondary); line-height: 1.6; font-size: 13.5px; margin-bottom: 16px;">
-                    <strong>Pusat Kesihatan Universiti (PKU UTeM)</strong> provides primary healthcare, emergency response dispatch, dental treatments, first aid equipment loans, and confidential mental health counseling to undergraduates at Kampus Induk (Durian Tunggal) and Kampus Teknologi (Ayer Keroh). For after-hours emergencies, contact the 24/7 Pejabat Keselamatan UTeM hotline.
+                
+                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;">
+                    <strong>Pusat Kesihatan Universiti (PKU UTeM)</strong> provides primary healthcare, emergency medical response, dispensary pharmacy services, dental treatments, first aid equipment loans, and confidential mental health counseling for all registered diploma, undergraduate, and postgraduate students across <strong>Kampus Induk (Durian Tunggal)</strong> and <strong>Kampus Teknologi (Ayer Keroh)</strong>.
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
-                    <a href="calendar.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📅 Academic Calendar 2026/2027</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Check academic semester weeks and semester break clinic hours at PKU.</span>
+
+                <!-- Section 1: Clinical Services & Operating Schedule -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🏥 Available Medical Services & Clinic Hours</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+                        <li><strong>Outpatient Medical Consultation (Pesakit Luar):</strong> General diagnosis, fever/flu treatments, chronic disease monitoring, and minor surgical procedures (dressing & wound care). Operating Monday–Friday, 8:00 AM – 5:00 PM.</li>
+                        <li><strong>Dispensary Pharmacy:</strong> Dispensing prescribed generic medications and medical supplies covered under student health fees.</li>
+                        <li><strong>Dental Clinic (Klinik Pergigian):</strong> Routine oral check-ups, scaling, fillings, and tooth extractions by appointment via the PKU dental portal.</li>
+                        <li><strong>First-Aid Kits Loan:</strong> Equipment supply for approved student association events and outdoor sports tournaments.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: 24/7 Emergency & Ambulance Dispatch Protocol -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🚨 24/7 Emergency Response & Ambulance Hotline</h3>
+                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+                        For acute medical emergencies, vehicle collisions, or severe injuries occurring outside regular clinic hours:
+                    </p>
+                    <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                        <li>Call the <strong>UTeM Security Control Room (Pejabat Keselamatan)</strong> 24/7 Hotline: <code style="color: var(--accent-gold); font-size: 13px;">06-270 1234</code> or <code style="color: var(--accent-gold); font-size: 13px;">06-270 1999</code>.</li>
+                        <li>State the exact casualty location (e.g. Kolej Kediaman Satria Block B, FTMK Level 2, or Lestari Cafe).</li>
+                        <li>The control room will immediately dispatch the on-duty campus ambulance or coordinate with <strong>Hospital Melaka / Hospital Alor Gajah</strong> for emergency room triage.</li>
+                    </ol>
+                </div>
+
+                <!-- Section 3: Medical Certificate (MC) Endorsement Rules -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">📄 Medical Certificate (MC) Endorsement Rules</h3>
+                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0;">
+                        If you receive a Medical Certificate (MC / Cuti Sakit) from an external private clinic or government hospital, university academic regulations require you to submit the physical slip to PKU for endorsement by a UTeM Medical Officer within <strong>48 hours</strong>. Unverified external MCs may not be accepted by your faculty for missed midterms, quizzes, or final examinations.
+                    </p>
+                </div>
+
+                <!-- Section 4: Frequently Asked Questions -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I get private clinic MCs validated by PKU for missed exams?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Medical certificates (MC) issued by external private clinics must be presented in person to PKU within 48 hours of issue for official endorsement by a UTeM Medical Officer before submission to your faculty dean's office.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Are medical consultations and dispensary medications free for UTeM students?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Yes, basic primary outpatient consultations, standard dispensary medications, and minor treatments at PKU are covered by student health service fees included in your semester registration.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I request ambulance transport for after-hours on-campus emergencies?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Contact the 24/7 UTeM Security Control Centre (Pejabat Keselamatan) immediately at 06-270 1234 or 06-270 1999 to dispatch the on-duty campus emergency response vehicle or coordinate with 999.</span>
+                    </div>
+                </div>
+
+                <!-- Section 5: Related Guides Cross-linking -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                    <a href="guide-freshman-survival.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🎒 Freshman Survival Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Essential emergency hotlines and clinic navigation tips.</span>
+                    </a>
+                    <a href="guide-hostel-kolej-kediaman-merit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🏢 Kolej Kediaman Hostel Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Hostel warden contacts and first-aid points at Satria & Lestari.</span>
                     </a>
                     <a href="bus.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚌 Campus Shuttle Bus Routes</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Navigate shuttle bus routes between Kampus Induk clinic and Ayer Keroh campus.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚌 Campus Shuttle Bus Timetables</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Shuttle bus routes between PKU clinic and faculty complexes.</span>
                     </a>
                 </div>
             </section>

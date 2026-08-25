@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -7,38 +7,86 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-XTRN95HLDP');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Confession Rules & Community Guidelines | UTeM Confessions Pro Max</title>
+    <meta name="description" content="Official community rules, submission guidelines, anti-harassment policies, and moderation standards for UTeM Confessions Pro Max.">
+    <meta name="keywords" content="UTeM confession rules, UTeM guidelines, UTeM confession policy, student moderation UTeM, peraturan pengakuan UTeM">
+    <meta name="author" content="UTeM Confessions Pro Max Moderation Team">
+    <link rel="canonical" href="https://utemconfession.github.io/rules.html">
 
-    <title>Confession Rules | UTeM Confessions</title>
+    <!-- Open Graph SEO -->
+    <meta property="og:title" content="Confession Rules & Community Guidelines | UTeM Confessions Pro Max">
+    <meta property="og:description" content="Learn about our community moderation standards, privacy protections, and submission rules.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://utemconfession.github.io/rules.html">
+    <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
+
     <!-- Custom Style System -->
     <link rel="stylesheet" href="style.css?v=5.0">
     <style>
         .content-card {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 860px;
+            margin: 20px auto 40px auto;
             width: 100%;
         }
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-weight: 600;
+        }
+        .rules-category-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px 20px;
+            margin-bottom: 16px;
+        }
+        .rules-category-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin: 0 0 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .rules-category-desc {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
         }
     </style>
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
-         crossorigin="anonymous"></script>
-    <!-- Monetag Vignette Banner with 15 Min Cooldown -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "UTeM Confession Rules & Community Guidelines",
+      "description": "Comprehensive community guidelines, safety rules, and moderation policies for student confessions at Universiti Teknikal Malaysia Melaka.",
+      "url": "https://utemconfession.github.io/rules.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "UTeM Confessions Pro Max",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://utemconfession.github.io/UCPMLogo.png"
+        }
+      }
+    }
+    </script>
     <script src="vignette.js"></script>
-    <script src="popunder.js"></script>
 </head>
 <body>
 
@@ -48,7 +96,7 @@
             <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="mobile-logo-img">
             <div class="mobile-title-container">
                 <span class="mobile-title">UTeM Confessions</span>
-                <span class="mobile-subtitle">Rules</span>
+                <span class="mobile-subtitle" id="mobileSubtitle">Rules & Guidelines</span>
             </div>
         </div>
         <div class="mobile-lang-wrapper">
@@ -67,7 +115,7 @@
                 <h1 class="brand-title">UTeM Confessions</h1>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
-            <!-- Sidebar Language Toggle -->
+            
             <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
                 <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; transition: all 0.2s;">
                     Bahasa Melayu
@@ -77,7 +125,15 @@
             <ul class="nav-menu">
                 <a href="index.html" class="nav-item">
                     <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                    Back to Home
+                    <span id="navHome">Back to Home</span>
+                </a>
+                <a href="guides.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span id="navGuides">Student Guides</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span id="navAbout">About Us</span>
                 </a>
             </ul>
 
@@ -96,37 +152,76 @@
         <!-- Main Content Area -->
         <main class="main-content">
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
                 <a href="index.html" class="back-link" style="margin-bottom: 0;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                    Back to Dashboard
+                    <span id="backLink">Back to Home</span>
                 </a>
             </div>
 
-            <div class="card content-card">
-                <h2 class="card-title">
+            <article class="card content-card">
+                <h1 class="card-title" style="font-size: 20px; margin-bottom: 12px;" id="mainTitle">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    UTeM Confession Posting Rules
-                </h2>
+                    UTeM Confessions Community Guidelines & Rules
+                </h1>
                 
-                <p style="margin-bottom: 20px; line-height: 1.6; color: var(--text-secondary);">
-                    By submitting a confession or using the UTeM Confession Pro Max channel, you agree to comply with the following community rules. We strive to provide a safe, respectful environment for discussion and anonymous expression.
+                <p id="p_intro" style="margin-bottom: 20px; line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
+                    <strong>UTeM Confessions Pro Max (UCPM)</strong> is dedicated to fostering an open, engaging, and supportive platform for the students and campus community of <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong>. To ensure this space remains safe, respectful, and legally compliant, all users must adhere to the following rules before submitting content.
                 </p>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">Rules Breakdown:</h3>
-                <ul class="guide-list" style="margin-bottom: 24px;">
-                    <li><strong>No Bullying & Harassment:</strong> Strictly no targeted attacks, naming and shaming of individuals, spreading malicious gossip, or threat of violence.</li>
-                    <li><strong>No Doxxing (Private Info):</strong> Do not post student ID card details, phone numbers, email addresses, vehicle plates, or personal photos without explicit written consent.</li>
-                    <li><strong>No Illegal Activities:</strong> Content promoting drug use, exam cheating/plagiarism rings, or illegal gatherings will be blocked and reported.</li>
-                    <li><strong>No Spam or Commercial Ads:</strong> Confessions seeking commercial gain, posting affiliate links, or repetitive postings will be filtered out. Use official channels for business.</li>
-                    <li><strong>Responsible Discussion:</strong> While criticism is allowed, maintain constructive critique regarding academic issues, facilities, or campus administration.</li>
-                </ul>
+                <h2 id="h2_rules_breakdown" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 14px 0;">
+                    1. Core Community Standards
+                </h2>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">Review Process:</h3>
-                <p style="line-height: 1.6; color: var(--text-secondary);">
-                    Submissions are queued in a Google Sheet linked to our reviewer bot. Our moderation team screens entries daily. Submission does not guarantee publishing. Approved confessions are posted directly to the official channel.
+                <div class="rules-category-card">
+                    <div class="rules-category-title" id="rule1_title">🚫 1. Zero Bullying, Defamation & Hate Speech</div>
+                    <p class="rules-category-desc" id="rule1_desc">Targeted harassment, naming-and-shaming, malicious rumours, cyberbullying, or discriminatory remarks based on race, religion, gender, or disability are strictly forbidden. Posts targeting individuals with abusive intent will be rejected immediately.</p>
+                </div>
+
+                <div class="rules-category-card">
+                    <div class="rules-category-title" id="rule2_title">🔒 2. Privacy Protection & No Doxxing</div>
+                    <p class="rules-category-desc" id="rule2_desc">Do not disclose personally identifiable information (PII) including student matric numbers, full IC numbers, private phone numbers, vehicle license plates, personal social media handles, or residential hostel room numbers without written authorization.</p>
+                </div>
+
+                <div class="rules-category-card">
+                    <div class="rules-category-title" id="rule3_title">📸 3. Image & Media Submission Standards</div>
+                    <p class="rules-category-desc" id="rule3_desc">All uploaded images undergo human pre-moderation. Submissions must not contain NSFW/explicit content, unconsented photos of individuals in private spaces, or unblurred screenshots of private messaging apps.</p>
+                </div>
+
+                <div class="rules-category-card">
+                    <div class="rules-category-title" id="rule4_title">⚖️ 4. Academic Integrity & Legal Compliance</div>
+                    <p class="rules-category-desc" id="rule4_desc">Content promoting academic dishonesty (e.g., paid assignment completion, FYP ghostwriting rings, exam leakage), illegal gambling, substance abuse, or unauthorized political rallies is prohibited and violates the Communications and Multimedia Act 1998 (CMA 1998).</p>
+                </div>
+
+                <div class="rules-category-card">
+                    <div class="rules-category-title" id="rule5_title">📢 5. Commercial Spam & Advertising Policy</div>
+                    <p class="rules-category-desc" id="rule5_desc">The confession board is not a classified ads billboard. Affiliate links, pyramid/MLM schemes, repetitive commercial spam, and bot-generated promotions will be blocked. Legitimate student services can be listed under the <a href="marketplace.html" style="color: var(--accent-gold); font-weight: 700;">Marketplace Tab</a>.</p>
+                </div>
+
+                <div class="rules-category-card">
+                    <div class="rules-category-title" id="rule6_title">🤝 6. Constructive Campus Discussion</div>
+                    <p class="rules-category-desc" id="rule6_desc">Constructive feedback regarding campus facilities, library services, Wi-Fi connectivity, or cafeteria food quality is welcomed when framed factually and respectfully. Critique the issue, not the person.</p>
+                </div>
+
+                <h2 id="h2_moderation" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px 0;">
+                    2. Moderation Workflow & Rate Limiting
+                </h2>
+                <p id="p_moderation" style="line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
+                    Submissions are queued securely through encrypted APIs and screened by automated filtering algorithms and volunteer student moderators. A mandatory <strong>30-second submission cooldown</strong> prevents spam flooding. Submission of a confession does not guarantee automated publishing.
                 </p>
-            </div>
+
+                <h2 id="h2_takedown" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px 0;">
+                    3. Notice & Takedown Policy (Content Removal)
+                </h2>
+                <p id="p_takedown" style="line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
+                    If a published confession inadvertently identifies you, infringes on your privacy, or causes personal distress, you can request an expedited takedown. Contact our admin team via our Telegram channel (<a href="https://t.me/utemconf" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700;">@utemconf</a>) or email <code>utemconfessionpromax@duck.com</code> with the post number and removal rationale. Verified requests are processed within 24 hours.
+                </p>
+
+                <div style="background: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); padding: 14px 18px; border-radius: 8px; margin-top: 20px;">
+                    <strong style="color: var(--accent-gold); display: block; margin-bottom: 4px;">💡 Think Before You Post:</strong>
+                    <span style="font-size: 13px; color: var(--text-secondary);">Anonymity provides freedom of expression, but ethical responsibility rests with the author. Uphold the reputation and harmony of our university community.</span>
+                </div>
+            </article>
 
             <!-- Ad Banner Slot -->
             <div class="ad-slot" style="max-width: 728px; width: 100%; margin: 24px auto 0 auto;" id="adHeader">
@@ -138,9 +233,10 @@
                      data-full-width-responsive="true"></ins>
             </div>
 
+            <!-- Universal Footer -->
             <footer>
                 <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Confessions platform.
+                    <strong>UTeM Confessions Pro Max</strong> &copy; <span id="footerText">Unofficial Student Resource & Confessions Platform.</span>
                 </div>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
@@ -154,14 +250,18 @@
         </main>
     </div>
 
-    <!-- Mobile Nav Bar -->
+    <!-- Mobile Navigation Bar -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="mobile-nav-btn">
             <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
             <span>Home</span>
         </a>
-        <a href="rules.html" class="mobile-nav-btn active">
+        <a href="guides.html" class="mobile-nav-btn">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <span>Guides</span>
+        </a>
+        <a href="rules.html" class="mobile-nav-btn active">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
             <span>Rules</span>
         </a>
         <a href="privacy.html" class="mobile-nav-btn">
@@ -170,170 +270,80 @@
         </a>
     </nav>
 
+    <!-- Dual Language Script -->
     <script>
         const translations = {
             en: {
-                back_dashboard: "Back to Dashboard",
-                back_home: "Back to Home",
-                nav_home: "Home",
-                nav_rules: "Rules",
-                nav_privacy: "Privacy",
-                title_rules: "UTeM Confession Posting Rules",
-                intro_text: "By submitting a confession or using the UTeM Confession Pro Max channel, you agree to comply with the following community rules. We strive to provide a safe, respectful environment for discussion and anonymous expression.",
-                breakdown_title: "Rules Breakdown:",
-                rule1_title: "No Bullying & Harassment:",
-                rule1_desc: "Strictly no targeted attacks, naming and shaming of individuals, spreading malicious gossip, or threat of violence.",
-                rule2_title: "No Doxxing (Private Info):",
-                rule2_desc: "Do not post student ID card details, phone numbers, email addresses, vehicle plates, or personal photos without explicit written consent.",
-                rule3_title: "No Illegal Activities:",
-                rule3_desc: "Content promoting drug use, exam cheating/plagiarism rings, or illegal gatherings will be blocked and reported.",
-                rule4_title: "No Spam or Commercial Ads:",
-                rule4_desc: "Confessions seeking commercial gain, posting affiliate links, or repetitive postings will be filtered out. Use official channels for business.",
-                rule5_title: "Responsible Discussion:",
-                rule5_desc: "While criticism is allowed, maintain constructive critique regarding academic issues, facilities, or campus administration.",
-                process_title: "Review Process:",
-                process_desc: "Submissions are queued in a Google Sheet linked to our reviewer bot. Our moderation team screens entries daily. Submission does not guarantee publishing. Approved confessions are posted directly to the official channel.",
-                footer_text: "Unofficial Student Confessions platform.",
-                footer_about: "About Us",
-                footer_rules: "Confession Rules",
-                footer_privacy: "Privacy Policy",
-                footer_terms: "Terms of Service",
-                lang_label: "Language",
-                theme_switcher_label: "Dark Theme"
+                mobileSubtitle: "Rules & Guidelines",
+                navHome: "Back to Home",
+                navGuides: "Student Guides",
+                navAbout: "About Us",
+                backLink: "Back to Home",
+                mainTitle: "UTeM Confessions Community Guidelines & Rules",
+                p_intro: "UTeM Confessions Pro Max (UCPM) is dedicated to fostering an open, engaging, and supportive platform for the students and campus community of Universiti Teknikal Malaysia Melaka (UTeM). To ensure this space remains safe, respectful, and legally compliant, all users must adhere to the following rules before submitting content.",
+                h2_rules_breakdown: "1. Core Community Standards",
+                rule1_title: "🚫 1. Zero Bullying, Defamation & Hate Speech",
+                rule1_desc: "Targeted harassment, naming-and-shaming, malicious rumours, cyberbullying, or discriminatory remarks based on race, religion, gender, or disability are strictly forbidden. Posts targeting individuals with abusive intent will be rejected immediately.",
+                rule2_title: "🔒 2. Privacy Protection & No Doxxing",
+                rule2_desc: "Do not disclose personally identifiable information (PII) including student matric numbers, full IC numbers, private phone numbers, vehicle license plates, personal social media handles, or residential hostel room numbers without written authorization.",
+                rule3_title: "📸 3. Image & Media Submission Standards",
+                rule3_desc: "All uploaded images undergo human pre-moderation. Submissions must not contain NSFW/explicit content, unconsented photos of individuals in private spaces, or unblurred screenshots of private messaging apps.",
+                rule4_title: "⚖️ 4. Academic Integrity & Legal Compliance",
+                rule4_desc: "Content promoting academic dishonesty (e.g., paid assignment completion, FYP ghostwriting rings, exam leakage), illegal gambling, substance abuse, or unauthorized political rallies is prohibited and violates the Communications and Multimedia Act 1998 (CMA 1998).",
+                rule5_title: "📢 5. Commercial Spam & Advertising Policy",
+                rule5_desc: "The confession board is not a classified ads billboard. Affiliate links, pyramid/MLM schemes, repetitive commercial spam, and bot-generated promotions will be blocked. Legitimate student services can be listed under the Marketplace Tab.",
+                rule6_title: "🤝 6. Constructive Campus Discussion",
+                rule6_desc: "Constructive feedback regarding campus facilities, library services, Wi-Fi connectivity, or cafeteria food quality is welcomed when framed factually and respectfully. Critique the issue, not the person.",
+                h2_moderation: "2. Moderation Workflow & Rate Limiting",
+                p_moderation: "Submissions are queued securely through encrypted APIs and screened by automated filtering algorithms and volunteer student moderators. A mandatory 30-second submission cooldown prevents spam flooding. Submission of a confession does not guarantee automated publishing.",
+                h2_takedown: "3. Notice & Takedown Policy (Content Removal)",
+                p_takedown: "If a published confession inadvertently identifies you, infringes on your privacy, or causes personal distress, you can request an expedited takedown. Contact our admin team via our Telegram channel (@utemconf) or email utemconfessionpromax@duck.com with the post number and removal rationale. Verified requests are processed within 24 hours.",
+                footerText: "Unofficial Student Resource & Confessions Platform."
             },
             ms: {
-                back_dashboard: "Kembali ke Laman Utama",
-                back_home: "Kembali ke Laman Utama",
-                nav_home: "Laman Utama",
-                nav_rules: "Peraturan",
-                nav_privacy: "Privasi",
-                title_rules: "Peraturan Pengakuan UTeM",
-                intro_text: "Dengan menghantar pengakuan atau menggunakan saluran UTeM Confession Pro Max, anda bersetuju untuk mematuhi peraturan komuniti berikut. Kami berusaha untuk menyediakan persekitaran yang selamat dan hormat untuk perbincangan serta luahan tanpa nama.",
-                breakdown_title: "Pecahan Peraturan:",
-                rule1_title: "Tiada Pembulian & Gangguan:",
-                rule1_desc: "Dilarang sama sekali melakukan serangan bersasar, menamakan dan memalukan mana-mana individu, menyebarkan gosip jahat, atau ancaman keganasan.",
-                rule2_title: "Tiada Doxxing (Maklumat Peribadi):",
-                rule2_desc: "Jangan hantar butiran kad ID pelajar, nombor telefon, alamat e-mel, plat kenderaan, atau foto peribadi tanpa kebenaran bertulis yang jelas.",
-                rule3_title: "Tiada Aktiviti Haram:",
-                rule3_desc: "Kandungan yang mempromosikan penyalahgunaan dadah, sindiket penipuan/plagiat peperiksaan, atau perhimpunan haram akan disekat dan dilaporkan.",
-                rule4_title: "Tiada Spam atau Iklan Komersial:",
-                rule4_desc: "Pengakuan yang bertujuan mencari keuntungan komersial, menyiarkan pautan sekutu, atau hantaran berulang kali akan ditapis. Sila gunakan saluran rasmi untuk perniagaan.",
-                rule5_title: "Perbincangan Bertanggungjawab:",
-                rule5_desc: "Walaupun kritikan dibenarkan, sila kekalkan kritikan yang membina mengenai isu akademik, kemudahan, atau pentadbiran kampus.",
-                process_title: "Proses Semakan:",
-                process_desc: "Hantaran akan dikumpul di dalam Google Sheet yang dihubungkan ke bot semakan kami. Pasukan moderator menyaring hantaran setiap hari. Hantaran tidak menjamin ia akan diterbitkan. Pengakuan yang diluluskan akan dihantar terus ke saluran rasmi.",
-                footer_text: "Platform Pengakuan Pelajar Tidak Rasmi.",
-                footer_about: "Tentang Kami",
-                footer_rules: "Peraturan Pengakuan",
-                footer_privacy: "Dasar Privasi",
-                footer_terms: "Syarat Perkhidmatan",
-                lang_label: "Bahasa",
-                theme_switcher_label: "Tema Gelap"
+                mobileSubtitle: "Peraturan & Panduan",
+                navHome: "Kembali ke Laman Utama",
+                navGuides: "Panduan Pelajar",
+                navAbout: "Tentang Kami",
+                backLink: "Kembali ke Laman Utama",
+                mainTitle: "Garis Panduan & Peraturan Komuniti UTeM Confessions",
+                p_intro: "UTeM Confessions Pro Max (UCPM) berdedikasi mewujudkan platform yang terbuka, menarik, dan saling menyokong untuk warga mahasiswa Universiti Teknikal Malaysia Melaka (UTeM). Bagi memastikan ruang ini kekal selamat, dihormati, dan mematuhi undang-undang, semua pengguna wajib mematuhi peraturan berikut sebelum menghantar kandungan.",
+                h2_rules_breakdown: "1. Standard Teras Komuniti",
+                rule1_title: "🚫 1. Sifar Buli, Fitnah & Ucapan Kebencian",
+                rule1_desc: "Gangguan bersasar, menamakan dan memalukan mana-mana individu, khabar angin jahat, buli siber, atau kenyataan diskriminasi berasaskan kaum, agama, jantina, atau ketidakupayaan adalah dilarang sama sekali. Hantaran yang berniat jahat akan ditolak serta-merta.",
+                rule2_title: "🔒 2. Perlindungan Privasi & Larangan Doxxing",
+                rule2_desc: "Jangan mendedahkan maklumat pengenalan peribadi (PII) seperti nombor matrik pelajar, nombor kad pengenalan, nombor telefon peribadi, plat kenderaan, akaun media sosial peribadi, atau nombor bilik kolej kediaman tanpa kebenaran bertulis.",
+                rule3_title: "📸 3. Piawaian Hantaran Gambar & Media",
+                rule3_desc: "Semua imej yang dimuat naik tertakluk kepada pra-moderasi manusia. Hantaran tidak boleh mengandungi bahan lucah/NSFW, gambar individu tanpa kebenaran di ruang peribadi, atau tangkapan skrin mesej peribadi yang tidak dikaburkan.",
+                rule4_title: "⚖️ 4. Integriti Akademik & Pematuhan Undang-Undang",
+                rule4_desc: "Kandungan yang mempromosikan ketidakjujuran akademik (upah buat assignment, joki tesis/FYP, kebocoran soalan peperiksaan), perjudian haram, penyalahgunaan bahan terlarang, atau perhimpunan haram adalah dilarang di bawah Akta Komunikasi dan Multimedia 1998 (AKM 1998 Seksyen 233).",
+                rule5_title: "📢 5. Polisi Spam & Iklan Komersial",
+                rule5_desc: "Ruang pengakuan bukan papan iklan komersial. Pautan affiliate, skim piramid/MLM, spam berulang, dan promosi bot akan disekat. Perkhidmatan pelajar yang sah boleh diiklankan di bawah Tab Pasaran & Servis.",
+                rule6_title: "🤝 6. Perbincangan Kampus Yang Membina",
+                rule6_desc: "Maklum balas membina mengenai kemudahan kampus, perpustakaan, kestabilan Wi-Fi, atau kualiti makanan kafeteria amat dialu-alukan secara berfakta dan beradab. Kritik isu berkenaan, bukan menyerang peribadi individu.",
+                h2_moderation: "2. Aliran Kerja Moderasi & Had Masa (Rate Limiting)",
+                p_moderation: "Setiap pengakuan dihantar secara selamat melalui API yang disulitkan dan disaring oleh algoritma penapis serta moderator sukarelawan pelajar. Had masa 30 saat antara hantaran dikuatkuasakan untuk mengelakkan spam. Penghantaran pengakuan tidak menjamin ia akan diterbitkan secara automatik.",
+                h2_takedown: "3. Polisi Notis & Penurunan Kandungan (Takedown)",
+                p_takedown: "Jika mana-mana pengakuan yang diterbitkan menyentuh privasi anda atau menyebabkan ketidakselesaan, anda boleh memohon penurunan kandungan dengan segera. Hubungi pasukan admin melalui saluran Telegram (@utemconf) atau e-mel kepada utemconfessionpromax@duck.com dengan nombor hantaran dan sebab permohonan. Permohonan yang disahkan akan diproses dalam tempoh 24 jam.",
+                footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi."
             }
         };
 
         let currentLang = localStorage.getItem("lang") || "en";
 
-        function updateNodeText(element, text) {
-            if (!element) return;
-            for (let i = 0; i < element.childNodes.length; i++) {
-                let node = element.childNodes[i];
-                if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
-                    node.nodeValue = " " + text;
-                    return;
-                }
-            }
-            element.appendChild(document.createTextNode(text));
-        }
-
         function setLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
 
-            // Header link
-            const backLink = document.querySelector(".back-link");
-            updateNodeText(backLink, t.back_dashboard);
-
-            // Sidebar navigation
-            const backHomeNav = document.querySelector(".nav-menu .nav-item");
-            updateNodeText(backHomeNav, t.back_home);
-
-            // Title and introduction
-            const titleRules = document.querySelector(".content-card .card-title");
-            updateNodeText(titleRules, t.title_rules);
-            
-            const introText = document.querySelector(".content-card p");
-            if (introText) introText.textContent = t.intro_text;
-
-            // Breakdown
-            const breakdownTitle = document.querySelector(".content-card h3");
-            if (breakdownTitle) breakdownTitle.textContent = t.breakdown_title;
-
-            // Guide lists
-            const guides = document.querySelectorAll(".guide-list li");
-            if (guides.length >= 5) {
-                guides[0].querySelector("strong").textContent = t.rule1_title;
-                updateNodeText(guides[0], t.rule1_desc);
-
-                guides[1].querySelector("strong").textContent = t.rule2_title;
-                updateNodeText(guides[1], t.rule2_desc);
-
-                guides[2].querySelector("strong").textContent = t.rule3_title;
-                updateNodeText(guides[2], t.rule3_desc);
-
-                guides[3].querySelector("strong").textContent = t.rule4_title;
-                updateNodeText(guides[3], t.rule4_desc);
-
-                guides[4].querySelector("strong").textContent = t.rule5_title;
-                updateNodeText(guides[4], t.rule5_desc);
-            }
-
-            // Review process
-            const processTitle = document.querySelectorAll(".content-card h3")[1];
-            if (processTitle) processTitle.textContent = t.process_title;
-
-            const processDesc = document.querySelectorAll(".content-card p")[1];
-            if (processDesc) processDesc.textContent = t.process_desc;
-
-            // Footer
-            const footerDiv = document.querySelector("footer div");
-            if (footerDiv) {
-                footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;
-            }
-            const footerLinksMap = {
-                "index.html": t.footer_home || "Home",
-                "guides.html": t.footer_guides || "Student Guides",
-                "about.html": t.footer_about || "About Us",
-                "rules.html": t.footer_rules || "Confession Rules",
-                "privacy.html": t.footer_privacy || "Privacy Policy",
-                "terms.html": t.footer_terms || "Terms of Service"
-            };
-            document.querySelectorAll(".footer-links a").forEach(link => {
-                const href = link.getAttribute("href");
-                if (href && footerLinksMap[href]) {
-                    link.textContent = footerLinksMap[href];
-                }
+            Object.keys(t).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = t[id];
             });
 
-            // Mobile Nav
-            const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
-            if (mobileNavSpans.length >= 3) {
-                mobileNavSpans[0].textContent = t.nav_home;
-                mobileNavSpans[1].textContent = t.nav_rules;
-                mobileNavSpans[2].textContent = t.nav_privacy;
-            }
-
-            // Button togglers
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggleOld");
             if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
-            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "BM" : "EN";
-
-            const langSwitchLabel = document.getElementById("langSwitchLabel");
-            if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
-
-            const themeSwitchLabel = document.getElementById("themeSwitchLabel");
-            if (themeSwitchLabel) themeSwitchLabel.textContent = t.theme_switcher_label;
+            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
         }
 
         function toggleLanguage() {
@@ -342,49 +352,13 @@
             setLanguage(currentLang);
         }
 
-        function initPageTheme() {
-            const savedTheme = localStorage.getItem("theme") || "dark";
-            if (savedTheme === "light") {
-                document.body.classList.add("light-theme");
-                updateIcons("light");
-            } else {
-                document.body.classList.remove("light-theme");
-                updateIcons("dark");
-            }
-        }
-        function togglePageTheme() {
-            if (document.body.classList.contains("light-theme")) {
-                document.body.classList.remove("light-theme");
-                localStorage.setItem("theme", "dark");
-                updateIcons("dark");
-            } else {
-                document.body.classList.add("light-theme");
-                localStorage.setItem("theme", "light");
-                updateIcons("light");
-            }
-        }
-        function updateIcons(theme) {
-            const btns = document.querySelectorAll(".theme-toggle-btn");
-            const lbls = document.querySelectorAll(".theme-switch-label");
-            btns.forEach(btn => {
-                if (theme === "light") {
-                    btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.38 5.38 0 0 1-4.4 2.26 5.4 5.4 0 0 1-5.14-5.14 5.38 5.38 0 0 1 2.26-4.4c-.44-.06-.9-.1-1.36-.1z"/></svg>`;
-                } else {
-                    btn.innerHTML = `<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0-5a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0V3a1 1 0 0 1 1-1zm0 16a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1zM5.64 5.64a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 0 1-1.41 1.41L5.64 7.05a1 1 0 0 1 0-1.41zm11.31 11.31a1 1 0 0 1 1.41 0l1.42 1.42a1 1 0 0 1-1.41 1.41l-1.42-1.42a1 1 0 0 1 0-1.41zM3 11a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2H4a1 1 0 0 1-1-1zm14 0a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2h-2a1 1 0 0 1-1-1zM5.64 18.36a1 1 0 0 1 0-1.41l1.42-1.42a1 1 0 1 1 1.41 1.41l-1.42 1.42a1 1 0 0 1-1.41 0zm11.31-11.31a1 1 0 0 1 0-1.41l1.42-1.42a1 1 0 1 1 1.41 1.41L18.36 7.05a1 1 0 0 1-1.41 0z"/></svg>`;
-                }
-            });
-            lbls.forEach(lbl => {
-                lbl.textContent = theme === "light" ? "Light Theme" : "Dark Theme";
-            });
-        }
-        document.querySelectorAll(".theme-toggle-btn").forEach(btn => btn.addEventListener("click", togglePageTheme));
-        
+        document.body.classList.remove("light-theme");
+        localStorage.setItem("theme", "dark");
+
         document.addEventListener("DOMContentLoaded", () => {
-            initPageTheme();
             setLanguage(currentLang);
-            
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggleOld");
             if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
             if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
         });
@@ -392,5 +366,3 @@
     <script src="ads.js"></script>
 </body>
 </html>
-
-

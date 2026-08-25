@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,47 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "UTeM Academic Calendar (2026/2027)",
-      "description": "Official lecture phases, semester breaks, final exam dates, and public holiday schedule for Universiti Teknikal Malaysia Melaka.",
-      "url": "https://utemconfession.github.io/calendar.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTeM Academic Calendar & Key Dates",
+        "description": "Official lecture phases, semester breaks, final exam dates, and public holiday schedule for Universiti Teknikal Malaysia Melaka.",
+        "url": "https://utemconfession.github.io/calendar.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "When are UTeM official examination results released on SMPWeb?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Official semester examination results are generally released via the UTeM SMPWeb student portal approximately 2 to 3 weeks following the conclusion of final examination week."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the duration of a regular UTeM academic semester?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "A standard UTeM academic semester spans 14 weeks of formal lectures, 1 mid-semester break (1 week), 1 study/revision week (1 week), and 2 to 3 weeks of final examinations."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the difference between Semester Khas (Short Sem) and regular semesters?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Semester Khas is an intensive 7 to 8-week optional summer term primarily intended for students to repeat failed courses or undertake Industrial Training (Latihan Industri)."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
     <script src="vignette.js"></script>
@@ -250,19 +284,78 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
                     </svg>
-                    UTeM Academic Calendar & Session Schedule Guide
+                    UTeM Academic Calendar Guide & Session Structure
                 </h2>
-                <p style="color: var(--text-secondary); line-height: 1.6; font-size: 13.5px; margin-bottom: 16px;">
-                    The <strong>UTeM Academic Calendar</strong> outlines all official lecture periods, mid-semester breaks, revision weeks, final examination windows, and recognized national/state public holidays for Session 2026/2027 across all faculties including FTMK, FKE, FKM, FKP, FPTT, and FTKEE.
+                
+                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;">
+                    The <strong>UTeM Academic Calendar</strong> outlines all official lecture periods, mid-semester breaks, revision weeks, final examination windows, and recognized national/state public holidays for Session 2026/2027 across all faculties including <strong>FTMK, FKE, FKM, FKP, FPTT, and FTKEE</strong>. Mastering semester timelines helps undergraduates stay ahead of course registration deadlines, project submissions, and examination preparation.
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
+
+                <!-- Section 1: Semester Architecture Breakdown -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">📅 Standard UTeM Semester Architecture</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 10px;">
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 14px;">
+                            <strong style="color: var(--accent-gold); font-size: 13px; display: block;">14 Lecture Weeks</strong>
+                            <span style="font-size: 12px; color: var(--text-secondary);">Split into Phase 1 (Weeks 1–7) and Phase 2 (Weeks 8–14).</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 14px;">
+                            <strong style="color: #10b981; font-size: 13px; display: block;">1 Mid-Sem Break</strong>
+                            <span style="font-size: 12px; color: var(--text-secondary);">1-week recess between Phase 1 and Phase 2 lectures.</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 14px;">
+                            <strong style="color: #3b82f6; font-size: 13px; display: block;">1 Revision Week</strong>
+                            <span style="font-size: 12px; color: var(--text-secondary);">Minggu Ulangkaji for past paper reviews before finals.</span>
+                        </div>
+                        <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 14px;">
+                            <strong style="color: #f43f5e; font-size: 13px; display: block;">3 Exam Weeks</strong>
+                            <span style="font-size: 12px; color: var(--text-secondary);">Official final written & practical examination sessions.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Section 2: Key Academic Milestones & Policy Timeline -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">⏰ Critical Academic Milestones & Deadlines</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.65; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+                        <li><strong>Weeks 1 – 2 (Course Add/Drop Window):</strong> Students can add, drop, or switch tutorial/lecture groups via SMPWeb without academic penalty.</li>
+                        <li><strong>Weeks 3 – 8 (Course Withdrawal / Tarik Diri):</strong> Dropping a subject after Week 2 incurs a 'TD' status on transcripts and requires Dean approval.</li>
+                        <li><strong>Week 11 – 12 (Exam Barring List & Timetable Release):</strong> Students with attendance below 80% may be barred from sitting final examinations.</li>
+                        <li><strong>Week 18+ (Official Result Release):</strong> Academic results and CGPA updates published on SMPWeb approximately 2–3 weeks post-exams.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Frequently Asked Questions -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">When are UTeM official examination results released on SMPWeb?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Official semester examination results are generally released via the UTeM SMPWeb student portal approximately 2 to 3 weeks following the conclusion of final examination week.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What is the duration of a regular UTeM academic semester?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">A standard UTeM academic semester spans 14 weeks of formal lectures, 1 mid-semester break (1 week), 1 study/revision week (1 week), and 2 to 3 weeks of final examinations.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What is the difference between Semester Khas (Short Sem) and regular semesters?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Semester Khas is an intensive 7 to 8-week optional summer term primarily intended for students to repeat failed courses or undertake Industrial Training (Latihan Industri).</span>
+                    </div>
+                </div>
+
+                <!-- Section 4: Related Guides Cross-linking -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                    <a href="guide-course-registration-add-drop.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📋 Course Registration & Add/Drop</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Step-by-step tutorial on credit registration and deadlines.</span>
+                    </a>
                     <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Preparation</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Access exam revision guides and study strategies ahead of UTeM final examination week.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Papers</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Access exam revision papers from the library repository.</span>
                     </a>
                     <a href="guide-gpa-calculator.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🎓 Semester GPA & CGPA Calculator</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Calculate your projected semester GPA and Dean's List targets based on academic credits.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🎓 Semester GPA & CGPA Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Calculate credit goals and Dean's List targets.</span>
                     </a>
                 </div>
             </section>

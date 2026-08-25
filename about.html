@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -7,38 +7,93 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-XTRN95HLDP');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>About Us | UTeM Confessions Pro Max - Student Digital Hub & Resources</title>
+    <meta name="description" content="Discover the mission, editorial guidelines, and digital tools powering UTeM Confessions Pro Max — the premier independent student resource hub for Universiti Teknikal Malaysia Melaka.">
+    <meta name="keywords" content="About UTeM Confessions, UTeM student platform, Universiti Teknikal Malaysia Melaka student hub, UTeM tools, UCPM mission">
+    <meta name="author" content="UTeM Confessions Pro Max Editorial Team">
+    <link rel="canonical" href="https://utemconfession.github.io/about.html">
 
-    <title>About Us | UTeM Confessions</title>
+    <!-- Open Graph SEO -->
+    <meta property="og:title" content="About Us | UTeM Confessions Pro Max">
+    <meta property="og:description" content="Learn about our mission to empower UTeM undergraduates with academic tools, transit schedules, and student guides.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://utemconfession.github.io/about.html">
+    <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
+
     <!-- Custom Style System -->
     <link rel="stylesheet" href="style.css?v=5.0">
     <style>
         .content-card {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 860px;
+            margin: 20px auto 40px auto;
             width: 100%;
         }
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-weight: 600;
+        }
+        .about-section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+        .about-feature-box {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 16px 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .about-feature-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .about-feature-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.55;
+            margin: 0;
         }
     </style>
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
-         crossorigin="anonymous"></script>
-    <!-- Monetag Vignette Banner with 15 Min Cooldown -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About UTeM Confessions Pro Max",
+      "description": "Information about the independent student-operated digital ecosystem serving Universiti Teknikal Malaysia Melaka (UTeM).",
+      "url": "https://utemconfession.github.io/about.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "UTeM Confessions Pro Max",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://utemconfession.github.io/UCPMLogo.png"
+        }
+      }
+    }
+    </script>
     <script src="vignette.js"></script>
-    <script src="popunder.js"></script>
 </head>
 <body>
 
@@ -48,7 +103,7 @@
             <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="mobile-logo-img">
             <div class="mobile-title-container">
                 <span class="mobile-title">UTeM Confessions</span>
-                <span class="mobile-subtitle">About Us</span>
+                <span class="mobile-subtitle" id="mobileSubtitle">About Us</span>
             </div>
         </div>
         <div class="mobile-lang-wrapper">
@@ -67,7 +122,7 @@
                 <h1 class="brand-title">UTeM Confessions</h1>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
-            <!-- Sidebar Language Toggle -->
+            
             <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
                 <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; transition: all 0.2s;">
                     Bahasa Melayu
@@ -77,7 +132,15 @@
             <ul class="nav-menu">
                 <a href="index.html" class="nav-item">
                     <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                    Back to Home
+                    <span id="navHome">Back to Home</span>
+                </a>
+                <a href="guides.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span id="navGuides">Student Guides</span>
+                </a>
+                <a href="rules.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <span id="navRules">Confession Rules</span>
                 </a>
             </ul>
 
@@ -96,27 +159,73 @@
         <!-- Main Content Area -->
         <main class="main-content">
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
                 <a href="index.html" class="back-link" style="margin-bottom: 0;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                    Back to Dashboard
+                    <span id="backLink">Back to Home</span>
                 </a>
             </div>
 
-            <div class="card content-card">
-                <h2 class="card-title">
+            <article class="card content-card">
+                <h1 class="card-title" style="font-size: 20px; margin-bottom: 12px;" id="mainTitle">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    About UTeM Confessions
-                </h2>
+                    About UTeM Confessions Pro Max
+                </h1>
                 
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    UTeM Confessions is an unofficial student platform created to provide a space for students to share anonymous confessions and gain other helpful infos around the campus.
+                <p id="p_intro" style="margin-bottom: 18px; line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
+                    <strong>UTeM Confessions Pro Max (UCPM)</strong> is an independent, student-operated digital ecosystem built to serve the undergraduate, diploma, and postgraduate communities across all campuses of <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong>. What began as a student community forum has evolved into a comprehensive digital utility suite designed to simplify campus life, accelerate academic achievement, and foster positive peer discussions.
                 </p>
 
-                <p style="line-height: 1.6; color: var(--text-secondary);">
-                    This platform is independently managed by student developers and is not an official website of Universiti Teknikal Malaysia Melaka (UTeM).
+                <h2 id="h2_mission" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px 0;">
+                    1. Our Core Mission & Values
+                </h2>
+                <p id="p_mission" style="line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
+                    Navigating university life can be challenging—from calculating complex credit hour weightages and figuring out shuttle bus timetables to preparing for Final Year Projects (FYP) and hunting for off-campus house rentals. Our mission is to bridge these information gaps by providing accurate, practical, and accessible tools created by students, for students.
                 </p>
-            </div>
+
+                <h2 id="h2_tools" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 12px 0;">
+                    2. What We Provide
+                </h2>
+                <div class="about-section-grid">
+                    <div class="about-feature-box">
+                        <div class="about-feature-title" id="feat1_title">🎓 Academic Calculators</div>
+                        <p class="about-feature-desc" id="feat1_desc">Dynamic UTeM GPA & CGPA forecasting tools aligned with the university's 4.00 grading scheme, helping students track Dean's List eligibility and credit requirements.</p>
+                    </div>
+                    <div class="about-feature-box">
+                        <div class="about-feature-title" id="feat2_title">🚌 Campus Transit & Bus Schedules</div>
+                        <p class="about-feature-desc" id="feat2_desc">Real-time route maps and departure timings connecting Kampus Induk (Durian Tunggal), Kampus Teknologi (Ayer Keroh), and student residential colleges.</p>
+                    </div>
+                    <div class="about-feature-box">
+                        <div class="about-feature-title" id="feat3_title">📚 Comprehensive Student Guides</div>
+                        <p class="about-feature-desc" id="feat3_desc">In-depth guides on Industrial Training (LI), FYP survival, PTPTN disbursement & first-class waivers, Kolej Kediaman merit points, and student budgeting.</p>
+                    </div>
+                    <div class="about-feature-box">
+                        <div class="about-feature-title" id="feat4_title">🛡️ Safe & Moderated Confessions</div>
+                        <p class="about-feature-desc" id="feat4_desc">A secure, anonymous peer confession space protected by anti-spam throttles and strict community guidelines to prevent harassment and cyberbullying.</p>
+                    </div>
+                </div>
+
+                <h2 id="h2_editorial" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px 0;">
+                    3. Editorial Standards & Community Moderation
+                </h2>
+                <p id="p_editorial" style="line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
+                    We hold a steadfast commitment to maintaining a positive, helpful, and safe environment. All submissions and articles adhere to our transparent <a href="rules.html" style="color: var(--accent-gold); font-weight: 700;">Confession Rules</a> and <a href="privacy.html" style="color: var(--accent-gold); font-weight: 700;">Privacy Policy</a>. Posts containing hate speech, personal attacks, unverified allegations, or NSFW materials are strictly rejected by our moderation protocols.
+                </p>
+
+                <h2 id="h2_disclaimer" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px 0;">
+                    4. Independence & Institutional Disclaimer
+                </h2>
+                <p id="p_disclaimer" style="line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
+                    <strong>UTeM Confessions Pro Max</strong> is an independent student initiative operated voluntarily by university alumni and current undergraduates. This platform is <strong>not officially affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM)</strong> administration. For official university matters, students are encouraged to consult official university portals including SMPWeb, UTeM Portal, and faculty administrative divisions.
+                </p>
+
+                <h2 id="h2_contact" style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin: 24px 0 10px 0;">
+                    5. Contact & Feedback
+                </h2>
+                <p id="p_contact" style="line-height: 1.65; color: var(--text-secondary); font-size: 14px; margin-bottom: 0;">
+                    We welcome suggestions, content corrections, and inquiries from students, lecturers, and partners. Connect with our team via our official Telegram channel at <a href="https://t.me/utemconf" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700;">@utemconf</a> or email us at <code>utemconfessionpromax@duck.com</code>.
+                </p>
+            </article>
 
             <!-- Ad Banner Slot -->
             <div class="ad-slot" style="max-width: 728px; width: 100%; margin: 24px auto 0 auto;" id="adHeader">
@@ -128,9 +237,10 @@
                      data-full-width-responsive="true"></ins>
             </div>
 
+            <!-- Universal Footer -->
             <footer>
                 <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Confessions platform.
+                    <strong>UTeM Confessions Pro Max</strong> &copy; <span id="footerText">Unofficial Student Resource & Confessions Platform.</span>
                 </div>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
@@ -144,15 +254,19 @@
         </main>
     </div>
 
-    <!-- Mobile Nav Bar -->
+    <!-- Mobile Navigation Bar -->
     <nav class="mobile-bottom-nav">
-        <a href="index.html" class="mobile-nav-btn active">
+        <a href="index.html" class="mobile-nav-btn">
             <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
             <span>Home</span>
         </a>
-        <a href="rules.html" class="mobile-nav-btn">
+        <a href="guides.html" class="mobile-nav-btn">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            <span>Rules</span>
+            <span>Guides</span>
+        </a>
+        <a href="about.html" class="mobile-nav-btn active">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <span>About</span>
         </a>
         <a href="privacy.html" class="mobile-nav-btn">
             <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
@@ -160,106 +274,80 @@
         </a>
     </nav>
 
+    <!-- Dual Language Script -->
     <script>
         const translations = {
             en: {
-                back_dashboard: "Back to Dashboard",
-                back_home: "Back to Home",
-                nav_home: "Home",
-                nav_rules: "Rules",
-                nav_privacy: "Privacy",
-                title_about: "About UTeM Confessions",
-                p1: "UTeM Confessions is an unofficial student platform created to provide a space for students to share anonymous confessions and gain other helpful infos around the campus.",
-                p2: "This platform is independently managed by student developers and is not an official website of Universiti Teknikal Malaysia Melaka (UTeM).",
-                footer_text: "Unofficial Student Confessions platform.",
-                footer_about: "About Us",
-                footer_rules: "Confession Rules",
-                footer_privacy: "Privacy Policy",
-                footer_terms: "Terms of Service",
-                lang_label: "Language"
+                mobileSubtitle: "About Us",
+                navHome: "Back to Home",
+                navGuides: "Student Guides",
+                navRules: "Confession Rules",
+                backLink: "Back to Home",
+                mainTitle: "About UTeM Confessions Pro Max",
+                p_intro: "UTeM Confessions Pro Max (UCPM) is an independent, student-operated digital ecosystem built to serve the undergraduate, diploma, and postgraduate communities across all campuses of Universiti Teknikal Malaysia Melaka (UTeM). What began as a student community forum has evolved into a comprehensive digital utility suite designed to simplify campus life, accelerate academic achievement, and foster positive peer discussions.",
+                h2_mission: "1. Our Core Mission & Values",
+                p_mission: "Navigating university life can be challenging—from calculating complex credit hour weightages and figuring out shuttle bus timetables to preparing for Final Year Projects (FYP) and hunting for off-campus house rentals. Our mission is to bridge these information gaps by providing accurate, practical, and accessible tools created by students, for students.",
+                h2_tools: "2. What We Provide",
+                feat1_title: "🎓 Academic Calculators",
+                feat1_desc: "Dynamic UTeM GPA & CGPA forecasting tools aligned with the university's 4.00 grading scheme, helping students track Dean's List eligibility and credit requirements.",
+                feat2_title: "🚌 Campus Transit & Bus Schedules",
+                feat2_desc: "Real-time route maps and departure timings connecting Kampus Induk (Durian Tunggal), Kampus Teknologi (Ayer Keroh), and student residential colleges.",
+                feat3_title: "📚 Comprehensive Student Guides",
+                feat3_desc: "In-depth guides on Industrial Training (LI), FYP survival, PTPTN disbursement & first-class waivers, Kolej Kediaman merit points, and student budgeting.",
+                feat4_title: "🛡️ Safe & Moderated Confessions",
+                feat4_desc: "A secure, anonymous peer confession space protected by anti-spam throttles and strict community guidelines to prevent harassment and cyberbullying.",
+                h2_editorial: "3. Editorial Standards & Community Moderation",
+                p_editorial: "We hold a steadfast commitment to maintaining a positive, helpful, and safe environment. All submissions and articles adhere to our transparent Confession Rules and Privacy Policy. Posts containing hate speech, personal attacks, unverified allegations, or NSFW materials are strictly rejected by our moderation protocols.",
+                h2_disclaimer: "4. Independence & Institutional Disclaimer",
+                p_disclaimer: "UTeM Confessions Pro Max is an independent student initiative operated voluntarily by university alumni and current undergraduates. This platform is not officially affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM) administration. For official university matters, students are encouraged to consult official university portals including SMPWeb, UTeM Portal, and faculty administrative divisions.",
+                h2_contact: "5. Contact & Feedback",
+                p_contact: "We welcome suggestions, content corrections, and inquiries from students, lecturers, and partners. Connect with our team via our official Telegram channel at @utemconf or email us at utemconfessionpromax@duck.com.",
+                footerText: "Unofficial Student Resource & Confessions Platform."
             },
             ms: {
-                back_dashboard: "Kembali ke Laman Utama",
-                back_home: "Kembali ke Laman Utama",
-                nav_home: "Laman Utama",
-                nav_rules: "Peraturan",
-                nav_privacy: "Dasar Privasi",
-                title_about: "Tentang UTeM Confessions",
-                p1: "UTeM Confessions ialah platform pelajar tidak rasmi yang dicipta untuk menyediakan ruang bagi pelajar berkongsi pengakuan secara rawak dan mendapatkan maklumat berguna berkaitan kampus.",
-                p2: "Platform ini diuruskan secara bebas oleh pembangun pelajar dan bukan laman web rasmi Universiti Teknikal Malaysia Melaka (UTeM).",
-                footer_text: "Platform Pengakuan Pelajar Tidak Rasmi.",
-                footer_about: "Tentang Kami",
-                footer_rules: "Peraturan Pengakuan",
-                footer_privacy: "Dasar Privasi",
-                footer_terms: "Syarat Perkhidmatan",
-                lang_label: "Bahasa"
+                mobileSubtitle: "Tentang Kami",
+                navHome: "Kembali ke Laman Utama",
+                navGuides: "Panduan Pelajar",
+                navRules: "Peraturan Pengakuan",
+                backLink: "Kembali ke Laman Utama",
+                mainTitle: "Mengenai UTeM Confessions Pro Max",
+                p_intro: "UTeM Confessions Pro Max (UCPM) ialah ekosistem digital kendalian pelajar yang dibangunkan untuk menyantuni komuniti mahasiswa prasiswazah, diploma, dan pascasiswazah di seluruh kampus Universiti Teknikal Malaysia Melaka (UTeM). Bermula sebagai forum komuniti pelajar, platform ini telah berkembang menjadi hab utiliti digital komprehensif yang memudahkan kehidupan kampus, memacu kecemerlangan akademik, dan memupuk perbincangan positif sesama rakan.",
+                h2_mission: "1. Misi & Nilai Teras Kami",
+                p_mission: "Menempuh alam universiti sering mencabar—daripada mengira wajaran jam kredit dan memahami jadual bas transit sehinggalah persediaan Projek Sarjana Muda (PSM) serta mencari rumah sewa luar kampus. Misi kami adalah untuk merapatkan jurang maklumat ini dengan membekalkan alatan yang tepat, praktikal, dan mudah diakses yang dibina oleh pelajar untuk pelajar.",
+                h2_tools: "2. Perkhidmatan & Alatan Yang Disediakan",
+                feat1_title: "🎓 Kalkulator Akademik",
+                feat1_desc: "Kalkulator ramalan GPA & CGPA dinamik mengikut skala gred 4.00 rasmi UTeM bagi membantu pelajar menyemak sasaran Anugerah Dekan dan kedudukan akademik.",
+                feat2_title: "🚌 Transit Kampus & Jadual Bas",
+                feat2_desc: "Peta laluan dan jadual perjalanan bas masa nyata yang menghubungkan Kampus Induk (Durian Tunggal), Kampus Teknologi (Ayer Keroh), dan kolej kediaman.",
+                feat3_title: "📚 Hub Panduan Pelajar Lengkap",
+                feat3_desc: "Panduan terperinci mengenai Latihan Industri (LI), persediaan PSM/FYP, jadual bayaran & pengecualian PTPTN, sistem merit kolej kediaman, dan pengurusan bajet.",
+                feat4_title: "🛡️ Pengakuan Selamat & Dimoderasi",
+                feat4_desc: "Ruang pengakuan rakan sebaya tanpa nama yang dilindungi oleh had masa anti-spam dan garis panduan ketat bagi mencegah buli siber dan gangguan.",
+                h2_editorial: "3. Piawaian Editorial & Moderasi Komuniti",
+                p_editorial: "Kami komited mengekalkan persekitaran yang positif, bermanfaat, dan selamat. Semua hantaran dan artikel mematuhi Peraturan Pengakuan dan Dasar Privasi kami. Kandungan berunsur kebencian, serangan peribadi, tuduhan tidak berasas, atau bahan NSFW ditolak sepenuhnya oleh protokol moderasi kami.",
+                h2_disclaimer: "4. Status Bebas & Penafian Institusi",
+                p_disclaimer: "UTeM Confessions Pro Max ialah inisiatif bebas yang diuruskan secara sukarela oleh alumni dan mahasiswa aktif UTeM. Platform ini BUKAN laman web rasmi dan tidak bergabung secara langsung atau ditaja oleh pihak pentadbiran Universiti Teknikal Malaysia Melaka (UTeM). Untuk urusan rasmi universiti, pelajar dinasihatkan merujuk portal rasmi seperti SMPWeb dan pejabat pengurusan akademik fakulti.",
+                h2_contact: "5. Hubungi & Maklum Balas",
+                p_contact: "Kami mengalu-alukan cadangan, pembetulan maklumat, dan pertanyaan daripada mahasiswa mahupun warga kampus. Hubungi pasukan kami melalui saluran Telegram rasmi di @utemconf atau e-mel kepada utemconfessionpromax@duck.com.",
+                footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi."
             }
         };
 
         let currentLang = localStorage.getItem("lang") || "en";
 
-        function updateNodeText(element, text) {
-            if (!element) return;
-            for (let i = 0; i < element.childNodes.length; i++) {
-                let node = element.childNodes[i];
-                if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
-                    node.nodeValue = " " + text;
-                    return;
-                }
-            }
-            element.appendChild(document.createTextNode(text));
-        }
-
         function setLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
 
-            const backLink = document.querySelector(".back-link");
-            updateNodeText(backLink, t.back_dashboard);
-
-            const backHomeNav = document.querySelector(".nav-menu .nav-item");
-            updateNodeText(backHomeNav, t.back_home);
-
-            const titleAbout = document.querySelector(".content-card .card-title");
-            updateNodeText(titleAbout, t.title_about);
-
-            const paragraphs = document.querySelectorAll(".content-card p");
-            if (paragraphs.length >= 1) paragraphs[0].textContent = t.p1;
-            if (paragraphs.length >= 2) paragraphs[1].textContent = t.p2;
-
-            const footerDiv = document.querySelector("footer div");
-            if (footerDiv) {
-                footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;
-            }
-            const footerLinksMap = {
-                "index.html": t.footer_home || "Home",
-                "guides.html": t.footer_guides || "Student Guides",
-                "about.html": t.footer_about || "About Us",
-                "rules.html": t.footer_rules || "Confession Rules",
-                "privacy.html": t.footer_privacy || "Privacy Policy",
-                "terms.html": t.footer_terms || "Terms of Service"
-            };
-            document.querySelectorAll(".footer-links a").forEach(link => {
-                const href = link.getAttribute("href");
-                if (href && footerLinksMap[href]) {
-                    link.textContent = footerLinksMap[href];
-                }
+            Object.keys(t).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = t[id];
             });
 
-            const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
-            if (mobileNavSpans.length >= 3) {
-                mobileNavSpans[0].textContent = t.nav_home;
-                mobileNavSpans[1].textContent = t.nav_rules;
-                mobileNavSpans[2].textContent = t.nav_privacy;
-            }
-
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggleOld");
             if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
-            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "BM" : "EN";
-
-            const langSwitchLabel = document.getElementById("langSwitchLabel");
-            if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
+            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
         }
 
         function toggleLanguage() {
@@ -268,15 +356,13 @@
             setLanguage(currentLang);
         }
 
-        // Lock dark mode permanently
         document.body.classList.remove("light-theme");
         localStorage.setItem("theme", "dark");
 
         document.addEventListener("DOMContentLoaded", () => {
             setLanguage(currentLang);
-
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggleOld");
             if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
             if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
         });
@@ -284,5 +370,3 @@
     <script src="ads.js"></script>
 </body>
 </html>
-
-

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -320,7 +320,7 @@
                             <div id="telegramInAppNotice" class="telegram-browser-alert" style="display: none;">
                                 ⚠️ <strong>Opened inside Telegram / Social App?</strong><br>
                                 Google blocks sign-in inside embedded app browsers.<br>
-                                <strong>Tap the 3 dots (...) at top right &rarr; select "Open in Safari /
+                                <strong>Tap the 3 dots (...) at top right ➔ select "Open in Safari /
                                     Chrome"</strong> to sign in smoothly!
                             </div>
 
@@ -1853,11 +1853,29 @@
                                     Email Circulation Desk ?
                                 </a>
                             </div>
-                        </div>
+                      </div>
 
+                    <!-- Borrowing & E-Resources -->
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 20px;">
+                        <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
+                            </svg>
+                            <span id="labelLibBorrowing">Borrowing &amp; E-Resources</span>
+                        </h3>
+                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.5;">
+                            <li>
+                                <strong style="color: var(--text-primary);" id="labelLibRenewals">Book Renewals:</strong>
+                                <span id="descLibRenewals">Students can renew borrowed books online for a maximum of 2 renewals before they must be returned.</span>
+                            </li>
+                            <li style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+                                <strong style="color: var(--text-primary);" id="labelLibEzproxy">Off-Campus Access (EZproxy):</strong>
+                                <span id="descLibEzproxy">Access premium journals (e.g., IEEE Xplore, ScienceDirect) from home using the UTeM EZproxy portal with your student credentials.</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Contact & Location Info -->
+                    <!-- Contact Information -->
                     <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
                         <div>
                             <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;"

@@ -285,7 +285,7 @@ function renderArchiveConfessions() {
             <button class="read-more-btn" data-index="${index}" style="
                 background: none; border: none; color: #38bdf8; font-size: 0.85rem; font-weight: 600;
                 cursor: pointer; padding: 4px 0; margin-top: 8px; text-align: left; display: inline-flex; align-items: center; gap: 4px;
-            ">Read More &rarr;</button>
+            ">Read More ➔</button>
         ` : "";
 
         let telegramHtml = item.telegramLink ? `

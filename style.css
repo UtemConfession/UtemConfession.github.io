@@ -1240,7 +1240,11 @@ footer {
     .confession-layout {
         margin-top: 0 !important;
         padding-top: 0 !important;
-        gap: 2px !important;
+        gap: 12px !important;
+    }
+
+    .confession-layout .card {
+        margin-bottom: 0 !important;
     }
 
     #adTopBounded {
@@ -1265,7 +1269,7 @@ footer {
     .telegram-widget-card {
         padding: 8px 10px !important;
         margin-top: 0 !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 12px !important;
         border-radius: 12px !important;
         gap: 8px !important;
     }

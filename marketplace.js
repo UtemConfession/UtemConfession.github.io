@@ -234,7 +234,7 @@ function renderMarketplaceListings() {
             
             <div style="font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
                 <span>${categoryIcons[listing.category] || "📦"} ${escapeHTML(listing.category)}</span>
-                &bull;
+                <span>•</span>
                 <span>📍 ${escapeHTML(listing.location)}</span>
             </div>
 
@@ -298,7 +298,7 @@ function renderServicesListings() {
             
             <div style="font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
                 <span>${categoryIcons[listing.category] || "🚘"} ${listing.category}</span>
-                &bull;
+                <span>•</span>
                 <span>📍 ${listing.location}</span>
             </div>
         `;

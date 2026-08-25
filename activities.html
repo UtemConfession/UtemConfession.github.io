@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,47 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "name": "Explore Melaka Student Activity Directory",
-      "description": "Curated directory of 72+ attractions, museums, beaches, and activities in Melaka for UTeM students.",
-      "url": "https://utemconfession.github.io/activities.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Explore Melaka & UTeM Student Activity Directory",
+        "description": "Curated directory of 72+ attractions, museums, beaches, and weekend activities in Melaka for UTeM students.",
+        "url": "https://utemconfession.github.io/activities.html",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How can UTeM students travel to Bandar Hilir or Jonker Walk without a personal car?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Students can take the campus shuttle or BAS.MY M10A pink bus from UTeM / MITC directly to Melaka Sentral, and transfer to Panorama bus 17 to reach the Red Square / Jonker Walk."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which Melaka attractions offer discounted student ticket prices?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zoo Melaka, Menara Taming Sari, Melaka River Cruise, and major museums offer student concession rates upon presenting a valid UTeM student matric card."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What are the best hiking and outdoor recreational trails near UTeM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Bukit Beruang (Bear Hill) in Ayer Keroh features popular hiking trails (Telecom Loop and Hill Trail) located just 15 minutes away from Kampus Teknologi."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Popunder (1-Hour Cap) -->
     <script src="popunder.js"></script>
@@ -256,46 +290,99 @@
 
             <!-- FEATURE-SPECIFIC SEO OVERVIEW & CROSS-LINK SECTION -->
             <section class="card content-card" style="margin-top: 24px; border-color: rgba(212, 175, 55, 0.25);">
-                <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold);">
+                <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold); font-size: 18px; font-weight: 800;">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" />
                     </svg>
-                    Explore Melaka & UTeM Student Activity Directory
+                    Explore Melaka & UTeM Student Activity & Weekend Guide
                 </h2>
-                <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-                    <strong>UTeM Confessions Pro Max</strong> presents a curated directory of <strong>72+ attractions and activities</strong> across Melaka for undergraduates and postgraduates at <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong>. Discover historic landmarks in Bandar Hilir (Porta de Santiago, Stadthuys, St. Paul's Hill), weekend night markets (Jonker Street), nature reserves (Tanjung Tuan, Asahan Waterfalls), wildlife parks (Zoo Melaka, Butterfly Sanctuary), beaches (Klebang, Pantai Puteri, Pengkalan Balak), and indoor entertainment (bowling, cinemas, karaoke, 3D museums). Easily filter by category, indoor/outdoor preferences, and free entry options.
+                
+                <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px;">
+                    Living in the historic state of Melaka offers <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong> undergraduates rich recreational, cultural, and outdoor opportunities. From UNESCO World Heritage historical architecture in Bandar Hilir to lush hiking trails in Ayer Keroh and coastal night markets, this curated directory highlights the top 72+ student activities and weekend getaways.
                 </p>
 
-                <!-- Responsive Cross-Link Cards Grid -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px;">
-                    <a href="bus.html" style="text-decoration: none; color: inherit;">
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z" /></svg>
-                                <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Bus Schedules ➔</h3>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Check UTeM campus shuttle timetables and Melaka public bus routes to easily reach Melaka city centre.</p>
-                        </div>
-                    </a>
+                <!-- Section 1: Top Weekend Itineraries for UTeM Students -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🗺️ Curated Student Weekend Trails</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+                        <li><strong>Bandar Hilir Heritage & Night Market:</strong> Explore the Stadthuys, Porta de Santiago (A Famosa), and St. Paul's Hill by day, followed by Friday–Sunday street food along <em>Jonker Walk</em>.</li>
+                        <li><strong>Ayer Keroh Eco & Adventure Hub:</strong> Hike the Telecom Loop trail at <em>Bukit Beruang</em> (15 mins from campus), visit <em>Taman Botani Melaka</em>, or explore <em>Zoo Melaka & Night Safari</em>.</li>
+                        <li><strong>Coastal Sunset & Food Trail:</strong> Enjoy coconut shakes at <em>Pantai Klebang</em>, explore the Klebang Sand Dunes, or catch the sunset at <em>Pantai Puteri</em>.</li>
+                    </ul>
+                </div>
 
-                    <a href="calendar.html" style="text-decoration: none; color: inherit;">
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" /></svg>
-                                <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Academic Calendar ➔</h3>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Plan weekend outings around semester mid-term breaks, public holidays, and exam revision weeks.</p>
-                        </div>
-                    </a>
+                <!-- Section 2: Budget-Friendly & Free Entry Spots -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🎟️ Top Free-Admission Student Attractions</h3>
+                <div class="table-responsive" style="margin-bottom: 20px;">
+                    <table class="structured-table">
+                        <thead>
+                            <tr>
+                                <th>Attraction</th>
+                                <th>Location</th>
+                                <th>Entry Cost</th>
+                                <th>How to Reach</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>St. Paul's Hill & A Famosa</strong></td>
+                                <td>Bandar Hilir</td>
+                                <td>100% Free</td>
+                                <td>BAS.MY M10A to Melaka Sentral ➔ Panorama Bus 17</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Masjid Selat (Straits Mosque)</strong></td>
+                                <td>Pulau Melaka</td>
+                                <td>Free (modest attire)</td>
+                                <td>Car / Student Grab ride (15 mins from Bandar Hilir)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bukit Beruang Hiking Trails</strong></td>
+                                <td>Ayer Keroh</td>
+                                <td>100% Free</td>
+                                <td>10 mins from Kampus Teknologi / Ayer Keroh</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pantai Klebang & Sand Dunes</strong></td>
+                                <td>Klebang Besar</td>
+                                <td>100% Free</td>
+                                <td>Direct coastal route via Lebuh AMJ / SPA Highway</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-                    <a href="wifi.html" style="text-decoration: none; color: inherit;">
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" /></svg>
-                                <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Wi-Fi & Links ➔</h3>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Access campus Wi-Fi setup guides, eduroam credentials, SoftEther VPN, and official portal links.</p>
-                        </div>
+                <!-- Section 3: Frequently Asked Questions -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How can UTeM students travel to Bandar Hilir or Jonker Walk without a personal car?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Students can take the campus shuttle or BAS.MY M10A pink bus from UTeM / MITC directly to Melaka Sentral, and transfer to Panorama bus 17 to reach the Red Square / Jonker Walk.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Which Melaka attractions offer discounted student ticket prices?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Zoo Melaka, Menara Taming Sari, Melaka River Cruise, and major museums offer student concession rates upon presenting a valid UTeM student matric card.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What are the best hiking and outdoor recreational trails near UTeM?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Bukit Beruang (Bear Hill) in Ayer Keroh features popular hiking trails (Telecom Loop and Hill Trail) located just 15 minutes away from Kampus Teknologi.</span>
+                    </div>
+                </div>
+
+                <!-- Section 4: Related Guides Cross-linking -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                    <a href="bus.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚌 Campus Bus & Transit Schedules</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">How to use BAS.MY M10A to reach Melaka Sentral & attractions.</span>
+                    </a>
+                    <a href="guide-budget-living-food.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🍛 Student Budget Food & Makan Spots</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Affordable food haunts across Durian Tunggal & Melaka town.</span>
+                    </a>
+                    <a href="calendar.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📅 Academic Calendar & Public Holidays</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Plan semester breaks and long weekends in Melaka.</span>
                     </a>
                 </div>
             </section>

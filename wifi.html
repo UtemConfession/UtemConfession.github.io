@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,47 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "UTeM Wi-Fi & Campus Links",
-      "description": "Campus Wi-Fi credentials, VPN setup guides, LibProxy registration, staff directory, and official UTeM student portals.",
-      "url": "https://utemconfession.github.io/wifi.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTeM Wi-Fi & Campus Links Directory",
+        "description": "Campus Wi-Fi credentials, VPN setup guides, LibProxy registration, staff directory, and official UTeM student portals.",
+        "url": "https://utemconfession.github.io/wifi.html",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the difference between Wifi UTeM Net and eduroam?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wifi UTeM Net is a web-based captive portal network requiring semester passwords. In contrast, eduroam is an encrypted WPA2-Enterprise global network that works across all partner universities worldwide using your full student email."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I configure eduroam on Android devices without domain errors?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Select EAP Method: PEAP, Phase 2 Authentication: MSCHAPv2, CA Certificate: Don't Validate (or Use System Certificates), Domain: utem.edu.my, Identity: your full email (e.g. B032XXXXX@student.utem.edu.my), and your SMPWeb password."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Why do I need the UTeM SoftEther VPN when off-campus?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The UTeM SoftEther VPN routes your off-campus connection through the university subnet, granting remote access to campus software license servers (MATLAB, AutoCAD, SolidWorks) and internal administrative portals."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
     <script src="vignette.js"></script>
@@ -563,47 +597,112 @@
                 <!-- --- END UCPM AD SLOT --- -->
 
                 <!-- FEATURE-SPECIFIC SEO OVERVIEW & CROSS-LINK SECTION -->
-                <section class="card content-card" style="margin-top: 24px;">
-                    <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold);">
+                <section class="card content-card" style="margin-top: 24px; border-color: rgba(212, 175, 55, 0.25);">
+                    <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold); font-size: 18px; font-weight: 800;">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                             <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" />
                         </svg>
-                        UTeM Campus Wi-Fi Credentials & Official Portal Directory
+                        UTeM Campus Wireless Networks & Digital Infrastructure Guide
                     </h2>
-                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-                        Universiti Teknikal Malaysia Melaka (UTeM) provides multiple wireless network options for students and staff across all campuses. The primary networks include <strong>Wifi UTeM Net</strong> (shared password), <strong>UTeM-Wifi</strong> (student ID-based PEAP/MSCHAPv2 authentication), and <strong>eduroam</strong> (global academic roaming with <code>@student.utem.edu.my</code> credentials). For off-campus access to library databases and e-journals, students can use <strong>SoftEther VPN</strong> or register a <strong>LibProxy</strong> account. This page also links to the official UTeM Helpdesk (ServiceDesk), Staff Directory, MPP student council channels, MOHE e-Aduan complaints portal, convocation resources, and the student vehicle application form.
+                    
+                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px;">
+                        Universiti Teknikal Malaysia Melaka (UTeM) operates a high-speed campus network managed by the <strong>Pusat Perkhidmatan Pengetahuan & Komunikasi (PPPK)</strong> across Kampus Induk, Kampus Teknologi, and on-campus residential colleges. Connecting to the optimal wireless SSID ensures seamless access to online lecture streams, SMPWeb portals, library e-resources, and engineering cloud software suites.
                     </p>
 
-                    <!-- Responsive Cross-Link Cards Grid -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px;">
-                        <a href="library.html" style="text-decoration: none; color: inherit;">
-                            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" /></svg>
-                                    <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Library (PLH) Guide ➔</h3>
-                                </div>
-                                <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Check operating hours, PS4 room booking, 24-hour study zones, and physical book loan services.</p>
-                            </div>
-                        </a>
+                    <!-- Section 1: Campus Wi-Fi Network Comparison Table -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">📶 Campus Wi-Fi SSIDs & Security Modalities</h3>
+                    <div class="table-responsive" style="margin-bottom: 20px;">
+                        <table class="structured-table">
+                            <thead>
+                                <tr>
+                                    <th>SSID Name</th>
+                                    <th>Security Protocol</th>
+                                    <th>Authentication Credentials</th>
+                                    <th>Best Use Case</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Wifi UTeM Net</strong></td>
+                                    <td>Captive Web Portal</td>
+                                    <td>Semester Shared Password (e.g. <code>W1f1U7eMN3t</code>)</td>
+                                    <td>Quick guest access, mobile phones, basic web browsing</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>UTeM-Wifi</strong></td>
+                                    <td>WPA2-Enterprise (802.1X)</td>
+                                    <td>Matric Number (<code>B032...</code>) + SMPWeb Password</td>
+                                    <td>Laptops, stable high-bandwidth downloads, assignments</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>eduroam</strong></td>
+                                    <td>Global WPA2-Enterprise</td>
+                                    <td>Full Email (<code>B032...@student.utem.edu.my</code>) + Password</td>
+                                    <td>Worldwide academic roaming across all Malaysian & global IPTA</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <a href="gpa.html" style="text-decoration: none; color: inherit;">
-                            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" /></svg>
-                                    <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">GPA Calculator ➔</h3>
-                                </div>
-                                <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Calculate your target GPA / CGPA scale and track requirements for Anugerah Dekan (Dean's List).</p>
-                            </div>
-                        </a>
+                    <!-- Section 2: Remote Access via SoftEther VPN & LibProxy -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🛡️ Remote Off-Campus Access (VPN & LibProxy)</h3>
+                        <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+                            When studying from off-campus rental units or during semester breaks, specific campus systems require secure tunneling:
+                        </p>
+                        <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+                            <li><strong>SoftEther VPN Client:</strong> Establishes an encrypted L2TP/IPsec tunnel to <code>vpn.utem.edu.my</code>, enabling students to access MATLAB, AutoCAD, and SolidWorks concurrent network licenses from home.</li>
+                            <li><strong>LibProxy (EZproxy):</strong> Single Sign-On proxy resolving scholarly database access (IEEE Xplore, ScienceDirect, Scopus) without needing full VPN setup.</li>
+                        </ul>
+                    </div>
 
-                        <a href="bus.html" style="text-decoration: none; color: inherit;">
-                            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM18 11H6V6h12v5z" /></svg>
-                                    <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Bus Schedules ➔</h3>
-                                </div>
-                                <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Campus shuttle timetables, live countdown timers, and Melaka public transit route lookups.</p>
-                            </div>
+                    <!-- Section 3: Android Eduroam Configuration Tips -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">⚙️ How to Configure Eduroam on Android</h3>
+                        <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+                            If your Android device encounters an authentication or domain error when connecting to <strong>eduroam</strong>, apply these settings:
+                        </p>
+                        <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                            <li><strong>EAP Method:</strong> <code>PEAP</code></li>
+                            <li><strong>Phase 2 Authentication:</strong> <code>MSCHAPV2</code></li>
+                            <li><strong>CA Certificate:</strong> <code>Don't Validate</code> or <code>Use System Certificates</code></li>
+                            <li><strong>Domain:</strong> <code>utem.edu.my</code></li>
+                            <li><strong>Identity:</strong> <code>YourMatricNumber@student.utem.edu.my</code></li>
+                            <li><strong>Password:</strong> Your active SMPWeb student portal password</li>
+                        </ol>
+                    </div>
+
+                    <!-- Section 4: Frequently Asked Questions -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What is the difference between Wifi UTeM Net and eduroam?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Wifi UTeM Net is a web-based captive portal network requiring semester passwords. In contrast, eduroam is an encrypted WPA2-Enterprise global network that works across all partner universities worldwide using your full student email.</span>
+                        </div>
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Why do I need the UTeM SoftEther VPN when off-campus?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">The UTeM SoftEther VPN routes your off-campus connection through the university subnet, granting remote access to campus software license servers (MATLAB, AutoCAD, SolidWorks) and internal administrative portals.</span>
+                        </div>
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What should I do if my Wi-Fi login fails or password expires?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Reset your password on the official SMPWeb student portal. All Wi-Fi services (UTeM-Wifi and eduroam) synchronize with your SMPWeb credentials within 15 minutes of an update.</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Related Guides Cross-linking -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                        <a href="guide-it-software-eduroam.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">💻 IT Setup, M365 & MATLAB Guide</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Free student software licenses and installation guides.</span>
+                        </a>
+                        <a href="guide-top-10-study-places.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">☕ Top 10 Campus Study Spots</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Best places with high-speed Wi-Fi and power outlets.</span>
+                        </a>
+                        <a href="library.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📚 Perpustakaan Laman Hikmah (PLH)</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Access e-books, online journals, and study facilities.</span>
                         </a>
                     </div>
                 </section>

@@ -7,37 +7,87 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-XTRN95HLDP');
     </script>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-     <title>Terms of Service | UTeM Confessions</title>
+    <title>Terms of Service & End-User License Agreement | UTeM Confessions Pro Max</title>
+    <meta name="description" content="Official Terms of Service, End-User License Agreement (EULA), and Legal Covenants governing the utilization of UTeM Confessions Pro Max digital services.">
+    <meta name="keywords" content="UTeM Confessions terms of service, EULA, legal disclaimer, student terms Melaka, CMA 1998 compliance">
+    <meta name="author" content="UTeM Confessions Pro Max Legal & Compliance Team">
+    <link rel="canonical" href="https://utemconfession.github.io/terms.html">
+
+    <!-- Open Graph SEO -->
+    <meta property="og:title" content="Terms of Service & End-User License Agreement | UTeM Confessions Pro Max">
+    <meta property="og:description" content="Comprehensive Terms of Service, Legal Covenants, and Liability Limitations governing UTeM Confessions Pro Max.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://utemconfession.github.io/terms.html">
+    <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
+
     <!-- Custom Style System -->
     <link rel="stylesheet" href="style.css?v=5.0">
     <style>
         .content-card {
-            max-width: 800px;
-            margin: 40px auto;
+            max-width: 880px;
+            margin: 20px auto 40px auto;
             width: 100%;
         }
         .back-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             font-weight: 600;
+        }
+        .terms-section-block {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px 22px;
+            margin-bottom: 18px;
+        }
+        .terms-section-header {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin: 0 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .terms-section-body {
+            font-size: 13.5px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin: 0;
+            text-align: justify;
         }
     </style>
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
-         crossorigin="anonymous"></script>
-    <!-- Monetag Vignette Banner with 15 Min Cooldown -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "UTeM Confessions Pro Max Terms of Service and EULA",
+      "description": "Comprehensive End-User License Agreement, Liability Disclaimers, and Terms of Service for UTeM Confessions Pro Max digital ecosystem.",
+      "url": "https://utemconfession.github.io/terms.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "UTeM Confessions Pro Max",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://utemconfession.github.io/UCPMLogo.png"
+        }
+      }
+    }
+    </script>
     <script src="vignette.js"></script>
-    <script src="popunder.js"></script>
 </head>
 <body>
 
@@ -47,7 +97,7 @@
             <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="mobile-logo-img">
             <div class="mobile-title-container">
                 <span class="mobile-title">UTeM Confessions</span>
-                <span class="mobile-subtitle">Terms of Service</span>
+                <span class="mobile-subtitle" id="mobileSubtitle">Terms of Service</span>
             </div>
         </div>
         <div class="mobile-lang-wrapper">
@@ -66,7 +116,7 @@
                 <h1 class="brand-title">UTeM Confessions</h1>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
-            <!-- Sidebar Language Toggle -->
+            
             <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
                 <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; transition: all 0.2s;">
                     Bahasa Melayu
@@ -76,7 +126,23 @@
             <ul class="nav-menu">
                 <a href="index.html" class="nav-item">
                     <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                    Back to Home
+                    <span id="navHome">Back to Home</span>
+                </a>
+                <a href="guides.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span id="navGuides">Student Guides</span>
+                </a>
+                <a href="rules.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                    <span id="navRules">Confession Rules</span>
+                </a>
+                <a href="privacy.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+                    <span id="navPrivacy">Privacy Policy</span>
+                </a>
+                <a href="about.html" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                    <span id="navAbout">About Us</span>
                 </a>
             </ul>
 
@@ -95,63 +161,89 @@
         <!-- Main Content Area -->
         <main class="main-content">
 
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px;">
                 <a href="index.html" class="back-link" style="margin-bottom: 0;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
-                    Back to Dashboard
+                    <span id="backLink">Back to Home</span>
                 </a>
             </div>
 
-            <div class="card content-card">
-                <h2 class="card-title">
+            <article class="card content-card">
+                <h1 class="card-title" style="font-size: 20px; margin-bottom: 12px;" id="mainTitle">
                     <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                    Terms of Service
-                </h2>
+                    Terms of Service & End-User License Agreement (EULA)
+                </h1>
                 
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    Welcome to UTeM Confessions Pro Max. By accessing or using our website, utilities, and submission tools, you agree to be bound by these Terms of Service. Please read them carefully.
+                <p id="p_intro" style="margin-bottom: 22px; line-height: 1.7; color: var(--text-secondary); font-size: 14px;">
+                    This formal End-User License Agreement and Terms of Service constitutes a legally enforceable multilateral contractual covenant established between the executing end-user ("User", "Licensee", or "Client") and <strong>UTeM Confessions Pro Max (UCPM)</strong> regarding the access, execution, manipulation, and interaction with our web application, computational calculators, transit heuristics, and user-generated confession pipelines.
                 </p>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">1. Acceptance of Terms</h3>
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    By visiting, browsing, or submitting content to UTeM Confessions Pro Max, you acknowledge that you have read, understood, and agreed to comply with these Terms of Service, our Privacy Policy, and our Confession Rules. If you do not agree with any part of these terms, you must discontinue using our services.
-                </p>
+                <!-- Section 1 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec1_h">1. Contractual Enforceability, Constructive Assent & Jurisprudential Capacity</div>
+                    <p class="terms-section-body" id="sec1_p">By initiating an HTTP/HTTPS network handshake, resolving domain Name Server (DNS) records pointing to <code>utemconfession.github.io</code>, or rendering DOM elements derived from this codebase, the User demonstrates unequivocal, irrevocable constructive assent to all statutory clauses, covenants, and restrictive disclaimers codified herein. Users deficient in requisite legal age, mental capacity, or statutory jurisdiction pursuant to the Malaysian Contracts Act 1950 (Act 136) and Electronic Commerce Act 2006 (Act 658) are expressly interdicted from invoking these computational assets.</p>
+                </div>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">2. Description of Services</h3>
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    UTeM Confessions Pro Max is a student-focused web platform offering community utility toolsincluding an anonymous confession portal, GPA/CGPA calculator, shuttle bus schedule tracker, exam countdown timer, academic calendar timeline, and Melaka public transport lookup. All tools are provided to assist students with campus information.
-                </p>
+                <!-- Section 2 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec2_h">2. Scope of Digital Services, Non-Authoritative Status & Institutional Decoupling</div>
+                    <p class="terms-section-body" id="sec2_p">UTeM Confessions Pro Max operates as an independent, decentralized, student-operated digital ecosystem providing heuristic academic calculators (e.g., GPA/CGPA forecasting matrices), transit chronometry estimations, and peer-to-peer discourse nodes. The platform maintains complete legal, financial, administrative, and infrastructural decoupling from the governing administration of <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong>. No data artifact, algorithmic forecast, calendar representation, or bus timetable provided herein constitutes an official university instrument or legally binding administrative verification.</p>
+                </div>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">3. User Conduct & Community Guidelines</h3>
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    Users must interact with the platform responsibly. You agree NOT to submit or transmit any content that is defamatory, abusive, harassing, threatening, hateful, sexually explicit, or unlawful. Furthermore, doxxing (publishing private personal data), academic dishonesty (exam leaks or scam promotion), commercial spam, or impersonation of university officials is strictly prohibited. Submissions violating these rules will be rejected during moderation.
-                </p>
+                <!-- Section 3 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec3_h">3. Proscribed Conduct, Telecommunication Sanctions & Malicious Payloads</div>
+                    <p class="terms-section-body" id="sec3_p">Users are strictly interdicted from utilizing application vectors to transmit, propagate, or inject defamatory statements, unproven civil allegations, sexually explicit media, malicious payloads, cross-site scripting (XSS) vectors, automated scraping bots, or doxxing dossiers comprising personally identifiable records. Any transmission calculated to harass, intimidate, or disrupt campus equilibrium constitutes a direct breach of Section 233 of the Communications and Multimedia Act 1998 (Act 588) and triggers immediate, unappealable IP packet blacklisting.</p>
+                </div>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">4. Disclaimer of Warranties & Limitation of Liability</h3>
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    UTeM Confessions Pro Max is an unofficial student platform created independently by student developers. It is <strong>NOT</strong> an official website or department of Universiti Teknikal Malaysia Melaka (UTeM). All utility tools, bus schedules, calendars, and calculators are provided on an "as is" and "as available" basis for general informational reference only. Official university portals remain the sole authoritative source for academic and administrative records. We accept no liability for discrepancies or decisions made based on website content.
-                </p>
+                <!-- Section 4 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec4_h">4. User-Generated Artifacts, Irrevocable Sublicensing & Moral Rights Waiver</div>
+                    <p class="terms-section-body" id="sec4_p">Upon programmatic dispatch of any textual confession, metadata string, or media artifact through our submission pipeline, the submitter hereby transfers an irrevocable, worldwide, perpetual, royalty-free, transferable, and sublicensable non-exclusive license empowering UCPM to store, parse, redact, reformat, index, broadcast, and syndicate the artifact across distributed content delivery networks, social aggregators, and search engine indices without financial remuneration or attribution obligations.</p>
+                </div>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">5. Intellectual Property & User Content License</h3>
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    The design, code, graphics, and layout of UTeM Confessions Pro Max are protected by intellectual property laws. By submitting an anonymous confession, you grant UTeM Confessions Pro Max a non-exclusive, royalty-free, perpetual license to review, edit, publish, or remove the text across our platform and social media channels.
-                </p>
+                <!-- Section 5 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec5_h">5. Algorithmic Moderation, Autonomous Rate Limiting & Unilateral Content Purging</div>
+                    <p class="terms-section-body" id="sec5_p">All ingested submissions are filtered through heuristic regex string evaluators, automated anti-spam throttling routines (enforcing a non-negotiable 30000-millisecond latency queue between requests), and volunteer peer review mechanisms. UCPM exercises sovereign, absolute, and unreviewable discretion to reject, truncate, quarantine, or permanently erase any incoming payload without assigning formal rationale, issuing prior notice, or incurring transitive liability to the initiating client.</p>
+                </div>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">6. Third-Party Links & Advertisements</h3>
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    Our website displays advertisements from third-party ad networks (such as Google AdSense and Monetag) and may contain links to third-party sites (e.g., bus operator portals, library sites). We do not control or endorse third-party content, advertisements, or privacy practices. Interacting with third-party sites or advertisements is solely at your own risk.
-                </p>
+                <!-- Section 6 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec6_h">6. Absolute Disclaimer of Warranties, As-Is Topology & Computational Idiosyncrasies</div>
+                    <p class="terms-section-body" id="sec6_p">The entire computational suite, algorithms, bus transit data, examination repositories, and guides are rendered strictly on an <strong>"AS-IS"</strong>, <strong>"AS-AVAILABLE"</strong>, and <strong>"WITH ALL FAULTS"</strong> basis. UCPM explicitly disclaims all express, statutory, or implied warranties—including but not limited to warranties of merchantability, fitness for particular academic prerequisites, uninterrupted uptime, cryptographic infallibility, or mathematical precision. Grade calculations and bus transit timings are approximate references only.</p>
+                </div>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">7. Modifications to Terms & Service Availability</h3>
-                <p style="margin-bottom: 16px; line-height: 1.6; color: var(--text-secondary);">
-                    We reserve the right to modify these Terms of Service or discontinue any feature at any time without prior notice. Continued use of the platform following updates constitutes acceptance of the revised terms.
-                </p>
+                <!-- Section 7 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec7_h">7. Exhaustive Limitation of Transitive Liability & Indemnification Covenant</div>
+                    <p class="terms-section-body" id="sec7_p">Under no jurisprudential doctrine, tort, strict liability, or contract theory shall UCPM, its student developers, volunteer moderators, or affiliates be liable for direct, indirect, incidental, punitive, special, or consequential damages (including academic probation, missed transport connections, disciplinary sanctions, or hardware failure). The aggregate financial liability of UCPM for any claim arising out of these services is capped at <strong>MYR 0.00</strong>. The User agrees to indemnify and hold harmless UCPM against all third-party legal claims.</p>
+                </div>
 
-                <h3 style="margin-bottom: 12px; color: var(--accent-gold);">8. Governing Law & Contact</h3>
-                <p style="line-height: 1.6; color: var(--text-secondary);">
-                    These terms are governed by the applicable laws of Malaysia. For inquiries, feedback, or content takedown requests, please reach out via our official community administration channels.
-                </p>
-            </div>
+                <!-- Section 8 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec8_h">8. Exogenous Syndication, Third-Party Advertising Adjacencies & External Disclaimers</div>
+                    <p class="terms-section-body" id="sec8_p">The platform accommodates programmatic advertising syndicates (including Google AdSense and Monetag) which independently serve contextual and behavioral promotional assets via client-side DOM injections. UCPM disclaims all agency, endorsement, or liability concerning the veracity, safety, or legality of third-party advertisements. Navigation across external hyperlinks terminating beyond the root domain occurs at the user's sole risk and discretion.</p>
+                </div>
+
+                <!-- Section 9 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec9_h">9. Intellectual Property Enclosure, Codebase Reservation & Reverse-Engineering</div>
+                    <p class="terms-section-body" id="sec9_p">All visual styling tokens, CSS stylesheets, UI components, vector assets, logos, brand typography, and proprietary JavaScript algorithms constitute protected intellectual property. Users are strictly prohibited from decompiling, reverse-engineering, modifying, republishing, or creating unauthorized mirrors of this digital corpus without prior written licensing authorization from the platform administrators.</p>
+                </div>
+
+                <!-- Section 10 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec10_h">10. Severability Clause, Temporal Precedence & Constructive Assent to Revisions</div>
+                    <p class="terms-section-body" id="sec10_p">Should any discrete provision of this agreement be deemed unenforceable, void, or unlawful by a competent court of law, such clause shall be severed without invalidating the residual covenants, which shall remain in full force and effect. UCPM reserves the unilateral right to amend these terms at any time; subsequent interaction with the platform constitutes non-revocable constructive assent to the revised terms.</p>
+                </div>
+
+                <!-- Section 11 -->
+                <div class="terms-section-block">
+                    <div class="terms-section-header" id="sec11_h">11. Governing Jurisprudence, Forum Non Conveniens & Dispute Resolution</div>
+                    <p class="terms-section-body" id="sec11_p">These Terms of Service are construed, interpreted, and enforced exclusively under the laws of Malaysia. Any contentious legal proceedings, controversies, or claims arising from the operation of this application shall be submitted to the exclusive territorial jurisdiction of the courts of Melaka, Malaysia, with both parties explicitly waiving objections rooted in forum non conveniens.</p>
+                </div>
+            </article>
 
             <!-- Ad Banner Slot -->
             <div class="ad-slot" style="max-width: 728px; width: 100%; margin: 24px auto 0 auto;" id="adHeader">
@@ -163,9 +255,10 @@
                      data-full-width-responsive="true"></ins>
             </div>
 
+            <!-- Universal Footer -->
             <footer>
                 <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Confessions platform.
+                    <strong>UTeM Confessions Pro Max</strong> &copy; <span id="footerText">Unofficial Student Resource & Confessions Platform.</span>
                 </div>
                 <div class="footer-links">
                     <a href="index.html">Home</a>
@@ -179,185 +272,114 @@
         </main>
     </div>
 
-    <!-- Mobile Nav Bar -->
+    <!-- Mobile Navigation Bar -->
     <nav class="mobile-bottom-nav">
         <a href="index.html" class="mobile-nav-btn">
             <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
             <span>Home</span>
         </a>
         <a href="rules.html" class="mobile-nav-btn">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
             <span>Rules</span>
         </a>
         <a href="privacy.html" class="mobile-nav-btn">
             <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
             <span>Privacy</span>
         </a>
+        <a href="terms.html" class="mobile-nav-btn active">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+            <span>Terms</span>
+        </a>
     </nav>
 
+    <!-- Dual Language Script -->
     <script>
         const translations = {
             en: {
-                back_dashboard: "Back to Dashboard",
-                back_home: "Back to Home",
-                nav_home: "Home",
-                nav_rules: "Rules",
-                nav_privacy: "Privacy",
-                title_terms: "Terms of Service",
-                intro: "Welcome to UTeM Confessions Pro Max. By accessing or using our website, utilities, and submission tools, you agree to be bound by these Terms of Service. Please read them carefully.",
-                h1: "1. Acceptance of Terms",
-                p1: "By visiting, browsing, or submitting content to UTeM Confessions Pro Max, you acknowledge that you have read, understood, and agreed to comply with these Terms of Service, our Privacy Policy, and our Confession Rules. If you do not agree with any part of these terms, you must discontinue using our services.",
-                h2: "2. Description of Services",
-                p2: "UTeM Confessions Pro Max is a student-focused web platform offering community utility toolsincluding an anonymous confession portal, GPA/CGPA calculator, shuttle bus schedule tracker, exam countdown timer, academic calendar timeline, and Melaka public transport lookup. All tools are provided to assist students with campus information.",
-                h3: "3. User Conduct & Community Guidelines",
-                p3: "Users must interact with the platform responsibly. You agree NOT to submit or transmit any content that is defamatory, abusive, harassing, threatening, hateful, sexually explicit, or unlawful. Furthermore, doxxing (publishing private personal data), academic dishonesty (exam leaks or scam promotion), commercial spam, or impersonation of university officials is strictly prohibited. Submissions violating these rules will be rejected during moderation.",
-                h4: "4. Disclaimer of Warranties & Limitation of Liability",
-                p4: "UTeM Confessions Pro Max is an unofficial student platform created independently by student developers. It is NOT an official website or department of Universiti Teknikal Malaysia Melaka (UTeM). All utility tools, bus schedules, calendars, and calculators are provided on an 'as is' and 'as available' basis for general informational reference only. Official university portals remain the sole authoritative source for academic and administrative records.",
-                h5: "5. Intellectual Property & User Content License",
-                p5: "The design, code, graphics, and layout of UTeM Confessions Pro Max are protected by intellectual property laws. By submitting an anonymous confession, you grant UTeM Confessions Pro Max a non-exclusive, royalty-free, perpetual license to review, edit, publish, or remove the text across our platform and social media channels.",
-                h6: "6. Third-Party Links & Advertisements",
-                p6: "Our website displays advertisements from third-party ad networks (such as Google AdSense and Monetag) and may contain links to third-party sites (e.g., bus operator portals, library sites). We do not control or endorse third-party content, advertisements, or privacy practices. Interacting with third-party sites or advertisements is solely at your own risk.",
-                h7: "7. Modifications to Terms & Service Availability",
-                p7: "We reserve the right to modify these Terms of Service or discontinue any feature at any time without prior notice. Continued use of the platform following updates constitutes acceptance of the revised terms.",
-                h8: "8. Governing Law & Contact",
-                p8: "These terms are governed by the applicable laws of Malaysia. For inquiries, feedback, or content takedown requests, please reach out via our official community administration channels.",
-                footer_text: "Unofficial Student Confessions platform.",
-                footer_about: "About Us",
-                footer_rules: "Confession Rules",
-                footer_privacy: "Privacy Policy",
-                footer_terms: "Terms of Service",
-                lang_label: "Language",
-                theme_switcher_label: "Dark Theme"
+                mobileSubtitle: "Terms of Service",
+                navHome: "Back to Home",
+                navGuides: "Student Guides",
+                navRules: "Confession Rules",
+                navPrivacy: "Privacy Policy",
+                navAbout: "About Us",
+                backLink: "Back to Home",
+                mainTitle: "Terms of Service & End-User License Agreement (EULA)",
+                p_intro: "This formal End-User License Agreement and Terms of Service constitutes a legally enforceable multilateral contractual covenant established between the executing end-user ('User', 'Licensee', or 'Client') and UTeM Confessions Pro Max (UCPM) regarding the access, execution, manipulation, and interaction with our web application, computational calculators, transit heuristics, and user-generated confession pipelines.",
+                sec1_h: "1. Contractual Enforceability, Constructive Assent & Jurisprudential Capacity",
+                sec1_p: "By initiating an HTTP/HTTPS network handshake, resolving domain Name Server (DNS) records pointing to utemconfession.github.io, or rendering DOM elements derived from this codebase, the User demonstrates unequivocal, irrevocable constructive assent to all statutory clauses, covenants, and restrictive disclaimers codified herein. Users deficient in requisite legal age, mental capacity, or statutory jurisdiction pursuant to the Malaysian Contracts Act 1950 (Act 136) and Electronic Commerce Act 2006 (Act 658) are expressly interdicted from invoking these computational assets.",
+                sec2_h: "2. Scope of Digital Services, Non-Authoritative Status & Institutional Decoupling",
+                sec2_p: "UTeM Confessions Pro Max operates as an independent, decentralized, student-operated digital ecosystem providing heuristic academic calculators (e.g., GPA/CGPA forecasting matrices), transit chronometry estimations, and peer-to-peer discourse nodes. The platform maintains complete legal, financial, administrative, and infrastructural decoupling from the governing administration of Universiti Teknikal Malaysia Melaka (UTeM). No data artifact, algorithmic forecast, calendar representation, or bus timetable provided herein constitutes an official university instrument or legally binding administrative verification.",
+                sec3_h: "3. Proscribed Conduct, Telecommunication Sanctions & Malicious Payloads",
+                sec3_p: "Users are strictly interdicted from utilizing application vectors to transmit, propagate, or inject defamatory statements, unproven civil allegations, sexually explicit media, malicious payloads, cross-site scripting (XSS) vectors, automated scraping bots, or doxxing dossiers comprising personally identifiable records. Any transmission calculated to harass, intimidate, or disrupt campus equilibrium constitutes a direct breach of Section 233 of the Communications and Multimedia Act 1998 (Act 588) and triggers immediate, unappealable IP packet blacklisting.",
+                sec4_h: "4. User-Generated Artifacts, Irrevocable Sublicensing & Moral Rights Waiver",
+                sec4_p: "Upon programmatic dispatch of any textual confession, metadata string, or media artifact through our submission pipeline, the submitter hereby transfers an irrevocable, worldwide, perpetual, royalty-free, transferable, and sublicensable non-exclusive license empowering UCPM to store, parse, redact, reformat, index, broadcast, and syndicate the artifact across distributed content delivery networks, social aggregators, and search engine indices without financial remuneration or attribution obligations.",
+                sec5_h: "5. Algorithmic Moderation, Autonomous Rate Limiting & Unilateral Content Purging",
+                sec5_p: "All ingested submissions are filtered through heuristic regex string evaluators, automated anti-spam throttling routines (enforcing a non-negotiable 30000-millisecond latency queue between requests), and volunteer peer review mechanisms. UCPM exercises sovereign, absolute, and unreviewable discretion to reject, truncate, quarantine, or permanently erase any incoming payload without assigning formal rationale, issuing prior notice, or incurring transitive liability to the initiating client.",
+                sec6_h: "6. Absolute Disclaimer of Warranties, As-Is Topology & Computational Idiosyncrasies",
+                sec6_p: "The entire computational suite, algorithms, bus transit data, examination repositories, and guides are rendered strictly on an 'AS-IS', 'AS-AVAILABLE', and 'WITH ALL FAULTS' basis. UCPM explicitly disclaims all express, statutory, or implied warranties—including but not limited to warranties of merchantability, fitness for particular academic prerequisites, uninterrupted uptime, cryptographic infallibility, or mathematical precision. Grade calculations and bus transit timings are approximate references only.",
+                sec7_h: "7. Exhaustive Limitation of Transitive Liability & Indemnification Covenant",
+                sec7_p: "Under no jurisprudential doctrine, tort, strict liability, or contract theory shall UCPM, its student developers, volunteer moderators, or affiliates be liable for direct, indirect, incidental, punitive, special, or consequential damages (including academic probation, missed transport connections, disciplinary sanctions, or hardware failure). The aggregate financial liability of UCPM for any claim arising out of these services is capped at MYR 0.00. The User agrees to indemnify and hold harmless UCPM against all third-party legal claims.",
+                sec8_h: "8. Exogenous Syndication, Third-Party Advertising Adjacencies & External Disclaimers",
+                sec8_p: "The platform accommodates programmatic advertising syndicates (including Google AdSense and Monetag) which independently serve contextual and behavioral promotional assets via client-side DOM injections. UCPM disclaims all agency, endorsement, or liability concerning the veracity, safety, or legality of third-party advertisements. Navigation across external hyperlinks terminating beyond the root domain occurs at the user's sole risk and discretion.",
+                sec9_h: "9. Intellectual Property Enclosure, Codebase Reservation & Reverse-Engineering",
+                sec9_p: "All visual styling tokens, CSS stylesheets, UI components, vector assets, logos, brand typography, and proprietary JavaScript algorithms constitute protected intellectual property. Users are strictly prohibited from decompiling, reverse-engineering, modifying, republishing, or creating unauthorized mirrors of this digital corpus without prior written licensing authorization from the platform administrators.",
+                sec10_h: "10. Severability Clause, Temporal Precedence & Constructive Assent to Revisions",
+                sec10_p: "Should any discrete provision of this agreement be deemed unenforceable, void, or unlawful by a competent court of law, such clause shall be severed without invalidating the residual covenants, which shall remain in full force and effect. UCPM reserves the unilateral right to amend these terms at any time; subsequent interaction with the platform constitutes non-revocable constructive assent to the revised terms.",
+                sec11_h: "11. Governing Jurisprudence, Forum Non Conveniens & Dispute Resolution",
+                sec11_p: "These Terms of Service are construed, interpreted, and enforced exclusively under the laws of Malaysia. Any contentious legal proceedings, controversies, or claims arising from the operation of this application shall be submitted to the exclusive territorial jurisdiction of the courts of Melaka, Malaysia, with both parties explicitly waiving objections rooted in forum non conveniens.",
+                footerText: "Unofficial Student Resource & Confessions Platform."
             },
             ms: {
-                back_dashboard: "Kembali ke Laman Utama",
-                back_home: "Kembali ke Laman Utama",
-                nav_home: "Laman Utama",
-                nav_rules: "Peraturan",
-                nav_privacy: "Dasar Privasi",
-                title_terms: "Syarat Perkhidmatan",
-                intro: "Selamat datang ke UTeM Confessions Pro Max. Dengan mengakses atau menggunakan laman web, alat kemudahan, dan perkhidmatan kami, anda bersetuju untuk terikat dengan Syarat Perkhidmatan ini. Sila baca dengan teliti.",
-                h1: "1. Penerimaan Syarat",
-                p1: "Dengan melawat, melayari, atau menghantar kandungan ke UTeM Confessions Pro Max, anda mengakui bahawa anda telah membaca, memahami, dan bersetuju untuk mematuhi Syarat Perkhidmatan ini, Dasar Privasi, dan Peraturan Pengakuan kami. Jika anda tidak bersetuju dengan mana-mana bahagian syarat ini, anda mesti menghentikan penggunaan perkhidmatan kami.",
-                h2: "2. Keterangan Perkhidmatan",
-                p2: "UTeM Confessions Pro Max ialah platform web berfokuskan pelajar yang menawarkan alat kemudahan komunititermasuk portal pengakuan rawak, kalkulator GPA/CGPA, penjejak jadual bas, pemasa pembilang masa peperiksaan, kalendar akademik, dan carian bas awam Melaka.",
-                h3: "3. Tata Kelakuan Pengguna & Panduan Komuniti",
-                p3: "Pengguna mesti berinteraksi dengan platform secara bertanggungjawab. Anda bersetuju untuk TIDAK menghantar sebarang kandungan yang berunsur fitnah, kesat, gangguan, ancaman, kebencian, eksplisit secara seksual, atau menyalahi undang-undang. Selain itu, doxxing (menyiarkan data peribadi), ketidakjujuran akademik, spam komersial, atau penyamaran pegawai universiti dilarang sama sekali.",
-                h4: "4. Penafian Waranti & Had Liabiliti",
-                p4: "UTeM Confessions Pro Max ialah platform pelajar tidak rasmi yang dibangunkan secara bebas oleh pembangun pelajar. Ia BUKAN laman web rasmi Universiti Teknikal Malaysia Melaka (UTeM). Semua alat kemudahan disediakan atas dasar 'seperti adanya' untuk rujukan maklumat umum sahaja. Portal rasmi universiti kekal sebagai sumber berkuasa tunggal.",
-                h5: "5. Harta Intelek & Lesen Kandungan Pengguna",
-                p5: "Reka bentuk, kod, grafik, dan susun atur UTeM Confessions Pro Max dilindungi oleh undang-undang harta intelek. Dengan menghantar pengakuan rawak, anda memberikan UTeM Confessions Pro Max lesen bukan eksklusif untuk menyemak, menyunting, menerbitkan, atau memadamkan teks tersebut.",
-                h6: "6. Pautan Pihak Ketiga & Pengiklanan",
-                p6: "Laman web kami memaparkan iklan daripada rangkaian pihak ketiga (seperti Google AdSense dan Monetag) dan mungkin mengandungi pautan ke laman pihak ketiga. Kami tidak mengawal atau mengesahkan kandungan atau amalan privasi pihak ketiga. Berinteraksi dengan laman pihak ketiga adalah atas risiko anda sendiri.",
-                h7: "7. Pengubahsuaian Syarat & Ketersediaan Perkhidmatan",
-                p7: "Kami berhak untuk mengubah suai Syarat Perkhidmatan ini atau menghentikan mana-mana ciri pada bila-bila masa tanpa notis awal. Penggunaan berterusan platform selepas kemas kini menandakan penerimaan syarat yang disemak semula.",
-                h8: "8. Undang-Undang Yang Mengawal & Hubungan",
-                p8: "Syarat-syarat ini dikawal oleh undang-undang Malaysia yang terpakai. Untuk sebarang pertanyaan, maklum balas, atau permintaan penurunan kandungan, sila hubungi kami melalui saluran pentadbiran rasmi komuniti.",
-                footer_text: "Platform Pengakuan Pelajar Tidak Rasmi.",
-                footer_about: "Tentang Kami",
-                footer_rules: "Peraturan Pengakuan",
-                footer_privacy: "Dasar Privasi",
-                footer_terms: "Syarat Perkhidmatan",
-                lang_label: "Bahasa",
-                theme_switcher_label: "Tema Gelap"
+                mobileSubtitle: "Syarat Perkhidmatan",
+                navHome: "Kembali ke Laman Utama",
+                navGuides: "Panduan Pelajar",
+                navRules: "Peraturan Pengakuan",
+                navPrivacy: "Dasar Privasi",
+                navAbout: "Tentang Kami",
+                backLink: "Kembali ke Laman Utama",
+                mainTitle: "Syarat Perkhidmatan & Perjanjian Lesen Pengguna Akhir (EULA)",
+                p_intro: "Perjanjian Lesen Pengguna Akhir dan Syarat Perkhidmatan ini membentuk waad kontrak multilateral yang boleh dikuatkuasakan secara sah di antara pengguna akhir ('Pengguna' atau 'Klien') dan UTeM Confessions Pro Max (UCPM) mengenai akses, manipulasi, dan interaksi dengan aplikasi web, kalkulator pengiraan, dan saluran pengakuan komuniti.",
+                sec1_h: "1. Kebolehkuatkuasaan Kontrak, Persetujuan Konstruktif & Kapasiti Statutori",
+                sec1_p: "Dengan memulakan jabat tangan rangkaian HTTP/HTTPS, menyelesaikan rekod DNS ke utemconfession.github.io, atau memaparkan elemen DOM platform ini, Pengguna menunjukkan persetujuan konstruktif tanpa syarat terhadap semua fasal statutori di sini. Pengguna yang tidak mempunyai kelayakan umur atau kapasiti undang-undang di bawah Akta Kontrak 1950 (Akta 136) dan Akta Perdagangan Elektronik 2006 (Akta 658) dilarang menggunakan aset digital ini.",
+                sec2_h: "2. Skop Perkhidmatan Digital, Status Bukan Berkuasa & Pemisahan Institusi",
+                sec2_p: "UTeM Confessions Pro Max beroperasi sebagai ekosistem digital kendalian pelajar yang menyediakan kalkulator akademik heuristik (ramalan GPA/CGPA), anggaran masa transit, dan nod perbincangan. Platform ini mengekalkan pemisahan undang-undang, kewangan, dan pentadbiran sepenuhnya daripada Universiti Teknikal Malaysia Melaka (UTeM). Tiada artifak data atau ramalan kalendar di sini merupakan instrumen rasmi universiti.",
+                sec3_h: "3. Tingkah Laku Dilarang, Sekatan Telekomunikasi & Muatan Berniat Jahat",
+                sec3_p: "Pengguna dilarang sama sekali menggunakan aplikasi untuk menyebarkan kenyataan fitnah, tuduhan sivil yang tidak terbukti, media lucah, skrip hasad (XSS), bot pengikis automatik, atau menyiarkan maklumat peribadi individu (doxxing). Sebarang pelanggaran mencetuskan liabiliti di bawah Seksyen 233 Akta Komunikasi dan Multimedia 1998 (Akta 588) dan sekatan IP kekal serta-merta.",
+                sec4_h: "4. Artifak Hantaran Pengguna, Pelesenan Semula Tak Boleh Batal & Penepian Hak Moral",
+                sec4_p: "Melalui penghantaran sebarang teks pengakuan atau media, penghantar memindahkan lesen bukan eksklusif yang tidak boleh dibatalkan, di seluruh dunia, bebas royalti, dan boleh dilesenkan semula kepada UCPM untuk menyimpan, menyunting, mengindeks, dan menerbitkan kandungan tersebut merentasi platform tanpa obligasi imbuhan kewangan.",
+                sec5_h: "5. Moderasi Algoritma, Had Masa Automatik & Pemadaman Kandungan Unilateral",
+                sec5_p: "Semua hantaran disaring melalui penilai rentetan regex, had masa 30000-milisaat antara hantaran untuk mencegah spam, dan semakan moderator sukarelawan. UCPM berhak sepenuhnya untuk menolak, memotong, atau memadamkan sebarang hantaran tanpa memberikan alasan rasmi atau menanggung liabiliti.",
+                sec6_h: "6. Penafian Mutlak Waranti, Topologi 'Seperti Adanya' & Ketepatan Anggaran",
+                sec6_p: "Keseluruhan alatan pengiraan, data bas, repositori peperiksaan, dan panduan disediakan atas dasar 'SEPERTI ADANYA' dan 'SEBAGAIMANA TERSEDIA'. UCPM menafikan semua waranti tersurat atau tersirat mengenai ketepatan mutlak, kesesuaian akademik, atau ketiadaan gangguan sistem. Pengiraan gred dan jadual bas hanyalah rujukan anggaran.",
+                sec7_h: "7. Had Liabiliti Transitif & Waad Ganti Rugi (Indemniti)",
+                sec7_p: "Di bawah mana-mana doktrin undang-undang atau tort, UCPM, pembangun pelajar, atau moderator sukarelawan tidak akan bertanggungjawab terhadap sebarang kerugian langsung, sampingan, atau punitif (termasuk status percubaan akademik atau kelewatan bas). Had liabiliti kewangan agregat UCPM adalah dihadkan kepada MYR 0.00. Pengguna bersetuju untuk menanggung ganti rugi terhadap UCPM bagi sebarang tuntutan pihak ketiga.",
+                sec8_h: "8. Pengiklanan Pihak Ketiga & Pautan Luaran",
+                sec8_p: "Platform memaparkan iklan rangkaian pihak ketiga (termasuk Google AdSense dan Monetag). UCPM menafikan semua liabiliti berkenaan kesahihan atau keselamatan iklan pihak ketiga. Sebarang pelayaran melalui pautan luar berlaku atas risiko dan budi bicara pengguna sendiri.",
+                sec9_h: "9. Harta Intelek & Larangan Kejuruteraan Balik",
+                sec9_p: "Semua gaya visual CSS, kod aplikasi, reka bentuk UI, logo, dan algoritma JavaScript merupakan harta intelek yang dilindungi. Pengguna dilarang menyusun semula, mengubah suai, atau membuat salinan cermin kod ini tanpa kebenaran bertulis pentadbir platform.",
+                sec10_h: "10. Fasal Kebolehasingan & Persetujuan Konstruktif",
+                sec10_p: "Sekiranya mana-mana peruntukan syarat ini didapati tidak sah oleh mahkamah, fasal tersebut akan diasingkan tanpa menjejaskan keabsahan fasal-fasal lain. UCPM berhak meminda syarat ini pada bila-bila masa dan penggunaan berterusan menandakan penerimaan syarat baharu tersebut.",
+                sec11_h: "11. Undang-Undang Yang Mengawal & Bidang Kuasa Eksklusif",
+                sec11_p: "Syarat Perkhidmatan ini ditafsirkan dan dikuatkuasakan secara eksklusif di bawah undang-undang Malaysia. Sebarang pertikaian undang-undang hendaklah dikemukakan kepada bidang kuasa eksklusif mahkamah di Melaka, Malaysia.",
+                footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi."
             }
         };
 
         let currentLang = localStorage.getItem("lang") || "en";
 
-        function updateNodeText(element, text) {
-            if (!element) return;
-            for (let i = 0; i < element.childNodes.length; i++) {
-                let node = element.childNodes[i];
-                if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
-                    node.nodeValue = " " + text;
-                    return;
-                }
-            }
-            element.appendChild(document.createTextNode(text));
-        }
-
         function setLanguage(lang) {
             const t = translations[lang];
             if (!t) return;
 
-            // Header link
-            const backLink = document.querySelector(".back-link");
-            updateNodeText(backLink, t.back_dashboard);
-
-            // Sidebar navigation
-            const backHomeNav = document.querySelector(".nav-menu .nav-item");
-            updateNodeText(backHomeNav, t.back_home);
-
-            // Card title and intro
-            const titleTerms = document.querySelector(".content-card .card-title");
-            updateNodeText(titleTerms, t.title_terms);
-            
-            const introParagraph = document.querySelector(".content-card p");
-            if (introParagraph) introParagraph.textContent = t.intro;
-
-            // Headers
-            const headers = document.querySelectorAll(".content-card h3");
-            if (headers.length >= 8) {
-                headers[0].textContent = t.h1;
-                headers[1].textContent = t.h2;
-                headers[2].textContent = t.h3;
-                headers[3].textContent = t.h4;
-                headers[4].textContent = t.h5;
-                headers[5].textContent = t.h6;
-                headers[6].textContent = t.h7;
-                headers[7].textContent = t.h8;
-            }
-
-            // Paragraph descriptions
-            const paragraphs = document.querySelectorAll(".content-card p");
-            if (paragraphs.length >= 9) {
-                paragraphs[1].textContent = t.p1;
-                paragraphs[2].textContent = t.p2;
-                paragraphs[3].textContent = t.p3;
-                paragraphs[4].textContent = t.p4;
-                paragraphs[5].textContent = t.p5;
-                paragraphs[6].textContent = t.p6;
-                paragraphs[7].textContent = t.p7;
-                paragraphs[8].textContent = t.p8;
-            }
-
-            // Footer
-            const footerDiv = document.querySelector("footer div");
-            if (footerDiv) {
-                footerDiv.innerHTML = `<strong>UTeM Confessions Pro Max</strong> &copy; ${t.footer_text}`;
-            }
-            const footerLinksMap = {
-                "index.html": t.footer_home || "Home",
-                "guides.html": t.footer_guides || "Student Guides",
-                "about.html": t.footer_about || "About Us",
-                "rules.html": t.footer_rules || "Confession Rules",
-                "privacy.html": t.footer_privacy || "Privacy Policy",
-                "terms.html": t.footer_terms || "Terms of Service"
-            };
-            document.querySelectorAll(".footer-links a").forEach(link => {
-                const href = link.getAttribute("href");
-                if (href && footerLinksMap[href]) {
-                    link.textContent = footerLinksMap[href];
-                }
+            Object.keys(t).forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = t[id];
             });
 
-            // Mobile Nav
-            const mobileNavSpans = document.querySelectorAll(".mobile-bottom-nav .mobile-nav-btn span");
-            if (mobileNavSpans.length >= 3) {
-                mobileNavSpans[0].textContent = t.nav_home;
-                mobileNavSpans[1].textContent = t.nav_rules;
-                mobileNavSpans[2].textContent = t.nav_privacy;
-            }
-
-            // Button togglers
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggleOld");
             if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
-            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "BM" : "EN";
-
-            const langSwitchLabel = document.getElementById("langSwitchLabel");
-            if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
+            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
         }
 
         function toggleLanguage() {
@@ -366,21 +388,13 @@
             setLanguage(currentLang);
         }
 
-        function initPageTheme() {
-            const savedTheme = localStorage.getItem("theme") || "dark";
-            if (savedTheme === "light") {
-                document.body.classList.add("light-theme");
-            } else {
-                document.body.classList.remove("light-theme");
-            }
-        }
-        
+        document.body.classList.remove("light-theme");
+        localStorage.setItem("theme", "dark");
+
         document.addEventListener("DOMContentLoaded", () => {
-            initPageTheme();
             setLanguage(currentLang);
-            
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggle");
+            const mobileToggle = document.getElementById("mobileLangToggleOld");
             if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
             if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
         });
@@ -388,5 +402,3 @@
     <script src="ads.js"></script>
 </body>
 </html>
-
-

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,47 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "UTeM Past Year Exam Papers Repository Search",
-      "description": "Direct search tool and repository access for UTeM undergraduate past examination papers.",
-      "url": "https://utemconfession.github.io/exams.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTeM Past Year Exam Papers Repository Search",
+        "description": "Direct search tool and repository access for UTeM undergraduate past examination papers.",
+        "url": "https://utemconfession.github.io/exams.html",
+        "applicationCategory": "EducationalApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why do some UTeM exam papers require EZproxy login when accessed off-campus?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Perpustakaan Laman Hikmah (PLH) restricts past examination papers to enrolled students and faculty. When off-campus, you must authenticate through the UTeM LibProxy portal using your Student ID and SMPWeb password."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are answer schemes (skema jawapan) included in the library repository?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, official marking schemes and answer keys are not released publicly in the library repository to encourage independent critical thinking and tutorial discussion with course lecturers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How many past semester papers should I practice before finals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Reviewing 3 to 5 recent past semesters is recommended to identify recurring question formats, syllabus weightings, and key engineering calculation paradigms."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
     <script src="vignette.js"></script>
@@ -328,47 +362,113 @@
                 <!-- --- END UCPM AD SLOT --- -->
 
                 <!-- FEATURE-SPECIFIC SEO OVERVIEW & CROSS-LINK SECTION -->
-                <section class="card content-card" style="margin-top: 24px;">
-                    <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold);">
+                <section class="card content-card" style="margin-top: 24px; border-color: rgba(212, 175, 55, 0.25);">
+                    <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold); font-size: 18px; font-weight: 800;">
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                             <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" />
                         </svg>
                         UTeM Past Year Examination Repository & Course Code Directory
                     </h2>
-                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-                        The official Universiti Teknikal Malaysia Melaka (UTeM) examination paper database is maintained by <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Students from FTTK, FKM, FKE, FKEKK, FKP, FPTT, and IPTK can search previous semester final examination questions by subject title or course code prefix (e.g. <code>BITM</code>, <code>BITP</code>, <code>BMMT</code>, <code>BMMC</code>, <code>BEKP</code>). Accessing past papers helps undergraduates practice real exam questions, review marking schemes, and prepare effectively for mid-term and final examinations.
+                    
+                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px;">
+                        The official Universiti Teknikal Malaysia Melaka (UTeM) examination paper database is curated by <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Undergraduates across all engineering, computing, and technology faculties can access previous semester final examination questions to practice problem-solving paradigms, evaluate marking allocations, and calibrate revision ahead of midterm and final exams.
                     </p>
 
-                    <!-- Responsive Cross-Link Cards Grid -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px;">
-                        <a href="library.html" style="text-decoration: none; color: inherit;">
-                            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" /></svg>
-                                    <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Library (PLH) Guide ➔</h3>
-                                </div>
-                                <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Check operating hours, PS4 room booking, 24-hour study zones, and physical book loan services.</p>
-                            </div>
-                        </a>
+                    <!-- Section 1: Faculty Course Code Prefix Breakdown -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🏛️ UTeM Faculty Course Code Directory</h3>
+                    <div class="table-responsive" style="margin-bottom: 20px;">
+                        <table class="structured-table">
+                            <thead>
+                                <tr>
+                                    <th>Faculty (Fakulti)</th>
+                                    <th>Code Prefixes</th>
+                                    <th>Major Engineering & Tech Disciplines</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>FTMK</strong></td>
+                                    <td><code>BITM</code>, <code>BITP</code>, <code>BITS</code>, <code>BITD</code>, <code>BITC</code></td>
+                                    <td>Software Engineering, Cybersecurity, Networking, Data Science, Game Dev</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FTKM / FKM</strong></td>
+                                    <td><code>BMMT</code>, <code>BMMC</code>, <code>BMMA</code>, <code>BMMV</code></td>
+                                    <td>Mechanical Engineering, Automotive, Thermodynamics, Fluid Dynamics</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FTKEE / FKE</strong></td>
+                                    <td><code>BEKP</code>, <code>BEKG</code>, <code>BEKU</code>, <code>BEKM</code></td>
+                                    <td>Electrical Power Systems, Mechatronics, Telecommunications, Electronics</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FKP</strong></td>
+                                    <td><code>BMFT</code>, <code>BMFI</code>, <code>BTMI</code>, <code>BTMP</code></td>
+                                    <td>Manufacturing Systems, Robotics, Industrial Automation, Product Design</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FPTT</strong></td>
+                                    <td><code>BPTM</code>, <code>BPTE</code>, <code>BPTU</code>, <code>BTMS</code></td>
+                                    <td>Technology Management, Technopreneurship, Supply Chain & Logistics</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 
-                        <a href="calendar.html" style="text-decoration: none; color: inherit;">
-                            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z" /></svg>
-                                    <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Academic Calendar ➔</h3>
-                                </div>
-                                <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Track final examination weeks, revision breaks, semester holidays, and important academic deadlines.</p>
-                            </div>
-                        </a>
+                    <!-- Section 2: How to Authenticate via EZproxy Off-Campus -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🔐 Accessing Papers Off-Campus via UTeM LibProxy</h3>
+                        <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+                            When accessing the examination repository from off-campus Wi-Fi, the university firewall requires Single Sign-On (SSO) authentication:
+                        </p>
+                        <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                            <li>Navigate to the official <strong>UTeM LibProxy portal</strong> (<a href="https://ezproxy.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700;">ezproxy.utem.edu.my</a>).</li>
+                            <li>Log in using your standard UTeM Student Matric Number (e.g. <code>B032...</code>) and SMPWeb portal password.</li>
+                            <li>Once authenticated, all PDF downloads will resolve instantly without 403 Forbidden errors.</li>
+                        </ol>
+                    </div>
 
-                        <a href="gpa.html" style="text-decoration: none; color: inherit;">
-                            <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                    <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" /></svg>
-                                    <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">GPA Calculator ➔</h3>
-                                </div>
-                                <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Calculate your target GPA / CGPA scale and track requirements for Anugerah Dekan (Dean's List).</p>
-                            </div>
+                    <!-- Section 3: Exam Preparation Strategies -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">💡 Top Strategies for Past Paper Practice</h3>
+                        <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+                            <li><strong>Simulate Strict Exam Conditions:</strong> Practice full 3-hour papers under timed, closed-book conditions to master calculation pacing.</li>
+                            <li><strong>Identify Bloom's Taxonomy Distribution:</strong> Higher-level analysis and synthesis questions (C4–C6) typically carry 40% to 60% of final marks.</li>
+                            <li><strong>Form Study Circles:</strong> Work through ambiguous multi-part questions with course coursemates to compare final answers and derivations.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Section 4: Frequently Asked Questions -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Why do some UTeM exam papers require EZproxy login when accessed off-campus?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Perpustakaan Laman Hikmah (PLH) restricts past examination papers to enrolled students and faculty. When off-campus, you must authenticate through the UTeM LibProxy portal using your Student ID and SMPWeb password.</span>
+                        </div>
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Are answer schemes (skema jawapan) included in the library repository?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">No, official marking schemes and answer keys are not released publicly in the library repository to encourage independent critical thinking and tutorial discussion with course lecturers.</span>
+                        </div>
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How many past semester papers should I practice before finals?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Reviewing 3 to 5 recent past semesters is recommended to identify recurring question formats, syllabus weightings, and key engineering calculation paradigms.</span>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Related Guides Cross-linking -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                        <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Practice Guide</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">In-depth study techniques for final examination week.</span>
+                        </a>
+                        <a href="library.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📚 Perpustakaan Laman Hikmah (PLH)</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Study rooms, borrowing quotas, and research databases.</span>
+                        </a>
+                        <a href="gpa.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🎓 GPA & CGPA Target Calculator</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);">Calculate target grades needed to earn Dean's List.</span>
                         </a>
                     </div>
                 </section>

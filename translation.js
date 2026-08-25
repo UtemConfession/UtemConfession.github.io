@@ -76,6 +76,7 @@ const translations = {
         th_actions: "Actions",
         btn_add_subject: "➕ Add Subject Row",
         btn_clear_gpa: "✕ Clear All Entries",
+        btn_print_gpa: "🖨️ Print / Save PDF",
         label_prior_cgpa: "Prior Cumulative CGPA",
         label_prior_credits: "Prior Earned Credits (Total)",
 
@@ -148,6 +149,13 @@ const translations = {
         btn_dental_link: "Dental e-Appointment ➔",
         label_emerg_kit: "Borrow Emergency First Aid Kits:",
         btn_emerg_link: "First Aid Request Form ➔",
+        label_health_policies: "Medical Leave (MC) & Policies",
+        label_health_ext_mc: "External Private-Clinic MCs:",
+        desc_health_ext_mc: "Medical certificates (MC) from external private clinics must be endorsed/validated by PKU UTeM before they are accepted by faculties.",
+        label_health_exam_absence: "Examination Absence:",
+        desc_health_exam_absence: "Absence from final exams due to medical reasons requires a verified MC/Endorsement submitted to your faculty/academic division.",
+        label_health_coverage: "Student Medical Coverage:",
+        desc_health_coverage: "Active/registered UTeM students are covered for outpatient treatment and basic dental care at PKU under the student health scheme.",
         label_health_contact: "Contact Information",
         label_health_phone: "Phone:",
         label_health_email: "Email:",
@@ -172,6 +180,11 @@ const translations = {
         desc_lib_boardgames: "Free rental for carrom, chess, darts, checkers, and board games at the counter.",
         label_lib_booking_title: "Booking & Further Questions:",
         desc_lib_booking_text: "Do at the Counter after passing the scanners. Contact:",
+        label_lib_borrowing: "Borrowing & E-Resources",
+        label_lib_renewals: "Book Renewals:",
+        desc_lib_renewals: "Students can renew borrowed books online for a maximum of 2 renewals before they must be returned.",
+        label_lib_ezproxy: "Off-Campus Access (EZproxy):",
+        desc_lib_ezproxy: "Access premium journals (e.g., IEEE Xplore, ScienceDirect) from home using the UTeM EZproxy portal with your student credentials.",
         btn_lib_mail: "Email Circulation Desk ➔",
         label_lib_contact: "Contact & Inquiries",
         label_lib_phone: "Phone:",
@@ -353,6 +366,7 @@ const translations = {
         th_actions: "Tindakan",
         btn_add_subject: "➕ Tambah Baris",
         btn_clear_gpa: "✕ Padam Semua",
+        btn_print_gpa: "🖨️ Cetak / Simpan PDF",
         label_prior_cgpa: "CGPA Kumulatif Terdahulu",
         label_prior_credits: "Kredit Dikumpul Terdahulu (Jumlah)",
 
@@ -425,6 +439,13 @@ const translations = {
         btn_dental_link: "e-Temu Janji Pergigian ➔",
         label_emerg_kit: "Pinjaman Kit Pertolongan Cemas Kecemasan:",
         btn_emerg_link: "Borang Permohonan First Aid ➔",
+        label_health_policies: "Cuti Sakit (MC) & Polisi",
+        label_health_ext_mc: "MC Klinik Swasta Luar:",
+        desc_health_ext_mc: "Sijil cuti sakit (MC) dari klinik swasta luar perlu disahkan/diendors oleh PKU UTeM sebelum diterima oleh fakulti.",
+        label_health_exam_absence: "Ketidakhadiran Peperiksaan:",
+        desc_health_exam_absence: "Ketidakhadiran dalam peperiksaan akhir atas sebab kesihatan memerlukan pengesahan MC/Endorsmen yang dihantar kepada fakulti/bahagian akademik anda.",
+        label_health_coverage: "Perlindungan Perubatan Pelajar:",
+        desc_health_coverage: "Pelajar UTeM yang aktif/berdaftar dilindungi untuk rawatan pesakit luar dan penjagaan asas pergigian di PKU di bawah skim kesihatan pelajar.",
         label_health_contact: "Maklumat Perhubungan",
         label_health_phone: "Telefon:",
         label_health_email: "E-mel:",
@@ -449,6 +470,11 @@ const translations = {
         desc_lib_boardgames: "Pinjaman percuma untuk karom, catur, dart, dan permainan papan di kaunter.",
         label_lib_booking_title: "Tempahan & Soalan Lanjut:",
         desc_lib_booking_text: "Lakukan di Kaunter selepas melepasi pengimbas. Hubungi:",
+        label_lib_borrowing: "Peminjaman & Sumber-E",
+        label_lib_renewals: "Pembaharuan Buku:",
+        desc_lib_renewals: "Pelajar boleh memperbaharui buku pinjaman secara dalam talian maksimum 2 kali sebelum ia perlu dipulangkan.",
+        label_lib_ezproxy: "Akses Luar Kampus (EZproxy):",
+        desc_lib_ezproxy: "Akses jurnal premium (cth., IEEE Xplore, ScienceDirect) dari rumah menggunakan portal EZproxy UTeM dengan kredensial pelajar anda.",
         btn_lib_mail: "E-mel Kaunter Sirkulasi ➔",
         label_lib_contact: "Hubungi & Pertanyaan",
         label_lib_phone: "Telefon:",
@@ -739,6 +765,9 @@ function setLanguage(lang) {
     const cGpaBtn = document.getElementById("clearGpaBtn");
     if (cGpaBtn) cGpaBtn.textContent = t.btn_clear_gpa;
 
+    const pGpaBtn = document.getElementById("btnPrintGpa");
+    if (pGpaBtn) pGpaBtn.textContent = t.btn_print_gpa;
+
     const priorLabels = document.querySelectorAll(".cgpa-calc-box .form-label");
     if (priorLabels.length >= 2) {
         priorLabels[0].textContent = t.label_prior_cgpa;
@@ -1021,6 +1050,27 @@ function setLanguage(lang) {
     const btnEmergLink = document.getElementById("btnEmergLink");
     if (btnEmergLink) updateNodeText(btnEmergLink, t.btn_emerg_link);
 
+    const labelHealthPolicies = document.getElementById("labelHealthPolicies");
+    if (labelHealthPolicies) labelHealthPolicies.textContent = t.label_health_policies;
+
+    const labelHealthExtMc = document.getElementById("labelHealthExtMc");
+    if (labelHealthExtMc) labelHealthExtMc.textContent = t.label_health_ext_mc;
+
+    const descHealthExtMc = document.getElementById("descHealthExtMc");
+    if (descHealthExtMc) descHealthExtMc.textContent = t.desc_health_ext_mc;
+
+    const labelHealthExamAbsence = document.getElementById("labelHealthExamAbsence");
+    if (labelHealthExamAbsence) labelHealthExamAbsence.textContent = t.label_health_exam_absence;
+
+    const descHealthExamAbsence = document.getElementById("descHealthExamAbsence");
+    if (descHealthExamAbsence) descHealthExamAbsence.textContent = t.desc_health_exam_absence;
+
+    const labelHealthCoverage = document.getElementById("labelHealthCoverage");
+    if (labelHealthCoverage) labelHealthCoverage.textContent = t.label_health_coverage;
+
+    const descHealthCoverage = document.getElementById("descHealthCoverage");
+    if (descHealthCoverage) descHealthCoverage.textContent = t.desc_health_coverage;
+
     const labelHealthContact = document.getElementById("labelHealthContact");
     if (labelHealthContact) labelHealthContact.textContent = t.label_health_contact;
 
@@ -1090,6 +1140,21 @@ function setLanguage(lang) {
 
     const descLibBookingText = document.getElementById("descLibBookingText");
     if (descLibBookingText) descLibBookingText.textContent = t.desc_lib_booking_text;
+
+    const labelLibBorrowing = document.getElementById("labelLibBorrowing");
+    if (labelLibBorrowing) labelLibBorrowing.textContent = t.label_lib_borrowing;
+
+    const labelLibRenewals = document.getElementById("labelLibRenewals");
+    if (labelLibRenewals) labelLibRenewals.textContent = t.label_lib_renewals;
+
+    const descLibRenewals = document.getElementById("descLibRenewals");
+    if (descLibRenewals) descLibRenewals.textContent = t.desc_lib_renewals;
+
+    const labelLibEzproxy = document.getElementById("labelLibEzproxy");
+    if (labelLibEzproxy) labelLibEzproxy.textContent = t.label_lib_ezproxy;
+
+    const descLibEzproxy = document.getElementById("descLibEzproxy");
+    if (descLibEzproxy) descLibEzproxy.textContent = t.desc_lib_ezproxy;
 
     const btnGoogle = document.getElementById("btnGoogleForm");
     if (btnGoogle) updateNodeText(btnGoogle, t.btn_submit_google);

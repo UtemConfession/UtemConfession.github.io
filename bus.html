@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,47 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "UTeM Bus Schedules & BAS.MY M10A Timetable",
-      "description": "Campus shuttle routes, live departure countdowns, and public BAS.MY M10A bus timetables for Universiti Teknikal Malaysia Melaka.",
-      "url": "https://utemconfession.github.io/bus.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTeM Bus Schedules & BAS.MY M10A Timetable",
+        "description": "Campus shuttle routes, live departure countdowns, and public BAS.MY M10A bus timetables for Universiti Teknikal Malaysia Melaka.",
+        "url": "https://utemconfession.github.io/bus.html",
+        "applicationCategory": "TravelApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is the internal UTeM campus shuttle bus free for students?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes, all official internal UTeM campus shuttle buses operating between Kampus Induk (Durian Tunggal), Kampus Teknologi (Ayer Keroh), Kolej Kediaman Satria, and Kolej Kediaman Lestari are completely free of charge for enrolled students."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does the BAS.MY M10A pink bus service connect to UTeM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The public BAS.MY M10A pink bus runs from Melaka Sentral to MITC. On Fridays, Saturdays, and Sundays, the route extends directly to Zoo Melaka and the UTeM Main Campus main entrance gate."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What payment methods are accepted on the BAS.MY M10A pink bus?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "BAS.MY operates strictly cashless. Passengers can pay using a Touch 'n Go card, MyRapid transit pass, contactless debit card, or DuitNow QR."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
     <script src="vignette.js"></script>
@@ -553,19 +587,78 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10z" />
                     </svg>
-                    UTeM Shuttle Bus & BAS.MY M10A Transit Guide
+                    UTeM Shuttle Bus Transit Guide & BAS.MY Public Network
                 </h2>
-                <p style="color: var(--text-secondary); line-height: 1.6; font-size: 13.5px; margin-bottom: 16px;">
-                    The <strong>UTeM Shuttle Bus Service</strong> connects Kampus Induk (KI / Durian Tunggal), Kampus Teknologi (KT / Ayer Keroh), Emerald Park (EP), Kolej Kediaman Satria, and Kolej Kediaman Lestari. In addition, the public <strong>BAS.MY M10A Pink Bus</strong> offers weekend direct transit from Melaka Sentral to Zoo Melaka and UTeM Main Campus.
+                
+                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;">
+                    Navigating transit between <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong> campuses requires understanding both the complimentary internal university shuttle bus fleet and the public State transit network operated by <strong>BAS.MY Melaka (Route M10A)</strong>. With faculties distributed across two distinct geographical zones—<strong>Kampus Induk</strong> in Durian Tunggal and <strong>Kampus Teknologi</strong> in Ayer Keroh—punctual transit planning is vital for arriving on time for lectures, laboratories, and examination halls.
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
-                    <a href="calendar.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📅 Academic Calendar 2026/2027</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Check lecture weeks, exam dates, and semester break schedules across UTeM faculties.</span>
+
+                <!-- Section 1: Campus Shuttle Routes Breakdown -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🚌 Internal Shuttle Route Breakdown</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.65; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+                        <li><strong>Kampus Induk (KI) ⇄ Kampus Teknologi (KT):</strong> Connects the main administrative center, library, and FTMK at Durian Tunggal with engineering faculties (FKE, FKEKK, FKP) at Ayer Keroh. Frequency runs every 30–45 minutes during peak lecture transitions (07:30 to 17:30).</li>
+                        <li><strong>Kolej Kediaman Satria ⇄ Faculty Loop:</strong> Internal morning departures running from 07:15 to 08:30 delivering on-campus residential students to lecture halls and workshop complexes.</li>
+                        <li><strong>Kolej Kediaman Lestari ⇄ Faculty Loop:</strong> Dedicated service for students residing at Lestari residential college, operating loops through Kompleks Dewan Kuliah (KDK).</li>
+                        <li><strong>Emerald Park (EP) Off-Campus Line:</strong> Special semester and regular semester scheduled pickups for students living in off-campus rental units around Taman Emerald Park and surrounding residential areas.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: BAS.MY M10A Pink Bus Information -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: #e74e9f; font-size: 15px; margin-top: 0; margin-bottom: 10px;">💖 BAS.MY M10A Pink Bus Operations</h3>
+                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+                        The state-managed pink bus fleet provides vital public transit links connecting Melaka's central transit terminal directly to UTeM:
+                    </p>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                        <li><strong>Weekday Coverage:</strong> Melaka Sentral ⇄ Batu Berendam ⇄ MITC / Mydin Ayer Keroh (Operating 06:00 to 20:00).</li>
+                        <li><strong>Weekend Extended Direct Route:</strong> On <strong>Fridays, Saturdays, and Sundays</strong>, buses extend from MITC directly to Zoo Melaka and into the UTeM Kampus Induk main entrance terminal.</li>
+                        <li><strong>Payment Modality:</strong> 100% Cashless. Prepare a Touch 'n Go card with minimum RM5 balance, contactless MyDebit card, or DuitNow QR scanner.</li>
+                    </ul>
+                </div>
+
+                <!-- Section 3: Student Transit Etiquette & Pro Tips -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">💡 Essential Campus Transit Tips</h3>
+                    <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                        <li><strong>Peak Hour Buffer:</strong> Allow at least 25–35 minutes for transit between Kampus Induk and Kampus Teknologi during morning peak hours (07:45–08:30) due to traffic at the Ayer Keroh highway intersection.</li>
+                        <li><strong>Exam Week Dispatch:</strong> During final examination weeks, extra shuttle buses are deployed. Arrive at designated boarding stops 15 minutes before departure.</li>
+                        <li><strong>Official Transport Hotline:</strong> In case of mechanical breakdown or schedule delays, contact the UTeM Transport Unit at <code>011-11494251</code>.</li>
+                    </ol>
+                </div>
+
+                <!-- Section 4: Frequently Asked Questions -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Is the internal UTeM campus shuttle bus free for students?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Yes, all official internal UTeM campus shuttle buses operating between Kampus Induk (Durian Tunggal), Kampus Teknologi (Ayer Keroh), Kolej Kediaman Satria, and Kolej Kediaman Lestari are completely free of charge for enrolled students.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How does the BAS.MY M10A pink bus service connect to UTeM?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">The public BAS.MY M10A pink bus runs from Melaka Sentral to MITC. On Fridays, Saturdays, and Sundays, the route extends directly to Zoo Melaka and the UTeM Main Campus main entrance gate.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What payment methods are accepted on the BAS.MY M10A pink bus?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">BAS.MY operates strictly cashless. Passengers can pay using a Touch 'n Go card, MyRapid transit pass, contactless debit card, or DuitNow QR.</span>
+                    </div>
+                </div>
+
+                <!-- Section 5: Related Guides Cross-linking -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                    <a href="guide-campus-bus-transit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚌 UTeM Shuttle Bus & Transit Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">In-depth route timetables, stop maps, and transit tips.</span>
                     </a>
-                    <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Papers</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Access exam revision guides and past semester papers before final exam week.</span>
+                    <a href="guide-vehicle-sticker-parking.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚗 Vehicle Sticker & Parking Rules</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">How to apply for UTeM motor and car parking stickers.</span>
+                    </a>
+                    <a href="guide-off-campus-rental.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🏠 Off-Campus Housing Near Bus Stops</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Rental guide for Emerald Park, Taman Tasik Utama, and Bukit Beruang.</span>
                     </a>
                 </div>
             </section>

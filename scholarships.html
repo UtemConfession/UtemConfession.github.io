@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,47 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "UTeM Scholarships & Financial Aid Directory",
-      "description": "Comprehensive resource for UTeM undergraduate scholarships, loans, zakat aid, and state foundation grants.",
-      "url": "https://utemconfession.github.io/scholarships.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTeM Scholarships & Financial Aid Directory",
+        "description": "Comprehensive resource for UTeM undergraduate scholarships, loans, zakat aid, and state foundation grants.",
+        "url": "https://utemconfession.github.io/scholarships.html",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Can I hold both a state foundation grant and a PTPTN loan simultaneously?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most state foundations (like TAPEM or Yayasan Johor) allow one-off subsistence dermasiswa grants alongside PTPTN. However, major federal scholarships like JPA or MARA prohibit concurrent active PTPTN loans."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I apply for the PTPTN First Class Loan Repayment Exemption at UTeM?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Graduates achieving First Class Honours (CGPA >= 3.70/3.75) must submit an exemption application via the myPTPTN portal within 12 months of their official UTeM Convocation Ceremony along with certified degree certificates."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the minimum CGPA required to keep PTPTN loan disbursements active?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "PTPTN requires students to maintain a minimum GPA of 2.00 (Kedudukan Baik) every semester. If your GPA drops below 2.00, PTPTN disbursements will be suspended until your academic standing recovers."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Popunder (1-Hour Cap) -->
     <script src="popunder.js"></script>
@@ -1156,17 +1190,65 @@
                     </svg>
                     UTeM Undergraduate Scholarship & Financial Assistance Directory
                 </h2>
-                <p style="color: var(--text-secondary); line-height: 1.6; font-size: 13.5px; margin-bottom: 16px;">
-                    Complete guide to financial sponsorship for Universiti Teknikal Malaysia Melaka students. Includes <strong>PTPTN higher education loans</strong> (eligible for 100% First-Class Honours loan conversion), <strong>MARA TESP</strong> convertible loans for engineering and IT faculties, <strong>JPA PIDN/LSPN eSILA</strong> federal scholarships, state education foundations (TAPEM Melaka, YPJ Johor, YNS Negeri Sembilan, Yayasan Selangor, YSSP Sarawak), and emergency zakat welfare aid managed by UTeM HEP & Pusat Islam.
+                
+                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;">
+                    Financing tertiary education at <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong> is supported by a robust ecosystem of government education loans, federal talent sponsorships, state education foundations, and emergency campus zakat welfare funds. Understanding eligibility criteria, income thresholds, and application timelines ensures students secure adequate funding throughout their degree or diploma journey.
                 </p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
-                    <a href="gpa.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📊 GPA & CGPA Calculator</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Track First Class Honours (CGPA >= 3.75) for PTPTN complete loan exemption.</span>
+
+                <!-- Section 1: Major Financial Aid Schemes Breakdown -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">💰 Primary Financial Aid Categories</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.65; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px;">
+                        <li><strong>PTPTN Higher Education Loan:</strong> The universal loan covering tuition fees and living expenses, disbursed on a three-tier income scale: <em>B40 (Maximum up to RM6,800/yr for science/tech degrees)</em>, <em>M40 (75% tier)</em>, and <em>T20 (50% tier)</em>. Eligible for 100% complete waiver upon achieving First Class Honours.</li>
+                        <li><strong>MARA TESP (Tertiary Education Sponsorship Programme):</strong> Convertible study loan for Bumiputera students pursuing engineering, computing, and technology degrees with competitive conversion rates based on final graduating CGPA.</li>
+                        <li><strong>JPA Federal Scholarships (PIDN / LSPN):</strong> Prestigious direct sponsorships managed via the JPA eSILA portal for top academic performers maintaining CGPA &ge; 3.75.</li>
+                        <li><strong>State Education Foundations (Yayasan Negeri):</strong> State-based funding bodies including <em>TAPEM Melaka, Yayasan Johor (YPJ), Yayasan Negeri Sembilan (YNS), Yayasan Selangor, Yayasan Sarawak (YSSP), and Yayasan Pahang</em> providing dermasiswa and study loans for state-born scholars.</li>
+                        <li><strong>UTeM Pusat Islam & Zakat Aid:</strong> Emergency subsistence support, laptop purchase grants, and food aid for asnaf and B40 students via Bahagian Hal Ehwal Pelajar (BHEP).</li>
+                    </ul>
+                </div>
+
+                <!-- Section 2: Step-by-Step Application Checklist -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">📋 Application Documentation Checklist</h3>
+                    <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                        <li><strong>Offer Letter (Surat Tawaran):</strong> Official UTeM admission offer letter downloaded via the admission portal.</li>
+                        <li><strong>Certified Income Proof:</strong> Latest salary slips (Penyata Gaji), EA/EC forms, or official Village Head/JKKK income declaration forms for self-employed parents.</li>
+                        <li><strong>Academic Transcripts:</strong> SPM / STPM / Matriculation / Diploma certificates certified as True Copies (CTC) by an authorized Grade A government officer.</li>
+                        <li><strong>Bank Account Verification:</strong> Active individual savings account under the student's name (e.g. Bank Islam for PTPTN disbursements).</li>
+                    </ol>
+                </div>
+
+                <!-- Section 3: Frequently Asked Questions -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Can I hold both a state foundation grant and a PTPTN loan simultaneously?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Most state foundations (like TAPEM or Yayasan Johor) allow one-off subsistence dermasiswa grants alongside PTPTN. However, major federal scholarships like JPA or MARA prohibit concurrent active PTPTN loans.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I apply for the PTPTN First Class Loan Repayment Exemption at UTeM?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Graduates achieving First Class Honours (CGPA &ge; 3.70/3.75) must submit an exemption application via the myPTPTN portal within 12 months of their official UTeM Convocation Ceremony along with certified degree certificates.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What is the minimum CGPA required to keep PTPTN loan disbursements active?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">PTPTN requires students to maintain a minimum GPA of 2.00 (Kedudukan Baik) every semester. If your GPA drops below 2.00, PTPTN disbursements will be suspended until your academic standing recovers.</span>
+                    </div>
+                </div>
+
+                <!-- Section 4: Related Guides Cross-linking -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                    <a href="guide-ptptn-loan.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">💰 PTPTN Loan & Exemption Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Step-by-step application walkthrough and waiver tips.</span>
                     </a>
-                    <a href="calendar.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📅 Academic Calendar 2026/2027</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Check semester registration and PTPTN disbursement cycle dates.</span>
+                    <a href="gpa.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📊 GPA & CGPA Target Calculator</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Calculate targets required for First Class degree honours.</span>
+                    </a>
+                    <a href="guide-budget-living-food.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🍛 Student Budget & Makan Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Stretch your scholarship allowance in Durian Tunggal & Ayer Keroh.</span>
                     </a>
                 </div>
             </section>

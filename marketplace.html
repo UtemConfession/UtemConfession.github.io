@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -43,13 +43,47 @@
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "OfferCatalog",
-      "name": "UTeM Student Marketplace & Services Directory",
-      "description": "Student buy and sell marketplace and campus services platform for UTeM university students.",
-      "url": "https://utemconfession.github.io/marketplace.html"
-    }
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTeM Student Marketplace & Services Directory",
+        "description": "Student buy and sell marketplace, campus runner services, and trading guidelines for UTeM university students.",
+        "url": "https://utemconfession.github.io/marketplace.html",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "All"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I list an item for sale or offer student services on this marketplace?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Send your item details, price, condition, photos, and Telegram/WhatsApp contact handle to our editorial moderation inbox at utemconfessionpromax@duck.com."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are the safest recommended meetup spots for item COD on campus?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Always conduct transactions in well-lit public campus areas such as the Kolej Kediaman Satria cafeteria, Lestari student lounge, PLH Library lobby, or faculty foyers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there any listing fees charged for student sellers?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No, listing pre-loved academic items, textbooks, hostel gear, and student freelance services is 100% free for all active UTeM undergraduates."
+            }
+          }
+        ]
+      }
+    ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
     <script src="vignette.js"></script>
@@ -286,46 +320,69 @@
 
             <!-- FEATURE-SPECIFIC SEO OVERVIEW & CROSS-LINK SECTION -->
             <section class="card content-card" style="margin-top: 24px; border-color: rgba(212, 175, 55, 0.25);">
-                <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold);">
+                <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold); font-size: 18px; font-weight: 800;">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
                     </svg>
-                    UTeM Student Marketplace & Campus Services Directory
+                    UTeM Student Marketplace & Campus Services Directory Guide
                 </h2>
-                <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
-                    <strong>UTeM Confessions Pro Max Marketplace & Services</strong> is a dedicated student-to-student platform for undergraduates and postgraduates at <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong>. Safely buy or sell pre-loved campus essentials including engineering textbooks, mechanical keyboards, gaming mice, laptops, hostel furniture, refrigerators, and bicycles. Connect directly with verified student service providers offering campus rides (Student Grab), personal shopping (Lotus's / Mydin runners), document printing, and assignment binding around Kampus Induk (Durian Tunggal) and Kampus Teknologi (Ayer Keroh).
+                
+                <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px;">
+                    <strong>UTeM Confessions Pro Max Marketplace & Services</strong> is an independent peer-to-peer commerce and service directory connecting diploma, undergraduate, and postgraduate students across <strong>Kampus Induk (Durian Tunggal)</strong> and <strong>Kampus Teknologi (Ayer Keroh)</strong>. Whether buying pre-loved mechanical engineering textbooks, renting hostel appliances, or engaging trusted student runners, this hub facilitates affordable, sustainable student commerce.
                 </p>
 
-                <!-- Responsive Cross-Link Cards Grid -->
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-top: 16px;">
-                    <a href="exams.html" style="text-decoration: none; color: inherit;">
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" /></svg>
-                                <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Past Year Exams ➔</h3>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Download past semester examination papers directly from the UTeM Library repository.</p>
-                        </div>
-                    </a>
+                <!-- Section 1: Marketplace Categories & Service Offerings -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">📦 Student Commerce Categories</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+                        <li><strong>Academic Gear & Textbooks:</strong> Pre-owned coursebooks, scientific calculators (Casio 570MS/EX), lab coats, safety boots, and mechanical keyboards.</li>
+                        <li><strong>Hostel & Living Essentials:</strong> Mini-refrigerators, foldable study desks, induction cookers, electric kettles, and drying racks for Satria & Lestari residential colleges.</li>
+                        <li><strong>Student Runner & Personal Shopper (PS):</strong> Grocery delivery from Lotus's Cheng, Mydin MITC, and late-night food runs to Durian Tunggal eateries.</li>
+                        <li><strong>Academic Services:</strong> Fast-turnaround report printing, hardcover thesis binding, 3D printing (PLA/ABS), and PCB soldering assistance.</li>
+                    </ul>
+                </div>
 
-                    <a href="activities.html" style="text-decoration: none; color: inherit;">
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z" /></svg>
-                                <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Explore Melaka ➔</h3>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Discover 72+ attractions, night markets, beaches, and weekend activities around Melaka.</p>
-                        </div>
-                    </a>
+                <!-- Section 2: Safe Campus Trading & Anti-Scam Rules -->
+                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🛡️ Safe Trading & Anti-Scam Best Practices</h3>
+                    <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
+                        <li><strong>Meet in Well-Lit Public Areas:</strong> Conduct all Cash-on-Delivery (COD) handovers in visible campus spots (e.g. Kolej Kediaman Satria Cafeteria, Lestari Lounge, FTMK Foyer, or PLH Library Entrance).</li>
+                        <li><strong>Inspect Before Payment:</strong> Thoroughly test electronics, computer peripherals, and appliances on the spot before completing DuitNow QR or cash payment.</li>
+                        <li><strong>Avoid Advance Deposits to Strangers:</strong> Never transfer full payments upfront to unverified social media profiles without buyer protection.</li>
+                    </ol>
+                </div>
 
-                    <a href="wifi.html" style="text-decoration: none; color: inherit;">
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; transition: transform 0.2s, border-color 0.2s; height: 100%;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="var(--accent-gold)"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z" /></svg>
-                                <h3 style="font-size: 14px; font-weight: 700; margin: 0; color: var(--text-primary);">Wi-Fi & Links ➔</h3>
-                            </div>
-                            <p style="font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.4;">Access campus Wi-Fi setup guides, eduroam credentials, SoftEther VPN, and official portal links.</p>
-                        </div>
+                <!-- Section 3: Frequently Asked Questions -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I list an item for sale or offer student services on this marketplace?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Send your item details, price, condition, photos, and Telegram/WhatsApp contact handle to our editorial moderation inbox at utemconfessionpromax@duck.com.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Where are the safest recommended meetup spots for item COD on campus?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Always conduct transactions in well-lit public campus areas such as the Kolej Kediaman Satria cafeteria, Lestari student lounge, PLH Library lobby, or faculty foyers.</span>
+                    </div>
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Are there any listing fees charged for student sellers?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">No, listing pre-loved academic items, textbooks, hostel gear, and student freelance services is 100% free for all active UTeM undergraduates.</span>
+                    </div>
+                </div>
+
+                <!-- Section 4: Related Guides Cross-linking -->
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
+                    <a href="guide-budget-living-food.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🍛 Student Budget Living Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Budget-friendly meal options and grocery hacks in Melaka.</span>
+                    </a>
+                    <a href="guide-off-campus-rental.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🏡 Off-Campus Rental Housing</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Find student rooms in Taman Angkasa Nuri & Emerald Park.</span>
+                    </a>
+                    <a href="guide-vehicle-sticker-parking.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚗 Vehicle Sticker & Parking Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);">Application steps for campus car and motorcycle stickers.</span>
                     </a>
                 </div>
             </section>
