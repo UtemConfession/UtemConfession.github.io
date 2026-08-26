@@ -36,6 +36,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -86,7 +90,7 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.js"></script>
+    <script src="vignette.js" defer></script>
 </head>
 
 <body>
@@ -367,46 +371,46 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
                     </svg>
-                    UTeM Perpustakaan Laman Hikmah (PLH) Student Services Guide
+                    <span id="lib_guide_title">UTeM Perpustakaan Laman Hikmah (PLH) Student Services Master Guide</span>
                 </h2>
                 
-                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;">
+                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;" id="lib_guide_intro">
                     <strong>Perpustakaan Laman Hikmah (PLH)</strong> serves as the central research and learning knowledge hub for Universiti Teknikal Malaysia Melaka. Operating multi-storey facilities across <strong>Kampus Induk (Durian Tunggal)</strong> and a specialized branch at <strong>Kampus Teknologi (Ayer Keroh)</strong>, PLH provides undergraduates with collaborative research spaces, digital archives, and student leisure facilities.
                 </p>
 
                 <!-- Section 1: Borrowing Quotas & Loan Rules Table -->
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">📚 Book Loan Entitlements & Overdue Policies</h3>
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="lib_sec1_title">📚 Book Loan Entitlements & Overdue Policies</h3>
                 <div class="table-responsive" style="margin-bottom: 20px;">
                     <table class="structured-table">
                         <thead>
                             <tr>
-                                <th>Patron Category</th>
-                                <th>Max Loan Quota</th>
-                                <th>Loan Duration</th>
-                                <th>Online Renewals</th>
-                                <th>Late Fines</th>
+                                <th id="lib_th_patron">Patron Category</th>
+                                <th id="lib_th_quota">Max Loan Quota</th>
+                                <th id="lib_th_duration">Loan Duration</th>
+                                <th id="lib_th_renewals">Online Renewals</th>
+                                <th id="lib_th_fines">Late Fines</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><strong>Diploma & Degree Students</strong></td>
-                                <td>10 Books</td>
-                                <td>14 Days</td>
-                                <td>Up to 2 Times (OPAC)</td>
+                                <td><strong id="lib_cat_ug">Diploma & Degree Students</strong></td>
+                                <td id="lib_quota_ug">10 Books</td>
+                                <td id="lib_dur_ug">14 Days</td>
+                                <td id="lib_ren_ug">Up to 2 Times (OPAC)</td>
                                 <td>RM0.20 / day / item</td>
                             </tr>
                             <tr>
-                                <td><strong>Postgraduate (Master / PhD)</strong></td>
-                                <td>20 Books</td>
-                                <td>30 Days</td>
-                                <td>Up to 2 Times (OPAC)</td>
+                                <td><strong id="lib_cat_pg">Postgraduate (Master / PhD)</strong></td>
+                                <td id="lib_quota_pg">20 Books</td>
+                                <td id="lib_dur_pg">30 Days</td>
+                                <td id="lib_ren_pg">Up to 2 Times (OPAC)</td>
                                 <td>RM0.20 / day / item</td>
                             </tr>
                             <tr>
-                                <td><strong>Final Year Project (Red Spot)</strong></td>
-                                <td>2 Books</td>
-                                <td>Overnight / 3 Days</td>
-                                <td>In-person only</td>
+                                <td><strong id="lib_cat_red">Final Year Project (Red Spot)</strong></td>
+                                <td id="lib_quota_red">2 Books</td>
+                                <td id="lib_dur_red">Overnight / 3 Days</td>
+                                <td id="lib_ren_red">In-person only</td>
                                 <td>RM0.50 / day / item</td>
                             </tr>
                         </tbody>
@@ -415,8 +419,8 @@
 
                 <!-- Section 2: Study Facilities & Leisure Spaces -->
                 <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🏢 Available Library Facilities & Zones</h3>
-                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="lib_sec2_title">🏢 Available Library Facilities & Zones</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;" id="lib_facilities_list">
                         <li><strong>24-Hour Study Zone:</strong> Dedicated air-conditioned study hall at Ground Floor with secure matric-card access during revision and exam weeks.</li>
                         <li><strong>Bilik Perbincangan (Discussion Rooms):</strong> Private acoustic-paneled group project rooms equipped with whiteboards and HDMI presentation monitors.</li>
                         <li><strong>PS4 Gaming & Board Game Zone:</strong> Recreational student lounge on Level 1 featuring console gaming and strategy board games for stress relief.</li>
@@ -426,48 +430,67 @@
 
                 <!-- Section 3: E-Resources & Research Databases -->
                 <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🔍 Scholarly E-Resources & Database Subscriptions</h3>
-                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="lib_sec3_title">🔍 Scholarly E-Resources & Database Subscriptions</h3>
+                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0;" id="lib_sec3_desc">
                         UTeM students have unlimited institutional access to premier engineering and technology databases including <strong>IEEE Xplore, ScienceDirect, Scopus, SpringerLink, Web of Science, and Emerald Insight</strong>. Access databases on-campus via campus Wi-Fi or remotely through the <a href="https://ezproxy.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700;">UTeM LibProxy</a> gateway.
                     </p>
                 </div>
 
                 <!-- Section 4: Frequently Asked Questions -->
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;" id="lib_sec4_title">❓ Frequently Asked Questions (FAQ)</h3>
                 <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I book a private discussion room or PS4 console at PLH?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Discussion rooms and PS4 console sessions can be reserved in person at the PLH Customer Service Counter (Level 1) or online via the UTeM Library Portal using your active Student ID.</span>
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_faq1_q">How do I book a private discussion room or PS4 console at PLH?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="lib_faq1_a">Discussion rooms and PS4 console sessions can be reserved in person at the PLH Customer Service Counter (Level 1) or online via the UTeM Library Portal using your active Student ID.</span>
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Can I access the 24-hour study area after regular library operating hours?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Yes, the 24-Hour Study Zone located at the Ground Floor of PLH Kampus Induk remains accessible via student matric card tap-in even after main counter hours, particularly during exam revision weeks.</span>
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_faq2_q">Can I access the 24-hour study area after regular library operating hours?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="lib_faq2_a">Yes, the 24-Hour Study Zone located at the Ground Floor of PLH Kampus Induk remains accessible via student matric card tap-in even after main counter hours, particularly during exam revision weeks.</span>
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How can I renew borrowed library books online?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Log into your student account on the UTeM Library OPAC catalog portal (library.utem.edu.my) to renew unreserved books up to two consecutive times before the due date.</span>
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_faq3_q">How can I renew borrowed library books online?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="lib_faq3_a">Log into your student account on the UTeM Library OPAC catalog portal (library.utem.edu.my) to renew unreserved books up to two consecutive times before the due date.</span>
                     </div>
                 </div>
 
                 <!-- Section 5: Related Guides Cross-linking -->
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="lib_sec5_title">🔗 Related Student Guides</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
                     <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Practice</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Access previous semester exam questions from the library archive.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_rel1_title">📝 Past Year Exam Practice</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);" id="lib_rel1_desc">Access previous semester exam questions from the library archive.</span>
                     </a>
                     <a href="guide-top-10-study-places.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">☕ Top 10 Campus Study Spots</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Compare quiet spots across Kampus Induk & Kampus Teknologi.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_rel2_title">☕ Top 10 Campus Study Spots</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);" id="lib_rel2_desc">Compare quiet spots across Kampus Induk & Kampus Teknologi.</span>
                     </a>
                     <a href="guide-it-software-eduroam.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">💻 IT Setup & Software Licenses</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Download MATLAB, SolidWorks, and setup eduroam Wi-Fi.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_rel3_title">💻 IT Setup & Software Licenses</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);" id="lib_rel3_desc">Download MATLAB, SolidWorks, and setup eduroam Wi-Fi.</span>
                     </a>
                 </div>
             </section>
 
             <!-- Universal Footer -->
+    <div class="card" style="margin-top: 40px; text-align: left;">
+    <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Perpustakaan Laman Hikmah (PLH) Resources</h3>
+    <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
+        Perpustakaan Laman Hikmah (PLH) is UTeM's primary academic library, offering a wealth of resources beyond just books.
+    </p>
+    <ul style="color: var(--text-secondary); line-height: 1.6; font-size: 14px; margin-top: 10px; padding-left: 20px;">
+        <li><strong>Borrowing Quotas:</strong> Undergraduates can typically borrow up to 10 books for 14 days. Postgraduates have higher limits.</li>
+        <li><strong>24-Hour Study Area:</strong> Located on the Ground Floor, accessible 24/7 using your student matrix card. Ideal for exam week revision.</li>
+        <li><strong>PS4 Console & Board Games:</strong> Take a break! You can rent the PS4 console or board games at the circulation counter by presenting your student ID.</li>
+    </ul>
+</div>
+
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
@@ -481,7 +504,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
-        </main>
+            </main>
     </div>
 
     <!-- Mobile Bottom Navigation Bar -->
@@ -584,14 +607,14 @@
     </div>
 
     <!-- Core Utilities & Library Engine -->
-    <script src="utils.js"></script>
-    <script src="library.js"></script>
-    <script src="translation.js"></script>
+    <script src="utils.js" defer></script>
+    <script src="library.js" defer></script>
+    <script src="translation.js" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
-    <script src="ads.js"></script>
+    <script src="ads.js" defer></script>
 
 </body>
 

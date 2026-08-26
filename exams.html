@@ -36,6 +36,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -86,7 +90,7 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.js"></script>
+    <script src="vignette.js" defer></script>
 </head>
 
 <body>
@@ -367,49 +371,54 @@
                         <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                             <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" />
                         </svg>
-                        UTeM Past Year Examination Repository & Course Code Directory
+                        <span id="exam_guide_title">UTeM Past Year Examination Repository & Academic Success Master Guide</span>
                     </h2>
                     
-                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px;">
-                        The official Universiti Teknikal Malaysia Melaka (UTeM) examination paper database is curated by <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Undergraduates across all engineering, computing, and technology faculties can access previous semester final examination questions to practice problem-solving paradigms, evaluate marking allocations, and calibrate revision ahead of midterm and final exams.
+                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px;" id="exam_guide_intro">
+                        The official Universiti Teknikal Malaysia Melaka (UTeM) examination paper repository is curated and archived by <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Undergraduates across all engineering, computer science, and technology management faculties can access previous semester final examination questions to practice problem-solving paradigms, evaluate marking allocations, and calibrate revision ahead of midterm and final examinations.
                     </p>
 
                     <!-- Section 1: Faculty Course Code Prefix Breakdown -->
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🏛️ UTeM Faculty Course Code Directory</h3>
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="exam_sec1_title">🏛️ Complete UTeM Faculty Course Code Directory</h3>
                     <div class="table-responsive" style="margin-bottom: 20px;">
                         <table class="structured-table">
                             <thead>
                                 <tr>
-                                    <th>Faculty (Fakulti)</th>
-                                    <th>Code Prefixes</th>
-                                    <th>Major Engineering & Tech Disciplines</th>
+                                    <th id="exam_th_faculty">Faculty (Fakulti)</th>
+                                    <th id="exam_th_prefix">Code Prefixes</th>
+                                    <th id="exam_th_fields">Major Engineering & Tech Disciplines</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td><strong>FTMK</strong></td>
-                                    <td><code>BITM</code>, <code>BITP</code>, <code>BITS</code>, <code>BITD</code>, <code>BITC</code></td>
-                                    <td>Software Engineering, Cybersecurity, Networking, Data Science, Game Dev</td>
+                                    <td><code>BITM</code>, <code>BITP</code>, <code>BITS</code>, <code>BITD</code>, <code>BITC</code>, <code>BITA</code></td>
+                                    <td id="exam_f_ftmk">Software Engineering, Cybersecurity, Networking, Data Science, Artificial Intelligence, Interactive Media</td>
                                 </tr>
                                 <tr>
                                     <td><strong>FTKM / FKM</strong></td>
-                                    <td><code>BMMT</code>, <code>BMMC</code>, <code>BMMA</code>, <code>BMMV</code></td>
-                                    <td>Mechanical Engineering, Automotive, Thermodynamics, Fluid Dynamics</td>
+                                    <td><code>BMMT</code>, <code>BMMC</code>, <code>BMMA</code>, <code>BMMV</code>, <code>BMME</code></td>
+                                    <td id="exam_f_ftkm">Mechanical Engineering, Automotive Systems, Thermodynamics, Fluid Dynamics, Structural Mechanics</td>
                                 </tr>
                                 <tr>
                                     <td><strong>FTKEE / FKE</strong></td>
-                                    <td><code>BEKP</code>, <code>BEKG</code>, <code>BEKU</code>, <code>BEKM</code></td>
-                                    <td>Electrical Power Systems, Mechatronics, Telecommunications, Electronics</td>
+                                    <td><code>BEKP</code>, <code>BEKG</code>, <code>BEKU</code>, <code>BEKM</code>, <code>BEKT</code></td>
+                                    <td id="exam_f_ftkee">Electrical Power Systems, Control Engineering, Telecommunications, Mechatronics & Robotics</td>
                                 </tr>
                                 <tr>
                                     <td><strong>FKP</strong></td>
-                                    <td><code>BMFT</code>, <code>BMFI</code>, <code>BTMI</code>, <code>BTMP</code></td>
-                                    <td>Manufacturing Systems, Robotics, Industrial Automation, Product Design</td>
+                                    <td><code>BMFT</code>, <code>BMFI</code>, <code>BTMI</code>, <code>BTMP</code>, <code>BMFG</code></td>
+                                    <td id="exam_f_fkp">Manufacturing Systems, Industrial Automation, Product Design, Quality Engineering & Lean Production</td>
                                 </tr>
                                 <tr>
                                     <td><strong>FPTT</strong></td>
-                                    <td><code>BPTM</code>, <code>BPTE</code>, <code>BPTU</code>, <code>BTMS</code></td>
-                                    <td>Technology Management, Technopreneurship, Supply Chain & Logistics</td>
+                                    <td><code>BPTM</code>, <code>BPTE</code>, <code>BPTU</code>, <code>BTMS</code>, <code>BPTK</code></td>
+                                    <td id="exam_f_fptt">Technology Management, Technopreneurship, Supply Chain & Logistics, Project Management</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>FTKIP</strong></td>
+                                    <td><code>BKIP</code>, <code>BKIE</code>, <code>BKIM</code>, <code>BKIT</code></td>
+                                    <td id="exam_f_ftkip">Industrial Electronics, Computer Engineering Technology, Instrumentation & Process Control</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -417,64 +426,127 @@
 
                     <!-- Section 2: How to Authenticate via EZproxy Off-Campus -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🔐 Accessing Papers Off-Campus via UTeM LibProxy</h3>
-                        <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
-                            When accessing the examination repository from off-campus Wi-Fi, the university firewall requires Single Sign-On (SSO) authentication:
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="exam_sec2_title">🔐 Accessing Exam Papers Off-Campus via UTeM LibProxy</h3>
+                        <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 10px;" id="exam_sec2_desc">
+                            When accessing the examination repository from off-campus residential Wi-Fi or mobile hotspots, the university firewall enforces Single Sign-On (SSO) authentication:
                         </p>
-                        <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
-                            <li>Navigate to the official <strong>UTeM LibProxy portal</strong> (<a href="https://ezproxy.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700;">ezproxy.utem.edu.my</a>).</li>
-                            <li>Log in using your standard UTeM Student Matric Number (e.g. <code>B032...</code>) and SMPWeb portal password.</li>
-                            <li>Once authenticated, all PDF downloads will resolve instantly without 403 Forbidden errors.</li>
+                        <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;" id="exam_libproxy_steps">
+                            <li>Navigate directly to the official <strong>UTeM LibProxy portal</strong> (<a href="https://ezproxy.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700;">ezproxy.utem.edu.my</a>).</li>
+                            <li>Log in using your standard UTeM Student Matric Number (e.g. <code>B032110000</code>) and SMPWeb student password.</li>
+                            <li>Once authenticated, search by subject code (e.g. <code>BITP 1113</code>) to download high-resolution official PDF papers without encountering 403 Forbidden errors.</li>
                         </ol>
                     </div>
 
                     <!-- Section 3: Exam Preparation Strategies -->
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">💡 Top Strategies for Past Paper Practice</h3>
-                        <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
-                            <li><strong>Simulate Strict Exam Conditions:</strong> Practice full 3-hour papers under timed, closed-book conditions to master calculation pacing.</li>
-                            <li><strong>Identify Bloom's Taxonomy Distribution:</strong> Higher-level analysis and synthesis questions (C4–C6) typically carry 40% to 60% of final marks.</li>
-                            <li><strong>Form Study Circles:</strong> Work through ambiguous multi-part questions with course coursemates to compare final answers and derivations.</li>
-                        </ul>
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 12px;" id="exam_sec3_title">💡 High-Yield Past Year Examination Revision Strategies</h3>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
+                                <strong style="color: #60a5fa; font-size: 13.5px; display: block; margin-bottom: 2px;" id="exam_strat1_title">1. Simulate Timed 3-Hour Closed-Book Exam Conditions</strong>
+                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_strat1_desc">Avoid reading answers passively. Complete full 3-hour past papers under strict timer conditions without notes to master calculation pacing and time management across multi-part questions.</span>
+                            </div>
+                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
+                                <strong style="color: #34d399; font-size: 13.5px; display: block; margin-bottom: 2px;" id="exam_strat2_title">2. Master Bloom's Taxonomy Marks Allocation (C1 to C6)</strong>
+                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_strat2_desc">In technical degree courses, higher-order analysis, evaluation, and design problems (Bloom's C4–C6) represent 50%–70% of total examination marks. Prioritize derivation and design problems over simple definition memorization.</span>
+                            </div>
+                            <div>
+                                <strong style="color: #fbbf24; font-size: 13.5px; display: block; margin-bottom: 2px;" id="exam_strat3_title">3. Collaborative Peer Solution Circles & Formula Sheet Mastery</strong>
+                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_strat3_desc">Form focused study groups of 3–4 classmates to compare mathematical derivations and algorithm traces. Practice solving complex problems using only the standard approved UTeM examination formula appendices.</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <!-- Section 4: Frequently Asked Questions -->
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                    <!-- Section 4: Official Examination Hall Regulations -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 12px;" id="exam_sec4_title">📜 Official Examination Hall Rules & Regulations</h3>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
+                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule1_title">1. Slip Menduduki Peperiksaan (SMPWeb Exam Slip)</strong>
+                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule1_desc">Every student must print their official <em>Slip Menduduki Peperiksaan</em> from SMPWeb before exam week. You must bring the physical printed slip along with your Student Matric Card to every exam session.</span>
+                            </div>
+                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
+                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule2_title">2. Dress Code & Prohibited Items</strong>
+                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule2_desc">Formal attire with collared shirts and covered shoes is mandatory. Smartwatches, programmable calculator memory banks without reset, and mobile phones are strictly prohibited at examination desks.</span>
+                            </div>
+                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
+                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule3_title">3. Medical Absence & PKU Endorsement Procedure</strong>
+                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule3_desc">If you are unable to sit for an examination due to illness, you must obtain an official Medical Certificate (MC) from Pusat Kesihatan UTeM (PKU) or endorse private clinic MCs within 48 hours to qualify for special replacement exams.</span>
+                            </div>
+                            <div>
+                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule4_title">4. Grade Remarking & Result Appeals (Semakan Semula)</strong>
+                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule4_desc">If you suspect a grading error on your final paper, you can submit an official <em>Permohonan Semakan Semula Keputusan Peperiksaan</em> to the Academic Management Division (BPA) within 14 working days of official result release.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 5: Frequently Asked Questions -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;" id="exam_sec5_title">❓ Frequently Asked Questions (FAQ)</h3>
                     <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
                         <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Why do some UTeM exam papers require EZproxy login when accessed off-campus?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Perpustakaan Laman Hikmah (PLH) restricts past examination papers to enrolled students and faculty. When off-campus, you must authenticate through the UTeM LibProxy portal using your Student ID and SMPWeb password.</span>
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq1_q">Why do some UTeM exam papers require EZproxy login when accessed off-campus?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq1_a">Perpustakaan Laman Hikmah (PLH) restricts past examination papers to enrolled students and faculty. When off-campus, you must authenticate through the UTeM LibProxy portal using your Student ID and SMPWeb password.</span>
                         </div>
                         <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Are answer schemes (skema jawapan) included in the library repository?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">No, official marking schemes and answer keys are not released publicly in the library repository to encourage independent critical thinking and tutorial discussion with course lecturers.</span>
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq2_q">Are answer schemes (skema jawapan) included in the library repository?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq2_a">No, official marking schemes and answer keys are not released publicly in the library repository to encourage independent critical thinking and tutorial discussion with course lecturers.</span>
                         </div>
                         <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How many past semester papers should I practice before finals?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Reviewing 3 to 5 recent past semesters is recommended to identify recurring question formats, syllabus weightings, and key engineering calculation paradigms.</span>
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq3_q">How many past semester papers should I practice before finals?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq3_a">Reviewing 3 to 5 recent past semesters is recommended to identify recurring question formats, syllabus weightings, and key engineering calculation paradigms.</span>
+                        </div>
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq4_q">Where can I find exam papers if my course code was recently updated?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq4_a">When faculties restructure curriculum codes (e.g. from <code>BITM</code> to <code>BITS</code>), search using the previous equivalent course title or old subject code to find historical papers covering the identical syllabus topics.</span>
+                        </div>
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq5_q">What should I do if two of my final exams clash on the timetable?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq5_a">Timetable clashes must be reported to your Faculty Academic Advisor and the Academic Management Division (BPA) within 5 working days of the draft exam schedule release to arrange special isolated sitting sessions.</span>
+                        </div>
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
+                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq6_q">Are non-programmable scientific calculators inspected before entry?</strong>
+                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq6_a">Yes. Invigilators verify calculator models (e.g. Casio fx-570 series). Calculator covers with written notes or formulas are confiscated, and programmable memories must be cleared prior to exam commencement.</span>
                         </div>
                     </div>
 
-                    <!-- Section 5: Related Guides Cross-linking -->
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                    <!-- Section 6: Related Guides Cross-linking -->
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="exam_sec6_title">🔗 Related Student Guides</h3>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
                         <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Practice Guide</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);">In-depth study techniques for final examination week.</span>
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_rel1_title">📝 Past Year Exam Practice Guide</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);" id="exam_rel1_desc">In-depth study techniques, active recall, and exam week schedule planner.</span>
                         </a>
                         <a href="library.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📚 Perpustakaan Laman Hikmah (PLH)</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);">Study rooms, borrowing quotas, and research databases.</span>
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_rel2_title">📚 Perpustakaan Laman Hikmah (PLH)</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);" id="exam_rel2_desc">Study rooms, 24-hour exam zones, borrowing quotas, and digital libraries.</span>
                         </a>
                         <a href="gpa.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🎓 GPA & CGPA Target Calculator</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);">Calculate target grades needed to earn Dean's List.</span>
+                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_rel3_title">🎓 GPA & CGPA Target Calculator</strong>
+                            <span style="font-size: 12px; color: var(--text-muted);" id="exam_rel3_desc">Calculate target examination grades needed to earn Dean's List honours.</span>
                         </a>
                     </div>
                 </section>
             </div>
 
                         <!-- Universal Footer -->
+    <div class="card" style="margin-top: 40px; text-align: left;">
+    <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Exam Preparation & Hall Rules</h3>
+    <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
+        Utilizing past year papers is one of the most effective ways to prepare for UTeM final exams. Familiarize yourself with the question formats and common topics.
+    </p>
+    <ul style="color: var(--text-secondary); line-height: 1.6; font-size: 14px; margin-top: 10px; padding-left: 20px;">
+        <li><strong>Exam Hall Attire:</strong> Strict formal attire is required. Collared shirts, slacks, and covered shoes for male students. Traditional/formal wear for female students. No jeans or sandals.</li>
+        <li><strong>Required Documents:</strong> You MUST bring your Student Matrix Card and the printed Exam Slip. No slip, no entry.</li>
+        <li><strong>Prohibited Items:</strong> Smartwatches, programmable calculators (unless specified), and mobile phones must be left outside or placed at the front of the hall.</li>
+    </ul>
+</div>
+
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
@@ -488,7 +560,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
-        </main>
+            </main>
     </div>
 
     <!-- Mobile Bottom Navigation Bar -->
@@ -591,14 +663,14 @@
     </div>
 
     <!-- Core Utilities & Exam Logic Engine -->
-    <script src="utils.js"></script>
-    <script src="library.js"></script>
-    <script src="translation.js"></script>
+    <script src="utils.js" defer></script>
+    <script src="library.js" defer></script>
+    <script src="translation.js" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
-    <script src="ads.js"></script>
+    <script src="ads.js" defer></script>
 
 </body>
 

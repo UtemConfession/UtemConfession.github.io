@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
-
 :root {
     /* Dark Theme Variables (Primary) */
     --bg-primary: #060b19;
@@ -10,8 +8,8 @@
     --border-hover: rgba(212, 175, 55, 0.35);
     
     --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
     
     --accent-gold: #d4af37;
     --accent-gold-hover: #e6c24a;
@@ -3322,3 +3320,12 @@ iframe[style*="position:fixed"] {
 
 
 
+
+.editorial-footer {
+    font-size: 10px;
+}
+@media (min-width: 768px) {
+    .editorial-footer {
+        font-size: 11px !important;
+    }
+}

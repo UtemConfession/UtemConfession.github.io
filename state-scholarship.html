@@ -103,12 +103,16 @@
 
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
         crossorigin="anonymous"></script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.js"></script>
+    <script src="vignette.js" defer></script>
 </head>
 
 <body>
@@ -124,7 +128,7 @@
             </div>
         </div>
         <div class="mobile-lang-wrapper">
-            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggleOld">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
                 Bahasa Melayu
             </button>
         </div>
@@ -3258,6 +3262,13 @@
             </section>
 
             <!-- Universal Footer -->
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
@@ -3271,6 +3282,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
+            
         </main>
     </div>
 
@@ -3409,27 +3421,27 @@
 
     <!-- Google Identity Services Sign-In Library & Authentication Module -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="authentication.js"></script>
+    <script src="authentication.js" defer></script>
 
     <!-- Utilities (must load first  helpers used by all modules) -->
-    <script src="utils.js"></script>
-    <script src="translation.js"></script>
+    <script src="utils.js" defer></script>
+    <script src="translation.js" defer></script>
 
     <!-- Feature modules (depend on utils.js + translation.js) -->
-    <script src="confessions.js"></script>
-    <script src="gpa.js"></script>
-    <script src="lookup.js"></script>
-    <script src="bus.js"></script>
+    <script src="confessions.js" defer></script>
+    <script src="gpa.js" defer></script>
+    <script src="lookup.js" defer></script>
+    <script src="bus.js" defer></script>
     <script src="calendar.js?v=4.0"></script>
-    <script src="health.js"></script>
-    <script src="library.js"></script>
-    <script src="scholarships.js"></script>
+    <script src="health.js" defer></script>
+    <script src="library.js" defer></script>
+    <script src="scholarships.js" defer></script>
     <!-- <script src="archive.js"></script> -->
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
-    <script src="ads.js"></script>
+    <script src="ads.js" defer></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -3488,7 +3500,7 @@
             }
         });
     </script>
-    <script src="marketplace.js"></script>
+    <script src="marketplace.js" defer></script>
 </body>
 
 </html>

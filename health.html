@@ -36,6 +36,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -84,7 +88,7 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.js"></script>
+    <script src="vignette.js" defer></script>
 </head>
 
 <body>
@@ -410,17 +414,17 @@
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
                     </svg>
-                    UTeM Pusat Kesihatan Universiti (PKU) Student Healthcare Guide
+                    <span id="health_guide_title">UTeM Pusat Kesihatan Universiti (PKU) Student Healthcare Master Guide</span>
                 </h2>
                 
-                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;">
+                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;" id="health_guide_intro">
                     <strong>Pusat Kesihatan Universiti (PKU UTeM)</strong> provides primary healthcare, emergency medical response, dispensary pharmacy services, dental treatments, first aid equipment loans, and confidential mental health counseling for all registered diploma, undergraduate, and postgraduate students across <strong>Kampus Induk (Durian Tunggal)</strong> and <strong>Kampus Teknologi (Ayer Keroh)</strong>.
                 </p>
 
                 <!-- Section 1: Clinical Services & Operating Schedule -->
                 <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🏥 Available Medical Services & Clinic Hours</h3>
-                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec1_title">🏥 Available Medical Services & Clinic Hours</h3>
+                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;" id="health_services_list">
                         <li><strong>Outpatient Medical Consultation (Pesakit Luar):</strong> General diagnosis, fever/flu treatments, chronic disease monitoring, and minor surgical procedures (dressing & wound care). Operating Monday–Friday, 8:00 AM – 5:00 PM.</li>
                         <li><strong>Dispensary Pharmacy:</strong> Dispensing prescribed generic medications and medical supplies covered under student health fees.</li>
                         <li><strong>Dental Clinic (Klinik Pergigian):</strong> Routine oral check-ups, scaling, fillings, and tooth extractions by appointment via the PKU dental portal.</li>
@@ -430,12 +434,12 @@
 
                 <!-- Section 2: 24/7 Emergency & Ambulance Dispatch Protocol -->
                 <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">🚨 24/7 Emergency Response & Ambulance Hotline</h3>
-                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec2_title">🚨 24/7 Emergency Response & Ambulance Hotline</h3>
+                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;" id="health_sec2_desc">
                         For acute medical emergencies, vehicle collisions, or severe injuries occurring outside regular clinic hours:
                     </p>
-                    <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;">
-                        <li>Call the <strong>UTeM Security Control Room (Pejabat Keselamatan)</strong> 24/7 Hotline: <code style="color: var(--accent-gold); font-size: 13px;">06-270 1234</code> or <code style="color: var(--accent-gold); font-size: 13px;">06-270 1999</code>.</li>
+                    <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;" id="health_sec2_steps">
+                        <li>Call the <strong>UTeM Security Control Room (Pejabat Keselamatan)</strong> 24/7 Hotline: <code style="color: var(--accent-gold); font-size: 13px;">06-270 1200</code> or <code style="color: var(--accent-gold); font-size: 13px;">06-270 1300</code>.</li>
                         <li>State the exact casualty location (e.g. Kolej Kediaman Satria Block B, FTMK Level 2, or Lestari Cafe).</li>
                         <li>The control room will immediately dispatch the on-duty campus ambulance or coordinate with <strong>Hospital Melaka / Hospital Alor Gajah</strong> for emergency room triage.</li>
                     </ol>
@@ -443,48 +447,55 @@
 
                 <!-- Section 3: Medical Certificate (MC) Endorsement Rules -->
                 <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;">📄 Medical Certificate (MC) Endorsement Rules</h3>
-                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0;">
+                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec3_title">📄 Medical Certificate (MC) Endorsement Rules</h3>
+                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0;" id="health_sec3_desc">
                         If you receive a Medical Certificate (MC / Cuti Sakit) from an external private clinic or government hospital, university academic regulations require you to submit the physical slip to PKU for endorsement by a UTeM Medical Officer within <strong>48 hours</strong>. Unverified external MCs may not be accepted by your faculty for missed midterms, quizzes, or final examinations.
                     </p>
                 </div>
 
                 <!-- Section 4: Frequently Asked Questions -->
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;" id="health_sec4_title">❓ Frequently Asked Questions (FAQ)</h3>
                 <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I get private clinic MCs validated by PKU for missed exams?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Medical certificates (MC) issued by external private clinics must be presented in person to PKU within 48 hours of issue for official endorsement by a UTeM Medical Officer before submission to your faculty dean's office.</span>
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_faq1_q">How do I get private clinic MCs validated by PKU for missed exams?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="health_faq1_a">Medical certificates (MC) issued by external private clinics must be presented in person to PKU within 48 hours of issue for official endorsement by a UTeM Medical Officer before submission to your faculty dean's office.</span>
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Are medical consultations and dispensary medications free for UTeM students?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Yes, basic primary outpatient consultations, standard dispensary medications, and minor treatments at PKU are covered by student health service fees included in your semester registration.</span>
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_faq2_q">Are medical consultations and dispensary medications free for UTeM students?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="health_faq2_a">Yes, basic primary outpatient consultations, standard dispensary medications, and minor treatments at PKU are covered by student health service fees included in your semester registration.</span>
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I request ambulance transport for after-hours on-campus emergencies?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Contact the 24/7 UTeM Security Control Centre (Pejabat Keselamatan) immediately at 06-270 1234 or 06-270 1999 to dispatch the on-duty campus emergency response vehicle or coordinate with 999.</span>
+                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_faq3_q">How do I request ambulance transport for after-hours on-campus emergencies?</strong>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="health_faq3_a">Contact the 24/7 UTeM Security Control Centre (Pejabat Keselamatan) immediately at 06-270 1200 or 06-270 1300 to dispatch the on-duty campus emergency response vehicle or coordinate with 999.</span>
                     </div>
                 </div>
 
                 <!-- Section 5: Related Guides Cross-linking -->
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
+                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="health_sec5_title">🔗 Related Student Guides</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
                     <a href="guide-freshman-survival.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🎒 Freshman Survival Guide</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Essential emergency hotlines and clinic navigation tips.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel1_title">🎒 Freshman Survival Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);" id="health_rel1_desc">Essential emergency hotlines and clinic navigation tips.</span>
                     </a>
                     <a href="guide-hostel-kolej-kediaman-merit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🏢 Kolej Kediaman Hostel Guide</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Hostel warden contacts and first-aid points at Satria & Lestari.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel2_title">🏢 Kolej Kediaman Hostel Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);" id="health_rel2_desc">Hostel warden contacts and first-aid points at Satria & Lestari.</span>
                     </a>
                     <a href="bus.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚌 Campus Shuttle Bus Timetables</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);">Shuttle bus routes between PKU clinic and faculty complexes.</span>
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel3_title">🚌 Campus Shuttle Buses</strong>
+                        <span style="font-size: 12px; color: var(--text-muted);" id="health_rel3_desc">Shuttle routes between Durian Tunggal and Ayer Keroh clinics.</span>
                     </a>
                 </div>
             </section>
 
             <!-- Universal Footer -->
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
@@ -498,6 +509,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
+            
         </main>
     </div>
 
@@ -601,14 +613,14 @@
     </div>
 
     <!-- Core Utilities & Health Center Scripts -->
-    <script src="utils.js"></script>
-    <script src="health.js"></script>
-    <script src="translation.js"></script>
+    <script src="utils.js" defer></script>
+    <script src="health.js" defer></script>
+    <script src="translation.js" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
-    <script src="ads.js"></script>
+    <script src="ads.js" defer></script>
 
 </body>
 

@@ -96,6 +96,10 @@
 
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -104,7 +108,7 @@
 
 
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.js"></script>
+    <script src="vignette.js" defer></script>
 </head>
 
 <body>
@@ -120,7 +124,7 @@
             </div>
         </div>
         <div class="mobile-lang-wrapper">
-            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggleOld">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
                 Bahasa Melayu
             </button>
         </div>
@@ -250,7 +254,7 @@
 
             <div class="sidebar-footer">
                 <!-- Google AdSense Sidebar Multiplex Unit -->
-                <div class="ad-slot ad-sidebar" id="adSidebar">
+                <div class="ad-slot ad-sidebar ad-slot--desktop-only" id="adSidebar">
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1444529930367815"
                         data-ad-slot="7411190923" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
                 </div>
@@ -260,6 +264,7 @@
 
         <!-- Main Dashboard View Panel -->
         <main class="main-content">
+
 
 
             <!-- TAB 1: CONFESSION BOARD (HOME TAB) -->
@@ -498,22 +503,24 @@
                             <li><strong>Impersonation:</strong> Don't pretend to be another student, lecturer, staff member, or organization in a way that could mislead others.</li>
                             <li><strong>Threats:</strong> Threats of violence, intimidation, or encouragement of harm are not allowed.</li>
                             <li><strong>Accusations:</strong> Do not post unproven allegations about identifiable people. Keep discussions factual and anonymous.</li>
-                            <li><strong>Connections:</strong> Posts seeking friendship, companionship, study partners, or other forms of connections are required to be respectful of boundaries, moral standards and responses.</li>
-                            <li><strong>Think Before You Post:</strong> Once published, a confession may be seen, shared, or screenshotted by others.</li>
+                            <li><strong>Connections:</strong> Posts seeking friendship, companionship, study partners, or other forms of connections are required to be respectful of boundaries, moral standards and                             <li><strong>Think Before You Post:</strong> Once published, a confession may be seen, shared, or screenshotted by others.</li>
                         </ul>
+
+                        <div class="moderation-notice" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 12px; margin-top: 16px; font-size: 12px; color: var(--text-secondary);">
+                            <strong style="color: #ef4444; display: block; margin-bottom: 4px;">Community Moderation & Takedown Notice</strong>
+                            Submissions are actively moderated for profanity, defamation, and personal data in compliance with PDPA 2010. UTeM Confessions Pro Max reserves the right to reject or remove content that violates these policies. To report abusive content or request a takedown, contact us immediately at <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold);">utemconfessionpromax@duck.com</a>.
+                        </div>
                     </div>
                 </div>
 
-
                 <!-- Google AdSense Horizontal Display Banner Unit (Protected from CLS) -->
-                <div class="ad-slot-container ad-slot-banner"
-                    style="max-width: 728px; width: 100%; margin: 24px auto 0 auto;" id="adHeader">
+                <div class="ad-slot-container ad-slot-banner" style="max-width: 728px; width: 100%; margin: 24px auto 0 auto;" id="adHeader">
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1444529930367815"
                         data-ad-slot="9427949528" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 </div>
 
-            <!-- TAB 12: CONFESSIONS ARCHIVE -->
-            <!-- TAB 12: CONFESSIONS ARCHIVE (COMMENTED OUT FOR NOW)
+            <!-- TAB 12: CONFESSIONS ARCHIVE (COMMENTED OUT FOR NOW) -->
+            <!-- 
             <div class="tab-content" id="archive-tab">
                 <div class="card">
                     <h2 class="card-title">
@@ -527,28 +534,28 @@
 
                     <div style="display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; align-items: center; justify-content: space-between;">
                         <div style="flex: 1; min-width: 240px; position: relative;">
-                            <input type="text" id="archiveSearch" placeholder="🔍 Search confessions by keyword..." class="form-control">
+                            <input type="text" id="archiveSearch" placeholder="ðŸ” Search confessions by keyword..." class="form-control">
                         </div>
                         <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
                             <select id="archiveSortSelect" class="form-control" style="width: auto; padding: 10px 14px; font-weight: 600;">
-                                <option value="latest">⚡ Sort: Latest First</option>
-                                <option value="oldest">⏳ Sort: Oldest First</option>
+                                <option value="latest">âš¡ Sort: Latest First</option>
+                                <option value="oldest">â³ Sort: Oldest First</option>
                             </select>
                             <span id="archiveCountBadge" style="font-size: 12px; font-weight: 700; color: var(--accent-gold); background: rgba(212, 175, 55, 0.15); padding: 8px 12px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3);">
-                                8 Confessions Found
+                                0 Confessions Found
                             </span>
                         </div>
                     </div>
 
                     <div class="archive-cat-pills" id="archiveCatPills" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
-                        <button class="archive-pill active" data-cat="all" style="background: linear-gradient(135deg, #d4af37 0%, #ffeb3b 100%); border: 1px solid #d4af37; color: #000000; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);">🗣️ All</button>
-                        <button class="archive-pill" data-cat="rant" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">🔥 Rant</button>
-                        <button class="archive-pill" data-cat="funny" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">😂 Funny</button>
-                        <button class="archive-pill" data-cat="horror" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">👻 Horror</button>
-                        <button class="archive-pill" data-cat="love" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">❤️ Relationship</button>
-                        <button class="archive-pill" data-cat="academic" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">📚 Academic</button>
-                        <button class="archive-pill" data-cat="campus" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">🏫 Campus Life</button>
-                        <button class="archive-pill" data-cat="lost" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">🔍 Lost &amp; Found</button>
+                        <button class="archive-pill active" data-cat="all" style="background: linear-gradient(135deg, #d4af37 0%, #ffeb3b 100%); border: 1px solid #d4af37; color: #000000; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 800; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);">ðŸ—£ï¸ All</button>
+                        <button class="archive-pill" data-cat="rant" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">ðŸ”¥ Rant</button>
+                        <button class="archive-pill" data-cat="funny" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">ðŸ˜‚ Funny</button>
+                        <button class="archive-pill" data-cat="horror" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">ðŸ‘» Horror</button>
+                        <button class="archive-pill" data-cat="love" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">â¤ï¸ Relationship</button>
+                        <button class="archive-pill" data-cat="academic" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">ðŸ“š Academic</button>
+                        <button class="archive-pill" data-cat="campus" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">ðŸ« Campus Life</button>
+                        <button class="archive-pill" data-cat="lost" style="background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.15); color: #cbd5e1; padding: 8px 14px; border-radius: 20px; font-size: 12.5px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">ðŸ” Lost & Found</button>
                     </div>
 
                     <div id="archiveContainer" class="archive-grid">
@@ -561,16 +568,15 @@
                         </div>
                         <a href="mailto:utemconfessionpromax@duck.com" class="btn btn-sm btn-secondary" style="border-color: rgba(239, 68, 68, 0.4); color: #ef4444; font-weight: 700; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;" id="btnContactAdminRemoval">
                             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                            Contact Admin ➔
+                            Contact Admin âž”
                         </a>
                     </div>
                 </div>
-            </div> -->
-
-
-
-
-
+            </div>
+            -->
+            
+            </div> <!-- End of confession-tab -->
+            
             <!-- Static Crawlable Overview Section for Google AdSense & Search Engines -->
             <section class="card content-card"
                 style="margin-top: 20px; max-width: 100%; border-color: rgba(212, 175, 55, 0.25);">
@@ -626,6 +632,13 @@
             </section>
 
             <!-- Universal Footer -->
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
@@ -639,6 +652,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
+            
         </main>
     </div>
 
@@ -784,20 +798,20 @@
 
     <!-- Google Identity Services Sign-In Library & Authentication Module -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
-    <script src="authentication.js"></script>
+    <script src="authentication.js" defer></script>
 
     <!-- Utilities (must load first — helpers used by all modules) -->
-    <script src="utils.js"></script>
-    <script src="translation.js"></script>
+    <script src="utils.js" defer></script>
+    <script src="translation.js" defer></script>
 
     <!-- Core modules -->
-    <script src="confessions.js"></script>
+    <script src="confessions.js" defer></script>
     <!-- <script src="archive.js"></script> -->
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
-    <script src="ads.js"></script>
+    <script src="ads.js" defer></script>
 
 </body>
 

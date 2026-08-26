@@ -27,6 +27,10 @@
     <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <style>
         .content-card {
@@ -67,7 +71,7 @@
     </style>
 
     <!-- Google AdSense -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
+    
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -87,7 +91,7 @@
       }
     }
     </script>
-    <script src="vignette.js"></script>
+    
 </head>
 <body>
 
@@ -101,7 +105,7 @@
             </div>
         </div>
         <div class="mobile-lang-wrapper">
-            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggleOld">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
                 Bahasa Melayu
             </button>
         </div>
@@ -143,14 +147,7 @@
             </ul>
 
             <div class="sidebar-footer">
-                <div class="ad-slot ad-sidebar" id="adSidebar">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-1444529930367815"
-                         data-ad-slot="7411190923"
-                         data-ad-format="autorelaxed"
-                         data-full-width-responsive="true"></ins>
-                </div>
+                
             </div>
         </aside>
 
@@ -236,16 +233,16 @@
             </article>
 
             <!-- Ad Banner Slot -->
-            <div class="ad-slot" style="max-width: 728px; width: 100%; margin: 24px auto 0 auto;" id="adHeader">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-1444529930367815"
-                     data-ad-slot="9427949528"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
-            </div>
+            
 
             <!-- Universal Footer -->
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; <span id="footerText">Unofficial Student Resource & Confessions Platform.</span>
@@ -259,6 +256,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
+            
         </main>
     </div>
 
@@ -361,7 +359,7 @@
             });
 
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggleOld");
+            const mobileToggle = document.getElementById("mobileLangToggle");
             if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
             if (mobileToggle) mobileToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
         }
@@ -378,11 +376,11 @@
         document.addEventListener("DOMContentLoaded", () => {
             setLanguage(currentLang);
             const desktopToggle = document.getElementById("desktopLangToggle");
-            const mobileToggle = document.getElementById("mobileLangToggleOld");
+            const mobileToggle = document.getElementById("mobileLangToggle");
             if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
             if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
         });
     </script>
-    <script src="ads.js"></script>
+    
 </body>
 </html>

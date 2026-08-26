@@ -3,6 +3,63 @@
 
 const ucpmUpdates = [
     {
+        date: "2026-08-26",
+        type: "improved",
+        title: "Comprehensive Guides & Resource Info Expansion",
+        summary: "Significantly expanded core tool and utility pages with in-depth educational guides, official academic rules, FAQ sections, and transit advice.",
+        items: [
+            "GPA Calculator: Added UTeM academic status breakdown (KB/KS/KG), Dean's List requirements, and PTPTN First Class loan conversion strategies",
+            "Bus Schedules: Added shuttle route breakdowns, campus loop transit guides, and peak-hour commuter advice",
+            "Library (PLH): Added borrowing quotas, 24/7 exam-week study area access rules, and console/games rental details",
+            "Wi-Fi & Links: Added step-by-step eduroam setup and student Wi-Fi troubleshooting guidance",
+            "Marketplace & Services: Added campus meet-up safety advice and simplified student listing submission process",
+            "Past Year Exams & Calendar: Added BPA exam regulations and academic milestone breakdowns"
+        ]
+    },
+    {
+        date: "2026-08-25",
+        type: "new",
+        title: "14 In-Depth Student Resource & Survival Guides",
+        summary: "Published 14 comprehensive, long-form student survival and academic guides covering all major aspects of student life at UTeM.",
+        items: [
+            "Academic & Career: GPA & First Class Honors, FYP Survival Guide, Course Registration Add/Drop, Past Year Exams, and Internship Training",
+            "Financial & Living: PTPTN Loan Exemption, Budget Living & Food, Off-Campus Rental Housing, and Hostel Kolej Kediaman Merit",
+            "Transit & Campus Tools: Campus Shuttle Bus Transit, Vehicle Sticker & Parking Rules, Top 10 Study Spots, and IT Setup & Eduroam"
+        ]
+    },
+    {
+        date: "2026-08-25",
+        type: "fixed",
+        title: "High-Contrast Dark Mode Text Fix",
+        summary: "Enhanced text color variables across all cards, resource guides, and footers to exceed WCAG AA accessibility standards in dark mode.",
+        items: [
+            "Brightened muted and secondary text colors on dark navy backgrounds",
+            "Improved legibility of small guide descriptions, badges, and editorial disclaimers",
+            "Passed full automated accessibility contrast checks across all 33 pages"
+        ]
+    },
+    {
+        date: "2026-08-23",
+        type: "improved",
+        title: "Automated Profanity & Moderation Filter",
+        summary: "Integrated an automated keyword moderation filter to proactively detect and prevent profanity, personal attacks, and abusive language in confession submissions.",
+        items: [
+            "Real-time keyword filtering on confession text input",
+            "Instant blocking of malicious or abusive submissions before entering the queue",
+            "Reinforced Community Moderation & Takedown channel for fast privacy protection"
+        ]
+    },
+    {
+        date: "2026-08-22",
+        type: "fixed",
+        title: "GPA Calculator Interface Clean-Up",
+        summary: "Streamlined the GPA calculation interface for faster input and a cleaner user experience on mobile devices.",
+        items: [
+            "Removed redundant print options in favor of a cleaner mobile-first calculation view",
+            "Enhanced subject row layout and grade input responsiveness"
+        ]
+    },
+    {
         date: "2026-08-16",
         type: "improved",
         title: "UI/UX Enhancements & Mobile Optimization",
@@ -34,14 +91,14 @@ const ucpmUpdates = [
         ]
     },
     {
-        date: "2026-08-09",
-        type: "new",
-        title: "Explore Melaka Directory",
-        summary: "A comprehensive, curated guide to 72+ attractions, historical landmarks, food spots, and night markets in Melaka tailored specifically for UTeM students.",
+        date: "2026-08-15",
+        type: "fixed",
+        title: "Confession Character Limit & Validation Fix",
+        summary: "Added real-time character counting with automatic validation feedback to prevent submission errors before sending confessions to the moderation queue.",
         items: [
-            "Includes search functionality",
-            "Filtering by indoor/outdoor",
-            "Sorting options (A-Z)"
+            "Live 10,000-character countdown display with visual threshold indicators",
+            "Instant validation ensuring terms agreement checkbox is checked before submitting",
+            "Clear error notifications when exceeding limits or submitting empty text"
         ]
     },
     {
@@ -54,7 +111,16 @@ const ucpmUpdates = [
             "Direct WhatsApp and Telegram integration for contacting sellers"
         ]
     },
-
+    {
+        date: "2026-08-14",
+        type: "improved",
+        title: "Added Images to Explore Melaka",
+        summary: "Added visual previews and images to the Explore Melaka activities tab to help you discover places faster.",
+        items: [
+            "Added high-quality images for Melaka attractions",
+            "Images load efficiently for mobile users"
+        ]
+    },
     {
         date: "2026-08-13",
         type: "new",
@@ -78,13 +144,47 @@ const ucpmUpdates = [
         ]
     },
     {
-        date: "2026-08-14",
-        type: "improved",
-        title: "Added Images to Explore Melaka",
-        summary: "Added visual previews and images to the Explore Melaka activities tab to help you discover places faster.",
+        date: "2026-08-11",
+        type: "new",
+        title: "PKU Clinic & Student Health Directory",
+        summary: "Added a dedicated Pusat Kesihatan Universiti (PKU) health hub featuring clinic operating hours, emergency hotlines, and official medical certificate guidelines.",
         items: [
-            "Added high-quality images for Melaka attractions",
-            "Images load efficiently for mobile users"
+            "Official PKU operating hours for Main Campus (Durian Tunggal) and Tech Campus (Ayer Keroh)",
+            "Emergency ambulance and campus health officer hotlines",
+            "Guidelines on panel clinic treatments and official UTeM MC endorsement rules"
+        ]
+    },
+    {
+        date: "2026-08-10",
+        type: "new",
+        title: "State Scholarship & Yayasan Directory",
+        summary: "Added a comprehensive state-by-state financial aid hub covering Yayasan Melaka, Yayasan Selangor, Yayasan Johor, Yayasan Sabah, Yayasan Sarawak, and all state foundations across Malaysia.",
+        items: [
+            "Detailed eligibility criteria and allowance rates for 13 state foundations",
+            "Direct application portal links and contact numbers for state education units",
+            "Bantuan Awal Pengajian (BAP) one-off student aid breakdown"
+        ]
+    },
+    {
+        date: "2026-08-09",
+        type: "new",
+        title: "Explore Melaka Directory",
+        summary: "A comprehensive, curated guide to 72+ attractions, historical landmarks, food spots, and night markets in Melaka tailored specifically for UTeM students.",
+        items: [
+            "Includes search functionality",
+            "Filtering by indoor/outdoor",
+            "Sorting options (A-Z)"
+        ]
+    },
+    {
+        date: "2026-08-08",
+        type: "fixed",
+        title: "Mobile Bottom Navigation & Drawer Smoothness",
+        summary: "Fixed mobile header overlap issues and polished the slide-out 'More' drawer transitions for smaller smartphone screens.",
+        items: [
+            "Resolved z-index layering conflicts between sticky header and floating navigation",
+            "Smoothed drawer slide-in animation and backdrop tap-to-close behavior",
+            "Enhanced touch target sizing for all drawer icons"
         ]
     },
     {

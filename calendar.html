@@ -36,6 +36,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -86,7 +90,7 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.js"></script>
+    <script src="vignette.js" defer></script>
 </head>
 
 <body>
@@ -361,6 +365,25 @@
             </section>
 
             <!-- Universal Footer -->
+    <div class="card" style="margin-top: 40px; text-align: left;">
+    <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Navigating the Academic Calendar</h3>
+    <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
+        The UTeM Academic Calendar dictates the rhythm of your university life. Keeping track of key milestones is essential for academic success.
+    </p>
+    <ul style="color: var(--text-secondary); line-height: 1.6; font-size: 14px; margin-top: 10px; padding-left: 20px;">
+        <li><strong>Course Add/Drop Period:</strong> Usually the first two weeks of the semester. This is your only window to adjust your timetable without penalty.</li>
+        <li><strong>Mid-Semester Break:</strong> A one-week break typically occurring around Week 7 or 8. Use this time to catch up on assignments and rest.</li>
+        <li><strong>Study Week & Final Exams:</strong> The intense period at the end of the 14-week semester. Ensure you print your exam slip from SMP early.</li>
+    </ul>
+</div>
+
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
@@ -374,7 +397,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
-        </main>
+            </main>
     </div>
 
     <!-- Mobile Bottom Navigation Bar -->
@@ -477,16 +500,16 @@
     </div>
 
     <!-- Core Utilities & Translation -->
-    <script src="utils.js"></script>
-    <script src="translation.js"></script>
+    <script src="utils.js" defer></script>
+    <script src="translation.js" defer></script>
 
     <!-- Calendar Engine -->
     <script src="calendar.js?v=4.0"></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
-    <script src="ads.js"></script>
+    <script src="ads.js" defer></script>
 
 </body>
 

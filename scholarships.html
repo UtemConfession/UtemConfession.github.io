@@ -36,6 +36,10 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <!-- Custom Style System -->
+        <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="style.css?v=5.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -86,9 +90,9 @@
     ]
     </script>
     <!-- Monetag Popunder (1-Hour Cap) -->
-    <script src="popunder.js"></script>
+    <script src="popunder.js" defer></script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.js"></script>
+    <script src="vignette.js" defer></script>
 </head>
 
 <body>
@@ -239,7 +243,7 @@
                         <svg viewBox="0 0 24 24">
                             <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
                         </svg>
-                        Scholarship & Financial Aid
+                        <span id="titleScholarships">Scholarship &amp; Financial Aid</span>
                     </h2>
 
                     <p style="margin-bottom: 24px; line-height: 1.6; color: var(--text-secondary);"
@@ -1254,6 +1258,13 @@
             </section>
 
             <!-- Universal Footer -->
+    <!-- Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
             <footer>
                 <div>
                     <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
@@ -1267,6 +1278,7 @@
                     <a href="terms.html">Terms of Service</a>
                 </div>
             </footer>
+            
         </main>
     </div>
 
@@ -1370,14 +1382,14 @@
     </div>
 
     <!-- Core Utilities & Scholarships Logic Engine -->
-    <script src="utils.js"></script>
-    <script src="scholarships.js"></script>
-    <script src="translation.js"></script>
+    <script src="utils.js" defer></script>
+    <script src="scholarships.js" defer></script>
+    <script src="translation.js" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 
-    <script src="ads.js"></script>
+    <script src="ads.js" defer></script>
 
 </body>
 

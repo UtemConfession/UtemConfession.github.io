@@ -23,11 +23,14 @@
     var loadedSlots = {};
 
     /**
-     * Check if the slot should be blocked based on device class
+     * Check if the slot should be blocked based on device class or visibility
      */
     function isSlotBlockedByDevice(element) {
-        if (isMobile && element.classList.contains('ad-slot--desktop-only')) return true;
+        if (!element) return true;
+        if (isMobile && (element.classList.contains('ad-slot--desktop-only') || element.classList.contains('ad-sidebar'))) return true;
         if (!isMobile && element.classList.contains('ad-slot--mobile-only')) return true;
+        // Check if element or its parent is hidden
+        if (element.offsetWidth === 0 && element.offsetHeight === 0) return true;
         return false;
     }
 
@@ -35,6 +38,8 @@
      * Trigger AdSense push for a specific container.
      */
     function loadAdSenseAd(container) {
+        if (!container || isSlotBlockedByDevice(container)) return;
+
         // Find all <ins class="adsbygoogle"> inside this container that haven't been loaded yet
         var insTags = container.querySelectorAll('ins.adsbygoogle:not([data-ad-status="unfilled"]):not([data-adsbygoogle-status="done"])');
         
@@ -44,6 +49,7 @@
             
             if (loadedSlots['adsense_' + slotId]) continue;
             if (isSlotBlockedByDevice(container)) continue;
+            if (ins.offsetWidth === 0 && container.offsetWidth === 0) continue;
             
             loadedSlots['adsense_' + slotId] = true;
             try {
