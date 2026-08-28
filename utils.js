@@ -55,3 +55,25 @@ function escapeHtml(text) {
         .replace(/"/g, "&quot;")
         .replace(/'/g, "&#039;");
 }
+
+function syncStructuredTableLabels() {
+    document.querySelectorAll(".structured-table").forEach(table => {
+        const ths = table.querySelectorAll("thead th");
+        if (!ths || ths.length === 0) return;
+        const labels = Array.from(ths).map(th => th.textContent.trim());
+        table.querySelectorAll("tbody tr").forEach(row => {
+            row.querySelectorAll("td").forEach((td, index) => {
+                if (labels[index]) {
+                    td.setAttribute("data-label", labels[index]);
+                }
+            });
+        });
+    });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", syncStructuredTableLabels);
+} else {
+    syncStructuredTableLabels();
+}
+

@@ -2738,17 +2738,17 @@ footer {
     .structured-table tbody {
         display: flex;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
 
     .structured-table tr {
         display: flex;
         flex-direction: column;
-        background: rgba(13, 21, 39, 0.65);
+        background: rgba(13, 21, 39, 0.7);
         border: 1px solid var(--border-color);
         border-left: 3.5px solid var(--accent-gold);
         border-radius: 12px;
-        padding: 14px 14px 12px 14px;
+        padding: 14px 16px;
         gap: 6px;
         transition: border-color 0.2s ease;
     }
@@ -2758,47 +2758,62 @@ footer {
     }
 
     .structured-table td {
-        display: flex;
-        flex-direction: column;
-        gap: 2px;
-        padding: 0;
+        display: block;
+        padding: 3px 0;
         border-bottom: none;
         font-size: 12.5px;
-        line-height: 1.45;
+        line-height: 1.5;
         color: var(--text-secondary);
+        word-break: break-word;
     }
 
-    /* Route name (first cell) becomes card header */
+    /* Card header (first cell) */
     .structured-table td:first-child {
-        font-size: 14px;
+        font-size: 14.5px;
         color: var(--text-primary);
-        padding-bottom: 6px;
-        margin-bottom: 2px;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding-bottom: 8px;
+        margin-bottom: 4px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .structured-table td:first-child strong {
-        color: var(--text-primary);
+        color: #fff;
         font-weight: 700;
+        font-size: 14.5px;
     }
 
     /* Inline labels from data-label attribute */
     .structured-table td[data-label]:not(:first-child)::before {
         content: attr(data-label);
-        font-size: 10px;
+        display: block;
+        font-size: 10.5px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 0.5px;
         color: var(--accent-gold);
-        opacity: 0.85;
+        opacity: 0.9;
+        margin-top: 4px;
+        margin-bottom: 2px;
+    }
+
+    .structured-table code {
+        display: inline-block;
+        background: rgba(212, 175, 55, 0.1);
+        color: var(--accent-gold);
+        border: 1px solid rgba(212, 175, 55, 0.25);
+        padding: 1px 6px;
+        border-radius: 4px;
+        font-size: 11.5px;
+        margin: 1px 2px;
     }
 
     /* Frequency cell gets a subtle highlight */
-    .structured-table td[data-label="Frequency"] {
+    .structured-table td[data-label="Frequency"],
+    .structured-table td[data-label="Kekerapan"] {
         background: rgba(212, 175, 55, 0.06);
         border-radius: 8px;
         padding: 6px 8px;
-        margin-top: 2px;
+        margin-top: 4px;
         font-weight: 600;
         font-size: 12px;
         color: var(--accent-gold);
@@ -3329,3 +3344,23 @@ iframe[style*="position:fixed"] {
         font-size: 11px !important;
     }
 }
+
+/* ==========================================
+   CONFESSIONS ARCHIVE SPACING & CARDS
+   ========================================== */
+.archive-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.archive-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.archive-card:hover {
+    border-color: rgba(212, 175, 55, 0.35) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px -2px rgba(0, 0, 0, 0.3) !important;
+}
+

@@ -116,14 +116,19 @@ if (drawerOverlay) {
 document.addEventListener("DOMContentLoaded", () => {
     // Apply saved language
     setLanguage(currentLang);
+    if (typeof syncStructuredTableLabels === 'function') syncStructuredTableLabels();
 
     // Bind language toggle buttons
     const desktopToggle = document.getElementById("desktopLangToggle");
     const mobileToggle = document.getElementById("mobileLangToggle");
     const drawerToggle = document.getElementById("drawerLangToggle");
-    if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
-    if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
-    if (drawerToggle) drawerToggle.addEventListener("click", toggleLanguage);
+    const handleToggle = () => {
+        toggleLanguage();
+        if (typeof syncStructuredTableLabels === 'function') syncStructuredTableLabels();
+    };
+    if (desktopToggle) desktopToggle.addEventListener("click", handleToggle);
+    if (mobileToggle) mobileToggle.addEventListener("click", handleToggle);
+    if (drawerToggle) drawerToggle.addEventListener("click", handleToggle);
 
     // UTeM Live Campus Weather Fetcher (Open-Meteo API for Durian Tunggal / Ayer Keroh)
     async function fetchCampusWeather() {

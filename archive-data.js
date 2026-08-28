@@ -1,0 +1,945 @@
+// archive-data.js — Curated Confessions Archive Manual Dataset
+// Manually add, edit, or remove confessions here. No automatic fetching or external API required.
+
+const archiveData = [
+    {
+        archiveId: "ARC-20260726-097",
+        category: "Romance",
+        content: "taktau nak cerita kat siapa lagi, i broke up with my ex lama dah, and before i masuk utem he contacted me again. so we were back to being friends. while jadi kawan tu, i did developed my feelings towards him back. so since then, once in a while, i'd ask him, nak getback tak? sometimes he said not now, he'd say kalau jodoh ada, ada lah. this goes on for a year. for a year, he was treating me as if we were back together. most of the time, i yang update dia. then one day, before my flight balik, i ask him if he wanted to meet me. and he said if i am by the airport before 9 maybe he could sebab he has to go somewhere at 9. and we didn't met each other that day. on the airplane tu, i tanya la dia, if he ada niat nak getback dengan i. and he said no, and he was firm with his answer. and the most unexpected thing was, he told me dia dah ada girlfriend. that shatters me sebab everytime i chat, i'd ask if he was meeting or talking with someone new, so that i can leave and tak nampak beria but he'd say no everytime i asked. now idk, i'm hurting so bad. i've been crying non stop, and my chest feels heavy. idk why would he do this, giving hopes and all when he never wanted me back. kenapa someone sanggup buat camni eh, when all i ever did was giving love and i was changing myself for a better version compare dengan bila we started our relationship. i even took the blame when he told me i was the problem, when i forgave him for meeting his ex behind my back. where did it go wrong lol",
+        reply: "↳ sebenrnya mcmni la, once dh break tu dia punya prinsip mmg takkan getback. kalau ada pun yakin ke mmg kekal nk getback? tah tah putus balik. so biar la dia dgn kehidupan baru dia. sy nasihatkan utk awak ambil masa utk fikirkan balik apa manfaat yg awak dapat daripada tu. apa matlamat hidup sebenar awak. lpstu ambik masa utk tenang seketika. then just focus for your future life. i doakan semoga i dpt partner yg baru and dijodohkan hingga akhri hayat. stay strong sis :)",
+        emotion: "Heartbroken",
+        tags: "ex, getback, harapan palsu, patah hati, girlfriend baru, luahan, romance",
+        date: "2026-07-26 23:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-096",
+        category: "Romance",
+        content: "guys, i need your advice what should i do. so actually i have crush on my guy friend. idk maybe the way he act towards me makes me have a crush on him. i dont want to confess bcs I don't want to confess bcs it's gonna be soo awkward. and dia pin pernah mention like, dia mmg nak kawan je dia tak plan nak cari gf kat sini apa semua. as org yg dengar dia cakap mcm tu, it quite break my heart but apa yg aku bole buat selain angguk je apa yg dia cakap. fyi he got his own type and probably not me tho. but deep down, I wish i could be his fav girl. wishing that we could meet all day, sekejap pun tak pe la. tpi apa kan daya. so I need some advice what should I do? like should I just keep this feeling? hmm",
+        reply: "↳ Okay. What i can advise is you kena berlapang dada dengan benda tu. Yeah i know it's hard. But if you terus menerus berharap yg dia akan suka you, nanti benda ni boleh buat you gila. Benda ni boleh hancurkan hidup you. Jejaskan pelajaran you. Ha semua tu lah. Jadi saya berharap you cari la yang lain so that he will be your partner one day. Takpe. Ambik masa dulu untuk tenangkan diri. Then you just focus for your future life. Saya pun ni jela yang saya boleh bagi kat awak. Saya doakan semoga awak jumpa la crush idaman awak yang sememangnya ditakdirkan deserve pun untuk awak. Stay strong awak.",
+        emotion: "Heartbroken",
+        tags: "crush, kawan lelaki, unrequited love, confess, patah hati, nasihat, romance",
+        date: "2026-07-26 22:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-095",
+        category: "Question",
+        content: "nak tanya, kalau nak apply sticker kenderaan (moto) , nak kena tunggu masuk sem baru dulu ke? I means kena tunggu hari waktu ii tertentu ke baru boleh apply? faham tak? (saya student year 2 sem 1 soon)",
+        reply: "↳ tunggu masuk sem kot, takpun lepas result. try check smp, dia dah kira awak y2s1 ke belum. kalau dah, cuba mohon sticker. hehe harap membantu\n\n↳ nk apply sticker kt mana?? klu y2s1 nk apply sticker for kereta bole ke\n\n↳ pergi dekat smp, kat menu depan tu kan ada spku. tekan spku tu n nanti dia guide macam mana nak mohon. syarat mohon sticker pulak, kalau y2s1 boleh apply moto je. y2s2 baru boleh mohon kete. tu pun kena pilih salah satu, takleh dua dua. harap membantuu",
+        emotion: "Curious",
+        tags: "sticker kenderaan, moto, spku, smp, y2s1, y2s2, peraturan, utem",
+        date: "2026-07-26 22:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-094",
+        category: "Romance",
+        content: "tak sabar nak jumpa crush",
+        reply: "↳ tazzaba jugek nk jumpe diooooo\n\n↳ Tak sabar nak dengar crush citer pasal crush dia (crying inside)\n\n↳ kenapa relatable sangat ni\n\n↳ hmm tak sabarnya nak eliminate crush punya crush\n\n↳ Me hater af sebab my crush aktif mencari but she doesnt see me as candidate.. dah kena cop as guy best friend..\n\n↳ dont be around the people who doesn’t see your value… i dunno who you are but i know you have the heart (no homo shii)",
+        emotion: "Excited",
+        tags: "crush, jumpa crush, friendzone, lawak, romance",
+        date: "2026-07-26 21:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-093",
+        category: "Question",
+        content: "nak mintak pendapat. adik bongsu i sangat sangat biadab + pemalas. kalau tegur atau mintak tlg sikit terus melawan. bak kata dia, ' respect needs to be earned' . dia nak makan mahal, I belanja. nak camera, nak baju, semua i belanja. sikit pun i tak pernah berkira. parents i pulak enabler. for example, i tegur dia jangan campak mainan dekat anak buah ( 10 bulan) sebab mainannya keras, nanti kena, sakit. dia terus melawan ya. mak i pulak marah i. disebabkan dia dah kurang hajar, of course la i dah tak belanja TAPI parents i pulak terus belikan sebab kesian. mak i suruh dia mandi pun dia melawan tau in a rude manner. i dah tegur pun dia tak terima. macam mana ek? I dah slow talk lepastu dah stop belanja dia barang tapi tak jalan. ke nak biarkan je sebab dia tengah going through puberty.",
+        reply: "↳ for me, u tegur je dia..kecik kecik ni kita kena lentur dia. jangan biarkan dia macamtu\n\n↳ aku stuju yg \"respect needs to be earned\" tapi utk context ni aku tk stuju la sbb kan kita dah layan dia cukup baik dah, lebih drpd tu pun ada, cuma dia je yg makin menjadi jadi, so mmg kita marah la klu dia tk hormat kita, sbb apa yg dia nk semua kita dh bagi kan, apa lagi yg tk ckup, ayat yg respect bla bla bla fu terpakai klu let say before this kita selalu berkasar dgn dia then kita expect dia respect kita, tu valid gak la klu dia nk kata camtuh",
+        emotion: "Conflicted",
+        tags: "adik bongsu, biadab, keluarga, parents, respect, nasihat, luahan",
+        date: "2026-07-26 20:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-092",
+        category: "Rant",
+        content: "semalam member bersikeras nak bawak balik kucing masuk bilik. aku cakap sejam, dua jam jela, nanti dia berak susah. lepastu dia degil tau, dia biarkan kucing tidur dalam bilik. pastu pagi tadi kucing tu berak kat tempat aku. pet lovers pun, common sense la sikit. ko bukan nya duduk sorang tau. sakit hati aku. dah sound terdiam pulak. orang dah cakap tu tolong la dengar, kalau tak boleh, jangan hidup bermasyarakat.",
+        emotion: "Anger",
+        tags: "kucing, roommate, hostel, kolej kediaman, common sense, pet lovers, rant",
+        date: "2026-07-26 19:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-091",
+        category: "Rant",
+        content: "Kalau perempuan tu nak berkawan dengan lelaki… dan kalau lelaki dia benarkan… dan kalau mereka bahagia… kenapa awak yg bising? Jealous? Its healthy to be able to make friends with boundaries. If you dont learn how to handle friendships, are you sure you can handle relationships?",
+        reply: "↳ Tulah xtau dia bising apa tu jst admit gold digger la plus suka2 ckp org public toys, dia sendiri pon xsedar dia pon ada problem jgk mmg double standard",
+        emotion: "Frustrated",
+        tags: "friendship, boundaries, kawan lain jantina, double standard, relationship, luahan",
+        date: "2026-07-26 19:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-090",
+        category: "Advise",
+        content: "Teguran\n\nKalau nak bercakap atau bergurau, fikirkan dulu perasaan dan maruah orang lain. Jangan sebarkan RUMOURS tentang kawan sendiri dan jantina lain dalam kalangan yang sama tanpa rasa bersalah atau fikir tentang kesannya.\n\nJangan terlalu SHOWOFF sebab ada followers banyak yg bangkit kau kat uni ni . DONT SEARCH FOR SYMPATHY .Hormati maruah dan perasaan orang lain. Tunjukkan kematangan melalui sikap, bukan dengan menjatuhkan imej orang lain di hadapan orang lain.Semua orang nak nama baik juga kat uni ni bukan shj kau seorang",
+        emotion: "Helpful",
+        tags: "teguran, rumours, maruah, showoff, followers, uni, etika",
+        date: "2026-07-26 18:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-089",
+        category: "Question",
+        content: "korang tahu tk negeri mana paling bahagia",
+        reply: "↳ asal bro? kau nak pindah negeri ke bro\n\n↳ KEDAHH\n\n↳ konoha paling bahagia\n\n↳ Mana lagi? Melaka lerr\n\n↳ random ya amatt\n\n↳ negeri hok ada kepok\n\n↳ Macam kenal je ayat ni...Ni abang rooney melaka ke?\n\n↳ Kelateyy lahhh... Sek kito jange pecohh🫂🫂🫂\n\n↳ Halamak semak dohh muncul negeri sungai teh ais ni",
+        emotion: "Funny",
+        tags: "negeri paling bahagia, kedah, melaka, kelate, konoha, lawak, perbincangan",
+        date: "2026-07-26 17:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-088",
+        category: "Advise",
+        content: "hi… sapa ii yg basuh baju or keringkan baju dekat dobi please set timer sebb org lain nak guna jugak also kalau rasa ada guna mesin basuh or dryer please jgn tinggalkan lama ii and buat org tertunggu tunggu",
+        emotion: "Helpful",
+        tags: "dobi, mesin basuh, dryer, hostel, kolej kediaman, etika, utem",
+        date: "2026-07-26 16:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-087",
+        category: "Question",
+        content: "weh serious nak tanya ni berbaloi tak kerja cashier dekat station minyak? sebab selalu dengar org cakap kalau duit short kena potong gaji lepastu short bukan sikit ii selalu beratus",
+        reply: "↳ ye sangat benar nk2 pulak kau plg muda patu coworker yg lain semua toxic tambah lagi bos pp muda belum kawin mmg diorang pijak je kau nnti\n\n↳ haduh betul la ek, tempat lain memang tak dapat keja nii sebab taknak ambik student",
+        emotion: "Curious",
+        tags: "cashier, stesen minyak, part time, potong gaji, kerja, nasihat",
+        date: "2026-07-26 16:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-086",
+        category: "Romance",
+        content: "A man’s first flowers are on his funeral.",
+        reply: "↳ You want flowers or sum?\n\n↳ I want to know what it feels like to be loved for the first time",
+        emotion: "Sad",
+        tags: "flowers, funeral, love, quote, perasaan, luahan",
+        date: "2026-07-26 15:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-085",
+        category: "Funny",
+        content: "Dah jangan gaduh aku hensem jom kapel",
+        reply: "↳ You will be my biggest mistake\n\n↳ The biggest beef steak ?? 😍😍",
+        emotion: "Funny",
+        tags: "hensem, kapel, lawak, funny, jenaka, random",
+        date: "2026-07-26 14:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-084",
+        category: "Rant",
+        content: "Idk why sekarang ni rasa sunyi . Rasa macam kosong . Gi kelas just termenung and takda rasa langsung nak belajar. Balik bilik duduk atas katil rasa macam takda life. And benda ni buat aku penat sumpah penat . Aku setiap malam menangis tanpa sebab sedih tanpa sedih hopeless. Nak meluah dekat kawan un susah sebab semua tak boleh percaya sumpah penat. Aku banyak kali rasa nak tangguh sem sebab kan bends ni🥲 sumpah aku penat. Dengan classmate macam apa kawan sendiri tikam belakang . Kena Hina macamtu je dengan diorang tanpa aku buat salah pun dengan diorang. Aku penat lahh fikir banyak bends setiap hari setiap malam sumpah penat",
+        reply: "↳ just ignore jelah orang yang tikam kau tu and just focus on your studies. one thing yang kau kena tahu, you got no one to depend on other than yourself. jangan luah apape dekat kawan sekelas kalau masalahtu melibatkan org dlm kelas yang sama. trylah luah dkt kawan other than your classmates circle, at least dorg tk kenal siapa yang kau borak tu. and try utk tak terperap dlm bilik, petang2 pergilah jogging ke apa kat tasik tu sambil sumbat telinga ngko guna earbuds dengar lagu. takyah nak rasa awkward sngt sbb briskwalk sorg2, no one will judge you. all the best\n\n↳ Be useless, so no one can use you",
+        emotion: "Depressed",
+        tags: "burnout, sunyi, mental health, tangguh sem, tikam belakang, luahan, emosi",
+        date: "2026-07-26 13:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-083",
+        category: "Romance",
+        content: "Saya ada crush kat girl bestfriend saya. Selalu kongsi duka cita dia bersama saya. Tapi rasanya dia tak nampak saya sebagai seorang calon, walaupun dia aktif mencari. Harap sebelum grad nanti dia akan sedar selama ni saya sanggup menggadaikan masa dan tenaga saya setiap kali dia mengajak buat apa2 dengan kawan2 dia.",
+        reply: "↳ Saya doakan semoga awak dijodohkan dengan crush idaman awak tu.. semoga awak dan crush awak tu dapat berkahwin dan kekal bahagia hingga ke jannah.. marilah kawan ii sama ii kita doakan utk si OP ni.. Aamiin Aamiin Ya Rabbal Alamin.",
+        emotion: "Heartbroken",
+        tags: "crush, best friend, friendzone, grad, luahan, romance",
+        date: "2026-07-26 13:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-082",
+        category: "Random",
+        content: "sorry FOMO…curious kaki XO tu apa",
+        reply: "↳ x-ooo, x-oooo, kiss meeeeee dont let gooooo\n\n↳ xo u the typa girl to really heal my scar",
+        emotion: "Funny",
+        tags: "fomo, kaki xo, meme, lawak, tiktok, random",
+        date: "2026-07-26 12:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-081",
+        category: "Question",
+        content: "Guys welp....\nNo one wants to hire for 2 months availability \nSome people say, don't tell them that you're temporary, pretend like youre a full timer then leave as per notice required\nI did that at my previous job, it didn't end well\nCan someone pls suggest what to do. I need job 😫",
+        reply: "↳ apply la online jgk astu filter part timer , kt indeed , jobstreet n other job platform. selalunya kalu gi walk in diorg bkn nk sgt pun accept . + bila part time flexible je aku okay je time nk masuk ckp keje 2 bulan lebih but bila dh keje rse nk berhenti so keje sbulan lebih je. diorg pon okay tk kesah\n\n↳ Not many job at my area💔",
+        emotion: "Anxious",
+        tags: "part time, cuti sem, kerja kosong, job hunting, student, nasihat",
+        date: "2026-07-26 11:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-080",
+        category: "Question",
+        content: "gaji part time memang sikit ke ? penat penat kerja sebulan, 900 je gaji i ? elaun parents i bagi lagi banyak kot. should i berhenti je ?",
+        reply: "↳ yes let others who in need do the part time\n\n↳ Unfortunately benda ni not regulated so memang kerja part time mana2 underpaid sebab mereka tahu students ramai setakat nak kerja je. Tapi kalau sebagai duit extra macam tu je la yg mampu…\n\n↳ yes, you should berhenti and just stay under jagaan parents. dasar budak tak bersyukur.\n\n↳ kau kerja apa and berapa hari and jam kau kerja ?\n\n↳ korang memang tak pernah nak try kerja kat kilang ke? gaji sehari rm100+ kalau OT kalau tak OT rm80+- tgk kilang ada yang kerja sampai weekend sebulan boleh dapat rm2.5k+- kalau nak cuti pun agent tak kisah\n\n↳ area aku susah nk dapat kilang..cane nk dapat means kau cakap kau tengah cuti sem ke?\n\n↳ kat facebook banyak orang cari part time kat kilang, dia tak kisah pun kau cuti sem ke apa, kau nak kerja seminggu je pun takpe\n\n↳ area mana tu",
+        emotion: "Curious",
+        tags: "part time, gaji, kewangan, kerja kilang, elaun, student, perbincangan",
+        date: "2026-07-26 10:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-079",
+        category: "Rant",
+        content: "I'm gonna be honest. If we already agreed to go out just the two of us, don't just add someone else last minute.",
+        reply: "↳ I'm not comfortable with it because I'm not close to that person at all. And obviously someone's gonna feel left out.\n\n↳ If you wanted to invite someone, you should've told me before buying the tickets. Not after. \nWe agreed it was just going to be us two.\n\n↳ But you didn't even ask me. You just told me after everything was already decided and paid for.\n\n↳ Now the tickets are bought so I guess we're stuck with it. Korang faham tak? haih tak suka la macam ni",
+        emotion: "Annoyed",
+        tags: "friendship, outing, third wheel, tickets, kawan, luahan, rant",
+        date: "2026-07-26 10:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-078",
+        category: "Funny",
+        content: "Macam mana nak berak dengan tenang eh, aku takut aku berak member leh dgr, malunya",
+        reply: "↳ pegi mampos dgn telinga orang , kasi letup jamban\n\n↳ Weh real doh... Mcm mn doh korang berak aku lati gi tandas bawah blok kalau tau sakit perut... Hahahah\n\n↳ Same problem bro/sis. Paling teruk tandas saya tu flush tak function. Memang susah 💩 nak clear sepenuhnya dok 5 minit tekan flush tu 😭\n\n↳ letak air dalam baldi then tuang..mudah🗿",
+        emotion: "Funny",
+        tags: "tandas, berak, hostel, kolej kediaman, roommate, lawak, funny",
+        date: "2026-07-26 09:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260726-077",
+        category: "Question",
+        content: "am i wrong for feeling this way ? so last week was my birthday so i asked my family if they could come since i havent seen them for so long and they have only come here once during 2025, my parents said no eventho my father work from home and my mom is a housewife. it only took 2 hours from my house to utem bro. but then my bf asked me if i want to celebrate my birthday with his family ( it was his father who offered ), i said yes and his family drove 4 hours to utem just to see me, they bought so many things for me and even tapau extra food for me to take to hostel. so i feel like i love my bf’s family more rather than mine. and mind you i have lived with my family for 19 years and they never celebrated my birthday and i have known my bf’s family for only 2 years…",
+        reply: "↳ It’s not wrong for you to feel that way ngl. There’s a saying, the blood of the covenant is thicker than the water of the womb. Which means the close friends or comrades, even family you choose are stronger and more important than the family you were born into. So don’t sideline your family, but do recognise that the relationship you have with your bf’s family is closer than you have with your parents. I wish you the best :)\n\n↳ Pengorbanan 19 tahun mak ayah tak boleh ditukar ganti dengan kemewahan sehari dari orang luar. Sentak fikiran tu sebelum kau menyesal tak berlagu.\n\n↳ you dont know anything about what i have been through, i had to get a part time just so i could afford to continue my study here, they werent even there for me emotionally and physically, kat rumah kitorang dah macam housemate je, dulu aku sekolah rendah sampai smk aku gi sendiri jalan kaki, parents tak bagi keluar or kerja langsung and i had to sneak out just so i could do weekend job. kau dapat family yang elok, kau diam je.",
+        emotion: "Conflicted",
+        tags: "birthday, family, boyfriend, parents, luahan, trauma, relationship",
+        date: "2026-07-26 08:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-076",
+        category: "Rant",
+        content: "Salam BPH kepada budak budak diploma baru yang manja , budak budak yang melalui zaman tak boleh kena marah sikit pon dgn cikgu.. budak budak yang tak boleh kena rotan skit pun dgn cikgu.. salam wutoh kepada anda , selamat datang ke dunia sebenar. Dunia yang tidak dapat dimanjakan sepertimana anda dahulu.. wutoohhhhhhh",
+        reply: "↳ - inilah hasil daripada sistem pendidikan kita yang lemah , budak budak jadi lembek\n\n↳ - yedok .. harap nanti klau lect tolak markah pun tak direport la kt mak bapak diorang HAHAHAH²",
+        emotion: "Anger",
+        tags: "bph, diploma baru, junior, manja, dunia sebenar, rotan, utem, rant",
+        date: "2026-07-25 22:40",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-075",
+        category: "Question",
+        content: "Wei asal korang x blik lgi dowh..blikla best sgt ke utem tu",
+        reply: "↳ For me best... Sebab balik rumah... Rumah pun x de apa... Nak cari kerja time cuti ni kat kawasan situ... Pekannya pun dah hampir jadi pekan mati.",
+        emotion: "Curious",
+        tags: "balik kampung, sem break, utem, kerja cuti, kolej, student",
+        date: "2026-07-25 21:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-074",
+        category: "Question",
+        content: "korang , nak tanya pendapat korang la kalau korang kt tmpt aku , korang rimas tak parents korang asyik video call kita ? hari hari dia akan vc , and bila tak angkat dia akan spam ii gila mcmtu ? tkdela kadang time kita rehat seharian ada class , takpun time weekend kita baru nak rehat hmmm , salah ke kalau rasa rimas hmm , kalau chat ok je reply part video call cam hmm , kalau call biasa ok lagi .",
+        reply: "↳ rasanya diorang rindu sebab tu nak video call . syukur ada parents yang nak video call boleh rant out problems, lepaskan beban study, masalah dekat uni, but if betul2 penat just angkat and kata nak tido kejap sebab baru habis class, they’re your parents should be communicate dengan diorang\n\n↳ ya i pun serba salah kalau tk angkat ,tapi i kalau tk angkat time tu , bila i dh free i akan vc balik, tapi perlu ke hari ii vc tu hm, kalau betul rindu call chat pun bole , bukan tk suka vc but kene kurangkan bukan harhari betultak ke i salah juga :)\n\n↳ Hargaila selagi masih ada nnti dh tkde rindu 😔\n\n↳ Gf/ Bf, kawan ii vc mesti ko x rasa semak kan. Hari ii pun takpe\n\n↳ pandai kondem je ,isu dekat sikit pasal family nk ckp anak tu yg problem , cuba kau duduk stable dgn dia , apa yg dia hadap dgn family dia , mesti ada sbb dia jadi camtu . dh kalau ckp vc bf gf kawan sendiri pun aku semak lol",
+        emotion: "Conflicted",
+        tags: "parents, video call, vc, rimas, keluarga, rindu, luahan, perbincangan",
+        date: "2026-07-25 20:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-073",
+        category: "Random",
+        content: "i recently heard a beautiful saying and i cant get it out of my head because of how meaningful it is, it goes something like this..\n\ndu bist gut genugg uuu\ndu bist gut genug uuuooouuu",
+        emotion: "Funny",
+        tags: "du bist gut genug, saying, quote, lawak, random",
+        date: "2026-07-25 19:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-072",
+        category: "Rant",
+        content: "tak sabar nak habis degree. memang aku delete semua nombor, tukar no, i do not care about connection or kenalan dah. nak start life baru, with my new self. kalau boleh pindah bumi memang aku pindah dah😭",
+        emotion: "Frustrated",
+        tags: "degree, habis degree, cut off, no contact, burnout, utem, rant",
+        date: "2026-07-25 18:20",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-071",
+        category: "Rant",
+        content: "Dear housemate kesayangan... pinggan mangkuk yg letak dkt sink tu dah seminggu kat situ.. bila nak cuci? Kotoran tu susah sgt ke nak keluar yg nak rendam berminggu².. kang aku ambil buang pinggan mangkuk tu :)",
+        emotion: "Annoyed",
+        tags: "housemate, pinggan mangkuk, sinki, cuci pinggan, pengotor, hostel, rant",
+        date: "2026-07-25 17:10",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-070",
+        category: "Romance",
+        content: "Late night thoughts. Aku ada minat sorang ni dari ftmk, bukanlah minat tapi tertarik la gak. Banyak kali pernah nampak dia dulu then lama tk nmpak. Tapi sem ni nampak semula. First nampak dia kat fakulti ftmk dengan lelaki aku tk pasti tu bf dia ke apa. Kedua aku nampak dia kat dewan canselor. Aku just tertanya la patut ke kali ketiga aku terus approach dia. Aku nak sangat kenal dia, tapi kalau tu bf dia how ya? Takut pulak aku kena cop pervert. Perempuan boleh bagi pendapat tak",
+        reply: "↳ Nak tanya jugak tiap kali awak terserempak dgn dia tu, brp kali je awk nmpk dia dgn lelaki yg awk sebutkan tadi tu?\n\n↳ Tak sure, sebelum ni aku ingatkn random guy. Jadi dia cam samar ii. Sem ni aku baru perasan that guy actually jalan dengan dia HAHAHAHAH². Selalu dia jalan sorg la atau dgn laki tu. Tapi nampk mcm kawan do. Tapi aku respect je, hnya perlu kan pendapat mcm mana aku nk tahu ni. If given the opportunity, nak berkenalan ja. Itu sahaja\n\n↳ kalau nampak dia lagi bang, cuba cari sebab untuk tegur dia. jatuhkan kertas bersepah ke HAHAHAHAH² pastu start la conversation tanya tahun berapa semua. the rest kau stalk sendiri",
+        emotion: "Curious",
+        tags: "crush, ftmk, approach, dewan canselor, pervert, tips kenal, romance",
+        date: "2026-07-25 16:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-069",
+        category: "Advise",
+        content: "As we grown up we could learn that even kita sayang org tu sangat ii tak bermaksud kita perlukan org tu untuk hidup sometimes its just a happy memory to be remembered,bukan benda yang patah tu pekara buruk dan bukan benda yang menjadi tu elok, at the end of the day kita je tahu perasaan sendiri, apa yg kita nak dalam hidup ni tapi tak bermaksud kita boleh selfish in treating others cause everyone deserve an explanation and not confusion , fact will hurt us but at least kita tak menipu dia ataupun tinggalkan dia dalam kekeliruan tanpa jawapan menyiksa dia untuk cari jawapan sendiri while lying hurt both parties and confusion, delaying truth takkan ubah fact it just make things worse cause org ingat kita just doing fine takde masalah langsung, remember decide it for yourself ( not in a selfish way ) not keep peace tapi untuk preserve kebahagiaan masing ii",
+        emotion: "Helpful",
+        tags: "life lesson, moving on, perhubungan, maturity, matang, nasihat, luahan",
+        date: "2026-07-25 14:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-068",
+        category: "Romance",
+        content: "Ada kenalan aku ni boyfriend dia gentelman gila sanggup ulak alik KL untuk jumpa kawan aku.. Tapi itu la aku tengok kawan aku macam tak hargai dia je",
+        reply: "↳ pastu kau nak tolong hargai dia ke ?\n\n↳ Ada niat jugak la laki boyfriend dia kaya",
+        emotion: "Funny",
+        tags: "boyfriend, gentleman, kl melaka, hargai, kaya, lawak, relationship",
+        date: "2026-07-25 13:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-067",
+        category: "Random",
+        content: "hci semalam ok tak",
+        reply: "↳ tak okay la sayang :( i tktahu apa yg i tulis panjang ii tu dpt marks ke tak.. sedih laa baby jom la dating ☹️👉🏻👈🏻",
+        emotion: "Funny",
+        tags: "hci, human computer interaction, exam, paper, dating, lawak, fskkp",
+        date: "2026-07-25 11:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-066",
+        category: "Romance",
+        content: "apa perasaan korang kalau dapat kawan yang kuat judge your boyfriend? okay bf i dia sangatlah green flag , memahami , provider , and all lah . but the thing is they would shame my bf because of his looks. dorg akn cakap “kau memang taknak pusing pusing dulu ke?” ya because dia chubby sikit or “weh dia pendek doh atleast carilah laki tinggi 10cm dari kau” since beza tinggi kitorg tk bnyk and bagi i , i love my bf walau apa sekali pun because to me personality and how he treats me comes first before looks. kadang tu macam sedih sebab aku yang nak kat dia tapi kenapa la orang lain sibuk pasal laki aku haih salah ke kalau i sayang dia sebab diri dia?",
+        reply: "↳ da terang terang kwn kau tu hangat hati dgn kau.. dok berkwn lagi kenapa? kalau sbb xde pilihan lain tu.. biar kan jela dorg nk ckp apa pon.. da kau pon syg kan kat bf kau.. mamposkan je apa dorg nk ckp.. tapi kalau aku.. aku da cari surroundings baru dah.. penay hadap org org yg bangga diri ni.. tk bersyukur and tk supportive dgn kwn sndiri..",
+        emotion: "Frustrated",
+        tags: "boyfriend, kawan, body shaming, green flag, rupa, relationship, luahan",
+        date: "2026-07-25 10:20",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260725-065",
+        category: "Rant",
+        content: "Serabutnya roommate ber-vc 24/7, melekat dgn bf 24/7, dhla x pakai earphone, gelak kuat2. Sumpah annoying.",
+        reply: "↳ Setuju. Common sense lh wey. Respect each other\n\n↳ ye wey dh la loudspeaker, dgn aku geli dgr kau syg beby…sumpah xde common sense siak\n\n↳ Why bebi ii ek kenapa tk cinta hati ke buah hati ke sayang ke? Sorry off topics\n\n↳ 🐽🐽🐽🐽🐽🐽\n\n↳ 🐒🐒🐒🐒🐒🐒\n\n↳ Aku harap orang yang vc 24/7, xpakai earphone,gelak macam bontot kena rodok batamg panjang gila babi ni kan, bf kau curang dengan kau,pergi check in dengan orang lain lepastu telinga kau hilang dua2 pendengaran hilang. Aku harap masa kau nak pergi kelas ada kereta nak langgar kau dan fon kau jatuh pecah screen. Aku harap next sem kau dapat roommate yang kepam gila babi sampai kau masuk rambut kau terurai and kau terus muntah macam kena santau\nI hope both sides of your pillow are warm today.\nI hope your sleeves get wet the next time you wash your hands.\nI hope you have to write a captcha every time you text/message someone.\nI hope there's always one less step on the stairs than you expect.\nI hope you constantly fumble things the first time you reach for them.\nI hope the pockets of your jeans are large enough for a phone, but tight enough so it's uncomfortable when you walk.",
+        emotion: "Annoyed",
+        tags: "roommate, video call, vc, bf, earphone, hostel, kolej kediaman, rant",
+        date: "2026-07-25 09:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-064",
+        category: "Romance",
+        content: "Aku ada classmate kan handsome and i have a crush on him, tiap jumpa tu selalu eye contact dengan dia, tapi dia ada girlfriend \nTapi he always stare at me like he notice something🙂 or am I just being too delulu😭",
+        reply: "↳ Tu ko syok sendiri tu",
+        emotion: "Funny",
+        tags: "classmate, crush, eye contact, girlfriend, delulu, lawak",
+        date: "2026-07-24 23:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-063",
+        category: "Funny",
+        content: "if sambal tempe tauhu bang mirul has a million fans , then i am one of them.\n\nif sambal tempe tauhu bang mirul has ten fans , then i am one of them.\n\nif sambal tempe tauhu bang mirul has only one fan , then that is me.\n\nif sambal tempe tauhu bang mirul has no fans , then that means i am no longer on earth.\n\nif the world is against teh sambal tempe tauhu bang mirul , then i am against the world.\n\ni love sambal tempe tauhu bang mirul 💚💚💚💚",
+        emotion: "Funny",
+        tags: "sambal tempe, bang mirul, copypasta, makanan, cafe utem, lawak, funny",
+        date: "2026-07-24 22:50",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-062",
+        category: "Romance",
+        content: "even when my partner shows his effort and how much he loves me. there is still a doubt yang dia belum move on 100% dngn first love dia cuz theyve been tgther for 5y. whats wrong wif me",
+        reply: "↳ breakup. it with haunt you forever.",
+        emotion: "Anxious",
+        tags: "relationship, first love, move on, doubt, insecure, luahan",
+        date: "2026-07-24 22:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-061",
+        category: "Question",
+        content: "hi so if you are \"ldr\"-ing with your partner and you want on the phone more with them to spend time and getting closed to each other and they replied with \"texting ni bukan spend time ke\" how would you feel?",
+        emotion: "Curious",
+        tags: "ldr, relationship, call, texting, spend time, komunikasi, pasangan",
+        date: "2026-07-24 21:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-060",
+        category: "Romance",
+        content: "can we have back that sweet relationship, without arguing about gender, takde yang betul takde yang salah. can we have back a man yang willing to give anything, like romeo juliet, like cinderella n her prince. the story about cinta pandang pertama. jujur aku cakap, internet ruins everything. standard ruins everything. in my mind, a pair of lovebirds can love each other no matter what. without fikir rupa, money, responsibility, standard, even attitude. im sorry to my ex, but my way of thinking might be stuck in 1800s cause i dont have social media. i read novels with romeo juliet theme. i refused to grow up with mentality kebanyakan orang malaysia sekarang ni.",
+        reply: "↳ Percaya la nanti Ada org type \"delusional\" Or \"dia dgn dunia fantasy dia\" Or \"Gila skrg dh 2026\".\n\n↳ hmmmm. theres a tiktoker named tomi and stats. iykyk. ramai orang joke sebab relationship dorang sangat healthy. and here we are, asyik asyik gaduh pasal gender. for god sake, can we be positive? bring back healthy relationship, without fikir mana betul mana salah. kalau buat salah, sama sama betulkan. its the problem vs the relationship. bukan salah person tu. aku bukan nak jadi terpaling, but im sick of this war. my ex break up with me pun sebab taknak discuss sama sama. so toxic as fuck. i wanna a man with romantic mindset in 1800s. bukan gaduh sebab ikut standard internet.",
+        emotion: "Heartbroken",
+        tags: "relationship, romeo juliet, romantic, standard internet, toxic, cinta, luahan",
+        date: "2026-07-24 20:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-059",
+        category: "Rant",
+        content: "lelaki tak suka ehh kalau kita jadi childish dengan dia? jadi budak budak, innocent, buat buat tak tahu sebab nak dia ajar kita? lelaki tu my bf but now dah jadi ex. dia kata kita buat dia macam patung but tbh kita memang tak tahu apa apa. i childish sangat sangat depan dia. dengan orang lain pun kita innocent je, iye kan je, cause i was raised up not to speak up when something happen. sometimes kita nak kawan atau partner yang baddie yang boleh protect kita when im danger hmmm. i am too innocent sampai tak boleh bawak diri. ada partner pun dia tinggalkan kita. ada kawan pun dorang cakap annoying. i refuse to act like adult actually cause i have no childhood. so i act very childish around my (ex) and put my brain aside just for him to protect me. but i guess i need to act like adult kan even i dont want to? :) im 24 but i treat myself and people like im 10 years old. idk how and why. side effect childhood trauma and anti depressant meds kot. (i miss my ex but i hate him cause he made me worth nothing)",
+        reply: "↳ and why each time i buat salah, i kena pukul (by fam), kena hukum, kena finggal (by my dad, my ex). takleh ke teach me baik baik? 🤕 i never got teach dengan baik thats why i have to go psychologist to just understand what happen. ahhhh shit. this is my safe place to vent so dont judge",
+        emotion: "Heartbroken",
+        tags: "childish, trauma, relationship, ex, mental health, luahan, emosi",
+        date: "2026-07-24 20:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-058",
+        category: "Advise",
+        content: "fyi, psychologist also can help with our anger issue and ego control. so kalau rasa ego dia tinggi sangat sampai rosakkan relationship, can go to couples therapy. (my parents cerai because of this btw. gen boomer parent mana reti benda ni, so they just act apa yang dorang rasa betul) so as new gen, we should normalize this action. kalau betul sayang relationship tu, slow slow belajar. especially lelaki. ;) ps : advice from utem counsellor btw. i went there after that broke up, and its healed me so muchieeee yeaaa",
+        emotion: "Helpful",
+        tags: "psychologist, kaunselor utem, therapy, anger issue, ego, relationship, mental health",
+        date: "2026-07-24 19:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-057",
+        category: "Question",
+        content: "kenapa korang risau sangat partner korang ada kawan lain jantina? my bf kawan perempuan keliling pinggang, keluar makan semua, keluar badminton. i okay je. boleh buat kawan lagi dengan dorang cuz i dont have many kawan perempuan, but he's friendly and ramah mesra alam, so i just make friends with em too. korang ni trust issue sangat. cuba positive. just because he or she is your partner, doesnt mean they need to avoid others. just trust each other, and kalau nak keluar tu, just bagitau, \"i keluar dengan dia dia, be home at sekian sekian sekian\"",
+        reply: "↳ oh my ex that claim i treated him like patung tu need to read this openly. sampai lupa habis semua treatment dan hadiah beratus aku bagi. aku pulak innocent. orang nak buat apa pun, aku iyekan je. lepas tu taknak fight langsung untuk relationship. jadi baik dan innocent je tak cukup, kena jadi cantik dan ada standard baru lelaki pandang. kena mintak benda mahal mahal, baru lelaki rasa nak fight untuk kita to satisfy their ego, betul tak?\n\n↳ actually , kalau situation nya macam tu . I will be fine tapi tak. situation dia tak sama langsung. tak kesah pun kalau dia nak kawan dengan gender apa pun tapi if i need him pls ada dengan i tapi tidak. time i ada masalah, dia lagi prioritize kan kawan pp dia. dia boleh dengar kawan dia but not me.\n\n↳ da kalau begitu perangai laki awak.. tinggal je la.. simple\n\n↳ right, betul . tinggal je but kalau dah sayang tak senang juga kan ?",
+        emotion: "Curious",
+        tags: "partner, boyfriend, kawan perempuan, trust issue, relationship, perbincangan",
+        date: "2026-07-24 18:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-056",
+        category: "Romance",
+        content: "aku baru break up dengan ex aku yang relationship 3 tahun. sumpah aku rasa down gila and tak faham kenapa perlu dia buat macam tu plus keep pushing me away. dah la nak final and aku lonely :( valid ke perasaan sedih aku ni ?",
+        reply: "↳ it's okay, your feelings are valid. all feelings are valid, but you have to learn to regulate your emotions. lagi lagi dah week 14 ni, don't let it affect your study. go healing, kadang tak perlu jalan jalan pun, treat yourself a good food pun is a part of healing. keep that in mind, that all the external issues, doesn't have anything to do with you, sometimes it's just them who couldn't commit to you. yet it wasn't your fault at all (with self reflect). work on yourself, do better and be better for you. you got this! i wish you well.\n\n↳ 🌺 : thankyouu for advice ❤️ btwwww akuu adaaa somethingg nakk ceritaaa. after a long time fikir nangis semua, now aku dah berani kan diri untuk block dia kat semua tempat hehe. cuma tu la still ada rasa nak unblock lagi hm. i keep asking why dulu aku susah nak block dia, sebb aku nak dia tengok aku akan okay tanpa dia. tapi sebenarnya tak :(\n\n↳ no worries, well done. im so proud of you! just do anything what feels right to you at this time, you only live once, there's nothing to regret. if kau rasa atm talking to him can make you feel lega or stalking him, then do it. sampai kau rasa penat and you had enough of him. at the end of the day, you'll realize that you really can live without him, and you're way stronger than you thought.",
+        emotion: "Heartbroken",
+        tags: "breakup, ex, 3 tahun, final exam, lonely, healing, nasihat, sokongan",
+        date: "2026-07-24 17:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-055",
+        category: "Romance",
+        content: "aku penah kenal sorg laki ni, dia baik sangat dengan aku, orgnya penyabar & suka senyum walaupun aku sakitkan hati dia. Tapi yg bodonya aku betray dia sebab time tu aku tengah talking stage dengan lelaki lain. Bf aku layan aku mcm sampah mmg tak sama mcm org yg aku betray ni dulu layan aku. Now, bila aku cari dia balik & tahu-tahu dia dh ada gf. Lagipun dia org besar skrg kat sini manalah nk pndg org mcm aku ni",
+        emotion: "Heartbroken",
+        tags: "romance, menyesal, betray, talking stage, karma, relationship, luahan",
+        date: "2026-07-24 17:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-054",
+        category: "Question",
+        content: "cane korang boleh ada relationship banyak kali eh? masa tengah cpl tu korang memang tak fikir untuk jadikan dia suami/isteri korang ke?",
+        reply: "↳ tk sbb mase mula mula dating dah tunjuk prngai  😁\n\n↳ bukan. itu talking stage namanya. maksud aku dah cpl setahun dua, lepas tu break. lepas tu cane seseorang individu tu boleh ada rasa lagi nak start dengan orang baru? bukan ke true love tu hanya datang sekali? sorry kalau cringe. broken ni\n\n↳ BAHAHAHAH FAHAM, tak dia kadang kita rasa mcm oky kot if try for a second time. nk pulak klau break tu bukan salah ko, move on jela and ofc makan masa. tkdela lepas break terus cpl lgi\n\n↳ gitu ye? susahla nak move on. kawan diploma aku dah break 7 tahun lepas dengan first love dia, sampai sekarang dia asyik menangis. aku dah nampak aku akan jadi macam dia bahahaha\n\n↳ 😄.... kalau dah 7years to maybe serious issue tpi lain org lain la masa dia amik soo follow the flow je and if kau tk ready nak open to new person, dont do it.\n\n↳ baik. maceh semua atas nasihat",
+        emotion: "Curious",
+        tags: "relationship, couple, move on, true love, first love, kahwin, perbincangan",
+        date: "2026-07-24 16:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-053",
+        category: "Romance",
+        content: "Aku rindu ex aku tapi dia dah ada someone new, aku nk fix korang **** laa",
+        reply: "↳ buat fake acc sebgai perempuan, ko text bf baru dia bang. pastu kalau bf baru dia layn ko ss chat tu hantar kat ex ko. dorang break ko gi text ex kau gi fix\n\n↳ Baek do aku nak try cara ni\n\n↳ ss chat tu hantr kat ex pakai fake acc kau sebagai pompuan, bukn diri sebenar ko 😂\n\n↳ wait wait. salah ke kalau lelaki layan chat perempuan. like hai, tanya khabar semua. aku perempuan tapi aku tak rasa salah if my bf did that\n\n↳ Dh try do korang, bukn bf ex aku pon talking stage je. Laki tu layan aku sakan do. Cukup seminggu aku confess kat laki tu. wkwkkwkwkww\n\n↳ HAHAHAH² I HATE MY EX FINAL BOSS 😭 kalau dah gb roger dalam ni, kalau kena reject nak gb sia sia je 😭😭",
+        emotion: "Funny",
+        tags: "ex, rindu, fake account, breakup, revenge, relationship, lawak",
+        date: "2026-07-24 15:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-052",
+        category: "Rant",
+        content: "aku faham je korang nak tengok bola... tapi boleh diam kot sial... ni dah kul 3 jangan la nak mekak... korang bukannya dekat mamak sibat",
+        reply: "↳ takyah duduk hostel la bingai klu takde common sense. duduk luar, kau nk menyalak mcm anjing pun takde sape kesah\n\n↳ kalau betul nak jadi gempak kena ada common sense bro... kau bising kat mana ii tempat tinggal pun kalau 3-4 pagi memang orang akan marah... antara dia tegur kau atau tak je... dah sambung degree dah masing ii bukannya budak ii sakai lagi dah... lain kali orang tu tegur cara baik ke cara kasar ke terima je sebabtu salah kau... yang menegur tu jaga bahasa lain kali jangan habis semua orang kau nak sial kan... muhasabah diri masing ii",
+        emotion: "Anger",
+        tags: "tengok bola, bising, hostel, kolej kediaman, common sense, tengah malam, rant",
+        date: "2026-07-24 14:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-051",
+        category: "Romance",
+        content: "kalau niat dari awal hanya untuk berkawan..jangan buat aku rasa aku ni special...kau buat aku rasa aku ni penting untuk kau..kau layan aku betul betul macam kau nak aku..tapi end up \"just friend\" aku ingat aku yang paling dekat..rupanya ade yang lagi dekat...and kalau rasa diri tu belum move on jangan laa kau cari orang lain..kau heal dulu betul betul...perbuatan dengan percakapan tu kalau boleh biarlah selari",
+        emotion: "Heartbroken",
+        tags: "just friend, friendzone, harapan, move on, heal, perhubungan, luahan",
+        date: "2026-07-24 14:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-050",
+        category: "Horror",
+        content: "Wei spe ade cite2 seram dkt kolej utem ni..spill dowh🙏🏻🙏🏻alang2 tgh bosan ni",
+        reply: "↳ tklah seram mna tpi aku prnah bau mcm lauk kenduri wktu amik bola futsal time mlam, mmng bola tu ngam2 kt hujung skali sbelah dngan pagar kebun, lpas pada tu klau main mlam aku akan naik ats kalau bola yng aku sepak jatuh bwah, sorry selfish tpi aku tknk kawen dngn bunian",
+        emotion: "Curious",
+        tags: "cerita seram, kolej utem, bunian, futsal, mistik, hantu",
+        date: "2026-07-24 13:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-049",
+        category: "Horror",
+        content: "takde sape ke ada experience benda seram kalau lalu laluan pku and laluan tangki tu especially malam malam, curious jugakk laa if anyone pernah experience boleh sharee aa citeee",
+        reply: "↳ -haritu ilek je aku lalu sorang2, tapi bunyi2 pelik tu memang ade tak tahu binatang apa tapi bising ar\n\n↳ - haritu lalu sebelah tangki tapi dalam 2 3 orang. tengah dok borak2 gelak2, aku perasan macam ade something dari jauh. Nampak macam pontianak pun ada.. tapi diam je sebab tak nak member yang lain cuak kan.. bila dah dekat sekali solar yang kat tepi tuu. Harey buat cuak je 😭🤣\n\n↳ nama pon hutan memang la bunyi gitu. x habis ii ngan hantu\n\n↳ pernah lalu situ sorang sorang pukul 10 lebih cemtu, nampak ada orang berhenti tepi tiba tiba lepastu dia ikut je jalan belakang sekali. memang dengar bunyi dia jalan, sekali pusing belakang kosong wey, takde orang pun 😔😭",
+        emotion: "Scared",
+        tags: "seram, laluan pku, laluan tangki, pontianak, hantu, malam, utem",
+        date: "2026-07-24 12:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-048",
+        category: "Horror",
+        content: "Finally histeria in utem?",
+        reply: "↳ kadang kadang seram dengan budak utem ni, asik menjerit macam kene rasuk, kadang tu tak kira pagi ke petang ke malam ke asik menjerit je\n\n↳ gelak mengilai mengalahkan kak ponti, seram pulak, kadang confuse tu manusia ke hantu",
+        emotion: "Scared",
+        tags: "histeria, utem, rasuk, menjerit, pontianak, kolej, seram",
+        date: "2026-07-24 11:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-047",
+        category: "Funny",
+        content: "saya cakap kawan pompuan saya comel...skrg saya dh overthinking... tapi saya tak suka dia.. tapi dia mmg comel.. patutke saya ajak dia kawen lepas degree?",
+        reply: "↳ why not? mana tau lekat\n\n↳ Pagi tadi kau ada minum air ketum ke ?",
+        emotion: "Funny",
+        tags: "kawan perempuan, comel, kahwin, degree, overthinking, lawak",
+        date: "2026-07-24 11:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-046",
+        category: "Rant",
+        content: "Terdesaknya aku nk duit beli makan sampai rasa nak jual diri, kalau bole kerja mmg nk kerja but asyik kena reject je... Tambah pula takde tenaga ni... Haih",
+        reply: "↳ - as someone yang have a strict diet, if you nak eat something yang jimat and kenyang lama , i suggest you eat 2 boiled eggs ( hard or soft based on what you prefer ), non-sugar green tea from BOH ( add half teaspoon of honey ), and 1 cup of protein shakes ( i use one from bella khann yang pea protein powder ). \ni makan this once a day je and my stomach was full for the whole day, but if lapar sangat, eat fruits or have meal yang banyak protein and make sure have sayur banyak also",
+        emotion: "Depressed",
+        tags: "duit, makan, lapar, jimat, kerja sambilan, kewangan, luahan",
+        date: "2026-07-24 10:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-045",
+        category: "Romance",
+        content: "Lama tak nampak my bita crush ☹️ Maybe dia takde paper that's why dah tak nampak dia dekat cafe with his 2 friends ☹️",
+        emotion: "Sad",
+        tags: "crush, bita, cafe, exam, rindu, romance",
+        date: "2026-07-24 09:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-044",
+        category: "Romance",
+        content: "apa nak buat kalau laki kau banyak kawan pp",
+        reply: "↳ bt bt tk nmpk jee\n\n↳ “Laki kau” . Awal ye clarify 😅\n\n↳ apa yang awal clarify ni ? dah memang laki aku 😭. nak buat buat tak nampak pun sakit hati dah ni.kawan dia pulak lawooo dik\n\n↳ makan gepuk\n\n↳ cuba slow talk dgn dia.. kalau sama je.. cuba main tarik tali.. mana tahu baru dia rasa bini dia bebtul srs\n\n↳ ko punya situasi sama mcm aku, cuma kita terbalik, ni awek aku yg ramai kwn laki, aku dh slow talk ngn dia pastu dia kata dia nk break🤣 then dia ckp dia nk berubah🫪🗿\n\n↳ entah la,ni dah kali ke berapa tah kata nak berubah. sama je aku tengok\n\n↳ tinggal je cari lain dia tak berubah sebab dia tau dia buat camtu pon ko takkan tinggalkan dia\n\n↳ cuba kau buat banyak kawan laki. pastu tengok dia rasa mcm mana😈😈\n\n↳ aku baru ada sorang pun dah bising macam apa je , serabuttttt\n\n↳ kau ungkit la balik yg dia ada kawan perempuan banyak boleh pulakkk. halahh2. lepastu teruskan je berkawan sbb dia pun tk kesah pasal kau punya perasaan buat apa kau nak kesah perasaan dia",
+        emotion: "Frustrated",
+        tags: "husband, suami, kawan perempuan, cemburu, relationship, luahan, nasihat",
+        date: "2026-07-24 08:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260724-043",
+        category: "Question",
+        content: "Ada tak yang pernah parents datang ambil pkl 12 malam? Boleh keluar gate kampus tak?",
+        reply: "↳ nak keluar gate takde curfew, masuk je yang ada curfew before 12, suruh parents dtng before 12am pastu keluar la bila2",
+        emotion: "Curious",
+        tags: "parents, gate kampus, curfew, keluar malam, peraturan, utem",
+        date: "2026-07-24 08:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-042",
+        category: "Random",
+        content: "depan masjid ni construction nak buat apa? besarkan masjid eh?",
+        reply: "↳ Disco halal",
+        emotion: "Curious",
+        tags: "masjid, construction, utem, disco halal, lawak, kampus",
+        date: "2026-07-23 21:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-041",
+        category: "Rant",
+        content: "I fucking hate group work teammates useless as fuck last minute workers and some KNOW they have no time until last minute but STILL dont do work even though there are WEEKS before submission 😒 PLEASE make assignments solo i swear to god bruh",
+        reply: "↳ ko request je delete nama ii walaun tu dkt lect\n\n↳ honest question. Anyone ever did that, delete teammate member name? I thought about it tapi takut nak buat .. rasa bersalah sangat..\n\n↳ pernah je buat, tapi like takdela buang nama dia, still letak, cuma kau inform la kat madam/sir yang dia tu takde contribute apa ii, biasa nya aku merahkan nama dia dalam group project\n\n↳ Ada je, memang bagitau lecturer dulu. Pastu tengoklah camne, selalunya lecturer ni lagi suka kalau kau report budak free rider yang x tau rasa malu. HAHAHAHA. X buat kerja ada hati nak dapat markah. Kita ni bukan bibik atau butler diorang ye, so jangan rasa bersalah.\n\n↳ Meh,imo as long as they do their job and deliver before due date idc how late they do their part.But if it blocks others works/others depend on their work being done but theyre blocking others then Ill start getting mad and serious.\n\n↳ aku dulu share file dalam gp ada nama dia, tapi submit yang takde kalau kantoi n dia kena kejar ngan lecturer aku bluetick je MUAHAHAHAHA mampos lo puas hati aku.\n\n↳ ^yg atas ni saya tak faham sangat. Macam mana kantoi kena kejar lecturer? Kena report ke ?\n\n↳ kita share file assignment yang ada nama freerider dalam gp ws, tapi submit kat ulearn yang takde nama dia. dia pun huhahuha ingatkan nama ada pastu rupanya nama takda n kena kejar ngan lecturer sebab dikira tak hantar HAHAHAH sebab kadang lecturer ni lepas tangan ada yang \"masalah group kamu pandai ii selesaikan\" so kita buat cara sendiri. takat ni rate 10/10, siap hiburan hujung sem tengok freerider meroyan.\n\n↳ While I dont condone freeriding,I feel like its a bit harsh,just include their name but let the lecturer know that they're freeriding,make sure to provide proof,then whatever happens to them is up to the lecturer,so you'll be free of the burden of whatever sins and it won't backfire back to you.\n\n↳ nah, consequences.",
+        emotion: "Frustrated",
+        tags: "group work, assignment, freerider, teammates, lecturer, ulearn, rant",
+        date: "2026-07-23 19:40",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-040",
+        category: "Rant",
+        content: "lelaki lepak lewat malam = healing\nperempuan lepak lewat malam (even sorang) = liar, 'meminta'\nlelaki friendly = baik\nperempuan friendly = murah\nlelaki vape, rokok = cool, style\nperempuan = liar\nlelaki defend perempuan = gentleman\nperempuan defend lelaki = pick me\nwhy the double standard? mana gender equality? and i try to be perfect, dengan niat ikhlas buat baik kat semua orang, with both girls and boys, tua muda, but when it comes buat baik with my kawan lelaki, aku dilabel pickme? i mean i just treat all people the same regardless of their title and gender😮💨apa lagi tak puas hati?",
+        reply: "↳ perempuan lepak berdua = bestie\nlelaki lepak berdua = gayism",
+        emotion: "Frustrated",
+        tags: "double standard, gender equality, pick me, healing, luahan, rant",
+        date: "2026-07-23 17:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-039",
+        category: "Horror",
+        content: "nak bertanya kpd sesiapa yg ada pengalaman horror/sihir.. klau sya mimpi keluarga lgi2 ibu & kakak sya (selalu kene kacau) kene rasuk.. ada tak kemungkinan mimpi tu nk tunjukkan sesuatu yg akan berlaku kat rumah? sya risau sngt kluarga kat rumah lgi2 ibu sya.. selalu kene buat org.. brp tahun dah hadap smpai skrang.. tak habis2 org yg sama dengki & hntar sihir kat ibu sya.. kadang2 ibu nk solat pun xdpt habis sbb pengsan kesian ibu sya😭 Ya Allah jahat nya manusia",
+        emotion: "Scared",
+        tags: "horror, sihir, mimpi, keluarga, rasuk, misteri, luahan",
+        date: "2026-07-23 15:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-038",
+        category: "Romance",
+        content: "its actually a bit fun watching your ex thinking you will miserable without him, thinking i will regret what i did. ngl his reaction motivates me to do better and improve my life. and to my haters that secretly stalking my life, youll be fine. just watch me grow, boy. oh how i love if my ex read this",
+        emotion: "Confident",
+        tags: "ex, breakup, glow up, haters, motivation, relationship, romance",
+        date: "2026-07-23 13:50",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-037",
+        category: "Random",
+        content: "Klau kena block semua tempat nk cri kat mana mm",
+        reply: "↳ email. shopee. tng. zus. grab. game. kawan. surat pos. nak tak nak je. (btw saya dah buat ni semua kat my bf (now ex), sorry bad testimoni. tapi tak cuba tak tahu. goodluck",
+        emotion: "Curious",
+        tags: "block, contact, shopee, tng, zus, ex, relationship, lawak",
+        date: "2026-07-23 11:20",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-036",
+        category: "Funny",
+        content: "Kenapa anjing di panggil anjing tak dipanggil babi",
+        reply: "↳ Sbb apa\n\n↳ Sebab babi tu ex aku",
+        emotion: "Funny",
+        tags: "anjing, babi, ex, teka teki, lawak, funny, jenaka",
+        date: "2026-07-23 09:40",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260723-035",
+        category: "Rant",
+        content: "Selamat pagi kepada semua kecuali yang seen mesej tak reply, groupwork tak contribute, pinjam duit tak bayar balik, lepas tolong mintak duit, hanya cari kita time exam, freerider all the way, dan yg mengelak kita lepas cari geng baru",
+        emotion: "Annoyed",
+        tags: "selamat pagi, freerider, groupwork, kawan, sindiran, etika",
+        date: "2026-07-23 08:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-034",
+        category: "Rant",
+        content: "macam tak fair je tinggal barang2 (cop tempat) dekat meja kerusi cushion library tu, tapi datang lambat… orang lain nak jugak duduk situ.. datang awal2 kul 7:30, barang nya ada, tuan takde sebab cop tempat dari semalam. report kat staff kang",
+        emotion: "Annoyed",
+        tags: "library, cop tempat, perpustakaan, etika, utem, rant",
+        date: "2026-07-22 23:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-033",
+        category: "Question",
+        content: "i cant do this anymore. nak berhenti utem je rasanya ni. why bila nak study je, rasa tak semangat, tak masuk brain, rasa sedih, takut. what if nobody proud of me bila grad nanti? cause i cant be proud of myself. cane eh korang korang yang cakap just go with the flow ni? when i ask others, ramai yang cakap \"aku sendiri taktau apa aku buat. aku taktau aku jawab apa. main bantai\" but still managed to got gpa 3.0 😭 while me every subject i just got D with gpa bawah 3 every fcking sem",
+        reply: "↳ - urmm ignore other people opinion first of all, just go hard for yourself always thinking positive not negative, just take care of yourself first before other people, its hard to remember all thing, but you understand yourself better, its has to be a method that only yourself can understand, try it, make it better, and go through with it, maybe with Allah SWT rezeki you will get it, if not keep on sabr, its will be good someday we will never know rezeki coming to us in many ways.",
+        emotion: "Frustrated",
+        tags: "study, gpa, berhenti utem, exam, burnout, akademik, nasihat",
+        date: "2026-07-22 22:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-032",
+        category: "Romance",
+        content: "korang , boleke aku nak meluah :) my bf curang dgn i and now i still bagi can kat dia untuk berubah and fix , and now dia layan i mcm nak tanak but i still syg relay ni and nak fix baik ii , please tegur and nasihat i baik ii supaya i sedar dari relay ni :)",
+        reply: "↳ kau rela ke nak habiskan masa masa berharga kau dgn org mcm tu? ok la second chance tu okay je.. tapi kalau da dia tk bg effort sepenuh nya.. xpayah la wei.. kau tu perempuan ada value diri.. cuba kau cari hobby lain.. or improve urself.. atleast nnti kalau kau da berjaya.. kau yg dpt nama.. bf kau tu tkdpt apa n rugi lagi ada.. value urself gerl please laa.. sakit mmng sakit.. tapi lagi sakit kalau kau tunjuk kau lemah.. pull urself together",
+        emotion: "Heartbroken",
+        tags: "relationship, boyfriend, curang, second chance, nasihat, luahan",
+        date: "2026-07-22 21:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-031",
+        category: "Rant",
+        content: "sekadar nk meluah...\naku rindu zaman kt skolah dulu, aku rindu zaman kt matrik dulu, sebab dulu aku aliran sains tulen slalu buat eksperimen(tu yg aku rindu), tpi skrg masuk sini main ngan komputer je, aku bukan tk suka course yg sekarang ni, tpi aku tk minat jugak sbnrnya, dia cam so-so je, ok je, tapi since dia bukan minat aku yg sebenar, aku kinda payah nk faham subjek² dlam course ni, and aku tk rajin nk fahamkan pun, haih, aku kesian kt orang yg dpt aku dlm assignment grup dorang, sbb aku mmg akan 100% guna AI, sbb aku mmg tk bleh nk buat sndiri, aku just akan try to make sure jwpn tu tk nmpk trlalu AI, tu je la, now Im wondering, did I made a right choice changing my stream? hm",
+        reply: "↳ aku pun macam tu. rasa kesian sebab tak dapat faham assignment. last last rendah diri. i guess hmmm itsokay kot as long as kita try. idk what to say but im here with you🫂\n\n↳ hi i pun dulu dip science stream. dulu after i habis study mmg i plan nak cari kerja. but you know what, kerja berkaitan bidang sains memang susah sangat2 utk you secure job in any position. unless kalau you ada kabel then senanglah. agak bertahun i cari kerja bidang i tau, tpi masih takde rezeki. berpuluh company i apply untuk job position yg sama dengan bidang i tapi still tkde rezeki. mmg malaysia tak banyak job oppurtunity dlm bidng sains, lelagi mcm forensik smuatu. so after that, i buat research job market, i tukar ke bidang science comp. gaji starter pun tinggi (bukan 1500). kalau awak rasa nak give up and stop tengah jalan, better jangan. mungkin you akan struggle sekarang time study tpi percayalah after you grad nnt and dh kerja, ianya tak sesusah and struggle mcm masa belajar. nak berjaya and senang mmg kena banyak berkorban. 🥲 for now i suggest you try to catch up as much as you can, and fikir pasal org sekeliling you yang support you. cari kawan yang pandai and mintak dorg ajar you. im sure you can do it. ❤️❤️\n\n↳ thankss, your words means a lot🥲, and sebenarnya aku tau science stream tu tk bnyk job demand kt malysia, that's the main reason knapa aku tukar ke sns comp, tpi tula, haih, tkpela kan, susah2 skrg je tpi at least job lebih secure in the future",
+        emotion: "Conflicted",
+        tags: "course, computer science, sains tulen, assignment, luahan, kerjaya",
+        date: "2026-07-22 20:50",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-030",
+        category: "Rant",
+        content: "i've been feeling so lost. my shampoo and conditioner are running out, and lately i can't stop thinking about committing suicide",
+        reply: "↳ same. i cant help bcs im going through the same thing, but pls know that there are ppl that loves you dearly. pls take care\n\n↳ Bro i got shampoo sia. Aku beli tahun lepas and tak habis lagi. Baru pakai like 10 times. Pastu aku basuh rambut pakai antabax je 🤣🤣\n\n↳ this is not about shampoo laa iyk. op telling that everything is running out",
+        emotion: "Depressed",
+        tags: "mental health, lost, shampoo, luahan, sokongan",
+        date: "2026-07-22 20:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-029",
+        category: "Advise",
+        content: "kat pku ada ke assessment untuk adhd? just nak tahu prosesnya",
+        reply: "↳ no. pku is just a polyclinic. adhd is a mental issue. go to general hospital, tempat yang actually ada pakar, psychiatrist and psychologist. go to jabatan psychiatric and ask those nurses at the counter abt adhd assessment. i promise theyll guide you\n\n↳ yup. thats right. tapi still boleh pergi ke pku for referral letter to psychiatric. or else, boleh pergi kk berdekatan for referral letter\n\n↳ pku (for DASS and see if the doctor can refer you to psychiatric) > bring the letter to jabatan psychiatry > the doctor there will decide if you need meds or not > sometimes refer you to cp (clinical psychologist) for behaviour and therapy treatment. utem's counsellor pun boleh give little help. they have kerusi urut, games, books there to relax mind for a while. just dont simply you have adhd if not diagnosed clinically",
+        emotion: "Helpful",
+        tags: "pku, adhd, kesihatan mental, kaunseling, psikiatri, klinik",
+        date: "2026-07-22 19:10",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-028",
+        category: "Romance",
+        content: "no man would leave his girl kalau dah betul betul sayang kan",
+        reply: "↳ unless u guys leave a sign for him to give up\n\n↳ why give up? why? why dah bagi hati lepas tu give up? why tak stay je? why?\n\n↳ memang la dah bagi hati. dahtu kalau tak dihargai buat apa nak stay? orang bagi hati lawa, tapi hancurkan macam takde nilai. baik amik balik hati tu and blah. kau ingat lelaki patung?\n\n↳ masalahnya dah hargai dia sebaiknya. dah buat macam macam. pentingkan diri dia daripada diri sendiri. tak mintak duit dia. dah belanja dia macam macam. dahtu, nak buat apa lagi? nak sampai i bagi dara ke hah? i boleh bagi kalau dia nak. suruh stay je tu pun susah ke? nak hargai macam mana lagi?\n\n↳ may i never found the man yang langsung takde sifat empathy lol. i sanggup sakit untuk orang, haiwan yang i sayang. sanggup buat apa saje. always say \"takpe\" just to feel love. nak duit? nak hadiah? nak dara? fine ambik je. yes, call me a loser. i am that person :(\n\n↳ korang kena tahu value diri korang sendiri and always set your own limit, like dah besar kan takkan taktahu mana yang betul mana yang salah ke korang terlalu desperate sangat nak dapat kan attention? i mean once dah nampak yang dia berubah, bagitahu je direct like tanya why dia berubah, kita ni manusia biasa bila-bila je hati tu boleh berubah, so if dia betul-betul serious ofcourse dia akan berubah balik and tak lakukan kesilapan sama, kalau dia still menyakitkan hati and keep doing the same mistake, so maksudnya korang kena terima yang dia taknak teruskan hubungan tu, lelaki sifat dia mengejar bukan di kejar, so kepada girls yang kat luar sana tu please jaga diri baik-baik and kalau boleh nak cari pasangan tu biar betul-betul tahu perangai pasangan korang tu macam mana sebenarnya. banyak je lagi lelaki baik kat luar sana tu cuma dorang tengah busy improving diri masing-masing and takde masa nak focuskan dekat sesuatu yang belum pasti.\n\n↳ aku taknak lelaki baik. dan aku tak pernah mintak untuk dia jadi baik. abah aku sendiri pun kaki pukul, kau ingat aku layak ke nak mintak lelaki baik? like i said, aku sanggup sakit untuk orang aku sayang. mental and physical. yes, take it. by the way, terima kasih atas nasihat. dont mind me yapping here. i dah lost myself, sangat sangat sangat jauh. sebab tu Allah larang kan? :( for him, aku tak salahkan dia for leaving me, tapi aku salahkan diri sendiri sebab sayang dia more than everything. aku tinggalkan kawan, keluarga sendiri untuk dia.\n\n↳ apa yang awak nampak dekat dia? sampai sanggup buat semua perkara tu like is it worth it?",
+        emotion: "Heartbroken",
+        tags: "relationship, putus cinta, sayang, luahan, patah hati, perbincangan",
+        date: "2026-07-22 18:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-027",
+        category: "Question",
+        content: "Yo js nk tanya utem strict sgt ke color rmbut sbb malas nk color balik",
+        reply: "↳ kalau tak menyerlah sangat takpe kot. aku colour chestnut brown tak pernah plakk kena tegur ke apa. aku rasa utem paling tk strict bab pemakaian semua ni",
+        emotion: "Curious",
+        tags: "warna rambut, etika pakaian, utem, peraturan, kampus",
+        date: "2026-07-22 17:25",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-026",
+        category: "Question",
+        content: "Nk tanya, korang kalau tengok orang perempuan selalu sorang-sorang(Alone), korang cakap apa",
+        reply: "↳ means dia hebat. sometimes dia memang sengaja push me people away. in her own world. kalau nak tegur tu, just say hai. but she will be very observant (kot) depends on people. like me ehee",
+        emotion: "Curious",
+        tags: "perempuan, introvert, alone, tegur, pandangan, sosial",
+        date: "2026-07-22 16:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-025",
+        category: "Funny",
+        content: "Please lah boti ii jangan minat aku, aku suka perempuan lah siau",
+        reply: "↳ Owh perasannnyaaaaaaaaaaaaaaa\n\n↳ Bang aku pornah kena chat dengan boti bang saya pun takutt 😭😭\n\n↳ utem ramai ke boty boty?\n\n↳ utem tk tahu lh sebab aku bukan gay ke apa tpi aku sebagai lelaki baik melayu,cina,india hensem like fr plus perfume sedap gila nak tanya pakai perfume apa tpi mcm malu lahi sekali AKU BUKAN GAY\n\n↳ alah benda boleh straight to point perfume apa pakai, macam nmpk acah tk gyHAHAHA",
+        emotion: "Funny",
+        tags: "boti, utem, straight, perfume, lawak, funny",
+        date: "2026-07-22 15:40",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-024",
+        category: "Romance",
+        content: "kenapa ego lelaki senang tercabar ye kalau kita ajak berbincang? lepas tu senang salah faham.",
+        reply: "↳ Kene tgk jgk cara kita interaksi or communicate dgn org tu, dari segi nada apa semua tu la, lagi satu maybe dia ada trauma dia di masa lalu which is dia dipulaukan diitu dan diini, so sbb tu la dia tu nmpk mcm egoisitk\n\n↳ oh macam tu. kita ni baran. tapi satu side rasa nak ubah diri, satu side tu rasa nak orang terima kita seadanya. tapi dua dua ego hshshhss",
+        emotion: "Curious",
+        tags: "relationship, ego, komunikasi, lelaki, perbincangan, emosi",
+        date: "2026-07-22 14:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-023",
+        category: "Question",
+        content: "Nak tanya, berbaloi ke ambil sem khas? Satu subject berapa ye? Usually sem khas ni berapa lama?",
+        reply: "↳ sem khas ada 10 minggu, pastu tak silap yuran macam sama je kot\n\n↳ Sempat ke tak balik atau memang tak sempat?\n\n↳ memang takkan balik 😅",
+        emotion: "Curious",
+        tags: "sem khas, short sem, yuran, akademik, subjek, utem",
+        date: "2026-07-22 13:00",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-022",
+        category: "Rant",
+        content: "hmmmm not hate being with family. but penatla hari hari kena force myself being fake. yesterday we went to kenduri kawin then jumpa their family. her niece or someone kat sana borak borak with my mom. then said to her that i pendiam and then my mom said yang cara dia cakap way matang than me despite dia one year younger than me. like, yes, im introvert, and sangatla penat untuk borak dengan orang. but i force la jugak untuk berborak, asking about study, intern n all. ambik her nombor untuk tunjuk effort berkenalan tu. kena jadi fake for the rest of this sem break😮💨😮💨",
+        reply: "↳ Relax ur not alone cuz i hv experienced abt this case yeah. Rasa mcm klu ada family gathering ke kenduri ke apa ke malas nak pergi sbb klu pergi pun nnti kita yg dipinggirkan lpstu kene burukkan pun kadang ii ada. Dpn sedara mara bkn main baik mcm malaikat tp bila dgn aku mmg mcm sial sumpah. Aku klu blh nk cut off terus so yeah.",
+        emotion: "Frustrated",
+        tags: "family, kenduri, introvert, sem break, luahan, emosi",
+        date: "2026-07-22 11:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-021",
+        category: "Romance",
+        content: "kaum pp saya nk tanya , kalau bf korang ada 2 device dia guna , korang overthinking tak ? and latest ni dia ada kes kantoi curang hm .. jgn marah saya ckp baik ii pls",
+        reply: "↳ if i was in your shoes pun saya akan overthinking, tapi hmm nak buat macam mana awak curang tu pilihan. and if korang baru je together.. nasihat saya jangan terlalu sayang sangat kat dia, because you know orang kata once a cheater, will always be a cheater. and apa apa pun jadi in the future, semoga awak kuat yeee\n\n↳ fyi kiteorg dh together dkt 2years dh :)\n\n↳ hmm kalau dah two years ni tipu lah kan kalau kata tak sayang... tapi recently dia ada ke macam act suspiciously ke? atau macam hint hint yang dia tu curang. kalau takde, inshaallah takde apa kut. tapi awak jaga jaga jela eh, even dah 2yrs together.. takboleh expect apa sangat from cheaters",
+        emotion: "Anxious",
+        tags: "relationship, boyfriend, curang, overthinking, nasihat, cinta",
+        date: "2026-07-22 10:20",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-020",
+        category: "Advise",
+        content: "ada tak yang pernah struggle dengan jerawat tapi sekarang dah okay? cuba bagitau pakai ape penat dah macam ii aku cuba",
+        reply: "↳ treatment clinical aesthetic. doctor tu bagi accutane\n\n↳ hi, i pun amik accutane, dah dua kali. srs muka licin, if u amik facial treatment lagi cepat result dia. cuma end up mungkin dia datang balik, cam i sebabtu kena amik twice. dah tahun kedua dahni. and cons accutane ni banyak so kena fikir banyak kali awak nak amik ke tak. side effects dia teruk, contoh kalau pregant mum dia tak kasi amik sebab anak boleh cacat, sebab tu under doctor. so risky sikit amik, tapi kalau acne awak teruk gila doctor biasa akan suggest amik la :)\n\n↳ you amik accutane kena bayar berapa sebab tak silap i dia mahal kan 🥲🥲\n\n↳ haah pricey sikit, i dah try dua clinic beza tak jauh harga. first clinic accutane sahaja rm280, and dia bagi antibiotic rm150, exc facial treatment. sec clinic dia bagi accutane sahaja monthly rm300 camtu kot, based on berapa biji dia bagi...tapi i dengar klinik kerajaan pun ada provide, u boleh try tanya. cuma i suggest kalau tak teruk sangat acne mungkin kena fikir balik sebab i agak nyesal kena repeat huhu, banyak side effects, period dah jadi tak on time gila, bibir darah mata kering, rambut gugur jugak kadang. tapi acne i memang teruk alhamdulillah sekarang dah okayy, tengah habiskan dose bulan terakhir :D",
+        emotion: "Helpful",
+        tags: "skincare, jerawat, acne, accutane, klinik, rawatan muka, kesihatan",
+        date: "2026-07-22 09:10",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260722-019",
+        category: "Question",
+        content: "Assalam tumpang tanya memang setiap tahun or setiap sesi memang subject yang diambil tu memang berubah ii eh.. means budak tahun 1 sesi 25/26 punya subject tu tak sama eh dia punya subject dengan budak tahun 1 sesi 24/25 walaupun sama course?",
+        reply: "↳ ada subject open setiap sem, ada jugak yang open dua sem sekali je. kena tengok demand subject tu. contoh kau nak repeat subject yang kau ambil masa tahun 1 sem 2, tapi tak open masa tahun 2 sem 1. jadi kau kena ambil tahun 2 sem 2. gitu. incase la kalau memang nak ambik subject tu boleh try minta tolong PA.\n\n↳ Oh faham cuma tu lah saya just tanya sbb sem ni saya ambik subject discrete structure.. btw saya tahun 1 bitc.. and then saya ada la jugak tanya senior yang course bitc jugak.. then dia kata yang discrete structure tu dia tak pernah ambik then dia kata lagi tu subject baru.. ye lah sebab discrete structure takde pyq.. tu yang terpaksa tanya senior tu.. tapi bila dah kata gitu so sumber nak revise tu jadi terhad lah.. tu yang saya tanya pasal subject course tu\n\n↳ mungkin awak bole tanya senior tu based on chapter apa yang ada dalama subjek awak belajar tu. maybe nama subjek tu je rebrand atau coordinator combine beberapa subjek dalam satu subjek. pyq maybe awak bole rujuk those subjects\n\n↳ Faham ii.. terima kasih ya atas penjelasan.. semoga awak dikurniakan 4.00 setiap sem and also dapat ANC time graduate nanti",
+        emotion: "Curious",
+        tags: "subjek, discrete structure, bitc, pyq, senior, akademik, fskkp",
+        date: "2026-07-22 08:20",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-018",
+        category: "Advise",
+        content: "1. pergi kat mesin dia taksilap sebelah panas tu\n2. tap card ( untuk tengok balance )\n3. masukkan duit berapa yang awak nak topup\n4. tap card ( boleh tap 2x untuk makesure duit masuk dalam card )",
+        emotion: "Helpful",
+        tags: "mesin topup, kad matrik, panas express, panduan",
+        date: "2026-07-21 23:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-017",
+        category: "Advise",
+        content: "Kepada pelajar baharu yang duduk di satria, sila bawa-bawa lah kemaskan meja selepas makan. Ini sampai 5-6 meja, ada pinggan dan cawan tak masuk dalam besen yang disediakan. Jagalah kebersihan cafe satria ni.",
+        reply: "↳ Pemalas Nye x reti angkat pinggan Dan cawan masuk besen, dah masuk uni pun gaya x ubah ii. Ubah la gaya tu sikit jaga la kebersihan tu",
+        emotion: "Annoyed",
+        tags: "satria, cafe satria, kebersihan, etika",
+        date: "2026-07-21 23:10",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-016",
+        category: "Advise",
+        content: "Kepada yang masih tak tau psl jadual bas pink, korang download hmje aplikasi lugo, nak tahu bas pukul brapa & drop kat mana, nak plan naik bas hari/masa bila pon boleh. Harga pun dia dah set kan, tp guna kad la senang sikit. Tap2 je",
+        emotion: "Helpful",
+        tags: "bas pink, lugo, jadual bas, pengangkutan",
+        date: "2026-07-21 22:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-015",
+        category: "Rant",
+        content: "Pergh lestari ni dh mcm anak tiri utem dah notis ckp cafe tutup kul 8 ni kul 7 pun dh tutup pastu dengan tkder like panas express mcm dekat satria lestari ni dh mati kutu dh, dh lah lapar pastu turun cafe tutup koperasi pun mcm nk tknk tutup je manjang LAPAR BABIIII",
+        emotion: "Anger",
+        tags: "lestari, cafe lestari, lapar, makanan",
+        date: "2026-07-21 21:50",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-014",
+        category: "Advise",
+        content: "Hi kalau you nak try part time yang working hours tak lama cuba sport direct. Sport direct part time 4-5 jam je dan rm12 sejam. Cuba Sport direct macam toppen, aeon mall, midvalley southkey",
+        emotion: "Helpful",
+        tags: "part time, kerja sambilan, sport direct, gaji",
+        date: "2026-07-21 21:05",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-013",
+        category: "Random",
+        content: "Wish me luck pull Qingxiao (wuwa) Ngan remielle (zzz). I'm guaranteed btw for both. hahhahaha. Gacha life...",
+        emotion: "Excited",
+        tags: "gacha, wuwa, zzz, gaming",
+        date: "2026-07-21 20:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-012",
+        category: "Rant",
+        content: "Sorry to say tapi ramai first year sem 2 dah dapat 4-5 bintang tuah index. Semua sebab ada contact and share qr tuah index sesama sendiri. Memang tak adil kpd mereka yg actually susah2 turun ke event ape smua. Tapi tu lah jangan terkejut tengok member2 rempit tak aktif aper tapi tuah index 4 bintang…",
+        emotion: "Frustrated",
+        tags: "tuah index, merit, qr code, event",
+        date: "2026-07-21 19:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-011",
+        category: "Romance",
+        content: "minat dengan this one guy from ftkm pure engineering third year, tall and handsome pernah nampak u main softball, single lagi tak hiks",
+        emotion: "Romance",
+        tags: "crush, ftkm, softball, romance",
+        date: "2026-07-21 18:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-010",
+        category: "Question",
+        content: "apa function short sem ni? bukannya satu tahun 2 sem je ke",
+        reply: "↳ salah satunya untuk cantikkan gred. contoh kau ambik subjek data structure tapi gred cukup makan je pastu nak repeat pulak tak boleh, jadi ambillah subjek tu lagi masa short sem untuk naikkan gred. memangla gred asal tu lulus, tapi nak grad tak lawa la.",
+        emotion: "Curious",
+        tags: "short sem, gred, akademik, pointer",
+        date: "2026-07-21 17:50",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-009",
+        category: "Random",
+        content: "cayangg 🥺 jangan lah pergii nanti baby winduuu 🥺 sape nak cuap baby makan 🥺 sape nak teman baby berak 🥺 sape nak celipkol dgn baby 🥺 cayangg 🥺 CAYANGG 🥺 CAYANGG JANGAN LAH PERGII🥺❗️❗️NANTI BABY WINDUU CANEE 🥺🥺🥺",
+        emotion: "Funny",
+        tags: "manja, cayang, baby, lawak",
+        date: "2026-07-21 16:35",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260721-008",
+        category: "Random",
+        content: "Selamat pagi dan aku Hensem harini",
+        emotion: "Confident",
+        tags: "selamat pagi, hensem, confident",
+        date: "2026-07-21 08:30",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260720-007",
+        category: "Question",
+        content: "Macam mana nak puji perempuan tapi tak nak offence dia...",
+        emotion: "Curious",
+        tags: "puji, tips, relationship, nasihat",
+        date: "2026-07-20 22:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260720-006",
+        category: "Advise",
+        content: "jgn gado kt parking lot , nnti org nk parking susah",
+        emotion: "Helpful",
+        tags: "parking lot, etika, kampus",
+        date: "2026-07-20 20:40",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260720-005",
+        category: "Question",
+        content: "should i confess?? tapi dia baik sangat , and rasa bersalah untuk confess takut friendship rosak , dah kenal dalam 3 sem till now , dia pon hanya bercakap dengan saya je , hmm cane ek , lagi 2 sem nak intern dah nnti ending dia tkkn terpisah mcmtu je kan?? ke patut simpan je perasaan ni",
+        emotion: "Anxious",
+        tags: "confess, crush, friendship, intern",
+        date: "2026-07-20 18:20",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260720-004",
+        category: "Random",
+        content: "I nak boyf kawan I. Its so annoying that he willing to travel from kl to utem just to see his mid ass girlf",
+        reply: "↳ Uhhh~ someone is jealous ~",
+        emotion: "Jealous",
+        tags: "relationship, boyfriend, jealous",
+        date: "2026-07-20 15:10",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260720-003",
+        category: "Rant",
+        content: "Guys i think my crush ada gf already because he literally sat beside my girl classmate.He never talked to any girl except for my 2 girl classmates n he seems rapat gila with 1 of the girls lately😞",
+        emotion: "Sad",
+        tags: "crush, classmate, patah hati",
+        date: "2026-07-20 12:45",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260720-002",
+        category: "Funny",
+        content: "Everyday i wondered, “why are the birds so loud?” Are they fighting? Mating? Social call? \nEvery day. Every night. Theyre always so loud. But i never saw these birds. For the whole semester. Today i realised, thats the sound of the washing machines. Bye utem.",
+        emotion: "Funny",
+        tags: "washing machine, birds, hostel, funny",
+        date: "2026-07-20 10:15",
+        telegramLink: ""
+    },
+    {
+        archiveId: "ARC-20260720-001",
+        category: "Rant",
+        content: "can we stop treating a date like an interview? i mean the talking stage phase. its doesnt matter who you are, what size you are, how much money you make, or wanna make. can we just, okay i like you, you like me, lets wait till marry. tak perlu nak drama couple gaduh sana sini. can we just do our own business and just wait. borak macam nak kawin esok je. haishhh",
+        reply: "↳ if its a talking stage then i agree with you. but what if you guys dah date for years? ofc you have to get to know more about each other like every detail about your partner. for example u jenis yang tido cepat terjaga so takboleh ada bunyi tapi u didnt know yang partner u actually snores macam tido. u didnt ask sebab concept u \"u like me, i like u\" lepastu after married u regret. i cakap sebab memang ada orang macamni, ada yang konon what matter the most adalah cinta tapi lepas marriage menyesal sebab their partner doest make more money than their expectation. memang ada orang taaruf, lepas kawin baru kenal baru bercinta. tapi tak semua orang boleh hadap afterwards their decision, so please guys kalau betul date to marry kenal orang tu betul betul 🙏🏻🙏🏻",
+        emotion: "Frustrated",
+        tags: "dating, relationship, talking stage, kahwin",
+        date: "2026-07-20 09:00",
+        telegramLink: ""
+    }
+];
+

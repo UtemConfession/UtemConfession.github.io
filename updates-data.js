@@ -3,6 +3,18 @@
 
 const ucpmUpdates = [
     {
+        date: "2026-08-28",
+        type: "new",
+        title: "Student Voices Hub & Curated Confessions",
+        summary: "Introduced the newly rebranded Student Voices (Suara Pelajar) community space featuring searchable confession threads, distinct category themes, and refined reader experience.",
+        items: [
+            "Rebranded Confessions Archive to Student Voices (Suara Pelajar) across the platform for a more welcoming and community-driven space",
+            "Expanded curated confession collection to 97+ unique submissions with standardized reply formats (↳)",
+            "Enhanced badge color palette with a dedicated Indigo theme for Question & Inquiry posts",
+            "Optimized confession card spacing and responsive layout for a cleaner reading experience on all devices"
+        ]
+    },
+    {
         date: "2026-08-26",
         type: "improved",
         title: "Comprehensive Guides & Resource Info Expansion",

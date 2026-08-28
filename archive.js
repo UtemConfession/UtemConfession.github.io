@@ -1,96 +1,14 @@
-// archive.js — Confessions Archive Client (Read-Only API Gateway, Pagination & Modal Engine)
+// archive.js — Confessions Archive Client Engine (Manual Local Dataset, Search, Filter & Modal)
 
 // DOM Element Selectors
 const archiveSearch = document.getElementById("archiveSearch");
-const archiveSortSelect = document.getElementById("archiveSortSelect");
 const archiveContainer = document.getElementById("archiveContainer");
-const archiveCountBadge = document.getElementById("archiveCountBadge");
 const archiveCatPills = document.getElementById("archiveCatPills");
-const archiveEmotionSelect = document.getElementById("archiveEmotionSelect");
-const archiveYearSelect = document.getElementById("archiveYearSelect");
 
 // Pagination & Query State
-let currentPage = 1;
-const pageSize = 12; // 12 cards per page
-let totalPages = 1;
-let hasMorePages = false;
-let isFetchingArchive = false;
+let currentVisibleLimit = 12; // Initial cards shown
+const pageIncrement = 12;     // Increment on Load More
 let currentCategory = "all";
-let currentEmotion = "all";
-let currentYear = "all";
-
-// Fallback Local Dataset (Categorized Raw Confessions)
-const defaultArchiveData = [
-    {
-        archiveId: "ARC-20260721-001",
-        category: "Rant",
-        content: "Library aircon broke down again during finals week. Unbearable heat while studying at Perpustakaan Laman Hikmah! Please fix it fast!",
-        title: "Library Aircon Breakdown",
-        summary: "Library aircon broke down during finals week causing unbearable heat.",
-        emotion: "Anger",
-        tags: "library, aircon, FKE, UTeM",
-        interestingScore: 88,
-        date: "2026-07-21 21:15"
-    },
-    {
-        archiveId: "ARC-20260721-002",
-        category: "Funny",
-        content: "Accidentally called my lecturer 'Mom' in front of 200 students in the main hall. Everyone burst into laughter including the prof!",
-        title: "Lecturer Called Mom",
-        summary: "Accidentally called lecturer 'Mom' in front of 200 students.",
-        emotion: "Humor",
-        tags: "lecturer, mom, hall, UTeMHumor",
-        interestingScore: 95,
-        date: "2026-07-21 19:40"
-    },
-    {
-        archiveId: "ARC-20260721-003",
-        category: "Horror",
-        content: "Saw a shadowy figure standing outside FKE block at 3 AM during late-night lab session. My roommate and I panicked so hard, even the security guard was terrified!",
-        title: "FKE Block 3 AM Shadow",
-        summary: "Saw a shadowy figure standing outside FKE block late at night.",
-        emotion: "Fear",
-        tags: "ghost, midnight, roommate, security guard, FKE",
-        interestingScore: 97,
-        date: "2026-07-21 02:10"
-    },
-    {
-        archiveId: "ARC-20260720-004",
-        category: "Campus",
-        content: "UTeM shuttle buses need real-time GPS tracking for all routes to prevent waiting 45 minutes in the sun.",
-        title: "Real-Time Bus GPS Needed",
-        summary: "UTeM shuttle buses need real-time GPS tracking for student convenience.",
-        emotion: "Neutral",
-        tags: "shuttle bus, transport, UTeM",
-        interestingScore: 68,
-        date: "2026-07-20 16:25"
-    },
-    {
-        archiveId: "ARC-20260720-005",
-        category: "Love",
-        content: "To the girl in blue hoodie at FPTT cafe: your smile made my day! Hope we can grab boba together sometime.",
-        title: "Blue Hoodie at FPTT Cafe",
-        summary: "Compliment to girl in blue hoodie at FPTT cafe.",
-        emotion: "Joy",
-        tags: "campus crush, FPTT, boba",
-        interestingScore: 91,
-        date: "2026-07-20 14:05"
-    },
-    {
-        archiveId: "ARC-20260719-006",
-        category: "Academic",
-        content: "Passed Data Structures after studying non-stop for 48 straight hours! So heartwarming, grateful and blessed for my friends who helped me study.",
-        title: "Passed Data Structures!",
-        summary: "Passed Data Structures after 48 hours of non-stop studying.",
-        emotion: "Gratitude",
-        tags: "FTMK, exams, study group",
-        interestingScore: 91,
-        date: "2026-07-19 11:30"
-    }
-];
-
-// Active Client Memory dataset
-let loadedArchiveItems = [];
 
 /**
  * Ensures Read More Modal overlay container exists in DOM
@@ -103,23 +21,24 @@ function ensureArchiveModalExists() {
         modal.className = "archive-modal-overlay";
         modal.style.cssText = `
             position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(8px);
+            background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(8px);
             display: none; justify-content: center; align-items: center;
             z-index: 9999; padding: 20px; box-sizing: border-box;
         `;
         modal.innerHTML = `
             <div class="archive-modal-content" style="
                 background: var(--bg-surface, #1e293b); color: var(--text-primary, #f8fafc);
-                border: 1px solid var(--border-color, rgba(255, 255, 255, 0.1));
-                border-radius: 16px; width: 100%; max-width: 600px; max-height: 85vh;
-                overflow-y: auto; padding: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-                position: relative; animation: modalFadeIn 0.25s ease-out;
+                border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
+                border-radius: 16px; width: 100%; max-width: 620px; max-height: 85vh;
+                overflow-y: auto; padding: 24px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.6);
+                position: relative; animation: modalFadeIn 0.2s ease-out;
             ">
                 <button id="closeArchiveModalBtn" style="
                     position: absolute; top: 16px; right: 16px; background: rgba(255,255,255,0.1);
                     border: none; color: #f8fafc; font-size: 1.2rem; width: 32px; height: 32px;
                     border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
-                ">&times;</button>
+                    transition: background 0.2s;
+                " aria-label="Close modal">&times;</button>
                 <div id="archiveModalBody"></div>
             </div>
         `;
@@ -130,7 +49,129 @@ function ensureArchiveModalExists() {
         modal.addEventListener("click", (e) => {
             if (e.target === modal) closeArchiveModal();
         });
+
+        // Close on Escape key
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeArchiveModal();
+        });
     }
+}
+
+/**
+ * Helper to count number of replies in reply string
+ */
+function getReplyCount(reply) {
+    if (!reply) return 0;
+    const matches = reply.match(/↳/g);
+    return (matches && matches.length > 0) ? matches.length : 1;
+}
+
+/**
+ * Detects topic keywords in confession content, reply, or tags and returns the most relevant student guide
+ */
+function getRelatedGuide(item) {
+    if (!item) return null;
+    const text = `${item.content || ""} ${item.tags || ""} ${item.reply || ""}`.toLowerCase();
+    
+    if (text.includes("sticker") || text.includes("spku") || text.includes("parking") || text.includes("pelekat") || text.includes("saman motor") || text.includes("saman kereta")) {
+        return {
+            title: "Student Vehicle Sticker (SPKU) & Parking Rules",
+            url: "guide-vehicle-sticker-parking.html",
+            icon: "🚗"
+        };
+    }
+    if (text.includes("hostel") || text.includes("kolej kediaman") || text.includes("merit") || text.includes("asrama") || text.includes("satelit") || text.includes("al-jazari") || text.includes("ibnu battuta")) {
+        return {
+            title: "Hostel & Kolej Kediaman Merit System Guide",
+            url: "guide-hostel-kolej-kediaman-merit.html",
+            icon: "🏢"
+        };
+    }
+    if (text.includes("gpa") || text.includes("cgpa") || text.includes("pointer") || text.includes("anugerah dekan") || text.includes("ulang gred") || text.includes("kedudukan bersyarat") || text.includes("probation")) {
+        return {
+            title: "UTeM GPA/CGPA Calculator & Grading Guide",
+            url: "guide-gpa-calculator.html",
+            icon: "🎓"
+        };
+    }
+    if (text.includes("ptptn") || text.includes("waiver") || text.includes("pinjaman") || text.includes("first class") || text.includes("biasiswa")) {
+        return {
+            title: "PTPTN Loan & First Class Exemption Guide",
+            url: "guide-ptptn-loan.html",
+            icon: "💰"
+        };
+    }
+    if (text.includes("past year") || text.includes("exam paper") || text.includes("kertas exam") || text.includes("final exam") || text.includes("peperiksaan") || text.includes("study week")) {
+        return {
+            title: "Past Year Exam Papers & Revision Strategies",
+            url: "guide-past-year-exams.html",
+            icon: "📝"
+        };
+    }
+    if (text.includes("add drop") || text.includes("course registration") || text.includes("daftar subjek") || text.includes("smpweb") || text.includes("prasyarat") || text.includes("tambah gugur")) {
+        return {
+            title: "Course Registration & Add/Drop SMPWeb Guide",
+            url: "guide-course-registration-add-drop.html",
+            icon: "📋"
+        };
+    }
+    if (text.includes("fyp") || text.includes("final year project") || text.includes("projek sarjana muda") || text.includes("psm") || text.includes("supervisor")) {
+        return {
+            title: "Final Year Project (FYP) Complete Survival Guide",
+            url: "guide-final-year-project-fyp.html",
+            icon: "🔬"
+        };
+    }
+    if (text.includes("internship") || text.includes("latihan industri") || text.includes("li ") || text.includes("intern ")) {
+        return {
+            title: "Internship & Industrial Training (LI) Guide",
+            url: "guide-internship-industrial-training.html",
+            icon: "💼"
+        };
+    }
+    if (text.includes("sewa") || text.includes("rumah sewa") || text.includes("off-campus") || text.includes("taman tasik utama")) {
+        return {
+            title: "Off-Campus House Rental & Roommate Guide",
+            url: "guide-off-campus-rental.html",
+            icon: "🏠"
+        };
+    }
+    if (text.includes("wifi") || text.includes("eduroam") || text.includes("vpn") || text.includes("internet utem")) {
+        return {
+            title: "UTeM Wi-Fi, Eduroam & IT Services Guide",
+            url: "guide-it-software-eduroam.html",
+            icon: "📶"
+        };
+    }
+    if (text.includes("makan") || text.includes("budget") || text.includes("jimat") || text.includes("duit poket")) {
+        return {
+            title: "Student Budgeting, Food & Cost of Living Guide",
+            url: "guide-budget-living-food.html",
+            icon: "🍛"
+        };
+    }
+    if (text.includes("tempat study") || text.includes("study cafe") || text.includes("plh") || text.includes("laman hikmah")) {
+        return {
+            title: "Top Study Places & Late Night Cafes in Melaka",
+            url: "guide-top-10-study-places.html",
+            icon: "☕"
+        };
+    }
+    if (text.includes("bas") || text.includes("bus") || text.includes("transit") || text.includes("jadual bas")) {
+        return {
+            title: "Campus Bus Transit & Melaka Public Transport Guide",
+            url: "guide-campus-bus-transit.html",
+            icon: "🚌"
+        };
+    }
+    if (text.includes("freshman") || text.includes("junior") || text.includes("mhs") || text.includes("orientasi") || text.includes("first year") || text.includes("intake")) {
+        return {
+            title: "UTeM Freshman Survival Guide & Campus Life",
+            url: "guide-freshman-survival.html",
+            icon: "🎒"
+        };
+    }
+    return null;
 }
 
 /**
@@ -142,23 +183,53 @@ function openArchiveModal(item) {
     const body = document.getElementById("archiveModalBody");
     if (!modal || !body) return;
 
-    const tagsHtml = item.tags ? item.tags.split(",").map(t => `<span style="display:inline-block; background:rgba(255,255,255,0.08); padding:3px 8px; border-radius:6px; font-size:0.75rem; margin-right:4px; margin-top:4px;">#${t.trim().replace(/^#/, '')}</span>`).join("") : "";
+    const categoryBadgeColor = getCategoryColor(item.category);
+    const replyCount = getReplyCount(item.reply);
+    const relatedGuide = getRelatedGuide(item);
+
+    let replyHtml = "";
+    if (item.reply) {
+        replyHtml = `
+            <div style="margin-top: 18px; padding: 14px 16px; background: rgba(212, 175, 55, 0.08); border-left: 3px solid var(--accent-gold, #d4af37); border-radius: 0 10px 10px 0;">
+                <div style="font-size: 0.8rem; font-weight: 700; color: var(--accent-gold, #d4af37); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+                    <span>💬 ${replyCount > 1 ? `${replyCount} Replies` : "Reply"}</span>
+                </div>
+                <div style="font-size: 0.92rem; line-height: 1.6; color: var(--text-primary, #f8fafc); white-space: pre-wrap;">${escapeHtml(item.reply)}</div>
+            </div>
+        `;
+    }
+
+    let guideHtml = "";
+    if (relatedGuide) {
+        guideHtml = `
+            <div style="margin-top: 14px; padding: 10px 14px; background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+                <div style="font-size: 0.82rem; color: var(--text-secondary, #cbd5e1); display: flex; align-items: center; gap: 6px;">
+                    <span style="font-size: 1rem;">${relatedGuide.icon}</span>
+                    <strong style="color: var(--accent-gold, #d4af37);">Related Student Guide:</strong>
+                    <span>${escapeHtml(relatedGuide.title)}</span>
+                </div>
+                <a href="${escapeHtml(relatedGuide.url)}" style="font-size: 0.8rem; font-weight: 700; color: #000000; background: linear-gradient(135deg, #d4af37 0%, #ffeb3b 100%); text-decoration: none; padding: 4px 12px; border-radius: 12px; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 2px 8px rgba(212, 175, 55, 0.25);" target="_blank">
+                    Read Guide ➔
+                </a>
+            </div>
+        `;
+    }
 
     body.innerHTML = `
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
-            <span style="background:rgba(59,130,246,0.2); color:#60a5fa; font-weight:600; font-size:0.8rem; padding:4px 10px; border-radius:12px;">
-                ${escapeHtml(item.category) || "General"}
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px; flex-wrap:wrap;">
+            <span style="background:${categoryBadgeColor.bg}; color:${categoryBadgeColor.text}; font-weight:700; font-size:0.8rem; padding:4px 12px; border-radius:12px; border: 1px solid ${categoryBadgeColor.border};">
+                ${escapeHtml(item.category || "General")}
             </span>
-            ${item.emotion && item.emotion !== "Neutral" ? `<span style="background:rgba(236,72,153,0.2); color:#f472b6; font-size:0.8rem; padding:4px 10px; border-radius:12px;">${escapeHtml(item.emotion)}</span>` : ""}
-            <span style="font-size:0.8rem; color:var(--text-muted, #94a3b8);">${escapeHtml(item.date) || ""}</span>
+            ${item.reply ? `<span style="background: rgba(255,255,255,0.08); color: var(--text-secondary, #cbd5e1); font-weight:600; font-size:0.75rem; padding:3px 10px; border-radius:12px; border: 1px solid rgba(255,255,255,0.12);">💬 ${replyCount} ${replyCount > 1 ? "Replies" : "Reply"}</span>` : ""}
         </div>
-        ${item.title ? `<h3 style="margin: 0 0 12px 0; font-size: 1.25rem; color: #f8fafc; font-weight: 700;">${escapeHtml(item.title)}</h3>` : ""}
-        <div style="font-size: 0.95rem; line-height: 1.6; color: #e2e8f0; white-space: pre-wrap; margin-bottom: 16px; border-left: 3px solid #3b82f6; padding-left: 12px;">${escapeHtml(item.content)}</div>
-        ${tagsHtml ? `<div style="margin-bottom: 16px;">${tagsHtml}</div>` : ""}
-        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(255,255,255,0.1); padding-top:12px; font-size:0.8rem; color:#94a3b8;">
-            <span>⭐ Rating: ${escapeHtml(item.interestingScore) || 50}/100</span>
-            ${item.telegramLink ? `<a href="${escapeHtml(item.telegramLink)}" target="_blank" rel="noopener noreferrer" style="color:#38bdf8; text-decoration:none; display:inline-flex; align-items:center; gap:4px;">✈️ Open in Telegram</a>` : ""}
-        </div>
+        <div style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary, #cbd5e1); white-space: pre-wrap; margin-bottom: 14px; border-left: 3px solid var(--accent-gold, #d4af37); padding-left: 14px;">${escapeHtml(item.content)}</div>
+        ${replyHtml}
+        ${guideHtml}
+        ${item.telegramLink ? `
+            <div style="display:flex; justify-content:flex-end; align-items:center; border-top:1px solid var(--border-color, rgba(255,255,255,0.1)); padding-top:12px; margin-top:16px; font-size:0.85rem;">
+                <a href="${escapeHtml(item.telegramLink)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-gold, #d4af37); text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:6px;">✈️ View Original Post</a>
+            </div>
+        ` : ""}
     `;
 
     modal.style.display = "flex";
@@ -174,124 +245,137 @@ function closeArchiveModal() {
 }
 
 /**
- * Fetches archived confessions from Google Apps Script Read-Only API Gateway
+ * Returns distinct badge styling per category
  */
-async function fetchArchiveFromApi(appendMode = false) {
-    if (typeof APPS_SCRIPT_WEBHOOK === "undefined" || !APPS_SCRIPT_WEBHOOK) {
-        if (!appendMode) loadedArchiveItems = [...defaultArchiveData];
-        renderArchiveConfessions();
-        return;
-    }
-
-    try {
-        isFetchingArchive = true;
-        if (!appendMode) {
-            currentPage = 1;
-            loadedArchiveItems = [];
-        }
-
-        const searchQuery = archiveSearch ? archiveSearch.value.trim() : "";
-        const sortOrder = archiveSortSelect ? archiveSortSelect.value : "latest";
-
-        const params = new URLSearchParams({
-            action: "getArchive",
-            page: currentPage,
-            limit: pageSize,
-            category: currentCategory,
-            emotion: currentEmotion,
-            year: currentYear,
-            search: searchQuery,
-            sort: sortOrder
-        });
-
-        const response = await fetch(`${APPS_SCRIPT_WEBHOOK}?${params.toString()}`, { method: "GET" });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-        
-        const result = await response.json();
-
-        if (result && result.status === "success" && Array.isArray(result.data)) {
-            const mappedData = result.data.map(item => ({
-                archiveId: item.archiveId || `ARC-${Math.random()}`,
-                category: item.category || "General",
-                content: item.content || "",
-                title: item.title || "",
-                summary: item.summary || "",
-                emotion: item.emotion || "Neutral",
-                tags: item.tags || "",
-                interestingScore: item.interestingScore || 50,
-                telegramLink: item.telegramLink || "",
-                date: item.date || ""
-            }));
-
-            if (appendMode) {
-                loadedArchiveItems = [...loadedArchiveItems, ...mappedData];
-            } else {
-                loadedArchiveItems = mappedData;
-            }
-
-            if (result.pagination) {
-                totalPages = result.pagination.totalPages || 1;
-                hasMorePages = result.pagination.hasMore || false;
-            }
-        }
-    } catch (err) {
-        console.warn("Live API fetch failed, using offline fallback:", err);
-        if (!appendMode && loadedArchiveItems.length === 0) {
-            loadedArchiveItems = [...defaultArchiveData];
-        }
-    } finally {
-        isFetchingArchive = false;
-        renderArchiveConfessions();
+function getCategoryColor(category) {
+    const cat = (category || "").toLowerCase();
+    switch (cat) {
+        case "rant":
+            return { bg: "rgba(168, 85, 247, 0.15)", text: "#c084fc", border: "rgba(168, 85, 247, 0.3)" };
+        case "funny":
+        case "humor":
+            return { bg: "rgba(34, 197, 94, 0.15)", text: "#4ade80", border: "rgba(34, 197, 94, 0.3)" };
+        case "advise":
+        case "advice":
+            return { bg: "rgba(14, 165, 233, 0.15)", text: "#38bdf8", border: "rgba(14, 165, 233, 0.3)" };
+        case "question":
+            return { bg: "rgba(99, 102, 241, 0.15)", text: "#818cf8", border: "rgba(99, 102, 241, 0.35)" };
+        case "romance":
+        case "love":
+            return { bg: "rgba(236, 72, 153, 0.15)", text: "#f472b6", border: "rgba(236, 72, 153, 0.3)" };
+        case "random":
+            return { bg: "rgba(168, 162, 158, 0.15)", text: "#d6d3d1", border: "rgba(168, 162, 158, 0.3)" };
+        case "horror":
+            return { bg: "rgba(249, 115, 22, 0.15)", text: "#fb923c", border: "rgba(249, 115, 22, 0.3)" };
+        case "academic":
+            return { bg: "rgba(59, 130, 246, 0.15)", text: "#60a5fa", border: "rgba(59, 130, 246, 0.3)" };
+        case "campus":
+            return { bg: "rgba(16, 185, 129, 0.15)", text: "#34d399", border: "rgba(16, 185, 129, 0.3)" };
+        default:
+            return { bg: "rgba(212, 175, 55, 0.15)", text: "#d4af37", border: "rgba(212, 175, 55, 0.3)" };
     }
 }
 
 /**
- * Renders filtered archive cards with "Read More" snippet button & "Load More" pagination
+ * Filter, sort and render confessions from manual dataset
  */
 function renderArchiveConfessions() {
     if (!archiveContainer) return;
     archiveContainer.innerHTML = "";
+    archiveContainer.style.display = "flex";
+    archiveContainer.style.flexDirection = "column";
+    archiveContainer.style.gap = "14px";
 
-    let filtered = [...loadedArchiveItems];
+    const rawList = (typeof archiveData !== "undefined" && Array.isArray(archiveData)) ? archiveData : [];
 
-    if (archiveCountBadge) {
-        archiveCountBadge.textContent = `${filtered.length} Confessions Loaded`;
-    }
+    const searchQuery = archiveSearch ? archiveSearch.value.trim().toLowerCase() : "";
 
+    // 1. Filter by category and search keyword
+    let filtered = rawList.filter(item => {
+        // Category filter
+        if (currentCategory !== "all") {
+            const itemCat = (item.category || "").toLowerCase();
+            const targetCat = currentCategory.toLowerCase();
+            if (itemCat !== targetCat) {
+                const isAdviseAlias = (targetCat === "advise" || targetCat === "advice") && (itemCat === "advise" || itemCat === "advice");
+                const isRomanceAlias = (targetCat === "romance" || targetCat === "love") && (itemCat === "romance" || itemCat === "love");
+                const isFunnyAlias = (targetCat === "funny" || targetCat === "humor") && (itemCat === "funny" || itemCat === "humor");
+                if (!isAdviseAlias && !isRomanceAlias && !isFunnyAlias) return false;
+            }
+        }
+
+        // Search query
+        if (searchQuery) {
+            const matchContent = (item.content || "").toLowerCase().includes(searchQuery);
+            const matchReply = (item.reply || "").toLowerCase().includes(searchQuery);
+            const matchTags = (item.tags || "").toLowerCase().includes(searchQuery);
+            const matchCategory = (item.category || "").toLowerCase().includes(searchQuery);
+            if (!matchContent && !matchReply && !matchTags && !matchCategory) return false;
+        }
+
+        return true;
+    });
+
+    // 2. Sort results (latest first)
+    filtered.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+
+    // 3. Render empty state if no results
     if (filtered.length === 0) {
-        archiveContainer.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 40px 0;">No archived confessions found matching your criteria.</p>`;
+        archiveContainer.innerHTML = `
+            <div style="grid-column: 1 / -1; text-align: center; color: var(--text-muted); padding: 50px 20px; background: var(--bg-secondary); border-radius: 12px; border: 1px dashed var(--border-color);">
+                <div style="font-size: 2.2rem; margin-bottom: 10px;">🔍</div>
+                <p style="margin: 0; font-size: 0.95rem; font-weight: 600;">No archived confessions found matching your criteria.</p>
+                <p style="margin: 6px 0 0 0; font-size: 0.82rem; color: var(--text-secondary);">Try clearing your search terms or selecting a different category filter.</p>
+            </div>
+        `;
         return;
     }
 
-    filtered.forEach((item, index) => {
+    // 4. Paginate items
+    const visibleItems = filtered.slice(0, currentVisibleLimit);
+
+    visibleItems.forEach((item, index) => {
         const card = document.createElement("div");
         card.className = "archive-card";
         card.style.cssText = `
-            background: var(--bg-surface, #1e293b); border: 1px solid var(--border-color, rgba(255,255,255,0.08));
-            border-radius: 12px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s;
+            background: var(--bg-secondary, #1e293b); border: 1px solid var(--border-color, rgba(255,255,255,0.08));
+            border-radius: 12px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            cursor: pointer;
         `;
 
-        const isLongText = item.content.length > 140;
+        const isLongText = (item.content || "").length > 140;
         const displayText = isLongText ? item.content.substring(0, 137).trim() + "..." : item.content;
+        const categoryBadgeColor = getCategoryColor(item.category);
+        const replyCount = getReplyCount(item.reply);
 
-        let cardHeaderHtml = `
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; gap: 8px;">
-            <div style="font-size: 0.8rem; color: #94a3b8; font-weight: 600;">${escapeHtml(formatArchiveDate(item.timestamp))}</div>
-            ${item.emotion && item.emotion !== "Neutral" ? `<span class="archive-badge-emotion" style="font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; background: rgba(236, 72, 153, 0.15); color: #f472b6;">${escapeHtml(item.emotion)}</span>` : ""}
-        </div>`;
-
-        let readMoreBtnHtml = isLongText ? `
-            <button class="read-more-btn" data-index="${index}" style="
-                background: none; border: none; color: #38bdf8; font-size: 0.85rem; font-weight: 600;
-                cursor: pointer; padding: 4px 0; margin-top: 8px; text-align: left; display: inline-flex; align-items: center; gap: 4px;
-            ">Read More ➔</button>
+        let replyBadgeHtml = item.reply ? `
+            <span style="font-size: 0.72rem; font-weight: 600; padding: 2px 7px; border-radius: 8px; background: rgba(255, 255, 255, 0.06); color: var(--text-secondary, #cbd5e1); border: 1px solid rgba(255, 255, 255, 0.1); display: inline-flex; align-items: center; gap: 4px;">
+                💬 ${replyCount > 1 ? `${replyCount} Replies` : "Has Reply"}
+            </span>
         ` : "";
 
-        let telegramHtml = item.telegramLink ? `
-            <div style="margin-top: 10px; text-align: right;">
-                <a href="${item.telegramLink}" target="_blank" rel="noopener noreferrer" style="font-size: 0.8rem; color: #38bdf8; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-                    ✈️ View on Telegram
+        let cardHeaderHtml = `
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; gap: 8px; flex-wrap: wrap;">
+                <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; background: ${categoryBadgeColor.bg}; color: ${categoryBadgeColor.text}; border: 1px solid ${categoryBadgeColor.border};">
+                    ${escapeHtml(item.category || "General")}
+                </span>
+                ${replyBadgeHtml}
+            </div>
+        `;
+
+        let readMoreBtnHtml = (isLongText || item.reply) ? `
+            <button class="read-more-btn" style="
+                background: none; border: none; color: var(--accent-gold, #d4af37); font-size: 0.82rem; font-weight: 700;
+                cursor: pointer; padding: 8px 0 0 0; text-align: left; display: inline-flex; align-items: center; gap: 4px;
+            ">${item.reply ? (replyCount > 1 ? "View Confession & Replies ➔" : "View Confession & Reply ➔") : "Read More ➔"}</button>
+        ` : "";
+
+        const cardRelatedGuide = getRelatedGuide(item);
+        let cardGuideHtml = cardRelatedGuide ? `
+            <div style="margin-top: 8px;">
+                <a href="${escapeHtml(cardRelatedGuide.url)}" class="archive-card-guide-link" style="display: inline-flex; align-items: center; gap: 5px; font-size: 0.73rem; font-weight: 600; color: var(--accent-gold, #d4af37); background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.22); padding: 3px 8px; border-radius: 6px; text-decoration: none; transition: all 0.2s;" onclick="event.stopPropagation();">
+                    <span>${cardRelatedGuide.icon}</span> <span>${escapeHtml(cardRelatedGuide.title)}</span> ➔
                 </a>
             </div>
         ` : "";
@@ -299,44 +383,36 @@ function renderArchiveConfessions() {
         card.innerHTML = `
             <div>
                 ${cardHeaderHtml}
-                ${item.title ? `<h4 style="margin: 4px 0 8px 0; font-size: 0.95rem; color: #f8fafc; font-weight: 600;">${escapeHtml(item.title)}</h4>` : ""}
-                <p class="archive-card-content" style="margin: 0; font-size: 0.9rem; color: #cbd5e1; line-height: 1.5;">${escapeHtml(displayText)}</p>
+                <p class="archive-card-content" style="margin: 0; font-size: 0.88rem; color: var(--text-secondary, #cbd5e1); line-height: 1.55; white-space: pre-wrap;">${escapeHtml(displayText)}</p>
+                ${cardGuideHtml}
                 ${readMoreBtnHtml}
             </div>
-            ${telegramHtml}
         `;
 
-        // Bind Read More button click
-        if (isLongText) {
-            const btn = card.querySelector(".read-more-btn");
-            if (btn) {
-                btn.addEventListener("click", () => openArchiveModal(item));
-            }
-        }
+        // Card click opens modal
+        card.addEventListener("click", () => openArchiveModal(item));
 
         archiveContainer.appendChild(card);
     });
 
-    // Render "Load More" Pagination Button if more pages exist
-    if (hasMorePages) {
+    // 5. Render "Load More" button if there are more items
+    if (filtered.length > currentVisibleLimit) {
         const loadMoreContainer = document.createElement("div");
-        loadMoreContainer.style.cssText = "grid-column: 1 / -1; text-align: center; margin-top: 24px;";
+        loadMoreContainer.style.cssText = "grid-column: 1 / -1; text-align: center; margin-top: 20px; margin-bottom: 10px;";
         loadMoreContainer.innerHTML = `
-            <button id="archiveLoadMoreBtn" style="
-                background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: #ffffff;
-                border: none; padding: 10px 24px; border-radius: 20px; font-weight: 600; font-size: 0.9rem;
-                cursor: pointer; box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3); transition: transform 0.2s, opacity 0.2s;
-            ">📥 Load More Confessions</button>
+            <button id="archiveLoadMoreBtn" class="btn btn-secondary" style="
+                background: var(--bg-card-hover); color: var(--accent-gold); border: 1px solid var(--border-color);
+                padding: 10px 24px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; cursor: pointer;
+                display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s;
+            ">📥 Load More Confessions (${filtered.length - currentVisibleLimit} remaining)</button>
         `;
         archiveContainer.appendChild(loadMoreContainer);
 
         const loadMoreBtn = loadMoreContainer.querySelector("#archiveLoadMoreBtn");
         if (loadMoreBtn) {
             loadMoreBtn.addEventListener("click", () => {
-                if (!isFetchingArchive && hasMorePages) {
-                    currentPage++;
-                    fetchArchiveFromApi(true);
-                }
+                currentVisibleLimit += pageIncrement;
+                renderArchiveConfessions();
             });
         }
     }
@@ -347,45 +423,43 @@ if (archiveCatPills) {
     const pills = archiveCatPills.querySelectorAll(".archive-pill");
     pills.forEach(pill => {
         pill.addEventListener("click", () => {
-            pills.forEach(p => p.classList.remove("active"));
+            pills.forEach(p => {
+                p.classList.remove("active");
+                p.style.background = "rgba(255, 255, 255, 0.05)";
+                p.style.color = "var(--text-secondary, #cbd5e1)";
+                p.style.boxShadow = "none";
+            });
             pill.classList.add("active");
+            pill.style.background = "linear-gradient(135deg, #d4af37 0%, #ffeb3b 100%)";
+            pill.style.color = "#000000";
+            pill.style.boxShadow = "0 4px 12px rgba(212, 175, 55, 0.3)";
+
             currentCategory = pill.getAttribute("data-cat") || "all";
-            fetchArchiveFromApi(false);
+            currentVisibleLimit = 12;
+            renderArchiveConfessions();
         });
     });
 }
 
-// Emotion & Year Selector Listeners
-if (archiveEmotionSelect) {
-    archiveEmotionSelect.addEventListener("change", () => {
-        currentEmotion = archiveEmotionSelect.value || "all";
-        fetchArchiveFromApi(false);
-    });
-}
 
-if (archiveYearSelect) {
-    archiveYearSelect.addEventListener("change", () => {
-        currentYear = archiveYearSelect.value || "all";
-        fetchArchiveFromApi(false);
-    });
-}
 
-// Search & Sort Event Listeners
+// Search Input Listener
 if (archiveSearch) {
-    archiveSearch.addEventListener("input", () => fetchArchiveFromApi(false));
+    archiveSearch.addEventListener("input", () => {
+        currentVisibleLimit = 12;
+        renderArchiveConfessions();
+    });
 }
 
-if (archiveSortSelect) {
-    archiveSortSelect.addEventListener("change", () => fetchArchiveFromApi(false));
-}
 
-// Initial render & API fetch
+
+// Initial render
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => {
         ensureArchiveModalExists();
-        fetchArchiveFromApi(false);
+        renderArchiveConfessions();
     });
 } else {
     ensureArchiveModalExists();
-    fetchArchiveFromApi(false);
+    renderArchiveConfessions();
 }

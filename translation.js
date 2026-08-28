@@ -4,7 +4,7 @@ const translations = {
     en: {
         nav_activities: "Activities",
         nav_confessions: "Confessions",
-        nav_archive: "Confessions Archive",
+        nav_archive: "Student Voices",
         nav_calendar: "Academic Calendar",
         nav_gpa: "GPA Calculator",
         nav_exams: "Past Year Exams",
@@ -20,7 +20,7 @@ const translations = {
         mobile_nav_updates: "Updates",
 
         mobile_nav_gpa: "GPA Calc",
-        mobile_nav_archive: "Archive",
+        mobile_nav_archive: "Student Voices",
         mobile_nav_links: "Wi-Fi & Links",
         mobile_nav_buses: "Buses",
         mobile_nav_calendar: "Calendar",
@@ -255,7 +255,6 @@ const translations = {
         lang_label: "Language",
         theme_switcher_label: "Dark Theme",
 
-        // Cards under Wi-Fi & Links tab
         card_libproxy_title: "LibProxy Account Registration",
         card_libproxy_sub: "Off-Campus EZProxy Access",
         card_libproxy_desc: "Video guide for UTeM students to register and activate LibProxy for off-campus e-journals and library databases.",
@@ -291,10 +290,8 @@ const translations = {
         card_vehicle_desc: "Download the official UTeM student vehicle application form for campus driving and parking access.",
         card_vehicle_btn: "Download Form ➔",
 
-        // --- Wi-Fi Enriched Section ---
         wifi_guide_title: "UTeM Campus Wireless Networks & Digital Infrastructure Master Guide",
         wifi_guide_intro: "Universiti Teknikal Malaysia Melaka (UTeM) operates a high-speed, enterprise-grade campus network managed by the <strong>Pusat Perkhidmatan Pengetahuan & Komunikasi (PPPK)</strong> across Kampus Induk (Durian Tunggal), Kampus Teknologi (Ayer Keroh), and all on-campus residential colleges (Kolej Satria & Lestari). Connecting to the optimal wireless SSID ensures seamless access to online lecture streams, SMPWeb portals, library e-resources, and engineering cloud software suites.",
-        wifi_sec1_title: "📶 Campus Wi-Fi SSIDs & Security Modalities",
         wifi_th_ssid: "SSID Name",
         wifi_th_proto: "Security Protocol",
         wifi_th_auth: "Authentication Credentials",
@@ -360,7 +357,6 @@ const translations = {
         wifi_rel3_title: "📚 Perpustakaan Laman Hikmah (PLH)",
         wifi_rel3_desc: "Access e-books, online journals, 24-hour study areas, and gaming consoles.",
 
-        // --- Bus Enriched Section ---
         bus_guide_title: "UTeM Shuttle Bus Transit Guide & BAS.MY Public Network Master Guide",
         bus_guide_intro: "Navigating transit between <strong>Universiti Teknikal Malaysia Melaka (UTeM)</strong> campuses requires understanding both the complimentary internal university shuttle bus fleet and the public State transit network operated by <strong>BAS.MY Melaka (Route M10A)</strong>. With faculties distributed across two distinct geographical zones—<strong>Kampus Induk</strong> in Durian Tunggal and <strong>Kampus Teknologi</strong> in Ayer Keroh separated by 12km via Lebuhraya Ayer Keroh—punctual transit planning is vital for arriving on time for lectures, laboratories, and examination halls.",
         bus_sec1_title: "🚌 Comprehensive Campus Shuttle Route Directory",
@@ -426,7 +422,6 @@ const translations = {
         bus_rel3_title: "🏠 Off-Campus Housing Near Bus Stops",
         bus_rel3_desc: "Rental guide for Emerald Park, Taman Tasik Utama, and Bukit Beruang.",
 
-        // --- GPA Enriched Section ---
         gpa_guide_title: "UTeM GPA & CGPA Calculation Guide & Academic Grading Scale",
         gpa_guide_intro: "Universiti Teknikal Malaysia Melaka (UTeM) employs the standard Malaysian 4.00 Grade Point Average (GPA) and Cumulative Grade Point Average (CGPA) system across all undergraduate, diploma, and postgraduate faculties. Understanding how quality points and credit hours intersect is essential for maintaining good academic standing (Kedudukan Baik), targeting Dean's List (Anugerah Dekan), and qualifying for First Class PTPTN loan exemptions.",
         gpa_sec1_title: "📐 How to Calculate UTeM GPA & CGPA Step-by-Step",
@@ -486,7 +481,6 @@ const translations = {
         gpa_rel3_title: "💰 PTPTN 1st Class Loan Waiver",
         gpa_rel3_desc: "How to convert your PTPTN loan into a full scholarship.",
 
-        // --- Exams Enriched Section ---
         exam_guide_title: "UTeM Past Year Examination Repository & Academic Success Master Guide",
         exam_guide_intro: "The official Universiti Teknikal Malaysia Melaka (UTeM) examination paper repository is curated and archived by <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Undergraduates across all engineering, computer science, and technology management faculties can access previous semester final examination questions to practice problem-solving paradigms, evaluate marking allocations, and calibrate revision ahead of midterm and final examinations.",
         exam_sec1_title: "🏛️ Complete UTeM Faculty Course Code Directory",
@@ -539,7 +533,6 @@ const translations = {
         exam_rel3_title: "🎓 GPA & CGPA Target Calculator",
         exam_rel3_desc: "Calculate target examination grades needed to earn Dean's List honours.",
 
-        // --- Library Tab (library.html) ---
         titleLibTab: "Perpustakaan Laman Hikmah (PLH)",
         labelLibHours: "Library Hours",
         labelLibMainHours: "Academic Semester Hours:",
@@ -568,7 +561,6 @@ const translations = {
         labelLibEmail: "Email:",
         labelLibRef: "Visit official UTeM library site for catalog searches:",
 
-        // --- Library Guide SEO Section ---
         lib_guide_title: "UTeM Perpustakaan Laman Hikmah (PLH) Student Services Master Guide",
         lib_guide_intro: "<strong>Perpustakaan Laman Hikmah (PLH)</strong> serves as the central research and learning knowledge hub for Universiti Teknikal Malaysia Melaka. Operating multi-storey facilities across <strong>Kampus Induk (Durian Tunggal)</strong> and a specialized branch at <strong>Kampus Teknologi (Ayer Keroh)</strong>, PLH provides undergraduates with collaborative research spaces, digital archives, and student leisure facilities.",
         lib_sec1_title: "📚 Book Loan Entitlements & Overdue Policies",
@@ -608,7 +600,6 @@ const translations = {
         lib_rel3_title: "💻 IT Setup & Software Licenses",
         lib_rel3_desc: "Download MATLAB, SolidWorks, and setup eduroam Wi-Fi.",
 
-        // --- Health Center Tab (health.html) ---
         titleHealthTab: "Pusat Kesihatan UTeM (PKU)",
         labelHealthHours: "Operating Hours",
         labelHealthMainInduk: "Main Campus (Durian Tunggal):",
@@ -637,7 +628,6 @@ const translations = {
         labelHealthEmail: "Email:",
         labelHealthRef: "Visit official PKU site for health advisories:",
 
-        // --- Health Center Guide SEO Section ---
         health_guide_title: "UTeM Pusat Kesihatan Universiti (PKU) Student Healthcare Master Guide",
         health_guide_intro: "<strong>Pusat Kesihatan Universiti (PKU UTeM)</strong> provides primary healthcare, emergency medical response, dispensary pharmacy services, dental treatments, first aid equipment loans, and confidential mental health counseling for all registered diploma, undergraduate, and postgraduate students across <strong>Kampus Induk (Durian Tunggal)</strong> and <strong>Kampus Teknologi (Ayer Keroh)</strong>.",
         health_sec1_title: "🏥 Available Medical Services & Clinic Hours",
@@ -662,7 +652,6 @@ const translations = {
         health_rel3_title: "🚌 Campus Shuttle Buses",
         health_rel3_desc: "Shuttle routes between Durian Tunggal and Ayer Keroh clinics.",
 
-        // --- Important Links Card Elements (wifi.html) ---
         descImportantLinks: "Quick access to campus Wi-Fi credentials, LibProxy registration, VPN setup, official portals, and student channels.",
         libproxyTitle: "UTeM LibProxy (Off-Campus)",
         libproxySub: "Single Sign-On Access",
@@ -689,7 +678,6 @@ const translations = {
         vehicleDesc: "Download the official UTeM student vehicle application form for campus driving and parking access.",
         vehicleBtn: "Download Form ➔",
 
-        // --- Support Tab (support.html) ---
         titleSupport: "Support UTeM Confessions Pro Max",
         descSupport: "UTeM Confessions Pro Max is a free, student-built platform maintained voluntarily to support UTeM students with tools, schedules, past papers, and student life guides.",
         titlePartnerDeals: "Student Discounts & Perks",
@@ -698,30 +686,24 @@ const translations = {
         descCoffee: "Keep our servers running smoothly and support continuous improvements to the campus transit tracker, exam archives, and interactive tools.",
         noticeKofiCurrency: "Tips and donations directly help fund server hosting, domain renewals, and API bandwidth costs.",
 
-        // --- Updates Tab (updates.html) ---
         updatesTitle: "Campus & Platform Updates",
         updatesSubtitle: "Stay informed with the latest UTeM campus notices, academic timetable releases, bus schedule revisions, and new feature rollouts on UCPM.",
 
-        // --- Marketplace Tab (marketplace.html) ---
         descMarketItems: "Buy and sell pre-loved textbooks, lab coats, drawing sets, electronics, and dorm appliances safely within the UTeM student community.",
         descMarketServices: "Discover freelance student services across campus including document printing, room moving, device repair, photography, and tutoring.",
         sellerNoticeMarketplace: "⚠️ Notice: UCPM does not handle direct financial transactions. Always meet in open public campus locations (e.g. PLH lobby or Satria cafeteria) for item handovers.",
 
-        // --- Scholarships Tab (scholarships.html) ---
         titleScholarships: "Scholarship & Financial Aid",
         descScholarships: "Explore available undergraduate financial aid, government education loans, emergency zakat relief, and state foundation scholarships for UTeM students.",
 
-        // --- Past Exams Header (exams.html) ---
         titlePastExamsTab: "UTeM Past Year Examination Repository",
         descPastExamsTab: "Search and download previous semester final examination question papers across all engineering, computing, and technology faculties.",
         labelPastExamsLib: "Access the official Perpustakaan Laman Hikmah (PLH) digital exam database directly:",
 
-        // --- Mobile Drawer Shared Labels ---
         drawerLibrary: "Library (PLH)",
         drawerHealth: "Health Center (PKU)",
         drawerSupport: "Support Us",
 
-        // --- Bus Tab UI Elements (bus.html) ---
         busTabInternal: "🚌 Campus Shuttle",
         busTabPublic: "💖 Bus M10A Pink Bus",
         title_campus_bus: "UTeM Campus Shuttle Timetable",
@@ -747,24 +729,25 @@ const translations = {
         optDestPaya: "Paya Rumput / Cheng Industrial Area",
         busSourcesLabel: "Information verified via official UTeM Student Affairs & Panorama Melaka channels.",
 
-        // --- Activities Tab (activities.html) ---
         activitiesTitle: "UTeM Campus Activities & Events",
         descActivities: "Discover club activities, sports competitions, workshops, academic symposiums, and volunteer programs happening across UTeM.",
         noActivitiesFoundMsg: "No activities match your selected filters.",
 
-        // --- Calendar Tab (calendar.html) ---
         calendarLinkLabel: "Download official BPA Academic Calendar PDF",
 
-        // --- GPA Tab (gpa.html) ---
         gpaEstimationNote: "Note: Official final CGPA calculations follow the university grading policy on SMPWeb with credit-weighted quality points.",
 
-        // --- Marketplace Tab (marketplace.html) ---
+        title_archive: "Student Voices",
+        desc_archive: "Catch up on campus tea, student rants, and relatable stories. Search by keywords or filter by category to dive in!",
+        note_archive: "<strong>Community Note:</strong> Confessions and stories shared in Student Voices are contributed for entertainment, peer relatability, and lighthearted campus discussions. They do not represent official university views and carry no intent to target, harm, or defame any individual or organization. Read with an open mind and keep the campus culture kind and respectful!",
+        placeholder_archive_search: "🔍 Search confessions by keyword, tags, topic...",
+
         staticContactCard: "Got something to sell or offering a service? 🚀 Get listed here! Drop us an email at utemconfessionpromax@duck.com"
     },
     ms: {
         nav_activities: "Aktiviti",
         nav_confessions: "Pengakuan",
-        nav_archive: "Arkib Pengakuan",
+        nav_archive: "Suara Pelajar",
         nav_calendar: "Kalendar Akademik",
         nav_gpa: "Kalkulator GPA",
         nav_exams: "Kertas Exam Lepas",
@@ -780,7 +763,7 @@ const translations = {
         mobile_nav_updates: "Kemas Kini",
 
         mobile_nav_gpa: "Kalkulator GPA",
-        mobile_nav_archive: "Arkib",
+        mobile_nav_archive: "Suara Pelajar",
         mobile_nav_links: "Wi-Fi & Pautan",
         mobile_nav_buses: "Bas",
         mobile_nav_calendar: "Kalendar",
@@ -1518,6 +1501,12 @@ const translations = {
         // --- GPA Tab (gpa.html) (BM) ---
         gpaEstimationNote: "Nota: Pengiraan CGPA rasmi tertakluk kepada polisi penggredan universiti di SMPWeb mengikut nilai mata kualiti kredit.",
 
+        // --- Student Voices Tab (archive.html) (BM) ---
+        title_archive: "Suara Pelajar",
+        desc_archive: "Layan cerita santai, luahan pelajar, dan gosip panas kampus. Cari guna kata kunci atau tapis ikut kategori di bawah",
+        note_archive: "<strong>Nota Komuniti:</strong> Hantaran dan luahan di Suara Pelajar dikongsi semata-mata untuk hiburan, perkongsian santai, dan pengalaman sesama pelajar. Ia tidak mencerminkan pendirian rasmi universiti dan tiada sebarang niat untuk menyakiti, menyasarkan, atau memfitnah mana-mana pihak. Hayati dengan minda terbuka dan marilah kekalkan budaya kampus yang positif dan saling menghormati!",
+        placeholder_archive_search: "🔍 Cari confession ikut kata kunci, tag, topik...",
+
         // --- Marketplace Tab (marketplace.html) (BM) ---
         staticContactCard: "Ada barang nak letgo atau buat servis student? 🚀 Iklankan di sini! E-melkan butiran korang terus ke utemconfessionpromax@duck.com"
     }
@@ -2173,9 +2162,25 @@ function setLanguage(lang) {
     const descScholarships = document.getElementById("descScholarships");
     if (descScholarships) descScholarships.textContent = t.desc_scholarships;
 
-    // 13. Archive Takedown Notice
+    // 13. Student Voices
+    const titleArchive = document.getElementById("archiveTitle");
+    if (titleArchive) updateNodeText(titleArchive, t.title_archive || (currentLang === "ms" ? "Suara Pelajar" : "Student Voices"));
+
+    const descArchive = document.getElementById("descArchive");
+    if (descArchive) descArchive.textContent = t.desc_archive || (currentLang === "ms" ? "Layan cerita santai, luahan pelajar, dan gosip panas kampus. Cari guna kata kunci atau tapis ikut kategori di bawah" : "Catch up on campus tea, student rants, and relatable stories. Search by keywords or filter by category to dive in!");
+
+    const noteArchiveText = document.getElementById("noteArchiveText");
+    if (noteArchiveText) {
+        noteArchiveText.innerHTML = t.note_archive || (currentLang === "ms"
+            ? "<strong>Nota Komuniti:</strong> Hantaran dan luahan di Suara Pelajar dikongsi semata-mata untuk hiburan, perkongsian santai, dan pengalaman sesama pelajar. Ia tidak mencerminkan pendirian rasmi universiti dan tiada sebarang niat untuk menyakiti, menyasarkan, atau memfitnah mana-mana pihak. Hayati dengan minda terbuka dan marilah kekalkan budaya kampus yang positif dan saling menghormati!"
+            : "<strong>Community Note:</strong> Confessions and stories shared in Student Voices are contributed for entertainment, peer relatability, and lighthearted campus discussions. They do not represent official university views and carry no intent to target, harm, or defame any individual or organization. Read with an open mind and keep the campus culture kind and respectful!");
+    }
+
+    const archiveSearchInput = document.getElementById("archiveSearch");
+    if (archiveSearchInput) archiveSearchInput.setAttribute("placeholder", t.placeholder_archive_search || (currentLang === "ms" ? "🔍 Cari confession ikut kata kunci, tag, topik..." : "🔍 Search confessions by keyword, tags, topic..."));
+
     const noticeArchiveTakedown = document.getElementById("noticeArchiveTakedown");
-    if (noticeArchiveTakedown && t.notice_archive_takedown) {
+    if (noticeArchiveTakedown) {
         noticeArchiveTakedown.innerHTML = `<strong>${currentLang === "ms" ? "Permohonan Pemadaman Kandungan:" : "Content Removal Request:"}</strong> ${currentLang === "ms" ? "Jika terdapat hantaran pengakuan yang melibatkan anda dan anda mahu ia dipadam daripada arkib, sila hubungi pasukan admin melalui e-mel atau Telegram." : "If a confession post involves you and you wish to have it removed from the archive, please contact the admin team via email or Telegram."}`;
     }
     const btnContactAdminRemoval = document.getElementById("btnContactAdminRemoval");

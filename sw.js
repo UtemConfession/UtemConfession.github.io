@@ -11,10 +11,11 @@ try {
 }
 
 // sw.js — UTeM Confessions Pro Max Service Worker (Offline Support)
-const CACHE_NAME = 'ucpm-cache-v38';
+const CACHE_NAME = 'ucpm-cache-v43';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
+    './archive.html',
     './calendar.html',
     './bus.html',
     './library.html',
@@ -26,20 +27,23 @@ const ASSETS_TO_CACHE = [
     './support.html',
     './activities.html',
     './marketplace.html',
+    './updates.html',
     './style.css',
     './utils.js',
     './translation.js',
     './confessions.js',
+    './archive-data.js',
+    './archive.js',
     './gpa.js',
     './bus.js',
     './lookup.js',
     './calendar.js',
-    './health.js',
     './library.js',
     './scholarships.js',
     './activities-data.js',
     './activities.js',
     './marketplace.js',
+    './updates-data.js',
     './script.js',
     './authentication.js',
     './ads.js',
