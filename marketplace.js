@@ -6,7 +6,7 @@ const marketplaceListings = [
         type: "WTS",
         category: "Tech & Electronics",
         title: "Keyboards - Elec Fox Spectra 75 & Madlion 60 HE",
-        images: ["spectra.jpeg", "madlion.jpeg"],
+        images: ["spectra.webp", "madlion.webp"],
         items: [
             { name: "Elec Fox Spectra 75", condition: "New", price: "RM230" },
             { name: "Madlion 60 HE", condition: "Used", price: "RM90" }

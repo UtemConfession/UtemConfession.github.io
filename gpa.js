@@ -1,4 +1,4 @@
-// gpa.js — UTeM Forgiving & Smart GPA / CGPA Calculator
+// gpa.js — UTeM Forgiving & Smart GPA / CGPA Calculator (with LocalStorage Auto-Save)
 
 const gpaRowsContainer = document.getElementById("gpaRows");
 const addRowBtn = document.getElementById("addRowBtn");
@@ -19,8 +19,56 @@ const gradePoints = {
 };
 
 const DEFAULT_SUBJECT_CREDIT = 3; // Standard 3-credit course in Malaysian universities
+const GPA_STORAGE_KEY = "ucpm_gpa_state";
 
-function addCalculatorRow(subjName = '', credit = 3, grade = 'A') {
+function saveGpaState() {
+    try {
+        const rows = document.querySelectorAll(".gpa-subject-row");
+        const rowsData = [];
+        rows.forEach(row => {
+            const name = row.querySelector(".subj-name-input") ? row.querySelector(".subj-name-input").value : "";
+            const credit = row.querySelector(".subj-credit-select") ? row.querySelector(".subj-credit-select").value : "3";
+            const grade = row.querySelector(".subj-grade-select") ? row.querySelector(".subj-grade-select").value : "A";
+            rowsData.push({ name, credit, grade });
+        });
+
+        const state = {
+            prevCgpa: prevCgpaInput ? prevCgpaInput.value : "",
+            prevCredits: prevCreditsInput ? prevCreditsInput.value : "",
+            rows: rowsData
+        };
+
+        localStorage.setItem(GPA_STORAGE_KEY, JSON.stringify(state));
+    } catch (e) {
+        console.warn("GPA autosave warning:", e);
+    }
+}
+
+function restoreGpaState() {
+    try {
+        const saved = localStorage.getItem(GPA_STORAGE_KEY);
+        if (!saved) return false;
+
+        const data = JSON.parse(saved);
+        if (!data || !Array.isArray(data.rows) || data.rows.length === 0) return false;
+
+        if (gpaRowsContainer) gpaRowsContainer.innerHTML = "";
+        if (prevCgpaInput && data.prevCgpa !== undefined) prevCgpaInput.value = data.prevCgpa;
+        if (prevCreditsInput && data.prevCredits !== undefined) prevCreditsInput.value = data.prevCredits;
+
+        data.rows.forEach(r => {
+            addCalculatorRow(r.name || "", parseInt(r.credit, 10) || 3, r.grade || "A", false);
+        });
+
+        calculateGpa();
+        return true;
+    } catch (e) {
+        console.warn("GPA restore warning:", e);
+        return false;
+    }
+}
+
+function addCalculatorRow(subjName = '', credit = 3, grade = 'A', shouldSave = true) {
     if (!gpaRowsContainer) return;
     const rowId = 'row-' + Date.now() + Math.random().toString(36).substr(2, 5);
     const tr = document.createElement("tr");
@@ -50,9 +98,13 @@ function addCalculatorRow(subjName = '', credit = 3, grade = 'A') {
     `;
     gpaRowsContainer.appendChild(tr);
 
+    tr.querySelector(".subj-name-input").addEventListener("input", saveGpaState);
     tr.querySelector(".subj-credit-select").addEventListener("change", calculateGpa);
     tr.querySelector(".subj-grade-select").addEventListener("change", calculateGpa);
-    calculateGpa();
+    
+    if (shouldSave) {
+        calculateGpa();
+    }
 }
 
 window.removeCalculatorRow = function(rowId) {
@@ -156,6 +208,9 @@ function calculateGpa() {
             setTimeout(() => window.initAdsInContainer(gpaAdContainer), 50);
         }
     }
+
+    // Auto-save state
+    saveGpaState();
 }
 
 if (addRowBtn) {
@@ -164,6 +219,9 @@ if (addRowBtn) {
 
 if (clearGpaBtn) {
     clearGpaBtn.addEventListener("click", () => {
+        try {
+            localStorage.removeItem(GPA_STORAGE_KEY);
+        } catch (e) {}
         if (gpaRowsContainer) gpaRowsContainer.innerHTML = '';
         if (prevCgpaInput) prevCgpaInput.value = '';
         if (prevCreditsInput) prevCreditsInput.value = '';
@@ -203,20 +261,19 @@ if (btnAutoFillCourse && courseLookupSelect) {
     });
 }
 
-if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-        if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {
-            addCalculatorRow('', 3, 'B');
-            addCalculatorRow('', 3, 'B');
-            addCalculatorRow('', 3, 'B');
-            addCalculatorRow('', 3, 'B');
-        }
-    });
-} else {
-    if (gpaRowsContainer && gpaRowsContainer.children.length === 0) {
+function initGpaCalculator() {
+    if (!gpaRowsContainer) return;
+    const restored = restoreGpaState();
+    if (!restored && gpaRowsContainer.children.length === 0) {
         addCalculatorRow('', 3, 'B');
         addCalculatorRow('', 3, 'B');
         addCalculatorRow('', 3, 'B');
         addCalculatorRow('', 3, 'B');
     }
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGpaCalculator);
+} else {
+    initGpaCalculator();
 }

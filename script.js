@@ -2,10 +2,6 @@
 // Depends on: utils.js, translation.js, confessions.js
 
 // --- DARK MODE: Permanently locked ---
-document.body.classList.remove("light-theme");
-localStorage.setItem("theme", "dark");
-
-
 // --- LEGACY TAB ROUTER MAPPING ---
 const tabToPageMap = {
     "calendar-tab": "calendar.html",
@@ -51,6 +47,13 @@ function switchTab(tabId) {
     // If tab corresponds to a standalone page, redirect immediately
     if (tabToPageMap[tabId]) {
         window.location.href = tabToPageMap[tabId];
+        return;
+    }
+
+    // If target tab panel doesn't exist on this page, redirect to index.html
+    const targetPanel = document.getElementById(tabId);
+    if (!targetPanel) {
+        window.location.href = "index.html";
         return;
     }
 
@@ -133,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // UTeM Live Campus Weather Fetcher (Open-Meteo API for Durian Tunggal / Ayer Keroh)
     async function fetchCampusWeather() {
         const weatherText = document.getElementById("weatherText");
+        const weatherIcon = document.getElementById("weatherIcon");
         if (!weatherText) return;
 
         try {
@@ -142,15 +146,36 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (data && data.current_weather) {
                     const temp = Math.round(data.current_weather.temperature);
                     const code = data.current_weather.weathercode;
-                    let desc = "Clear";
-                    let icon = "☀️";
+                    const isDay = data.current_weather.is_day === 1;
 
-                    if (code >= 1 && code <= 3) { desc = "Partly Cloudy"; icon = "⛅"; }
-                    else if (code >= 45 && code <= 48) { desc = "Foggy"; icon = "🌫️"; }
-                    else if (code >= 51 && code <= 67) { desc = "Light Rain"; icon = "🌧️"; }
-                    else if (code >= 80 && code <= 99) { desc = "Thunderstorm / Heavy Rain"; icon = "⛈️"; }
+                    let desc = isDay ? "Clear" : "Clear Night";
+                    let icon = isDay ? "☀️" : "🌙";
 
-                    weatherText.textContent = `UTeM Campus: ${temp}°C ${desc} ${icon}`;
+                    if (code === 1) {
+                        desc = isDay ? "Mainly Clear" : "Clear Night";
+                        icon = isDay ? "🌤️" : "🌙";
+                    } else if (code === 2) {
+                        desc = "Partly Cloudy";
+                        icon = isDay ? "⛅" : "☁️";
+                    } else if (code === 3) {
+                        desc = "Overcast";
+                        icon = "☁️";
+                    } else if (code === 45 || code === 48) {
+                        desc = "Foggy / Hazy";
+                        icon = "🌫️";
+                    } else if ((code >= 51 && code <= 55) || code === 56 || code === 57) {
+                        desc = "Drizzle";
+                        icon = "🌦️";
+                    } else if ((code >= 61 && code <= 67) || (code >= 80 && code <= 82)) {
+                        desc = code >= 65 || code === 82 ? "Heavy Rain" : "Rain";
+                        icon = "🌧️";
+                    } else if (code >= 95 && code <= 99) {
+                        desc = "Thunderstorm";
+                        icon = "⛈️";
+                    }
+
+                    if (weatherIcon) weatherIcon.textContent = icon;
+                    weatherText.textContent = `UTeM Campus: ${temp}°C ${desc}`;
                 }
             }
         } catch (err) {

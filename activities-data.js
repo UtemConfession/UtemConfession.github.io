@@ -23,7 +23,7 @@ const activitiesData = [
         bestTime: { en: "Early morning to avoid heat", ms: "Awal pagi untuk mengelakkan panas" },
         duration: { en: "30 mins", ms: "30 minit" },
         bookingRequired: false,
-        image: "./assets/images/activities/a-famosa.jpg",
+        image: "./assets/images/activities/a-famosa.webp",
         mapUrl: "https://maps.app.goo.gl/9R6YvqNwqj4V4j21A",
         websiteUrl: ""
     },
@@ -50,7 +50,7 @@ const activitiesData = [
         bestTime: { en: "Weekends 7:30 PM", ms: "Hujung minggu 7:30 PM" },
         duration: { en: "2-3 hours", ms: "2-3 jam" },
         bookingRequired: false,
-        image: "./assets/images/activities/Jonker-Street-Night-Market.jpg",
+        image: "./assets/images/activities/Jonker-Street-Night-Market.webp",
         mapUrl: "https://maps.app.goo.gl/ZqE8fN4oZRb7zM9G6",
         websiteUrl: ""
     },
@@ -131,7 +131,7 @@ const activitiesData = [
         bestTime: { en: "Morning", ms: "Pagi" },
         duration: { en: "1 hour", ms: "1 jam" },
         bookingRequired: false,
-        image: "./assets/images/activities/baba-nyonya-museum.jpg",
+        image: "./assets/images/activities/baba-nyonya-museum.webp",
         mapUrl: "https://maps.app.goo.gl/1Qy8z7Z7X8s7G3J88",
         websiteUrl: "https://babanyonyamuseum.com/"
     },
@@ -158,7 +158,7 @@ const activitiesData = [
         bestTime: { en: "Early morning or late afternoon", ms: "Awal pagi atau lewat petang" },
         duration: { en: "1-2 hours", ms: "1-2 jam" },
         bookingRequired: false,
-        image: "./assets/images/activities/melaka-botanical-garden.jpg",
+        image: "./assets/images/activities/melaka-botanical-garden.webp",
         mapUrl: "https://maps.app.goo.gl/wQ1g5Z4w3d2W5f4h7",
         websiteUrl: ""
     },
@@ -185,7 +185,7 @@ const activitiesData = [
         bestTime: { en: "Late afternoon / Sunset", ms: "Lewat petang / Senja" },
         duration: { en: "1-2 hours", ms: "1-2 jam" },
         bookingRequired: false,
-        image: "./assets/images/activities/klebang-beach.jpg",
+        image: "./assets/images/activities/klebang-beach.webp",
         mapUrl: "https://maps.app.goo.gl/3q4f6Y5b2a1V3c4b5",
         websiteUrl: ""
     },
@@ -212,7 +212,7 @@ const activitiesData = [
         bestTime: { en: "Anytime", ms: "Bila-bila masa" },
         duration: { en: "45 mins", ms: "45 minit" },
         bookingRequired: false,
-        image: "./assets/images/activities/ghost-museum.jpg",
+        image: "./assets/images/activities/ghost-museum.webp",
         mapUrl: "https://maps.app.goo.gl/7g6f5Y4b3a2V2c3b4",
         websiteUrl: ""
     },
@@ -239,7 +239,7 @@ const activitiesData = [
         bestTime: { en: "Morning or early afternoon", ms: "Pagi atau awal petang" },
         duration: { en: "Half-day", ms: "Separuh hari" },
         bookingRequired: false,
-        image: "./assets/images/activities/melaka-wonderland.jpg",
+        image: "./assets/images/activities/melaka-wonderland.webp",
         mapUrl: "https://maps.app.goo.gl/9h8g7Y6b5a4V3c2b1",
         websiteUrl: "https://melakawonderland.com.my/"
     },
@@ -266,7 +266,7 @@ const activitiesData = [
         bestTime: { en: "Morning", ms: "Pagi" },
         duration: { en: "2-3 hours", ms: "2-3 jam" },
         bookingRequired: true,
-        image: "./assets/images/activities/skytrex.jpg",
+        image: "./assets/images/activities/skytrex.webp",
         mapUrl: "https://maps.app.goo.gl/1l2k3Y4b5a6V7c8b9",
         websiteUrl: "https://www.skytrex-adventure.org/melaka"
     },
@@ -293,7 +293,7 @@ const activitiesData = [
         bestTime: { en: "Evening or Rainy day", ms: "Petang atau Hari Hujan" },
         duration: { en: "2 hours", ms: "2 jam" },
         bookingRequired: false,
-        image: "./assets/images/activities/mitc-bowling.jpg",
+        image: "./assets/images/activities/mitc-bowling.webp",
         mapUrl: "https://maps.app.goo.gl/9t8u7Y6b5a4V3c2b1",
         websiteUrl: ""
     }
@@ -311,7 +311,7 @@ const activitiesData = [
         fullDesc: { en: "The Stadthuys is believed to be the oldest-surviving Dutch building in the East. Its bright terracotta red color makes it the centerpiece of Melaka's historic district.", ms: "Stadthuys dipercayai bangunan Belanda tertua yang masih wujud di Timur. Warna merah terakota yang terang menjadikannya pusat perhatian di daerah bersejarah Melaka." },
         openingHours: { en: "9:00 AM - 5:00 PM (Museum)", ms: "9:00 AM - 5:00 PM (Muzium)" },
         bestTime: { en: "Early Morning for photos", ms: "Awal pagi untuk gambar" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/stadthuys.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/stadthuys.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "christ-church", categoryId: "historical", type: "indoor",
@@ -323,7 +323,7 @@ const activitiesData = [
         shortDesc: { en: "An 18th-century Anglican church known for its distinct red facade.", ms: "Gereja Anglikan abad ke-18 yang terkenal dengan fasad merahnya." },
         fullDesc: { en: "Built by the Dutch when they took possession of Melaka from the Portuguese, it's one of the defining landmarks of the city and still a functioning church today.", ms: "Dibina oleh Belanda apabila mereka mengambil alih Melaka daripada Portugis, ia merupakan salah satu mercu tanda utama bandar ini dan masih berfungsi sebagai gereja hari ini." },
         openingHours: { en: "9:00 AM - 4:30 PM", ms: "9:00 AM - 4:30 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "30 mins", ms: "30 minit" }, bookingRequired: false,
-         image: "./assets/images/activities/christ-church.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+         image: "./assets/images/activities/christ-church.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "st-paul-church", categoryId: "historical", type: "outdoor",
@@ -335,7 +335,7 @@ const activitiesData = [
         shortDesc: { en: "Historic church ruins situated at the top of St. Paul's Hill with great views.", ms: "Runtuhan gereja bersejarah yang terletak di puncak Bukit St. Paul dengan pemandangan hebat." },
         fullDesc: { en: "Originally built in 1521, making it the oldest church building in Malaysia and Southeast Asia. It requires a short uphill walk but rewards you with ancient tombstones and panoramic views of Melaka city and coastline.", ms: "Mula dibina pada tahun 1521, menjadikannya bangunan gereja tertua di Malaysia dan Asia Tenggara. Ia memerlukan sedikit pendakian tetapi menawarkan pemandangan panorama bandar dan pantai Melaka." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Late Afternoon / Sunset", ms: "Lewat Petang / Senja" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/st-paul-church.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/st-paul-church.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "melaka-sultanate-palace", categoryId: "historical", type: "indoor",
@@ -347,7 +347,7 @@ const activitiesData = [
         shortDesc: { en: "A wooden replica of the 15th-century palace of Sultan Mansur Shah.", ms: "Replika kayu istana abad ke-15 Sultan Mansur Shah." },
         fullDesc: { en: "Meticulously constructed without the use of a single nail, this museum showcases the history and culture of the Melaka Sultanate, featuring dioramas, weapons, and traditional clothing.", ms: "Dibina dengan teliti tanpa menggunakan sebatang paku, muzium ini mempamerkan sejarah dan budaya Kesultanan Melaka, menampilkan diorama, senjata dan pakaian tradisional." },
         openingHours: { en: "9:00 AM - 5:00 PM (Closed Mondays)", ms: "9:00 AM - 5:00 PM (Tutup Isnin)" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/sultanate-palace-museum.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/sultanate-palace-museum.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "cheng-hoon-teng", categoryId: "historical", type: "indoor",
@@ -359,7 +359,7 @@ const activitiesData = [
         shortDesc: { en: "The oldest functioning traditional Chinese temple in Malaysia.", ms: "Kuil Cina tradisional tertua yang masih berfungsi di Malaysia." },
         fullDesc: { en: "Founded in the 1600s, this temple is a beautifully ornate sanctuary built using materials and artisans brought in from China. It practices the Three Doctrinal Systems of Taoism, Confucianism, and Buddhism.", ms: "Ditubuhkan pada tahun 1600-an, kuil ini adalah tempat perlindungan berhias indah yang dibina menggunakan bahan dan tukang dari China. Ia mengamalkan Tiga Sistem Doktrin iaitu Taoisme, Konfusianisme dan Buddhisme." },
         openingHours: { en: "7:00 AM - 4:00 PM", ms: "7:00 AM - 4:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "30 mins", ms: "30 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/cheng-hoon-teng-temple.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/cheng-hoon-teng-temple.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "kampung-kling", categoryId: "historical", type: "indoor",
@@ -371,7 +371,7 @@ const activitiesData = [
         shortDesc: { en: "Historic mosque featuring unique Sumatran and Moorish architectural styles.", ms: "Masjid bersejarah yang menampilkan gaya seni bina unik Sumatera dan Moor." },
         fullDesc: { en: "One of the oldest mosques in Malaysia, it stands out with its multi-tiered pagoda-like minaret instead of the traditional dome, reflecting the diverse architectural influences in Melaka.", ms: "Salah satu masjid tertua di Malaysia, ia menonjol dengan menara bertingkat seperti pagoda dan bukannya kubah tradisional, mencerminkan kepelbagaian pengaruh seni bina di Melaka." },
         openingHours: { en: "Check local times", ms: "Semak waktu tempatan" }, bestTime: { en: "Outside prayer times", ms: "Luar waktu solat" }, duration: { en: "30 mins", ms: "30 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/kampung-kling-mosque.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/kampung-kling-mosque.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "portuguese-settlement", categoryId: "unique_places", type: "outdoor",
@@ -383,7 +383,7 @@ const activitiesData = [
         shortDesc: { en: "A unique village home to the Kristang people, famous for its seafood and vibrant Christmas celebrations.", ms: "Perkampungan unik orang Kristang, terkenal dengan makanan laut dan sambutan Krismas yang meriah." },
         fullDesc: { en: "Home to descendants of the Portuguese who conquered Melaka in 1511. It's the best place in Melaka to eat fresh seafood at the local food court right by the sea while watching the sunset.", ms: "Tempat tinggal keturunan Portugis yang menakluki Melaka pada tahun 1511. Ia adalah tempat terbaik di Melaka untuk makan makanan laut segar di medan selera tempatan di tepi laut sambil melihat matahari terbenam." },
         openingHours: { en: "Evenings for food", ms: "Petang/Malam untuk makanan" }, bestTime: { en: "Dinner / Sunset", ms: "Makan Malam / Senja" }, duration: { en: "2-3 hours", ms: "2-3 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/portuguese-square.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/portuguese-square.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "kampung-morten", categoryId: "historical", type: "outdoor",
@@ -395,7 +395,7 @@ const activitiesData = [
         shortDesc: { en: "A beautifully preserved traditional Malay village in the middle of the city.", ms: "Perkampungan tradisional Melayu yang dipelihara indah di tengah-tengah bandar." },
         fullDesc: { en: "Walking into Kampung Morten feels like stepping back in time. You can visit Villa Sentosa, a living museum within a traditional wooden Malay house, to learn about local customs and heritage.", ms: "Berjalan ke Kampung Morten terasa seperti melangkah kembali ke masa lalu. Anda boleh melawat Villa Sentosa, muzium hidup di dalam rumah kayu tradisional Melayu, untuk mengetahui tentang adat dan warisan tempatan." },
         openingHours: { en: "Daytime", ms: "Siang" }, bestTime: { en: "Late Morning", ms: "Lewat Pagi" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/kampung-morten.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/kampung-morten.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "maritime-museum", categoryId: "heritage", type: "indoor",
@@ -407,7 +407,7 @@ const activitiesData = [
         shortDesc: { en: "A museum housed inside a massive replica of a Portuguese galleon.", ms: "Muzium yang ditempatkan di dalam replika besar kapal geliung Portugis." },
         fullDesc: { en: "The museum is a replica of the Flora de la Mar, a Portuguese ship that sank off the coast of Melaka. It highlights Melaka's importance as an international emporium from the Melaka Sultanate period to the colonial eras.", ms: "Muzium ini merupakan replika Flora de la Mar, sebuah kapal Portugis yang karam di luar pantai Melaka. Ia menonjolkan kepentingan Melaka sebagai emporium antarabangsa dari zaman Kesultanan Melaka hingga zaman penjajah." },
         openingHours: { en: "9:00 AM - 5:00 PM", ms: "9:00 AM - 5:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/maritime-museum.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/maritime-museum.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "cheng-ho-museum", categoryId: "heritage", type: "indoor",
@@ -419,7 +419,7 @@ const activitiesData = [
         shortDesc: { en: "Explores the life and voyages of Admiral Zheng He.", ms: "Meneroka kehidupan dan pelayaran Laksamana Cheng Ho." },
         fullDesc: { en: "Set in a large ancient building, this museum provides extensive exhibits on the Ming Dynasty admiral Cheng Ho (Zheng He) and his historical connections to Melaka.", ms: "Terletak di bangunan purba yang besar, muzium ini menyediakan pameran yang meluas tentang laksamana Dinasti Ming Cheng Ho dan kaitan sejarahnya dengan Melaka." },
         openingHours: { en: "9:00 AM - 6:00 PM", ms: "9:00 AM - 6:00 PM" }, bestTime: { en: "Afternoon", ms: "Petang" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/cheng-ho-museum.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/cheng-ho-museum.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "upside-down-house", categoryId: "unique_museums", type: "indoor",
@@ -431,7 +431,7 @@ const activitiesData = [
         shortDesc: { en: "A fun photography attraction where everything is mounted upside down.", ms: "Tarikan fotografi yang menyeronokkan di mana semuanya dipasang terbalik." },
         fullDesc: { en: "A quirky indoor attraction featuring multiple rooms (living room, bedroom, kitchen) fully furnished but completely upside down. Perfect for taking creative, reality-defying photos with friends.", ms: "Tarikan tertutup unik yang menampilkan pelbagai bilik berperabot lengkap tetapi terbalik. Sesuai untuk mengambil foto kreatif bersama rakan-rakan." },
         openingHours: { en: "10:00 AM - 7:00 PM", ms: "10:00 AM - 7:00 PM" }, bestTime: { en: "Anytime", ms: "Bila-bila masa" }, duration: { en: "45 mins", ms: "45 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/upside-down-house.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/upside-down-house.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "submarine-museum", categoryId: "unique_museums", type: "indoor",
@@ -443,7 +443,7 @@ const activitiesData = [
         shortDesc: { en: "Explore an actual decommissioned Agosta 70 class submarine.", ms: "Terokai kapal selam kelas Agosta 70 sebenar yang telah ditamatkan perkhidmatannya." },
         fullDesc: { en: "Step inside the SMD Quessant, a retired French-built submarine formerly used to train Royal Malaysian Navy crews. It offers a rare glimpse into the cramped and complex interior of a real military submarine.", ms: "Melangkah masuk ke dalam SMD Quessant, kapal selam buatan Perancis bersara yang dahulunya digunakan untuk melatih kru TLDM. Ia menawarkan pandangan yang jarang ke dalam bahagian dalaman kapal selam tentera yang sempit dan kompleks." },
         openingHours: { en: "9:00 AM - 5:30 PM", ms: "9:00 AM - 5:30 PM" }, bestTime: { en: "Afternoon (Combine with Klebang Beach)", ms: "Petang (Gabung dengan Pantai Klebang)" }, duration: { en: "45 mins", ms: "45 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/submarine-museum.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/submarine-museum.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "taman-seribu-bunga", categoryId: "nature", type: "outdoor",
@@ -455,7 +455,7 @@ const activitiesData = [
         shortDesc: { en: "A beautifully landscaped park translating to 'Park of a Thousand Flowers'.", ms: "Taman yang indah dan dinamakan 'Taman Seribu Bunga'." },
         fullDesc: { en: "A scenic botanical park perfect for photography and relaxing walks. It features beautifully manicured gardens, fountains, and a wide variety of local flora. A quiet escape from the busy city.", ms: "Taman botani yang indah sesuai untuk bergambar dan berjalan santai. Ia mempunyai taman yang dijaga rapi, air pancut dan pelbagai jenis flora tempatan. Tempat melarikan diri yang sunyi dari bandar." },
         openingHours: { en: "Daytime", ms: "Waktu Siang" }, bestTime: { en: "Morning or Late Afternoon", ms: "Pagi atau Lewat Petang" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/taman-seribu-bunga.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/taman-seribu-bunga.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "sungai-udang-forest", categoryId: "nature", type: "outdoor",
@@ -467,7 +467,7 @@ const activitiesData = [
         shortDesc: { en: "A peaceful forest reserve offering trails, camping sites, and nature walks.", ms: "Hutan simpan yang tenang menawarkan denai, tapak perkhemahan dan alam semula jadi." },
         fullDesc: { en: "A well-maintained recreational forest that is excellent for jungle trekking and camping. It has concrete pathways for casual walkers as well as rugged trails for more adventurous hikers. Great for students wanting an escape into nature.", ms: "Hutan rekreasi yang diselenggara dengan baik yang sangat baik untuk meredah hutan dan berkhemah. Ia mempunyai laluan konkrit untuk pejalan kaki kasual serta laluan lasak untuk pendaki yang lebih mencabar." },
         openingHours: { en: "Daytime", ms: "Waktu Siang" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "2-3 hours", ms: "2-3 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/sungai-udang-forest.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/sungai-udang-forest.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "pantai-puteri", categoryId: "beaches", type: "outdoor",
@@ -479,7 +479,7 @@ const activitiesData = [
         shortDesc: { en: "A quiet, scenic beach popular with locals for evening walks and street food.", ms: "Pantai yang sunyi dan indah yang popular di kalangan penduduk tempatan untuk bersiar-siar petang dan makanan jalanan." },
         fullDesc: { en: "Less crowded than Klebang, Pantai Puteri stretches for about 2.5km. It is a fantastic spot for a quiet evening watching the sunset, enjoying local street food by the coast, or fishing.", ms: "Kurang sesak berbanding Klebang, Pantai Puteri membentang sepanjang kira-kira 2.5km. Ia adalah tempat yang hebat untuk petang yang tenang menonton matahari terbenam, menikmati makanan jalanan atau memancing." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Sunset", ms: "Senja" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/pantai-puteri.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/pantai-puteri.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "tanjung-bidara", categoryId: "beaches", type: "outdoor",
@@ -491,7 +491,7 @@ const activitiesData = [
         shortDesc: { en: "One of the better beaches in Melaka for actual swimming and picnicking.", ms: "Salah satu pantai yang lebih baik di Melaka untuk berenang dan berkelah." },
         fullDesc: { en: "Located further away from the city centre, Tanjung Bidara features finer sand and clearer waters compared to city beaches. It is a popular weekend getaway spot for locals and students alike.", ms: "Terletak lebih jauh dari pusat bandar, Tanjung Bidara mempunyai pasir yang lebih halus dan air yang lebih jernih berbanding pantai bandar. Ia merupakan tempat percutian hujung minggu yang popular." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Afternoon", ms: "Petang" }, duration: { en: "2-4 hours", ms: "2-4 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/tanjung-bidara-beach.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/tanjung-bidara-beach.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "butterfly-sanctuary", categoryId: "animal_wildlife", type: "indoor",
@@ -503,7 +503,7 @@ const activitiesData = [
         shortDesc: { en: "A beautifully maintained sanctuary featuring thousands of butterflies and various reptiles.", ms: "Tempat perlindungan yang diselenggara dengan indah yang menampilkan beribu-ribu rama-rama dan pelbagai reptilia." },
         fullDesc: { en: "More than just butterflies, this sanctuary acts as a conservation center and houses a diverse range of snakes, lizards, and crocodiles. The walk-through butterfly aviary is excellent for photography.", ms: "Lebih daripada sekadar rama-rama, tempat perlindungan ini bertindak sebagai pusat pemuliharaan dan menempatkan pelbagai jenis ular, cicak dan buaya. Sangkar rama-rama sangat baik untuk fotografi." },
         openingHours: { en: "8:30 AM - 5:30 PM", ms: "8:30 AM - 5:30 PM" }, bestTime: { en: "Morning (when butterflies are active)", ms: "Pagi (rama-rama aktif)" }, duration: { en: "1.5 hours", ms: "1.5 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/butterfly-sanctuary.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://www.butterflyreptile.com/"
+        image: "./assets/images/activities/butterfly-sanctuary.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://www.butterflyreptile.com/"
     },
     {
         id: "crocodile-park", categoryId: "zoo_animals", type: "outdoor",
@@ -515,7 +515,7 @@ const activitiesData = [
         shortDesc: { en: "Home to over 100 species of crocodiles and a miniature Malaysia landmark park.", ms: "Menempatkan lebih 100 spesies buaya dan taman mercu tanda mini Malaysia." },
         fullDesc: { en: "Witness massive crocodiles up close, watch feeding shows, and explore the recreational park which includes a small water park and miniature replicas of famous Malaysian landmarks.", ms: "Saksikan buaya besar dari dekat, tonton pertunjukan memberi makan, dan terokai taman rekreasi yang merangkumi taman air kecil dan replika mini mercu tanda terkenal Malaysia." },
         openingHours: { en: "9:00 AM - 5:00 PM", ms: "9:00 AM - 5:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "2 hours", ms: "2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/crocodile-farm.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/crocodile-farm.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "afamosa-water-park", categoryId: "amusement", type: "outdoor",
@@ -527,7 +527,7 @@ const activitiesData = [
         shortDesc: { en: "One of the largest water theme parks in Malaysia.", ms: "Salah satu taman tema air terbesar di Malaysia." },
         fullDesc: { en: "A massive water park featuring wave pools, lazy rivers, and thrilling high-speed slides. An excellent day trip destination for university students to relax and destress after exams.", ms: "Taman air besar yang menampilkan kolam ombak, sungai malas dan gelongsor berkelajuan tinggi yang mendebarkan. Destinasi percutian yang sangat baik untuk pelajar universiti bersantai selepas peperiksaan." },
         openingHours: { en: "10:00 AM - 6:00 PM (Closed Tuesdays)", ms: "10:00 AM - 6:00 PM (Tutup Selasa)" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "Half-day to Full-day", ms: "Separuh atau Sepenuh Hari" }, bookingRequired: true,
-        image: "./assets/images/activities/afamosa-water-park.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://www.afamosa.com/water-theme-park"
+        image: "./assets/images/activities/afamosa-water-park.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://www.afamosa.com/water-theme-park"
     },
     {
         id: "afamosa-safari", categoryId: "zoo_animals", type: "outdoor",
@@ -539,7 +539,7 @@ const activitiesData = [
         shortDesc: { en: "An interactive animal safari featuring free-roaming wildlife and daily shows.", ms: "Safari haiwan interaktif yang menampilkan hidupan liar perayauan bebas dan pertunjukan harian." },
         fullDesc: { en: "Experience an open-air safari ride where animals roam freely. You can feed animals, watch engaging multi-animal shows, and take a cruise to 'Monkey Island'.", ms: "Alami tunggangan safari terbuka di mana haiwan bebas berkeliaran. Anda boleh memberi makan haiwan, menonton pelbagai pertunjukan dan menaiki bot ke 'Pulau Monyet'." },
         openingHours: { en: "10:00 AM - 5:00 PM", ms: "10:00 AM - 5:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "Half-day", ms: "Separuh hari" }, bookingRequired: false,
-        image: "./assets/images/activities/afamosa-safari.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/afamosa-safari.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "afamosa-old-west", categoryId: "night_activities", type: "outdoor",
@@ -551,7 +551,7 @@ const activitiesData = [
         shortDesc: { en: "A cowboy-themed night park with spectacular fire shows and a carnival atmosphere.", ms: "Taman malam bertemakan koboi dengan pertunjukan api yang menakjubkan dan suasana karnival." },
         fullDesc: { en: "Step into a rustic cowboy town bustling with entertainment. The main highlight is the spectacular Red Indian fire show, fireworks, and the colorful carnival parade. A great night activity for groups.", ms: "Melangkah ke bandar koboi yang sibuk dengan hiburan. Tarikan utama ialah pertunjukan api Red Indian yang menakjubkan, bunga api dan perarakan karnival yang berwarna-warni. Aktiviti malam yang hebat untuk kumpulan." },
         openingHours: { en: "6:00 PM - 12:00 AM", ms: "6:00 PM - 12:00 AM" }, bestTime: { en: "8:00 PM", ms: "8:00 Malam" }, duration: { en: "3 hours", ms: "3 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/afamosa-old-west.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/afamosa-old-west.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "breakout-melaka", categoryId: "indoor_activities", type: "indoor",
@@ -563,7 +563,7 @@ const activitiesData = [
         shortDesc: { en: "An immersive and challenging physical escape room experience.", ms: "Pengalaman bilik pelepasan fizikal (escape room) yang mendalam dan mencabar." },
         fullDesc: { en: "Grab a group of friends and try to escape from elaborately themed locked rooms by solving puzzles, finding clues, and using teamwork before the 45-minute timer runs out.", ms: "Kumpul rakan dan cuba melarikan diri dari bilik terkunci bertema dengan menyelesaikan teka-teki, mencari petunjuk, dan menggunakan kerja berpasukan sebelum pemasa tamat." },
         openingHours: { en: "10:00 AM - 10:00 PM", ms: "10:00 AM - 10:00 PM" }, bestTime: { en: "Anytime", ms: "Bila-bila masa" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: true,
-        image: "./assets/images/activities/breakout-melaka.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/breakout-melaka.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "gsc-dataran-pahlawan", categoryId: "indoor_activities", type: "indoor",
@@ -575,7 +575,7 @@ const activitiesData = [
         shortDesc: { en: "The largest cinema multiplex in central Melaka.", ms: "Multipleks pawagam terbesar di tengah Melaka." },
         fullDesc: { en: "Catch the latest blockbuster movies here. It's a highly popular spot for UTeM students to hang out during weekends or unwind after classes. Make use of the student price for cheaper tickets before 6 PM on weekdays.", ms: "Tonton filem blockbuster terkini di sini. Ia merupakan tempat yang sangat popular untuk pelajar UTeM melepak semasa hujung minggu. Manfaatkan harga pelajar sebelum jam 6 petang." },
         openingHours: { en: "10:00 AM - Midnight", ms: "10:00 AM - Tengah Malam" }, bestTime: { en: "Anytime", ms: "Bila-bila masa" }, duration: { en: "2-3 hours", ms: "2-3 jam" }, bookingRequired: true,
-        image: "./assets/images/activities/gsc-dataran.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/gsc-dataran.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "gadek-hot-springs", categoryId: "hot_springs", type: "outdoor",
@@ -587,7 +587,7 @@ const activitiesData = [
         shortDesc: { en: "Natural sulphur hot springs known for their therapeutic properties.", ms: "Kolam air panas sulfur semula jadi yang terkenal dengan khasiat terapeutiknya." },
         fullDesc: { en: "Features multiple communal pools of varying temperatures fed by natural hot springs. It's especially popular at night when the cool air contrasts perfectly with the hot water. Great for soothing tired muscles.", ms: "Menampilkan pelbagai kolam komunal dengan suhu berbeza-beza yang disalurkan oleh mata air panas semula jadi. Ia sangat popular pada waktu malam." },
         openingHours: { en: "24 Hours (Usually)", ms: "24 Jam (Biasa)" }, bestTime: { en: "Night", ms: "Malam" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/gadek-hot-springs.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/gadek-hot-springs.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "melaka-planetarium", categoryId: "educational", type: "indoor",
@@ -599,7 +599,7 @@ const activitiesData = [
         shortDesc: { en: "An interactive science and astronomy center featuring a dome theater.", ms: "Pusat sains dan astronomi interaktif yang menampilkan teater kubah." },
         fullDesc: { en: "Explore interactive exhibits related to space, astronomy, and physics. The main attraction is the large dome theater that screens immersive educational documentaries about the universe.", ms: "Teroka pameran interaktif berkaitan angkasa, astronomi dan fizik. Tarikan utama ialah teater kubah besar yang menayangkan dokumentari pendidikan tentang alam semesta." },
         openingHours: { en: "9:00 AM - 5:00 PM", ms: "9:00 AM - 5:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "2 hours", ms: "2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/melaka-planetarium.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/melaka-planetarium.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "al-khawarizmi", categoryId: "educational", type: "indoor",
@@ -611,7 +611,7 @@ const activitiesData = [
         shortDesc: { en: "An observatory and astronomy museum situated by the coast.", ms: "Sebuah balai cerap dan muzium astronomi yang terletak di tepi pantai." },
         fullDesc: { en: "Named after the famous Muslim astronomer, this complex includes an observatory, a planetarium, and an astronomy museum. Located near Tanjung Bidara beach, it offers both educational value and beautiful coastal views.", ms: "Dinamakan sempena nama ahli astronomi Islam yang terkenal, kompleks ini merangkumi balai cerap, planetarium, dan muzium astronomi. Terletak berhampiran pantai." },
         openingHours: { en: "Check local times", ms: "Semak waktu tempatan" }, bestTime: { en: "Afternoon", ms: "Petang" }, duration: { en: "2 hours", ms: "2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/al-khawarizmi.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/al-khawarizmi.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "melaka-river-walk", categoryId: "night_activities", type: "outdoor",
@@ -623,7 +623,7 @@ const activitiesData = [
         shortDesc: { en: "A beautifully illuminated pathway alongside the Melaka River, perfect for night strolls.", ms: "Laluan yang diterangi indah di sepanjang Sungai Melaka, sesuai untuk bersiar-siar pada waktu malam." },
         fullDesc: { en: "Instead of taking the paid cruise, you can walk miles along the paved riverbanks. At night, the river is beautifully lit up, passing by historic bridges, cafes, bars, and colorful street art murals. It's highly atmospheric and extremely safe.", ms: "Selain menaiki bot pelancong, anda boleh berjalan batu di sepanjang tebing sungai berturap. Pada waktu malam, sungai ini diterangi cahaya yang indah, melepasi jambatan bersejarah, kafe, dan seni jalanan." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Night", ms: "Malam" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/melaka-river-walk.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/melaka-river-walk.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 // --- MORE HISTORICAL & LANDMARKS ---
     {
@@ -636,7 +636,7 @@ const activitiesData = [
         shortDesc: { en: "A beautiful marble fountain built in 1901 to commemorate Queen Victoria's Diamond Jubilee.", ms: "Air pancut marmar cantik yang dibina pada tahun 1901 untuk memperingati Jubli Intan Ratu Victoria." },
         fullDesc: { en: "Located in the Dutch Square, this functioning fountain is a colonial-era landmark featuring intricate carvings. It is one of the most photographed spots in Melaka.", ms: "Terletak di Dataran Belanda, air pancut yang masih berfungsi ini merupakan mercu tanda zaman kolonial. Ia adalah salah satu tempat yang paling banyak diambil gambar di Melaka." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "15 mins", ms: "15 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/queen-victoria-fountain.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/queen-victoria-fountain.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "independence-memorial", categoryId: "historical", type: "indoor",
@@ -648,7 +648,7 @@ const activitiesData = [
         shortDesc: { en: "Museum housed in a colonial Dutch mansion detailing Malaysia's journey to independence.", ms: "Muzium yang ditempatkan di rumah agam kolonial Belanda yang memperincikan perjalanan Malaysia ke arah kemerdekaan." },
         fullDesc: { en: "Contains historical documents, maps, treaties, and photographs concerning the struggle for independence from British rule. It is located exactly where the first Prime Minister announced the impending independence.", ms: "Mengandungi dokumen sejarah, peta, perjanjian, dan gambar mengenai perjuangan kemerdekaan dari pemerintahan British." },
         openingHours: { en: "9:00 AM - 5:00 PM (Closed Mondays)", ms: "9:00 AM - 5:00 PM (Tutup Isnin)" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/independence-memorial.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/independence-memorial.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "bastion-middleburg", categoryId: "historical", type: "outdoor",
@@ -660,7 +660,7 @@ const activitiesData = [
         shortDesc: { en: "A restored section of the historic Dutch defensive wall alongside the river.", ms: "Bahagian yang dipulihkan dari tembok pertahanan bersejarah Belanda di tepi sungai." },
         fullDesc: { en: "Discovered during the construction of a revolving tower, this bastion was reconstructed to show the immense scale of the fort that once protected Melaka. It sits beautifully by the Melaka River.", ms: "Ditemui semasa pembinaan menara berputar, kubu ini dibina semula untuk menunjukkan skala besar kubu yang pernah melindungi Melaka." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Afternoon", ms: "Petang" }, duration: { en: "30 mins", ms: "30 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/bastion-middleburg.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/bastion-middleburg.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "sri-poyyatha", categoryId: "historical", type: "indoor",
@@ -672,7 +672,7 @@ const activitiesData = [
         shortDesc: { en: "One of the oldest functioning Hindu temples in Malaysia.", ms: "Salah satu kuil Hindu tertua yang berfungsi di Malaysia." },
         fullDesc: { en: "Built in 1781, it is dedicated to Ganesha. The temple features a blend of architectural styles influenced by the Dutch colonial era, making it distinct from typical South Indian temples.", ms: "Dibina pada tahun 1781, ia didedikasikan kepada Ganesha. Kuil ini menampilkan gabungan gaya seni bina yang dipengaruhi oleh era kolonial Belanda." },
         openingHours: { en: "Morning to Evening", ms: "Pagi ke Petang" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "30 mins", ms: "30 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/poyyatha-temple.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/poyyatha-temple.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "st-peters-church", categoryId: "historical", type: "indoor",
@@ -684,7 +684,7 @@ const activitiesData = [
         shortDesc: { en: "The oldest functioning Roman Catholic church in Malaysia.", ms: "Gereja Roman Katolik tertua yang masih berfungsi di Malaysia." },
         fullDesc: { en: "Constructed in 1710, the church has a mix of Oriental and Occidental architectural styles. It remains a major center for the local Catholic and Kristang community.", ms: "Dibina pada 1710, gereja ini mempunyai gabungan gaya seni bina Oriental dan Occidental. Ia kekal sebagai pusat utama untuk komuniti Katolik dan Kristang tempatan." },
         openingHours: { en: "Check local times", ms: "Semak waktu tempatan" }, bestTime: { en: "Anytime", ms: "Bila-bila masa" }, duration: { en: "30 mins", ms: "30 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/st-peters-church.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/st-peters-church.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 
     // --- MORE HERITAGE & MUSEUMS ---
@@ -698,7 +698,7 @@ const activitiesData = [
         shortDesc: { en: "A beautifully restored house exhibiting traditional Peranakan jewellery.", ms: "Rumah yang dipulihkan dengan indah mempamerkan barang kemas tradisional Peranakan." },
         fullDesc: { en: "Learn about the intricate and wealthy lifestyle of the Straits Chinese. The museum displays stunning antique jewellery crafted with gold, diamonds, and precious stones, along with the furniture of the era.", ms: "Ketahui tentang gaya hidup Peranakan yang kaya. Muzium ini memaparkan barang kemas antik yang menakjubkan yang direka dengan emas, berlian, dan batu permata." },
         openingHours: { en: "10:00 AM - 5:00 PM", ms: "10:00 AM - 5:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "45 mins", ms: "45 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/straits-chinese-jewellery.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/straits-chinese-jewellery.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "orang-asli-museum", categoryId: "heritage", type: "indoor",
@@ -710,7 +710,7 @@ const activitiesData = [
         shortDesc: { en: "A museum dedicated to the indigenous people (Orang Asli) of Malaysia.", ms: "Muzium khusus untuk orang asli di Malaysia." },
         fullDesc: { en: "Explore the fascinating cultures, traditions, and crafts of various Orang Asli tribes. The exhibits include hunting tools, traditional clothing, and beautifully crafted wooden carvings.", ms: "Terokai budaya, tradisi dan kraf pelbagai suku kaum Orang Asli yang menarik. Pameran termasuk alat memburu, pakaian tradisional, dan ukiran kayu." },
         openingHours: { en: "9:00 AM - 5:00 PM", ms: "9:00 AM - 5:00 PM" }, bestTime: { en: "Anytime", ms: "Bila-bila masa" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/orang-asli-museum.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/orang-asli-museum.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "melaka-islamic-museum", categoryId: "heritage", type: "indoor",
@@ -722,7 +722,7 @@ const activitiesData = [
         shortDesc: { en: "Exhibits on the introduction and spread of Islam in the Malay Archipelago.", ms: "Pameran tentang pengenalan dan penyebaran Islam di Kepulauan Melayu." },
         fullDesc: { en: "Housed in the former State Islamic Council building, the museum details the profound impact of Islam on the region's culture, trade, and laws through artifacts, manuscripts, and architectural replicas.", ms: "Ditempatkan di bekas bangunan Majlis Agama Islam Negeri, muzium ini memperincikan kesan mendalam Islam terhadap budaya, perdagangan dan undang-undang serantau melalui artifak dan manuskrip." },
         openingHours: { en: "9:00 AM - 5:30 PM (Closed Mondays)", ms: "9:00 AM - 5:30 PM (Tutup Isnin)" }, bestTime: { en: "Afternoon", ms: "Petang" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/melaka-islamic-museum.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/melaka-islamic-museum.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     
     // --- MORE Unique Museums / INDOOR ---
@@ -736,7 +736,7 @@ const activitiesData = [
         shortDesc: { en: "An interactive gallery filled with large-scale 3D murals.", ms: "Galeri interaktif yang dipenuhi dengan mural 3D berskala besar." },
         fullDesc: { en: "A fantastic indoor activity where visitors can take hilarious and surreal photos posing inside highly realistic 3D paintings. Great for a group of friends looking to update their social media.", ms: "Aktiviti dalaman yang hebat di mana pelawat boleh mengambil gambar posing yang realistik di dalam lukisan 3D. Bagus untuk sekumpulan rakan." },
         openingHours: { en: "9:00 AM - 7:00 PM", ms: "9:00 AM - 7:00 PM" }, bestTime: { en: "Anytime", ms: "Bila-bila masa" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/magic-art-3d-museum.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/magic-art-3d-museum.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 
     // --- MORE NATURE, PARKS & BEACHES ---
@@ -750,7 +750,7 @@ const activitiesData = [
         shortDesc: { en: "A long, sandy beach popular for chalets, seafood, and swimming.", ms: "Pantai berpasir panjang yang popular dengan chalet, makanan laut dan renang." },
         fullDesc: { en: "One of the most popular beaches in Melaka, Pengkalan Balak offers a more traditional village vibe. It's famous for numerous seafood restaurants right on the beach, affordable chalets, and calm waters.", ms: "Salah satu pantai paling popular di Melaka, Pengkalan Balak menawarkan suasana kampung yang lebih tradisional. Ia terkenal dengan pelbagai restoran makanan laut betul-betul di pantai." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Late Afternoon to Dinner", ms: "Lewat Petang ke Makan Malam" }, duration: { en: "2-4 hours", ms: "2-4 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/pengkalan-balak-beach.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/pengkalan-balak-beach.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "tanjung-tuan", categoryId: "nature", type: "outdoor",
@@ -762,7 +762,7 @@ const activitiesData = [
         shortDesc: { en: "A coastal forest reserve featuring hiking trails, hidden beaches, and a historic lighthouse.", ms: "Hutan simpan pesisir yang menampilkan denai mendaki, pantai tersembunyi dan rumah api bersejarah." },
         fullDesc: { en: "Located at Cape Rachado, this is a fantastic spot for light hiking. The trails lead you up to the historic 16th-century lighthouse, or down to secluded, beautiful beaches. It is also a major bird-watching hotspot during raptor migration seasons.", ms: "Terletak di Cape Rachado, ini adalah tempat yang hebat untuk mendaki ringan. Denai membawa anda ke rumah api bersejarah, atau turun ke pantai terpencil yang indah." },
         openingHours: { en: "7:00 AM - 6:00 PM", ms: "7:00 AM - 6:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "3-4 hours", ms: "3-4 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/cape-rachado-lighthouse.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/cape-rachado-lighthouse.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "asahan-waterfalls", categoryId: "nature", type: "outdoor",
@@ -774,7 +774,7 @@ const activitiesData = [
         shortDesc: { en: "A refreshing cascade located at the foothills of Gunung Ledang.", ms: "Air terjun yang menyegarkan terletak di kaki Gunung Ledang." },
         fullDesc: { en: "A great spot to cool down and swim in natural river water. The area is equipped with camping sites, basic facilities, and is an excellent day trip into nature for groups of friends.", ms: "Tempat yang sesuai untuk menyejukkan badan dan berenang di air sungai semula jadi. Kawasan ini dilengkapi dengan tapak perkhemahan dan kemudahan asas." },
         openingHours: { en: "8:00 AM - 6:00 PM", ms: "8:00 AM - 6:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "3-4 hours", ms: "3-4 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/asahan-waterfalls.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/asahan-waterfalls.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 
     // --- MORE ZOO / ANIMALS ---
@@ -788,7 +788,7 @@ const activitiesData = [
         shortDesc: { en: "A hawksbill turtle hatchery and conservation centre.", ms: "Pusat penetasan dan pemuliharaan penyu karah." },
         fullDesc: { en: "Dedicated to protecting the endangered Hawksbill turtles that land on Melaka's shores. Visitors can see the hatcheries, learn about the turtle life cycle, and sometimes see baby turtles in the holding pools before they are released.", ms: "Berdedikasi untuk melindungi penyu Karah terancam yang mendarat di pantai Melaka. Pelawat boleh melihat tempat penetasan, belajar tentang kitaran hidup penyu, dan kadangkala melihat anak penyu." },
         openingHours: { en: "9:00 AM - 4:00 PM (Closed Mon/Tue)", ms: "9:00 AM - 4:00 PM (Tutup Isn/Sel)" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "45 mins", ms: "45 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/kemunting-turtle.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/kemunting-turtle.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 
     // --- MORE INDOOR / ENTERTAINMENT ---
@@ -802,7 +802,7 @@ const activitiesData = [
         shortDesc: { en: "A family-friendly resort water park featuring slides and splash pools.", ms: "Taman air mesra keluarga yang menampilkan gelongsor dan kolam." },
         fullDesc: { en: "While smaller than A'Famosa, Bayou Lagoon is much closer to the city center and UTeM. It offers a fun, affordable afternoon of swimming and water slides.", ms: "Walaupun lebih kecil daripada A'Famosa, Bayou Lagoon lebih dekat dengan pusat bandar dan UTeM. Ia menawarkan petang yang menyeronokkan dan berpatutan." },
         openingHours: { en: "9:00 AM - 7:00 PM", ms: "9:00 AM - 7:00 PM" }, bestTime: { en: "Morning or Late Afternoon", ms: "Pagi atau Lewat Petang" }, duration: { en: "3 hours", ms: "3 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/bayou-lagoon.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://www.bayoulagoon.com.my/"
+        image: "./assets/images/activities/bayou-lagoon.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://www.bayoulagoon.com.my/"
     },
     {
         id: "tgv-aeon", categoryId: "indoor_activities", type: "indoor",
@@ -814,7 +814,7 @@ const activitiesData = [
         shortDesc: { en: "A modern cinema equipped with IMAX halls inside a major shopping mall.", ms: "Pawagam moden yang dilengkapi dewan IMAX di dalam pusat beli-belah utama." },
         fullDesc: { en: "A premium movie-going experience featuring IMAX and comfortable seating. Located conveniently in one of Melaka's most popular malls, making it easy to combine with shopping and dining.", ms: "Pengalaman menonton wayang premium yang menampilkan IMAX dan tempat duduk yang selesa. Terletak di salah sebuah pusat beli-belah yang paling popular di Melaka." },
         openingHours: { en: "10:00 AM - Midnight", ms: "10:00 AM - Tengah Malam" }, bestTime: { en: "Anytime", ms: "Bila-bila masa" }, duration: { en: "2-3 hours", ms: "2-3 jam" }, bookingRequired: true,
-        image: "./assets/images/activities/tgv-aeon.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/tgv-aeon.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "karaoke-superstar", categoryId: "indoor_activities", type: "indoor",
@@ -826,7 +826,7 @@ const activitiesData = [
         shortDesc: { en: "A modern, student-friendly karaoke center with comfortable private rooms.", ms: "Pusat karaoke moden dan mesra pelajar dengan bilik peribadi yang selesa." },
         fullDesc: { en: "A great place for groups of friends to sing their hearts out. It offers excellent sound systems, food and drink packages, and very affordable student rates during the daytime.", ms: "Tempat yang sesuai untuk rakan-rakan menyanyi. Ia menawarkan sistem bunyi yang sangat baik, pakej makanan dan minuman, dan kadar pelajar yang sangat berpatutan pada waktu siang." },
         openingHours: { en: "11:00 AM - 3:00 AM", ms: "11:00 AM - 3:00 AM" }, bestTime: { en: "Night", ms: "Malam" }, duration: { en: "2-3 hours", ms: "2-3 jam" }, bookingRequired: true,
-        image: "./assets/images/activities/ktv-melaka.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/ktv-melaka.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 
     {
@@ -839,7 +839,7 @@ const activitiesData = [
         shortDesc: { en: "A massive open-air outlet shopping village with Dutch heritage-inspired architecture.", ms: "Sebuah kampung beli-belah terbuka yang besar dengan seni bina berinspirasikan warisan Belanda." },
         fullDesc: { en: "Features over 80 fashion, sports, and lifestyle brands at discounted prices. The beautiful open-air layout with fountains, windmills, and a lake makes it a relaxing place to walk around even if you aren't shopping.", ms: "Menampilkan lebih 80 jenama fesyen dan gaya hidup pada harga diskaun. Susun atur terbuka yang cantik dengan air pancut, kincir angin dan tasik menjadikannya tempat yang santai untuk bersiar-siar." },
         openingHours: { en: "10:00 AM - 10:00 PM", ms: "10:00 AM - 10:00 PM" }, bestTime: { en: "Late Afternoon", ms: "Lewat Petang" }, duration: { en: "2-3 hours", ms: "2-3 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/freeport-afamosa.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/freeport-afamosa.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 // --- MORE MUSEUMS & HERITAGE ---
 
@@ -853,7 +853,7 @@ const activitiesData = [
         shortDesc: { en: "A cultural centre dedicated to the legendary Malay warrior Hang Tuah.", ms: "Pusat kebudayaan khusus untuk pahlawan Melayu legenda Hang Tuah." },
         fullDesc: { en: "Explore a complex of traditional Malay houses depicting the life and times of Hang Tuah and his four companions. It offers a deep dive into Malay martial arts (silat) and historical folklore.", ms: "Terokai kompleks rumah tradisional Melayu yang menggambarkan kehidupan Hang Tuah dan empat sahabatnya. Menawarkan penyelaman mendalam tentang seni mempertahankan diri (silat)." },
         openingHours: { en: "9:00 AM - 5:00 PM", ms: "9:00 AM - 5:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/hang-tuah-centre.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/hang-tuah-centre.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "heritage-studios", categoryId: "heritage", type: "outdoor",
@@ -865,7 +865,7 @@ const activitiesData = [
         shortDesc: { en: "A cultural park featuring life-sized replicas of traditional houses from all 13 states.", ms: "Taman kebudayaan yang menampilkan replika saiz sebenar rumah tradisional dari semua 13 negeri." },
         fullDesc: { en: "Formerly known as Mini Malaysia, it has been upgraded to Malaysia Heritage Studios. Explore beautifully crafted traditional wooden houses representing the unique architecture of every state in Malaysia. Great for photos and cultural education.", ms: "Dahulunya dikenali sebagai Mini Malaysia, ia telah dinaik taraf. Terokai rumah kayu tradisional yang direka dengan cantik mewakili seni bina unik setiap negeri di Malaysia." },
         openingHours: { en: "9:00 AM - 6:00 PM", ms: "9:00 AM - 6:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "2 hours", ms: "2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/heritage-studios.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/heritage-studios.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 
     // --- MORE INDOOR / ENTERTAINMENT / STUDENTS ---
@@ -880,7 +880,7 @@ const activitiesData = [
         shortDesc: { en: "An exciting off-road ATV riding experience through the forest.", ms: "Pengalaman menunggang ATV off-road yang menarik melalui hutan." },
         fullDesc: { en: "Get your adrenaline pumping by navigating rough, muddy, and uneven jungle tracks on an ATV. Briefings and safety gear are provided. A fantastic group activity for university students.", ms: "Tingkatkan adrenalin anda dengan mengemudi trek hutan yang kasar, berlumpur dan tidak rata di atas ATV. Taklimat dan peralatan keselamatan disediakan." },
         openingHours: { en: "9:00 AM - 6:00 PM", ms: "9:00 AM - 6:00 PM" }, bestTime: { en: "Morning", ms: "Pagi" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: true,
-        image: "./assets/images/activities/atv-extreme-park.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/atv-extreme-park.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "mamee-jonker", categoryId: "unique_museums", type: "indoor",
@@ -892,7 +892,7 @@ const activitiesData = [
         shortDesc: { en: "A concept store dedicated to Malaysia's famous Mamee Monster snack.", ms: "Kedai konsep yang didedikasikan untuk snek Mamee Monster yang terkenal di Malaysia." },
         fullDesc: { en: "Not just a shop, but an experience! You can join a noodle-making workshop, customize your own Mamee Monster cup, and buy exclusive merchandise. Great fun for all ages.", ms: "Bukan sekadar kedai, tetapi satu pengalaman! Anda boleh menyertai bengkel membuat mi, menyesuaikan cawan Mamee Monster anda sendiri dan membeli barangan eksklusif." },
         openingHours: { en: "10:00 AM - 5:00 PM (Closed Tuesdays)", ms: "10:00 AM - 5:00 PM (Tutup Selasa)" }, bestTime: { en: "Afternoon", ms: "Petang" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/mamee-jonker.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://mameejonkerhouse.com/"
+        image: "./assets/images/activities/mamee-jonker.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://mameejonkerhouse.com/"
     },
     {
         id: "shore-oceanarium", categoryId: "zoo_animals", type: "indoor",
@@ -904,7 +904,7 @@ const activitiesData = [
         shortDesc: { en: "An interactive indoor aquarium featuring marine life and touch pools.", ms: "Akuarium dalaman interaktif yang menampilkan hidupan marin dan kolam sentuhan." },
         fullDesc: { en: "Conveniently located inside a mall, this oceanarium offers interactive touch pools, a 3D theater, and various marine exhibits. A great indoor alternative to outdoor animal parks.", ms: "Terletak dengan mudah di dalam pusat beli-belah, oseanarium ini menawarkan kolam sentuhan, teater 3D dan pelbagai pameran marin. Pilihan dalaman yang hebat." },
         openingHours: { en: "10:30 AM - 7:00 PM", ms: "10:30 AM - 7:00 PM" }, bestTime: { en: "Afternoon", ms: "Petang" }, duration: { en: "1-2 hours", ms: "1-2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/shore-oceanarium.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/shore-oceanarium.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
 
 
@@ -919,7 +919,7 @@ const activitiesData = [
         shortDesc: { en: "The tallest man-made structure in Melaka offering 360-degree panoramic views.", ms: "Struktur buatan manusia tertinggi di Melaka yang menawarkan pemandangan panorama 360 darjah." },
         fullDesc: { en: "Take an elevator to the 43rd floor to walk on a glass-bottom ledge and enjoy stunning, unobstructed views of the entire Melaka city, the coastline, and beyond. Especially beautiful at sunset and night.", ms: "Naik lif ke tingkat 43 untuk berjalan di atas langkan bahagian bawah kaca dan nikmati pemandangan menakjubkan seluruh bandar Melaka. Sangat cantik pada waktu matahari terbenam." },
         openingHours: { en: "10:00 AM - 10:00 PM", ms: "10:00 AM - 10:00 PM" }, bestTime: { en: "Sunset / Night", ms: "Senja / Malam" }, duration: { en: "1 hour", ms: "1 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/shore-sky-tower.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/shore-sky-tower.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     },
     {
         id: "menara-taming-sari", categoryId: "unique_places", type: "outdoor",
@@ -931,7 +931,7 @@ const activitiesData = [
         shortDesc: { en: "Malaysia's first and only gyro tower, offering a revolving panoramic view.", ms: "Menara giro pertama dan satu-satunya di Malaysia, menawarkan pemandangan berputar." },
         fullDesc: { en: "Step into the air-conditioned cabin and slowly rise 80 meters into the air. The cabin rotates 360 degrees, giving you a comprehensive bird's-eye view of Melaka's historic district and the sea.", ms: "Melangkah ke kabin berhawa dingin dan naik 80 meter ke udara. Kabin berputar 360 darjah, memberikan pandangan mata burung." },
         openingHours: { en: "10:00 AM - 11:00 PM", ms: "10:00 AM - 11:00 PM" }, bestTime: { en: "Late Afternoon / Night", ms: "Lewat Petang / Malam" }, duration: { en: "30 mins", ms: "30 minit" }, bookingRequired: false,
-        image: "./assets/images/activities/taming-sari.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://menaratamingsari.com/"
+        image: "./assets/images/activities/taming-sari.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: "https://menaratamingsari.com/"
     },
     {
         id: "pantai-siring", categoryId: "beaches", type: "outdoor",
@@ -943,7 +943,7 @@ const activitiesData = [
         shortDesc: { en: "A peaceful coastal area famous for its beautiful sunsets and seafood.", ms: "Kawasan pantai yang damai terkenal dengan matahari terbenam yang indah dan makanan laut." },
         fullDesc: { en: "Located in the Jasin district (Merlimau area), Pantai Siring is much less commercialized. It is an excellent place to sit back, relax, watch the fishermen, and eat cheap and fresh seafood like ikan bakar.", ms: "Terletak di daerah Jasin (kawasan Merlimau), Pantai Siring kurang dikomersialkan. Tempat yang sangat baik untuk berehat dan makan makanan laut segar yang murah." },
         openingHours: { en: "24 Hours", ms: "24 Jam" }, bestTime: { en: "Late Afternoon / Dinner", ms: "Lewat Petang / Makan Malam" }, duration: { en: "2 hours", ms: "2 jam" }, bookingRequired: false,
-        image: "./assets/images/activities/pantai-siring.jpg", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
+        image: "./assets/images/activities/pantai-siring.webp", mapUrl: "https://maps.app.goo.gl/dummy", websiteUrl: ""
     }
 ];
 

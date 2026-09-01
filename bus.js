@@ -79,7 +79,7 @@ const busRoutesData = {
     }
 };
 
-let currentBusRoute = 'kt';
+let currentBusRoute = 'ki';
 
 function updateBusScheduleDisplay() {
     const tableBody = document.getElementById("busRouteTableBody") || busRouteTableBody;

@@ -30,8 +30,9 @@
         <!-- Google Fonts Preconnect & Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.css?v=5.0">
+    <link rel="stylesheet" href="style.min.css?v=5.2">
     <style>
         .content-card {
             max-width: 880px;
@@ -92,31 +93,22 @@
     }
     </script>
     
+    <!-- PWA & SEO Additions -->
+    <link rel="icon" type="image/png" href="UCPMLogo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://accounts.google.com">
+    <script src="components.js"></script>
 </head>
 <body>
 
-    <!-- Mobile Header -->
-    <header class="mobile-header">
-        <div class="mobile-brand">
-            <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="mobile-logo-img">
-            <div class="mobile-title-container">
-                <span class="mobile-title">UTeM Confessions</span>
-                <span class="mobile-subtitle" id="mobileSubtitle">Privacy Policy</span>
-            </div>
-        </div>
-        <div class="mobile-lang-wrapper">
-            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
-                Bahasa Melayu
-            </button>
-        </div>
-    </header>
+    <ucpm-mobile-header></ucpm-mobile-header>
 
     <div class="app-container">
         
         <!-- Desktop Sidebar -->
         <aside class="sidebar">
             <div class="brand-section">
-                <img src="UCPMLogo.png" alt="UTeM Confessions Pro Max" class="brand-logo-img">
+                <img src="UCPMLogo.webp" alt="UTeM Confessions Pro Max" class="brand-logo-img" width="76" height="76" decoding="async">
                 <h1 class="brand-title">UTeM Confessions</h1>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
@@ -369,11 +361,7 @@
             localStorage.setItem("lang", currentLang);
             setLanguage(currentLang);
         }
-
-        document.body.classList.remove("light-theme");
-        localStorage.setItem("theme", "dark");
-
-        document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
             setLanguage(currentLang);
             const desktopToggle = document.getElementById("desktopLangToggle");
             const mobileToggle = document.getElementById("mobileLangToggle");
@@ -384,3 +372,4 @@
     
 </body>
 </html>
+

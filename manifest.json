@@ -1,0 +1,17 @@
+{
+  "name": "UTeM Confession Pro Max",
+  "short_name": "UCPM",
+  "description": "UTeM Confession Pro Max - Student Services & Resources Hub",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#060b19",
+  "theme_color": "#060b19",
+  "icons": [
+    {
+      "src": "UCPMLogo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

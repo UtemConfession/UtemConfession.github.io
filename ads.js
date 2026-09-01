@@ -40,6 +40,10 @@
     function loadAdSenseAd(container) {
         if (!container || isSlotBlockedByDevice(container)) return;
 
+        // Check that container has a valid rendered width
+        var cRect = container.getBoundingClientRect();
+        if (cRect.width <= 0 || container.offsetWidth <= 0 || container.offsetParent === null) return;
+
         // Find all <ins class="adsbygoogle"> inside this container that haven't been loaded yet
         var insTags = container.querySelectorAll('ins.adsbygoogle:not([data-ad-status="unfilled"]):not([data-adsbygoogle-status="done"])');
         
@@ -49,7 +53,7 @@
             
             if (loadedSlots['adsense_' + slotId]) continue;
             if (isSlotBlockedByDevice(container)) continue;
-            if (ins.offsetWidth === 0 && container.offsetWidth === 0) continue;
+            if (container.offsetWidth <= 0 || cRect.width <= 0) continue;
             
             loadedSlots['adsense_' + slotId] = true;
             try {

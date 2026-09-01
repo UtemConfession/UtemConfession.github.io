@@ -9,6 +9,11 @@ function updateNodeText(element, text) {
             return;
         }
     }
+    const span = element.querySelector("span");
+    if (span) {
+        span.textContent = text;
+        return;
+    }
     element.appendChild(document.createTextNode(text));
 }
 

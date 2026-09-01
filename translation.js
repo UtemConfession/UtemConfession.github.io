@@ -38,7 +38,7 @@ const translations = {
         placeholder_confession: "Type here to confess...",
         checkbox_rules: "I agree to follow the confession rules. I understand illegal or abusive submissions will be rejected.",
         btn_submit: "Submit Confession",
-        btn_submit_google: "Submit via Google Form ➔",
+        btn_submit_google: "Google Forms currently unavailable",
         btn_choose_image: "Choose Image",
         placeholder_image_caption: "Write an optional caption...",
         checkbox_image_rules: "I agree to follow the rules. Images are reviewed before posting.",
@@ -51,10 +51,12 @@ const translations = {
         guide_respect_desc: "No targeted bullying, sexual harassment, or hate speech towards students or lecturers.",
         guide_spam_title: "No Spam:",
         guide_spam_desc: "Submit button has a 30-second delay between submissions.",
-        guide_mod_title: "Moderation:",
-        guide_mod_desc: "Image submissions are read and reviewed by human moderators before being published.",
         guide_image_title: "Images:",
         guide_image_desc: "Do not upload NSFW content, private images of individuals, or screenshots of social media posts containing visible faces or personal information.",
+        guide_mod_title: "Moderation:",
+        guide_mod_desc: "Image submissions are read and reviewed by human moderators before being published.",
+        guide_links_title: "Links:",
+        guide_links_desc: "Links can only be shared in image form. This is so that the admin can review first before sharing to the channel.",
         guide_impersonation_title: "Impersonation:",
         guide_impersonation_desc: "Don't pretend to be another student, lecturer, staff member, or organization in a way that could mislead others.",
         guide_threats_title: "Threats:",
@@ -742,7 +744,7 @@ const translations = {
         note_archive: "<strong>Community Note:</strong> Confessions and stories shared in Student Voices are contributed for entertainment, peer relatability, and lighthearted campus discussions. They do not represent official university views and carry no intent to target, harm, or defame any individual or organization. Read with an open mind and keep the campus culture kind and respectful!",
         placeholder_archive_search: "🔍 Search confessions by keyword, tags, topic...",
 
-        staticContactCard: "Got something to sell or offering a service? 🚀 Get listed here! Drop us an email at utemconfessionpromax@duck.com"
+        staticContactCard: '<p id="sellerNoticeMarketplace" style="margin: 0; color: var(--text-primary); font-weight: 500; line-height: 1.6;">Got something to sell or offering a service? 🚀 Get listed here! Drop us an email at <a href="mailto:utemconfessionpromax@duck.com" style="color: #facc15; text-decoration: underline; font-weight: 700;">utemconfessionpromax@duck.com</a></p>'
     },
     ms: {
         nav_activities: "Aktiviti",
@@ -778,12 +780,12 @@ const translations = {
 
         title_submit_confession: "Hantar Pengakuan",
         label_submit_confession: "",
-        placeholder_confession: "taip pengakuan anda di sini...",
+        placeholder_confession: "Tulis pengakuan anda di sini...",
         checkbox_rules: "Saya bersetuju mematuhi peraturan pengakuan. Saya faham bahawa hantaran biadap atau melanggar undang-undang akan ditolak.",
         btn_submit: "Hantar Pengakuan",
-        btn_submit_google: "Hantar melalui Google Form ➔",
+        btn_submit_google: "Google Form buat masa ini tidak tersedia",
         btn_choose_image: "Pilih Imej",
-        placeholder_image_caption: "Tulis kapsyen pilihan...",
+        placeholder_image_caption: "Tulis keterangan pilihan...",
         checkbox_image_rules: "Saya bersetuju mematuhi peraturan. Imej akan disemak sebelum disiarkan.",
         btn_submit_image: "Hantar Imej",
         title_guidelines: "Garis Panduan Hantaran",
@@ -794,10 +796,12 @@ const translations = {
         guide_respect_desc: "Tiada pembulian bersasar, gangguan seksual, atau kata-kata kebencian terhadap pelajar atau pensyarah.",
         guide_spam_title: "Spam:",
         guide_spam_desc: "Butang hantar mempunyai had kelewatan 30 saat antara hantaran.",
-        guide_mod_title: "Semakan:",
-        guide_mod_desc: "Hantaran imej dibaca dan disemak oleh moderator manusia sebelum disiarkan.",
         guide_image_title: "Imej:",
         guide_image_desc: "Jangan muat naik kandungan NSFW, gambar peribadi individu, atau tangkapan skrin media sosial yang mengandungi wajah yang jelas atau maklumat peribadi.",
+        guide_mod_title: "Semakan:",
+        guide_mod_desc: "Hantaran imej dibaca dan disemak oleh moderator manusia sebelum disiarkan.",
+        guide_links_title: "Pautan:",
+        guide_links_desc: "Pautan hanya boleh dikongsi dalam bentuk imej. Ini adalah supaya pihak admin dapat menyemak terlebih dahulu sebelum disiarkan ke saluran.",
         guide_impersonation_title: "Penyamaran:",
         guide_impersonation_desc: "Jangan menyamar sebagai pelajar, pensyarah, kakitangan, atau organisasi lain dengan cara yang boleh mengelirukan orang lain.",
         guide_threats_title: "Ancaman:",
@@ -1508,7 +1512,7 @@ const translations = {
         placeholder_archive_search: "🔍 Cari confession ikut kata kunci, tag, topik...",
 
         // --- Marketplace Tab (marketplace.html) (BM) ---
-        staticContactCard: "Ada barang nak letgo atau buat servis student? 🚀 Iklankan di sini! E-melkan butiran korang terus ke utemconfessionpromax@duck.com"
+        staticContactCard: '<p id="sellerNoticeMarketplace" style="margin: 0; color: var(--text-primary); font-weight: 500; line-height: 1.6;">Ada barang nak letgo atau buat servis student? 🚀 Iklankan di sini! E-melkan butiran korang terus ke <a href="mailto:utemconfessionpromax@duck.com" style="color: #facc15; text-decoration: underline; font-weight: 700;">utemconfessionpromax@duck.com</a></p>'
     }
 };
 
@@ -1623,8 +1627,7 @@ function setLanguage(lang) {
     const langSwitchLabel = document.getElementById("langSwitchLabel");
     if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
 
-    const themeSwitchLabel = document.getElementById("themeSwitchLabel");
-    if (themeSwitchLabel) themeSwitchLabel.textContent = t.theme_switcher_label;
+
 
     // 4. Confessions tab
     const confessionTitle = document.querySelector("#confession-tab .card-title");
@@ -1657,27 +1660,29 @@ function setLanguage(lang) {
     updateNodeText(guidelinesTitle, t.title_guidelines);
 
     const guides = document.querySelectorAll("#confession-tab .guide-list li");
-    if (guides.length >= 10) {
+    if (guides.length >= 11) {
         guides[0].querySelector("strong").textContent = t.guide_anon_title;
         updateNodeText(guides[0], t.guide_anon_desc);
         guides[1].querySelector("strong").textContent = t.guide_respect_title;
         updateNodeText(guides[1], t.guide_respect_desc);
         guides[2].querySelector("strong").textContent = t.guide_spam_title;
         updateNodeText(guides[2], t.guide_spam_desc);
-        guides[3].querySelector("strong").textContent = t.guide_mod_title;
-        updateNodeText(guides[3], t.guide_mod_desc);
-        guides[4].querySelector("strong").textContent = t.guide_image_title;
-        updateNodeText(guides[4], t.guide_image_desc);
-        guides[5].querySelector("strong").textContent = t.guide_impersonation_title;
-        updateNodeText(guides[5], t.guide_impersonation_desc);
-        guides[6].querySelector("strong").textContent = t.guide_threats_title;
-        updateNodeText(guides[6], t.guide_threats_desc);
-        guides[7].querySelector("strong").textContent = t.guide_accusations_title;
-        updateNodeText(guides[7], t.guide_accusations_desc);
-        guides[8].querySelector("strong").textContent = t.guide_connections_title;
-        updateNodeText(guides[8], t.guide_connections_desc);
-        guides[9].querySelector("strong").textContent = t.guide_think_title;
-        updateNodeText(guides[9], t.guide_think_desc);
+        guides[3].querySelector("strong").textContent = t.guide_image_title;
+        updateNodeText(guides[3], t.guide_image_desc);
+        guides[4].querySelector("strong").textContent = t.guide_mod_title;
+        updateNodeText(guides[4], t.guide_mod_desc);
+        guides[5].querySelector("strong").textContent = t.guide_links_title;
+        updateNodeText(guides[5], t.guide_links_desc);
+        guides[6].querySelector("strong").textContent = t.guide_impersonation_title;
+        updateNodeText(guides[6], t.guide_impersonation_desc);
+        guides[7].querySelector("strong").textContent = t.guide_threats_title;
+        updateNodeText(guides[7], t.guide_threats_desc);
+        guides[8].querySelector("strong").textContent = t.guide_accusations_title;
+        updateNodeText(guides[8], t.guide_accusations_desc);
+        guides[9].querySelector("strong").textContent = t.guide_connections_title;
+        updateNodeText(guides[9], t.guide_connections_desc);
+        guides[10].querySelector("strong").textContent = t.guide_think_title;
+        updateNodeText(guides[10], t.guide_think_desc);
     }
 
     // 5. GPA Calculator
@@ -1817,8 +1822,8 @@ function setLanguage(lang) {
 
     const sellerNoticeMarketplace = document.getElementById("sellerNoticeMarketplace");
     if (sellerNoticeMarketplace) sellerNoticeMarketplace.innerHTML = lang === "en"
-        ? 'Got something to sell or offering a service? 🚀 Get listed here!<br><span style="color: var(--text-secondary); font-size: 14px;">Just drop us an email with your details at <a href="mailto:utemconfessionpromax@duck.com" style="color: #ff33cc; text-decoration: none; font-weight: 600;">utemconfessionpromax@duck.com</a></span>'
-        : 'Ada barang nak letgo atau buat servis student? 🚀 Iklankan di sini!<br><span style="color: var(--text-secondary); font-size: 14px;">E-melkan butiran korang terus ke admin di <a href="mailto:utemconfessionpromax@duck.com" style="color: #ff33cc; text-decoration: none; font-weight: 600;">utemconfessionpromax@duck.com</a></span>';
+        ? 'Got something to sell or offering a service? 🚀 Get listed here! Drop us an email at <a href="mailto:utemconfessionpromax@duck.com" style="color: #facc15; text-decoration: underline; font-weight: 700;">utemconfessionpromax@duck.com</a>'
+        : 'Ada barang nak letgo atau buat servis student? 🚀 Iklankan di sini! E-melkan butiran korang terus ke admin di <a href="mailto:utemconfessionpromax@duck.com" style="color: #facc15; text-decoration: underline; font-weight: 700;">utemconfessionpromax@duck.com</a>';
 
     // 7. Bus Transit (Minggu Semester Khas & Regular)
     const titleCampusBus = document.getElementById("title_campus_bus");
@@ -2156,8 +2161,14 @@ function setLanguage(lang) {
     if (vehicleBtn) updateNodeText(vehicleBtn, t.card_vehicle_btn);
 
     // 12. Scholarship Tracker
-    const titleScholarships = document.querySelector("#scholarships-tab .card-title");
-    if (titleScholarships) updateNodeText(titleScholarships, t.title_scholarships);
+    const titleScholarships = document.getElementById("titleScholarships") || document.querySelector("#scholarships-tab .card-title");
+    if (titleScholarships) {
+        if (titleScholarships.tagName === "SPAN") {
+            titleScholarships.textContent = t.title_scholarships || t.titleScholarships || "Scholarship & Financial Aid";
+        } else {
+            updateNodeText(titleScholarships, t.title_scholarships || t.titleScholarships || "Scholarship & Financial Aid");
+        }
+    }
 
     const descScholarships = document.getElementById("descScholarships");
     if (descScholarships) descScholarships.textContent = t.desc_scholarships;
@@ -2213,8 +2224,8 @@ function setLanguage(lang) {
     const btnPartnerDeals2 = document.getElementById("btnPartnerDeals2");
     if (btnPartnerDeals2) btnPartnerDeals2.textContent = currentLang === "ms" ? "Lawat Laman Rakan Kongsi untuk menyokong laman ini ❤️ ➔" : "Visit Partner Site to Support UTeM Confessions ❤️ ➔";
 
-          const activitiesTitle = document.getElementById("activitiesTitle");
-      if (activitiesTitle) activitiesTitle.textContent = lang === "ms" ? "Teroka Melaka" : "Explore Melaka";
+    const activitiesTitle = document.getElementById("activitiesTitle");
+    if (activitiesTitle) updateNodeText(activitiesTitle, lang === "ms" ? "Teroka Melaka" : "Explore Melaka");
       const descActivities = document.getElementById("descActivities");
       if (descActivities) descActivities.textContent = lang === "ms" ? "Temui aktiviti menarik di sekitar Melaka, dari tapak bersejarah hingga kawasan alam semula jadi yang tersembunyi." : "Discover things to do around Melaka, from historical sites to hidden nature spots.";
       const activitiesSearch = document.getElementById("activitiesSearch");

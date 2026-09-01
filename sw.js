@@ -11,7 +11,7 @@ try {
 }
 
 // sw.js — UTeM Confessions Pro Max Service Worker (Offline Support)
-const CACHE_NAME = 'ucpm-cache-v43';
+const CACHE_NAME = 'ucpm-cache-v49';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
@@ -28,26 +28,31 @@ const ASSETS_TO_CACHE = [
     './activities.html',
     './marketplace.html',
     './updates.html',
-    './style.css',
-    './utils.js',
-    './translation.js',
-    './confessions.js',
-    './archive-data.js',
-    './archive.js',
-    './gpa.js',
-    './bus.js',
-    './lookup.js',
-    './calendar.js',
-    './library.js',
-    './scholarships.js',
-    './activities-data.js',
-    './activities.js',
-    './marketplace.js',
-    './updates-data.js',
-    './script.js',
-    './authentication.js',
-    './ads.js',
-    './UCPMLogo.png'
+    './components.js',
+    './style.min.css',
+    './utils.min.js',
+    './translation.min.js',
+    './confessions.min.js',
+    './archive-data.min.js',
+    './archive.min.js',
+    './gpa.min.js',
+    './bus.min.js',
+    './lookup.min.js',
+    './calendar.min.js',
+    './library.min.js',
+    './scholarships.min.js',
+    './activities-data.min.js',
+    './activities.min.js',
+    './marketplace.min.js',
+    './updates-data.min.js',
+    './updates.min.js',
+    './script.min.js',
+    './authentication.min.js',
+    './ads.min.js',
+    './vignette.min.js',
+    './UCPMLogo.webp',
+    './spectra.webp',
+    './madlion.webp'
 ];
 
 self.addEventListener('install', (event) => {
