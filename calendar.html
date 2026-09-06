@@ -13,7 +13,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="google-site-verification" content="dwqgpqLYOpqd92hDyGq43MGexJ2DRGy8NZBVFKBzSeA" />
 
 
@@ -41,7 +41,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.2">
+    <link rel="stylesheet" href="style.min.css?v=5.6">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
         crossorigin="anonymous"></script>
@@ -112,6 +112,17 @@
 
             <!-- ACADEMIC CALENDAR MAIN CONTAINER -->
             <div class="tab-content active" id="calendar-tab">
+
+                <!-- Dynamic Academic Milestone Pill -->
+                <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 6px;">
+                    <div id="calendarMilestonePill" class="top-smart-pill glow-milestone" title="Click to jump to this event in the calendar">
+                        <span id="milestoneIcon" style="font-size: 16px;">🌴</span>
+                        <span id="milestoneText">Lectures begin in 23 days (28 Sept)</span>
+                        <span id="milestoneBadge"
+                            style="background: rgba(212, 175, 55, 0.15); color: var(--accent-gold); padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;">Semester Break</span>
+                    </div>
+                </div>
+
                 <div class="card">
                     <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
                         <h2 class="card-title" style="margin-bottom: 0;">
@@ -120,15 +131,24 @@
                             </svg>
                             Academic Calendar (2026/2027)
                         </h2>
-                        <a href="https://www.utem.edu.my/ms/muat-turun/kalendar-akademik/250-kalendar-akademik-sesi-2026-2027-bi/file.html"
-                            target="_blank" rel="noopener noreferrer"
-                            style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--accent-gold); text-decoration: none;"
-                            id="calendarLinkLabel">
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z" />
-                            </svg>
-                            Official PDF ➔
-                        </a>
+                        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <button class="btn btn-secondary btn-sm" id="syncCalendarBtn" type="button"
+                                style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--accent-gold); border-color: rgba(212, 175, 55, 0.4); border-radius: 8px; cursor: pointer; padding: 6px 12px; background: rgba(212, 175, 55, 0.08); transition: var(--transition);">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                    <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11zM7 11h5v5H7z" />
+                                </svg>
+                                <span id="syncCalendarLabel">Sync to Calendar (.ics)</span>
+                            </button>
+                            <a href="https://www.utem.edu.my/ms/muat-turun/kalendar-akademik/250-kalendar-akademik-sesi-2026-2027-bi/file.html"
+                                target="_blank" rel="noopener noreferrer"
+                                style="display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 700; color: var(--accent-gold); text-decoration: none;"
+                                id="calendarLinkLabel">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                    <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z" />
+                                </svg>
+                                Official PDF &rarr;
+                            </a>
+                        </div>
                     </div>
 
                     <!-- Filter Options -->
@@ -151,8 +171,6 @@
                         <!-- Populated by calendar.js -->
                     </div>
                 </div>
-
-                <!-- --- UCPM AD SLOT --- -->
                 <div class="ucpm-ad-container" style="margin: 2.5rem auto; text-align: center; max-width: 100%; overflow: hidden;">
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1444529930367815" data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
                 </div>
@@ -285,7 +303,7 @@
             </svg>
             <span>Confessions</span>
         </a>
-        <a href="calendar.html" class="mobile-nav-btn active" style="text-decoration: none; color: inherit;">
+        <a href="calendar.html" class="mobile-nav-btn active" data-tab="calendar-tab" style="text-decoration: none; color: inherit;">
             <svg viewBox="0 0 24 24">
                 <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
             </svg>
@@ -315,13 +333,13 @@
 
     <!-- Core Utilities & Translation -->
     <script src="utils.min.js" defer></script>
-    <script src="translation.min.js" defer></script>
+    <script src="translation.min.js?v=2.7" defer></script>
 
     <!-- Calendar Engine -->
-    <script src="calendar.js?v=4.0"></script>
+    <script src="calendar.js?v=4.3"></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.min.js" defer></script>
+    <script src="script.min.js?v=2.6" defer></script>
 
     <script src="ads.min.js" defer></script>
 

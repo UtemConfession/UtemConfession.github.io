@@ -18,6 +18,8 @@ const translations = {
         mobile_nav_guides: "Student Guides",
         nav_updates: "Updates",
         mobile_nav_updates: "Updates",
+        nav_parcels: "Parcel Hub",
+        mobile_nav_parcels: "Parcel Hub",
 
         mobile_nav_gpa: "GPA Calc",
         mobile_nav_archive: "Student Voices",
@@ -68,6 +70,29 @@ const translations = {
         guide_think_title: "Think Before You Post:",
         guide_think_desc: "Once published, a confession may be seen, shared, or screenshotted by others.",
 
+        tg_card_heading: "Telegram Terms & Channel Safety",
+        tg_card_subheading: "🛡️ Protecting Our Student Channel",
+        tg_card_intro: "Telegram actively terminates channels that violate its terms or receive mass abuse reports. Help us keep UCPM online by adhering to these safety standards:",
+        tg_card_danger_title: "🚨 Activities That Can Get the Channel Banned:",
+        tg_card_doxxing_title: "Mass-Reportable Doxxing:",
+        tg_card_doxxing_desc: "Sharing private phone numbers, IC numbers, matric IDs, residential room addresses, or unconsented photos triggers Telegram report cascades that cause automated permanent channel bans.",
+        tg_card_dmca_title: "DMCA & Copyright Strikes:",
+        tg_card_dmca_desc: "Distributing commercial e-textbooks, paywalled test-banks, cracked software, or leaked official exam papers. Telegram strictly complies with automated copyright take-downs.",
+        tg_card_spam_title: "Spam, Bot Links & Scams:",
+        tg_card_spam_desc: "Shortened links (bit.ly), MLM/get-rich-quick promotions, crypto spam, or unsolicited channel invite links get caught in Telegram's automated spam filters.",
+        tg_card_drugs_title: "Drugs & Illegal Substances:",
+        tg_card_drugs_desc: "Zero tolerance for narcotics, cannabis, ketum, illicit vape pods (e.g., mushroom/magic vape), or prescription drug sales. Violates Telegram TOS, Dangerous Drugs Act 1952, and UTeM Disciplinary Code.",
+        tg_card_nsfw_title: "Explicit or Non-Consensual Media:",
+        tg_card_nsfw_desc: "Any NSFW content, suggestive media taken without consent, or revenge material is strictly prohibited under Telegram TOS and Section 233 of the Malaysian CMA 1998.",
+        tg_card_google_title: "🔐 Using Services with Google:",
+        tg_card_oauth_title: "Google Sign-In Privacy:",
+        tg_card_oauth_desc: "Google OAuth is used solely for anti-bot verification. Your Google name, email address, and profile are never sent to Telegram or publicly revealed.",
+        tg_card_drive_title: "Google Drive Links:",
+        tg_card_drive_desc: "When sharing study notes via Google Drive, set permissions to 'Anyone with the link can view'. Ensure no executable (.exe/.apk) files or third-party personal data are included.",
+        tg_card_student_title: "Student Email Safety:",
+        tg_card_student_desc: "Avoid using your official <code>@student.utem.edu.my</code> account for public file distribution, as institutional Google Workspace domains are monitored under university IT policies.",
+        tg_card_btn_policy: "Read Full Telegram TOS & Rules Policy",
+
         title_gpa_calc: "UTeM Semester GPA & CGPA Calculator",
         label_sem_gpa: "Current Semester GPA",
         label_sem_credits: "Semester Earned Credits",
@@ -95,14 +120,14 @@ const translations = {
         opt_newyear: "New Year's Day (Jan 1, 2027)",
         opt_custom: "Set Custom Date...",
 
-        title_bus_transit: "UTeM Campus Shuttle Timetable",
+        title_bus_transit: "UTeM Bus Timetable",
         label_next_departure: "Next Scheduled Departure:",
         label_note: "Note: Shuttle bus arrival times may vary based on traffic conditions on Lebuhraya Ayer Keroh. Please reach boarding points 5 minutes early.",
         th_departure: "Departure",
         th_day_type: "Days",
         th_status: "Status",
 
-        title_public_bus: "BAS.MY Bus M10A Official Timetable (Pink Bus)",
+        title_public_bus: "Pink Bus M10A Official Timetable",
         desc_public_bus: "Public bus service operating between Melaka Sentral ⇄ Batu Berendam ⇄ MITC ⇄ Zoo Melaka ⇄ UTeM Main Campus.",
         label_route_timeline: "M10A Route Stops",
         label_weekend: "Weekend Only",
@@ -201,6 +226,7 @@ const translations = {
         footer_rules: "Confession Rules",
         footer_privacy: "Privacy Policy",
         footer_terms: "Terms of Service",
+        footer_telegram: "Telegram Policy",
 
         title_marketplace: "UTeM Student Marketplace",
         badge_marketplace: "Development Coming Soon",
@@ -688,8 +714,8 @@ const translations = {
         descCoffee: "Keep our servers running smoothly and support continuous improvements to the campus transit tracker, exam archives, and interactive tools.",
         noticeKofiCurrency: "Tips and donations directly help fund server hosting, domain renewals, and API bandwidth costs.",
 
-        updatesTitle: "Campus & Platform Updates",
-        updatesSubtitle: "Stay informed with the latest UTeM campus notices, academic timetable releases, bus schedule revisions, and new feature rollouts on UCPM.",
+        updatesTitle: "UCPM Web Updates",
+        updatesSubtitle: "Stay informed with the latest feature releases, enhancements, UI refinements, and bug fixes across the UCPM web platform.",
 
         descMarketItems: "Buy and sell pre-loved textbooks, lab coats, drawing sets, electronics, and dorm appliances safely within the UTeM student community.",
         descMarketServices: "Discover freelance student services across campus including document printing, room moving, device repair, photography, and tutoring.",
@@ -707,12 +733,12 @@ const translations = {
         drawerSupport: "Support Us",
 
         busTabInternal: "🚌 Campus Shuttle",
-        busTabPublic: "💖 Bus M10A Pink Bus",
-        title_campus_bus: "UTeM Campus Shuttle Timetable",
+        busTabPublic: "💖 M10A Pink Bus",
+        title_campus_bus: "UTeM Bus Timetable",
         semToggleSpecial: "📌 Special Semester",
         semToggleRegular: "🗓️ Regular Semester",
-        labelRadarTitle: "UTeM Shuttle Route Radar",
-        titlePublicBus: "Bus M10A Pink Bus",
+        labelRadarTitle: "UTeM Bus Route",
+        titlePublicBus: "Pink Bus M10A Official Timetable",
         m10aLiveBadge: "Weekend Service to UTeM",
         labelRouteTimeline: "M10A Route Stops",
         labelWeekend1: "Fri-Sun Only",
@@ -744,6 +770,58 @@ const translations = {
         note_archive: "<strong>Community Note:</strong> Confessions and stories shared in Student Voices are contributed for entertainment, peer relatability, and lighthearted campus discussions. They do not represent official university views and carry no intent to target, harm, or defame any individual or organization. Read with an open mind and keep the campus culture kind and respectful!",
         placeholder_archive_search: "🔍 Search confessions by keyword, tags, topic...",
 
+        // --- Parcel Hub (parcels.html) (EN) ---
+        heroTitleParcel: "UTeM Hostel Parcel Hub & Delivery Radar",
+        heroDescParcel: "Official university guidance for Shopee, TikTok Shop, Lazada, and courier packages. Per official UTeM policy, all parcels are directed to Unit Mel, Pusat Persatuan Pelajar (Student Centre) for security and organized collection.",
+        parcelFeeNotice: "Collection Fee: RM1.00 per item for processing & service fee at the student parcel counter.",
+        titleAddressGen: "\uD83D\uDCCB 1-Tap Shipping Address Generator",
+        descAddressGen: "Select your residential hostel, enter your details, and instantly copy the verified courier-friendly address format.",
+        labelSelectHostel: "1. Select Residential College / Campus:",
+        optHostelSatria: "Kolej Kediaman Satria (Kampus Induk)",
+        optHostelLestari: "Kolej Kediaman Lestari (Kampus Induk)",
+        optHostelEmerald: "Emerald Park Residence (Off-Campus)",
+        optHostelKT: "Kampus Teknologi (Ayer Keroh)",
+        labelFullName: "2. Full Name:",
+        labelMatric: "3. Matric No. (Optional but recommended):",
+        labelPhone: "4. Mobile Phone No.:",
+        labelRoom: "5. Block & Room / House No.:",
+        previewLabel: "Preview Address:",
+        btnCopyAddressText: "Copy Address for Shopee / TikTok / Lazada",
+        titleTracking: "\uD83D\uDD0E Multi-Courier Tracking Shortcut",
+        descTracking: "Paste your tracking number below. We'll automatically route you to the official tracking portal.",
+        optCourierAuto: "\u26A1 Auto-Detect",
+        btnTrackText: "Track &rarr;",
+        popularCouriersLabel: "Popular Couriers:",
+        titlePickupHours: "\uD83D\uDCCD Unit Mel Pickup Hours & Drop Radar",
+        labelHoursMonThu: "Isnin &ndash; Khamis (Mon &ndash; Thu)",
+        subHoursMonThu: "Lunch break: 1:00 PM &ndash; 2:00 PM",
+        labelHoursFri: "Jumaat (Friday Hours)",
+        subHoursFri: "\u26A0\uFE0F Closed 12:15 PM &ndash; 2:45 PM (Solat Jumaat)",
+        labelHoursSatSun: "Sabtu, Ahad & Cuti Umum",
+        statusClosedWeekend: "Tutup (Closed)",
+        subHoursSatSun: "Weekend deliveries held until Monday",
+        thCourierCompany: "Courier Company",
+        thDropDestination: "Drop-Off Destination",
+        thNotificationMethod: "Collection Notification",
+        thHoldingTime: "Max Holding Time",
+        tdDropSPX: "Unit Mel (Student Association Centre)",
+        tdNotifSPX: "Shopee App push & Unit Mel list",
+        tdDropJNT: "Unit Mel & Student Centre counters",
+        tdNotifJNT: "SMS / WhatsApp from dispatcher",
+        tdDropPos: "Pejabat Pos Kampus Induk / Unit Mel",
+        tdNotifPos: "Official slip or Pos Malaysia SMS",
+        tdDropFlash: "Unit Mel Student Centre",
+        tdNotifFlash: "SMS notification / WhatsApp",
+        tipCollectionId: "\uD83D\uDCA1 <strong>Collection Tip:</strong> Always bring your <strong>Student Matric Card (Kad Pelajar)</strong> or IC when claiming parcels at Unit Mel. Taking a photo of your matric card on your phone is also accepted if you forget the physical card.",
+        regCalloutTitle: "\uD83D\uDCCC Official Campus Regulation",
+        regCalloutDesc: "Couriers and dispatch riders are <strong>not permitted</strong> to enter residential hostel gates (Satria/Lestari) or leave parcels at Pos A. All dispatches are redirected by Polis Bantuan directly to Unit Mel.",
+        titleDeliveredNotReceived: "\uD83D\uDEA8 \"Delivered But Not Received?\" Quick Action Checklist",
+        descDeliveredNotReceived: "If your tracking app says \"Delivered\" but the item isn't in your hands yet, do not panic. Follow these four steps:",
+        step1Content: "<strong style=\"color: var(--text-primary);\">Allow 2&ndash;4 Hours for Unit Mel Sorting:</strong> Couriers often bulk-scan all campus packages as \"Delivered\" when they unload boxes at the Student Centre. Unit Mel staff need time to sort and log them.",
+        step2Content: "<strong style=\"color: var(--text-primary);\">Check the Proof of Delivery (POD) Photo:</strong> Open the courier tracking page or Shopee/Lazada app. Look at the POD signature photo to see which counter or rack your box was placed on.",
+        step3Content: "<strong style=\"color: var(--text-primary);\">Call the Dispatch Driver Directly:</strong> In the tracking status, tap the driver icon to call the assigned delivery courier directly while they are still in the Hang Tuah Jaya / Durian Tunggal area.",
+        step4Content: "<strong style=\"color: var(--text-primary);\">Visit Unit Mel with Tracking ID:</strong> If still missing after 24 hours, visit the Unit Mel counter at the Student Centre with your tracking number and IC to check the master incoming delivery manifest.",
+
         staticContactCard: '<p id="sellerNoticeMarketplace" style="margin: 0; color: var(--text-primary); font-weight: 500; line-height: 1.6;">Got something to sell or offering a service? 🚀 Get listed here! Drop us an email at <a href="mailto:utemconfessionpromax@duck.com" style="color: #facc15; text-decoration: underline; font-weight: 700;">utemconfessionpromax@duck.com</a></p>'
     },
     ms: {
@@ -763,6 +841,8 @@ const translations = {
         mobile_nav_guides: "Panduan Pelajar",
         nav_updates: "Kemas Kini",
         mobile_nav_updates: "Kemas Kini",
+        nav_parcels: "Pusat Bungkusan",
+        mobile_nav_parcels: "Parcel Hub",
 
         mobile_nav_gpa: "Kalkulator GPA",
         mobile_nav_archive: "Suara Pelajar",
@@ -813,6 +893,29 @@ const translations = {
         guide_think_title: "Fikir Sebelum Kongsi:",
         guide_think_desc: "Setelah disiarkan, pengakuan mungkin dilihat, dikongsi, atau ditangkap layar oleh orang lain.",
 
+        tg_card_heading: "Terma Telegram & Keselamatan Saluran",
+        tg_card_subheading: "🛡️ Melindungi Saluran Pelajar Kami",
+        tg_card_intro: "Telegram memadam saluran yang melanggar terma platform atau menerima laporan salah guna bertubi-tubi. Bantu kami kekalkan saluran UCPM dengan mematuhi piawaian keselamatan ini:",
+        tg_card_danger_title: "🚨 Aktiviti yang Boleh Menyebabkan Saluran Diharamkan (Banned):",
+        tg_card_doxxing_title: "Pendedahan Maklumat Peribadi (Doxxing):",
+        tg_card_doxxing_desc: "Menyebarkan nombor telefon peribadi, kad pengenalan, no. matrik, alamat bilik hostel, atau gambar tanpa izin mencetuskan laporan pengguna secara besar-besaran dan ban automatik Telegram.",
+        tg_card_dmca_title: "Pelanggaran Hak Cipta & DMCA:",
+        tg_card_dmca_desc: "Mengedarkan e-buku teks komersial, skema jawapan peperiksaan berbayar, perisian cetak rompak, atau kertas peperiksaan universiti tanpa izin. Telegram mematuhi penyingkiran hak cipta secara automatik.",
+        tg_card_spam_title: "Pautan Spam, Bot & Penipuan:",
+        tg_card_spam_desc: "Pautan dipendekkan (bit.ly), skim cepat kaya, spam kripto, atau pautan jemputan saluran tanpa henti akan dikesan serta-merta oleh penapis spam Telegram.",
+        tg_card_drugs_title: "Dadah & Bahan Terlarang:",
+        tg_card_drugs_desc: "Toleransi sifar untuk sebarang jenis narkotik, ganja, ketum, pod vape terlarang (cth: mushroom/magic vape), atau penjualan ubat terkawal. Melanggar Terma Telegram, Akta Dadah Berbahaya 1952, dan Tatatertib UTeM.",
+        tg_card_nsfw_title: "Media Lucah / Tanpa Keizinan:",
+        tg_card_nsfw_desc: "Sebarang kandungan NSFW, gambar intim tanpa keizinan, atau bahan balas dendam dilarang keras di bawah Terma Telegram dan Seksyen 233 Akta Komunikasi dan Multimedia 1998.",
+        tg_card_google_title: "🔐 Penggunaan Bersama Perkhidmatan Google:",
+        tg_card_oauth_title: "Privasi Log Masuk Google:",
+        tg_card_oauth_desc: "Google OAuth digunakan semata-mata untuk pengesahan anti-bot. Nama, alamat e-mel, dan profil Google anda tidak akan dihantar ke Telegram atau dipaparkan kepada umum.",
+        tg_card_drive_title: "Pautan Google Drive:",
+        tg_card_drive_desc: "Apabila berkongsi nota melalui Google Drive, tetapkan kebenaran kepada 'Sesiapa sahaja dengan pautan boleh melihat'. Pastikan tiada fail (.exe/.apk) atau data peribadi pihak ketiga disertakan.",
+        tg_card_student_title: "Keselamatan E-mel Pelajar:",
+        tg_card_student_desc: "Elakkan menggunakan akaun rasmi <code>@student.utem.edu.my</code> untuk pengedaran fail awam, kerana domain Google Workspace universiti dipantau di bawah polisi ICT universiti.",
+        tg_card_btn_policy: "Baca Polisi Penuh Terma Perkhidmatan Telegram",
+
         title_gpa_calc: "Kalkulator GPA & CGPA Semester UTeM",
         label_sem_gpa: "GPA Semester Semasa",
         label_sem_credits: "Jam Kredit Semester",
@@ -840,14 +943,14 @@ const translations = {
         opt_newyear: "Tahun Baru (1 Jan 2027)",
         opt_custom: "Tetapkan Tarikh Khas...",
 
-        title_bus_transit: "Jadual Bas Shuttle UTeM",
+        title_bus_transit: "Jadual Bas UTeM",
         label_next_departure: "Pelepasan Seterusnya:",
         label_note: "Nota: Masa ketibaan bas shuttle mungkin berbeza mengikut keadaan trafik di Lebuhraya Ayer Keroh. Sila berada di tempat menunggu 5 minit awal.",
         th_departure: "Pelepasan",
         th_day_type: "Hari",
         th_status: "Status",
 
-        title_public_bus: "Jadual Masa Rasmi Bas M10A BAS.MY (Bas Pink)",
+        title_public_bus: "Jadual Rasmi Bas Pink M10A",
         desc_public_bus: "Perkhidmatan bas awam beroperasi antara Melaka Sentral ⇄ Batu Berendam ⇄ MITC ⇄ Zoo Melaka ⇄ Kampus Induk UTeM.",
         label_route_timeline: "Hentian Laluan M10A",
         label_weekend: "Hujung Minggu Sahaja",
@@ -946,6 +1049,7 @@ const translations = {
         footer_rules: "Peraturan Pengakuan",
         footer_privacy: "Dasar Privasi",
         footer_terms: "Syarat Perkhidmatan",
+        footer_telegram: "Polisi Telegram",
 
         title_marketplace: "Pasar Pelajar UTeM",
         badge_marketplace: "Pembangunan Akan Datang",
@@ -1446,8 +1550,8 @@ const translations = {
         noticeKofiCurrency: "Sumbangan anda membantu menampung kos pengehosan pelayan, pembaharuan domain, dan lebar jalur API.",
 
         // --- Updates Tab (updates.html) (BM) ---
-        updatesTitle: "Kemas Kini Kampus & Platform",
-        updatesSubtitle: "Ketahui notis terkini kampus UTeM, pengumuman jadual akademik, pindaan jadual bas shuttle, dan ciri-ciri baharu di UCPM.",
+        updatesTitle: "Kemas Kini Laman Web UCPM",
+        updatesSubtitle: "Ketahui pelancaran ciri baharu, peningkatan sistem, penambahbaikan antara muka, dan pembaikan pepijat di platform web UCPM.",
 
         // --- Marketplace Tab (marketplace.html) (BM) ---
         descMarketItems: "Jual beli buku teks terpakai, kot makmal, set lukisan teknikal, peranti elektronik, dan kelengkapan bilik asrama secara selamat dalam kalangan warga UTeM.",
@@ -1471,11 +1575,11 @@ const translations = {
         // --- Bus Tab UI Elements (bus.html) (BM) ---
         busTabInternal: "🚌 Bas Shuttle Kampus",
         busTabPublic: "💖 Bas Pink M10A",
-        title_campus_bus: "Jadual Bas Shuttle Kampus UTeM",
+        title_campus_bus: "Jadual Bas UTeM",
         semToggleSpecial: "📌 Semester Khas",
         semToggleRegular: "🗓️ Semester Biasa",
-        labelRadarTitle: "Radar Laluan Bas Shuttle UTeM",
-        titlePublicBus: "Bas Pink M10A",
+        labelRadarTitle: "Laluan Bas UTeM",
+        titlePublicBus: "Jadual Rasmi Bas Pink M10A",
         m10aLiveBadge: "Perkhidmatan Hujung Minggu ke UTeM",
         labelRouteTimeline: "Hentian Laluan M10A",
         labelWeekend1: "Jumaat-Ahad Sahaja",
@@ -1511,7 +1615,58 @@ const translations = {
         note_archive: "<strong>Nota Komuniti:</strong> Hantaran dan luahan di Suara Pelajar dikongsi semata-mata untuk hiburan, perkongsian santai, dan pengalaman sesama pelajar. Ia tidak mencerminkan pendirian rasmi universiti dan tiada sebarang niat untuk menyakiti, menyasarkan, atau memfitnah mana-mana pihak. Hayati dengan minda terbuka dan marilah kekalkan budaya kampus yang positif dan saling menghormati!",
         placeholder_archive_search: "🔍 Cari confession ikut kata kunci, tag, topik...",
 
-        // --- Marketplace Tab (marketplace.html) (BM) ---
+        // --- Parcel Hub (parcels.html) (BM) ---
+        heroTitleParcel: "Pusat Bungkusan Kolej Kediaman UTeM & Radar Serahan",
+        heroDescParcel: "Panduan rasmi universiti untuk bungkusan Shopee, TikTok Shop, Lazada dan kurier. Mengikut dasar rasmi UTeM, semua bungkusan dihantar terus ke Unit Mel, Pusat Persatuan Pelajar demi keselamatan dan ketertiban.",
+        parcelFeeNotice: "Yuran Pengambilan: RM1.00 bagi setiap bungkusan sebagai caj pemprosesan & perkhidmatan di kaunter.",
+        titleAddressGen: "\uD83D\uDCCB Penjana Alamat Penghantaran 1-Sentuhan",
+        descAddressGen: "Pilih kolej kediaman anda, masukkan butiran, dan salin format alamat kurier yang sah dengan serta-merta.",
+        labelSelectHostel: "1. Pilih Kolej Kediaman / Kampus:",
+        optHostelSatria: "Kolej Kediaman Satria (Kampus Induk)",
+        optHostelLestari: "Kolej Kediaman Lestari (Kampus Induk)",
+        optHostelEmerald: "Pangsapuri Emerald Park (Luar Kampus)",
+        optHostelKT: "Kampus Teknologi (Ayer Keroh)",
+        labelFullName: "2. Nama Penuh:",
+        labelMatric: "3. No. Matrik (Pilihan tetapi disyorkan):",
+        labelPhone: "4. No. Telefon Bimbit:",
+        labelRoom: "5. No. Blok & Bilik / Rumah:",
+        previewLabel: "Pratonton Alamat:",
+        btnCopyAddressText: "Salin Alamat untuk Shopee / TikTok / Lazada",
+        titleTracking: "\uD83D\uDD0D Pintasan Penjejakan Pelbagai Kurier",
+        descTracking: "Tampal nombor penjejakan anda di bawah. Sistem akan membuka portal rasmi kurier secara automatik.",
+        optCourierAuto: "\u26A1 Kesan Automatik",
+        btnTrackText: "Jejak &rarr;",
+        popularCouriersLabel: "Syarikat Kurier Utama:",
+        titlePickupHours: "\uD83D\uDCCD Waktu Tuntutan Unit Mel & Radar Serahan",
+        labelHoursMonThu: "Isnin &ndash; Khamis",
+        subHoursMonThu: "Rehat tengah hari: 1:00 PTG &ndash; 2:00 PTG",
+        labelHoursFri: "Jumaat",
+        subHoursFri: "\u26A0\uFE0F Tutup 12:15 PTG &ndash; 2:45 PTG (Solat Jumaat)",
+        labelHoursSatSun: "Sabtu, Ahad & Cuti Umum",
+        statusClosedWeekend: "Tutup",
+        subHoursSatSun: "Bungkusan hujung minggu dituntut hari Isnin",
+        thCourierCompany: "Syarikat Kurier",
+        thDropDestination: "Lokasi Serahan",
+        thNotificationMethod: "Notifikasi Pengambilan",
+        thHoldingTime: "Tempoh Simpanan",
+        tdDropSPX: "Unit Mel (Pusat Persatuan Pelajar)",
+        tdNotifSPX: "Notifikasi aplikasi Shopee & senarai Unit Mel",
+        tdDropJNT: "Unit Mel & kaunter Pusat Pelajar",
+        tdNotifJNT: "SMS / WhatsApp daripada penghantar",
+        tdDropPos: "Pejabat Pos Kampus Induk / Unit Mel",
+        tdNotifPos: "Slip rasmi atau SMS Pos Malaysia",
+        tdDropFlash: "Unit Mel Pusat Persatuan Pelajar",
+        tdNotifFlash: "Notifikasi SMS / WhatsApp",
+        tipCollectionId: "\uD83D\uDCA1 <strong>Tip Pengambilan:</strong> Sentiasa bawa <strong>Kad Pelajar</strong> atau MyKad semasa menuntut bungkusan di Unit Mel. Gambar kad pelajar dalam telefon pintar turut diterima sekiranya terlupa membawa kad fizikal.",
+        regCalloutTitle: "\uD83D\uDCCC Arahan Rasmi Kampus",
+        regCalloutDesc: "Syarikat kurier dan penghantar barang <strong>tidak dibenarkan</strong> masuk terus ke pintu kolej kediaman (Satria/Lestari) atau meletakkan bungkusan di Pos A. Semua penghantar diarahkan oleh Polis Bantuan ke Unit Mel.",
+        titleDeliveredNotReceived: "\uD83D\uDEA8 \"Status Dihantar Tetapi Belum Terima?\" Senarai Tindakan Pantas",
+        descDeliveredNotReceived: "Sekiranya aplikasi kurier memaparkan status \"Delivered\" tetapi anda belum menerima bungkusan, jangan panik. Ikuti empat langkah ini:",
+        step1Content: "<strong style=\"color: var(--text-primary);\">Beri Masa 2&ndash;4 Jam untuk Pengasingan:</strong> Kurier kerap mengimbas semua bungkusan kampus sebagai \"Delivered\" sekaligus semasa menurunkan muatan. Petugas Unit Mel memerlukan masa untuk mengasing dan merekodnya.",
+        step2Content: "<strong style=\"color: var(--text-primary);\">Semak Foto Bukti Penghantaran (POD):</strong> Buka penjejakan dalam aplikasi Shopee/Lazada atau portal kurier. Lihat foto serahan bagi mengenal pasti rak atau kaunter bungkusan diletakkan.",
+        step3Content: "<strong style=\"color: var(--text-primary);\">Hubungi Pemandu / Dispatcher Terus:</strong> Dalam status penjejakan, hubungi nombor telefon kurier penghantar secara terus sementara mereka masih berada di sekitar kawasan Durian Tunggal.",
+        step4Content: "<strong style=\"color: var(--text-primary);\">Hadir ke Unit Mel dengan Nombor Penjejakan:</strong> Jika masih tidak ditemui selepas 24 jam, hadir ke kaunter Unit Mel di Pusat Persatuan Pelajar bersama nombor tracking dan kad pelajar untuk semakan manifes serahan.",
+
         staticContactCard: '<p id="sellerNoticeMarketplace" style="margin: 0; color: var(--text-primary); font-weight: 500; line-height: 1.6;">Ada barang nak letgo atau buat servis student? 🚀 Iklankan di sini! E-melkan butiran korang terus ke <a href="mailto:utemconfessionpromax@duck.com" style="color: #facc15; text-decoration: underline; font-weight: 700;">utemconfessionpromax@duck.com</a></p>'
     }
 };
@@ -1520,6 +1675,7 @@ let currentLang = localStorage.getItem("lang") || "en";
 
 function setLanguage(lang) {
     currentLang = lang;
+    document.documentElement.lang = lang;
     const t = translations[lang];
     if (!t) return;
 
@@ -1552,7 +1708,8 @@ function setLanguage(lang) {
         "marketplace-tab": { desktop: t.nav_marketplace, mobile: t.mobile_nav_marketplace },
         "scholarships-tab": { desktop: t.nav_scholarships, mobile: t.mobile_nav_scholarships },
         "support-tab": { desktop: t.nav_support, mobile: t.nav_support },
-        "updates-tab": { desktop: t.nav_updates, mobile: t.mobile_nav_updates }
+        "updates-tab": { desktop: t.nav_updates, mobile: t.mobile_nav_updates },
+        "parcels-tab": { desktop: t.nav_parcels, mobile: t.mobile_nav_parcels }
     };
 
     const hrefNavMap = {
@@ -1568,6 +1725,7 @@ function setLanguage(lang) {
         "activities.html": { desktop: t.nav_activities, mobile: t.nav_activities },
         "marketplace.html": { desktop: t.nav_marketplace, mobile: t.mobile_nav_marketplace },
         "guides.html": { desktop: t.nav_guides, mobile: t.mobile_nav_guides },
+        "parcels.html": { desktop: t.nav_parcels, mobile: t.mobile_nav_parcels },
         "updates.html": { desktop: t.nav_updates, mobile: t.mobile_nav_updates },
         "index.html": { desktop: t.nav_confessions, mobile: t.nav_confessions },
         "index.html#confession-tab": { desktop: t.nav_confessions, mobile: t.nav_confessions },
@@ -1827,10 +1985,10 @@ function setLanguage(lang) {
 
     // 7. Bus Transit (Minggu Semester Khas & Regular)
     const titleCampusBus = document.getElementById("title_campus_bus");
-    if (titleCampusBus) titleCampusBus.textContent = t.title_bus_transit || "UTeM Campus Shuttle Timetable";
+    if (titleCampusBus) titleCampusBus.textContent = t.title_bus_transit || "UTeM Bus Timetable";
 
     const labelRadarTitle = document.getElementById("labelRadarTitle");
-    if (labelRadarTitle) labelRadarTitle.textContent = lang === "en" ? "UTeM Shuttle Route Radar" : "Radar Laluan Bas UTeM";
+    if (labelRadarTitle) labelRadarTitle.textContent = lang === "en" ? "UTeM Bus Route" : "Laluan Bas UTeM";
 
     document.querySelectorAll(".bus-route-pill").forEach(pill => {
         const routeKey = pill.getAttribute("data-route");
@@ -1842,7 +2000,7 @@ function setLanguage(lang) {
         else if (routeKey === "lestari_regular") pill.textContent = "Lestari ⇄ Fakulti";
     });
 
-    const busThs = document.querySelectorAll("#bus-tab .gpa-table th");
+    const busThs = document.querySelectorAll("#bus-tab .bus-schedule-table th, #bus-tab .gpa-table th");
     if (busThs.length >= 3) {
         busThs[0].textContent = t.th_departure || "Departure";
         busThs[1].textContent = t.th_day_type || "Days";
@@ -1856,7 +2014,7 @@ function setLanguage(lang) {
     if (departureLabel) departureLabel.textContent = t.label_next_departure;
 
     const titlePublicBus = document.getElementById("titlePublicBus");
-    if (titlePublicBus) titlePublicBus.textContent = t.title_public_bus || "Bus M10A Pink Bus";
+    if (titlePublicBus) titlePublicBus.textContent = t.title_public_bus || "Pink Bus M10A Official Timetable";
 
     const descPublicBus = document.getElementById("descPublicBus");
     if (descPublicBus) descPublicBus.textContent = t.desc_public_bus;
@@ -2276,7 +2434,8 @@ function setLanguage(lang) {
         "about.html": t.footer_about || "About Us",
         "rules.html": t.footer_rules || "Confession Rules",
         "privacy.html": t.footer_privacy || "Privacy Policy",
-        "terms.html": t.footer_terms || "Terms of Service"
+        "terms.html": t.footer_terms || "Terms of Service",
+        "telegram-terms.html": t.footer_telegram || "Telegram Policy"
     };
     document.querySelectorAll(".footer-links a").forEach(link => {
         const href = link.getAttribute("href");
@@ -2297,6 +2456,16 @@ function setLanguage(lang) {
         }
         try { applyScholarshipTranslations(); } catch (err) { console.warn('Scholarship translation error:', err); }
         try { if(typeof refreshActivitiesTranslations === 'function') refreshActivitiesTranslations(); } catch (err) { console.warn('Activities translation error:', err); }
+        if (typeof renderMilestonePill === 'function') renderMilestonePill();
+        else if (typeof window.renderMilestonePill === 'function') window.renderMilestonePill();
+        if (typeof initExamSeasonPill === 'function') initExamSeasonPill();
+        else if (typeof window.initExamSeasonPill === 'function') window.initExamSeasonPill();
+        if (typeof initLibraryHoursPill === 'function') initLibraryHoursPill();
+        else if (typeof window.initLibraryHoursPill === 'function') window.initLibraryHoursPill();
+        if (typeof initPkuHoursPill === 'function') initPkuHoursPill();
+        else if (typeof window.initPkuHoursPill === 'function') window.initPkuHoursPill();
+        if (typeof updateUnitMelStatus === 'function') updateUnitMelStatus();
+        else if (typeof window.updateUnitMelStatus === 'function') window.updateUnitMelStatus();
     } catch (e) {
         console.warn("Dynamic component translation warning:", e);
     }

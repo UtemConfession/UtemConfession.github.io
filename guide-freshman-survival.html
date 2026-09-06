@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -11,7 +11,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>UTeM Freshman Survival Guide: Library (PLH), PKU Health & Wi-Fi | UTeM Confessions Pro Max</title>
     <meta name="description" content="Ultimate UTeM orientation and onboarding guide. How to use Perpustakaan Laman Hikmah (PLH), access PKU clinic services, and connect to Eduroam and UTeM-WiFi.">
@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.2">
+    <link rel="stylesheet" href="style.min.css?v=5.4">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
     <!-- Monetag Popunder (1-Hour Cap) -->
@@ -82,6 +82,36 @@
             "name": "Freshman Survival Guide",
             "item": "https://utemconfession.github.io/guide-freshman-survival.html"
           }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What facilities are offered at Perpustakaan Laman Hikmah (PLH)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PLH provides 24-hour study spaces during exam periods, discussion rooms, PC workstations, printing/binding services, and academic research archives."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What medical services does Pusat Kesihatan Universiti (PKU) provide?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "PKU offers free outpatient medical consultations, prescription medications, emergency treatment, and hospital referral letters for registered UTeM students."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do new students connect to campus Wi-Fi?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Connect to the 'eduroam' SSID using your full student email (e.g. matric@student.utem.edu.my) and UTeM portal password."
+        }
+      }
         ]
       }
     ]
@@ -434,7 +464,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const btn = document.getElementById("btnCopyText");
                 if (btn) {
                     const orig = btn.innerText;
-                    btn.innerText = "Copied! âœ“";
+                    btn.innerText = "Copied! ✓";
                     setTimeout(() => { btn.innerText = orig; }, 2000);
                 }
             });

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -11,7 +11,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>UTeM GPA & CGPA Calculation Guide | UTeM Confessions Pro Max</title>
     <meta name="description" content="Complete guide on calculating GPA and CGPA at Universiti Teknikal Malaysia Melaka (UTeM). Learn grading scales, credit hours, Dean's List criteria, and academic probation rules.">
@@ -32,7 +32,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.2">
+    <link rel="stylesheet" href="style.min.css?v=5.4">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
     <!-- Monetag Popunder (1-Hour Cap) -->
@@ -82,6 +82,44 @@
             "name": "GPA & CGPA Calculation Guide",
             "item": "https://utemconfession.github.io/guide-gpa-calculator.html"
           }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What are the grade point values at UTeM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "UTeM uses standard Malaysian university grading: A = 4.00, A- = 3.70, B+ = 3.30, B = 3.00, B- = 2.70, C+ = 2.30, C = 2.00, C- = 1.70, D+ = 1.30, D = 1.00, and F = 0.00."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What semester GPA is required for the Dean's List (Anugerah Dekan)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A semester GPA of 3.50 or higher with at least 12 graded credit hours qualifies a student for the Dean's List award."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if a student's GPA falls below 2.00?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The student receives Academic Probation status (Kedudukan Bersyarat), restricting registration to 12 credits and risking loan freezes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How is CGPA calculated at UTeM?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CGPA is calculated by dividing total cumulative grade points by total cumulative credit hours across all enrolled semesters."
+        }
+      }
         ]
       }
     ]
@@ -534,7 +572,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const btn = document.getElementById("btnCopyText");
                 if (btn) {
                     const orig = btn.innerText;
-                    btn.innerText = "Copied! âœ“";
+                    btn.innerText = "Copied! ✓";
                     setTimeout(() => { btn.innerText = orig; }, 2000);
                 }
             });

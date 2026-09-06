@@ -3,6 +3,75 @@
 
 const ucpmUpdates = [
     {
+        date: "2026-09-05",
+        type: "new",
+        title: "Real-Time Operating Hours & Campus Smart Pills",
+        summary: "Introduced dynamic top smart pills for Library (PLH), PKU Health Center, and Unit Mel Parcel Hub with automatic live schedule status tracking.",
+        items: [
+            "Library Smart Pill: Real-time opening hours, semester break schedules, and exam season 24-hour continuous study area access indicator",
+            "PKU Health Center Smart Pill: Live clinic consultation hours for Main Campus (Durian Tunggal) including Friday prayer and lunch breaks",
+            "Parcel Hub Smart Pill: Live package pickup desk hours, weekend closures, and instant click-to-scroll to the verified hostel shipping address generator",
+            "Academic Calendar Countdown: Real-time semester break and lecture milestone countdown pill with 1-click jump to the calendar timeline"
+        ]
+    },
+    {
+        date: "2026-09-05",
+        type: "improved",
+        title: "Shuttle Bus Transit Tracker & Radar Animations",
+        summary: "Upgraded the campus transit suite with live route departure countdowns, interactive radar tracking, and seamless bilingual support.",
+        items: [
+            "Live M10A Pink Bus loop countdown timer with pulsating radar transit visualizer",
+            "Introduced unified semester toggle seamlessly switching between regular academic terms and semester break shuttle schedules",
+            "Streamlined transit alerts and stop listings across Kampus Induk, Kampus Teknologi, and Ayer Keroh loops",
+            "Polished top smart pill layouts and typography for unified cross-tab consistency"
+        ]
+    },
+    {
+        date: "2026-09-05",
+        type: "fixed",
+        title: "Smart Pill Visual Sizing & Phase Badge Alignment",
+        summary: "Resolved smart pill sizing inconsistencies, corrected calendar phase badge alignment, and replaced harsh warning glows with modern ambient accents.",
+        items: [
+            "Parcel Hub Pill Sizing: Unified responsive padding and font sizing with Library and PKU health pills",
+            "Academic Calendar Formatting: Separated current campus phase (Semester Break) from upcoming countdown (Lectures begin in X days)",
+            "Ambient Glow Palette: Replaced harsh red warning shadows with calm, modern purple and slate ambient glows",
+            "Instant Language Sync: Fixed language toggle so calendar and transit smart pills switch between English and Malay immediately without page reload"
+        ]
+    },
+    {
+        date: "2026-09-04",
+        type: "new",
+        title: "State Scholarship & Financial Aid Directory",
+        summary: "Added a comprehensive directory connecting UTeM students to state foundation sponsorships, zakat education funds, and government aid schemes across Malaysia.",
+        items: [
+            "Detailed listings for all 13 state foundations (Yayasan Melaka, Yayasan Selangor, Yayasan Johor, Yayasan Sabah, Yayasan Sarawak, etc.)",
+            "Direct application portal links, eligibility requirements, and student support contact details",
+            "One-off Bantuan Awal Pengajian (BAP) and student emergency zakat assistance guidelines"
+        ]
+    },
+    {
+        date: "2026-09-04",
+        type: "improved",
+        title: "Explore Melaka Directory & Student Guides Expansion",
+        summary: "Expanded local attraction recommendations and optimized educational survival guides for smoother mobile reading.",
+        items: [
+            "Curated 72+ Melaka student attractions with instant category filters, indoor/outdoor tags, and quick search",
+            "Refined typography, callouts, and structured tables across 14 comprehensive campus survival guides",
+            "Enhanced slide-out mobile drawer navigation with quick shortcuts to all utilities"
+        ]
+    },
+    {
+        date: "2026-09-04",
+        type: "fixed",
+        title: "Mobile Navigation Layering & Tag Balance Audit",
+        summary: "Fixed mobile drawer overlapping, normalized bottom navigation touch padding, and cleaned up HTML markup across all pages.",
+        items: [
+            "Corrected z-index layering conflicts between the sticky mobile header and bottom navigation bar",
+            "Ensured 100% balanced HTML semantic structure across all 33 platform pages",
+            "Preserved full UTF-8 character integrity and eliminated text encoding inconsistencies across all core tools"
+        ]
+    },
+    {
         date: "2026-08-28",
         type: "new",
         title: "Student Voices Hub & Curated Confessions",

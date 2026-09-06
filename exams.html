@@ -13,7 +13,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="google-site-verification" content="dwqgpqLYOpqd92hDyGq43MGexJ2DRGy8NZBVFKBzSeA" />
 
 
@@ -41,7 +41,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.2">
+    <link rel="stylesheet" href="style.min.css?v=5.6">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
         crossorigin="anonymous"></script>
@@ -110,10 +110,18 @@
         <!-- Main Content Area -->
         <main class="main-content">
 
-
-            
             <!-- PAST YEAR EXAMS CONTENT CARD -->
             <div class="tab-content active" id="exams-tab">
+
+                <!-- Dynamic Exam Season Countdown & Good Luck Pill -->
+                <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 6px;">
+                    <div id="examSeasonPill" class="top-smart-pill glow-exam" title="Click to search past exam papers & revise">
+                        <span id="examPillIcon" style="font-size: 16px;">&#x23F3;</span>
+                        <span id="examPillText">Sem 1 Final Exams start in 135 days (18 Jan 2027)</span>
+                        <span id="examPillBadge" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;">Finals</span>
+                    </div>
+                </div>
+
                 <div class="card">
                     <h2 class="card-title">
                         <svg viewBox="0 0 24 24" style="fill: currentColor;">
@@ -478,11 +486,11 @@
 
     <!-- Core Utilities & Exam Logic Engine -->
     <script src="utils.min.js" defer></script>
-    <script src="library.min.js" defer></script>
+    <script src="library.min.js?v=2.2" defer></script>
     <script src="translation.min.js" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.min.js" defer></script>
+    <script src="script.min.js?v=2.6" defer></script>
 
     <script src="ads.min.js" defer></script>
 

@@ -13,7 +13,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="google-site-verification" content="dwqgpqLYOpqd92hDyGq43MGexJ2DRGy8NZBVFKBzSeA" />
 
     <!-- SEO Optimization -->
@@ -37,7 +37,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.2">
+    <link rel="stylesheet" href="style.min.css?v=5.6">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -66,20 +66,21 @@
             <!-- TAB 1: CONFESSION BOARD (HOME TAB) -->
             <div class="tab-content active" id="confession-tab">
 
-                <!-- Live Campus Weather Pill (Home Page Only) -->
+                <!-- Live Campus Weather & Transit Ticker Pill (Home Page Only) -->
                 <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 6px;">
-                    <div id="campusWeatherPill"
-                        style="display: inline-flex; align-items: center; gap: 8px; background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); padding: 5px 16px; border-radius: 30px; font-size: 13.5px; font-weight: 600; color: var(--text-primary); backdrop-filter: blur(10px); width: fit-content; max-width: 100%; box-sizing: border-box; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-                        <span id="weatherIcon" style="font-size: 16px;">⛅</span>
-                        <span id="weatherText">Durian Tunggal / Ayer Keroh: 31°C Fair</span>
-                        <span
-                            style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;">Live Weather</span>
+                    <div id="campusWeatherPill" class="top-smart-pill glow-weather">
+                        <div id="tickerSlide" style="display: inline-flex; align-items: center; gap: 8px; transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);">
+                            <span id="weatherIcon" style="font-size: 16px;">⛅</span>
+                            <span id="weatherText">Durian Tunggal / Ayer Keroh: 31°C Fair</span>
+                            <span id="weatherBadge"
+                                style="background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;">Live Weather</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Minimalist Telegram Channel Widget -->
                 <div class="telegram-widget-card"
-                    style="display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(42, 171, 238, 0.15) 0%, rgba(13, 21, 39, 0.95) 100%); border: 1px solid rgba(42, 171, 238, 0.35); border-radius: 14px; padding: 8px 16px; margin-bottom: 0px; gap: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); width: 100%; box-sizing: border-box;">
+                    style="display: flex; align-items: center; justify-content: space-between; background: linear-gradient(135deg, rgba(42, 171, 238, 0.15) 0%, rgba(13, 21, 39, 0.95) 100%); border: 1px solid rgba(42, 171, 238, 0.35); border-radius: 14px; padding: 8px 16px; gap: 10px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); width: 100%; box-sizing: border-box;">
                     <div class="telegram-widget-left"
                         style="display: flex; align-items: center; gap: 10px; min-width: 0; flex: 1;">
                         <div class="telegram-icon-circle"
@@ -109,7 +110,7 @@
                     </a>
                 </div>
 
-                <div class="confession-layout">
+                <div class="confession-layout" style="align-items: start;">
 
                     <!-- Submission card -->
                     <div class="card">
@@ -221,7 +222,7 @@
                         <div id="imageSubmissionPanel" style="display: none;">
                             <div class="form-group">
                                 <input type="file" id="imageFileInput"
-                                    accept="image/jpeg,image/jpg,image/png,image/webp" style="display: none;">
+                                    accept="image/jpeg,image/jpg,image/png,image/webp,.heic,.heif" style="display: none;">
                                 <button type="button" id="chooseImageBtn" class="btn btn-secondary"
                                     style="width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 10px; font-weight: 700; border-color: var(--border-color);">
                                     <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
@@ -231,6 +232,9 @@
                                     </svg>
                                     Choose Image
                                 </button>
+                                <div style="font-size: 11px; color: var(--text-muted); margin-top: 5px; text-align: center;">
+                                    JPG, PNG, WEBP (Max 5MB) &bull; iPhone: select standard JPG
+                                </div>
 
                                 <!-- Image Preview Card -->
                                 <div id="imagePreviewContainer"
@@ -275,32 +279,125 @@
                         <div id="statusMessage" class="status-message"></div>
                     </div>
 
-                    <!-- Rules Sidebar -->
-                    <div class="card" style="height: fit-content;">
-                        <h3 class="card-title">
-                            <svg viewBox="0 0 24 24">
-                                <path
-                                    d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
-                            </svg>
-                            Posting Guidelines
-                        </h3>
-                        <ul class="guide-list">
-                            <li><strong>Anonymous:</strong> Your IP address, name, or metadata are not tracked or saved.</li>
-                            <li><strong>Respect:</strong> No target bullying, sexual harassment, or hate speech against students or lecturers.</li>
-                            <li><strong>Spam:</strong> Submit button has a 30-second delay between posts.</li>
-                            <li><strong>Images:</strong> Do not upload NSFW content, private images of individuals, or screenshots of social media posts containing visible faces or personal information.</li>
-                            <li><strong>Moderation:</strong> Image submissions are read and reviewed by human moderators before being published.</li>
-                            <li><strong>Links:</strong> Links can only be shared in image form. This is so that the admin can review first before sharing to the channel.</li>
-                            <li><strong>Impersonation:</strong> Don't pretend to be another student, lecturer, staff member, or organization in a way that could mislead others.</li>
-                            <li><strong>Threats:</strong> Threats of violence, intimidation, or encouragement of harm are not allowed.</li>
-                            <li><strong>Accusations:</strong> Do not post unproven allegations about identifiable people. Keep discussions factual and anonymous.</li>
-                            <li><strong>Connections:</strong> Posts seeking friendship, companionship, study partners, or other forms of connections are required to be respectful of boundaries, moral standards and responses.</li>
-                            <li><strong>Think Before You Post:</strong> Once published, a confession may be seen, shared, or screenshotted by others.</li>
-                        </ul>
+                    <!-- Rules & Compliance Sidebar Column -->
+                    <div class="confession-sidebar-col">
+                        <!-- Rules Sidebar -->
+                        <div class="card" style="height: fit-content;">
+                            <h3 class="card-title">
+                                <svg viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                                </svg>
+                                Posting Guidelines
+                            </h3>
+                            <ul class="guide-list">
+                                <li><strong>Anonymous:</strong> Your IP address, name, or metadata are not tracked or saved.</li>
+                                <li><strong>Respect:</strong> No target bullying, sexual harassment, or hate speech against students or lecturers.</li>
+                                <li><strong>Spam:</strong> Submit button has a 30-second delay between posts.</li>
+                                <li><strong>Images:</strong> Do not upload NSFW content, private images of individuals, or screenshots of social media posts containing visible faces or personal information.</li>
+                                <li><strong>Moderation:</strong> Image submissions are read and reviewed by human moderators before being published.</li>
+                                <li><strong>Links:</strong> Links can only be shared in image form. This is so that the admin can review first before sharing to the channel.</li>
+                                <li><strong>Impersonation:</strong> Don't pretend to be another student, lecturer, staff member, or organization in a way that could mislead others.</li>
+                                <li><strong>Threats:</strong> Threats of violence, intimidation, or encouragement of harm are not allowed.</li>
+                                <li><strong>Accusations:</strong> Do not post unproven allegations about identifiable people. Keep discussions factual and anonymous.</li>
+                                <li><strong>Connections:</strong> Posts seeking friendship, companionship, study partners, or other forms of connections are required to be respectful of boundaries, moral standards and responses.</li>
+                                <li><strong>Think Before You Post:</strong> Once published, a confession may be seen, shared, or screenshotted by others.</li>
+                            </ul>
 
-                        <div class="moderation-notice" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 12px; margin-top: 16px; font-size: 12px; color: var(--text-secondary);">
-                            <strong style="color: #ef4444; display: block; margin-bottom: 4px;">Community Moderation & Takedown Notice</strong>
-                            Submissions are actively moderated for profanity, defamation, and personal data in compliance with PDPA 2010. UTeM Confessions Pro Max reserves the right to reject or remove content that violates these policies. To report abusive content or request a takedown, contact us immediately at <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold);">utemconfessionpromax@duck.com</a>.
+                            <div class="moderation-notice" style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 10px; padding: 12px; margin-top: 16px; font-size: 12px; color: var(--text-secondary);">
+                                <strong style="color: #ef4444; display: block; margin-bottom: 4px;">Community Moderation & Takedown Notice</strong>
+                                Submissions are actively moderated for profanity, defamation, and personal data in compliance with PDPA 2010. UTeM Confessions Pro Max reserves the right to reject or remove content that violates these policies. To report abusive content or request a takedown, contact us immediately at <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--accent-gold);">utemconfessionpromax@duck.com</a>.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Telegram TOS & Channel Protection Card (Full-width) -->
+                <div class="card" style="margin-top: 20px; border-color: rgba(42, 171, 238, 0.35); background: linear-gradient(180deg, rgba(13, 21, 39, 0.95) 0%, rgba(10, 16, 30, 0.98) 100%);">
+                    <h3 class="card-title" style="color: #38bdf8; border-bottom-color: rgba(42, 171, 238, 0.25);">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
+                        </svg>
+                        <span id="tg_card_heading">Telegram Terms & Channel Safety</span>
+                    </h3>
+
+                    <div style="background: rgba(42, 171, 238, 0.09); border-left: 3.5px solid #2AABEE; border-radius: 0 10px 10px 0; padding: 10px 14px; margin-bottom: 20px; font-size: 13px; color: var(--text-secondary); line-height: 1.55;">
+                        <strong style="color: #38bdf8; display: flex; align-items: center; gap: 6px; margin-bottom: 4px; font-size: 13.5px;">
+                            <span id="tg_card_subheading">🛡️ Protecting Our Student Channel</span>
+                        </strong>
+                        <span id="tg_card_intro">Telegram actively terminates channels that violate its terms or receive mass abuse reports. Help us keep UCPM online by adhering to these safety standards:</span>
+                    </div>
+
+                    <!-- 2-Column Responsive Layout -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;">
+                        
+                        <!-- Column 1: Activities That Can Get the Channel Banned -->
+                        <div>
+                            <div style="font-size: 13.5px; font-weight: 700; color: #f87171; display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                                <span id="tg_card_danger_title">🚨 Activities That Can Get the Channel Banned:</span>
+                            </div>
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 12.5px; color: var(--text-secondary); line-height: 1.55;">
+                                <li style="position: relative; padding-left: 20px;">
+                                    <span style="position: absolute; left: 0; color: #ef4444; font-weight: bold;">✕</span>
+                                    <strong style="color: var(--text-primary);" id="tg_card_doxxing_title">Mass-Reportable Doxxing:</strong>
+                                    <span id="tg_card_doxxing_desc">Sharing private phone numbers, IC numbers, matric IDs, residential room addresses, or unconsented photos triggers Telegram report cascades that cause automated permanent channel bans.</span>
+                                </li>
+                                <li style="position: relative; padding-left: 20px;">
+                                    <span style="position: absolute; left: 0; color: #ef4444; font-weight: bold;">✕</span>
+                                    <strong style="color: var(--text-primary);" id="tg_card_dmca_title">DMCA & Copyright Strikes:</strong>
+                                    <span id="tg_card_dmca_desc">Distributing commercial e-textbooks, paywalled test-banks, cracked software, or leaked official exam papers. Telegram strictly complies with automated copyright take-downs.</span>
+                                </li>
+                                <li style="position: relative; padding-left: 20px;">
+                                    <span style="position: absolute; left: 0; color: #ef4444; font-weight: bold;">✕</span>
+                                    <strong style="color: var(--text-primary);" id="tg_card_spam_title">Spam, Bot Links & Scams:</strong>
+                                    <span id="tg_card_spam_desc">Shortened links (bit.ly), MLM/get-rich-quick promotions, crypto spam, or unsolicited channel invite links get caught in Telegram's automated spam filters.</span>
+                                </li>
+                                <li style="position: relative; padding-left: 20px;">
+                                    <span style="position: absolute; left: 0; color: #ef4444; font-weight: bold;">✕</span>
+                                    <strong style="color: var(--text-primary);" id="tg_card_drugs_title">Drugs & Illegal Substances:</strong>
+                                    <span id="tg_card_drugs_desc">Zero tolerance for narcotics, cannabis, ketum, illicit vape pods (e.g., mushroom/magic vape), or prescription drug sales. Violates Telegram TOS, Dangerous Drugs Act 1952, and UTeM Disciplinary Code.</span>
+                                </li>
+                                <li style="position: relative; padding-left: 20px;">
+                                    <span style="position: absolute; left: 0; color: #ef4444; font-weight: bold;">✕</span>
+                                    <strong style="color: var(--text-primary);" id="tg_card_nsfw_title">Explicit or Non-Consensual Media:</strong>
+                                    <span id="tg_card_nsfw_desc">Any NSFW content, suggestive media taken without consent, or revenge material is strictly prohibited under Telegram TOS and Section 233 of the Malaysian CMA 1998.</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Column 2: Google Services Integration & Action Link -->
+                        <div style="display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <div style="font-size: 13.5px; font-weight: 700; color: #60a5fa; display: flex; align-items: center; gap: 6px; margin-bottom: 12px;">
+                                    <span id="tg_card_google_title">🔐 Using Services with Google:</span>
+                                </div>
+                                <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 12.5px; color: var(--text-secondary); line-height: 1.55;">
+                                    <li style="position: relative; padding-left: 20px;">
+                                        <span style="position: absolute; left: 0; color: #3b82f6;">✦</span>
+                                        <strong style="color: var(--text-primary);" id="tg_card_oauth_title">Google Sign-In Privacy:</strong>
+                                        <span id="tg_card_oauth_desc">Google OAuth is used solely for anti-bot verification. Your Google name, email address, and profile are never sent to Telegram or publicly revealed.</span>
+                                    </li>
+                                    <li style="position: relative; padding-left: 20px;">
+                                        <span style="position: absolute; left: 0; color: #3b82f6;">✦</span>
+                                        <strong style="color: var(--text-primary);" id="tg_card_drive_title">Google Drive Links:</strong>
+                                        <span id="tg_card_drive_desc">When sharing study notes via Google Drive, set permissions to 'Anyone with the link can view'. Ensure no executable (.exe/.apk) files or third-party personal data are included.</span>
+                                    </li>
+                                    <li style="position: relative; padding-left: 20px;">
+                                        <span style="position: absolute; left: 0; color: #3b82f6;">✦</span>
+                                        <strong style="color: var(--text-primary);" id="tg_card_student_title">Student Email Safety:</strong>
+                                        <span id="tg_card_student_desc">Avoid using your official <code>@student.utem.edu.my</code> account for public file distribution, as institutional Google Workspace domains are monitored under university IT policies.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Link to Dedicated Policy Page -->
+                            <a href="telegram-terms.html" class="telegram-link-btn" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(42, 171, 238, 0.1); border: 1px solid rgba(42, 171, 238, 0.35); border-radius: 10px; color: #38bdf8; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; margin-top: 18px;">
+                                <span style="display: flex; align-items: center; gap: 8px;">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
+                                    <span id="tg_card_btn_policy">Read Full Telegram TOS & Rules Policy</span>
+                                </span>
+                                <span style="font-size: 14px;">&rarr;</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -384,6 +481,7 @@
                     <a href="guides.html">Student Guides</a>
                     <a href="about.html">About Us</a>
                     <a href="rules.html">Confession Rules</a>
+                    <a href="telegram-terms.html">Telegram Policy</a>
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                 </div>
@@ -408,7 +506,7 @@
     <script src="confessions.min.js" defer></script>
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
-    <script src="script.min.js" defer></script>
+    <script src="script.min.js?v=2.6" defer></script>
 
     <script src="ads.min.js" defer></script>
 

@@ -76,6 +76,12 @@ const UCPMSidebarHTML = `<!-- Desktop Sidebar Navigation -->
                     </svg>
                     Bus Schedules
                 </a>
+                <a href="parcels.html" class="nav-item" data-tab="parcels-tab" id="desktopParcelsTab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 7l-8-4-8 4 8 4 8-4zm-8 6l-8-4v8l8 4 8-4v-8l-8 4z"/>
+                    </svg>
+                    Parcel Hub
+                </a>
                 <a href="marketplace.html" class="nav-item" data-tab="marketplace-tab" id="desktopMarketplaceTab" style="text-decoration: none; color: inherit;">
                     <svg viewBox="0 0 24 24">
                         <path
@@ -156,7 +162,7 @@ const UCPMNavHTML = `<!-- Mobile Horizontal Bottom Navigation Bar -->
             </svg>
             <span>Confessions</span>
         </a>
-        <a href="calendar.html" class="mobile-nav-btn" style="text-decoration: none; color: inherit;">
+        <a href="calendar.html" class="mobile-nav-btn" data-tab="calendar-tab" style="text-decoration: none; color: inherit;">
             <svg viewBox="0 0 24 24">
                 <path
                     d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z" />
@@ -236,6 +242,12 @@ const UCPMDrawerHTML = `<!-- Slide-Up "More" Tools Drawer Modal -->
                     </svg>
                     <span id="drawerHealth">Health Center</span>
                 </a>
+                <a href="parcels.html" class="drawer-item-btn" data-tab="parcels-tab" style="text-decoration: none; color: inherit;">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M20 7l-8-4-8 4 8 4 8-4zm-8 6l-8-4v8l8 4 8-4v-8l-8 4z"/>
+                    </svg>
+                    <span id="drawerParcels">Parcel Hub</span>
+                </a>
                 <a href="marketplace.html" class="drawer-item-btn" data-tab="marketplace-tab" style="text-decoration: none; color: inherit;">
                     <svg viewBox="0 0 24 24">
                         <path
@@ -299,14 +311,136 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentPage = window.location.pathname.split("/").pop();
     if (!currentPage || currentPage === "") currentPage = "index.html";
     
-    const activeLinks = document.querySelectorAll('.nav-item[href="' + currentPage + '"], .mobile-nav-btn[href="' + currentPage + '"], .drawer-item-btn[href="' + currentPage + '"]');
+    // Strip hash and query parameters
+    currentPage = currentPage.split("?")[0].split("#")[0];
+
+    // Normalize guide sub-pages to guides.html
+    let lookupPage = currentPage;
+    if (lookupPage.startsWith("guide-")) {
+        lookupPage = "guides.html";
+    }
+
+    const activeLinks = document.querySelectorAll(
+        '.nav-item[href*="' + lookupPage + '"], .mobile-nav-btn[href*="' + lookupPage + '"], .drawer-item-btn[href*="' + lookupPage + '"]'
+    );
     activeLinks.forEach(link => link.classList.add("active"));
 
-    if (currentPage === "index.html") {
+    if (lookupPage === "index.html") {
         document.querySelectorAll('.nav-item[data-tab="confession-tab"]').forEach(el => el.classList.add("active"));
         document.querySelectorAll('.mobile-nav-btn[data-tab="confession-tab"]').forEach(el => el.classList.add("active"));
     }
+
+    // If current page is an item inside the "More" drawer, highlight the "More" bottom nav button
+    const activeDrawerItem = document.querySelector('.drawer-item-btn.active');
+    const activeMobileBottomBtn = document.querySelector('.mobile-bottom-nav .mobile-nav-btn.active');
+    const openDrawerBtn = document.getElementById("openMobileDrawerBtn");
+
+    if (activeDrawerItem && !activeMobileBottomBtn && openDrawerBtn) {
+        openDrawerBtn.classList.add("active");
+    }
+
+    initPwaInstallPrompt();
+    initOfflineStatusBar();
 });
+
+// --- PWA Native Install Prompt Handler ---
+function initPwaInstallPrompt() {
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+
+        if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true) return;
+
+        const dismissedAt = localStorage.getItem('ucpm_pwa_dismissed');
+        if (dismissedAt && (Date.now() - Number(dismissedAt) < 7 * 24 * 60 * 60 * 1000)) return;
+
+        if (document.getElementById('pwaInstallBanner')) return;
+
+        const banner = document.createElement('div');
+        banner.id = 'pwaInstallBanner';
+        banner.className = 'pwa-install-banner';
+        banner.innerHTML = `
+            <div class="pwa-install-left">
+                <img src="UCPMLogo.webp" alt="UCPM App" class="pwa-install-icon" width="38" height="38">
+                <div class="pwa-install-text">
+                    <span class="pwa-install-title">Install UCPM App</span>
+                    <span class="pwa-install-subtitle">Fast offline access &amp; transit radar</span>
+                </div>
+            </div>
+            <div class="pwa-install-right">
+                <button id="pwaInstallBtn" class="btn btn-primary btn-sm" type="button" style="padding: 6px 14px; font-size: 12px; font-weight: 700;">Install</button>
+                <button id="pwaDismissBtn" class="pwa-dismiss-btn" type="button" aria-label="Close">&times;</button>
+            </div>
+        `;
+        document.body.appendChild(banner);
+
+        const installBtn = document.getElementById('pwaInstallBtn');
+        if (installBtn) {
+            installBtn.addEventListener('click', async () => {
+                if (!deferredPrompt) return;
+                deferredPrompt.prompt();
+                const choice = await deferredPrompt.userChoice;
+                if (choice && choice.outcome === 'accepted') {
+                    localStorage.setItem('ucpm_pwa_installed', 'true');
+                }
+                deferredPrompt = null;
+                banner.remove();
+            });
+        }
+
+        const dismissBtn = document.getElementById('pwaDismissBtn');
+        if (dismissBtn) {
+            dismissBtn.addEventListener('click', () => {
+                localStorage.setItem('ucpm_pwa_dismissed', Date.now().toString());
+                banner.remove();
+            });
+        }
+    });
+
+    window.addEventListener('appinstalled', () => {
+        const banner = document.getElementById('pwaInstallBanner');
+        if (banner) banner.remove();
+        localStorage.setItem('ucpm_pwa_installed', 'true');
+    });
+}
+
+// --- Native Offline Mode Status Bar Handler ---
+function initOfflineStatusBar() {
+    const bar = document.createElement('div');
+    bar.id = 'offlineStatusBar';
+    bar.className = 'offline-status-bar';
+    bar.setAttribute('role', 'status');
+    bar.setAttribute('aria-live', 'polite');
+    document.body.appendChild(bar);
+
+    let hideTimer = null;
+
+    function updateNetworkState(isOnline) {
+        clearTimeout(hideTimer);
+        if (!isOnline) {
+            bar.className = 'offline-status-bar visible offline';
+            bar.innerHTML = '<span class="offline-status-dot"></span><span><strong>Offline Mode</strong> &bull; Viewing saved schedules &amp; guides</span>';
+        } else {
+            if (bar.classList.contains('offline')) {
+                bar.className = 'offline-status-bar visible online';
+                bar.innerHTML = '<span class="offline-status-dot"></span><span><strong>Back Online</strong> &bull; Live sync restored</span>';
+                hideTimer = setTimeout(() => {
+                    bar.classList.remove('visible');
+                }, 3000);
+            }
+        }
+    }
+
+    window.addEventListener('offline', () => updateNetworkState(false));
+    window.addEventListener('online', () => updateNetworkState(true));
+
+    if (!navigator.onLine) {
+        updateNetworkState(false);
+    }
+}
+
+
 
 
 

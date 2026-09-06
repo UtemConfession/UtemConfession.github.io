@@ -285,8 +285,18 @@ if (submitBtn) {
 function validateImageFile(file) {
     if (!file) return false;
 
-    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
     const fileName = file.name.toLowerCase();
+
+    // Check for Apple HEIC/HEIF format and guide user
+    if (fileName.endsWith(".heic") || fileName.endsWith(".heif") || file.type === "image/heic" || file.type === "image/heif") {
+        showStatus("Apple HEIC/HEIF format detected. Please select standard JPG/JPEG or set Camera to 'Most Compatible' in iPhone Settings.", "error");
+        if (typeof showToast === "function") {
+            showToast("iPhone Tip: Select photo as standard JPG/JPEG to upload.", "warning", 5000);
+        }
+        return false;
+    }
+
+    const allowedTypes = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
     const isAllowedExt = fileName.endsWith(".jpg") || fileName.endsWith(".jpeg") || fileName.endsWith(".png") || fileName.endsWith(".webp");
 
     if (!allowedTypes.includes(file.type) && !isAllowedExt) {

@@ -11,7 +11,7 @@
     </script>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>About Us | UTeM Confessions Pro Max - Student Digital Hub & Resources</title>
     <meta name="description" content="Discover the mission, editorial guidelines, and digital tools powering UTeM Confessions Pro Max — the premier independent student resource hub for Universiti Teknikal Malaysia Melaka.">
@@ -27,12 +27,12 @@
     <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
 
     <!-- Custom Style System -->
-        <!-- Google Fonts Preconnect & Stylesheet -->
+    <!-- Google Fonts Preconnect & Stylesheet -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.2">
+    <link rel="stylesheet" href="style.min.css?v=5.6">
     <style>
         .content-card {
             max-width: 860px;
@@ -76,9 +76,6 @@
             margin: 0;
         }
     </style>
-
-    <!-- Google AdSense -->
-    
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -158,7 +155,7 @@
             <article class="card content-card">
                 <h1 class="card-title" style="font-size: 20px; margin-bottom: 12px;" id="mainTitle">
                     <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    About UTeM Confessions Pro Max
+                    About Us
                 </h1>
                 
                 <p id="p_intro" style="margin-bottom: 18px; line-height: 1.65; color: var(--text-secondary); font-size: 14px;">
@@ -216,16 +213,12 @@
                 </p>
             </article>
 
-            <!-- Ad Banner Slot -->
-            
-
-            <!-- Universal Footer -->
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
+            <!-- Legal & Editorial Footer -->
+            <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+                <strong id="ed_transparency_title">Author / Editorial Transparency:</strong> <span id="ed_transparency_desc">Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.</span><br>
+                <strong id="ed_disclaimer_title">Editorial Disclaimer:</strong> <span id="ed_disclaimer_desc">UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).</span><br>
+                <strong id="ed_contact_title">Contact & Takedown Channel:</strong> <span id="ed_contact_desc">For inquiries, DMCA, or content takedown requests, please email</span> <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+            </div>
 
             <footer>
                 <div>
@@ -236,6 +229,7 @@
                     <a href="guides.html">Student Guides</a>
                     <a href="about.html">About Us</a>
                     <a href="rules.html">Confession Rules</a>
+                    <a href="telegram-terms.html">Telegram Policy</a>
                     <a href="privacy.html">Privacy Policy</a>
                     <a href="terms.html">Terms of Service</a>
                 </div>
@@ -273,7 +267,7 @@
                 navGuides: "Student Guides",
                 navRules: "Confession Rules",
                 backLink: "Back to Home",
-                mainTitle: "About UTeM Confessions Pro Max",
+                mainTitle: "About Us",
                 p_intro: "UTeM Confessions Pro Max (UCPM) is an independent, student-operated digital ecosystem built to serve the undergraduate, diploma, and postgraduate communities across all campuses of Universiti Teknikal Malaysia Melaka (UTeM). What began as a student community forum has evolved into a comprehensive digital utility suite designed to simplify campus life, accelerate academic achievement, and foster positive peer discussions.",
                 h2_mission: "1. Our Core Mission & Values",
                 p_mission: "Navigating university life can be challenging—from calculating complex credit hour weightages and figuring out shuttle bus timetables to preparing for Final Year Projects (FYP) and hunting for off-campus house rentals. Our mission is to bridge these information gaps by providing accurate, practical, and accessible tools created by students, for students.",
@@ -292,7 +286,20 @@
                 p_disclaimer: "UTeM Confessions Pro Max is an independent student initiative operated voluntarily by university alumni and current undergraduates. This platform is not officially affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM) administration. For official university matters, students are encouraged to consult official university portals including SMPWeb, UTeM Portal, and faculty administrative divisions.",
                 h2_contact: "5. Contact & Feedback",
                 p_contact: "We welcome suggestions, content corrections, and inquiries from students, lecturers, and partners. Connect with our team via our official Telegram channel at @utemconf or email us at utemconfessionpromax@duck.com.",
-                footerText: "Unofficial Student Resource & Confessions Platform."
+                footerText: "Unofficial Student Resource & Confessions Platform.",
+                footer_home: "Home",
+                footer_guides: "Student Guides",
+                footer_about: "About Us",
+                footer_rules: "Confession Rules",
+                footer_telegram: "Telegram Policy",
+                footer_privacy: "Privacy Policy",
+                footer_terms: "Terms of Service",
+                ed_transparency_title: "Author / Editorial Transparency:",
+                ed_transparency_desc: "Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.",
+                ed_disclaimer_title: "Editorial Disclaimer:",
+                ed_disclaimer_desc: "UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).",
+                ed_contact_title: "Contact & Takedown Channel:",
+                ed_contact_desc: "For inquiries, DMCA, or content takedown requests, please email"
             },
             ms: {
                 mobileSubtitle: "Tentang Kami",
@@ -319,7 +326,20 @@
                 p_disclaimer: "UTeM Confessions Pro Max ialah inisiatif bebas yang diuruskan secara sukarela oleh alumni dan mahasiswa aktif UTeM. Platform ini BUKAN laman web rasmi dan tidak bergabung secara langsung atau ditaja oleh pihak pentadbiran Universiti Teknikal Malaysia Melaka (UTeM). Untuk urusan rasmi universiti, pelajar dinasihatkan merujuk portal rasmi seperti SMPWeb dan pejabat pengurusan akademik fakulti.",
                 h2_contact: "5. Hubungi & Maklum Balas",
                 p_contact: "Kami mengalu-alukan cadangan, pembetulan maklumat, dan pertanyaan daripada mahasiswa mahupun warga kampus. Hubungi pasukan kami melalui saluran Telegram rasmi di @utemconf atau e-mel kepada utemconfessionpromax@duck.com.",
-                footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi."
+                footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi.",
+                footer_home: "Laman Utama",
+                footer_guides: "Panduan Pelajar",
+                footer_about: "Tentang Kami",
+                footer_rules: "Peraturan Pengakuan",
+                footer_telegram: "Polisi Telegram",
+                footer_privacy: "Dasar Privasi",
+                footer_terms: "Syarat Perkhidmatan",
+                ed_transparency_title: "Ketelusan Pengarang / Editorial:",
+                ed_transparency_desc: "Diselenggara oleh mahasiswa senior kejuruteraan & pengkomputeran UTeM. Semua panduan disahkan berpandukan Buku Peraturan Akademik rasmi UTeM.",
+                ed_disclaimer_title: "Penafian Editorial:",
+                ed_disclaimer_desc: "UTeM Confessions Pro Max ialah sumber pelajar bebas dan tidak bergabung dengan, disahkan oleh, atau ditaja oleh Universiti Teknikal Malaysia Melaka (UTeM).",
+                ed_contact_title: "Saluran Hubungan & Penurunan Kandungan:",
+                ed_contact_desc: "Untuk sebarang pertanyaan, DMCA, atau permohonan penurunan kandungan, sila e-mel"
             }
         };
 
@@ -334,6 +354,22 @@
                 if (el) el.textContent = t[id];
             });
 
+            const footerLinksMap = {
+                "index.html": t.footer_home || "Home",
+                "guides.html": t.footer_guides || "Student Guides",
+                "about.html": t.footer_about || "About Us",
+                "rules.html": t.footer_rules || "Confession Rules",
+                "telegram-terms.html": t.footer_telegram || "Telegram Policy",
+                "privacy.html": t.footer_privacy || "Privacy Policy",
+                "terms.html": t.footer_terms || "Terms of Service"
+            };
+            document.querySelectorAll(".footer-links a").forEach(link => {
+                const href = link.getAttribute("href");
+                if (href && footerLinksMap[href]) {
+                    link.textContent = footerLinksMap[href];
+                }
+            });
+
             const desktopToggle = document.getElementById("desktopLangToggle");
             const mobileToggle = document.getElementById("mobileLangToggle");
             if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
@@ -345,7 +381,8 @@
             localStorage.setItem("lang", currentLang);
             setLanguage(currentLang);
         }
-document.addEventListener("DOMContentLoaded", () => {
+
+        document.addEventListener("DOMContentLoaded", () => {
             setLanguage(currentLang);
             const desktopToggle = document.getElementById("desktopLangToggle");
             const mobileToggle = document.getElementById("mobileLangToggle");
@@ -356,4 +393,3 @@ document.addEventListener("DOMContentLoaded", () => {
     
 </body>
 </html>
-

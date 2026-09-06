@@ -393,6 +393,10 @@ function openActivityModal(item) {
         </a>`;
     }
 
+    const validMapUrl = (item.mapUrl && !item.mapUrl.includes("dummy"))
+        ? item.mapUrl
+        : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((item.name && item.name.en ? item.name.en : name) + " " + (item.area || "Melaka"))}`;
+
     body.innerHTML = `
         ${imgHTML}
         <div style="padding: 24px;">
@@ -419,14 +423,43 @@ function openActivityModal(item) {
             </div>
             
             <div style="display: flex; flex-direction: column; gap: 8px;">
-                <a href="${item.mapUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--gold-gradient); color: #000; padding: 12px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">
+                <a href="${validMapUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--gold-gradient); color: #000; padding: 12px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 14px;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
                     ${lang === 'ms' ? 'Buka di Google Maps' : 'Open in Google Maps'}
                 </a>
+                <button type="button" id="shareActivityBtn" class="btn btn-secondary" style="display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 13.5px; padding: 10px; border-radius: 8px; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); width: 100%; cursor: pointer;">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+                    ${lang === 'ms' ? 'Kongsi Tempat Ini' : 'Share This Spot'}
+                </button>
                 ${websiteRow}
             </div>
         </div>
     `;
+
+    const shareBtn = document.getElementById("shareActivityBtn");
+    if (shareBtn) {
+        shareBtn.addEventListener("click", () => {
+            const shareUrl = `${window.location.origin}${window.location.pathname}#${encodeURIComponent(item.id)}`;
+            const titleName = (item.name && item.name.en) ? item.name.en : name;
+            if (navigator.share) {
+                navigator.share({
+                    title: `${titleName} — Explore Melaka | UCPM`,
+                    text: `Check out ${titleName} in Melaka on UTeM Confessions Pro Max:`,
+                    url: shareUrl
+                }).catch(() => {});
+            } else if (navigator.clipboard) {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    if (typeof showToast === "function") {
+                        showToast("Link copied to clipboard! Share it with friends.", "success", 3500);
+                    }
+                }).catch(() => {});
+            }
+        });
+    }
+
+    try {
+        history.replaceState(null, '', '#' + encodeURIComponent(item.id));
+    } catch (e) {}
     
     overlay.style.display = "flex";
     modalContent.focus();
@@ -435,4 +468,7 @@ function openActivityModal(item) {
 function closeActivityModal() {
     const overlay = document.getElementById("activityModalOverlay");
     if(overlay) overlay.style.display = "none";
+    try {
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+    } catch (e) {}
 }

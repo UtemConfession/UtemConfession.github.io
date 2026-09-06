@@ -352,11 +352,26 @@ function updateM10ANextDeparture() {
     }
 }
 
+function setHomeTickerRoute(routeKey) {
+    let code = "ki";
+    if (routeKey === "kt") code = "kt";
+    else if (routeKey === "ep") code = "ep";
+    else if (routeKey === "m10a") code = "m10a";
+    else if (routeKey === "ftmk_regular") code = "ftmk_regular";
+    else if (routeKey === "satria_regular") code = "satria_regular";
+    else if (routeKey === "lestari_regular") code = "lestari_regular";
+    else code = (routeKey || "ki").toLowerCase();
+    try { localStorage.setItem("ucpm_active_bus_route", code); } catch (e) {}
+}
+
 document.querySelectorAll(".bus-route-pill").forEach(pill => {
+    const route = pill.getAttribute("data-route");
     pill.addEventListener("click", () => {
         document.querySelectorAll(".bus-route-pill").forEach(p => p.classList.remove("active"));
         pill.classList.add("active");
-        currentBusRoute = pill.getAttribute("data-route");
+        currentBusRoute = route;
+        try { localStorage.setItem("ucpm_fav_bus_route", currentBusRoute); } catch (e) {}
+        setHomeTickerRoute(route);
         updateBusScheduleDisplay();
     });
 });
@@ -366,9 +381,6 @@ function refreshAllBusSchedules() {
     updateBusScheduleDisplay();
     updateM10ANextDeparture();
 }
-
-refreshAllBusSchedules();
-setInterval(refreshAllBusSchedules, 60000);
 
 // --- SUB-TAB & SEMESTER TOGGLE EVENT LISTENERS ---
 const busTabInternal = document.getElementById("busTabInternal");
@@ -382,6 +394,11 @@ if (busTabInternal && busTabPublic && panelInternal && panelPublic) {
         busTabPublic.classList.remove("active", "active-pink");
         panelInternal.style.display = "block";
         panelPublic.style.display   = "none";
+        try { 
+            localStorage.setItem("ucpm_bus_active_tab", "internal"); 
+            sessionStorage.setItem("ucpm_bus_session_tab", "internal");
+        } catch (e) {}
+        setHomeTickerRoute(currentBusRoute);
     });
 
     busTabPublic.addEventListener("click", () => {
@@ -389,6 +406,11 @@ if (busTabInternal && busTabPublic && panelInternal && panelPublic) {
         busTabInternal.classList.remove("active");
         panelPublic.style.display   = "block";
         panelInternal.style.display = "none";
+        try { 
+            localStorage.setItem("ucpm_bus_active_tab", "public"); 
+            sessionStorage.setItem("ucpm_bus_session_tab", "public");
+        } catch (e) {}
+        setHomeTickerRoute("m10a");
     });
 }
 
@@ -403,8 +425,9 @@ if (semToggleSpecial && semToggleRegular && pillsSpecialSem && pillsRegularSem) 
         semToggleRegular.classList.remove("active");
         pillsSpecialSem.style.display = "flex";
         pillsRegularSem.style.display = "none";
+        try { localStorage.setItem("ucpm_bus_semester", "special"); } catch (e) {}
         
-        const firstPill = pillsSpecialSem.querySelector(".bus-route-pill");
+        const firstPill = pillsSpecialSem.querySelector(".bus-route-pill.active") || pillsSpecialSem.querySelector(".bus-route-pill");
         if (firstPill) firstPill.click();
     });
 
@@ -413,8 +436,56 @@ if (semToggleSpecial && semToggleRegular && pillsSpecialSem && pillsRegularSem) 
         semToggleSpecial.classList.remove("active");
         pillsRegularSem.style.display = "flex";
         pillsSpecialSem.style.display = "none";
+        try { localStorage.setItem("ucpm_bus_semester", "regular"); } catch (e) {}
         
-        const firstPill = pillsRegularSem.querySelector(".bus-route-pill");
+        const firstPill = pillsRegularSem.querySelector(".bus-route-pill.active") || pillsRegularSem.querySelector(".bus-route-pill");
         if (firstPill) firstPill.click();
     });
 }
+
+// Restore saved user preferences (on weekends Friday - Sunday, default is M10A)
+try {
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    const isWeekend = (dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6); // Sun, Fri, Sat
+
+    const sessionTab = sessionStorage.getItem("ucpm_bus_session_tab");
+    const savedTab = localStorage.getItem("ucpm_bus_active_tab");
+
+    const savedSem = localStorage.getItem("ucpm_bus_semester");
+    if (savedSem === "regular" && semToggleRegular) {
+        semToggleRegular.classList.add("active");
+        if (semToggleSpecial) semToggleSpecial.classList.remove("active");
+        if (pillsRegularSem) pillsRegularSem.style.display = "flex";
+        if (pillsSpecialSem) pillsSpecialSem.style.display = "none";
+    }
+
+    if (sessionTab === "internal") {
+        if (busTabInternal) busTabInternal.click();
+    } else if (isWeekend || sessionTab === "public" || savedTab === "public") {
+        if (busTabPublic) busTabPublic.click();
+    } else if (busTabInternal) {
+        busTabInternal.click();
+    }
+
+    const savedRoute = localStorage.getItem("ucpm_fav_bus_route");
+    if (savedRoute && busRoutesData[savedRoute]) {
+        const targetPill = document.querySelector(`.bus-route-pill[data-route="${savedRoute}"]`);
+        if (targetPill) {
+            const parent = targetPill.closest("#pillsSpecialSem, #pillsRegularSem");
+            if (parent && parent.id === "pillsRegularSem" && semToggleRegular) {
+                semToggleRegular.classList.add("active");
+                if (semToggleSpecial) semToggleSpecial.classList.remove("active");
+                if (pillsRegularSem) pillsRegularSem.style.display = "flex";
+                if (pillsSpecialSem) pillsSpecialSem.style.display = "none";
+            }
+            document.querySelectorAll(".bus-route-pill").forEach(p => p.classList.remove("active"));
+            targetPill.classList.add("active");
+            currentBusRoute = savedRoute;
+        }
+    }
+} catch (e) {}
+
+refreshAllBusSchedules();
+setInterval(refreshAllBusSchedules, 60000);
+

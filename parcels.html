@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google Analytics 4 (GA4) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XTRN95HLDP"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XTRN95HLDP');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="google-site-verification" content="dwqgpqLYOpqd92hDyGq43MGexJ2DRGy8NZBVFKBzSeA" />
+
+    <!-- SEO Optimization -->
+    <title>UTeM Parcel Hub | Hostel Delivery Address & Courier Radar</title>
+    <meta name="description"
+        content="Official UTeM student parcel delivery guide. 1-click shipping address generator for Kolej Kediaman Satria, Lestari & Emerald Park, Unit Mel pickup hours, courier drop radar, and package tracking.">
+    <meta name="keywords"
+        content="UTeM parcel, Unit Mel UTeM, parcel Kolej Satria, parcel Kolej Lestari, UTeM shipping address, Shopee delivery UTeM, J&T UTeM, Pos Laju UTeM">
+    <meta name="author" content="UTeM Confessions Pro Max">
+    <link rel="canonical" href="https://utemconfession.github.io/parcels.html">
+
+    <!-- Open Graph & Social Meta Tags -->
+    <meta property="og:title" content="UTeM Parcel Hub | Hostel Delivery Address & Courier Radar">
+    <meta property="og:description"
+        content="Never get your parcels delayed! Official address generator for Satria & Lestari hostels, Unit Mel operating hours, and multi-courier tracking.">
+    <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://utemconfession.github.io/parcels.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Custom Style System -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="style.min.css?v=5.7">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
+        crossorigin="anonymous"></script>
+
+    <!-- Monetag Vignette Banner with 15 Min Cooldown (Popunder removed as requested) -->
+    <script src="vignette.min.js" defer></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "UTeM Parcel Hub & Courier Delivery Radar",
+        "description": "Student delivery address generator, Unit Mel collection guidelines, courier drop-off locations, and package tracking for Universiti Teknikal Malaysia Melaka.",
+        "url": "https://utemconfession.github.io/parcels.html",
+        "applicationCategory": "UtilityApplication",
+        "operatingSystem": "All"
+      }
+    ]
+    </script>
+    <link rel="icon" type="image/png" href="UCPMLogo.png">
+    <link rel="manifest" href="manifest.json">
+    <script src="components.js"></script>
+</head>
+
+<body>
+
+    <ucpm-mobile-header></ucpm-mobile-header>
+
+    <div class="app-container">
+
+        <!-- Desktop Sidebar -->
+        <ucpm-sidebar></ucpm-sidebar>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+
+            <!-- Dynamic Unit Mel Parcel Hub Smart Pill -->
+            <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 6px;">
+                <div id="parcelHoursPill" class="top-smart-pill glow-parcel-closed" title="Click to view detailed Unit Mel parcel pickup hours & drop radar">
+                    <span id="parcelPillIcon" style="font-size: 16px;">&#x1F512;</span>
+                    <span id="parcelPillText">Closed Today &middot; Reopens Mon 8:00 AM</span>
+                    <span id="parcelPillBadge" style="background: rgba(148, 163, 184, 0.15); color: #94a3b8; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;">Weekend</span>
+                </div>
+            </div>
+
+            <!-- CARD 1: HERO & LIVE UNIT MEL STATUS -->
+            <div class="card" style="margin-bottom: 24px; padding: 26px 24px;">
+                <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="var(--accent-gold)">
+                        <path d="M20 7l-8-4-8 4 8 4 8-4zm-8 6l-8-4v8l8 4 8-4v-8l-8 4z"/>
+                    </svg>
+                    <h1 id="heroTitleParcel" style="font-size: 24px; font-weight: 800; color: var(--text-primary); margin: 0;">
+                        UTeM Hostel Parcel Hub &amp; Delivery Radar
+                    </h1>
+                </div>
+                <p id="heroDescParcel" style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin: 0 0 14px 0;">
+                    Official university guidance for Shopee, TikTok Shop, Lazada, and courier packages. Per official UTeM policy, all parcels are directed to Unit Mel, Pusat Persatuan Pelajar (Student Centre) for security and organized collection.
+                </p>
+
+                <!-- Processing / Service Fee Notice -->
+                <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(212, 175, 55, 0.12); border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 8px; padding: 8px 14px; font-size: 13px; color: var(--accent-gold); font-weight: 700;">
+                    <span>🪙</span>
+                    <span id="parcelFeeNotice">Collection Fee: RM1.00 per item for processing &amp; service fee at the student parcel counter.</span>
+                </div>
+            </div>
+
+            <!-- CARD 2: INTERACTIVE 1-CLICK SHIPPING ADDRESS GENERATOR -->
+            <div class="card" style="margin-bottom: 24px; padding: 26px 24px;">
+                <h2 id="titleAddressGen" style="font-size: 18px; font-weight: 700; color: var(--accent-gold); margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+                    📋 1-Tap Shipping Address Generator
+                </h2>
+                <p id="descAddressGen" style="font-size: 13px; color: var(--text-secondary); margin: 0 0 18px 0;">
+                    Select your residential hostel, enter your details, and instantly copy the verified courier-friendly address format.
+                </p>
+
+                <!-- Form Controls Grid -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 16px;">
+                    <div class="form-group" style="margin: 0;">
+                        <label for="hostelSelect" id="labelSelectHostel" class="form-label" style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: block;">
+                            1. Select Residential College / Campus:
+                        </label>
+                        <select id="hostelSelect" class="form-control" style="width: 100%; padding: 10px 14px; font-size: 13.5px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                            <option value="satria" id="optHostelSatria" selected>Kolej Kediaman Satria (Kampus Induk)</option>
+                            <option value="lestari" id="optHostelLestari">Kolej Kediaman Lestari (Kampus Induk)</option>
+                            <option value="emerald" id="optHostelEmerald">Emerald Park Residence (Off-Campus)</option>
+                            <option value="kt" id="optHostelKT">Kampus Teknologi (Ayer Keroh)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" style="margin: 0;">
+                        <label for="studentNameInput" id="labelFullName" class="form-label" style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: block;">
+                            2. Full Name:
+                        </label>
+                        <input type="text" id="studentNameInput" class="form-control" placeholder="e.g. Ahmad bin Razak" style="width: 100%; padding: 10px 14px; font-size: 13.5px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                    </div>
+
+                    <div class="form-group" style="margin: 0;">
+                        <label for="studentMatricInput" id="labelMatric" class="form-label" style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: block;">
+                            3. Matric No. (Optional but recommended):
+                        </label>
+                        <input type="text" id="studentMatricInput" class="form-control" placeholder="e.g. B032310123" style="width: 100%; padding: 10px 14px; font-size: 13.5px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                    </div>
+
+                    <div class="form-group" style="margin: 0;">
+                        <label for="studentPhoneInput" id="labelPhone" class="form-label" style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: block;">
+                            4. Mobile Phone No.:
+                        </label>
+                        <input type="tel" id="studentPhoneInput" class="form-control" placeholder="e.g. 012-3456789" style="width: 100%; padding: 10px 14px; font-size: 13.5px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                    </div>
+
+                    <div class="form-group" style="margin: 0; grid-column: 1 / -1;">
+                        <label for="studentRoomInput" id="labelRoom" class="form-label" style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; display: block;">
+                            5. Block &amp; Room / House No.:
+                        </label>
+                        <input type="text" id="studentRoomInput" class="form-control" placeholder="e.g. Blok Tuah, Bilik 204 (or Rumah A-3-2)" style="width: 100%; padding: 10px 14px; font-size: 13.5px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                    </div>
+                </div>
+
+                <!-- Live Generated Address Preview Box -->
+                <div style="background: rgba(13, 21, 39, 0.95); border: 1px solid var(--accent-gold); border-radius: 12px; padding: 18px 20px; margin-bottom: 16px; position: relative;">
+                    <span id="previewLabel" style="font-size: 11px; font-weight: 800; color: var(--accent-gold); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">
+                        Preview Address:
+                    </span>
+                    <pre id="addressPreviewText" style="white-space: pre-wrap; font-family: 'Outfit', sans-serif; font-size: 13.5px; line-height: 1.6; color: var(--text-primary); margin: 0;"></pre>
+                </div>
+
+                <!-- Action Button -->
+                <button type="button" id="copyAddressBtn" class="btn btn-primary" style="width: 100%; padding: 13px; font-weight: 800; font-size: 14px; display: flex; align-items: center; justify-content: center; gap: 8px; border-radius: 10px;">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                    <span id="btnCopyAddressText">Copy Address for Shopee / TikTok / Lazada</span>
+                </button>
+            </div>
+
+            <!-- CARD 3: UNIVERSAL COURIER TRACKING QUICK-LOOKUP -->
+            <div class="card" style="margin-bottom: 24px; padding: 26px 24px;">
+                <h2 id="titleTracking" style="font-size: 18px; font-weight: 700; color: var(--accent-gold); margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px;">
+                    🔎 Multi-Courier Tracking Shortcut
+                </h2>
+                <p id="descTracking" style="font-size: 13px; color: var(--text-secondary); margin: 0 0 16px 0;">
+                    Paste your tracking number below. We'll automatically route you to the official tracking portal.
+                </p>
+
+                <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+                    <select id="courierSelect" class="form-control" style="flex: 1; min-width: 160px; max-width: 200px; padding: 11px 14px; font-size: 13.5px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+                        <option value="auto" id="optCourierAuto" selected>⚡ Auto-Detect</option>
+                        <option value="spx">Shopee Express (SPX)</option>
+                        <option value="jnt">J&amp;T Express</option>
+                        <option value="poslaju">Pos Laju / Pejabat Pos</option>
+                        <option value="flash">Flash Express</option>
+                        <option value="ninjavan">NinjaVan</option>
+                        <option value="dhl">DHL eCommerce</option>
+                    </select>
+
+                    <input type="text" id="trackingNumberInput" class="form-control" placeholder="Paste tracking number (e.g. SPXMY04..., 6000...)" style="flex: 2; min-width: 240px; padding: 11px 16px; font-size: 13.5px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 8px; color: var(--text-primary);">
+
+                    <button type="button" id="trackPackageBtn" class="btn btn-primary" style="padding: 11px 22px; font-weight: 700; font-size: 13.5px; white-space: nowrap; border-radius: 8px;">
+                        <span id="btnTrackText">Track ➔</span>
+                    </button>
+                </div>
+                <div style="display: flex; gap: 8px; flex-wrap: wrap; font-size: 11.5px; color: var(--text-muted);">
+                    <span style="font-weight: 700; color: var(--accent-gold);" id="popularCouriersLabel">Popular Couriers:</span>
+                    <a href="https://spx.com.my" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: underline;">Shopee Express</a> &bull;
+                    <a href="https://www.jtexpress.my/tracking" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: underline;">J&amp;T Express</a> &bull;
+                    <a href="https://www.pos.com.my/tracking" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: underline;">Pos Laju</a> &bull;
+                    <a href="https://flashexpress.my/tracking/" target="_blank" rel="noopener noreferrer" style="color: var(--text-secondary); text-decoration: underline;">Flash Express</a>
+                </div>
+            </div>
+
+            <!-- CARD 4: UNIT MEL & COURIER DROP RADAR -->
+            <div class="card" style="margin-bottom: 24px; padding: 26px 24px;">
+                <h2 id="titlePickupHours" style="font-size: 18px; font-weight: 700; color: var(--accent-gold); margin: 0 0 16px 0; display: flex; align-items: center; gap: 8px;">
+                    📍 Unit Mel Pickup Hours &amp; Drop Radar
+                </h2>
+
+                <!-- Working Hours Breakdown -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 22px;">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                        <span id="labelHoursMonThu" style="font-size: 11px; font-weight: 700; color: var(--accent-gold); text-transform: uppercase;">Isnin &ndash; Khamis (Mon &ndash; Thu)</span>
+                        <div style="font-size: 16px; font-weight: 800; color: var(--text-primary); margin: 6px 0 4px 0;">8:00 AM &ndash; 5:00 PM</div>
+                        <span id="subHoursMonThu" style="font-size: 12px; color: var(--text-muted);">Lunch break: 1:00 PM &ndash; 2:00 PM</span>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                        <span id="labelHoursFri" style="font-size: 11px; font-weight: 700; color: #f59e0b; text-transform: uppercase;">Jumaat (Friday Hours)</span>
+                        <div style="font-size: 16px; font-weight: 800; color: var(--text-primary); margin: 6px 0 4px 0;">8:00 AM &ndash; 12:15 PM &bull; 2:45 PM &ndash; 5:00 PM</div>
+                        <span id="subHoursFri" style="font-size: 12px; color: #f59e0b;">⚠️ Closed 12:15 PM &ndash; 2:45 PM (Solat Jumaat)</span>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                        <span id="labelHoursSatSun" style="font-size: 11px; font-weight: 700; color: #ef4444; text-transform: uppercase;">Sabtu, Ahad &amp; Cuti Umum</span>
+                        <div id="statusClosedWeekend" style="font-size: 16px; font-weight: 800; color: #ef4444; margin: 6px 0 4px 0;">Tutup (Closed)</div>
+                        <span id="subHoursSatSun" style="font-size: 12px; color: var(--text-muted);">Weekend deliveries held until Monday</span>
+                    </div>
+                </div>
+
+                <!-- Courier Drop-off Table -->
+                <div class="table-responsive" style="margin: 0 0 16px 0;">
+                    <table class="structured-table" style="width: 100%; border-collapse: collapse; font-size: 13px;">
+                        <thead>
+                            <tr style="background: rgba(212, 175, 55, 0.15); color: var(--accent-gold);">
+                                <th id="thCourierCompany" style="padding: 12px 14px; text-align: left;">Courier Company</th>
+                                <th id="thDropDestination" style="padding: 12px 14px; text-align: left;">Drop-Off Destination</th>
+                                <th id="thNotificationMethod" style="padding: 12px 14px; text-align: left;">Collection Notification</th>
+                                <th id="thHoldingTime" style="padding: 12px 14px; text-align: left;">Max Holding Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 12px 14px; font-weight: 700; color: var(--text-primary);">Shopee Express (SPX)</td>
+                                <td id="tdDropSPX" style="padding: 12px 14px;">Unit Mel (Student Association Centre)</td>
+                                <td id="tdNotifSPX" style="padding: 12px 14px;">Shopee App push &amp; Unit Mel list</td>
+                                <td style="padding: 12px 14px; color: var(--accent-gold); font-weight: 600;">7 &ndash; 14 Days</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 14px; font-weight: 700; color: var(--text-primary);">J&amp;T Express</td>
+                                <td id="tdDropJNT" style="padding: 12px 14px;">Unit Mel &amp; Student Centre counters</td>
+                                <td id="tdNotifJNT" style="padding: 12px 14px;">SMS / WhatsApp from dispatcher</td>
+                                <td style="padding: 12px 14px; color: var(--accent-gold); font-weight: 600;">7 &ndash; 14 Days</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 14px; font-weight: 700; color: var(--text-primary);">Pos Laju &amp; Registered Letters</td>
+                                <td id="tdDropPos" style="padding: 12px 14px;">Pejabat Pos Kampus Induk / Unit Mel</td>
+                                <td id="tdNotifPos" style="padding: 12px 14px;">Official slip or Pos Malaysia SMS</td>
+                                <td style="padding: 12px 14px; color: var(--accent-gold); font-weight: 600;">14 Days</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 12px 14px; font-weight: 700; color: var(--text-primary);">Flash Express &amp; NinjaVan</td>
+                                <td id="tdDropFlash" style="padding: 12px 14px;">Unit Mel Student Centre</td>
+                                <td id="tdNotifFlash" style="padding: 12px 14px;">SMS notification / WhatsApp</td>
+                                <td style="padding: 12px 14px; color: var(--accent-gold); font-weight: 600;">7 &ndash; 10 Days</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div id="tipCollectionId" style="font-size: 12px; color: var(--text-muted); line-height: 1.5;">
+                    💡 <strong>Collection Tip:</strong> Always bring your <strong>Student Matric Card (Kad Pelajar)</strong> or IC when claiming parcels at Unit Mel. Taking a photo of your matric card on your phone is also accepted if you forget the physical card.
+                </div>
+            </div>
+
+            <!-- OFFICIAL CAMPUS REGULATION CALLOUT (Positioned after Card 4 as requested) -->
+            <div class="card" style="margin-bottom: 24px; padding: 18px 22px; background: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); border-radius: 0 12px 12px 0;">
+                <strong id="regCalloutTitle" style="color: var(--accent-gold); display: block; font-size: 14px; margin-bottom: 6px;">
+                    📌 Official Campus Regulation
+                </strong>
+                <span id="regCalloutDesc" style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;">
+                    Couriers and dispatch riders are <strong>not permitted</strong> to enter residential hostel gates (Satria/Lestari) or leave parcels at Pos A. All dispatches are redirected by Polis Bantuan directly to Unit Mel.
+                </span>
+            </div>
+
+            <!-- CARD 5: "PARCEL MARKED DELIVERED BUT NOT RECEIVED?" PROTOCOL -->
+            <div class="card" style="margin-bottom: 28px; padding: 26px 24px;">
+                <h2 id="titleDeliveredNotReceived" style="font-size: 18px; font-weight: 700; color: var(--accent-gold); margin: 0 0 12px 0; display: flex; align-items: center; gap: 8px;">
+                    🚨 "Delivered But Not Received?" Quick Action Checklist
+                </h2>
+                <p id="descDeliveredNotReceived" style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6; margin: 0 0 16px 0;">
+                    If your tracking app says "Delivered" but the item isn't in your hands yet, do not panic. Follow these four steps:
+                </p>
+
+                <div style="display: flex; flex-direction: column; gap: 12px;">
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px;">
+                        <span style="font-weight: 800; color: var(--accent-gold); font-size: 16px; line-height: 1;">1</span>
+                        <div id="step1Content" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                            <strong style="color: var(--text-primary);">Allow 2&ndash;4 Hours for Unit Mel Sorting:</strong> Couriers often bulk-scan all campus packages as "Delivered" when they unload boxes at the Student Centre. Unit Mel staff need time to sort and log them.
+                        </div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px;">
+                        <span style="font-weight: 800; color: var(--accent-gold); font-size: 16px; line-height: 1;">2</span>
+                        <div id="step2Content" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                            <strong style="color: var(--text-primary);">Check the Proof of Delivery (POD) Photo:</strong> Open the courier tracking page or Shopee/Lazada app. Look at the POD signature photo to see which counter or rack your box was placed on.
+                        </div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px;">
+                        <span style="font-weight: 800; color: var(--accent-gold); font-size: 16px; line-height: 1;">3</span>
+                        <div id="step3Content" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                            <strong style="color: var(--text-primary);">Call the Dispatch Driver Directly:</strong> In the tracking status, tap the driver icon to call the assigned delivery courier directly while they are still in the Hang Tuah Jaya / Durian Tunggal area.
+                        </div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px;">
+                        <span style="font-weight: 800; color: var(--accent-gold); font-size: 16px; line-height: 1;">4</span>
+                        <div id="step4Content" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;">
+                            <strong style="color: var(--text-primary);">Visit Unit Mel with Tracking ID:</strong> If still missing after 24 hours, visit the Unit Mel counter at the Student Centre with your tracking number and IC to check the master incoming delivery manifest.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ad Slot -->
+            <div class="ad-slot" style="max-width: 728px; width: 100%; margin: 24px auto;" id="adHeader">
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-1444529930367815"
+                     data-ad-slot="9427949528"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+            </div>
+
+            <!-- Standard Editorial Transparency & Disclaimer Footer -->
+            <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+                <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering &amp; computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
+                <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
+                <strong>Contact &amp; Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+            </div>
+
+            <footer>
+                <div>
+                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource &amp; Confessions Platform.
+                </div>
+                <div class="footer-links">
+                    <a href="index.html">Home</a>
+                    <a href="guides.html">Student Guides</a>
+                    <a href="about.html">About Us</a>
+                    <a href="rules.html">Confession Rules</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                </div>
+            </footer>
+
+        </main>
+    </div>
+
+    <!-- Mobile Navigation Elements -->
+    <ucpm-mobile-nav></ucpm-mobile-nav>
+    <ucpm-mobile-drawer></ucpm-mobile-drawer>
+
+    <!-- Core Utilities -->
+    <script src="utils.min.js" defer></script>
+    <script src="translation.min.js" defer></script>
+    <script src="script.min.js" defer></script>
+    <script src="ads.min.js" defer></script>
+
+    <!-- Interactive Parcel Hub Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hostelSelect = document.getElementById('hostelSelect');
+            const nameInput = document.getElementById('studentNameInput');
+            const matricInput = document.getElementById('studentMatricInput');
+            const phoneInput = document.getElementById('studentPhoneInput');
+            const roomInput = document.getElementById('studentRoomInput');
+            const preview = document.getElementById('addressPreviewText');
+            const copyBtn = document.getElementById('copyAddressBtn');
+
+            const trackingInput = document.getElementById('trackingNumberInput');
+            const courierSelect = document.getElementById('courierSelect');
+            const trackBtn = document.getElementById('trackPackageBtn');
+
+            // 1. Address Generator Logic
+            function updateAddressPreview() {
+                const hostel = hostelSelect.value;
+                const name = nameInput.value.trim() || (window.currentLang === 'ms' ? '[Nama Anda]' : '[Your Name]');
+                const matric = matricInput.value.trim() ? ` (Matrik: ${matricInput.value.trim()})` : '';
+                const phone = phoneInput.value.trim() ? `Tel: ${phoneInput.value.trim()}` : (window.currentLang === 'ms' ? 'Tel: [No. Telefon]' : 'Tel: [Your Phone]');
+                const room = roomInput.value.trim() || (window.currentLang === 'ms' ? '[No. Blok & Bilik]' : '[Block & Room No.]');
+
+                let formatted = '';
+
+                if (hostel === 'satria') {
+                    formatted = `${name}${matric}\n${room}, Kolej Kediaman Satria\nc/o Unit Mel, Pusat Persatuan Pelajar\nUniversiti Teknikal Malaysia Melaka (UTeM)\nHang Tuah Jaya, 76100 Durian Tunggal, Melaka\n${phone}`;
+                } else if (hostel === 'lestari') {
+                    formatted = `${name}${matric}\n${room}, Kolej Kediaman Lestari\nc/o Unit Mel, Pusat Persatuan Pelajar\nUniversiti Teknikal Malaysia Melaka (UTeM)\nHang Tuah Jaya, 76100 Durian Tunggal, Melaka\n${phone}`;
+                } else if (hostel === 'emerald') {
+                    formatted = `${name}${matric}\n${room}, Pangsapuri Emerald Park\nJalan Durian Tunggal / Ayer Keroh\n76100 Durian Tunggal, Melaka\n${phone}`;
+                } else if (hostel === 'kt') {
+                    formatted = `${name}${matric}\n${room}, Kampus Teknologi UTeM\nUniversiti Teknikal Malaysia Melaka\nHang Tuah Jaya, 76100 Durian Tunggal, Melaka\n${phone}`;
+                }
+
+                preview.textContent = formatted;
+            }
+
+            [hostelSelect, nameInput, matricInput, phoneInput, roomInput].forEach(el => {
+                if (el) el.addEventListener('input', updateAddressPreview);
+            });
+            updateAddressPreview();
+
+            // 2. Copy Address Action
+            if (copyBtn) {
+                copyBtn.addEventListener('click', () => {
+                    const text = preview.textContent;
+                    const successMsg = window.currentLang === 'ms' 
+                        ? 'Alamat penghantaran disalin ke papan klip! Sedia ditampal di Shopee/TikTok.' 
+                        : 'Shipping address copied to clipboard! Ready to paste into Shopee/TikTok.';
+                    if (navigator.clipboard) {
+                        navigator.clipboard.writeText(text).then(() => {
+                            if (typeof showToast === 'function') {
+                                showToast(successMsg, 'success', 3500);
+                            } else {
+                                alert(successMsg);
+                            }
+                        }).catch(() => {
+                            copyFallback(text, successMsg);
+                        });
+                    } else {
+                        copyFallback(text, successMsg);
+                    }
+                });
+            }
+
+            function copyFallback(text, msg) {
+                const ta = document.createElement('textarea');
+                ta.value = text;
+                document.body.appendChild(ta);
+                ta.select();
+                document.execCommand('copy');
+                document.body.removeChild(ta);
+                if (typeof showToast === 'function') {
+                    showToast(msg, 'success', 3500);
+                } else {
+                    alert(msg);
+                }
+            }
+
+            // 3. Multi-Courier Tracking Handler
+            if (trackBtn && trackingInput) {
+                trackBtn.addEventListener('click', () => {
+                    const trNum = trackingInput.value.trim();
+                    if (!trNum) {
+                        const warnMsg = window.currentLang === 'ms' ? 'Sila tampal nombor penjejakan terlebih dahulu.' : 'Please paste a valid tracking number first.';
+                        if (typeof showToast === 'function') {
+                            showToast(warnMsg, 'warning', 3000);
+                        } else {
+                            alert(warnMsg);
+                        }
+                        return;
+                    }
+
+                    let carrier = courierSelect.value;
+                    const upper = trNum.toUpperCase();
+
+                    if (carrier === 'auto') {
+                        if (upper.startsWith('SPXMY') || upper.startsWith('MY')) {
+                            carrier = 'spx';
+                        } else if (upper.startsWith('600') || upper.startsWith('JNT') || /^\d{12}$/.test(upper)) {
+                            carrier = 'jnt';
+                        } else if (upper.startsWith('ER') || upper.startsWith('CP') || upper.startsWith('EN')) {
+                            carrier = 'poslaju';
+                        } else if (upper.startsWith('TH') || upper.startsWith('FL')) {
+                            carrier = 'flash';
+                        } else {
+                            carrier = 'spx'; // Default fallback
+                        }
+                    }
+
+                    let trackUrl = '';
+                    if (carrier === 'spx') {
+                        trackUrl = `https://spx.com.my/track?tracking_number=${encodeURIComponent(trNum)}`;
+                    } else if (carrier === 'jnt') {
+                        trackUrl = `https://www.jtexpress.my/tracking?bills=${encodeURIComponent(trNum)}`;
+                    } else if (carrier === 'poslaju') {
+                        trackUrl = `https://www.pos.com.my/tracking?trackingNo=${encodeURIComponent(trNum)}`;
+                    } else if (carrier === 'flash') {
+                        trackUrl = `https://flashexpress.my/tracking/?se=${encodeURIComponent(trNum)}`;
+                    } else if (carrier === 'ninjavan') {
+                        trackUrl = `https://www.ninjavan.co/en-my/tracking?id=${encodeURIComponent(trNum)}`;
+                    } else if (carrier === 'dhl') {
+                        trackUrl = `https://ecommerceportal.dhl.com/track/?jobCodes=${encodeURIComponent(trNum)}`;
+                    }
+
+                    if (trackUrl) {
+                        window.open(trackUrl, '_blank', 'noopener,noreferrer');
+                    }
+                });
+            }
+
+            // 4. Live Unit Mel Status Smart Pill (Bilingual - Matches Library & PKU format & scheme)
+            const parcelHolidays = {
+                "2026-08-31": { en: "National Day", ms: "Hari Kebangsaan" },
+                "2026-09-16": { en: "Malaysia Day", ms: "Hari Malaysia" },
+                "2026-09-24": { en: "Maulidur Rasul", ms: "Maulidur Rasul" },
+                "2026-11-08": { en: "Deepavali", ms: "Hari Deepavali" },
+                "2026-12-25": { en: "Christmas Day", ms: "Hari Krismas" },
+                "2027-01-01": { en: "New Year's Day", ms: "Tahun Baru 2027" },
+                "2027-02-06": { en: "Chinese New Year", ms: "Tahun Baru Cina" },
+                "2027-02-07": { en: "Chinese New Year", ms: "Tahun Baru Cina" },
+                "2027-03-09": { en: "Hari Raya Aidilfitri", ms: "Hari Raya Aidilfitri" },
+                "2027-03-10": { en: "Hari Raya Aidilfitri", ms: "Hari Raya Aidilfitri" },
+                "2027-05-01": { en: "Labour Day", ms: "Hari Pekerja" },
+                "2027-05-20": { en: "Wesak Day", ms: "Hari Wesak" }
+            };
+
+            function updateUnitMelStatus() {
+                const pill = document.getElementById('parcelHoursPill');
+                const pillIcon = document.getElementById('parcelPillIcon');
+                const pillText = document.getElementById('parcelPillText');
+                const pillBadge = document.getElementById('parcelPillBadge');
+                if (!pill || !pillText) return;
+
+                const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || window.currentLang === 'ms' || document.documentElement.lang === 'ms';
+                const now = new Date();
+
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const dayOfMonth = String(now.getDate()).padStart(2, '0');
+                const dateKey = `${year}-${month}-${dayOfMonth}`;
+
+                const day = now.getDay(); // 0 = Sun, 5 = Fri, 6 = Sat
+                const timeMinutes = now.getHours() * 60 + now.getMinutes();
+
+                function applyPill(glowClass, iconChar, textStr, badgeText, badgeBg, badgeColor) {
+                    pill.classList.remove('glow-parcel-open', 'glow-parcel-closed');
+                    pill.classList.add(glowClass);
+                    if (pillIcon) pillIcon.textContent = iconChar;
+                    pillText.textContent = textStr;
+                    if (pillBadge) {
+                        pillBadge.textContent = badgeText;
+                        pillBadge.style.background = badgeBg;
+                        pillBadge.style.color = badgeColor;
+                    }
+                }
+
+                // Case 1: Public Holidays
+                const holiday = parcelHolidays[dateKey];
+                if (holiday) {
+                    const hName = isMs ? holiday.ms : holiday.en;
+                    applyPill(
+                        'glow-parcel-closed',
+                        '\u{1F512}',
+                        isMs ? `Ditutup Hari Ini \u00B7 ${hName}` : `Closed Today \u00B7 ${hName}`,
+                        isMs ? 'Cuti Am' : 'Holiday',
+                        'rgba(239, 68, 68, 0.15)',
+                        '#ef4444'
+                    );
+                    return;
+                }
+
+                // Case 2: Weekends (Saturday & Sunday)
+                if (day === 0 || day === 6) {
+                    applyPill(
+                        'glow-parcel-closed',
+                        '\u{1F512}',
+                        isMs ? 'Ditutup Hari Ini \u00B7 Dibuka Isnin 8:00 PG' : 'Closed Today \u00B7 Reopens Mon 8:00 AM',
+                        isMs ? 'Hujung Minggu' : 'Weekend',
+                        'rgba(148, 163, 184, 0.15)',
+                        '#94a3b8'
+                    );
+                    return;
+                }
+
+                // Case 3: Before 8:00 AM
+                if (timeMinutes < 480) {
+                    applyPill(
+                        'glow-parcel-closed',
+                        '\u23F3',
+                        isMs ? 'Ditutup \u00B7 Dibuka Hari Ini 8:00 PG' : 'Closed \u00B7 Opens Today at 8:00 AM',
+                        isMs ? 'Ditutup' : 'Closed',
+                        'rgba(148, 163, 184, 0.15)',
+                        '#94a3b8'
+                    );
+                    return;
+                }
+
+                // Case 4: Friday Prayer Break (12:15 PM - 2:45 PM)
+                if (day === 5 && timeMinutes >= 735 && timeMinutes < 885) {
+                    applyPill(
+                        'glow-parcel-closed',
+                        '\u23F3',
+                        isMs ? 'Rehat Solat Jumaat \u00B7 Dibuka 2:45 PTG' : 'Friday Prayer Break \u00B7 Reopens 2:45 PM',
+                        isMs ? 'Solat Jumaat' : 'Prayer Break',
+                        'rgba(234, 179, 8, 0.15)',
+                        '#eab308'
+                    );
+                    return;
+                }
+
+                // Case 5: Mon - Thu Lunch Break (1:00 PM - 2:00 PM)
+                if (day >= 1 && day <= 4 && timeMinutes >= 780 && timeMinutes < 840) {
+                    applyPill(
+                        'glow-parcel-closed',
+                        '\u23F3',
+                        isMs ? 'Rehat Harian \u00B7 Dibuka 2:00 PTG' : 'Daily Rest Break \u00B7 Reopens 2:00 PM',
+                        isMs ? 'Waktu Rehat' : 'Rest Break',
+                        'rgba(234, 179, 8, 0.15)',
+                        '#eab308'
+                    );
+                    return;
+                }
+
+                // Case 6: Open Operating Hours (8:00 AM - 5:00 PM)
+                if (timeMinutes < 1020) {
+                    if (day === 5 && timeMinutes < 735) {
+                        applyPill(
+                            'glow-parcel-open',
+                            '\u{1F4E6}',
+                            isMs ? 'Dibuka Hari Ini \u00B7 8:00 PG \u2013 12:15 PTG' : 'Open Today \u00B7 8:00 AM \u2013 12:15 PM',
+                            isMs ? 'Dibuka' : 'Open',
+                            'rgba(16, 185, 129, 0.15)',
+                            '#10b981'
+                        );
+                    } else if (day === 5 && timeMinutes >= 885) {
+                        applyPill(
+                            'glow-parcel-open',
+                            '\u{1F4E6}',
+                            isMs ? 'Dibuka Hari Ini \u00B7 2:45 PTG \u2013 5:00 PTG' : 'Open Today \u00B7 2:45 PM \u2013 5:00 PM',
+                            isMs ? 'Dibuka' : 'Open',
+                            'rgba(16, 185, 129, 0.15)',
+                            '#10b981'
+                        );
+                    } else {
+                        applyPill(
+                            'glow-parcel-open',
+                            '\u{1F4E6}',
+                            isMs ? 'Dibuka Hari Ini \u00B7 8:00 PG \u2013 5:00 PTG' : 'Open Today \u00B7 8:00 AM \u2013 5:00 PM',
+                            isMs ? 'Dibuka' : 'Open',
+                            'rgba(16, 185, 129, 0.15)',
+                            '#10b981'
+                        );
+                    }
+                    return;
+                }
+
+                // Case 7: Evening After Closing (5:00 PM onwards)
+                if (day === 5) {
+                    applyPill(
+                        'glow-parcel-closed',
+                        '\u{1F512}',
+                        isMs ? 'Ditutup \u00B7 Dibuka Isnin 8:00 PG' : 'Closed \u00B7 Reopens Mon 8:00 AM',
+                        isMs ? 'Ditutup' : 'Closed',
+                        'rgba(148, 163, 184, 0.15)',
+                        '#94a3b8'
+                    );
+                } else {
+                    applyPill(
+                        'glow-parcel-closed',
+                        '\u{1F512}',
+                        isMs ? 'Ditutup Malam Ini \u00B7 Dibuka 8:00 PG' : 'Closed Tonight \u00B7 Reopens 8:00 AM',
+                        isMs ? 'Ditutup' : 'Closed',
+                        'rgba(148, 163, 184, 0.15)',
+                        '#94a3b8'
+                    );
+                }
+            }
+
+            // Click-to-scroll down to Unit Mel Pickup Hours card
+            const parcelPill = document.getElementById('parcelHoursPill');
+            if (parcelPill && !parcelPill.dataset.listenerAttached) {
+                parcelPill.dataset.listenerAttached = 'true';
+                parcelPill.addEventListener('click', () => {
+                    const target = document.getElementById('titlePickupHours');
+                    if (target) {
+                        const card = target.closest('.card');
+                        if (card) {
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            card.style.boxShadow = '0 0 0 3px rgba(212, 175, 55, 0.45)';
+                            card.style.transition = 'box-shadow 0.3s ease';
+                            setTimeout(() => { card.style.boxShadow = ''; }, 1500);
+                        }
+                    }
+                });
+            }
+
+            window.updateUnitMelStatus = updateUnitMelStatus;
+            updateUnitMelStatus();
+            setInterval(updateUnitMelStatus, 60000);
+
+            window.addEventListener('languageChanged', () => {
+                updateUnitMelStatus();
+                updateAddressPreview();
+            });
+        });
+    </script>
+</body>
+
+</html>

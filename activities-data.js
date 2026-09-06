@@ -77,7 +77,7 @@ const activitiesData = [
         bestTime: { en: "Morning or Night Safari", ms: "Pagi atau Safari Malam" },
         duration: { en: "3-4 hours", ms: "3-4 jam" },
         bookingRequired: false,
-        image: "./assets/images/activities/zoo mel night safari.jpeg",
+        image: "./assets/images/activities/zoo mel night safari.webp",
         mapUrl: "https://maps.app.goo.gl/z2Pq4UeM1g8pA8P86",
         websiteUrl: "https://www.zoomelaka.gov.my/"
     },

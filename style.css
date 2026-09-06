@@ -260,7 +260,7 @@ ucpm-sidebar, ucpm-mobile-header, ucpm-mobile-nav, ucpm-mobile-drawer {
 @keyframes pageEnter {
     from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(4px);
     }
     to {
         opacity: 1;
@@ -280,7 +280,8 @@ ucpm-sidebar, ucpm-mobile-header, ucpm-mobile-nav, ucpm-mobile-drawer {
     gap: 8px;
     transition: var(--transition);
     position: relative;
-    animation: pageEnter 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: pageEnter 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+    will-change: transform, opacity;
 }
 
 /* Desktop Top Ad Banner */
@@ -391,7 +392,7 @@ ucpm-sidebar, ucpm-mobile-header, ucpm-mobile-nav, ucpm-mobile-drawer {
     bottom: 0;
     left: 0;
     right: 0;
-    height: 52px;
+    height: calc(52px + env(safe-area-inset-bottom));
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border-color);
     z-index: 1000;
@@ -449,6 +450,13 @@ ucpm-sidebar, ucpm-mobile-header, ucpm-mobile-nav, ucpm-mobile-drawer {
     height: 100%;
     gap: 4px;
     transition: var(--transition);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.mobile-nav-btn:active {
+    transform: scale(0.92);
+    transition: transform 0.08s ease;
 }
 
 .mobile-nav-fixed-left .mobile-nav-btn {
@@ -458,6 +466,10 @@ ucpm-sidebar, ucpm-mobile-header, ucpm-mobile-nav, ucpm-mobile-drawer {
     width: 20px;
     height: 20px;
     fill: currentColor;
+    transition: transform 0.1s ease;
+}
+.mobile-nav-btn:active svg {
+    transform: scale(0.9);
 }
 .mobile-nav-btn.active {
     color: var(--accent-gold);
@@ -469,7 +481,6 @@ ucpm-sidebar, ucpm-mobile-header, ucpm-mobile-nav, ucpm-mobile-drawer {
 /* Dashboard Tab Panel Content */
 .tab-content {
     display: none;
-    animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     flex-direction: column;
     gap: 8px;
 }
@@ -742,6 +753,31 @@ textarea.form-control {
     .confession-layout {
         grid-template-columns: 1fr;
     }
+}
+.confession-sidebar-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+@media (max-width: 900px) {
+    .confession-sidebar-col {
+        gap: 12px;
+    }
+}
+@media (max-width: 600px) {
+    .confession-sidebar-col {
+        gap: 8px;
+    }
+}
+.telegram-link-btn {
+    transition: var(--transition);
+}
+.telegram-link-btn:hover {
+    background: rgba(42, 171, 238, 0.22) !important;
+    border-color: rgba(42, 171, 238, 0.6) !important;
+    color: #ffffff !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(42, 171, 238, 0.25);
 }
 .char-count {
     font-size: 12px;
@@ -1057,6 +1093,24 @@ textarea.form-control {
     grid-template-columns: 1.5fr 1fr;
     gap: 24px;
 }
+.bus-table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.bus-schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.bus-schedule-table th, .bus-schedule-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+.bus-schedule-table th {
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
 .bus-next-alert {
     background-color: var(--bg-secondary);
     border: 1px solid var(--border-color);
@@ -1072,6 +1126,8 @@ textarea.form-control {
         margin-bottom: 7px !important;
         padding-bottom: 6px !important;
         gap: 6px !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
     }
     .bus-sub-tab-btn {
         padding: 5px 12px !important;
@@ -1099,6 +1155,7 @@ textarea.form-control {
     .bus-routes-selector {
         gap: 6px !important;
         margin-bottom: 7px !important;
+        justify-content: center !important;
     }
     .bus-route-pill {
         padding: 5px 11px !important;
@@ -1212,7 +1269,7 @@ footer {
     .top-header-bar .theme-switch-wrapper {
         display: none !important;
     }
-    #campusWeatherPill {
+    #campusWeatherPill, #calendarMilestonePill, #examSeasonPill, #libraryHoursPill, #pkuHoursPill, #parcelHoursPill, .top-smart-pill {
         width: 100% !important;
         justify-content: center !important;
         box-sizing: border-box !important;
@@ -1231,7 +1288,8 @@ footer {
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
-        height: 50px !important;
+        height: calc(52px + env(safe-area-inset-bottom)) !important;
+        box-sizing: border-box !important;
         background-color: rgba(13, 21, 39, 0.95) !important;
         border-top: 1px solid var(--border-color) !important;
         border-right: none !important;
@@ -1261,11 +1319,21 @@ footer {
         font-weight: 600 !important;
         cursor: pointer !important;
         transition: var(--transition) !important;
+        user-select: none !important;
+        -webkit-tap-highlight-color: transparent !important;
+    }
+    .mobile-nav-btn:active {
+        transform: scale(0.92) !important;
+        transition: transform 0.08s ease !important;
     }
     .mobile-nav-btn svg {
         width: 20px !important;
         height: 20px !important;
         fill: currentColor !important;
+        transition: transform 0.1s ease !important;
+    }
+    .mobile-nav-btn:active svg {
+        transform: scale(0.9) !important;
     }
     .mobile-nav-btn.active {
         color: var(--accent-gold) !important;
@@ -1279,7 +1347,7 @@ footer {
         margin-left: 0 !important;
         margin-top: 0 !important;
         width: 100% !important;
-        padding: 8px 10px 76px 10px !important;
+        padding: 8px 10px calc(76px + env(safe-area-inset-bottom)) 10px !important;
         box-sizing: border-box !important;
         gap: 2px !important;
     }
@@ -1305,7 +1373,7 @@ footer {
         min-height: 0 !important;
     }
 
-    #campusWeatherPill {
+    #campusWeatherPill, #calendarMilestonePill, #examSeasonPill, #libraryHoursPill, #pkuHoursPill, #parcelHoursPill, .top-smart-pill {
         width: 100% !important;
         justify-content: center !important;
         box-sizing: border-box !important;
@@ -1627,6 +1695,10 @@ footer {
     background: rgba(212, 175, 55, 0.12);
     color: var(--accent-gold);
 }
+.drawer-item-btn:active {
+    transform: scale(0.96);
+    transition: transform 0.08s ease;
+}
 
 @keyframes slideUp {
     from { transform: translateY(100%); }
@@ -1636,7 +1708,7 @@ footer {
 @media (max-width: 600px) {
     /* 0. Mobile Compact Main Layout & Top Spacing */
     .main-content {
-        padding: 6px 10px 76px 10px !important;
+        padding: 6px 10px calc(76px + env(safe-area-inset-bottom)) 10px !important;
         gap: 0px !important;
     }
     .top-header-bar {
@@ -1646,7 +1718,8 @@ footer {
         gap: 0px !important;
     }
     .telegram-widget-card {
-        margin-bottom: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 6px !important;
         padding: 6px 8px !important;
         border-radius: 10px !important;
         gap: 6px !important;
@@ -1747,6 +1820,39 @@ footer {
         -webkit-overflow-scrolling: touch;
         scrollbar-width: thin;
     }
+    .bus-table-container {
+        width: 100% !important;
+        margin-bottom: 8px !important;
+    }
+    .bus-schedule-table {
+        display: table !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+        min-width: 100% !important;
+    }
+    .bus-schedule-table thead {
+        display: table-header-group !important;
+    }
+    .bus-schedule-table tbody {
+        display: table-row-group !important;
+    }
+    .bus-schedule-table tr {
+        display: table-row !important;
+    }
+    .bus-schedule-table th, .bus-schedule-table td {
+        display: table-cell !important;
+        padding: 8px 6px !important;
+        font-size: 12px !important;
+        vertical-align: middle !important;
+        box-sizing: border-box !important;
+    }
+    .bus-schedule-table th {
+        font-size: 11.5px !important;
+        font-weight: 700 !important;
+        color: var(--accent-gold) !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        white-space: nowrap !important;
+    }
 
     /* 5. GPA Results Bar Compact */
     .gpa-results-bar {
@@ -1801,7 +1907,8 @@ footer {
 
     /* 6. Confession form extra compact */
     .confession-layout {
-        gap: 0px !important;
+        margin-top: 0 !important;
+        gap: 6px !important;
     }
 
     .google-auth-box {
@@ -2398,7 +2505,7 @@ footer {
     border: 1px solid rgba(42, 171, 238, 0.3) !important;
     border-radius: 16px !important;
     padding: 16px 20px !important;
-    margin-bottom: 20px !important;
+    margin-bottom: 20px;
     backdrop-filter: blur(12px) !important;
     transition: var(--transition) !important;
     gap: 16px !important;
@@ -2492,6 +2599,8 @@ footer {
         align-items: center !important;
         justify-content: space-between !important;
         padding: 12px 14px !important;
+        margin-top: 0 !important;
+        margin-bottom: 6px !important;
     }
     .telegram-widget-left {
         gap: 10px !important;
@@ -3428,3 +3537,369 @@ iframe[style*="position:fixed"] {
     }
 }
 
+/* PWA Install Banner */
+.pwa-install-banner {
+    position: fixed;
+    bottom: 60px;
+    left: 12px;
+    right: 12px;
+    background: rgba(13, 21, 39, 0.96);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: 14px;
+    padding: 12px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    z-index: 99999;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+    animation: toastSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 1024px) {
+    .pwa-install-banner {
+        bottom: 24px;
+        left: 300px;
+        right: auto;
+        max-width: 440px;
+    }
+}
+
+.pwa-install-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.pwa-install-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1.5px solid var(--accent-gold);
+}
+
+.pwa-install-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.pwa-install-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pwa-install-subtitle {
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pwa-install-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.pwa-dismiss-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-muted);
+    font-size: 20px;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.pwa-dismiss-btn:hover {
+    color: var(--text-primary);
+}
+
+/* --- Native Offline Mode Status Bar --- */
+.offline-status-bar {
+    position: fixed;
+    top: 14px;
+    left: 50%;
+    transform: translate(-50%, -40px);
+    background: rgba(13, 21, 39, 0.94);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border-color);
+    border-radius: 30px;
+    padding: 7px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 12px;
+    color: var(--text-primary);
+    z-index: 99998;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, border-color 0.3s ease;
+    max-width: 90vw;
+    white-space: nowrap;
+}
+
+.offline-status-bar.visible {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+}
+
+.offline-status-bar.offline {
+    border-color: rgba(245, 158, 11, 0.6);
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.offline-status-bar.online {
+    border-color: rgba(34, 197, 94, 0.6);
+    box-shadow: 0 8px 24px rgba(34, 197, 94, 0.15), 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.offline-status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.offline-status-bar.offline .offline-status-dot {
+    background-color: #f59e0b;
+    box-shadow: 0 0 8px #f59e0b;
+    animation: offlinePulse 1.8s infinite ease-in-out;
+}
+
+.offline-status-bar.online .offline-status-dot {
+    background-color: #22c55e;
+    box-shadow: 0 0 8px #22c55e;
+}
+
+@keyframes offlinePulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.4); opacity: 0.5; }
+}
+
+@media (max-width: 768px) {
+    .offline-status-bar {
+        top: 56px;
+        font-size: 11.5px;
+        padding: 6px 14px;
+    }
+}
+
+
+
+
+
+/* ===================================================
+   SMART PILL OUTLINE GLOW & HUD SPECULAR DESIGN (A + C + D)
+   =================================================== */
+.top-smart-pill {
+    background: rgba(13, 21, 39, 0.82) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    border: 1px solid var(--pill-border-color, rgba(212, 175, 55, 0.35)) !important;
+    border-radius: 30px !important;
+    padding: 6px 18px !important;
+    font-size: 13.5px !important;
+    font-weight: 600 !important;
+    color: var(--text-primary) !important;
+    width: fit-content !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    animation: pillBreathingGlow 3.8s ease-in-out infinite !important;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.25s ease, filter 0.25s ease !important;
+    position: relative;
+    user-select: none;
+}
+
+.top-smart-pill:hover {
+    transform: translateY(-1.5px) scale(1.01);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.35),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.45),
+        0 8px 25px rgba(0, 0, 0, 0.55),
+        0 0 24px var(--pill-glow-active, rgba(212, 175, 55, 0.4)) !important;
+}
+
+/* Dynamic State Themes (Option A) */
+/* 1. Live Weather: Emerald Aurora Theme */
+.top-smart-pill.glow-weather {
+    --pill-border-color: rgba(16, 185, 129, 0.38);
+    --pill-border-active: rgba(16, 185, 129, 0.65);
+    --pill-glow-color: rgba(16, 185, 129, 0.2);
+    --pill-glow-active: rgba(16, 185, 129, 0.38);
+}
+
+/* 2. Pink Bus M10A: Neon Rose Theme */
+.top-smart-pill.glow-m10a {
+    --pill-border-color: rgba(255, 102, 178, 0.45);
+    --pill-border-active: rgba(255, 102, 178, 0.75);
+    --pill-glow-color: rgba(231, 78, 159, 0.25);
+    --pill-glow-active: rgba(231, 78, 159, 0.45);
+}
+
+/* 3. Campus Shuttle: Royal Gold Theme */
+.top-smart-pill.glow-transit {
+    --pill-border-color: rgba(212, 175, 55, 0.4);
+    --pill-border-active: rgba(212, 175, 55, 0.7);
+    --pill-glow-color: rgba(212, 175, 55, 0.2);
+    --pill-glow-active: rgba(212, 175, 55, 0.4);
+}
+
+/* 4. Calendar Milestone: Academic Amber/Gold Theme (Clickable) */
+.top-smart-pill.glow-milestone {
+    --pill-border-color: rgba(212, 175, 55, 0.42);
+    --pill-border-active: rgba(212, 175, 55, 0.72);
+    --pill-glow-color: rgba(212, 175, 55, 0.22);
+    --pill-glow-active: rgba(212, 175, 55, 0.45);
+    cursor: pointer !important;
+}
+
+/* Breathing Pulse Animation (Option C + D) */
+@keyframes pillBreathingGlow {
+    0%, 100% {
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.22),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.35),
+            0 4px 18px rgba(0, 0, 0, 0.45),
+            0 0 12px var(--pill-glow-color, rgba(212, 175, 55, 0.18));
+        border-color: var(--pill-border-color, rgba(212, 175, 55, 0.35));
+    }
+    50% {
+        box-shadow: 
+            inset 0 1px 0 rgba(255, 255, 255, 0.3),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.4),
+            0 4px 22px rgba(0, 0, 0, 0.55),
+            0 0 22px var(--pill-glow-active, rgba(212, 175, 55, 0.36));
+        border-color: var(--pill-border-active, rgba(212, 175, 55, 0.65));
+    }
+}
+
+/* Smooth Slide Transition Glow Flash */
+.pill-slide-flash {
+    filter: brightness(1.22);
+    transform: scale(1.02);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.4),
+        0 0 28px var(--pill-glow-active, rgba(212, 175, 55, 0.55)),
+        0 6px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Academic Calendar Target Event Card Flash Highlight */
+@keyframes calCardHighlight {
+    0% {
+        box-shadow: 0 0 0 2px var(--accent-gold), 0 0 30px rgba(212, 175, 55, 0.7);
+        transform: scale(1.025);
+        border-color: var(--accent-gold) !important;
+    }
+    50% {
+        box-shadow: 0 0 0 1.5px var(--accent-gold), 0 0 20px rgba(212, 175, 55, 0.45);
+        transform: scale(1.015);
+        border-color: var(--accent-gold) !important;
+    }
+    100% {
+        box-shadow: none;
+        transform: scale(1);
+    }
+}
+
+.cal-event-highlight {
+    animation: calCardHighlight 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards !important;
+}
+
+/* 5. Exam Season Countdown (Pre-Exam Calm Violet / Purple Theme) */
+.top-smart-pill.glow-exam {
+    --pill-border-color: rgba(168, 85, 247, 0.48);
+    --pill-border-active: rgba(192, 132, 252, 0.78);
+    --pill-glow-color: rgba(168, 85, 247, 0.25);
+    --pill-glow-active: rgba(192, 132, 252, 0.50);
+    cursor: pointer !important;
+}
+
+/* 6. Active Exam Season (Good Luck Inspiring Emerald Theme) */
+.top-smart-pill.glow-exam-active {
+    --pill-border-color: rgba(16, 185, 129, 0.45);
+    --pill-border-active: rgba(16, 185, 129, 0.75);
+    --pill-glow-color: rgba(16, 185, 129, 0.25);
+    --pill-glow-active: rgba(16, 185, 129, 0.48);
+    cursor: pointer !important;
+}
+
+/* 7. Library Opening Hours & 24h Study Area Smart Pill */
+.top-smart-pill.glow-library-open {
+    --pill-border-color: rgba(16, 185, 129, 0.48);
+    --pill-border-active: rgba(52, 211, 153, 0.78);
+    --pill-glow-color: rgba(16, 185, 129, 0.25);
+    --pill-glow-active: rgba(16, 185, 129, 0.50);
+    cursor: pointer !important;
+}
+
+.top-smart-pill.glow-library-closed {
+    --pill-border-color: rgba(148, 163, 184, 0.38);
+    --pill-border-active: rgba(203, 213, 225, 0.68);
+    --pill-glow-color: rgba(148, 163, 184, 0.18);
+    --pill-glow-active: rgba(148, 163, 184, 0.38);
+    cursor: pointer !important;
+}
+
+.top-smart-pill.glow-library-24h {
+    --pill-border-color: rgba(168, 85, 247, 0.52);
+    --pill-border-active: rgba(192, 132, 252, 0.82);
+    --pill-glow-color: rgba(168, 85, 247, 0.28);
+    --pill-glow-active: rgba(192, 132, 252, 0.55);
+    cursor: pointer !important;
+}
+
+/* 8. PKU Health Center Clinic Hours Smart Pill (Main Campus) */
+.top-smart-pill.glow-pku-open {
+    --pill-border-color: rgba(16, 185, 129, 0.48);
+    --pill-border-active: rgba(52, 211, 153, 0.78);
+    --pill-glow-color: rgba(16, 185, 129, 0.25);
+    --pill-glow-active: rgba(16, 185, 129, 0.50);
+    cursor: pointer !important;
+}
+
+.top-smart-pill.glow-pku-closed {
+    --pill-border-color: rgba(148, 163, 184, 0.38);
+    --pill-border-active: rgba(203, 213, 225, 0.68);
+    --pill-glow-color: rgba(148, 163, 184, 0.18);
+    --pill-glow-active: rgba(148, 163, 184, 0.38);
+    cursor: pointer !important;
+}
+/* 9. Unit Mel Parcel Hub Pickup Hours Smart Pill */
+.top-smart-pill.glow-parcel-open {
+    --pill-border-color: rgba(16, 185, 129, 0.48);
+    --pill-border-active: rgba(52, 211, 153, 0.78);
+    --pill-glow-color: rgba(16, 185, 129, 0.25);
+    --pill-glow-active: rgba(16, 185, 129, 0.50);
+    cursor: pointer !important;
+}
+
+.top-smart-pill.glow-parcel-closed {
+    --pill-border-color: rgba(148, 163, 184, 0.38);
+    --pill-border-active: rgba(203, 213, 225, 0.68);
+    --pill-glow-color: rgba(148, 163, 184, 0.18);
+    --pill-glow-active: rgba(148, 163, 184, 0.38);
+    cursor: pointer !important;
+}
