@@ -37,7 +37,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.6">
+    <link rel="stylesheet" href="style.min.css?v=8.0">
+
+    <!-- Rich Google Search Snippet (JSON-LD Schema) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "UTeM Confession Pro Max",
+      "alternateName": "UCPM",
+      "url": "https://utemconfession.github.io/",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "description": "The all-in-one student portal & anonymous confessions hub for Universiti Teknikal Malaysia Melaka (UTeM). Featuring GPA calculator, bus transit schedules, exam past papers, and campus guides.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "MYR"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "UTeM Confessions Pro Max",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://utemconfession.github.io/UCPMLogo.png"
+        }
+      }
+    }
+    </script>
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
@@ -49,7 +76,7 @@
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
-    <script src="components.js"></script>
+    <script src="components.js?v=8.0"></script>
 </head>
 
 <body>
@@ -178,21 +205,19 @@
                             </div>
                         </div>
 
-                        <!-- Sub-Mode Selector Tabs -->
-                        <div class="confession-sub-tabs"
-                            style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <button id="tabTextMode" class="sub-tab-btn active"
-                                style="padding: 6px 16px; border-radius: 20px; font-weight: 700; cursor: pointer; border: none; background: var(--gold-gradient); color: #000; font-size: 13.5px;">
-                                Text
+                        <!-- Sub-Mode Selector Tabs (Segmented Control) -->
+                        <div class="confession-segmented-control" id="confessionSegmentedControl" data-active="text">
+                            <div class="segmented-indicator" aria-hidden="true"></div>
+                            <button id="tabTextMode" class="sub-tab-btn active" type="button">
+                                <span>Text</span>
                             </button>
-                            <button id="tabImageMode" class="sub-tab-btn"
-                                style="padding: 6px 14px; border-radius: 20px; font-weight: 600; cursor: pointer; border: 1px solid var(--border-color); background: transparent; color: var(--text-secondary); font-size: 13px;">
-                                Photo
+                            <button id="tabImageMode" class="sub-tab-btn" type="button">
+                                <span>Photo</span>
                             </button>
                         </div>
 
                         <!-- SUB-PANEL 1: TEXT MODE (DEFAULT ACTIVE) -->
-                        <div id="textSubmissionPanel">
+                        <div id="textSubmissionPanel" class="confession-panel">
                             <div class="form-group">
                                 <textarea id="confessionText" class="form-control" maxlength="10000"
                                     placeholder="Type here to confess..."></textarea>
@@ -219,7 +244,7 @@
                         </div>
 
                         <!-- SUB-PANEL 2: IMAGE MODE (HIDDEN BY DEFAULT) -->
-                        <div id="imageSubmissionPanel" style="display: none;">
+                        <div id="imageSubmissionPanel" class="confession-panel" style="display: none;">
                             <div class="form-group">
                                 <input type="file" id="imageFileInput"
                                     accept="image/jpeg,image/jpg,image/png,image/webp,.heic,.heif" style="display: none;">
@@ -412,7 +437,7 @@
             
             <!-- Static Crawlable Overview Section for Google AdSense & Search Engines -->
             <section class="card content-card"
-                style="margin-top: 20px; max-width: 100%; border-color: rgba(212, 175, 55, 0.25);">
+                style="margin-top: 20px; max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
                 <h2
                     style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
@@ -500,13 +525,13 @@
 
     <!-- Utilities (must load first — helpers used by all modules) -->
     <script src="utils.min.js" defer></script>
-    <script src="translation.min.js" defer></script>
+    <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Core modules -->
     <script src="confessions.min.js" defer></script>
 
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
-    <script src="script.min.js?v=2.6" defer></script>
+    <script src="script.min.js?v=8.0" defer></script>
 
     <script src="ads.min.js" defer></script>
 

@@ -3,6 +3,74 @@
 
 const ucpmUpdates = [
     {
+        date: "2026-09-08",
+        type: "new",
+        title: "Cross-Document View Transitions & Page Morphing",
+        summary: "Enabled modern browser-native cross-document view transitions for smooth page morphing across the entire platform, eliminating jarring browser flashes.",
+        items: [
+            "Native Cross-Document Navigation: Pages now smoothly morph and cross-fade when navigating between tools (Confessions, Bus, Calendar, GPA, Guides) in supported modern browsers",
+            "Rich Google Search Sitelinks (JSON-LD): Added validated schema.org structured data across key tools for interactive search engine snippets and direct sitelinks",
+            "Zero White Flashes: Backgrounds and headers transition seamlessly during navigation for a unified native app feel"
+        ]
+    },
+    {
+        date: "2026-09-08",
+        type: "improved",
+        title: "Cinematic Slow Theme Ripple & Modal Ambient Glow",
+        summary: "Completely re-engineered the theme switching animation with a majestic 900ms circular ripple, smooth Material easing, and interactive card hover glow.",
+        items: [
+            "Cinematic 900ms Circular Ripple: Doubled animation duration with a fluid Material ease-in-out curve (cubic-bezier(0.4, 0, 0.2, 1)) so the expanding circular wave is clearly visible and trackable",
+            "Browser View Transition Overrides: Disabled default cross-fade animations on pseudo-elements, ensuring the old theme stays frozen and solid while the new theme sweeps over it",
+            "Synchronized Modal Dismissal: Calibrated modal auto-close to 950ms so users enjoy an unobstructed view of the expanding wave sweeping across the page before the dialog gently closes",
+            "Theme Card Hover Glow: Added ambient accent reflections and responsive swatch pulsing (scale 1.15) when hovering over options in the theme palette modal"
+        ]
+    },
+    {
+        date: "2026-09-08",
+        type: "fixed",
+        title: "Offline Bus & Calendar Cache Alignment & v7.0 Versioning",
+        summary: "Resolved service worker cache mismatches for transit and academic calendar engines and unified platform-wide asset versioning.",
+        items: [
+            "Offline PWA Reliability: Synchronized bus.html and calendar.html to load minified script bundles matching sw.js pre-cache, guaranteeing 100% offline access on spotty campus Wi-Fi",
+            "Unified Asset Versioning: Standardized 100% of script and stylesheet cache busters to ?v=7.0 across all 37 platform pages to prevent stale browser caching",
+            "Service Worker Cache Bump: Promoted core platform cache to ucpm-cache-v79 for instantaneous client updates"
+        ]
+    },
+    {
+        date: "2026-09-07",
+        type: "new",
+        title: "Curated 18-Theme Suite & Symmetrical Grid Engine",
+        summary: "Launched an aesthetic suite of 18 high-contrast, curated color themes categorized into 6 distinct color families with a perfectly balanced grid layout.",
+        items: [
+            "18 Curated Themes: Added Classic UCPM, OLED Midnight, Minimal Monochrome, Sakura Neon, Synthwave 80s, Peach Blossom, Arcade 1984, Dracula Violet, Catppuccin Mocha, Cosmic Nebula, Cyberpunk Cyan, Tokyo Night, Abyssal Blue, Cobalt Blue, Matrix Emerald, EVA Mecha-01, Sepia Warm Night, and Gothic Ember",
+            "Categorized Organization: Grouped palettes into Classic, OLED & Dark, Monochrome & Light, Pink & Pastel, Violet & Purple, Blue & Tech, and Nature & Earthy",
+            "Symmetrical Grid Layout: Engineered a perfectly balanced rectangular grid with zero orphan cards (6 rows × 3 columns on desktop, 9 rows × 2 columns on mobile)",
+            "Coordinate-Based Radial Ripple: Circular theme reveal originates from the user's exact tap or click coordinate using Pythagorean hypotenuse geometry"
+        ]
+    },
+    {
+        date: "2026-09-07",
+        type: "improved",
+        title: "Full Theme Variable Adoption Across All Guides & UI",
+        summary: "Eliminated all hardcoded gold and static background colors across widgets, reading progress bars, and sidebar controls in favor of dynamic CSS custom properties.",
+        items: [
+            "Dynamic Reading Progress Bars: Reading progress indicators across all 14 survival guides now automatically adopt the active theme's custom gradient",
+            "Sidebar Controls Theme Integration: Theme and language toggle buttons now dynamically glow with the active theme's accent RGB colors",
+            "Universal CSS Variable Architecture: Ensured 100% of cards, modals, borders, and segmented controls adapt seamlessly to all 18 color palettes"
+        ]
+    },
+    {
+        date: "2026-09-07",
+        type: "fixed",
+        title: "Theme Modal Symmetry, FOUC Elimination & Palette Cleanup",
+        summary: "Eliminated orphaned theme cards with responsive symmetrical grids, fixed unstyled theme flash on initial load, and removed 26 low-contrast legacy palettes.",
+        items: [
+            "Orphan Element Elimination: Formatted theme selection into a strict 6×3 (desktop) and 9×2 (mobile) grid, resolving uneven dangling theme tiles",
+            "FOUC (Flash of Unstyled Content) Fix: Synchronized theme initialization script in document <head> to eliminate white/gold flashes before custom styles load",
+            "Palette Contrast & Clarity: Removed 26 low-contrast experimental themes and renamed Electric Cobalt to Cobalt Blue for intuitive discovery"
+        ]
+    },
+    {
         date: "2026-09-05",
         type: "new",
         title: "Real-Time Operating Hours & Campus Smart Pills",

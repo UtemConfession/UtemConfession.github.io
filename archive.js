@@ -122,7 +122,7 @@ function getRelatedGuide(item) {
             icon: "🔬"
         };
     }
-    if (text.includes("internship") || text.includes("latihan industri") || text.includes("li ") || text.includes("intern ")) {
+    if (/\b(internship|latihan industri)\b/i.test(text) || (/\b(intern|interns)\b/i.test(text) && !text.includes("internal")) || (/\bli\b/i.test(text) && (text.includes("praktikal") || text.includes("training") || text.includes("tempat") || text.includes("sem") || text.includes("company") || text.includes("kompeni") || text.includes("resume") || text.includes("allowance") || text.includes("elaun")))) {
         return {
             title: "Internship & Industrial Training (LI) Guide",
             url: "guide-internship-industrial-training.html",
@@ -225,12 +225,28 @@ function openArchiveModal(item) {
         <div style="font-size: 0.95rem; line-height: 1.65; color: var(--text-secondary, #cbd5e1); white-space: pre-wrap; margin-bottom: 14px; border-left: 3px solid var(--accent-gold, #d4af37); padding-left: 14px;">${escapeHtml(item.content)}</div>
         ${replyHtml}
         ${guideHtml}
-        ${item.telegramLink ? `
-            <div style="display:flex; justify-content:flex-end; align-items:center; border-top:1px solid var(--border-color, rgba(255,255,255,0.1)); padding-top:12px; margin-top:16px; font-size:0.85rem;">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border-color, rgba(255,255,255,0.1)); padding-top:14px; margin-top:16px; font-size:0.85rem; flex-wrap:wrap; gap:10px;">
+            <button id="btnOpenStoryCardFromModal" type="button" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.28) 100%); border: 1px solid rgba(212, 175, 55, 0.45); color: var(--accent-gold, #d4af37); font-weight: 700; font-size: 0.82rem; border-radius: 20px; padding: 7px 15px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 10px rgba(212, 175, 55, 0.2); transition: all 0.2s;">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                📸 Share as Story Card
+            </button>
+            ${item.telegramLink ? `
                 <a href="${escapeHtml(item.telegramLink)}" target="_blank" rel="noopener noreferrer" style="color:var(--accent-gold, #d4af37); text-decoration:none; font-weight:700; display:inline-flex; align-items:center; gap:6px;">✈️ View Original Post</a>
-            </div>
-        ` : ""}
+            ` : ""}
+        </div>
     `;
+
+    const btnStoryCard = body.querySelector("#btnOpenStoryCardFromModal");
+    if (btnStoryCard) {
+        btnStoryCard.addEventListener("click", () => {
+            openSocialCardGenerator(item);
+        });
+    }
+
+    const modalContentEl = modal.querySelector(".archive-modal-content");
+    if (modalContentEl) {
+        modalContentEl.setAttribute("data-cat", (item.category || "general").toLowerCase());
+    }
 
     modal.style.display = "flex";
     document.body.style.overflow = "hidden";
@@ -258,6 +274,7 @@ function getCategoryColor(category) {
         case "advise":
         case "advice":
             return { bg: "rgba(14, 165, 233, 0.15)", text: "#38bdf8", border: "rgba(14, 165, 233, 0.3)" };
+        case "discussion":
         case "question":
             return { bg: "rgba(99, 102, 241, 0.15)", text: "#818cf8", border: "rgba(99, 102, 241, 0.35)" };
         case "romance":
@@ -300,7 +317,8 @@ function renderArchiveConfessions() {
                 const isAdviseAlias = (targetCat === "advise" || targetCat === "advice") && (itemCat === "advise" || itemCat === "advice");
                 const isRomanceAlias = (targetCat === "romance" || targetCat === "love") && (itemCat === "romance" || itemCat === "love");
                 const isFunnyAlias = (targetCat === "funny" || targetCat === "humor") && (itemCat === "funny" || itemCat === "humor");
-                if (!isAdviseAlias && !isRomanceAlias && !isFunnyAlias) return false;
+                const isDiscussionAlias = (targetCat === "discussion" || targetCat === "question") && (itemCat === "discussion" || itemCat === "question");
+                if (!isAdviseAlias && !isRomanceAlias && !isFunnyAlias && !isDiscussionAlias) return false;
             }
         }
 
@@ -337,12 +355,8 @@ function renderArchiveConfessions() {
     visibleItems.forEach((item, index) => {
         const card = document.createElement("div");
         card.className = "archive-card";
-        card.style.cssText = `
-            background: var(--bg-secondary, #1e293b); border: 1px solid var(--border-color, rgba(255,255,255,0.08));
-            border-radius: 12px; padding: 18px; display: flex; flex-direction: column; justify-content: space-between;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-            cursor: pointer;
-        `;
+        const catKey = (item.category || "general").toLowerCase();
+        card.setAttribute("data-cat", catKey);
 
         const isLongText = (item.content || "").length > 140;
         const displayText = isLongText ? item.content.substring(0, 137).trim() + "..." : item.content;
@@ -360,7 +374,12 @@ function renderArchiveConfessions() {
                 <span style="font-size: 0.75rem; font-weight: 700; padding: 2px 8px; border-radius: 8px; background: ${categoryBadgeColor.bg}; color: ${categoryBadgeColor.text}; border: 1px solid ${categoryBadgeColor.border};">
                     ${escapeHtml(item.category || "General")}
                 </span>
-                ${replyBadgeHtml}
+                <div style="display: flex; align-items: center; gap: 6px;">
+                    ${replyBadgeHtml}
+                    <button class="btn-card-story-quick" title="Create Social Story Card" style="background: rgba(212, 175, 55, 0.08); border: 1px solid rgba(212, 175, 55, 0.25); color: var(--accent-gold, #d4af37); border-radius: 8px; padding: 2px 7px; font-size: 0.72rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;" onclick="event.stopPropagation(); openSocialCardGenerator(archiveData.find(x => x.archiveId === '${item.archiveId}') || null);">
+                        📸 Card
+                    </button>
+                </div>
             </div>
         `;
 
@@ -463,3 +482,489 @@ if (document.readyState === "loading") {
     ensureArchiveModalExists();
     renderArchiveConfessions();
 }
+
+/**
+ * ==========================================================================
+ * CONFESSION SOCIAL SHARE CARD GENERATOR (HTML5 Canvas Engine)
+ * ==========================================================================
+ */
+let currentCardBlob = null;
+let currentCardFilename = "UCPM-Confession.png";
+
+function ensureSocialCardModalExists() {
+    let modal = document.getElementById("socialCardModal");
+    if (!modal) {
+        modal = document.createElement("div");
+        modal.id = "socialCardModal";
+        modal.className = "archive-modal-overlay";
+        modal.style.cssText = `
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(8, 13, 26, 0.88); backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            display: none; justify-content: center; align-items: center;
+            z-index: 10000; padding: 16px; box-sizing: border-box;
+        `;
+        modal.innerHTML = `
+            <div class="archive-modal-content" style="
+                background: var(--bg-surface, #131d33); color: var(--text-primary, #f8fafc);
+                border: 1px solid rgba(212, 175, 55, 0.35); border-radius: 18px;
+                width: 100%; max-width: 440px; max-height: 92vh; overflow-y: auto;
+                padding: 22px; box-shadow: 0 25px 60px rgba(0,0,0,0.7);
+                position: relative; text-align: center;
+            ">
+                <button id="closeSocialCardModalBtn" style="
+                    position: absolute; top: 14px; right: 14px; background: rgba(255,255,255,0.08);
+                    border: 1px solid rgba(255,255,255,0.15); color: #cbd5e1;
+                    width: 32px; height: 32px; border-radius: 50%; display: flex;
+                    align-items: center; justify-content: center; font-size: 16px;
+                    cursor: pointer; transition: all 0.2s;
+                " aria-label="Close Share Card">&times;</button>
+
+                <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 4px;">
+                    <span style="font-size: 1.3rem;">📸</span>
+                    <h3 style="margin: 0; font-size: 1.15rem; font-weight: 800; color: var(--accent-gold, #d4af37);">
+                        Story & Social Card
+                    </h3>
+                </div>
+                <p style="margin: 0 0 16px 0; font-size: 0.78rem; color: var(--text-secondary, #94a3b8);">
+                    Optimized for Instagram Stories, WhatsApp Status &amp; Telegram
+                </p>
+
+                <!-- Live Rendered Preview -->
+                <div id="socialCardPreviewWrapper" style="margin-bottom: 18px; display: flex; justify-content: center;">
+                    <img id="socialCardPreviewImg" alt="Confession Story Card" style="
+                        width: 100%; max-width: 280px; aspect-ratio: 4/5; object-fit: contain;
+                        border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+                        border: 1px solid rgba(212, 175, 55, 0.3); background: #080d1a;
+                    ">
+                </div>
+
+                <!-- Action Buttons -->
+                <div style="display: flex; flex-direction: column; gap: 10px;">
+                    <button id="btnSocialCardNativeShare" style="
+                        width: 100%; padding: 11px 16px; border-radius: 12px; border: none;
+                        background: linear-gradient(135deg, #d4af37 0%, #ffeb3b 100%);
+                        color: #0b0f19; font-weight: 800; font-size: 0.88rem; cursor: pointer;
+                        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+                        box-shadow: 0 4px 16px rgba(212, 175, 55, 0.35); transition: transform 0.15s;
+                    ">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92 1.61 0 2.92-1.31 2.92-2.92s-1.31-2.92-2.92-2.92z"/></svg>
+                        Share to Instagram / WhatsApp
+                    </button>
+
+                    <div style="display: flex; gap: 8px;">
+                        <button id="btnSocialCardDownload" style="
+                            flex: 1; padding: 10px 14px; border-radius: 10px;
+                            background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.15);
+                            color: var(--text-primary, #f8fafc); font-weight: 700; font-size: 0.82rem;
+                            cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+                            transition: background 0.2s;
+                        ">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            Download PNG
+                        </button>
+                        <button id="btnSocialCardCopy" style="
+                            flex: 1; padding: 10px 14px; border-radius: 10px;
+                            background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.15);
+                            color: var(--text-primary, #f8fafc); font-weight: 700; font-size: 0.82rem;
+                            cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+                            transition: background 0.2s;
+                        ">
+                            <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                            Copy Image
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeSocialCardModal();
+        });
+
+        const closeBtn = modal.querySelector("#closeSocialCardModalBtn");
+        if (closeBtn) closeBtn.addEventListener("click", closeSocialCardModal);
+
+        // Bind download
+        const btnDownload = modal.querySelector("#btnSocialCardDownload");
+        if (btnDownload) {
+            btnDownload.addEventListener("click", () => {
+                if (!currentCardBlob) return;
+                const url = URL.createObjectURL(currentCardBlob);
+                const a = document.createElement("a");
+                a.href = url;
+                a.download = currentCardFilename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                setTimeout(() => URL.revokeObjectURL(url), 1000);
+                if (typeof showToast === "function") {
+                    showToast("📥 Card saved! Ready to post to your Story.", "success", 3500);
+                }
+            });
+        }
+
+        // Bind native share
+        const btnShare = modal.querySelector("#btnSocialCardNativeShare");
+        if (btnShare) {
+            btnShare.addEventListener("click", async () => {
+                if (!currentCardBlob) return;
+                const file = new File([currentCardBlob], currentCardFilename, { type: "image/png" });
+                if (navigator.canShare && navigator.canShare({ files: [file] })) {
+                    try {
+                        await navigator.share({
+                            files: [file],
+                            title: "UTeM Confession Story Card",
+                            text: "Check out this confession on UTeM Confessions Pro Max: https://utemconfession.github.io"
+                        });
+                    } catch (err) {
+                        if (err.name !== "AbortError" && typeof showToast === "function") {
+                            showToast("Share sheet cancelled.", "info", 2500);
+                        }
+                    }
+                } else {
+                    const btnDl = modal.querySelector("#btnSocialCardDownload");
+                    if (btnDl) btnDl.click();
+                }
+            });
+        }
+
+        // Bind copy image
+        const btnCopy = modal.querySelector("#btnSocialCardCopy");
+        if (btnCopy) {
+            btnCopy.addEventListener("click", async () => {
+                if (!currentCardBlob) return;
+                try {
+                    if (navigator.clipboard && window.ClipboardItem) {
+                        await navigator.clipboard.write([
+                            new ClipboardItem({ "image/png": currentCardBlob })
+                        ]);
+                        if (typeof showToast === "function") {
+                            showToast("📋 Image copied! Press Ctrl+V to paste anywhere.", "success", 3000);
+                        }
+                    } else {
+                        throw new Error("ClipboardItem not supported");
+                    }
+                } catch (e) {
+                    if (typeof showToast === "function") {
+                        showToast("Direct copy not supported. Click Download PNG to save!", "warning", 3500);
+                    }
+                }
+            });
+        }
+    }
+}
+
+function closeSocialCardModal() {
+    const modal = document.getElementById("socialCardModal");
+    if (modal) {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+}
+
+function drawRoundRect(ctx, x, y, width, height, radius, fill, stroke) {
+    if (typeof radius === "number") {
+        radius = { tl: radius, tr: radius, br: radius, bl: radius };
+    }
+    ctx.beginPath();
+    ctx.moveTo(x + radius.tl, y);
+    ctx.lineTo(x + width - radius.tr, y);
+    ctx.quadraticCurveTo(x + width, y, x + width, y + radius.tr);
+    ctx.lineTo(x + width, y + height - radius.br);
+    ctx.quadraticCurveTo(x + width, y + height, x + width - radius.br, y + height);
+    ctx.lineTo(x + radius.bl, y + height);
+    ctx.quadraticCurveTo(x, y + height, x, y + height - radius.bl);
+    ctx.lineTo(x, y + radius.tl);
+    ctx.quadraticCurveTo(x, y, x + radius.tl, y);
+    ctx.closePath();
+    if (fill) ctx.fill();
+    if (stroke) ctx.stroke();
+}
+
+function renderWrappedCanvasText(ctx, text, x, y, maxWidth, lineHeight, maxLines) {
+    const paragraphs = (text || "").split("\n");
+    let currentY = y;
+    let linesCount = 0;
+
+    for (let p = 0; p < paragraphs.length; p++) {
+        const words = paragraphs[p].split(/\s+/);
+        let currentLine = "";
+
+        for (let w = 0; w < words.length; w++) {
+            const word = words[w];
+            if (!word) continue;
+            const testLine = currentLine ? currentLine + " " + word : word;
+            const metrics = ctx.measureText(testLine);
+
+            if (metrics.width > maxWidth && currentLine) {
+                linesCount++;
+                if (maxLines && linesCount >= maxLines) {
+                    ctx.fillText(currentLine + "...", x, currentY);
+                    return currentY + lineHeight;
+                }
+                ctx.fillText(currentLine, x, currentY);
+                currentLine = word;
+                currentY += lineHeight;
+            } else {
+                currentLine = testLine;
+            }
+        }
+
+        if (currentLine) {
+            linesCount++;
+            if (maxLines && linesCount >= maxLines && p < paragraphs.length - 1) {
+                ctx.fillText(currentLine + "...", x, currentY);
+                return currentY + lineHeight;
+            }
+            ctx.fillText(currentLine, x, currentY);
+            currentY += lineHeight;
+        }
+
+        currentY += lineHeight * 0.25;
+    }
+    return currentY;
+}
+
+function drawSocialCard(item) {
+    const width = 1080;
+    const height = 1350;
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const ctx = canvas.getContext("2d");
+
+    // 1. Background Gradient
+    const bgGrad = ctx.createLinearGradient(0, 0, width, height);
+    bgGrad.addColorStop(0, "#080d1a");
+    bgGrad.addColorStop(0.45, "#0e1830");
+    bgGrad.addColorStop(1, "#050811");
+    ctx.fillStyle = bgGrad;
+    ctx.fillRect(0, 0, width, height);
+
+    // 2. Ambient Glows
+    const goldGlow = ctx.createRadialGradient(900, 150, 10, 900, 150, 500);
+    goldGlow.addColorStop(0, "rgba(212, 175, 55, 0.16)");
+    goldGlow.addColorStop(1, "rgba(212, 175, 55, 0)");
+    ctx.fillStyle = goldGlow;
+    ctx.fillRect(0, 0, width, height);
+
+    const blueGlow = ctx.createRadialGradient(180, 1150, 10, 180, 1150, 450);
+    blueGlow.addColorStop(0, "rgba(56, 189, 248, 0.12)");
+    blueGlow.addColorStop(1, "rgba(56, 189, 248, 0)");
+    ctx.fillStyle = blueGlow;
+    ctx.fillRect(0, 0, width, height);
+
+    // 3. Card Frame (Border)
+    ctx.save();
+    ctx.strokeStyle = "rgba(212, 175, 55, 0.35)";
+    ctx.lineWidth = 3;
+    drawRoundRect(ctx, 45, 45, width - 90, height - 90, 28, false, true);
+
+    // Corner decorative notches
+    ctx.strokeStyle = "#d4af37";
+    ctx.lineWidth = 5;
+    // Top-Left
+    ctx.beginPath();
+    ctx.moveTo(45, 105); ctx.lineTo(45, 75); ctx.quadraticCurveTo(45, 45, 75, 45); ctx.lineTo(105, 45);
+    ctx.stroke();
+    // Top-Right
+    ctx.beginPath();
+    ctx.moveTo(width - 105, 45); ctx.lineTo(width - 75, 45); ctx.quadraticCurveTo(width - 45, 45, width - 45, 75); ctx.lineTo(width - 45, 105);
+    ctx.stroke();
+    // Bottom-Left
+    ctx.beginPath();
+    ctx.moveTo(45, height - 105); ctx.lineTo(45, height - 75); ctx.quadraticCurveTo(45, height - 45, 75, height - 45); ctx.lineTo(105, height - 45);
+    ctx.stroke();
+    // Bottom-Right
+    ctx.beginPath();
+    ctx.moveTo(width - 105, height - 45); ctx.lineTo(width - 75, height - 45); ctx.quadraticCurveTo(width - 45, height - 45, width - 45, height - 75); ctx.lineTo(width - 45, height - 105);
+    ctx.stroke();
+    ctx.restore();
+
+    // 4. Header: Logo & Branding
+    ctx.save();
+    ctx.beginPath();
+    ctx.arc(120, 130, 36, 0, Math.PI * 2);
+    ctx.fillStyle = "rgba(212, 175, 55, 0.15)";
+    ctx.fill();
+    ctx.strokeStyle = "#d4af37";
+    ctx.lineWidth = 3;
+    ctx.stroke();
+
+    ctx.font = "bold 20px Outfit, sans-serif";
+    ctx.fillStyle = "#d4af37";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("UCPM", 120, 130);
+    ctx.restore();
+
+    // Title & Subtitle
+    ctx.save();
+    ctx.font = "bold 30px Outfit, sans-serif";
+    ctx.fillStyle = "#ffffff";
+    ctx.textAlign = "left";
+    ctx.fillText("UTeM CONFESSIONS PRO MAX", 180, 122);
+
+    ctx.font = "500 18px Outfit, sans-serif";
+    ctx.fillStyle = "#94a3b8";
+    ctx.fillText("Student Voices • Universiti Teknikal Malaysia Melaka", 180, 150);
+    ctx.restore();
+
+    // Category Badge (Top Right)
+    const categoryName = (item.category || "General").toUpperCase();
+    const catColor = getCategoryColor(item.category);
+    ctx.save();
+    ctx.font = "bold 18px Outfit, sans-serif";
+    const catTextWidth = ctx.measureText(categoryName).width;
+    const catBadgeW = catTextWidth + 32;
+    const catBadgeH = 36;
+    const catBadgeX = width - 90 - catBadgeW;
+    const catBadgeY = 112;
+
+    ctx.fillStyle = catColor.bg || "rgba(212, 175, 55, 0.2)";
+    ctx.strokeStyle = catColor.border || "rgba(212, 175, 55, 0.4)";
+    ctx.lineWidth = 1.5;
+    drawRoundRect(ctx, catBadgeX, catBadgeY, catBadgeW, catBadgeH, 18, true, true);
+
+    ctx.fillStyle = catColor.text || "#d4af37";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText(categoryName, catBadgeX + catBadgeW / 2, catBadgeY + catBadgeH / 2);
+    ctx.restore();
+
+    // Header separator line
+    ctx.save();
+    ctx.strokeStyle = "rgba(255, 255, 255, 0.08)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(90, 195);
+    ctx.lineTo(width - 90, 195);
+    ctx.stroke();
+    ctx.restore();
+
+    // 5. Decorative Watermark Quote
+    ctx.save();
+    ctx.font = 'bold 120px Georgia, serif';
+    ctx.fillStyle = "rgba(212, 175, 55, 0.15)";
+    ctx.fillText('“', 85, 300);
+    ctx.restore();
+
+    // 6. Main Confession Text
+    const contentText = (item.content || "").trim();
+    const textLen = contentText.length;
+    let fontSize = 34;
+    let lineHeight = 52;
+    let maxLines = 13;
+
+    if (textLen < 120) {
+        fontSize = 44;
+        lineHeight = 64;
+        maxLines = 8;
+    } else if (textLen < 250) {
+        fontSize = 36;
+        lineHeight = 54;
+        maxLines = 11;
+    } else if (textLen < 500) {
+        fontSize = 30;
+        lineHeight = 46;
+        maxLines = 13;
+    } else {
+        fontSize = 25;
+        lineHeight = 39;
+        maxLines = 15;
+    }
+
+    ctx.save();
+    ctx.font = `600 ${fontSize}px Outfit, -apple-system, sans-serif`;
+    ctx.fillStyle = "#f8fafc";
+    ctx.textAlign = "left";
+    ctx.textBaseline = "top";
+
+    const contentStartY = 280;
+    const contentEndX = width - 100;
+    const contentMaxW = contentEndX - 90;
+    const nextY = renderWrappedCanvasText(ctx, contentText, 95, contentStartY, contentMaxW, lineHeight, maxLines);
+    ctx.restore();
+
+    // 7. Optional Reply Snippet
+    if (item.reply && nextY < 920) {
+        const replyText = item.reply.replace(/^↳\s*/, "").trim();
+        const replyBoxY = Math.max(nextY + 30, 720);
+        const replyBoxH = Math.min(height - replyBoxY - 170, 200);
+
+        if (replyBoxH > 80) {
+            ctx.save();
+            ctx.fillStyle = "rgba(212, 175, 55, 0.07)";
+            ctx.strokeStyle = "rgba(212, 175, 55, 0.25)";
+            ctx.lineWidth = 1;
+            drawRoundRect(ctx, 90, replyBoxY, width - 180, replyBoxH, 14, true, true);
+
+            // Left gold indicator bar
+            ctx.fillStyle = "#d4af37";
+            drawRoundRect(ctx, 90, replyBoxY, 5, replyBoxH, { tl: 14, bl: 14, tr: 0, br: 0 }, true, false);
+
+            // Reply Header
+            ctx.font = "bold 18px Outfit, sans-serif";
+            ctx.fillStyle = "#d4af37";
+            ctx.fillText("💬 Top Student Reply", 115, replyBoxY + 18);
+
+            // Reply Body
+            ctx.font = "italic 21px Outfit, sans-serif";
+            ctx.fillStyle = "#cbd5e1";
+            renderWrappedCanvasText(ctx, replyText, 115, replyBoxY + 50, width - 230, 32, 3);
+            ctx.restore();
+        }
+    }
+
+    // 8. Footer Section
+    const footerY = height - 120;
+    ctx.save();
+    ctx.strokeStyle = "rgba(212, 175, 55, 0.25)";
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(90, footerY);
+    ctx.lineTo(width - 90, footerY);
+    ctx.stroke();
+
+    ctx.font = "bold 19px Outfit, sans-serif";
+    ctx.fillStyle = "#94a3b8";
+    ctx.textAlign = "left";
+    ctx.fillText(`${item.archiveId || "ARC"} • 🛡️ Anonymous Campus Story`, 90, footerY + 38);
+
+    ctx.font = "bold 21px Outfit, sans-serif";
+    ctx.fillStyle = "#d4af37";
+    ctx.textAlign = "right";
+    ctx.fillText("utemconfession.github.io", width - 90, footerY + 38);
+    ctx.restore();
+
+    return canvas;
+}
+
+function openSocialCardGenerator(item) {
+    if (!item) return;
+    ensureSocialCardModalExists();
+    const modal = document.getElementById("socialCardModal");
+    const previewImg = document.getElementById("socialCardPreviewImg");
+
+    currentCardFilename = `UCPM-${item.archiveId || "Confession"}.png`;
+
+    try {
+        const canvas = drawSocialCard(item);
+        canvas.toBlob((blob) => {
+            currentCardBlob = blob;
+            if (previewImg) {
+                previewImg.src = canvas.toDataURL("image/png");
+            }
+        }, "image/png");
+    } catch (e) {
+        console.error("Card generation failed", e);
+    }
+
+    if (modal) {
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+}
+window.openSocialCardGenerator = openSocialCardGenerator;

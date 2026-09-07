@@ -488,4 +488,3 @@ try {
 
 refreshAllBusSchedules();
 setInterval(refreshAllBusSchedules, 60000);
-

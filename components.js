@@ -1,3 +1,23 @@
+// Instant theme application before DOM render to prevent flash of unstyled theme
+(function() {
+    try {
+        const saved = localStorage.getItem('ucpm_theme');
+        const validThemes = [
+            'oled', 'monochrome',
+            'sakura', 'synthwave', 'peach', 'arcade',
+            'dracula', 'catppuccin', 'nebula',
+            'cyberpunk', 'tokyo', 'abyssal', 'cobalt',
+            'matrix', 'eva',
+            'sepia', 'cathedral'
+        ];
+        if (saved && validThemes.indexOf(saved) !== -1) {
+            document.documentElement.setAttribute('data-theme', saved);
+        } else if (saved && saved !== 'classic') {
+            localStorage.setItem('ucpm_theme', 'classic');
+        }
+    } catch (e) {}
+})();
+
 // components.js - Centralized Navigation Components
 const UCPMHeaderHTML = `<!-- Mobile Header (Full Width Sticky Top Bar) -->
     <header class="mobile-header">
@@ -9,9 +29,17 @@ const UCPMHeaderHTML = `<!-- Mobile Header (Full Width Sticky Top Bar) -->
                 <span class="mobile-subtitle">Pro Max</span>
             </div>
         </div>
-        <div class="mobile-lang-wrapper">
-            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle">
-                Bahasa Melayu
+        <div class="mobile-lang-wrapper" style="display: flex; align-items: center; gap: 6px;">
+            <button class="btn btn-secondary btn-sm lang-toggle-btn" id="mobileLangToggle" aria-label="Switch Language / Tukar Bahasa" style="padding: 4px 9px; font-size: 11px; height: 28px; display: inline-flex; align-items: center; gap: 3px;">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="margin: 0;">
+                    <path
+                        d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2.1l1.1-3h4.6l1.1 3H23l-4.5-12zm-2.62 7l1.62-4.41L19.12 17h-3.24z" />
+                </svg>
+                <span>BM</span>
+            </button>
+            <button class="theme-toggle-btn" id="mobileThemeToggle" type="button" aria-label="Choose Theme" title="Choose Theme" style="padding: 4px 8px; font-size: 11px; height: 28px; display: inline-flex; align-items: center; gap: 4px;">
+                <span class="theme-icon">🎨</span>
+                <span class="theme-label-short">Theme</span>
             </button>
         </div>
     </header>`;
@@ -23,12 +51,21 @@ const UCPMSidebarHTML = `<!-- Desktop Sidebar Navigation -->
                 <h1 class="brand-title">UTeM Confessions</h1>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
-            <!-- Sidebar Language Toggle -->
-            <div
-                style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
-                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle"
-                    style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; transition: all 0.2s;">
-                    Bahasa Melayu
+            <!-- Sidebar Controls (Language & Theme) -->
+            <div class="sidebar-ctrl-wrapper"
+                style="padding: 0 16px 12px 16px; display: flex; gap: 8px; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
+                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" aria-label="Switch Language / Tukar Bahasa"
+                    style="flex: 1.1; min-width: 70px; padding: 4px 8px; font-size: 11.5px; font-weight: 700; border-color: rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); background: rgba(var(--accent-gold-rgb), 0.05); border-radius: 6px; transition: all 0.2s; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 4px;">
+                    <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="margin: 0;">
+                        <path
+                            d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2.1l1.1-3h4.6l1.1 3H23l-4.5-12zm-2.62 7l1.62-4.41L19.12 17h-3.24z" />
+                    </svg>
+                    <span>BM</span>
+                </button>
+                <button class="theme-toggle-btn desktop-theme-btn" id="desktopThemeToggle" type="button" aria-label="Choose Theme" title="Choose Theme"
+                    style="flex: 1; padding: 4px 8px; font-size: 11.5px; font-weight: 700; border-color: rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); background: rgba(var(--accent-gold-rgb), 0.05); border-radius: 6px; transition: all 0.2s; display: inline-flex; align-items: center; justify-content: center; gap: 4px; cursor: pointer;">
+                    <span class="theme-icon">🎨</span>
+                    <span class="theme-label">Theme</span>
                 </button>
             </div>
 
@@ -124,9 +161,7 @@ const UCPMSidebarHTML = `<!-- Desktop Sidebar Navigation -->
                     Support Us
                 </a>
                 <a href="archive.html" class="nav-item" data-tab="archive-tab" id="desktopArchiveTab" style="text-decoration: none; color: inherit;">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/>
-                    </svg>
+                    <svg viewBox="0 0 24 24"><path d="M20.54 5.23l-1.39-1.68C18.88 3.21 18.47 3 18 3H6c-.47 0-.88.21-1.16.55L3.46 5.23C3.17 5.57 3 6.02 3 6.5V19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V6.5c0-.48-.17-.93-.46-1.27zM6.24 5h11.52l.83 1H5.41l.83-1zM5 19V8h14v11H5zm11-5.5l-4 4-4-4 1.41-1.41L11 13.67V10h2v3.67l1.59-1.58L16 13.5z"/></svg>
                     Student Voices
                 </a>
                 <a href="updates.html" class="nav-item" data-tab="updates-tab" style="text-decoration: none; color: inherit;">
@@ -150,8 +185,7 @@ const UCPMSidebarHTML = `<!-- Desktop Sidebar Navigation -->
                     <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1444529930367815"
                         data-ad-slot="7411190923" data-ad-format="autorelaxed" data-full-width-responsive="true"></ins>
                 </div>
-
-                </div>
+            </div>
         </aside>`;
 const UCPMNavHTML = `<!-- Mobile Horizontal Bottom Navigation Bar -->
     <nav class="mobile-bottom-nav">
@@ -195,19 +229,24 @@ const UCPMDrawerHTML = `<!-- Slide-Up "More" Tools Drawer Modal -->
     <div id="mobileMoreDrawer" class="mobile-drawer-overlay">
         <div class="mobile-drawer-sheet">
             <div class="mobile-drawer-header">
-                <div class="mobile-drawer-title" style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap;">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                <div class="mobile-drawer-title" style="display: flex; align-items: center; gap: 6px; flex: 1; min-width: 0; padding-right: 8px;">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" style="flex-shrink: 0;">
                         <path
                             d="M4 8h4V4H4v4zm6 12h4v-4h-4v4zm-6 0h4v-4H4v4zm0-6h4v-4H4v4zm6 0h4v-4h-4v4zm6-10v4h4V4h-4zm-6 4h4V4h-4v4zm6 6h4v-4h-4v4zm0 6h4v-4h-4v4z" />
                     </svg>
-                    <span>Campus Services & Tools</span>
-                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="drawerLangToggle" type="button"
-                        style="padding: 2px 8px; font-size: 11px; margin-left: auto; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; height: 24px;">
-                        <svg viewBox="0 0 24 24" width="12" height="12" fill="currentColor" style="margin: 0;">
+                    <span id="drawerHeaderTitle" style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 14.5px;">Services</span>
+                    <button class="btn btn-secondary btn-sm lang-toggle-btn" id="drawerLangToggle" type="button" aria-label="Switch Language / Tukar Bahasa"
+                        style="padding: 2px 7px; font-size: 11px; margin-left: auto; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; display: inline-flex; align-items: center; gap: 3px; height: 24px; cursor: pointer; flex-shrink: 0; white-space: nowrap;">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor" style="margin: 0;">
                             <path
                                 d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2.1l1.1-3h4.6l1.1 3H23l-4.5-12zm-2.62 7l1.62-4.41L19.12 17h-3.24z" />
                         </svg>
-                        <span>Bahasa Melayu</span>
+                        <span>BM</span>
+                    </button>
+                    <button class="theme-toggle-btn drawer-theme-btn" id="drawerThemeToggle" type="button" aria-label="Choose Theme" title="Choose Theme"
+                        style="padding: 2px 7px; font-size: 11px; margin-left: 5px; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; display: inline-flex; align-items: center; gap: 4px; height: 24px; cursor: pointer; flex-shrink: 0; white-space: nowrap;">
+                        <span class="theme-icon">🎨</span>
+                        <span class="theme-label-short">Theme</span>
                     </button>
                 </div>
                 <button id="closeMobileDrawerBtn" class="mobile-drawer-close-btn" type="button"
@@ -295,6 +334,265 @@ const UCPMDrawerHTML = `<!-- Slide-Up "More" Tools Drawer Modal -->
             </div>
         </div>
     </div>`;
+
+const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
+    <div id="themePaletteModal" class="theme-modal-overlay" aria-hidden="true" role="dialog" aria-labelledby="themeModalTitle">
+        <div class="theme-modal-card">
+            <div class="theme-modal-header">
+                <div class="theme-modal-title-wrap">
+                    <span class="theme-modal-icon">🎨</span>
+                    <div>
+                        <h3 id="themeModalTitle" class="theme-modal-heading">Curated Themes</h3>
+                        <p id="themeModalSubtitle" class="theme-modal-sub">Choose your favorite vibe & style</p>
+                    </div>
+                </div>
+                <button id="closeThemeModalBtn" class="theme-modal-close-btn" type="button" aria-label="Close Theme Picker">&times;</button>
+            </div>
+            <div class="theme-palette-grid">
+                <!-- Group 1: Core / Neutral / High-Contrast -->
+                <!-- 1. Classic Gold -->
+                <button type="button" class="theme-card-option" data-theme-id="classic">
+                    <div class="theme-swatch-ring" style="border-color: #d4af37; background: #060b19;">
+                        <span class="theme-swatch-core" style="background: #d4af37; box-shadow: 0 0 6px #d4af37;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🌕</span> Classic UCPM</span>
+                        <span class="theme-card-desc">Deep Slate & Gold</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 2. OLED Midnight -->
+                <button type="button" class="theme-card-option" data-theme-id="oled">
+                    <div class="theme-swatch-ring" style="border-color: #ffd700; background: #000000;">
+                        <span class="theme-swatch-core" style="background: #ffd700; box-shadow: 0 0 6px #ffd700;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🌑</span> OLED Midnight</span>
+                        <span class="theme-card-desc">Pitch Black #000</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 3. Minimal Monochrome -->
+                <button type="button" class="theme-card-option" data-theme-id="monochrome">
+                    <div class="theme-swatch-ring" style="border-color: #ffffff; background: #080808;">
+                        <span class="theme-swatch-core" style="background: #ffffff; box-shadow: 0 0 6px #ffffff;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">⚪</span> Monochrome</span>
+                        <span class="theme-card-desc">Matte Onyx & Studio</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- Group 2: Pink / Magenta / Red / Peach -->
+                <!-- 4. Sakura Neon -->
+                <button type="button" class="theme-card-option" data-theme-id="sakura">
+                    <div class="theme-swatch-ring" style="border-color: #ff6b8b; background: #000000;">
+                        <span class="theme-swatch-core" style="background: #ff6b8b; box-shadow: 0 0 6px #ff6b8b;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🌸</span> Sakura Neon</span>
+                        <span class="theme-card-desc">Vibrant Pink & Black</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 5. Synthwave 80s -->
+                <button type="button" class="theme-card-option" data-theme-id="synthwave">
+                    <div class="theme-swatch-ring" style="border-color: #f43f5e; background: #0b0217;">
+                        <span class="theme-swatch-core" style="background: #fbbf24; box-shadow: 0 0 6px #f43f5e;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🌆</span> Synthwave 80s</span>
+                        <span class="theme-card-desc">Retro Plum & Magenta</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 6. Peach Blossom -->
+                <button type="button" class="theme-card-option" data-theme-id="peach">
+                    <div class="theme-swatch-ring" style="border-color: #fb7185; background: #150e12;">
+                        <span class="theme-swatch-core" style="background: #fb7185; box-shadow: 0 0 6px #fb7185;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🍑</span> Peach Blossom</span>
+                        <span class="theme-card-desc">Espresso & Soft Coral</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 7. Arcade 1984 -->
+                <button type="button" class="theme-card-option" data-theme-id="arcade">
+                    <div class="theme-swatch-ring" style="border-color: #ff2a6d; background: #090510;">
+                        <span class="theme-swatch-core" style="background: #ff2a6d; box-shadow: 0 0 6px #ff2a6d;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🕹️</span> Arcade 1984</span>
+                        <span class="theme-card-desc">CRT Cabinet & Laser Red</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- Group 3: Purple / Lilac / Ultraviolet -->
+                <!-- 8. Dracula Violet -->
+                <button type="button" class="theme-card-option" data-theme-id="dracula">
+                    <div class="theme-swatch-ring" style="border-color: #c084fc; background: #0d081a;">
+                        <span class="theme-swatch-core" style="background: #c084fc; box-shadow: 0 0 6px #c084fc;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🔮</span> Dracula Violet</span>
+                        <span class="theme-card-desc">Obsidian & Electric Lilac</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 9. Catppuccin Mocha -->
+                <button type="button" class="theme-card-option" data-theme-id="catppuccin">
+                    <div class="theme-swatch-ring" style="border-color: #cba6f7; background: #181825;">
+                        <span class="theme-swatch-core" style="background: #cba6f7; box-shadow: 0 0 6px #cba6f7;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🐱</span> Catppuccin</span>
+                        <span class="theme-card-desc">Velvet Slate & Lavender</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 10. Cosmic Nebula -->
+                <button type="button" class="theme-card-option" data-theme-id="nebula">
+                    <div class="theme-swatch-ring" style="border-color: #d946ef; background: #080414;">
+                        <span class="theme-swatch-core" style="background: #d946ef; box-shadow: 0 0 6px #d946ef;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🪐</span> Cosmic Nebula</span>
+                        <span class="theme-card-desc">Interstellar & Ultraviolet</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- Group 4: Blue / Cyan / Teal / Marine -->
+                <!-- 11. Cyberpunk Cyan -->
+                <button type="button" class="theme-card-option" data-theme-id="cyberpunk">
+                    <div class="theme-swatch-ring" style="border-color: #00f5d4; background: #000000;">
+                        <span class="theme-swatch-core" style="background: #00f5d4; box-shadow: 0 0 6px #00f5d4;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">💎</span> Cyberpunk Cyan</span>
+                        <span class="theme-card-desc">Neon Cyan & Black</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 12. Tokyo Night -->
+                <button type="button" class="theme-card-option" data-theme-id="tokyo">
+                    <div class="theme-swatch-ring" style="border-color: #7aa2f7; background: #1a1b26;">
+                        <span class="theme-swatch-core" style="background: #7aa2f7; box-shadow: 0 0 6px #7aa2f7;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🗼</span> Tokyo Night</span>
+                        <span class="theme-card-desc">Storm Indigo & Azure</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 13. Abyssal Blue -->
+                <button type="button" class="theme-card-option" data-theme-id="abyssal">
+                    <div class="theme-swatch-ring" style="border-color: #06b6d4; background: #020813;">
+                        <span class="theme-swatch-core" style="background: #06b6d4; box-shadow: 0 0 6px #06b6d4;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🌊</span> Abyssal Blue</span>
+                        <span class="theme-card-desc">Deep Trench & Teal</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 14. Cobalt Blue -->
+                <button type="button" class="theme-card-option" data-theme-id="cobalt">
+                    <div class="theme-swatch-ring" style="border-color: #3b82f6; background: #050814;">
+                        <span class="theme-swatch-core" style="background: #3b82f6; box-shadow: 0 0 6px #3b82f6;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🧿</span> Cobalt Blue</span>
+                        <span class="theme-card-desc">Midnight Ink & Azure</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- Group 5: Green / Cyber -->
+                <!-- 15. Matrix Emerald -->
+                <button type="button" class="theme-card-option" data-theme-id="matrix">
+                    <div class="theme-swatch-ring" style="border-color: #10b981; background: #000000;">
+                        <span class="theme-swatch-core" style="background: #10b981; box-shadow: 0 0 6px #10b981;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">📟</span> Matrix Emerald</span>
+                        <span class="theme-card-desc">Pitch Black & Hacker Green</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 16. EVA Mecha-01 -->
+                <button type="button" class="theme-card-option" data-theme-id="eva">
+                    <div class="theme-swatch-ring" style="border-color: #00ff66; background: #0e081c;">
+                        <span class="theme-swatch-core" style="background: #00ff66; box-shadow: 0 0 6px #00ff66;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🤖</span> EVA Mecha-01</span>
+                        <span class="theme-card-desc">Mecha Violet & Hyper Green</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- Group 6: Warm Earth & Hearth -->
+                <!-- 17. Sepia Warm Night -->
+                <button type="button" class="theme-card-option" data-theme-id="sepia">
+                    <div class="theme-swatch-ring" style="border-color: #e2a964; background: #15110e;">
+                        <span class="theme-swatch-core" style="background: #e2a964; box-shadow: 0 0 6px #e2a964;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">☕</span> Sepia Warm Night</span>
+                        <span class="theme-card-desc">Amber & Reading Paper</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 18. Gothic Ember -->
+                <button type="button" class="theme-card-option" data-theme-id="cathedral">
+                    <div class="theme-swatch-ring" style="border-color: #f59e0b; background: #0c0b0e;">
+                        <span class="theme-swatch-core" style="background: #f59e0b; box-shadow: 0 0 6px #f59e0b;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🕯️</span> Gothic Ember</span>
+                        <span class="theme-card-desc">Dark Slate & Warm Flame</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </div>`;
+
 class UCPMMobileHeader extends HTMLElement { connectedCallback() { this.insertAdjacentHTML('afterend', UCPMHeaderHTML); this.remove(); } }
 customElements.define('ucpm-mobile-header', UCPMMobileHeader);
 
@@ -341,6 +639,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initPwaInstallPrompt();
     initOfflineStatusBar();
+    initScrollReveal();
+    initThemePresetSystem();
 });
 
 // --- PWA Native Install Prompt Handler ---
@@ -440,7 +740,356 @@ function initOfflineStatusBar() {
     }
 }
 
+// --- Scroll Reveal for Below-The-Fold Cards ---
+function initScrollReveal() {
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
 
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('scroll-revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -20px 0px'
+    });
 
+    function observeNewElements() {
+        const items = document.querySelectorAll(
+            '.archive-card:nth-child(n+7):not(.scroll-revealed), ' +
+            '.guide-card:nth-child(n+7):not(.scroll-revealed), ' +
+            '.activity-card:nth-child(n+7):not(.scroll-revealed), ' +
+            '.scroll-reveal:not(.scroll-revealed)'
+        );
+        items.forEach(el => observer.observe(el));
+    }
 
+    observeNewElements();
 
+    const mainContent = document.querySelector('.main-content');
+    if (mainContent && window.MutationObserver) {
+        const mutObs = new MutationObserver(() => observeNewElements());
+        mutObs.observe(mainContent, { childList: true, subtree: true });
+    }
+}
+
+// --- MODEL B: Curated Theme Preset Engine & Circular View Transition System ---
+const UCPM_THEMES = {
+    // 1. Core / Neutral / High-Contrast
+    classic: { id: 'classic', name: 'Classic', icon: '🌕', fullName: 'Classic UCPM', color: '#d4af37' },
+    oled: { id: 'oled', name: 'OLED', icon: '🌑', fullName: 'OLED Midnight', color: '#ffd700' },
+    monochrome: { id: 'monochrome', name: 'Mono', icon: '⚪', fullName: 'Minimal Monochrome', color: '#ffffff' },
+    // 2. Pink / Magenta / Red / Peach
+    sakura: { id: 'sakura', name: 'Sakura', icon: '🌸', fullName: 'Sakura Neon', color: '#ff6b8b' },
+    synthwave: { id: 'synthwave', name: 'Synthwave', icon: '🌆', fullName: 'Synthwave 80s', color: '#f43f5e' },
+    peach: { id: 'peach', name: 'Peach', icon: '🍑', fullName: 'Peach Blossom', color: '#fb7185' },
+    arcade: { id: 'arcade', name: 'Arcade', icon: '🕹️', fullName: 'Arcade 1984', color: '#ff2a6d' },
+    // 3. Purple / Lilac / Ultraviolet
+    dracula: { id: 'dracula', name: 'Dracula', icon: '🔮', fullName: 'Dracula Violet', color: '#c084fc' },
+    catppuccin: { id: 'catppuccin', name: 'Catppuccin', icon: '🐱', fullName: 'Catppuccin Mocha', color: '#cba6f7' },
+    nebula: { id: 'nebula', name: 'Nebula', icon: '🪐', fullName: 'Cosmic Nebula', color: '#d946ef' },
+    // 4. Blue / Cyan / Teal / Marine
+    cyberpunk: { id: 'cyberpunk', name: 'Cyberpunk', icon: '💎', fullName: 'Cyberpunk Cyan', color: '#00f5d4' },
+    tokyo: { id: 'tokyo', name: 'Tokyo', icon: '🗼', fullName: 'Tokyo Night', color: '#7aa2f7' },
+    abyssal: { id: 'abyssal', name: 'Abyssal', icon: '🌊', fullName: 'Abyssal Blue', color: '#06b6d4' },
+    cobalt: { id: 'cobalt', name: 'Cobalt Blue', icon: '🧿', fullName: 'Cobalt Blue', color: '#3b82f6' },
+    // 5. Green / Cyber
+    matrix: { id: 'matrix', name: 'Matrix', icon: '📟', fullName: 'Matrix Emerald', color: '#10b981' },
+    eva: { id: 'eva', name: 'EVA-01', icon: '🤖', fullName: 'EVA Mecha-01', color: '#00ff66' },
+    // 6. Warm Earth & Hearth
+    sepia: { id: 'sepia', name: 'Sepia', icon: '☕', fullName: 'Sepia Warm Night', color: '#e2a964' },
+    cathedral: { id: 'cathedral', name: 'Gothic Ember', icon: '🕯️', fullName: 'Gothic Ember', color: '#f59e0b' }
+};
+
+function getActiveThemeId() {
+    const dataTheme = document.documentElement.getAttribute('data-theme');
+    if (dataTheme && UCPM_THEMES[dataTheme]) return dataTheme;
+    const stored = localStorage.getItem('ucpm_theme');
+    if (stored && UCPM_THEMES[stored]) return stored;
+    return 'classic';
+}
+
+let themeModalCloseTimer = null;
+
+function initThemePresetSystem() {
+    // Ensure modal container is mounted in DOM if not yet present
+    if (!document.getElementById('themePaletteModal')) {
+        document.body.insertAdjacentHTML('beforeend', UCPMThemeModalHTML);
+    }
+
+    const currentTheme = getActiveThemeId();
+    if (currentTheme === 'classic') {
+        document.documentElement.removeAttribute('data-theme');
+        try {
+            const stored = localStorage.getItem('ucpm_theme');
+            if (stored && !UCPM_THEMES[stored]) {
+                localStorage.setItem('ucpm_theme', 'classic');
+            }
+        } catch (e) {}
+    } else {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+    }
+    updateThemePresetUI(currentTheme);
+
+    // Global listener for opening theme palette
+    document.addEventListener('click', (e) => {
+        const toggleBtn = e.target.closest('.theme-toggle-btn');
+        if (toggleBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            openThemePaletteModal();
+            return;
+        }
+
+        // Close modal triggers
+        const closeBtn = e.target.closest('#closeThemeModalBtn');
+        const modalOverlay = e.target.closest('#themePaletteModal');
+        if (closeBtn || (modalOverlay && e.target === modalOverlay)) {
+            e.preventDefault();
+            if (themeModalCloseTimer) {
+                clearTimeout(themeModalCloseTimer);
+                themeModalCloseTimer = null;
+            }
+            closeThemePaletteModal();
+            return;
+        }
+
+        // Theme option click inside modal
+        const optionBtn = e.target.closest('.theme-card-option');
+        if (optionBtn) {
+            e.preventDefault();
+            const targetTheme = optionBtn.getAttribute('data-theme-id');
+            if (targetTheme) {
+                applyThemePreset(targetTheme, e);
+                if (themeModalCloseTimer) {
+                    clearTimeout(themeModalCloseTimer);
+                }
+                themeModalCloseTimer = setTimeout(() => {
+                    closeThemePaletteModal();
+                    // Also dismiss mobile drawer if open so user sees their new theme
+                    const drawer = document.getElementById('mobileMoreDrawer');
+                    if (drawer && drawer.classList.contains('active')) {
+                        drawer.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
+                    themeModalCloseTimer = null;
+                }, 950);
+            }
+        }
+    });
+
+    // Escape key to close modal
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            if (themeModalCloseTimer) {
+                clearTimeout(themeModalCloseTimer);
+                themeModalCloseTimer = null;
+            }
+            closeThemePaletteModal();
+        }
+    });
+}
+
+function openThemePaletteModal() {
+    if (themeModalCloseTimer) {
+        clearTimeout(themeModalCloseTimer);
+        themeModalCloseTimer = null;
+    }
+    const modal = document.getElementById('themePaletteModal');
+    if (!modal) return;
+    const currentTheme = getActiveThemeId();
+    updateThemePresetUI(currentTheme);
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeThemePaletteModal() {
+    if (themeModalCloseTimer) {
+        clearTimeout(themeModalCloseTimer);
+        themeModalCloseTimer = null;
+    }
+    const modal = document.getElementById('themePaletteModal');
+    if (!modal) return;
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+}
+
+function updateThemePresetUI(themeId) {
+    const theme = UCPM_THEMES[themeId] || UCPM_THEMES.classic;
+    const buttons = document.querySelectorAll('.theme-toggle-btn');
+    
+    buttons.forEach(btn => {
+        const iconEl = btn.querySelector('.theme-icon');
+        const textEl = btn.querySelector('.theme-label, .theme-text');
+        const shortTextEl = btn.querySelector('.theme-label-short');
+        const generalSpan = btn.querySelector('span:not(.theme-icon):not(.theme-label):not(.theme-label-short)');
+
+        if (iconEl) iconEl.textContent = theme.icon;
+        if (textEl) textEl.textContent = theme.name;
+        if (shortTextEl) shortTextEl.textContent = theme.name;
+        if (generalSpan && !textEl && !shortTextEl) generalSpan.textContent = theme.name;
+
+        btn.setAttribute('aria-label', `Theme: ${theme.fullName}. Tap to change.`);
+        btn.setAttribute('title', `Theme: ${theme.fullName}`);
+    });
+
+    // Update active highlight in modal options
+    const options = document.querySelectorAll('.theme-card-option');
+    options.forEach(opt => {
+        const optThemeId = opt.getAttribute('data-theme-id');
+        opt.classList.toggle('active', optThemeId === themeId);
+    });
+}
+
+function applyThemePreset(targetTheme, e) {
+    if (!UCPM_THEMES[targetTheme]) targetTheme = 'classic';
+
+    if (navigator.vibrate) {
+        try { navigator.vibrate(12); } catch (err) {}
+    }
+
+    const applyDOMChanges = () => {
+        if (targetTheme === 'classic') {
+            document.documentElement.removeAttribute('data-theme');
+            try { localStorage.setItem('ucpm_theme', 'classic'); } catch (err) {}
+        } else {
+            document.documentElement.setAttribute('data-theme', targetTheme);
+            try { localStorage.setItem('ucpm_theme', targetTheme); } catch (err) {}
+        }
+        updateThemePresetUI(targetTheme);
+
+        if (typeof showStatus === 'function') {
+            const themeInfo = UCPM_THEMES[targetTheme];
+            showStatus(`${themeInfo.icon} ${themeInfo.fullName} Activated`, 'success');
+        }
+    };
+
+    let x = window.innerWidth / 2;
+    let y = window.innerHeight / 2;
+
+    if (e) {
+        if (typeof e.clientX === 'number' && (e.clientX > 0 || e.clientY > 0)) {
+            x = e.clientX;
+            y = e.clientY;
+        } else if (e.touches && e.touches.length > 0) {
+            x = e.touches[0].clientX;
+            y = e.touches[0].clientY;
+        } else if (e.changedTouches && e.changedTouches.length > 0) {
+            x = e.changedTouches[0].clientX;
+            y = e.changedTouches[0].clientY;
+        } else {
+            const targetEl = (e.target && e.target.closest) 
+                ? e.target.closest('.theme-card-option, .theme-toggle-btn') 
+                : (e.currentTarget || e.target);
+            if (targetEl && typeof targetEl.getBoundingClientRect === 'function') {
+                const rect = targetEl.getBoundingClientRect();
+                x = rect.left + rect.width / 2;
+                y = rect.top + rect.height / 2;
+            }
+        }
+    }
+
+    const endRadius = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y)
+    );
+
+    const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (document.startViewTransition && !prefersReducedMotion) {
+        document.documentElement.classList.add('theme-ripple-active');
+        const transition = document.startViewTransition(() => {
+            applyDOMChanges();
+        });
+
+        const cleanupRipple = () => {
+            document.documentElement.classList.remove('theme-ripple-active');
+        };
+        if (transition.finished) {
+            transition.finished.finally(cleanupRipple);
+        } else {
+            setTimeout(cleanupRipple, 1000);
+        }
+
+        transition.ready.then(() => {
+            const clipPath = [
+                `circle(0px at ${x}px ${y}px)`,
+                `circle(${endRadius}px at ${x}px ${y}px)`
+            ];
+            document.documentElement.animate(
+                {
+                    clipPath: clipPath
+                },
+                {
+                    duration: 900,
+                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+                    pseudoElement: '::view-transition-new(root)'
+                }
+            );
+        }).catch(() => {
+            cleanupRipple();
+            applyDOMChanges();
+        });
+    } else if (!prefersReducedMotion) {
+        // Universal iOS Safari / Telegram WebView Shockwave Ripple (Hardware Accelerated via Web Animations API)
+        const themeInfo = UCPM_THEMES[targetTheme] || UCPM_THEMES.classic;
+        const accentColor = themeInfo.color || '#d4af37';
+        const rippleSize = Math.max(endRadius * 2.4, 600);
+
+        const rippleEl = document.createElement('div');
+        rippleEl.style.cssText = `
+            position: fixed;
+            left: ${x - rippleSize / 2}px;
+            top: ${y - rippleSize / 2}px;
+            width: ${rippleSize}px;
+            height: ${rippleSize}px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2147483647;
+            border: 4px solid ${accentColor};
+            background: radial-gradient(circle, ${accentColor}55 0%, ${accentColor}25 45%, transparent 70%);
+            box-shadow: 0 0 50px ${accentColor}, inset 0 0 30px ${accentColor};
+            transform: scale(0);
+            opacity: 1;
+            will-change: transform, opacity;
+        `;
+        document.body.appendChild(rippleEl);
+
+        try {
+            const anim = rippleEl.animate([
+                { transform: 'scale(0)', opacity: 1 },
+                { transform: 'scale(0.55)', opacity: 0.9, offset: 0.4 },
+                { transform: 'scale(1)', opacity: 0 }
+            ], {
+                duration: 850,
+                easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
+                fill: 'forwards'
+            });
+
+            anim.onfinish = () => {
+                if (rippleEl && rippleEl.parentNode) {
+                    rippleEl.parentNode.removeChild(rippleEl);
+                }
+            };
+        } catch (animErr) {
+            // Fallback for older engines
+            if (rippleEl && rippleEl.parentNode) {
+                rippleEl.parentNode.removeChild(rippleEl);
+            }
+        }
+
+        applyDOMChanges();
+
+        setTimeout(() => {
+            if (rippleEl && rippleEl.parentNode) {
+                rippleEl.parentNode.removeChild(rippleEl);
+            }
+        }, 900);
+    } else {
+        applyDOMChanges();
+    }
+}

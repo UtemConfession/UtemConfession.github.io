@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -33,7 +33,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.4">
+    <link rel="stylesheet" href="style.min.css?v=8.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
 
@@ -55,7 +55,7 @@
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
-    <script src="components.js"></script>
+    <script src="components.js?v=8.0"></script>
 </head>
 <body>
 
@@ -72,7 +72,7 @@
             </div>
             <!-- Sidebar Language Toggle -->
             <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
-                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(212, 175, 55, 0.4); color: var(--accent-gold); background: rgba(212, 175, 55, 0.05); border-radius: 6px; transition: all 0.2s;">
+                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); background: rgba(var(--accent-gold-rgb), 0.05); border-radius: 6px; transition: all 0.2s;">
                     Bahasa Melayu
                 </button>
             </div>
@@ -111,7 +111,7 @@
             </div>
 
             <!-- Guides Hero Header -->
-            <div class="guides-hero" style="background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(13, 21, 39, 0.95) 100%); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 18px; padding: 28px; margin-bottom: 28px; backdrop-filter: blur(12px);">
+            <div class="guides-hero" style="background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.1) 0%, rgba(13, 21, 39, 0.95) 100%); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); border-radius: 18px; padding: 28px; margin-bottom: 28px; backdrop-filter: blur(12px);">
                 <h1 class="guides-hero-title" style="font-size: 24px; font-weight: 800; color: var(--accent-gold); margin: 0 0 10px 0; display: flex; align-items: center; gap: 10px;">
                     <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z"/></svg>
                     <span id="heroTitle">UTeM Student Guides & Resources Hub</span>
@@ -127,7 +127,7 @@
                 <!-- Guide 1: GPA Calculator -->
                 <a href="guide-gpa-calculator.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagGpa" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Academic & Grading</span>
+                        <span class="guide-tag" id="tagGpa" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Academic & Grading</span>
                         <h2 class="guide-card-title" id="titleGpa" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM GPA & CGPA Calculation Guide</h2>
                         <p class="guide-card-snippet" id="snippetGpa" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Master UTeM's grading scale, credit hour formulas, Dean's List (Anugerah Dekan) requirements, and academic probation recovery strategies.</p>
                     </div>
@@ -140,7 +140,7 @@
                 <!-- Guide 2: Bus Transit -->
                 <a href="guide-campus-bus-transit.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagBus" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Campus Transit</span>
+                        <span class="guide-tag" id="tagBus" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Campus Transit</span>
                         <h2 class="guide-card-title" id="titleBus" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Shuttle Bus Routes & Schedule Guide</h2>
                         <p class="guide-card-snippet" id="snippetBus" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Essential transit information for traveling between Kampus Induk (Durian Tunggal), Kampus Teknologi (Ayer Keroh), and residential hostels.</p>
                     </div>
@@ -153,7 +153,7 @@
                 <!-- Guide 3: Freshman Survival -->
                 <a href="guide-freshman-survival.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagFreshman" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Orientation & Services</span>
+                        <span class="guide-tag" id="tagFreshman" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Orientation & Services</span>
                         <h2 class="guide-card-title" id="titleFreshman" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Freshman Survival Guide</h2>
                         <p class="guide-card-snippet" id="snippetFreshman" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Complete onboarding guide covering Perpustakaan Laman Hikmah (PLH), PKU medical center, Eduroam Wi-Fi configuration, and student portals.</p>
                     </div>
@@ -166,7 +166,7 @@
                 <!-- Guide 4: Past Year Exams -->
                 <a href="guide-past-year-exams.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagExam" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Exam Revision</span>
+                        <span class="guide-tag" id="tagExam" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Exam Revision</span>
                         <h2 class="guide-card-title" id="titleExam" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Past Year Exam Preparation Guide</h2>
                         <p class="guide-card-snippet" id="snippetExam" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">How to leverage past year examination paper repositories, organize syllabus revision, and comply with UTeM exam hall regulations.</p>
                     </div>
@@ -179,7 +179,7 @@
                 <!-- Guide 5: Top 10 Study Places -->
                 <a href="guide-top-10-study-places.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagStudy" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Campus Life & Academics</span>
+                        <span class="guide-tag" id="tagStudy" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Campus Life & Academics</span>
                         <h2 class="guide-card-title" id="titleStudy" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">Top 10 Best Study Places at UTeM</h2>
                         <p class="guide-card-snippet" id="snippetStudy" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Discover the best hidden gems and quiet spots for studying, completing assignments, and holding group discussions across UTeM campuses.</p>
                     </div>
@@ -192,7 +192,7 @@
                 <!-- Guide 6: Internship / LI -->
                 <a href="guide-internship-industrial-training.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagIntern" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Career & Practical Training</span>
+                        <span class="guide-tag" id="tagIntern" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Career & Practical Training</span>
                         <h2 class="guide-card-title" id="titleIntern" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Industrial Training (Latihan Industri) Guide</h2>
                         <p class="guide-card-snippet" id="snippetIntern" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Application timeline, top engineering & IT company placements in Melaka and Malaysia, allowances, and logbook evaluation.</p>
                     </div>
@@ -205,7 +205,7 @@
                 <!-- Guide 7: FYP / PSM -->
                 <a href="guide-final-year-project-fyp.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagFyp" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Research & Capstone</span>
+                        <span class="guide-tag" id="tagFyp" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Research & Capstone</span>
                         <h2 class="guide-card-title" id="titleFyp" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Final Year Project (FYP / PSM) Survival Roadmap</h2>
                         <p class="guide-card-snippet" id="snippetFyp" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Master PSM 1 and PSM 2 deliverables, supervisor selection, proposal defense, hardware sourcing, and thesis formatting standards.</p>
                     </div>
@@ -218,7 +218,7 @@
                 <!-- Guide 8: Course Registration & Add/Drop -->
                 <a href="guide-course-registration-add-drop.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagReg" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Enrollment & Advising</span>
+                        <span class="guide-tag" id="tagReg" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Enrollment & Advising</span>
                         <h2 class="guide-card-title" id="titleReg" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">Course Registration, Add/Drop & Credit Transfer Guide</h2>
                         <p class="guide-card-snippet" id="snippetReg" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">How to navigate credit limits, add/drop subjects without penalties, solve timetable clashes, and transfer diploma credits.</p>
                     </div>
@@ -231,7 +231,7 @@
                 <!-- Guide 9: Hostel Merit System -->
                 <a href="guide-hostel-kolej-kediaman-merit.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagHostel" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Hostel & Merits</span>
+                        <span class="guide-tag" id="tagHostel" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Hostel & Merits</span>
                         <h2 class="guide-card-title" id="titleHostel" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Kolej Kediaman (Hostel) Merit System Guide</h2>
                         <p class="guide-card-snippet" id="snippetHostel" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Learn how to earn student activity merits, apply for Kolej Satria/Lestari/Hang Tuah rooms, and appeal for on-campus housing.</p>
                     </div>
@@ -244,7 +244,7 @@
                 <!-- Guide 10: Off-Campus Rental -->
                 <a href="guide-off-campus-rental.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagRental" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Off-Campus Living</span>
+                        <span class="guide-tag" id="tagRental" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Off-Campus Living</span>
                         <h2 class="guide-card-title" id="titleRental" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Off-Campus House Rental Guide</h2>
                         <p class="guide-card-snippet" id="snippetRental" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Top student residential areas in Durian Tunggal and Ayer Keroh, rental price ranges, utilities breakdown, and tenancy checklists.</p>
                     </div>
@@ -257,7 +257,7 @@
                 <!-- Guide 11: Vehicle Sticker & Parking -->
                 <a href="guide-vehicle-sticker-parking.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagVehicle" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Transit & Parking</span>
+                        <span class="guide-tag" id="tagVehicle" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Transit & Parking</span>
                         <h2 class="guide-card-title" id="titleVehicle" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Vehicle Sticker & Campus Parking Guide</h2>
                         <p class="guide-card-snippet" id="snippetVehicle" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Vehicle eligibility, required documents for Pejabat Keselamatan, designated student parking bays, and traffic summons clearance.</p>
                     </div>
@@ -270,7 +270,7 @@
                 <!-- Guide 12: PTPTN Loan Guide -->
                 <a href="guide-ptptn-loan.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagPtptn" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Finance & Loans</span>
+                        <span class="guide-tag" id="tagPtptn" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Finance & Loans</span>
                         <h2 class="guide-card-title" id="titlePtptn" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">PTPTN Loan Guide for UTeM Students</h2>
                         <p class="guide-card-snippet" id="snippetPtptn" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Application workflow, semester disbursement schedule, GPA maintenance rules, and First Class Degree loan repayment exemption.</p>
                     </div>
@@ -283,7 +283,7 @@
                 <!-- Guide 13: Budget Living & Food -->
                 <a href="guide-budget-living-food.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagFood" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Food & Budgeting</span>
+                        <span class="guide-tag" id="tagFood" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Food & Budgeting</span>
                         <h2 class="guide-card-title" id="titleFood" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Budget Living & Affordable Makan Guide</h2>
                         <p class="guide-card-snippet" id="snippetFood" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Top cheap eats and cafeterias around Kampus Induk, Ayer Keroh, and Durian Tunggal, paired with a student monthly budget template.</p>
                     </div>
@@ -296,7 +296,7 @@
                 <!-- Guide 14: IT & Software Perks -->
                 <a href="guide-it-software-eduroam.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagIt" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Digital Services & Wi-Fi</span>
+                        <span class="guide-tag" id="tagIt" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Digital Services & Wi-Fi</span>
                         <h2 class="guide-card-title" id="titleIt" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM IT Setup: Free Microsoft 365, MATLAB & Eduroam</h2>
                         <p class="guide-card-snippet" id="snippetIt" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">How to activate free Office 365, 1TB OneDrive, MATLAB & CAD software licenses, and connect to Eduroam Wi-Fi securely.</p>
                     </div>
@@ -309,7 +309,7 @@
                 <!-- Guide 15: Campus Parking & Clamping -->
                 <a href="guide-campus-parking-clamping.html" class="guide-card" style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(13, 21, 39, 0.9) 100%); border: 1px solid var(--border-color); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; text-decoration: none !important; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);">
                     <div class="guide-card-header" style="display: flex; flex-direction: column; gap: 8px;">
-                        <span class="guide-tag" id="tagParking" style="align-self: flex-start; background: rgba(212, 175, 55, 0.12); color: var(--accent-gold); border: 1px solid rgba(212, 175, 55, 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Campus Living & Transport</span>
+                        <span class="guide-tag" id="tagParking" style="align-self: flex-start; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; text-transform: uppercase;">Campus Living & Transport</span>
                         <h2 class="guide-card-title" id="titleParking" style="font-size: 17px; font-weight: 700; color: var(--text-primary); margin: 0; line-height: 1.35;">UTeM Campus Parking Guide & Clamping Hotspots</h2>
                         <p class="guide-card-snippet" id="snippetParking" style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Authorized student parking zones, Polis Bantuan vehicle sticker rules, known clamping danger zones, and fine release procedures.</p>
                     </div>

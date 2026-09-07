@@ -1,17 +1,46 @@
 {
   "name": "UTeM Confession Pro Max",
   "short_name": "UCPM",
-  "description": "UTeM Confession Pro Max - Student Services & Resources Hub",
-  "start_url": "/index.html",
+  "description": "UTeM Confession Pro Max - Anonymous Confessions, Student Services & Resources Hub for Universiti Teknikal Malaysia Melaka",
+  "start_url": "index.html",
   "display": "standalone",
   "background_color": "#060b19",
   "theme_color": "#060b19",
+  "orientation": "portrait-primary",
+  "scope": "./",
   "icons": [
     {
       "src": "UCPMLogo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "UCPMLogo.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/screenshot-mobile.jpg",
+      "sizes": "768x1376",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "UTeM Confessions Mobile Dashboard"
+    },
+    {
+      "src": "screenshots/screenshot-desktop.jpg",
+      "sizes": "1376x768",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "UTeM Confessions Desktop Student Hub"
+    }
+  ],
+  "categories": [
+    "education",
+    "social",
+    "lifestyle"
   ]
 }

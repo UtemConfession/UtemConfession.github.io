@@ -41,7 +41,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=5.6">
+    <link rel="stylesheet" href="style.min.css?v=8.0">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815"
         crossorigin="anonymous"></script>
@@ -130,7 +130,7 @@
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
-    <script src="components.js"></script>
+    <script src="components.js?v=8.0"></script>
 </head>
 
 <body>
@@ -172,13 +172,13 @@
                                 style="border-color: var(--accent-gold); box-shadow: var(--glow-shadow);">
                                 <div class="form-label" style="color: var(--accent-gold);">Estimated CGPA</div>
                                 <div class="gpa-result-val" id="calculatedCgpa"
-                                    style="text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);">4.00</div>
+                                    style="text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.3);">4.00</div>
                             </div>
                         </div>
 
                         <!-- Anugerah Dekan Badge Container -->
                         <div id="deansListBadge"
-                            style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(212, 175, 55, 0.18) 0%, rgba(255, 215, 0, 0.08) 100%); border: 1px solid rgba(212, 175, 55, 0.4); color: var(--accent-gold); font-weight: 800; font-size: 13px; text-shadow: 0 0 8px rgba(212, 175, 55, 0.3); box-shadow: 0 0 14px rgba(212, 175, 55, 0.15);">
+                            style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.18) 0%, rgba(255, 215, 0, 0.08) 100%); border: 1px solid rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); font-weight: 800; font-size: 13px; text-shadow: 0 0 8px rgba(var(--accent-gold-rgb), 0.3); box-shadow: 0 0 14px rgba(var(--accent-gold-rgb), 0.15);">
                             🏆 Anugerah Dekan (Dean's List) Eligible!
                         </div>
 
@@ -226,7 +226,7 @@
                         </div>
 
                         <div id="gpaEstimationNote"
-                            style="display: none; font-size: 12.5px; color: var(--accent-gold); background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); padding: 8px 14px; border-radius: 8px; margin-top: 14px; text-align: center; font-weight: 600;">
+                            style="display: none; font-size: 12.5px; color: var(--accent-gold); background: rgba(var(--accent-gold-rgb), 0.1); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); padding: 8px 14px; border-radius: 8px; margin-top: 14px; text-align: center; font-weight: 600;">
                         </div>
                     </div>
                 </div>
@@ -239,7 +239,7 @@
             </div>
 
             <!-- Crawlable Feature-Specific SEO Overview Section -->
-            <section class="card content-card" style="margin-top: 20px; max-width: 100%; border-color: rgba(212, 175, 55, 0.25);">
+            <section class="card content-card" style="margin-top: 20px; max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
                 <h2 style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
@@ -257,7 +257,7 @@
                     <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 10px;" id="gpa_sec1_desc">
                         GPA is computed by dividing your <strong>Total Quality Points (Jumlah Nilai Mata)</strong> by your <strong>Total Registered Credit Hours (Jumlah Jam Kredit)</strong> for the semester:
                     </p>
-                    <div style="background: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); padding: 12px 16px; border-radius: 6px; font-family: monospace; font-size: 13px; color: var(--text-primary); margin-bottom: 12px;" id="gpa_formula1_box">
+                    <div style="background: rgba(var(--accent-gold-rgb), 0.08); border-left: 4px solid var(--accent-gold); padding: 12px 16px; border-radius: 6px; font-family: monospace; font-size: 13px; color: var(--text-primary); margin-bottom: 12px;" id="gpa_formula1_box">
                         GPA = Total (Credit Hours &times; Grade Point Value) &divide; Total Semester Credit Hours
                     </div>
                     <div style="background: rgba(59, 130, 246, 0.08); border-left: 4px solid #3b82f6; padding: 12px 16px; border-radius: 6px; font-family: monospace; font-size: 13px; color: var(--text-primary); margin-bottom: 12px;" id="gpa_formula2_box">
@@ -326,7 +326,7 @@
                         <li>Register and complete a minimum of <strong>12 graded credit hours</strong> (excluding non-graded audit or Pass/Fail courses like Kokurikulum).</li>
                         <li>Possess <strong>no failing grades (F/E)</strong> or incomplete grades (TL) in that semester.</li>
                     </ol>
-                    <div style="background: rgba(212, 175, 55, 0.08); border-left: 4px solid var(--accent-gold); padding: 12px 16px; border-radius: 6px;">
+                    <div style="background: rgba(var(--accent-gold-rgb), 0.08); border-left: 4px solid var(--accent-gold); padding: 12px 16px; border-radius: 6px;">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;" id="gpa_ptptn_waiver_title">🎓 PTPTN Loan-to-Scholarship Conversion (First Class)</strong>
                         <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.55;" id="gpa_ptptn_waiver_desc">Graduates completing their bachelor's degree with <strong>First Class Honours (CGPA &ge; 3.70)</strong> can apply for 100% PTPTN loan exemption through the myPTPTN portal within 12 months of official graduation.</span>
                     </div>
@@ -470,10 +470,10 @@
     <!-- Core Utilities & GPA Calculator Engine -->
     <script src="utils.min.js" defer></script>
     <script src="gpa.min.js" defer></script>
-    <script src="translation.min.js" defer></script>
+    <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
-    <script src="script.min.js" defer></script>
+    <script src="script.min.js?v=8.0" defer></script>
 
     <script src="ads.min.js" defer></script>
 

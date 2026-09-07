@@ -24,7 +24,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260726-095",
-        category: "Question",
+        category: "Discussion",
         content: "nak tanya, kalau nak apply sticker kenderaan (moto) , nak kena tunggu masuk sem baru dulu ke? I means kena tunggu hari waktu ii tertentu ke baru boleh apply? faham tak? (saya student year 2 sem 1 soon)",
         reply: "↳ tunggu masuk sem kot, takpun lepas result. try check smp, dia dah kira awak y2s1 ke belum. kalau dah, cuba mohon sticker. hehe harap membantu\n\n↳ nk apply sticker kt mana?? klu y2s1 nk apply sticker for kereta bole ke\n\n↳ pergi dekat smp, kat menu depan tu kan ada spku. tekan spku tu n nanti dia guide macam mana nak mohon. syarat mohon sticker pulak, kalau y2s1 boleh apply moto je. y2s2 baru boleh mohon kete. tu pun kena pilih salah satu, takleh dua dua. harap membantuu",
         emotion: "Curious",
@@ -44,7 +44,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260726-093",
-        category: "Question",
+        category: "Discussion",
         content: "nak mintak pendapat. adik bongsu i sangat sangat biadab + pemalas. kalau tegur atau mintak tlg sikit terus melawan. bak kata dia, ' respect needs to be earned' . dia nak makan mahal, I belanja. nak camera, nak baju, semua i belanja. sikit pun i tak pernah berkira. parents i pulak enabler. for example, i tegur dia jangan campak mainan dekat anak buah ( 10 bulan) sebab mainannya keras, nanti kena, sakit. dia terus melawan ya. mak i pulak marah i. disebabkan dia dah kurang hajar, of course la i dah tak belanja TAPI parents i pulak terus belikan sebab kesian. mak i suruh dia mandi pun dia melawan tau in a rude manner. i dah tegur pun dia tak terima. macam mana ek? I dah slow talk lepastu dah stop belanja dia barang tapi tak jalan. ke nak biarkan je sebab dia tengah going through puberty.",
         reply: "↳ for me, u tegur je dia..kecik kecik ni kita kena lentur dia. jangan biarkan dia macamtu\n\n↳ aku stuju yg \"respect needs to be earned\" tapi utk context ni aku tk stuju la sbb kan kita dah layan dia cukup baik dah, lebih drpd tu pun ada, cuma dia je yg makin menjadi jadi, so mmg kita marah la klu dia tk hormat kita, sbb apa yg dia nk semua kita dh bagi kan, apa lagi yg tk ckup, ayat yg respect bla bla bla fu terpakai klu let say before this kita selalu berkasar dgn dia then kita expect dia respect kita, tu valid gak la klu dia nk kata camtuh",
         emotion: "Conflicted",
@@ -82,7 +82,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260726-089",
-        category: "Question",
+        category: "Discussion",
         content: "korang tahu tk negeri mana paling bahagia",
         reply: "↳ asal bro? kau nak pindah negeri ke bro\n\n↳ KEDAHH\n\n↳ konoha paling bahagia\n\n↳ Mana lagi? Melaka lerr\n\n↳ random ya amatt\n\n↳ negeri hok ada kepok\n\n↳ Macam kenal je ayat ni...Ni abang rooney melaka ke?\n\n↳ Kelateyy lahhh... Sek kito jange pecohh🫂🫂🫂\n\n↳ Halamak semak dohh muncul negeri sungai teh ais ni",
         emotion: "Funny",
@@ -101,7 +101,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260726-087",
-        category: "Question",
+        category: "Discussion",
         content: "weh serious nak tanya ni berbaloi tak kerja cashier dekat station minyak? sebab selalu dengar org cakap kalau duit short kena potong gaji lepastu short bukan sikit ii selalu beratus",
         reply: "↳ ye sangat benar nk2 pulak kau plg muda patu coworker yg lain semua toxic tambah lagi bos pp muda belum kawin mmg diorang pijak je kau nnti\n\n↳ haduh betul la ek, tempat lain memang tak dapat keja nii sebab taknak ambik student",
         emotion: "Curious",
@@ -161,7 +161,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260726-081",
-        category: "Question",
+        category: "Discussion",
         content: "Guys welp....\nNo one wants to hire for 2 months availability \nSome people say, don't tell them that you're temporary, pretend like youre a full timer then leave as per notice required\nI did that at my previous job, it didn't end well\nCan someone pls suggest what to do. I need job 😫",
         reply: "↳ apply la online jgk astu filter part timer , kt indeed , jobstreet n other job platform. selalunya kalu gi walk in diorg bkn nk sgt pun accept . + bila part time flexible je aku okay je time nk masuk ckp keje 2 bulan lebih but bila dh keje rse nk berhenti so keje sbulan lebih je. diorg pon okay tk kesah\n\n↳ Not many job at my area💔",
         emotion: "Anxious",
@@ -171,7 +171,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260726-080",
-        category: "Question",
+        category: "Discussion",
         content: "gaji part time memang sikit ke ? penat penat kerja sebulan, 900 je gaji i ? elaun parents i bagi lagi banyak kot. should i berhenti je ?",
         reply: "↳ yes let others who in need do the part time\n\n↳ Unfortunately benda ni not regulated so memang kerja part time mana2 underpaid sebab mereka tahu students ramai setakat nak kerja je. Tapi kalau sebagai duit extra macam tu je la yg mampu…\n\n↳ yes, you should berhenti and just stay under jagaan parents. dasar budak tak bersyukur.\n\n↳ kau kerja apa and berapa hari and jam kau kerja ?\n\n↳ korang memang tak pernah nak try kerja kat kilang ke? gaji sehari rm100+ kalau OT kalau tak OT rm80+- tgk kilang ada yang kerja sampai weekend sebulan boleh dapat rm2.5k+- kalau nak cuti pun agent tak kisah\n\n↳ area aku susah nk dapat kilang..cane nk dapat means kau cakap kau tengah cuti sem ke?\n\n↳ kat facebook banyak orang cari part time kat kilang, dia tak kisah pun kau cuti sem ke apa, kau nak kerja seminggu je pun takpe\n\n↳ area mana tu",
         emotion: "Curious",
@@ -201,7 +201,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260726-077",
-        category: "Question",
+        category: "Discussion",
         content: "am i wrong for feeling this way ? so last week was my birthday so i asked my family if they could come since i havent seen them for so long and they have only come here once during 2025, my parents said no eventho my father work from home and my mom is a housewife. it only took 2 hours from my house to utem bro. but then my bf asked me if i want to celebrate my birthday with his family ( it was his father who offered ), i said yes and his family drove 4 hours to utem just to see me, they bought so many things for me and even tapau extra food for me to take to hostel. so i feel like i love my bf’s family more rather than mine. and mind you i have lived with my family for 19 years and they never celebrated my birthday and i have known my bf’s family for only 2 years…",
         reply: "↳ It’s not wrong for you to feel that way ngl. There’s a saying, the blood of the covenant is thicker than the water of the womb. Which means the close friends or comrades, even family you choose are stronger and more important than the family you were born into. So don’t sideline your family, but do recognise that the relationship you have with your bf’s family is closer than you have with your parents. I wish you the best :)\n\n↳ Pengorbanan 19 tahun mak ayah tak boleh ditukar ganti dengan kemewahan sehari dari orang luar. Sentak fikiran tu sebelum kau menyesal tak berlagu.\n\n↳ you dont know anything about what i have been through, i had to get a part time just so i could afford to continue my study here, they werent even there for me emotionally and physically, kat rumah kitorang dah macam housemate je, dulu aku sekolah rendah sampai smk aku gi sendiri jalan kaki, parents tak bagi keluar or kerja langsung and i had to sneak out just so i could do weekend job. kau dapat family yang elok, kau diam je.",
         emotion: "Conflicted",
@@ -221,7 +221,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260725-075",
-        category: "Question",
+        category: "Discussion",
         content: "Wei asal korang x blik lgi dowh..blikla best sgt ke utem tu",
         reply: "↳ For me best... Sebab balik rumah... Rumah pun x de apa... Nak cari kerja time cuti ni kat kawasan situ... Pekannya pun dah hampir jadi pekan mati.",
         emotion: "Curious",
@@ -231,7 +231,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260725-074",
-        category: "Question",
+        category: "Discussion",
         content: "korang , nak tanya pendapat korang la kalau korang kt tmpt aku , korang rimas tak parents korang asyik video call kita ? hari hari dia akan vc , and bila tak angkat dia akan spam ii gila mcmtu ? tkdela kadang time kita rehat seharian ada class , takpun time weekend kita baru nak rehat hmmm , salah ke kalau rasa rimas hmm , kalau chat ok je reply part video call cam hmm , kalau call biasa ok lagi .",
         reply: "↳ rasanya diorang rindu sebab tu nak video call . syukur ada parents yang nak video call boleh rant out problems, lepaskan beban study, masalah dekat uni, but if betul2 penat just angkat and kata nak tido kejap sebab baru habis class, they’re your parents should be communicate dengan diorang\n\n↳ ya i pun serba salah kalau tk angkat ,tapi i kalau tk angkat time tu , bila i dh free i akan vc balik, tapi perlu ke hari ii vc tu hm, kalau betul rindu call chat pun bole , bukan tk suka vc but kene kurangkan bukan harhari betultak ke i salah juga :)\n\n↳ Hargaila selagi masih ada nnti dh tkde rindu 😔\n\n↳ Gf/ Bf, kawan ii vc mesti ko x rasa semak kan. Hari ii pun takpe\n\n↳ pandai kondem je ,isu dekat sikit pasal family nk ckp anak tu yg problem , cuba kau duduk stable dgn dia , apa yg dia hadap dgn family dia , mesti ada sbb dia jadi camtu . dh kalau ckp vc bf gf kawan sendiri pun aku semak lol",
         emotion: "Conflicted",
@@ -356,7 +356,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260724-061",
-        category: "Question",
+        category: "Discussion",
         content: "hi so if you are \"ldr\"-ing with your partner and you want on the phone more with them to spend time and getting closed to each other and they replied with \"texting ni bukan spend time ke\" how would you feel?",
         emotion: "Curious",
         tags: "ldr, relationship, call, texting, spend time, komunikasi, pasangan",
@@ -394,7 +394,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260724-057",
-        category: "Question",
+        category: "Discussion",
         content: "kenapa korang risau sangat partner korang ada kawan lain jantina? my bf kawan perempuan keliling pinggang, keluar makan semua, keluar badminton. i okay je. boleh buat kawan lagi dengan dorang cuz i dont have many kawan perempuan, but he's friendly and ramah mesra alam, so i just make friends with em too. korang ni trust issue sangat. cuba positive. just because he or she is your partner, doesnt mean they need to avoid others. just trust each other, and kalau nak keluar tu, just bagitau, \"i keluar dengan dia dia, be home at sekian sekian sekian\"",
         reply: "↳ oh my ex that claim i treated him like patung tu need to read this openly. sampai lupa habis semua treatment dan hadiah beratus aku bagi. aku pulak innocent. orang nak buat apa pun, aku iyekan je. lepas tu taknak fight langsung untuk relationship. jadi baik dan innocent je tak cukup, kena jadi cantik dan ada standard baru lelaki pandang. kena mintak benda mahal mahal, baru lelaki rasa nak fight untuk kita to satisfy their ego, betul tak?\n\n↳ actually , kalau situation nya macam tu . I will be fine tapi tak. situation dia tak sama langsung. tak kesah pun kalau dia nak kawan dengan gender apa pun tapi if i need him pls ada dengan i tapi tidak. time i ada masalah, dia lagi prioritize kan kawan pp dia. dia boleh dengar kawan dia but not me.\n\n↳ da kalau begitu perangai laki awak.. tinggal je la.. simple\n\n↳ right, betul . tinggal je but kalau dah sayang tak senang juga kan ?",
         emotion: "Curious",
@@ -423,7 +423,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260724-054",
-        category: "Question",
+        category: "Discussion",
         content: "cane korang boleh ada relationship banyak kali eh? masa tengah cpl tu korang memang tak fikir untuk jadikan dia suami/isteri korang ke?",
         reply: "↳ tk sbb mase mula mula dating dah tunjuk prngai  😁\n\n↳ bukan. itu talking stage namanya. maksud aku dah cpl setahun dua, lepas tu break. lepas tu cane seseorang individu tu boleh ada rasa lagi nak start dengan orang baru? bukan ke true love tu hanya datang sekali? sorry kalau cringe. broken ni\n\n↳ BAHAHAHAH FAHAM, tak dia kadang kita rasa mcm oky kot if try for a second time. nk pulak klau break tu bukan salah ko, move on jela and ofc makan masa. tkdela lepas break terus cpl lgi\n\n↳ gitu ye? susahla nak move on. kawan diploma aku dah break 7 tahun lepas dengan first love dia, sampai sekarang dia asyik menangis. aku dah nampak aku akan jadi macam dia bahahaha\n\n↳ 😄.... kalau dah 7years to maybe serious issue tpi lain org lain la masa dia amik soo follow the flow je and if kau tk ready nak open to new person, dont do it.\n\n↳ baik. maceh semua atas nasihat",
         emotion: "Curious",
@@ -531,7 +531,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260724-043",
-        category: "Question",
+        category: "Discussion",
         content: "Ada tak yang pernah parents datang ambil pkl 12 malam? Boleh keluar gate kampus tak?",
         reply: "↳ nak keluar gate takde curfew, masuk je yang ada curfew before 12, suruh parents dtng before 12am pastu keluar la bila2",
         emotion: "Curious",
@@ -627,7 +627,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260722-033",
-        category: "Question",
+        category: "Discussion",
         content: "i cant do this anymore. nak berhenti utem je rasanya ni. why bila nak study je, rasa tak semangat, tak masuk brain, rasa sedih, takut. what if nobody proud of me bila grad nanti? cause i cant be proud of myself. cane eh korang korang yang cakap just go with the flow ni? when i ask others, ramai yang cakap \"aku sendiri taktau apa aku buat. aku taktau aku jawab apa. main bantai\" but still managed to got gpa 3.0 😭 while me every subject i just got D with gpa bawah 3 every fcking sem",
         reply: "↳ - urmm ignore other people opinion first of all, just go hard for yourself always thinking positive not negative, just take care of yourself first before other people, its hard to remember all thing, but you understand yourself better, its has to be a method that only yourself can understand, try it, make it better, and go through with it, maybe with Allah SWT rezeki you will get it, if not keep on sabr, its will be good someday we will never know rezeki coming to us in many ways.",
         emotion: "Frustrated",
@@ -687,7 +687,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260722-027",
-        category: "Question",
+        category: "Discussion",
         content: "Yo js nk tanya utem strict sgt ke color rmbut sbb malas nk color balik",
         reply: "↳ kalau tak menyerlah sangat takpe kot. aku colour chestnut brown tak pernah plakk kena tegur ke apa. aku rasa utem paling tk strict bab pemakaian semua ni",
         emotion: "Curious",
@@ -697,7 +697,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260722-026",
-        category: "Question",
+        category: "Discussion",
         content: "Nk tanya, korang kalau tengok orang perempuan selalu sorang-sorang(Alone), korang cakap apa",
         reply: "↳ means dia hebat. sometimes dia memang sengaja push me people away. in her own world. kalau nak tegur tu, just say hai. but she will be very observant (kot) depends on people. like me ehee",
         emotion: "Curious",
@@ -727,7 +727,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260722-023",
-        category: "Question",
+        category: "Discussion",
         content: "Nak tanya, berbaloi ke ambil sem khas? Satu subject berapa ye? Usually sem khas ni berapa lama?",
         reply: "↳ sem khas ada 10 minggu, pastu tak silap yuran macam sama je kot\n\n↳ Sempat ke tak balik atau memang tak sempat?\n\n↳ memang takkan balik 😅",
         emotion: "Curious",
@@ -767,7 +767,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260722-019",
-        category: "Question",
+        category: "Discussion",
         content: "Assalam tumpang tanya memang setiap tahun or setiap sesi memang subject yang diambil tu memang berubah ii eh.. means budak tahun 1 sesi 25/26 punya subject tu tak sama eh dia punya subject dengan budak tahun 1 sesi 24/25 walaupun sama course?",
         reply: "↳ ada subject open setiap sem, ada jugak yang open dua sem sekali je. kena tengok demand subject tu. contoh kau nak repeat subject yang kau ambil masa tahun 1 sem 2, tapi tak open masa tahun 2 sem 1. jadi kau kena ambil tahun 2 sem 2. gitu. incase la kalau memang nak ambik subject tu boleh try minta tolong PA.\n\n↳ Oh faham cuma tu lah saya just tanya sbb sem ni saya ambik subject discrete structure.. btw saya tahun 1 bitc.. and then saya ada la jugak tanya senior yang course bitc jugak.. then dia kata yang discrete structure tu dia tak pernah ambik then dia kata lagi tu subject baru.. ye lah sebab discrete structure takde pyq.. tu yang terpaksa tanya senior tu.. tapi bila dah kata gitu so sumber nak revise tu jadi terhad lah.. tu yang saya tanya pasal subject course tu\n\n↳ mungkin awak bole tanya senior tu based on chapter apa yang ada dalama subjek awak belajar tu. maybe nama subjek tu je rebrand atau coordinator combine beberapa subjek dalam satu subjek. pyq maybe awak bole rujuk those subjects\n\n↳ Faham ii.. terima kasih ya atas penjelasan.. semoga awak dikurniakan 4.00 setiap sem and also dapat ANC time graduate nanti",
         emotion: "Curious",
@@ -850,7 +850,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260721-010",
-        category: "Question",
+        category: "Discussion",
         content: "apa function short sem ni? bukannya satu tahun 2 sem je ke",
         reply: "↳ salah satunya untuk cantikkan gred. contoh kau ambik subjek data structure tapi gred cukup makan je pastu nak repeat pulak tak boleh, jadi ambillah subjek tu lagi masa short sem untuk naikkan gred. memangla gred asal tu lulus, tapi nak grad tak lawa la.",
         emotion: "Curious",
@@ -878,7 +878,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260720-007",
-        category: "Question",
+        category: "Discussion",
         content: "Macam mana nak puji perempuan tapi tak nak offence dia...",
         emotion: "Curious",
         tags: "puji, tips, relationship, nasihat",
@@ -896,7 +896,7 @@ const archiveData = [
     },
     {
         archiveId: "ARC-20260720-005",
-        category: "Question",
+        category: "Discussion",
         content: "should i confess?? tapi dia baik sangat , and rasa bersalah untuk confess takut friendship rosak , dah kenal dalam 3 sem till now , dia pon hanya bercakap dengan saya je , hmm cane ek , lagi 2 sem nak intern dah nnti ending dia tkkn terpisah mcmtu je kan?? ke patut simpan je perasaan ni",
         emotion: "Anxious",
         tags: "confess, crush, friendship, intern",
@@ -927,7 +927,7 @@ const archiveData = [
         category: "Funny",
         content: "Everyday i wondered, “why are the birds so loud?” Are they fighting? Mating? Social call? \nEvery day. Every night. Theyre always so loud. But i never saw these birds. For the whole semester. Today i realised, thats the sound of the washing machines. Bye utem.",
         emotion: "Funny",
-        tags: "washing machine, birds, hostel, funny",
+        tags: "washing machine, birds, laundry, funny",
         date: "2026-07-20 10:15",
         telegramLink: ""
     },

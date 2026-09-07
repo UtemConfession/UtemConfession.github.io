@@ -31,6 +31,9 @@ const translations = {
         mobile_nav_library: "Library",
         mobile_nav_marketplace: "Marketplace",
         mobile_nav_scholarships: "Scholarship",
+        drawer_services: "Services",
+        theme_modal_title: "Curated Themes",
+        theme_modal_sub: "Choose your preferred aesthetic style",
 
         title_important_links: "UTeM Wi-Fi & Links",
         desc_important_links: "Quick access to campus Wi-Fi credentials, LibProxy registration, VPN setup, official portals, and student channels.",
@@ -854,6 +857,9 @@ const translations = {
         mobile_nav_library: "Perpustakaan",
         mobile_nav_marketplace: "Pasar",
         mobile_nav_scholarships: "Biasiswa",
+        drawer_services: "Perkhidmatan",
+        theme_modal_title: "Pilih Tema",
+        theme_modal_sub: "Pilih tema visual kegemaran anda",
 
         title_important_links: "Wi-Fi & Pautan Rasmi UTeM",
         desc_important_links: "Akses pantas ke kata laluan Wi-Fi kampus, panduan LibProxy, persediaan VPN, portal rasmi, dan saluran pelajar.",
@@ -1768,19 +1774,32 @@ function setLanguage(lang) {
         }
     });
 
-    // 3. Language toggle buttons
+    // 3. Language toggle buttons & drawer/theme modal strings
     const desktopToggle = document.getElementById("desktopLangToggle");
     const mobileToggle  = document.getElementById("mobileLangToggle") || document.getElementById("mobileLangToggleOld");
     const drawerToggle  = document.getElementById("drawerLangToggle");
-    const toggleLabel   = lang === "en" ? "Bahasa Melayu" : "English";
+    const toggleLabel   = lang === "en" ? "BM" : "EN";
+    const langAria      = lang === "en" ? "Switch to Bahasa Melayu" : "Tukar ke Bahasa Inggeris";
     
-    if (desktopToggle) desktopToggle.textContent = toggleLabel;
-    if (mobileToggle)  mobileToggle.textContent  = toggleLabel;
-    if (drawerToggle) {
-        const span = drawerToggle.querySelector("span");
-        if (span) span.textContent = toggleLabel;
-        else drawerToggle.textContent = toggleLabel;
-    }
+    [desktopToggle, mobileToggle, drawerToggle].forEach(btn => {
+        if (!btn) return;
+        const span = btn.querySelector("span");
+        if (span) {
+            span.textContent = toggleLabel;
+        } else {
+            btn.textContent = toggleLabel;
+        }
+        btn.setAttribute("aria-label", langAria);
+        btn.setAttribute("title", langAria);
+    });
+
+    const drawerTitle = document.getElementById("drawerHeaderTitle");
+    if (drawerTitle) drawerTitle.textContent = t.drawer_services || (lang === "en" ? "Services" : "Perkhidmatan");
+
+    const themeModalHeading = document.getElementById("themeModalHeading");
+    if (themeModalHeading) themeModalHeading.textContent = t.theme_modal_title || (lang === "en" ? "Curated Themes" : "Pilih Tema");
+    const themeModalSub = document.querySelector(".theme-modal-sub");
+    if (themeModalSub) themeModalSub.textContent = t.theme_modal_sub || (lang === "en" ? "Choose your preferred aesthetic style" : "Pilih tema visual kegemaran anda");
 
     const langSwitchLabel = document.getElementById("langSwitchLabel");
     if (langSwitchLabel) langSwitchLabel.textContent = t.lang_label;
