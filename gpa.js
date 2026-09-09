@@ -234,33 +234,6 @@ if (clearGpaBtn) {
 if (prevCgpaInput) prevCgpaInput.addEventListener("input", calculateGpa);
 if (prevCreditsInput) prevCreditsInput.addEventListener("input", calculateGpa);
 
-// Course Lookup & Auto-Fill Handler
-const btnAutoFillCourse = document.getElementById("btnAutoFillCourse");
-const courseLookupSelect = document.getElementById("courseLookupSelect");
-
-if (btnAutoFillCourse && courseLookupSelect) {
-    btnAutoFillCourse.addEventListener("click", () => {
-        const val = courseLookupSelect.value;
-        if (!val) {
-            if (typeof showToast === "function") {
-                showToast("Please choose a course code from the dropdown.", "warning");
-            }
-            return;
-        }
-
-        const parts = val.split("|");
-        if (parts.length >= 3) {
-            const courseTitle = `${parts[0]} - ${parts[1]}`;
-            const credits = parseInt(parts[2], 10) || 3;
-            addCalculatorRow(courseTitle, credits, 'A');
-            calculateGpa();
-            if (typeof showToast === "function") {
-                showToast(`➕ Added ${courseTitle} (${credits} Credits) to calculator!`, "success");
-            }
-        }
-    });
-}
-
 function initGpaCalculator() {
     if (!gpaRowsContainer) return;
     const restored = restoreGpaState();

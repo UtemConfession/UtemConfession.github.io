@@ -405,7 +405,15 @@
             const desktopToggle = document.getElementById("desktopLangToggle");
             const mobileToggle = document.getElementById("mobileLangToggle");
             if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
-            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
+            if (mobileToggle) {
+                const span = mobileToggle.querySelector("span");
+                const label = lang === "en" ? "BM" : "EN";
+                if (span) span.textContent = label;
+                else mobileToggle.textContent = label;
+                const langAria = lang === "en" ? "Switch to Bahasa Melayu" : "Tukar ke Bahasa Inggeris";
+                mobileToggle.setAttribute("aria-label", langAria);
+                mobileToggle.setAttribute("title", langAria);
+            }
         }
 
         function toggleLanguage() {

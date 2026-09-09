@@ -130,47 +130,7 @@
 
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
 
-                        <!-- CARD 1: UTEM HELPDESK (HELP.UTEM.EDU.MY) -->
-                        <div
-                            style="background: rgba(13, 21, 39, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 0 16px rgba(var(--accent-gold-rgb), 0.15); position: relative; overflow: hidden; grid-column: 1 / -1;">
-                            <div
-                                style="position: absolute; top: 0; left: 0; width: 100%; height: 3.5px; background: var(--gold-gradient);">
-                            </div>
-                            <div
-                                style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
-                                <div style="display: flex; align-items: center; gap: 10px;">
-                                    <div
-                                        style="width: 38px; height: 38px; border-radius: 10px; background: rgba(var(--accent-gold-rgb), 0.2); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; box-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.3);">
-                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                            <path
-                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z" />
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <h3
-                                            style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">
-                                            UTeM Helpdesk (ServiceDesk)</h3>
-                                        <span style="font-size: 11px; color: var(--accent-gold); font-weight: 600;">IT &
-                                            Admin Portal (help.utem.edu.my)</span>
-                                    </div>
-                                </div>
-                                <span
-                                    style="background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); padding: 3px 10px; border-radius: 12px; font-size: 10.5px; font-weight: 800; border: 1px solid rgba(var(--accent-gold-rgb), 0.3);">
-                                    Official Support
-                                </span>
-                            </div>
-                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;">
-                                Official UTeM ServiceDesk portal for submitting ICT support tickets, Wi-Fi
-                                troubleshooting, portal login resets, campus maintenance, and general student inquiries.
-                            </p>
-                            <a href="https://help.utem.edu.my" target="_blank" rel="noopener noreferrer"
-                                class="btn btn-primary btn-sm"
-                                style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; font-weight: 700; width: fit-content;">
-                                Open UTeM Helpdesk Portal ➔
-                            </a>
-                        </div>
-
-                        <!-- CARD 2: UTEM WI-FI & CAMPUS PASSWORDS SETUP GUIDE -->
+                        <!-- CARD 1: UTEM WI-FI & CAMPUS PASSWORDS SETUP GUIDE -->
                         <div
                             style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; display: flex; flex-direction: column; gap: 10px; grid-column: 1 / -1;">
                             <div
@@ -253,6 +213,227 @@
                                     </ul>
                                 </div>
                             </div>
+
+                            <!-- INTERACTIVE DEVICE SETUP ASSISTANT & AUTO-CONFIGURATOR -->
+                            <div style="border-top: 1px solid var(--border-color); padding-top: 16px; margin-top: 14px;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                                    <div>
+                                        <h4 style="font-size: 13.5px; font-weight: 700; color: var(--accent-gold); margin: 0; display: flex; align-items: center; gap: 6px;" id="labelWifiAssistant">
+                                            🛠️ Device Enterprise Configurator &amp; Smart Bypass
+                                        </h4>
+                                        <span style="font-size: 11.5px; color: var(--text-muted);" id="subWifiAssistant">
+                                            Select your OS for exact drop-down parameters or download a 1-tap Apple profile:
+                                        </span>
+                                    </div>
+                                    <span style="font-size: 10.5px; background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-weight: 700;">
+                                        WPA2 Enterprise 802.1X
+                                    </span>
+                                </div>
+
+                                <!-- Segmented OS Selector Pills -->
+                                <div class="wifi-os-selector" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;">
+                                    <button type="button" class="wifi-os-btn active" data-os="android">
+                                        🤖 Android 11–14+
+                                    </button>
+                                    <button type="button" class="wifi-os-btn" data-os="apple">
+                                        🍎 iOS / macOS (1-Tap Profile)
+                                    </button>
+                                    <button type="button" class="wifi-os-btn" data-os="windows">
+                                        🪟 Windows 10/11
+                                    </button>
+                                    <button type="button" class="wifi-os-btn" data-os="console">
+                                        🎮 Hostel Consoles &amp; Smart TV
+                                    </button>
+                                </div>
+
+                                <!-- Dynamic OS Content Box (Rendered by wifi.js) -->
+                                <div id="wifiOsContentBox" style="background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); border-radius: 10px; padding: 16px; font-size: 12.5px; line-height: 1.6;">
+                                    <!-- Injected by wifi.js -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- INTERACTIVE CAMPUS NETWORK LATENCY & PORTAL HEALTH CHECK -->
+                        <div class="network-radar-card" id="networkRadarCard">
+                            <div class="network-radar-header">
+                                <div class="network-radar-title-group">
+                                    <div class="network-radar-icon-box" id="radarIconBox">
+                                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12.55a11 11 0 0 1 14.08 0"></path>
+                                            <path d="M1.42 9a16 16 0 0 1 21.16 0"></path>
+                                            <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                                            <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="network-radar-title">
+                                            <span id="wifiRadarTitle">Campus Network & Portal Health Radar</span>
+                                        </h3>
+                                        <p class="network-radar-subtitle" id="wifiRadarSub">
+                                            Live latency diagnostics & reachability check for UTeM portals and gateway servers
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="network-radar-actions">
+                                    <div class="network-device-pill" id="deviceStatusPill" title="Local Device Network Status">
+                                        <span class="pulse-indicator-dot online" id="deviceStatusDot"></span>
+                                        <span id="deviceStatusText">Online</span>
+                                        <span class="device-tech-badge" id="deviceTechBadge">Wi-Fi</span>
+                                    </div>
+                                    <button type="button" class="btn-radar-test" id="btnRunNetworkTest">
+                                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                            <polyline points="23 4 23 10 17 10"></polyline>
+                                            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                                        </svg>
+                                        <span id="btnRunTestText">Test Latency</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Real-time Service Latency Grid (2-Column Grid, Zero Collisions) -->
+                            <div class="network-services-grid" id="networkServicesGrid">
+                                <!-- Service 1: i-UTeM Student Portal -->
+                                <div class="network-service-card" data-service="portal">
+                                    <div class="service-card-header">
+                                        <div class="service-icon-wrap portal-icon" title="i-UTeM Academic OAS & Exam Slips">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                            </svg>
+                                        </div>
+                                        <div class="service-meta">
+                                            <div class="service-title-row">
+                                                <span class="service-name">i-UTeM Student Portal</span>
+                                                <span class="service-status-pill status-ready" id="status-badge-portal">
+                                                    <span class="status-dot"></span>
+                                                    <span class="status-label">Ready</span>
+                                                </span>
+                                            </div>
+                                            <span class="service-host">portal.utem.edu.my/iutem</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-meter">
+                                        <div class="service-meter-bar" id="meter-portal"></div>
+                                    </div>
+                                    <div class="service-card-footer">
+                                        <span class="service-desc">Academic OAS, exam slips & results</span>
+                                        <span class="service-latency-val" id="latency-portal">-- ms</span>
+                                    </div>
+                                </div>
+
+                                <!-- Service 2: UTeM uLearn Hub -->
+                                <div class="network-service-card" data-service="ulearn">
+                                    <div class="service-card-header">
+                                        <div class="service-icon-wrap ulearn-icon" title="UTeM uLearn Hub LMS">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="service-meta">
+                                            <div class="service-title-row">
+                                                <span class="service-name">UTeM uLearn Hub</span>
+                                                <span class="service-status-pill status-ready" id="status-badge-ulearn">
+                                                    <span class="status-dot"></span>
+                                                    <span class="status-label">Ready</span>
+                                                </span>
+                                            </div>
+                                            <span class="service-host">ulearn.utem.edu.my/hub</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-meter">
+                                        <div class="service-meter-bar" id="meter-ulearn"></div>
+                                    </div>
+                                    <div class="service-card-footer">
+                                        <span class="service-desc">LMS, lecture slides & quizzes</span>
+                                        <span class="service-latency-val" id="latency-ulearn">-- ms</span>
+                                    </div>
+                                </div>
+
+                                <!-- Service 3: Global Internet Gateway -->
+                                <div class="network-service-card" data-service="internet">
+                                    <div class="service-card-header">
+                                        <div class="service-icon-wrap internet-icon" title="Internet Gateway Latency Baseline">
+                                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="service-meta">
+                                            <div class="service-title-row">
+                                                <span class="service-name">Internet Backbone</span>
+                                                <span class="service-status-pill status-ready" id="status-badge-internet">
+                                                    <span class="status-dot"></span>
+                                                    <span class="status-label">Ready</span>
+                                                </span>
+                                            </div>
+                                            <span class="service-host">Cloudflare CDN / 1.1.1.1</span>
+                                        </div>
+                                    </div>
+                                    <div class="service-meter">
+                                        <div class="service-meter-bar" id="meter-internet"></div>
+                                    </div>
+                                    <div class="service-card-footer">
+                                        <span class="service-desc">Global web latency baseline</span>
+                                        <span class="service-latency-val" id="latency-internet">-- ms</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Live Diagnostic Summary Banner -->
+                            <div class="network-radar-verdict" id="networkRadarVerdict">
+                                <div class="verdict-icon-badge" id="verdictIconBadge">
+                                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                                    </svg>
+                                </div>
+                                <div class="verdict-content">
+                                    <div class="verdict-title" id="verdictTitle">Interactive Diagnostic Ready</div>
+                                    <div class="verdict-desc" id="verdictDesc">Tap "Test Latency" to ping UTeM campus servers and diagnose your connection speed.</div>
+                                </div>
+                                <div class="verdict-time" id="verdictTime">Ready</div>
+                            </div>
+                        </div>
+
+                        <!-- CARD 2: UTEM HELPDESK (HELP.UTEM.EDU.MY) -->
+                        <div
+                            style="background: rgba(13, 21, 39, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; box-shadow: 0 0 16px rgba(var(--accent-gold-rgb), 0.15); position: relative; overflow: hidden; grid-column: 1 / -1;">
+                            <div
+                                style="position: absolute; top: 0; left: 0; width: 100%; height: 3.5px; background: var(--gold-gradient);">
+                            </div>
+                            <div
+                                style="display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;">
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(var(--accent-gold-rgb), 0.2); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; box-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.3);">
+                                        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                            <path
+                                                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h3
+                                            style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0;">
+                                            UTeM Helpdesk (ServiceDesk)</h3>
+                                        <span style="font-size: 11px; color: var(--accent-gold); font-weight: 600;">IT &
+                                            Admin Portal (help.utem.edu.my)</span>
+                                    </div>
+                                </div>
+                                <span
+                                    style="background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); padding: 3px 10px; border-radius: 12px; font-size: 10.5px; font-weight: 800; border: 1px solid rgba(var(--accent-gold-rgb), 0.3);">
+                                    Official Support
+                                </span>
+                            </div>
+                            <p style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.4; margin: 0;">
+                                Official UTeM ServiceDesk portal for submitting ICT support tickets, Wi-Fi
+                                troubleshooting, portal login resets, campus maintenance, and general student inquiries.
+                            </p>
+                            <a href="https://help.utem.edu.my" target="_blank" rel="noopener noreferrer"
+                                class="btn btn-primary btn-sm"
+                                style="display: inline-flex; align-items: center; justify-content: center; gap: 6px; margin-top: 4px; font-weight: 700; width: fit-content;">
+                                Open UTeM Helpdesk Portal ➔
+                            </a>
                         </div>
 
                         <!-- CARD 3: LIBPROXY ACCOUNT REGISTRATION GUIDE -->
@@ -770,6 +951,7 @@
     <!-- Application Initialization & Shared Navigation -->
     <script src="script.min.js?v=8.0" defer></script>
 
+    <script src="wifi.min.js?v=1.0" defer></script>
     <script src="ads.min.js" defer></script>
 
 </body>

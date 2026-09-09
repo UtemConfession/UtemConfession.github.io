@@ -156,7 +156,7 @@
                                 style="flex: 1; min-width: 240px; padding: 12px 16px; font-size: 14px;">
                             <button type="button" id="btnSearchExams" class="btn btn-primary"
                                 style="padding: 12px 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;">
-                                🔎 Search Papers ➔
+                                🔍 Search Papers ➔
                             </button>
                         </div>
 
@@ -180,54 +180,23 @@
                             <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
                                 onclick="searchExamSubject('Control Systems')">Control Systems</button>
                             <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Cyber Security')">Cyber Security</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Data Communication')">Data Communication</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Data Structures')">Data Structures</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
                                 onclick="searchExamSubject('Database Systems')">Database Systems</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Digital Electronics')">Digital Electronics</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Fluid Mechanics')">Fluid Mechanics</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Human Computer Interaction')">Human Computer
-                                Interaction</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Human Resource Management')">Human Resource
-                                Management</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Information Security')">Information Security</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Machine Learning')">Machine Learning</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Manufacturing Processes')">Manufacturing Processes</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Microprocessor')">Microprocessor</button>
                             <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
                                 onclick="searchExamSubject('Operating Systems')">Operating Systems</button>
                             <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Project Management')">Project Management</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
                                 onclick="searchExamSubject('Software Engineering')">Software Engineering</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Technopreneurship')">Technopreneurship</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Thermodynamics')">Thermodynamics</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Web Development')">Web Development</button>
                         </div>
                     </div>
 
-                    <div
-                        style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px;">
-                        <h4 style="font-size: 14px; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px;"
+                    <!-- Official Exam Paper Database Direct Portal Card -->
+                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
+                        <h4 style="font-size: 14px; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin: 0;"
                             id="labelPastExamsLib">Official Exam Paper Database:</h4>
-                        <p style="font-size: 12.5px; color: var(--text-secondary); margin: 0;">Or open the master exam
-                            paper catalog directly:</p>
+                        <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">
+                            Access the official Perpustakaan Laman Hikmah (PLH) digital exam database directly to browse the full catalog by academic year, faculty, and semester:
+                        </p>
 
-                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&view=list&Itemid=101&layout=table"
+                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&amp;view=list&amp;Itemid=101&amp;layout=table"
                             target="_blank" rel="noopener noreferrer" class="btn btn-secondary"
                             style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; width: 100%; max-width: 320px; border-color: var(--border-color);"
                             id="btnPastExamsLink">
@@ -236,77 +205,158 @@
                                 <path
                                     d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
                             </svg>
-                            Open Master Library Exam Portal ➔
+                            <span>Open Library Exam Portal ➔</span>
                         </a>
                     </div>
-                </div>
 
-                <!-- --- UCPM AD SLOT --- -->
-                <div class="ucpm-ad-container"
-                    style="margin: 2.5rem auto; text-align: center; max-width: 100%; overflow: hidden;">
+                    <!-- Feature 4: UTeM Course Code Anatomy Decoder -->
+                    <div id="courseDecoderCard"
+                        style="background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.85)); border: 1px solid rgba(var(--accent-gold-rgb), 0.35); border-radius: 14px; padding: 22px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
+                            <h3 style="font-size: 16px; font-weight: 700; color: var(--accent-gold); margin: 0; display: flex; align-items: center; gap: 8px;" id="courseDecoderTitle">
+                                🧬 UTeM Course Code Anatomy Decoder
+                            </h3>
+                            <span style="font-size: 11px; padding: 3px 9px; background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); border-radius: 999px; border: 1px solid rgba(var(--accent-gold-rgb), 0.3); font-weight: 600;">
+                                Official Syllabus Structure
+                            </span>
+                        </div>
+                        <p style="font-size: 12.5px; color: var(--text-secondary); margin: 0 0 16px 0; line-height: 1.5;" id="courseDecoderDesc">
+                            Decode any UTeM subject code into its faculty, academic year level, department specialty, and credit hour weighting according to the Senate curriculum guidelines.
+                        </p>
 
-                    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1444529930367815"
-                        data-ad-slot="0000000000" data-ad-format="auto" data-full-width-responsive="true"></ins>
-                </div>
-                <!-- --- END UCPM AD SLOT --- -->
+                        <!-- Input & Action -->
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
+                            <input type="text" id="courseDecoderInput" class="form-control"
+                                placeholder="Enter code (e.g. BITP 1113, BMMT 2323, BLHC 4032...)"
+                                style="flex: 1; min-width: 220px; padding: 11px 16px; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.5px;">
+                            <button type="button" id="btnDecodeCourse" class="btn btn-primary"
+                                style="padding: 11px 22px; font-weight: 700; font-size: 13.5px; display: inline-flex; align-items: center; gap: 8px;">
+                                <span>Decode Code ➔</span>
+                            </button>
+                        </div>
 
-                <!-- FEATURE-SPECIFIC SEO OVERVIEW & CROSS-LINK SECTION -->
-                <section class="card content-card" style="margin-top: 24px; border-color: rgba(var(--accent-gold-rgb), 0.25);">
-                    <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold); font-size: 18px; font-weight: 800;">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" />
-                        </svg>
-                        <span id="exam_guide_title">UTeM Past Year Examination Repository & Academic Success Master Guide</span>
-                    </h2>
-                    
-                    <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; margin-bottom: 18px;" id="exam_guide_intro">
-                        The official Universiti Teknikal Malaysia Melaka (UTeM) examination paper repository is curated and archived by <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Undergraduates across all engineering, computer science, and technology management faculties can access previous semester final examination questions to practice problem-solving paradigms, evaluate marking allocations, and calibrate revision ahead of midterm and final examinations.
-                    </p>
+                        <!-- Sample Quick Pills -->
+                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
+                            <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Try Sample:</span>
+                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BITP 1113" style="font-size: 11px; padding: 3px 8px;">BITP 1113 (FTMK)</button>
+                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BMMT 2323" style="font-size: 11px; padding: 3px 8px;">BMMT 2323 (FKM)</button>
+                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BEKP 2413" style="font-size: 11px; padding: 3px 8px;">BEKP 2413 (FKE)</button>
+                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BMFG 3113" style="font-size: 11px; padding: 3px 8px;">BMFG 3113 (FKP)</button>
+                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BTMI 2123" style="font-size: 11px; padding: 3px 8px;">BTMI 2123 (FPTT)</button>
+                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BLHC 4032" style="font-size: 11px; padding: 3px 8px;">BLHC 4032 (PBPI)</button>
+                        </div>
 
-                    <!-- Section 1: Faculty Course Code Prefix Breakdown -->
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="exam_sec1_title">🏛️ Complete UTeM Faculty Course Code Directory</h3>
-                    <div class="table-responsive" style="margin-bottom: 20px;">
-                        <table class="structured-table">
-                            <thead>
-                                <tr>
-                                    <th id="exam_th_faculty">Faculty (Fakulti)</th>
-                                    <th id="exam_th_prefix">Code Prefixes</th>
-                                    <th id="exam_th_fields">Major Engineering & Tech Disciplines</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td data-label="Faculty"><strong>FTMK</strong></td>
-                                    <td data-label="Code Prefixes"><code>BITM</code>, <code>BITP</code>, <code>BITS</code>, <code>BITD</code>, <code>BITC</code>, <code>BITA</code></td>
-                                    <td data-label="Core Focus Areas" id="exam_f_ftmk">Software Engineering, Cybersecurity, Networking, Data Science, Artificial Intelligence, Interactive Media</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Faculty"><strong>FTKM / FKM</strong></td>
-                                    <td data-label="Code Prefixes"><code>BMMT</code>, <code>BMMC</code>, <code>BMMA</code>, <code>BMMV</code>, <code>BMME</code></td>
-                                    <td data-label="Core Focus Areas" id="exam_f_ftkm">Mechanical Engineering, Automotive Systems, Thermodynamics, Fluid Dynamics, Structural Mechanics</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Faculty"><strong>FTKEE / FKE</strong></td>
-                                    <td data-label="Code Prefixes"><code>BEKP</code>, <code>BEKG</code>, <code>BEKU</code>, <code>BEKM</code>, <code>BEKT</code></td>
-                                    <td data-label="Core Focus Areas" id="exam_f_ftkee">Electrical Power Systems, Control Engineering, Telecommunications, Mechatronics & Robotics</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Faculty"><strong>FKP</strong></td>
-                                    <td data-label="Code Prefixes"><code>BMFT</code>, <code>BMFI</code>, <code>BTMI</code>, <code>BTMP</code>, <code>BMFG</code></td>
-                                    <td data-label="Core Focus Areas" id="exam_f_fkp">Manufacturing Systems, Industrial Automation, Product Design, Quality Engineering & Lean Production</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Faculty"><strong>FPTT</strong></td>
-                                    <td data-label="Code Prefixes"><code>BPTM</code>, <code>BPTE</code>, <code>BPTU</code>, <code>BTMS</code>, <code>BPTK</code></td>
-                                    <td data-label="Core Focus Areas" id="exam_f_fptt">Technology Management, Technopreneurship, Supply Chain & Logistics, Project Management</td>
-                                </tr>
-                                <tr>
-                                    <td data-label="Faculty"><strong>FTKIP</strong></td>
-                                    <td data-label="Code Prefixes"><code>BKIP</code>, <code>BKIE</code>, <code>BKIM</code>, <code>BKIT</code></td>
-                                    <td data-label="Core Focus Areas" id="exam_f_ftkip">Industrial Electronics, Computer Engineering Technology, Instrumentation & Process Control</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <!-- Decoded Result Box (hidden by default) -->
+                        <div id="decoderOutputContainer" style="display: none; background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(var(--accent-gold-rgb), 0.25); border-radius: 10px; padding: 18px; margin-top: 10px;">
+                            <div id="decoderErrorBox" style="display: none; text-align: center; padding: 14px; color: #ef4444; font-size: 13px;">
+                                ⚠️ Invalid course code format. Please use standard UTeM format (3-4 letters followed by 4 digits, e.g. <code>BITP 1113</code>, <code>BMMT 2323</code>, <code>BLHC 4032</code>).
+                            </div>
+                            <div id="decoderContentBox">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 14px;">
+                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                        <span id="decodedCodeBadge" style="font-size: 18px; font-weight: 800; color: var(--accent-gold); font-family: monospace; letter-spacing: 1px;">-</span>
+                                        <span id="decodedDegreeBadge" style="font-size: 11px; padding: 2px 8px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 6px; font-weight: 600;">-</span>
+                                    </div>
+                                    <button type="button" id="btnSearchDecodedExam" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px; display: inline-flex; align-items: center; gap: 6px;">
+                                        <span>🔍 Search Past Papers for This Code</span>
+                                    </button>
+                                </div>
+
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                                    <!-- Faculty & Department -->
+                                    <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--accent-gold);">
+                                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Faculty & Specialty</div>
+                                        <div id="decodedFacultyText" style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">-</div>
+                                        <div id="decodedDeptText" style="font-size: 11.5px; color: var(--text-secondary);">-</div>
+                                    </div>
+
+                                    <!-- Academic Progression -->
+                                    <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #3b82f6;">
+                                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Academic Progression</div>
+                                        <div id="decodedYearText" style="font-size: 13px; font-weight: 700; color: #60a5fa; margin-bottom: 2px;">-</div>
+                                        <div id="decodedLevelText" style="font-size: 11.5px; color: var(--text-secondary);">-</div>
+                                    </div>
+
+                                    <!-- Credit Hours & Workload -->
+                                    <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #10b981;">
+                                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Credit Hours & Workload</div>
+                                        <div id="decodedCreditText" style="font-size: 13px; font-weight: 700; color: #34d399; margin-bottom: 2px;">-</div>
+                                        <div id="decodedCreditSub" style="font-size: 11.5px; color: var(--text-secondary);">-</div>
+                                    </div>
+                                </div>
+
+                                <!-- Narrative Breakdown -->
+                                <div id="decodedExplanation" style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; padding: 10px 14px; background: var(--bg-secondary); border-radius: 8px;">
+                                    -
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PSM & Thesis Toolkit Bridge Banner -->
+                    <div style="background: rgba(var(--accent-gold-rgb), 0.07); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); border-radius: 12px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                        <div style="display: flex; align-items: center; gap: 12px; flex: 1; min-width: 260px;">
+                            <span style="font-size: 24px; line-height: 1;">🎓</span>
+                            <div>
+                                <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 2px;">
+                                    Working on PSM 1 / PSM 2 (Final Year Project)?
+                                </strong>
+                                <span style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">
+                                    Check UTeM thesis margin rules (3.8 cm gutter), Word &amp; Overleaf LaTeX templates, Turnitin criteria, and e-Prints submission guidelines.
+                                </span>
+                            </div>
+                        </div>
+                        <a href="library.html#psm-toolkit" class="btn btn-secondary btn-sm" style="font-size: 12px; font-weight: 700; color: var(--accent-gold); border-color: rgba(var(--accent-gold-rgb), 0.4); white-space: nowrap;">
+                            Open PSM Thesis Hub &#10142;
+                        </a>
+                    </div>
+
+                    <!-- Section 1: UTeM Faculty Subject Codes Reference Table -->
+                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                        <h3 style="font-size: 15px; font-weight: 700; color: var(--accent-gold); margin-top: 0; margin-bottom: 12px;" id="exam_sec1_title">🏛️ UTeM Faculty Subject Code Prefixes</h3>
+                        <div class="table-responsive" style="margin-bottom: 0;">
+                            <table class="structured-table">
+                                <thead>
+                                    <tr>
+                                        <th id="exam_th_faculty" style="width: 22%; min-width: 130px;">Faculty / Center</th>
+                                        <th id="exam_th_prefix" style="width: 32%; min-width: 170px;">Code Prefixes</th>
+                                        <th id="exam_th_fields" style="width: 46%;">Major Engineering &amp; Tech Disciplines</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td data-label="Faculty"><strong>FTMK</strong></td>
+                                        <td data-label="Code Prefixes"><code>BITM</code>, <code>BITP</code>, <code>BITS</code>, <code>BITD</code>, <code>BITC</code>, <code>BITA</code></td>
+                                        <td data-label="Core Focus Areas" id="exam_f_ftmk">Software Engineering, Cybersecurity, Networking, Data Science, Artificial Intelligence, Interactive Media</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Faculty"><strong>FTKM / FKM</strong></td>
+                                        <td data-label="Code Prefixes"><code>BMMT</code>, <code>BMMC</code>, <code>BMMA</code>, <code>BMMV</code>, <code>BMME</code></td>
+                                        <td data-label="Core Focus Areas" id="exam_f_ftkm">Mechanical Engineering, Automotive Systems, Thermodynamics, Fluid Dynamics, Structural Mechanics</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Faculty"><strong>FTKEE / FKE</strong></td>
+                                        <td data-label="Code Prefixes"><code>BEKP</code>, <code>BEKG</code>, <code>BEKU</code>, <code>BEKM</code>, <code>BEKT</code></td>
+                                        <td data-label="Core Focus Areas" id="exam_f_ftkee">Electrical Power Systems, Control Engineering, Telecommunications, Mechatronics &amp; Robotics</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Faculty"><strong>FKP</strong></td>
+                                        <td data-label="Code Prefixes"><code>BMFT</code>, <code>BMFI</code>, <code>BTMI</code>, <code>BTMP</code>, <code>BMFG</code></td>
+                                        <td data-label="Core Focus Areas" id="exam_f_fkp">Manufacturing Systems, Industrial Automation, Product Design, Quality Engineering &amp; Lean Production</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Faculty"><strong>FPTT</strong></td>
+                                        <td data-label="Code Prefixes"><code>BPTM</code>, <code>BPTE</code>, <code>BPTU</code>, <code>BTMS</code>, <code>BPTK</code></td>
+                                        <td data-label="Core Focus Areas" id="exam_f_fptt">Technology Management, Technopreneurship, Supply Chain &amp; Logistics, Project Management</td>
+                                    </tr>
+                                    <tr>
+                                        <td data-label="Faculty"><strong>FTKIP</strong></td>
+                                        <td data-label="Code Prefixes"><code>BKIP</code>, <code>BKIE</code>, <code>BKIM</code>, <code>BKIT</code></td>
+                                        <td data-label="Core Focus Areas" id="exam_f_ftkip">Industrial Electronics, Computer Engineering Technology, Instrumentation &amp; Process Control</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
 
                     <!-- Section 2: How to Authenticate via EZproxy Off-Campus -->

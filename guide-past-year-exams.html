@@ -448,7 +448,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     </script>
 
-    <script src="ads.min.js">
+    <script src="ads.min.js" defer></script>
+    <script>
         function shareWhatsApp() {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent(document.title + "\n\n" + url);

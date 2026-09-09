@@ -19,4 +19,22 @@ const lookupDetails = {
     }
 };
 
-// Event listener wired up in script.js init after DOMContentLoaded
+// Event listener wired up for destination selection
+document.addEventListener("DOMContentLoaded", () => {
+    const destSelect = document.getElementById("melakaDestSelect");
+    const resBox = document.getElementById("lookupResultBox");
+    if (!destSelect || !resBox) return;
+
+    destSelect.addEventListener("change", () => {
+        const val = destSelect.value;
+        if (!val || !lookupDetails[val]) {
+            resBox.style.display = "none";
+            resBox.innerHTML = "";
+            return;
+        }
+        const lang = (typeof currentLang !== "undefined" ? currentLang : (localStorage.getItem("lang") || "en"));
+        const details = lookupDetails[val];
+        resBox.innerHTML = (details && details[lang]) ? details[lang] : (details ? details.en : "");
+        resBox.style.display = "block";
+    });
+});

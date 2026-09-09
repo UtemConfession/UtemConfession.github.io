@@ -24,6 +24,7 @@ const imageCaptionInput = document.getElementById("imageCaptionInput");
 const imageCharCount = document.getElementById("imageCharCount");
 const agreeImageRules = document.getElementById("agreeImageRules");
 const submitImageBtn = document.getElementById("submitImageBtn");
+const chooseImageBtn = document.getElementById("chooseImageBtn");
 
 // State Variable for Selected Image File
 let selectedImageFile = null;
@@ -63,21 +64,20 @@ async function fetchWithRetry(url, options, maxRetries = 2) {
 }
 
 // -------------------------------------------------------------
-// 1. Mode Sub-Tab Switcher Logic (Segmented Control)
+// 1. Mode Sub-Tab Switcher Logic
 // -------------------------------------------------------------
 function switchSubMode(mode) {
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try { navigator.vibrate(8); } catch (e) {}
+    }
     const segmentedControl = document.getElementById("confessionSegmentedControl");
     if (segmentedControl) {
         segmentedControl.setAttribute("data-active", mode);
     }
-
     if (mode === "text") {
-        if (tabTextMode) {
-            tabTextMode.classList.add("active");
-        }
-        if (tabImageMode) {
-            tabImageMode.classList.remove("active");
-        }
+        if (tabTextMode) tabTextMode.classList.add("active");
+        if (tabImageMode) tabImageMode.classList.remove("active");
+        if (chooseImageBtn) chooseImageBtn.style.display = "none";
         if (textSubmissionPanel) {
             textSubmissionPanel.style.display = "block";
             textSubmissionPanel.style.opacity = "0";
@@ -90,12 +90,9 @@ function switchSubMode(mode) {
         if (imageSubmissionPanel) imageSubmissionPanel.style.display = "none";
         updateSubmitButton();
     } else if (mode === "image") {
-        if (tabImageMode) {
-            tabImageMode.classList.add("active");
-        }
-        if (tabTextMode) {
-            tabTextMode.classList.remove("active");
-        }
+        if (tabImageMode) tabImageMode.classList.add("active");
+        if (tabTextMode) tabTextMode.classList.remove("active");
+        if (chooseImageBtn) chooseImageBtn.style.display = "inline-flex";
         if (imageSubmissionPanel) {
             imageSubmissionPanel.style.display = "block";
             imageSubmissionPanel.style.opacity = "0";
@@ -131,6 +128,115 @@ function updateSubmitButton() {
     submitBtn.disabled = !(hasText && rulesAgreed && isSignedIn);
 }
 
+// Progress Ring & Draft Status DOM Elements
+const charRingCircle = document.getElementById("charRingCircle");
+const draftStatusBadge = document.getElementById("draftStatusBadge");
+let draftBadgeTimer = null;
+
+function updateCharRing(length) {
+    if (!charRingCircle) return;
+    const maxLength = 10000;
+    const pct = Math.min(100, (length / maxLength) * 100);
+    const offset = 100 - pct;
+    charRingCircle.style.strokeDashoffset = offset;
+    
+    // Dynamic color transitions based on character volume
+    if (pct > 90) {
+        charRingCircle.style.stroke = "#ef4444"; // Rose Red Warning
+    } else if (pct > 75) {
+        charRingCircle.style.stroke = "#f59e0b"; // Amber Warning
+    } else {
+        charRingCircle.style.stroke = "var(--accent-gold)"; // Cyber Gold
+    }
+}
+
+function showDraftStatusBadge() {
+    if (!draftStatusBadge) return;
+    draftStatusBadge.style.display = "inline-flex";
+    draftStatusBadge.style.opacity = "1";
+    if (draftBadgeTimer) clearTimeout(draftBadgeTimer);
+    draftBadgeTimer = setTimeout(() => {
+        draftStatusBadge.style.opacity = "0";
+        setTimeout(() => {
+            if (draftStatusBadge.style.opacity === "0") {
+                draftStatusBadge.style.display = "none";
+            }
+        }, 300);
+    }, 1800);
+}
+
+// -------------------------------------------------------------
+// Quick Formatting & Helper Toolbar Logic
+// -------------------------------------------------------------
+function initConfessionToolbar() {
+    const btnFmtBold = document.getElementById("btnFmtBold");
+    const btnFmtItalic = document.getElementById("btnFmtItalic");
+    const btnFmtSpoiler = document.getElementById("btnFmtSpoiler");
+    const btnFmtQuote = document.getElementById("btnFmtQuote");
+    
+    function wrapSelection(prefix, suffix = prefix, placeholder = "text") {
+        if (!confessionText) return;
+        confessionText.focus();
+        const start = confessionText.selectionStart;
+        const end = confessionText.selectionEnd;
+        const val = confessionText.value;
+        const hasSelection = start !== end;
+        const selectedText = hasSelection ? val.substring(start, end) : placeholder;
+        const replacement = `${prefix}${selectedText}${suffix}`;
+        confessionText.value = val.substring(0, start) + replacement + val.substring(end);
+        
+        if (hasSelection) {
+            confessionText.setSelectionRange(start, start + replacement.length);
+        } else {
+            confessionText.setSelectionRange(start + prefix.length, start + prefix.length + placeholder.length);
+        }
+        
+        confessionText.dispatchEvent(new Event("input"));
+    }
+
+    if (btnFmtBold) btnFmtBold.addEventListener("click", () => wrapSelection("**", "**", "bold text"));
+    if (btnFmtItalic) btnFmtItalic.addEventListener("click", () => wrapSelection("*", "*", "italic text"));
+    if (btnFmtSpoiler) btnFmtSpoiler.addEventListener("click", () => wrapSelection("||", "||", "spoiler"));
+    if (btnFmtQuote) btnFmtQuote.addEventListener("click", () => wrapSelection("> ", "", "quote"));
+
+    // Quick Campus Hashtag chips
+    const tagChips = document.querySelectorAll(".toolbar-tag-chip");
+    tagChips.forEach(chip => {
+        chip.addEventListener("click", () => {
+            const tag = chip.getAttribute("data-tag");
+            if (!tag || !confessionText) return;
+            confessionText.focus();
+            const start = confessionText.selectionStart;
+            const end = confessionText.selectionEnd;
+            const val = confessionText.value;
+            
+            const needsSpaceBefore = start > 0 && val[start - 1] !== ' ' && val[start - 1] !== '\n';
+            const insertText = (needsSpaceBefore ? " " : "") + tag + " ";
+            confessionText.value = val.substring(0, start) + insertText + val.substring(end);
+            const newCursor = start + insertText.length;
+            confessionText.setSelectionRange(newCursor, newCursor);
+            confessionText.dispatchEvent(new Event("input"));
+        });
+    });
+
+    // Quick Reaction Emojis
+    const emojiBtns = document.querySelectorAll(".toolbar-emoji-btn");
+    emojiBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            const emoji = btn.getAttribute("data-emoji");
+            if (!emoji || !confessionText) return;
+            confessionText.focus();
+            const start = confessionText.selectionStart;
+            const end = confessionText.selectionEnd;
+            const val = confessionText.value;
+            confessionText.value = val.substring(0, start) + emoji + val.substring(end);
+            const newCursor = start + emoji.length;
+            confessionText.setSelectionRange(newCursor, newCursor);
+            confessionText.dispatchEvent(new Event("input"));
+        });
+    });
+}
+
 // Attach to window so authentication.js can call it when login state changes
 window.updateSubmitButton = updateSubmitButton;
 
@@ -145,6 +251,7 @@ function loadDraftConfession() {
             confessionText.value = savedDraft;
             const len = savedDraft.length;
             if (charCount) charCount.textContent = `${len} / 10000 characters`;
+            updateCharRing(len);
             updateSubmitButton();
             if (typeof showToast === "function") {
                 showToast("💾 Restored your saved confession draft!", "info", 3500);
@@ -157,7 +264,10 @@ function saveDraftConfession() {
     if (!confessionText) return;
     const val = confessionText.value;
     if (val.trim().length > 0) {
-        try { localStorage.setItem(DRAFT_KEY, val); } catch (e) {}
+        try { 
+            localStorage.setItem(DRAFT_KEY, val); 
+            showDraftStatusBadge();
+        } catch (e) {}
     } else {
         try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
     }
@@ -165,16 +275,19 @@ function saveDraftConfession() {
 
 function clearDraftConfession() {
     try { localStorage.removeItem(DRAFT_KEY); } catch (e) {}
+    updateCharRing(0);
 }
 
 if (confessionText) {
     confessionText.style.overflowY = 'hidden'; // Hide scrollbar for clean auto-expansion
     loadDraftConfession();
+    initConfessionToolbar();
     
     // Auto-resize on initial load if there's drafted text
     if (confessionText.value) {
         confessionText.style.height = 'auto';
         confessionText.style.height = confessionText.scrollHeight + 'px';
+        updateCharRing(confessionText.value.length);
     }
 
     confessionText.addEventListener("input", () => {
@@ -184,8 +297,12 @@ if (confessionText) {
             length = 10000;
         }
         if (charCount) {
-            charCount.textContent = `${length} / 10000 characters`;
+            const curLang = localStorage.getItem("lang") || "en";
+            charCount.textContent = curLang === "en" ? `${length} / 10000 characters` : `${length} / 10000 aksara`;
         }
+        
+        // Update SVG Progress Ring
+        updateCharRing(length);
         
         // Auto-resize textarea
         confessionText.style.height = 'auto';
@@ -265,17 +382,28 @@ if (submitBtn) {
             if (!result) {
                 showStatus("Failed to receive structured response from server. Please try again.", "error");
             } else if (result.status === "success") {
+                if (typeof navigator !== 'undefined' && navigator.vibrate) {
+                    try { navigator.vibrate([15, 50, 25]); } catch (e) {}
+                }
                 showStatus(result.message || "Confession published successfully!", "success");
                 confessionText.value = "";
                 clearDraftConfession();
-                if (charCount) charCount.textContent = "0 / 10000 characters";
+                if (charCount) {
+                    const curLang = localStorage.getItem("lang") || "en";
+                    charCount.textContent = curLang === "en" ? "0 / 10000 characters" : "0 / 10000 aksara";
+                }
+                updateCharRing(0);
                 agreeRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
             } else if (result.status === "rejected") {
                 showStatus(result.message || "Your confession contained inappropriate content and was rejected by automated moderation.", "error");
                 confessionText.value = "";
                 clearDraftConfession();
-                if (charCount) charCount.textContent = "0 / 10000 characters";
+                if (charCount) {
+                    const curLang = localStorage.getItem("lang") || "en";
+                    charCount.textContent = curLang === "en" ? "0 / 10000 characters" : "0 / 10000 aksara";
+                }
+                updateCharRing(0);
                 agreeRules.checked = false;
                 localStorage.setItem("lastSubmit", Date.now());
             } else {
@@ -356,7 +484,6 @@ if (removeImageBtn) {
     removeImageBtn.addEventListener("click", clearImageSelection);
 }
 
-const chooseImageBtn = document.getElementById("chooseImageBtn");
 if (chooseImageBtn && imageFileInput) {
     chooseImageBtn.addEventListener("click", () => imageFileInput.click());
 }
@@ -553,6 +680,9 @@ if (submitImageBtn) {
             });
 
             if (result && result.status === "success") {
+                if (typeof navigator !== 'undefined' && navigator.vibrate) {
+                    try { navigator.vibrate([15, 50, 25]); } catch (e) {}
+                }
                 showStatus(result.message || "Image confession published successfully!", "success");
                 clearImageSelection();
                 if (imageCaptionInput) imageCaptionInput.value = "";

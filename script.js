@@ -44,6 +44,11 @@ const tabContents = document.querySelectorAll(".tab-content");
 function switchTab(tabId) {
     if (!tabId) return;
 
+    // Subtle tactile haptic response on tab switch
+    if (typeof navigator !== 'undefined' && navigator.vibrate) {
+        try { navigator.vibrate(8); } catch (e) {}
+    }
+
     // If tab corresponds to a standalone page, redirect immediately
     if (tabToPageMap[tabId]) {
         window.location.href = tabToPageMap[tabId];
@@ -132,6 +137,63 @@ document.addEventListener("DOMContentLoaded", () => {
     if (desktopToggle) desktopToggle.addEventListener("click", handleToggle);
     if (mobileToggle) mobileToggle.addEventListener("click", handleToggle);
     if (drawerToggle) drawerToggle.addEventListener("click", handleToggle);
+
+    // Dynamic Time-Based Greeting for Campus Hero Banner
+    function updateHeroGreeting(lang) {
+        const heroGreetingTitle = document.getElementById("heroGreetingTitle");
+        const heroTimeIcon = document.getElementById("heroTimeIcon");
+        const heroGreetingSubtitle = document.getElementById("heroGreetingSubtitle");
+        const weatherBadge = document.getElementById("weatherLiveBadge");
+        if (!heroGreetingTitle) return;
+
+        const currentLanguage = lang || (typeof currentLang !== 'undefined' ? currentLang : localStorage.getItem("lang")) || "en";
+        const hour = new Date().getHours();
+        let timeKey = "evening";
+        let icon = "🌆";
+
+        if (hour >= 5 && hour < 12) {
+            timeKey = "morning";
+            icon = "🌅";
+        } else if (hour >= 12 && hour < 17) {
+            timeKey = "afternoon";
+            icon = "☀️";
+        } else if (hour >= 17 && hour < 21) {
+            timeKey = "evening";
+            icon = "🌆";
+        } else {
+            timeKey = "night";
+            icon = "🌙";
+        }
+
+        if (heroTimeIcon) heroTimeIcon.textContent = icon;
+
+        const greetings = {
+            en: {
+                morning: "Good Morning, UTeMians",
+                afternoon: "Good Afternoon, UTeMians",
+                evening: "Good Evening, UTeMians",
+                night: "Late Night at Campus?",
+                subtitle: "Your safe, 100% anonymous space for campus confessions, rants & peer stories.",
+                weather_badge: "Live Weather"
+            },
+            ms: {
+                morning: "Selamat Pagi, Warga UTeM",
+                afternoon: "Selamat Tengah Hari, Warga UTeM",
+                evening: "Selamat Petang, Warga UTeM",
+                night: "Sesi Malam Kampus?",
+                subtitle: "Ruang selamat & 100% tanpa nama untuk luahan, kehidupan kampus & suara mahasiswa.",
+                weather_badge: "Cuaca Terkini"
+            }
+        };
+
+        const dict = greetings[currentLanguage] || greetings.en;
+        heroGreetingTitle.textContent = dict[timeKey];
+        if (heroGreetingSubtitle) heroGreetingSubtitle.textContent = dict.subtitle;
+        if (weatherBadge) weatherBadge.textContent = dict.weather_badge;
+    }
+
+    window.updateHeroGreeting = updateHeroGreeting;
+    updateHeroGreeting(currentLang);
 
     // UTeM Live Campus Weather & Imminent Next Bus Ticker
     async function initCampusTicker() {
@@ -235,8 +297,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             },
             m10a: {
-                weekday: ["06:30","08:30","10:30","12:30","14:30","16:30","18:30","20:00"],
-                weekend: ["07:30","09:30","11:30","13:30","15:30","17:30","19:30"]
+                weekday: ["05:30","07:30","09:30","11:30","13:30","15:30","17:30","19:30"],
+                weekend: ["05:30","07:30","09:30","11:30","13:30","15:30","17:30","19:30"]
             }
         };
 
@@ -246,8 +308,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const day = now.getDay(); // 0 = Sun, 1 = Mon, ..., 5 = Fri, 6 = Sat
             const isFriSatSun = (day === 0 || day === 5 || day === 6);
 
-            // Nighttime blackout: If before 7:00 AM or after 10:00 PM (22:00), no buses running
-            if (now.getHours() < 7 || now.getHours() >= 22) {
+            // Nighttime blackout: If before 5:00 AM or after 10:00 PM (22:00), no buses running
+            if (now.getHours() < 5 || now.getHours() >= 22) {
                 return null;
             }
 
@@ -268,11 +330,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const key = ("" + routeKey).toLowerCase();
 
                 if (key === "m10a") {
-                    if (isFri || isSatSun) {
-                        return { type: "m10a", name: "M10A", times: busSchedulesMaster.m10a.weekend };
-                    } else {
-                        return { type: "m10a", name: "M10A", times: [] };
-                    }
+                    const times = (isFri || isSatSun) ? busSchedulesMaster.m10a.weekend : busSchedulesMaster.m10a.weekday;
+                    return { type: "m10a", name: "M10A", times: times };
                 }
 
                 if (sem === "regular") {
@@ -425,17 +484,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (tickerSlide) {
                 tickerSlide.style.opacity = "0";
-                tickerSlide.style.transform = "translateY(-3px)";
+                tickerSlide.style.transform = "translateY(-8px) scale(0.96)";
+                tickerSlide.style.filter = "blur(2px)";
                 weatherPill.classList.add("pill-slide-flash");
                 setTimeout(() => {
                     applySlide(targetData);
                     updatePillGlow(targetData);
-                    tickerSlide.style.opacity = "1";
-                    tickerSlide.style.transform = "translateY(0)";
-                    setTimeout(() => {
-                        weatherPill.classList.remove("pill-slide-flash");
-                    }, 250);
-                }, 300);
+                    tickerSlide.style.transform = "translateY(8px) scale(0.96)";
+                    requestAnimationFrame(() => {
+                        tickerSlide.style.opacity = "1";
+                        tickerSlide.style.transform = "translateY(0) scale(1)";
+                        tickerSlide.style.filter = "blur(0)";
+                        setTimeout(() => {
+                            weatherPill.classList.remove("pill-slide-flash");
+                        }, 250);
+                    });
+                }, 280);
             } else {
                 applySlide(targetData);
                 updatePillGlow(targetData);

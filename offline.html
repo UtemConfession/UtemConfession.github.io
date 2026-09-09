@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Offline Mode | UTeM Confessions Pro Max</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="You are currently offline. Access cached UTeM student services, bus schedules, and academic calendars.">
+    <link rel="icon" type="image/png" href="UCPMLogo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <style>
+        :root {
+            --bg-primary: #060b19;
+            --bg-secondary: rgba(13, 21, 39, 0.9);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-gold: #f59e0b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .offline-container {
+            width: 92%;
+            max-width: 580px;
+            margin: 20px auto;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            padding: 32px 24px;
+            text-align: center;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-sizing: border-box;
+        }
+
+        .offline-icon-box {
+            width: 72px;
+            height: 72px;
+            border-radius: 22px;
+            background: rgba(245, 158, 11, 0.12);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .offline-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: var(--text-primary);
+        }
+
+        .offline-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0 0 24px 0;
+        }
+
+        .offline-banner-reconnect {
+            display: none;
+            background: rgba(16, 185, 129, 0.18);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: #34d399;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 10px 16px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .cached-links-card {
+            background: rgba(6, 11, 25, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .cached-links-title {
+            font-size: 12.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-gold);
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .cached-links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .cached-links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .cached-link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .cached-link-item:hover {
+            background: rgba(245, 158, 11, 0.1);
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            transform: translateY(-1px);
+        }
+
+        .btn-retry {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #060b19;
+            font-weight: 800;
+            font-size: 14px;
+            padding: 12px 24px;
+            border-radius: 12px;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-retry:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.45);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offline-container">
+        <div class="offline-icon-box">
+            <svg viewBox="0 0 24 24" width="36" height="36" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="1" y1="1" x2="23" y2="23"></line>
+                <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+                <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+                <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+                <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+            </svg>
+        </div>
+
+        <h1 class="offline-title">You're Currently Offline</h1>
+        <p class="offline-desc">
+            No internet connection detected. You may be in a campus dead zone (e.g. basement labs, shuttle bus transit) or disconnected from Wi-Fi.
+        </p>
+
+        <div id="reconnectBanner" class="offline-banner-reconnect"></div>
+
+        <div class="cached-links-card">
+            <div class="cached-links-title">
+                ⚡ Available Offline in Your Cache
+            </div>
+            <div class="cached-links-grid">
+                <a href="calendar.html" class="cached-link-item">
+                    <span>📅</span>
+                    <span>Academic Calendar</span>
+                </a>
+                <a href="bus.html" class="cached-link-item">
+                    <span>🚌</span>
+                    <span>Campus Bus Times</span>
+                </a>
+                <a href="wifi.html" class="cached-link-item">
+                    <span>📶</span>
+                    <span>Wi-Fi Credentials</span>
+                </a>
+                <a href="scholarships.html" class="cached-link-item">
+                    <span>🎓</span>
+                    <span>Scholarships & Aid</span>
+                </a>
+                <a href="index.html" class="cached-link-item" style="grid-column: 1 / -1; justify-content: center;">
+                    <span>🏠</span>
+                    <span>Return to UCPM Homepage</span>
+                </a>
+            </div>
+        </div>
+
+        <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+            <button type="button" class="btn-retry" id="btnRetry">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                </svg>
+                Try Reconnecting
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const btnRetry = document.getElementById('btnRetry');
+        if (btnRetry) {
+            btnRetry.addEventListener('click', () => {
+                btnRetry.innerHTML = 'Connecting...';
+                btnRetry.disabled = true;
+                setTimeout(() => window.location.reload(), 300);
+            });
+        }
+
+        // Automatically reload when network connection is restored
+        window.addEventListener('online', () => {
+            const banner = document.getElementById('reconnectBanner');
+            if (banner) {
+                banner.style.display = 'block';
+                banner.textContent = '🟢 Network restored! Reloading page...';
+            }
+            setTimeout(() => window.location.reload(), 700);
+        });
+    </script>
+</body>
+
+</html>

@@ -42,7 +42,7 @@ const ucpmUpdates = [
         title: "Curated 18-Theme Suite & Symmetrical Grid Engine",
         summary: "Launched an aesthetic suite of 18 high-contrast, curated color themes categorized into 6 distinct color families with a perfectly balanced grid layout.",
         items: [
-            "18 Curated Themes: Added Classic UCPM, OLED Midnight, Minimal Monochrome, Sakura Neon, Synthwave 80s, Peach Blossom, Arcade 1984, Dracula Violet, Catppuccin Mocha, Cosmic Nebula, Cyberpunk Cyan, Tokyo Night, Abyssal Blue, Cobalt Blue, Matrix Emerald, EVA Mecha-01, Sepia Warm Night, and Gothic Ember",
+            "18 Curated Themes: Added Classic UCPM, Midnight Eclipse, Minimal Monochrome, Sakura Neon, Synthwave 80s, Peach Blossom, Arcade 1984, Dracula Violet, Pastel Mocha, Cosmic Nebula, Cyberpunk Cyan, Tokyo Night, Abyssal Blue, Cobalt Blue, Matrix Emerald, Electric Aurora, Sepia Warm Night, and Gothic Ember",
             "Categorized Organization: Grouped palettes into Classic, OLED & Dark, Monochrome & Light, Pink & Pastel, Violet & Purple, Blue & Tech, and Nature & Earthy",
             "Symmetrical Grid Layout: Engineered a perfectly balanced rectangular grid with zero orphan cards (6 rows × 3 columns on desktop, 9 rows × 2 columns on mobile)",
             "Coordinate-Based Radial Ripple: Circular theme reveal originates from the user's exact tap or click coordinate using Pythagorean hypotenuse geometry"

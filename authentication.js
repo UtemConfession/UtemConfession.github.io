@@ -25,6 +25,8 @@ function signOut() {
 
     if (userInfo) userInfo.style.display = "none";
     if (gSigninBtn) gSigninBtn.style.display = "flex";
+    const loginContainer = document.getElementById("googleLoginContainer");
+    if (loginContainer) loginContainer.classList.remove("is-authenticated");
     if (authNotice) {
         authNotice.style.display = "flex";
         authNotice.className = "auth-notice warning";
@@ -110,6 +112,8 @@ function updateAuthUI() {
     if (userInfo) userInfo.style.display = "flex";
     if (gSigninBtn) gSigninBtn.style.display = "none";
     if (authNotice) authNotice.style.display = "none";
+    const loginContainer = document.getElementById("googleLoginContainer");
+    if (loginContainer) loginContainer.classList.add("is-authenticated");
 }
 
 function parseJwt(token) {

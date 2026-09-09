@@ -512,6 +512,9 @@ const translations = {
         gpa_rel3_title: "💰 PTPTN 1st Class Loan Waiver",
         gpa_rel3_desc: "How to convert your PTPTN loan into a full scholarship.",
 
+        courseDecoderTitle: "🧬 UTeM Course Code Anatomy Decoder",
+        courseDecoderDesc: "Decode any UTeM subject code into its faculty, academic year level, department specialty, and credit hour weighting according to the Senate curriculum guidelines.",
+
         exam_guide_title: "UTeM Past Year Examination Repository & Academic Success Master Guide",
         exam_guide_intro: "The official Universiti Teknikal Malaysia Melaka (UTeM) examination paper repository is curated and archived by <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Undergraduates across all engineering, computer science, and technology management faculties can access previous semester final examination questions to practice problem-solving paradigms, evaluate marking allocations, and calibrate revision ahead of midterm and final examinations.",
         exam_sec1_title: "🏛️ Complete UTeM Faculty Course Code Directory",
@@ -684,6 +687,9 @@ const translations = {
         health_rel3_desc: "Shuttle routes between Durian Tunggal and Ayer Keroh clinics.",
 
         descImportantLinks: "Quick access to campus Wi-Fi credentials, LibProxy registration, VPN setup, official portals, and student channels.",
+        wifiRadarTitle: "Campus Network & Portal Health Radar",
+        wifiRadarSub: "Live latency diagnostics & reachability check for UTeM portals and gateway servers",
+        btnRunTestText: "Test Latency",
         libproxyTitle: "UTeM LibProxy (Off-Campus)",
         libproxySub: "Single Sign-On Access",
         libproxyDesc: "Access IEEE Xplore, ScienceDirect, and past year exams from home without network blocks.",
@@ -742,14 +748,32 @@ const translations = {
         semToggleRegular: "🗓️ Regular Semester",
         labelRadarTitle: "UTeM Bus Route",
         titlePublicBus: "Pink Bus M10A Official Timetable",
-        m10aLiveBadge: "Weekend Service to UTeM",
-        labelRouteTimeline: "M10A Route Stops",
-        labelWeekend1: "Fri-Sun Only",
-        labelWeekend2: "Fri-Sun Only",
-        labelM10ADetails: "Operational Notes & Guidelines",
-        m10aDetail1: "Pink Bus operates between Melaka Sentral and Zoo Melaka on all 7 days of the week.",
-        m10aDetail2: "Friday through Sunday (Weekend Extension), selected trips extend directly inside UTeM Main Campus.",
-        m10aDetail3: "Payment is strictly cashless via Touch 'n Go, debit card, or credit card. Cash is not accepted.",
+        m10aTopRouteLink: "Official Route M10A Portal &#10142;",
+        m10aNoticeTitle: "&#128205; Important Student Fare &amp; Route Details:",
+        m10aNoticeBody: "Bus M10A (Pink Bus) connects <strong>Melaka Sentral Bus Terminal (Platform / Bay 17)</strong> directly to <strong>UTeM Kampus Induk (Main Gate / FTMK Terminal)</strong> via Batu Berendam Free Trade Zone, Ayer Keroh, MITC, and Durian Tunggal.<br>&bull; <strong>Service Days:</strong> Operates <strong>Friday, Saturday, and Sunday</strong> extending directly into UTeM Kampus Induk.<br>&bull; <strong>Fare:</strong> Approx <strong>RM 2.50 &ndash; RM 3.00</strong> between Melaka Sentral and UTeM Kampus Induk.<br>&bull; <strong>Payment Modality:</strong> <strong>100% Cashless</strong> via Touch 'n Go (minimum RM5 balance), Contactless MyDebit Card, DuitNow QR, or MyRapid Concession Pass. <em>Cash is strictly not accepted on board.</em>",
+        labelRouteTimeline: "M10A Route Stops &amp; Key Transit Hubs",
+        labelWeekend1: "Fri-Sun Extension",
+        labelWeekend2: "Fri-Sun Direct Campus Entry",
+        m10aDir1Title: "&#128652; Melaka Sentral &#10142; UTeM Induk",
+        m10aDir1Desc: "Direct Friday&ndash;Sunday campus service into UTeM Kampus Induk (Main Gate &amp; FTMK Terminal).",
+        m10aDir1FirstLast: "<span>&bull; First Bus: <strong>06:30 AM</strong></span><span>&bull; Last Bus: <strong>08:30 PM</strong></span>",
+        m10aDir2Title: "&#128652; UTeM Induk &#10142; Melaka Sentral",
+        m10aDir2Desc: "Direct Friday&ndash;Sunday campus service departing from UTeM Kampus Induk Terminal (FTMK).",
+        m10aDir2FirstLast: "<span>&bull; First Bus: <strong>05:30 AM</strong></span><span>&bull; Last Bus: <strong>07:30 PM</strong></span>",
+        labelM10ADetails: "&#128203; BAS.MY M10A Operations &amp; Transit Guidelines:",
+        m10aOp1Title: "&#128652; Direct Weekend Service (Fri &ndash; Sun):",
+        m10aOp1Desc: "Operates directly between Melaka Sentral and UTeM Kampus Induk.",
+        m10aOp2Title: "&#11088; Weekend Direct Campus Entry (Fri &ndash; Sun):",
+        m10aOp2Desc: "On <strong>Fridays, Saturdays, and Sundays</strong>, Route M10A runs directly between Melaka Sentral and <strong>UTeM Kampus Induk Terminal (FTMK Bus Stop)</strong> for direct outstation travel.",
+        m10aOp3Title: "&#128179; 100% Cashless Payment System:",
+        m10aOp3Desc: "Payment onboard is strictly cashless. Passengers can tap a <strong>Touch 'n Go card</strong> (min RM5 balance), <strong>MyDebit Contactless card</strong>, <strong>DuitNow QR</strong>, or use a <strong>MyRapid concession pass</strong>. No cash accepted.",
+        m10aOp4Title: "&#128241; Live Transit GPS Tracking:",
+        m10aOp4Desc: "Track real-time bus arrivals, vehicle GPS locations, and delay alerts by downloading the <strong>LUGO App</strong>, <strong>Moovit</strong>, or <strong>Pulse by Prasarana</strong> and selecting Melaka Route M10A.",
+        m10aRefLabel: "Official BAS.MY M10A Resources &amp; Verification:",
+        m10aRefBasMyTxt: "BAS.MY Official Portal &#10142;",
+        m10aRefRouteTxt: "Official M10A Route &amp; Stops Info &#10142;",
+        m10aRefMapTxt: "Full Melaka Transit Network Map (PDF) &#10142;",
+        m10aRefCausewayTxt: "Causeway Link Transit Info &#10142;",
         titleRouteLookup: "Bus Route Finder",
         descRouteLookup: "Check transfer points and transit routes from UTeM to popular destinations in Melaka.",
         labelSelectDest: "Select Destination:",
@@ -1344,6 +1368,8 @@ const translations = {
         gpa_rel3_desc: "Cara menukar pinjaman pendidikan PTPTN anda kepada biasiswa penuh.",
 
         // --- Exams Enriched Section (BM) ---
+        courseDecoderTitle: "🧬 Penyahkod Anatomi Kod Kursus UTeM",
+        courseDecoderDesc: "Nyahkod mana-mana kod subjek UTeM kepada fakulti, tahap tahun pengajian, pengkhususan jabatan, dan jam kredit mengikut panduan kurikulum Senat.",
         exam_guide_title: "Panduan Lengkap Repositori Kertas Peperiksaan Lepas UTeM & Kejayaan Akademik",
         exam_guide_intro: "Repositori kertas soalan peperiksaan akhir rasmi Universiti Teknikal Malaysia Melaka (UTeM) dikumpul dan diarkibkan oleh <strong>Perpustakaan Laman Hikmah (PLH)</strong>. Mahasiswa dari semua fakulti kejuruteraan, sains komputer, dan pengurusan teknologi boleh mengakses soalan semester lepas untuk memahami format soalan, menilai peruntukan markah, dan memantapkan ulang kaji menjelang ujian pertengahan dan peperiksaan akhir.",
         exam_sec1_title: "🏛️ Direktori Kod Kursus Fakulti UTeM",
@@ -1521,6 +1547,9 @@ const translations = {
 
         // --- Important Links Card Elements (wifi.html) (BM) ---
         descImportantLinks: "Akses pantas ke kelayakan Wi-Fi kampus, pendaftaran LibProxy, persediaan VPN, portal rasmi, dan saluran pelajar.",
+        wifiRadarTitle: "Radar Kesihatan Rangkaian & Portal Kampus",
+        wifiRadarSub: "Diagnostik kependaman langsung & semakan capaian portal dan pelayan get laluan UTeM",
+        btnRunTestText: "Uji Kependaman",
         libproxyTitle: "UTeM LibProxy (Luar Kampus)",
         libproxySub: "Akses Log Masuk Tunggal",
         libproxyDesc: "Akses IEEE Xplore, ScienceDirect, dan kertas soalan lepas dari rumah tanpa sekatan rangkaian.",
@@ -1586,14 +1615,32 @@ const translations = {
         semToggleRegular: "🗓️ Semester Biasa",
         labelRadarTitle: "Laluan Bas UTeM",
         titlePublicBus: "Jadual Rasmi Bas Pink M10A",
-        m10aLiveBadge: "Perkhidmatan Hujung Minggu ke UTeM",
-        labelRouteTimeline: "Hentian Laluan M10A",
-        labelWeekend1: "Jumaat-Ahad Sahaja",
-        labelWeekend2: "Jumaat-Ahad Sahaja",
-        labelM10ADetails: "Nota & Panduan Operasi",
-        m10aDetail1: "Bas Pink beroperasi antara Melaka Sentral dan Zoo Melaka setiap hari (7 hari seminggu).",
-        m10aDetail2: "Jumaat hingga Ahad (Lanjutan Hujung Minggu), perjalanan terpilih masuk terus ke dalam Kampus Induk UTeM.",
-        m10aDetail3: "Bayaran adalah tanpa tunai (cashless) sepenuhnya melalui kad Touch 'n Go, kad debit, atau kad kredit.",
+        m10aTopRouteLink: "Portal Rasmi Laluan M10A &#10142;",
+        m10aNoticeTitle: "&#128205; Maklumat Tambang &amp; Laluan Penting Pelajar:",
+        m10aNoticeBody: "Bas M10A (Bas Pink) menghubungkan <strong>Terminal Bas Melaka Sentral (Platform / Bay 17)</strong> terus ke <strong>Kampus Induk UTeM (Pintu Utama / Terminal FTMK)</strong> melalui Zon Perindustrian Bebas Batu Berendam, Ayer Keroh, MITC, dan Durian Tunggal.<br>&bull; <strong>Hari Operasi:</strong> Beroperasi <strong>Jumaat, Sabtu, dan Ahad</strong> masuk terus ke Kampus Induk UTeM.<br>&bull; <strong>Tambang:</strong> Sekitar <strong>RM 2.50 &ndash; RM 3.00</strong> antara Melaka Sentral dan Kampus Induk UTeM.<br>&bull; <strong>Kaedah Bayaran:</strong> <strong>100% Tanpa Tunai (Cashless)</strong> melalui kad Touch 'n Go (baki minimum RM5), Kad MyDebit Tanpa Sentuh, DuitNow QR, atau Pas Konsesi MyRapid. <em>Tunai tidak diterima di atas bas sama sekali.</em>",
+        labelRouteTimeline: "Hentian Laluan M10A &amp; Hab Transit Utama",
+        labelWeekend1: "Lanjutan Jumaat-Ahad",
+        labelWeekend2: "Masuk Terus Kampus Jumaat-Ahad",
+        m10aDir1Title: "&#128652; Melaka Sentral &#10142; UTeM Induk",
+        m10aDir1Desc: "Servis terus Jumaat&ndash;Ahad ke Kampus Induk UTeM (Pintu Utama &amp; Terminal FTMK).",
+        m10aDir1FirstLast: "<span>&bull; Bas Pertama: <strong>06:30 PG</strong></span><span>&bull; Bas Terakhir: <strong>08:30 MLM</strong></span>",
+        m10aDir2Title: "&#128652; UTeM Induk &#10142; Melaka Sentral",
+        m10aDir2Desc: "Servis terus Jumaat&ndash;Ahad berlepas dari Terminal Kampus Induk UTeM (FTMK).",
+        m10aDir2FirstLast: "<span>&bull; Bas Pertama: <strong>05:30 PG</strong></span><span>&bull; Bas Terakhir: <strong>07:30 MLM</strong></span>",
+        labelM10ADetails: "&#128203; Panduan &amp; Operasi Transit BAS.MY M10A:",
+        m10aOp1Title: "&#128652; Servis Terus Hujung Minggu (Jumaat &ndash; Ahad):",
+        m10aOp1Desc: "Beroperasi terus antara Melaka Sentral dan Kampus Induk UTeM.",
+        m10aOp2Title: "&#11088; Masuk Terus Kampus Hujung Minggu (Jumaat &ndash; Ahad):",
+        m10aOp2Desc: "Pada <strong>Jumaat, Sabtu, dan Ahad</strong>, Laluan M10A beroperasi terus antara Melaka Sentral dan <strong>Terminal Kampus Induk UTeM (Hentian Bas FTMK)</strong> untuk kemudahan perjalanan luar daerah pelajar.",
+        m10aOp3Title: "&#128179; Sistem Pembayaran 100% Tanpa Tunai:",
+        m10aOp3Desc: "Bayaran di atas bas adalah tanpa tunai sepenuhnya. Penumpang boleh imbas <strong>kad Touch 'n Go</strong> (baki minimum RM5), <strong>kad MyDebit Tanpa Sentuh</strong>, <strong>DuitNow QR</strong>, atau pas konsesi <strong>MyRapid</strong>. Tunai tidak diterima.",
+        m10aOp4Title: "&#128241; Penjejakan GPS Transit Masa Nyata:",
+        m10aOp4Desc: "Jejak ketibaan bas secara masa nyata, lokasi GPS kenderaan, dan amaran kelewatan dengan memuat turun aplikasi <strong>LUGO App</strong>, <strong>Moovit</strong>, atau <strong>Pulse by Prasarana</strong> dan memilih Laluan M10A Melaka.",
+        m10aRefLabel: "Sumber Rasmi &amp; Pengesahan BAS.MY M10A:",
+        m10aRefBasMyTxt: "Portal Rasmi BAS.MY &#10142;",
+        m10aRefRouteTxt: "Info Hentian &amp; Laluan Rasmi M10A &#10142;",
+        m10aRefMapTxt: "Peta Rangkaian Transit Melaka (PDF) &#10142;",
+        m10aRefCausewayTxt: "Maklumat Transit Causeway Link &#10142;",
         titleRouteLookup: "Carian Laluan Bas",
         descRouteLookup: "Semak stesen pertukaran dan laluan transit dari UTeM ke destinasi popular di Melaka.",
         labelSelectDest: "Pilih Destinasi:",
@@ -1909,6 +1956,13 @@ function setLanguage(lang) {
     const descImportantLinks = document.getElementById("descImportantLinks");
     if (descImportantLinks) descImportantLinks.textContent = t.desc_important_links || "Quick access to essential official campus portals, VPN clients, student council channels, and academic systems.";
 
+    const wifiRadarTitle = document.getElementById("wifiRadarTitle");
+    if (wifiRadarTitle && t.wifiRadarTitle) wifiRadarTitle.textContent = t.wifiRadarTitle;
+    const wifiRadarSub = document.getElementById("wifiRadarSub");
+    if (wifiRadarSub && t.wifiRadarSub) wifiRadarSub.textContent = t.wifiRadarSub;
+    const btnRunTestText = document.getElementById("btnRunTestText");
+    if (btnRunTestText && t.btnRunTestText) btnRunTestText.textContent = t.btnRunTestText;
+
     const libproxyTitle = document.getElementById("libproxyTitle");
     if (libproxyTitle) libproxyTitle.textContent = t.card_libproxy_title;
     const libproxySub = document.getElementById("libproxySub");
@@ -2033,31 +2087,85 @@ function setLanguage(lang) {
     if (departureLabel) departureLabel.textContent = t.label_next_departure;
 
     const titlePublicBus = document.getElementById("titlePublicBus");
-    if (titlePublicBus) titlePublicBus.textContent = t.title_public_bus || "Pink Bus M10A Official Timetable";
+    if (titlePublicBus) titlePublicBus.textContent = t.titlePublicBus || t.title_public_bus || "Pink Bus M10A Official Timetable";
 
-    const descPublicBus = document.getElementById("descPublicBus");
-    if (descPublicBus) descPublicBus.textContent = t.desc_public_bus;
+    const m10aTopRouteLink = document.getElementById("m10aTopRouteLink");
+    if (m10aTopRouteLink && t.m10aTopRouteLink) m10aTopRouteLink.innerHTML = t.m10aTopRouteLink;
+
+    const m10aNoticeTitle = document.getElementById("m10aNoticeTitle");
+    if (m10aNoticeTitle && t.m10aNoticeTitle) m10aNoticeTitle.innerHTML = t.m10aNoticeTitle;
+
+    const m10aNoticeBody = document.getElementById("m10aNoticeBody");
+    if (m10aNoticeBody && t.m10aNoticeBody) m10aNoticeBody.innerHTML = t.m10aNoticeBody;
 
     const labelRouteTimeline = document.getElementById("labelRouteTimeline");
-    if (labelRouteTimeline) labelRouteTimeline.textContent = t.label_route_timeline;
+    if (labelRouteTimeline) labelRouteTimeline.innerHTML = t.labelRouteTimeline || t.label_route_timeline || "M10A Route Stops &amp; Key Transit Hubs";
 
     const labelWeekend1 = document.getElementById("labelWeekend1");
-    if (labelWeekend1) labelWeekend1.textContent = t.label_weekend;
+    if (labelWeekend1) labelWeekend1.textContent = t.labelWeekend1 || t.label_weekend || "Fri-Sun Extension";
 
     const labelWeekend2 = document.getElementById("labelWeekend2");
-    if (labelWeekend2) labelWeekend2.textContent = t.label_weekend;
+    if (labelWeekend2) labelWeekend2.textContent = t.labelWeekend2 || t.label_weekend || "Fri-Sun Direct Campus Entry";
+
+    const m10aDir1Title = document.getElementById("m10aDir1Title");
+    if (m10aDir1Title && t.m10aDir1Title) m10aDir1Title.innerHTML = t.m10aDir1Title;
+
+    const m10aDir1Desc = document.getElementById("m10aDir1Desc");
+    if (m10aDir1Desc && t.m10aDir1Desc) m10aDir1Desc.innerHTML = t.m10aDir1Desc;
+
+    const m10aDir1FirstLast = document.getElementById("m10aDir1FirstLast");
+    if (m10aDir1FirstLast && t.m10aDir1FirstLast) m10aDir1FirstLast.innerHTML = t.m10aDir1FirstLast;
+
+    const m10aDir2Title = document.getElementById("m10aDir2Title");
+    if (m10aDir2Title && t.m10aDir2Title) m10aDir2Title.innerHTML = t.m10aDir2Title;
+
+    const m10aDir2Desc = document.getElementById("m10aDir2Desc");
+    if (m10aDir2Desc && t.m10aDir2Desc) m10aDir2Desc.innerHTML = t.m10aDir2Desc;
+
+    const m10aDir2FirstLast = document.getElementById("m10aDir2FirstLast");
+    if (m10aDir2FirstLast && t.m10aDir2FirstLast) m10aDir2FirstLast.innerHTML = t.m10aDir2FirstLast;
 
     const labelM10ADetails = document.getElementById("labelM10ADetails");
-    if (labelM10ADetails) labelM10ADetails.textContent = t.label_m10a_details;
+    if (labelM10ADetails) labelM10ADetails.innerHTML = t.labelM10ADetails || t.label_m10a_details || "&#128203; BAS.MY M10A Operations &amp; Transit Guidelines:";
 
-    const m10aDetail1 = document.getElementById("m10aDetail1");
-    if (m10aDetail1) m10aDetail1.innerHTML = t.m10a_detail1;
+    const m10aOp1Title = document.getElementById("m10aOp1Title");
+    if (m10aOp1Title && t.m10aOp1Title) m10aOp1Title.innerHTML = t.m10aOp1Title;
 
-    const m10aDetail2 = document.getElementById("m10aDetail2");
-    if (m10aDetail2) m10aDetail2.innerHTML = t.m10a_detail2;
+    const m10aOp1Desc = document.getElementById("m10aOp1Desc");
+    if (m10aOp1Desc && t.m10aOp1Desc) m10aOp1Desc.innerHTML = t.m10aOp1Desc;
 
-    const m10aDetail3 = document.getElementById("m10aDetail3");
-    if (m10aDetail3) m10aDetail3.innerHTML = t.m10a_detail3;
+    const m10aOp2Title = document.getElementById("m10aOp2Title");
+    if (m10aOp2Title && t.m10aOp2Title) m10aOp2Title.innerHTML = t.m10aOp2Title;
+
+    const m10aOp2Desc = document.getElementById("m10aOp2Desc");
+    if (m10aOp2Desc && t.m10aOp2Desc) m10aOp2Desc.innerHTML = t.m10aOp2Desc;
+
+    const m10aOp3Title = document.getElementById("m10aOp3Title");
+    if (m10aOp3Title && t.m10aOp3Title) m10aOp3Title.innerHTML = t.m10aOp3Title;
+
+    const m10aOp3Desc = document.getElementById("m10aOp3Desc");
+    if (m10aOp3Desc && t.m10aOp3Desc) m10aOp3Desc.innerHTML = t.m10aOp3Desc;
+
+    const m10aOp4Title = document.getElementById("m10aOp4Title");
+    if (m10aOp4Title && t.m10aOp4Title) m10aOp4Title.innerHTML = t.m10aOp4Title;
+
+    const m10aOp4Desc = document.getElementById("m10aOp4Desc");
+    if (m10aOp4Desc && t.m10aOp4Desc) m10aOp4Desc.innerHTML = t.m10aOp4Desc;
+
+    const m10aRefLabel = document.getElementById("m10aRefLabel");
+    if (m10aRefLabel && t.m10aRefLabel) m10aRefLabel.innerHTML = t.m10aRefLabel;
+
+    const m10aRefBasMyTxt = document.getElementById("m10aRefBasMyTxt");
+    if (m10aRefBasMyTxt && t.m10aRefBasMyTxt) m10aRefBasMyTxt.innerHTML = t.m10aRefBasMyTxt;
+
+    const m10aRefRouteTxt = document.getElementById("m10aRefRouteTxt");
+    if (m10aRefRouteTxt && t.m10aRefRouteTxt) m10aRefRouteTxt.innerHTML = t.m10aRefRouteTxt;
+
+    const m10aRefMapTxt = document.getElementById("m10aRefMapTxt");
+    if (m10aRefMapTxt && t.m10aRefMapTxt) m10aRefMapTxt.innerHTML = t.m10aRefMapTxt;
+
+    const m10aRefCausewayTxt = document.getElementById("m10aRefCausewayTxt");
+    if (m10aRefCausewayTxt && t.m10aRefCausewayTxt) m10aRefCausewayTxt.innerHTML = t.m10aRefCausewayTxt;
 
     const titleRouteLookup = document.getElementById("titleRouteLookup");
     if (titleRouteLookup) titleRouteLookup.textContent = t.title_route_lookup;
@@ -2442,6 +2550,46 @@ function setLanguage(lang) {
     const descTransparency = document.getElementById("descTransparency");
     if (descTransparency) descTransparency.textContent = t.desc_transparency;
 
+    // PSM Toolkit in library.html
+    const titlePsmToolkit = document.getElementById("titlePsmToolkit");
+    if (titlePsmToolkit) {
+        titlePsmToolkit.textContent = currentLang === "ms" 
+            ? "Kit Panduan Format Tesis & PSM (Projek Sarjana Muda) UTeM" 
+            : "UTeM PSM (Projek Sarjana Muda) & Thesis Guidelines Toolkit";
+    }
+    const subtitlePsmToolkit = document.getElementById("subtitlePsmToolkit");
+    if (subtitlePsmToolkit) {
+        subtitlePsmToolkit.textContent = currentLang === "ms"
+            ? "Piawaian format tesis rasmi, templat Word/LaTeX, kriteria Turnitin & penghantaran e-Prints."
+            : "Official thesis formatting standards, Word/LaTeX templates, Turnitin criteria & e-Prints submission.";
+    }
+    const labelTurnitinHeading = document.getElementById("labelTurnitinHeading");
+    if (labelTurnitinHeading) {
+        labelTurnitinHeading.textContent = currentLang === "ms"
+            ? "Indeks Kesamaan Turnitin & Penghantaran Akhir Repositori (e-Prints)"
+            : "Turnitin Similarity Index & Final Repository Submission (e-Prints)";
+    }
+    const descTurnitinText = document.getElementById("descTurnitinText");
+    if (descTurnitinText) {
+        descTurnitinText.innerHTML = currentLang === "ms"
+            ? "Fakulti UTeM menetapkan indeks kesamaan di bawah <strong>20% &ndash; 25%</strong> (tidak termasuk bibliografi dan petikan langsung). Sebelum penjilidan kulit keras atau e-penghantaran, semak laporan anda melalui kelas Turnitin penyelia anda. Tesis akhir yang diluluskan wajib dimuat naik ke <strong>Repositori Institusi e-Prints UTeM</strong> rasmi."
+            : "UTeM faculties mandate a similarity index below <strong>20% &ndash; 25%</strong> (excluding bibliography and quotations). Before hard-cover binding or final e-submission, verify your report through your supervisor's Turnitin classroom. Approved final theses must be uploaded to the official <strong>UTeM e-Prints Institutional Repository</strong>.";
+    }
+
+    // Wi-Fi Assistant in wifi.html
+    const labelWifiAssistant = document.getElementById("labelWifiAssistant");
+    if (labelWifiAssistant) {
+        labelWifiAssistant.textContent = currentLang === "ms"
+            ? "🛠️ Konfigurator Wi-Fi Peranti & Pintasan Pintar"
+            : "🛠️ Device Enterprise Configurator & Smart Bypass";
+    }
+    const subWifiAssistant = document.getElementById("subWifiAssistant");
+    if (subWifiAssistant) {
+        subWifiAssistant.textContent = currentLang === "ms"
+            ? "Pilih sistem operasi anda untuk tetapan terperinci atau muat turun profil Apple 1-ketik:"
+            : "Select your OS for exact drop-down parameters or download a 1-tap Apple profile:";
+    }
+
     // 15. Footer
     const footerDiv = document.querySelector("footer div");
     if (footerDiv) {
@@ -2467,6 +2615,10 @@ function setLanguage(lang) {
     try {
         if (typeof updateBusScheduleDisplay === 'function') updateBusScheduleDisplay();
         if (typeof updateM10ANextDeparture === 'function') updateM10ANextDeparture();
+        if (typeof renderMilestonePill === 'function') renderMilestonePill();
+        else if (typeof window.renderMilestonePill === 'function') window.renderMilestonePill();
+        if (typeof renderAcademicWeekTracker === 'function') renderAcademicWeekTracker();
+        else if (typeof window.renderAcademicWeekTracker === 'function') window.renderAcademicWeekTracker();
         if (typeof renderCalendarEvents === 'function') {
             const activeCalBtn = document.querySelector(".cal-filter-btn.active");
             const category = activeCalBtn ? activeCalBtn.getAttribute("data-category") : 'all';

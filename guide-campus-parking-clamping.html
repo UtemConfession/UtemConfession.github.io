@@ -165,6 +165,54 @@
                         </span>
                     </div>
 
+                    <!-- Interactive 3-Step "Where Can I Park?" Quick Finder -->
+                    <div class="parking-quick-finder-card" id="parkingFinderCard">
+                        <div class="pqf-title-row">
+                            <span class="pqf-badge">Interactive Tool</span>
+                            <h3 style="font-size: 17px; font-weight: 800; color: var(--text-primary); margin: 0;">
+                                🚗 Where Can I Park? Quick Bay Finder
+                            </h3>
+                        </div>
+                        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+                            Select your vehicle and destination faculty to instantly find authorized student parking bays, walking times, and clamping danger warnings.
+                        </p>
+
+                        <!-- Step 1: Vehicle & Sticker Status -->
+                        <div class="pqf-step-title">
+                            <span>1.</span> Select Your Vehicle &amp; Status:
+                        </div>
+                        <div class="pqf-chips-group" id="pqfVehicleGroup">
+                            <button type="button" class="pqf-chip-btn active" data-vehicle="car_sticker">
+                                🚗 Car (With UTeM Sticker)
+                            </button>
+                            <button type="button" class="pqf-chip-btn" data-vehicle="motorcycle">
+                                🏍️ Motorcycle (Any Year)
+                            </button>
+                            <button type="button" class="pqf-chip-btn" data-vehicle="car_no_sticker">
+                                ⚠️ Car (No Sticker / Year 1)
+                            </button>
+                        </div>
+
+                        <!-- Step 2: Destination Faculty / Zone -->
+                        <div class="pqf-step-title">
+                            <span>2.</span> Select Your Destination Faculty / Complex:
+                        </div>
+                        <select class="pqf-select" id="pqfDestinationSelect">
+                            <option value="ftmk">FTMK — Faculty of Information &amp; Comm. Technology</option>
+                            <option value="fkm_fkp">FKM &amp; FKP — Mechanical &amp; Manufacturing Complex</option>
+                            <option value="fke_fkekk">FKE &amp; FKEKK — Electrical &amp; Electronic Engineering</option>
+                            <option value="fptt">FPTT — Technology Management &amp; Technopreneurship</option>
+                            <option value="dc_admin">Dewan Canselor / Chancellery / Administration</option>
+                            <option value="hostel_satria">Kolej Kediaman Satria / Lestari (Hostels)</option>
+                            <option value="kt_ayer_keroh">Kampus Teknologi (Ayer Keroh Campus)</option>
+                        </select>
+
+                        <!-- Step 3: Instant Result Card -->
+                        <div class="pqf-result-box" id="pqfResultBox">
+                            <!-- Populated dynamically via JS -->
+                        </div>
+                    </div>
+
                     <h2 style="font-size: 19px; font-weight: 700; color: var(--text-primary); margin: 32px 0 14px 0; padding-bottom: 8px; border-bottom: 1px solid rgba(var(--accent-gold-rgb), 0.2);">
                         1. High-Risk Clamping Hotspots (Zon Kerap Kena Clamp)
                     </h2>
@@ -328,6 +376,222 @@
                     }
                 });
             }
+
+            // Interactive "Where Can I Park?" Quick Decision Finder
+            (function initParkingQuickFinder() {
+                const vehicleBtns = document.querySelectorAll('#pqfVehicleGroup .pqf-chip-btn');
+                const destSelect = document.getElementById('pqfDestinationSelect');
+                const resultBox = document.getElementById('pqfResultBox');
+
+                if (!destSelect || !resultBox) return;
+
+                let selectedVehicle = 'car_sticker';
+
+                const parkingData = {
+                    ftmk: {
+                        name: "FTMK (Computing Complex)",
+                        motorcycle: {
+                            badge: "PERMITTED",
+                            badgeClass: "permitted",
+                            bay: "🏍️ Covered Student Motorcycle Shed (Beside FTMK Left Wing)",
+                            walk: "1 min walk to computer labs",
+                            alert: "⚠️ Do not park along the pedestrian corridor walkway or entrance ramp."
+                        },
+                        car_sticker: {
+                            badge: "PERMITTED (WHITE BAYS)",
+                            badgeClass: "permitted",
+                            bay: "🚗 Open-Air Student Lake Carpark (Directly across from FTMK)",
+                            walk: "2 – 3 mins walk to main lecture halls",
+                            alert: "⚠️ CRITICAL: FTMK front lobby curb is strictly 2-minute drop-off only. PB clamps violators within 15 minutes."
+                        },
+                        car_no_sticker: {
+                            badge: "HIGH CLAMPING RISK",
+                            badgeClass: "restricted",
+                            bay: "⚠️ Open Visitor Bay at Guardhouse OR Stadium Gravel Lot",
+                            walk: "6 – 8 mins walk via covered pedestrian pathway",
+                            alert: "🚨 Cars without valid UTeM SMPWeb stickers are forbidden in faculty bays. Park at Stadium or register visitor pass at Pos Kawalan."
+                        }
+                    },
+                    fkm_fkp: {
+                        name: "FKM & FKP (Engineering Complex)",
+                        motorcycle: {
+                            badge: "PERMITTED",
+                            badgeClass: "permitted",
+                            bay: "🏍️ Dedicated Engineering Student Motorcycle Shed",
+                            walk: "1 – 2 mins walk to mechanical/manufacturing workshops",
+                            alert: "⚠️ Do not park in front of forklift loading doors."
+                        },
+                        car_sticker: {
+                            badge: "PERMITTED (WHITE BAYS)",
+                            badgeClass: "permitted",
+                            bay: "🚗 Engineering Perimeter White Parking Bays",
+                            walk: "2 – 4 mins walk to lecture rooms",
+                            alert: "⚠️ Avoid yellow bays reserved for workshop technical staff and lab officers."
+                        },
+                        car_no_sticker: {
+                            badge: "RESTRICTED",
+                            badgeClass: "restricted",
+                            bay: "⚠️ Stadium / Kompleks Sukan Student Open Lot",
+                            walk: "5 – 7 mins walk",
+                            alert: "🚨 Unstickered student cars parked in faculty perimeter bays are ticketed regularly by motorcycle PB patrols."
+                        }
+                    },
+                    fke_fkekk: {
+                        name: "FKE & FKEKK (Electrical Complex)",
+                        motorcycle: {
+                            badge: "PERMITTED",
+                            badgeClass: "permitted",
+                            bay: "🏍️ FKEKK Student Covered Motorcycle Shed",
+                            walk: "1 – 2 mins walk to electronics labs",
+                            alert: "⚠️ Park in marked bays only; do not block pedestrian staircases."
+                        },
+                        car_sticker: {
+                            badge: "PERMITTED (WHITE BAYS)",
+                            badgeClass: "permitted",
+                            bay: "🚗 Student Open Carpark adjacent to FKE Lake",
+                            walk: "3 – 5 mins walk to lecture blocks",
+                            alert: "⚠️ Yellow staff bays in front of the dean's office entrance are strictly enforced."
+                        },
+                        car_no_sticker: {
+                            badge: "RESTRICTED",
+                            badgeClass: "restricted",
+                            bay: "⚠️ Stadium / Kompleks Sukan Open Carpark",
+                            walk: "7 – 9 mins walk",
+                            alert: "🚨 Park at the sports complex to avoid clamp compound fees (RM50)."
+                        }
+                    },
+                    fptt: {
+                        name: "FPTT (Technology Management)",
+                        motorcycle: {
+                            badge: "PERMITTED",
+                            badgeClass: "permitted",
+                            bay: "🏍️ FPTT Side Motorcycle Parking Shed",
+                            walk: "1 min walk",
+                            alert: "⚠️ Keep bus stop turning radius clear."
+                        },
+                        car_sticker: {
+                            badge: "PERMITTED (WHITE BAYS)",
+                            badgeClass: "permitted",
+                            bay: "🚗 FPTT Rear Student Perimeter White Bays",
+                            walk: "2 – 3 mins walk",
+                            alert: "⚠️ Do not mount the curb or park opposite fire hydrants."
+                        },
+                        car_no_sticker: {
+                            badge: "RESTRICTED",
+                            badgeClass: "restricted",
+                            bay: "⚠️ Stadium / Kompleks Sukan Open Lot",
+                            walk: "5 – 6 mins walk",
+                            alert: "🚨 High clamp risk in front entrance loop. Use sports complex bays."
+                        }
+                    },
+                    dc_admin: {
+                        name: "Dewan Canselor / Chancellery",
+                        motorcycle: {
+                            badge: "PERMITTED",
+                            badgeClass: "permitted",
+                            bay: "🏍️ DC Open Motorcycle Shed behind Great Hall",
+                            walk: "2 mins walk",
+                            alert: "⚠️ Do not park on the VIP ceremonial driveway."
+                        },
+                        car_sticker: {
+                            badge: "RESTRICTED TO PERIMETER ONLY",
+                            badgeClass: "warning",
+                            bay: "🚗 Kompleks Sukan / Stadium Open Student Gravel Lot",
+                            walk: "4 – 6 mins walk to Dewan Canselor",
+                            alert: "🚨 The Chancellery circular roundabout is strictly reserved for VIPs & university executive management. Instant clamping."
+                        },
+                        car_no_sticker: {
+                            badge: "PROHIBITED NEAR CHANCELLERY",
+                            badgeClass: "restricted",
+                            bay: "⚠️ Stadium Open Student Gravel Lot",
+                            walk: "6 – 8 mins walk",
+                            alert: "🚨 Zero tolerance clamping zone. Do not enter the Chancellery driveway without authorization."
+                        }
+                    },
+                    hostel_satria: {
+                        name: "Kolej Satria / Lestari (Hostels)",
+                        motorcycle: {
+                            badge: "PERMITTED",
+                            badgeClass: "permitted",
+                            bay: "🏍️ Hostel Block Motorcycle Sheds (B, C, D, Hang Tuah / Jebat / Lekir)",
+                            walk: "1 min walk to dorm rooms",
+                            alert: "⚠️ Register your motorcycle sticker at the Kolej Kediaman office."
+                        },
+                        car_sticker: {
+                            badge: "PERMITTED (SENIOR HOSTELITES)",
+                            badgeClass: "permitted",
+                            bay: "🚗 Designated Hostel Outer Perimeter White Bays",
+                            walk: "1 – 3 mins walk to block entrance",
+                            alert: "⚠️ Do not double park or block waste collection truck accessways."
+                        },
+                        car_no_sticker: {
+                            badge: "PROHIBITED FOR FIRST-YEARS",
+                            badgeClass: "restricted",
+                            bay: "⚠️ Stadium / Kompleks Sukan Visitor Overflow Lot",
+                            walk: "8 – 12 mins walk to hostel blocks",
+                            alert: "🚨 First-year hostel students are not eligible to park cars inside college grounds under UTeM Residential College rules."
+                        }
+                    },
+                    kt_ayer_keroh: {
+                        name: "Kampus Teknologi (Ayer Keroh)",
+                        motorcycle: {
+                            badge: "PERMITTED",
+                            badgeClass: "permitted",
+                            bay: "🏍️ KT Main Entrance Student Motorcycle Bays",
+                            walk: "1 – 2 mins walk",
+                            alert: "⚠️ Do not park on walkways leading to the cafeteria."
+                        },
+                        car_sticker: {
+                            badge: "PERMITTED (WHITE BAYS)",
+                            badgeClass: "permitted",
+                            bay: "🚗 KT Open Student Carpark (Outside Entrance Gate)",
+                            walk: "3 – 5 mins walk to workshops",
+                            alert: "🚨 NEVER park inside the mechanical workshop driveway or near the machinery forklift gate."
+                        },
+                        car_no_sticker: {
+                            badge: "RESTRICTED",
+                            badgeClass: "restricted",
+                            bay: "⚠️ External Public Bays along Ayer Keroh Industrial Road",
+                            walk: "5 – 8 mins walk",
+                            alert: "🚨 Unstickered cars entering KT campus barrier gate will be turned away by security guards."
+                        }
+                    }
+                };
+
+                function updateResult() {
+                    const destKey = destSelect.value;
+                    const destInfo = parkingData[destKey];
+                    if (!destInfo) return;
+
+                    const result = destInfo[selectedVehicle];
+                    if (!result) return;
+
+                    resultBox.innerHTML = `
+                        <div class="pqf-result-header">
+                            <span class="pqf-result-badge ${result.badgeClass}">${result.badge}</span>
+                            <span style="font-size: 11px; color: var(--text-muted);">${destInfo.name}</span>
+                        </div>
+                        <div class="pqf-result-bay">${result.bay}</div>
+                        <div class="pqf-result-walk">
+                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/></svg>
+                            <span>${result.walk}</span>
+                        </div>
+                        <div class="pqf-result-alert">${result.alert}</div>
+                    `;
+                }
+
+                vehicleBtns.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        vehicleBtns.forEach(b => b.classList.remove('active'));
+                        btn.classList.add('active');
+                        selectedVehicle = btn.getAttribute('data-vehicle');
+                        updateResult();
+                    });
+                });
+
+                destSelect.addEventListener('change', updateResult);
+                updateResult();
+            })();
         });
     </script>
 </body>

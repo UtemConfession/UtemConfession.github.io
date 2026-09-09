@@ -269,7 +269,7 @@
                         Telegram Terms of Service & Channel Safety Policy
                     </h1>
                     <p id="p_hero_desc" style="margin: 0; line-height: 1.6; color: var(--text-secondary); font-size: 14px;">
-                        Essential compliance rules, platform safety guidelines, Google service integrations, and mandatory prohibitions designed to protect the 10,000+ student UTeM Confessions channel from permanent Telegram suspension.
+                        Essential compliance rules, platform safety guidelines, Google service integrations, and mandatory prohibitions designed to protect the UTeM Confessions channel from permanent Telegram suspension.
                     </p>
                 </div>
 
@@ -467,7 +467,7 @@
                 navAbout: "About Us",
                 backLink: "Back to Home",
                 mainTitle: "Telegram Terms of Service & Channel Safety Policy",
-                p_hero_desc: "Essential compliance rules, platform safety guidelines, Google service integrations, and mandatory prohibitions designed to protect the 10,000+ student UTeM Confessions channel from permanent Telegram suspension.",
+                p_hero_desc: "Essential compliance rules, platform safety guidelines, Google service integrations, and mandatory prohibitions designed to protect the UTeM Confessions channel from permanent Telegram suspension.",
                 sec1_title: "1. The Channel Protection Mandate (Why Ban Prevention Matters)",
                 sec1_desc: "Our primary Telegram broadcast channel (@utemconf) serves as an indispensable daily communication bridge, academic directory, and peer-to-peer student forum for Universiti Teknikal Malaysia Melaka. Under Telegram FZ-LLC's automated terms enforcement, channels that accumulate mass user reports, policy violations, or statutory legal complaints are subject to instant, permanent termination without right of appeal.",
                 sec1_subdesc: "To safeguard this public community asset, all submissions submitted through this portal undergo algorithmic and volunteer student moderation before being published to Telegram. If your submission is modified or rejected, it is not personal—it is done to prevent the entire community from losing its voice.",
@@ -526,7 +526,7 @@
                 navAbout: "Tentang Kami",
                 backLink: "Kembali ke Utama",
                 mainTitle: "Terma Perkhidmatan Telegram & Polisi Keselamatan Saluran",
-                p_hero_desc: "Peraturan pematuhan penting, garis panduan keselamatan platform, integrasi perkhidmatan Google, dan larangan wajib untuk melindungi saluran Telegram 10,000+ pelajar UTeM daripada disekat secara kekal.",
+                p_hero_desc: "Peraturan pematuhan penting, garis panduan keselamatan platform, integrasi perkhidmatan Google, dan larangan wajib untuk melindungi saluran Telegram UTeM Confessions daripada disekat secara kekal.",
                 sec1_title: "1. Mandat Perlindungan Saluran (Mengapa Pencegahan Ban Penting)",
                 sec1_desc: "Saluran hebahan utama Telegram kami (@utemconf) merupakan jambatan komunikasi harian, direktori akademik, dan medan perbincangan sesama pelajar Universiti Teknikal Malaysia Melaka yang amat penting. Di bawah sistem pematuhan automatik Telegram FZ-LLC, saluran yang menerima laporan salah guna bertubi-tubi atau aduan undang-undang boleh dipadam serta-merta tanpa hak rayuan.",
                 sec1_subdesc: "Demi memelihara aset komuniti ini, semua hantaran melalui portal ini ditapis secara algoritma dan semakan moderator sukarelawan sebelum diterbitkan ke Telegram. Sekiranya hantaran anda disunting atau ditolak, ia bukan bersifat peribadi—ia demi mengelakkan seluruh komuniti kehilangan suara.",
@@ -610,7 +610,15 @@
             const desktopToggle = document.getElementById("desktopLangToggle");
             const mobileToggle = document.getElementById("mobileLangToggle");
             if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
-            if (mobileToggle) mobileToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
+            if (mobileToggle) {
+                const span = mobileToggle.querySelector("span");
+                const label = lang === "en" ? "BM" : "EN";
+                if (span) span.textContent = label;
+                else mobileToggle.textContent = label;
+                const langAria = lang === "en" ? "Switch to Bahasa Melayu" : "Tukar ke Bahasa Inggeris";
+                mobileToggle.setAttribute("aria-label", langAria);
+                mobileToggle.setAttribute("title", langAria);
+            }
         }
 
         function toggleLanguage() {

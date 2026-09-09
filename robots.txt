@@ -1,4 +1,41 @@
+# robots.txt for UTeM Confessions Pro Max (https://utemconfession.github.io)
+# Updated: 2026-09-08
+
+# 1. Global Crawler Directives
 User-agent: *
 Allow: /
+# Exclude developer scripts and internal metadata from indexing
+Disallow: /build.ps1
+Disallow: /.agents/
+Disallow: /*.ps1$
 
+# 2. Major Search Engines (Full indexing & mobile rendering permitted)
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Mobile
+User-agent: Bingbot
+User-agent: Slurp
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+Allow: /
+Allow: /*.css$
+Allow: /*.js$
+Disallow: /build.ps1
+Disallow: /.agents/
+
+# 3. AI Search & Real-Time Assistant Browsing (Permitted for student queries)
+User-agent: ChatGPT-User
+User-agent: PerplexityBot
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+
+# 4. High-Frequency Harvesters & Bulk Scrapers (Crawl budget protection)
+User-agent: Bytespider
+User-agent: CCBot
+User-agent: Amazonbot
+Crawl-delay: 10
+
+# 5. XML Sitemap Location
 Sitemap: https://utemconfession.github.io/sitemap.xml

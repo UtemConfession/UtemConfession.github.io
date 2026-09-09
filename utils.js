@@ -57,8 +57,8 @@ function escapeHtml(text) {
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(new RegExp('"', 'g'), "&quot;")
+        .replace(new RegExp("'", 'g'), "&#039;");
 }
 
 function syncStructuredTableLabels() {

@@ -23,7 +23,7 @@ let activeType = "all";
 let activeSort = "recommended";
 let searchQuery = "";
 
-document.addEventListener("DOMContentLoaded", () => {
+function initActivitiesPage() {
     initActivitiesUI();
     setupActivitiesModal();
     renderActivities();
@@ -45,7 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
         renderActivities();
         updateStaticUITranslations();
     };
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener("DOMContentLoaded", initActivitiesPage);
+} else {
+    initActivitiesPage();
+}
 
 function initActivitiesUI() {
     const searchInput = document.getElementById("activitiesSearch");
@@ -233,10 +239,15 @@ function renderActivities() {
             const suitableArr = item.suitableFor ? item.suitableFor.slice(0,3).map(s => suitableTranslationMap[s] || s).join(", ") : "";
             
             const catIcon = activitiesCategories.find(c => c.id === item.categoryId)?.icon || '🏛️';
+            let imageTag = "";
+            if (item.image) {
+                const safeName = String(name).replace(new RegExp('"', 'g'), '&quot;');
+                imageTag = `<img src="${item.image}" alt="${safeName}" referrerpolicy="no-referrer" decoding="async" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'" loading="lazy">`;
+            }
             const imgHTML = `
                 <div style="position: relative; width: 100%; height: 160px; background: var(--bg-card-hover); display: flex; align-items: center; justify-content: center; color: var(--text-muted); border-bottom: 1px solid var(--border-color); font-size: 40px; overflow: hidden;">
                     <span>${catIcon}</span>
-                    ${item.image ? `<img src="${item.image}" alt="${name.replace(/"/g, '&quot;')}" referrerpolicy="no-referrer" decoding="async" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" onerror="this.style.display='none'" loading="lazy">` : ''}
+                    ${imageTag}
                 </div>
             `;
 
@@ -378,9 +389,12 @@ function openActivityModal(item) {
     
     let imgHTML = "";
     if (item.image) {
-        imgHTML = `<div style="width:100%; height:240px; overflow:hidden; position:relative; background: var(--bg-card-hover);">
-            <img src="${item.image}" alt="${name.replace(/"/g, '&quot;')}" referrerpolicy="no-referrer" decoding="async" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'" loading="lazy">
-        </div>`;
+        const safeName = String(name).replace(new RegExp('"', 'g'), '&quot;');
+        imgHTML = `
+            <div style="width:100%; height:240px; overflow:hidden; position:relative; background: var(--bg-card-hover);">
+                <img src="${item.image}" alt="${safeName}" referrerpolicy="no-referrer" decoding="async" style="width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'" loading="lazy">
+            </div>
+        `;
     }
 
     const bookingRow = item.bookingRequired ? `<p style="font-size: 13.5px; color: #ef4444; margin: 6px 0; font-weight: 700;">⚠️ ${lang === 'ms' ? 'Tempahan Diperlukan' : 'Booking Required'}</p>` : "";
@@ -395,7 +409,11 @@ function openActivityModal(item) {
 
     const validMapUrl = (item.mapUrl && !item.mapUrl.includes("dummy"))
         ? item.mapUrl
-        : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent((item.name && item.name.en ? item.name.en : name) + " " + (item.area || "Melaka"))}`;
+        : ("https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent((item.name && item.name.en ? item.name.en : name) + " " + (item.area || "Melaka")));
+
+    const openingHoursRow = openingHoursText ? `<p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>⏰ ${lang === 'ms' ? 'Waktu Operasi' : 'Opening Hours'}:</strong> ${openingHoursText}</p>` : "";
+    const durationRow = durationText ? `<p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>⏳ ${lang === 'ms' ? 'Tempoh' : 'Duration'}:</strong> ${durationText}</p>` : "";
+    const bestTimeRow = bestTimeText ? `<p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>🕒 ${lang === 'ms' ? 'Waktu Terbaik' : 'Best Time'}:</strong> ${bestTimeText}</p>` : "";
 
     body.innerHTML = `
         ${imgHTML}
@@ -416,9 +434,9 @@ function openActivityModal(item) {
                 <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0 0 6px 0;"><strong>👨‍👩‍👧‍👦 ${lang === 'ms' ? 'Sesuai Untuk' : 'Suitable For'}:</strong> ${suitableFor}</p>
                 <p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>${item.type === 'indoor' ? '🏠' : '☀️'} ${lang === 'ms' ? 'Jenis' : 'Type'}:</strong> ${indoorText}</p>
                 <p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>💰 ${lang === 'ms' ? 'Harga' : 'Price'}:</strong> ${priceText} <span style="opacity: 0.7; font-size: 12px;">(${priceNotesText})</span></p>
-                ${openingHoursText ? `<p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>⏰ ${lang === 'ms' ? 'Waktu Operasi' : 'Opening Hours'}:</strong> ${openingHoursText}</p>` : ""}
-                ${durationText ? `<p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>⏳ ${lang === 'ms' ? 'Tempoh' : 'Duration'}:</strong> ${durationText}</p>` : ""}
-                ${bestTimeText ? `<p style="font-size: 13.5px; color: var(--text-secondary); margin: 6px 0;"><strong>🕒 ${lang === 'ms' ? 'Waktu Terbaik' : 'Best Time'}:</strong> ${bestTimeText}</p>` : ""}
+                ${openingHoursRow}
+                ${durationRow}
+                ${bestTimeRow}
                 ${bookingRow}
             </div>
             

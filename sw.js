@@ -11,10 +11,12 @@ try {
 }
 
 // sw.js — UTeM Confessions Pro Max Service Worker (Offline Support)
-const CACHE_NAME = 'ucpm-cache-v81';
+const CACHE_NAME = 'ucpm-cache-v111';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
+    './offline.html',
+    './manifest.json',
     './archive.html',
     './calendar.html',
     './bus.html',
@@ -39,6 +41,7 @@ const ASSETS_TO_CACHE = [
     './archive-data.min.js',
     './archive.min.js',
     './gpa.min.js',
+    './health.min.js',
     './bus.min.js',
     './lookup.min.js',
     './calendar.min.js',
@@ -47,9 +50,11 @@ const ASSETS_TO_CACHE = [
     './activities-data.min.js',
     './activities.min.js',
     './marketplace.min.js',
+    './popunder.min.js',
     './updates-data.min.js',
     './updates.min.js',
     './script.min.js',
+    './wifi.min.js',
     './authentication.min.js',
     './ads.min.js',
     './vignette.min.js',
@@ -99,8 +104,22 @@ self.addEventListener('fetch', (event) => {
                     });
                 }
                 return networkResponse;
-            }).catch(() => {
-                return caches.match(event.request);
+            }).catch(async () => {
+                const cachedMatch = await caches.match(event.request);
+                if (cachedMatch) return cachedMatch;
+
+                // If navigation fails while offline, gracefully serve offline.html or index.html
+                if (event.request.mode === 'navigate' || (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
+                    const offlinePage = await caches.match('./offline.html');
+                    if (offlinePage) return offlinePage;
+                    return caches.match('./index.html');
+                }
+
+                return new Response('Network error occurred while offline.', {
+                    status: 503,
+                    statusText: 'Service Unavailable',
+                    headers: new Headers({ 'Content-Type': 'text/plain' })
+                });
             })
         );
     } else {

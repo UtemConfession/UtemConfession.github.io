@@ -81,6 +81,189 @@ const busRoutesData = {
 
 let currentBusRoute = 'ki';
 
+// --- HOLIDAY & SEMESTER BREAK AWARENESS ENGINE FOR CAMPUS SHUTTLE ---
+const academicBreaksAndHolidays = [
+    // Breaks & Academic Recesses (Session 2026/2027)
+    { startDate: "2026-11-07", endDate: "2026-11-15", titleEn: "Mid-Semester 1 Break", titleMs: "Cuti Pertengahan Semester 1", type: "break" },
+    { startDate: "2027-01-09", endDate: "2027-01-17", titleEn: "Study & Revision Week", titleMs: "Minggu Ulang Kaji & Persediaan", type: "recess" },
+    { startDate: "2027-01-18", endDate: "2027-01-31", titleEn: "Semester 1 Final Examinations", titleMs: "Peperiksaan Akhir Semester 1", type: "exam" },
+    { startDate: "2027-02-01", endDate: "2027-03-21", titleEn: "Semester Break (Inter-Semester Holiday)", titleMs: "Cuti Antara Semester", type: "break" },
+    { startDate: "2027-05-08", endDate: "2027-05-16", titleEn: "Mid-Semester 2 Break", titleMs: "Cuti Pertengahan Semester 2", type: "break" },
+    { startDate: "2027-07-03", endDate: "2027-07-11", titleEn: "Study & Revision Week", titleMs: "Minggu Ulang Kaji & Persediaan", type: "recess" },
+    { startDate: "2027-07-12", endDate: "2027-07-25", titleEn: "Semester 2 Final Examinations", titleMs: "Peperiksaan Akhir Semester 2", type: "exam" },
+    { startDate: "2027-07-26", endDate: "2027-09-26", titleEn: "Long Vacation / Inter-Session Break", titleMs: "Cuti Panjang Sesi", type: "break" },
+
+    // Public Holidays (Melaka & Federal)
+    { startDate: "2026-08-31", endDate: "2026-08-31", titleEn: "National Day (Hari Kebangsaan)", titleMs: "Hari Kebangsaan", type: "holiday" },
+    { startDate: "2026-09-16", endDate: "2026-09-16", titleEn: "Malaysia Day Holiday", titleMs: "Hari Malaysia", type: "holiday" },
+    { startDate: "2026-09-24", endDate: "2026-09-24", titleEn: "Prophet Muhammad's Birthday (Maulidur Rasul)", titleMs: "Maulidur Rasul", type: "holiday" },
+    { startDate: "2026-11-08", endDate: "2026-11-08", titleEn: "Deepavali Festival Holiday", titleMs: "Hari Deepavali", type: "holiday" },
+    { startDate: "2026-12-25", endDate: "2026-12-25", titleEn: "Christmas Day Holiday", titleMs: "Hari Krismas", type: "holiday" },
+    { startDate: "2027-01-01", endDate: "2027-01-01", titleEn: "New Year's Day 2027", titleMs: "Tahun Baru 2027", type: "holiday" },
+    { startDate: "2027-02-06", endDate: "2027-02-07", titleEn: "Chinese New Year (CNY Holiday)", titleMs: "Tahun Baru Cina", type: "holiday" },
+    { startDate: "2027-03-09", endDate: "2027-03-10", titleEn: "Hari Raya Aidilfitri Holiday", titleMs: "Hari Raya Aidilfitri", type: "holiday" },
+    { startDate: "2027-05-01", endDate: "2027-05-01", titleEn: "Labour Day Holiday", titleMs: "Hari Pekerja", type: "holiday" },
+    { startDate: "2027-05-20", endDate: "2027-05-20", titleEn: "Wesak Day Holiday", titleMs: "Hari Wesak", type: "holiday" }
+];
+
+function getBusHolidayStatus(customDate) {
+    const now = customDate || new Date();
+    const yyyy = now.getFullYear();
+    const mm = String(now.getMonth() + 1).padStart(2, '0');
+    const dd = String(now.getDate()).padStart(2, '0');
+    const todayStr = `${yyyy}-${mm}-${dd}`;
+    const todayMs = new Date(yyyy, now.getMonth(), now.getDate()).getTime();
+
+    // 1. Check if an event is currently active today
+    for (let i = 0; i < academicBreaksAndHolidays.length; i++) {
+        const ev = academicBreaksAndHolidays[i];
+        if (todayStr >= ev.startDate && todayStr <= ev.endDate) {
+            return {
+                status: "active",
+                event: ev,
+                isHoliday: ev.type === "holiday",
+                isBreak: ev.type === "break",
+                isRecess: ev.type === "recess",
+                isExam: ev.type === "exam"
+            };
+        }
+    }
+
+    // 2. Check if an event is upcoming within the next 7 days
+    const upcomingList = academicBreaksAndHolidays
+        .map(ev => {
+            const evStartMs = new Date(ev.startDate + "T00:00:00").getTime();
+            const diffDays = Math.round((evStartMs - todayMs) / (1000 * 60 * 60 * 24));
+            return { ev, diffDays };
+        })
+        .filter(item => item.diffDays > 0 && item.diffDays <= 7)
+        .sort((a, b) => a.diffDays - b.diffDays);
+
+    if (upcomingList.length > 0) {
+        const nextUpcoming = upcomingList[0];
+        return {
+            status: "upcoming",
+            event: nextUpcoming.ev,
+            diffDays: nextUpcoming.diffDays,
+            isHoliday: nextUpcoming.ev.type === "holiday",
+            isBreak: nextUpcoming.ev.type === "break",
+            isRecess: nextUpcoming.ev.type === "recess",
+            isExam: nextUpcoming.ev.type === "exam"
+        };
+    }
+
+    return { status: "none" };
+}
+
+function updateBusHolidayNotice() {
+    const banner = document.getElementById("busHolidayNotice");
+    if (!banner) return;
+
+    const iconEl = document.getElementById("busHolidayIcon");
+    const titleEl = document.getElementById("busHolidayTitle");
+    const badgeEl = document.getElementById("busHolidayBadge");
+    const descEl = document.getElementById("busHolidayDesc");
+    const tipEl = document.getElementById("busHolidayTip");
+    const switchBtn = document.getElementById("busHolidaySwitchM10A");
+
+    const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms';
+    const isDismissed = sessionStorage.getItem("ucpm_dismiss_bus_holiday") === "true";
+
+    const holidayInfo = getBusHolidayStatus();
+
+    if (switchBtn) {
+        switchBtn.textContent = isMs ? "💖 Semak Bas Pink M10A" : "💖 Check BAS.MY M10A";
+    }
+
+    if (holidayInfo.status === "none" || (isDismissed && holidayInfo.status === "upcoming")) {
+        banner.style.display = "none";
+        return;
+    }
+
+    banner.style.display = "block";
+
+    if (holidayInfo.status === "active") {
+        const ev = holidayInfo.event;
+        const title = isMs ? ev.titleMs : ev.titleEn;
+
+        if (holidayInfo.isHoliday) {
+            banner.className = "bus-holiday-alert is-holiday";
+            if (iconEl) iconEl.textContent = "🛑";
+            if (titleEl) titleEl.textContent = isMs ? `Cuti Kelepasan Am: ${title}` : `Public Holiday Advisory: ${title}`;
+            if (badgeEl) {
+                badgeEl.className = "bus-status-tag inactive";
+                badgeEl.textContent = isMs ? "Cuti Umum Aktif" : "Holiday Active";
+            }
+            if (descEl) {
+                descEl.textContent = isMs
+                    ? `Perkhidmatan shuttle bas kampus UTeM ditangguhkan atau beroperasi pada kapasiti terhad sempena cuti kelepasan am.`
+                    : `UTeM campus shuttle bus services are suspended or operate on minimal skeleton capacity today due to public holiday observance.`;
+            }
+            if (tipEl) {
+                tipEl.innerHTML = isMs
+                    ? `💡 <em>Cadangan:</em> Sila gunakan <strong>BAS.MY Bas Pink M10A</strong> untuk perjalanan luar kampus atau kongsi kenderaan.`
+                    : `💡 <em>Tip:</em> Use <strong>BAS.MY Pink Bus M10A</strong> for transit to/from Melaka Sentral or consider ride-hailing.`;
+            }
+        } else if (holidayInfo.isBreak) {
+            banner.className = "bus-holiday-alert";
+            if (iconEl) iconEl.textContent = "🏖️";
+            if (titleEl) titleEl.textContent = isMs ? `Cuti Semester: ${title}` : `Semester Break: ${title}`;
+            if (badgeEl) {
+                badgeEl.className = "bus-status-tag holiday-reduced";
+                badgeEl.textContent = isMs ? "Cuti Semester" : "Recess Active";
+            }
+            if (descEl) {
+                descEl.textContent = isMs
+                    ? `Cuti semester sedang berlangsung (${ev.startDate} hingga ${ev.endDate}). Bas shuttle kampus beroperasi mengikut jadual khas/terhad.`
+                    : `Semester break is currently in effect (${ev.startDate} to ${ev.endDate}). Campus shuttle runs follow reduced / special holiday schedules.`;
+            }
+            if (tipEl) {
+                tipEl.innerHTML = isMs
+                    ? `💡 <em>Tip:</em> Gunakan suis <strong>Semester Khas</strong> di bahagian atas untuk melihat kekerapan bas yang aktif semasa cuti.`
+                    : `💡 <em>Tip:</em> Toggle to <strong>Special Semester</strong> above to view operating shuttle frequencies during break periods.`;
+            }
+        } else {
+            banner.className = "bus-holiday-alert";
+            if (iconEl) iconEl.textContent = holidayInfo.isExam ? "📝" : "📚";
+            if (titleEl) titleEl.textContent = isMs ? `Jadual Akademik: ${title}` : `Academic Period: ${title}`;
+            if (badgeEl) {
+                badgeEl.className = "bus-status-tag holiday-reduced";
+                badgeEl.textContent = isMs ? "Tempoh Khas" : "Special Period";
+            }
+            if (descEl) {
+                descEl.textContent = isMs
+                    ? `Tempoh peperiksaan / ulang kaji sedang berlangsung. Bas beroperasi mengikut waktu puncak dewan peperiksaan dan perpustakaan.`
+                    : `Examination / revision period is currently ongoing. Shuttle buses prioritize peak library and exam hall transit demand.`;
+            }
+            if (tipEl) tipEl.innerHTML = "";
+        }
+    } else if (holidayInfo.status === "upcoming") {
+        const ev = holidayInfo.event;
+        const title = isMs ? ev.titleMs : ev.titleEn;
+        const days = holidayInfo.diffDays;
+        banner.className = "bus-holiday-alert";
+        if (iconEl) iconEl.textContent = "🗓️";
+        if (titleEl) {
+            const dayText = days === 1
+                ? (isMs ? "Esok" : "Tomorrow")
+                : (isMs ? (days + " hari lagi") : ("in " + days + " days"));
+            titleEl.textContent = isMs
+                ? `Pemberitahuan Cuti Akan Datang: ${title} (${dayText})`
+                : `Upcoming Holiday Notice: ${title} (${dayText})`;
+        }
+        if (badgeEl) {
+            badgeEl.className = "bus-status-tag holiday-reduced";
+            badgeEl.textContent = isMs ? "Akan Datang" : "Upcoming";
+        }
+        if (descEl) {
+            descEl.textContent = isMs
+                ? `Perkhidmatan shuttle kampus UTeM mungkin beroperasi mengikut jadual cuti atau ditangguhkan pada tarikh tersebut (${ev.startDate}). Sila rancang perjalanan anda.`
+                : `Campus shuttle services may follow adjusted holiday timings or pause on this date (${ev.startDate}). Please plan your travels accordingly.`;
+        }
+        if (tipEl) tipEl.innerHTML = "";
+    }
+}
+
 function updateBusScheduleDisplay() {
     const tableBody = document.getElementById("busRouteTableBody") || busRouteTableBody;
     const routeTitle = document.getElementById("nextBusRouteTitle") || nextBusRouteTitle;
@@ -89,6 +272,8 @@ function updateBusScheduleDisplay() {
     const countdownVal = document.getElementById("nextBusCountdownVal") || nextBusCountdownVal;
 
     if (!tableBody) return;
+
+    updateBusHolidayNotice();
 
     const route = busRoutesData[currentBusRoute];
     if (!route) return;
@@ -100,6 +285,10 @@ function updateBusScheduleDisplay() {
     const isMonThu = dayOfWeek >= 1 && dayOfWeek <= 4;
     const currentFormattedTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
     const isMs = typeof currentLang !== 'undefined' && currentLang === 'ms';
+
+    const holidayInfo = getBusHolidayStatus(now);
+    const isHolidayToday = holidayInfo.status === "active" && holidayInfo.isHoliday;
+    const isBreakToday = holidayInfo.status === "active" && holidayInfo.isBreak;
 
     tableBody.innerHTML = '';
     if (routeTitle) routeTitle.textContent = route.name;
@@ -121,13 +310,16 @@ function updateBusScheduleDisplay() {
             sec.monThu.forEach(timeRange => {
                 const tr = document.createElement("tr");
                 const startTime = timeRange.split(" - ")[0].trim();
-                const isToday = isMonThu;
+                const isToday = isMonThu && !isHolidayToday;
                 const isUpcoming = isToday && startTime > currentFormattedTime;
 
                 if (isToday) allTimesToday.push(startTime);
 
                 const dayText = isMs ? "Isnin – Khamis" : "Mon – Thu";
-                const statusText = isToday ? (isUpcoming ? (isMs ? "✦ Mengikut Jadual" : "✦ Scheduled") : (isMs ? "Sudah Berlepas" : "Departed")) : (isMs ? "Bukan Hari Ini" : "Not Today");
+                let statusText = isToday ? (isUpcoming ? (isMs ? "✦ Mengikut Jadual" : "✦ Scheduled") : (isMs ? "Sudah Berlepas" : "Departed")) : (isMs ? "Bukan Hari Ini" : "Not Today");
+                if (isHolidayToday && isMonThu) {
+                    statusText = isMs ? "Cuti (Tiada Servis)" : "Holiday (No Service)";
+                }
 
                 tr.innerHTML = `
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${timeRange}</td>
@@ -140,13 +332,16 @@ function updateBusScheduleDisplay() {
             sec.friday.forEach(timeRange => {
                 const tr = document.createElement("tr");
                 const startTime = timeRange.split(" - ")[0].trim();
-                const isToday = isFriday;
+                const isToday = isFriday && !isHolidayToday;
                 const isUpcoming = isToday && startTime > currentFormattedTime;
 
                 if (isToday) allTimesToday.push(startTime);
 
                 const dayText = isMs ? "Jumaat" : "Friday";
-                const statusText = isToday ? (isUpcoming ? (isMs ? "✦ Mengikut Jadual" : "✦ Scheduled") : (isMs ? "Sudah Berlepas" : "Departed")) : (isMs ? "Bukan Hari Ini" : "Not Today");
+                let statusText = isToday ? (isUpcoming ? (isMs ? "✦ Mengikut Jadual" : "✦ Scheduled") : (isMs ? "Sudah Berlepas" : "Departed")) : (isMs ? "Bukan Hari Ini" : "Not Today");
+                if (isHolidayToday && isFriday) {
+                    statusText = isMs ? "Cuti (Tiada Servis)" : "Holiday (No Service)";
+                }
 
                 tr.innerHTML = `
                     <td ${isUpcoming ? "style='color: var(--accent-gold); font-weight: 700;'" : ""}>${timeRange}</td>
@@ -156,6 +351,16 @@ function updateBusScheduleDisplay() {
                 tableBody.appendChild(tr);
             });
         });
+
+        if (isHolidayToday) {
+            if (statusTag) {
+                statusTag.className = "bus-status-tag inactive";
+                statusTag.textContent = isMs ? `🛑 Cuti Am — ${holidayInfo.event.titleMs}` : `🛑 Public Holiday — ${holidayInfo.event.titleEn}`;
+            }
+            if (timeVal) timeVal.textContent = "N/A";
+            if (countdownVal) countdownVal.textContent = isMs ? "Tiada servis shuttle berjadual hari ini sempena cuti kelepasan am." : "No campus shuttle in service today due to public holiday.";
+            return;
+        }
 
         if (isWeekend) {
             if (statusTag) {
@@ -209,7 +414,7 @@ function updateBusScheduleDisplay() {
 
         scheduleTimes.forEach(time => {
             const tr = document.createElement("tr");
-            const isUpcoming = time > currentFormattedTime;
+            const isUpcoming = !isHolidayToday && time > currentFormattedTime;
             let rowClass = "";
 
             if (isUpcoming && !nextBusFound) {
@@ -218,22 +423,43 @@ function updateBusScheduleDisplay() {
                 nextBusFound = true;
             }
 
+            let statusCellText = isUpcoming ? (nextBusTime === time ? (isMs ? "✦ Bas Seterusnya" : "✦ Next Bus") : (isMs ? "Mengikut Jadual" : "Scheduled")) : (isMs ? "Sudah Berlepas" : "Departed");
+            if (isHolidayToday) {
+                statusCellText = isMs ? "Cuti (Tiada Servis)" : "Holiday (No Service)";
+            }
+
             tr.innerHTML = `
                 <td ${rowClass}>${time}</td>
                 <td ${rowClass}>${scheduleTypeLabel}</td>
-                <td ${rowClass}>${isUpcoming ? (nextBusTime === time ? (isMs ? "✦ Bas Seterusnya" : "✦ Next Bus") : (isMs ? "Mengikut Jadual" : "Scheduled")) : (isMs ? "Sudah Berlepas" : "Departed")}</td>
+                <td ${rowClass}>${statusCellText}</td>
             `;
             tableBody.appendChild(tr);
         });
+
+        if (isHolidayToday) {
+            if (statusTag) {
+                statusTag.className = "bus-status-tag inactive";
+                statusTag.textContent = isMs ? `🛑 Cuti Am — ${holidayInfo.event.titleMs}` : `🛑 Public Holiday — ${holidayInfo.event.titleEn}`;
+            }
+            if (timeVal) timeVal.textContent = "N/A";
+            if (countdownVal) countdownVal.textContent = isMs ? "Tiada servis shuttle berjadual hari ini sempena cuti kelepasan am." : "No campus shuttle in service today due to public holiday.";
+            return;
+        }
+
+        if (isBreakToday) {
+            if (statusTag) {
+                statusTag.className = "bus-status-tag holiday-reduced";
+                statusTag.textContent = isMs ? "🏖️ Cuti Semester — Jadual Terhad" : "🏖️ Semester Break — Reduced Schedule";
+            }
+        } else if (statusTag) {
+            statusTag.className = "bus-status-tag active-now";
+            statusTag.textContent = isWeekend ? (isMs ? "Servis Aktif Hujung Minggu" : "Weekend Active Service") : (isMs ? "Servis Aktif Hari Bekerja" : "Weekday Active Service");
+        }
 
         if (!nextBusFound && scheduleTimes.length > 0) {
             nextBusTime = scheduleTimes[0];
         }
 
-        if (statusTag) {
-            statusTag.className = "bus-status-tag active-now";
-            statusTag.textContent = isWeekend ? (isMs ? "Servis Aktif Hujung Minggu" : "Weekend Active Service") : (isMs ? "Servis Aktif Hari Bekerja" : "Weekday Active Service");
-        }
         if (timeVal) timeVal.textContent = nextBusTime || "N/A";
 
         if (nextBusTime) {
@@ -261,93 +487,176 @@ function updateBusScheduleDisplay() {
     }
 }
 
-// Standalone function for Bus M10A Live Countdown (runs independently of internal shuttle returns)
+// Standalone function for Bus M10A Live Countdown (Weekend direct campus service to/from UTeM Induk)
 function updateM10ANextDeparture() {
-    const m10aLiveBadge = document.getElementById("m10aLiveBadge");
     const now = new Date();
-    const dayOfWeek = now.getDay();
-    const isWeekend = dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6;
+    const dayOfWeek = now.getDay(); // 0 = Sun, 1 = Mon, ..., 5 = Fri, 6 = Sat
+    const holidayInfo = typeof getBusHolidayStatus === 'function' ? getBusHolidayStatus(now) : { status: "none" };
+    const isHolidayToday = holidayInfo.status === "active" && holidayInfo.isHoliday;
+    const isWeekend = dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6 || isHolidayToday;
     const currentFormattedTime = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0');
 
     const isMs = typeof currentLang !== 'undefined' && currentLang === 'ms';
 
-    if (m10aLiveBadge) {
-        if (isWeekend) {
-            m10aLiveBadge.style.background = "#e74e9f";
-            m10aLiveBadge.textContent = isMs ? "🟢 Servis Jumaat-Ahad (Zoo Melaka ⇄ UTeM)" : "🟢 Friday-Sunday Service Active (Zoo Melaka ⇄ UTeM)";
-        } else {
-            m10aLiveBadge.style.background = "#3b82f6";
-            m10aLiveBadge.textContent = isMs ? "🟡 Laluan Isnin-Khamis (Melaka Sentral ⇄ MITC)" : "🟡 Mon-Thu Route Active (Melaka Sentral ⇄ MITC)";
-        }
-    }
+    const m10aInboundTimes = ["05:30", "07:30", "09:30", "11:30", "13:30", "15:30", "17:30", "19:30"];
+    const m10aOutboundTimes = ["06:30", "08:30", "10:30", "12:30", "14:30", "16:30", "18:30", "20:30"];
 
-    const m10aUTeMTimes = ["07:30","09:30","11:30","13:30","15:30","17:30","19:30"];
     const m10aNextBusTimeVal = document.getElementById("m10aNextBusTimeVal");
     const m10aNextBusCountdownVal = document.getElementById("m10aNextBusCountdownVal");
     const m10aNextBusStatusTag = document.getElementById("m10aNextBusStatusTag");
+    const m10aLiveBadge = document.getElementById("m10aLiveBadge");
+    const m10aLiveCardHeading = document.getElementById("m10aLiveCardHeading");
+    const m10aNextDepLabel = document.getElementById("m10aNextDepLabel");
+    const m10aNextBusDualRow = document.getElementById("m10aNextBusDualRow");
     
     if (!m10aNextBusTimeVal || !m10aNextBusCountdownVal) return;
 
-    if (!isWeekend) {
-        if (m10aNextBusStatusTag) {
-            m10aNextBusStatusTag.className = "bus-status-tag inactive";
-            m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
-            m10aNextBusStatusTag.style.color = "#ef4444";
-            m10aNextBusStatusTag.textContent = isMs ? "Jumaat-Ahad Sahaja" : "Friday-Sunday Only";
+    if (m10aLiveBadge) {
+        if (isHolidayToday) {
+            m10aLiveBadge.textContent = isMs ? "Servis Cuti Kelepasan Am (Terus Kampus)" : "Public Holiday Direct Campus Service";
+        } else {
+            m10aLiveBadge.textContent = isMs ? "Servis Terus Kampus (Jumaat–Ahad)" : "Weekend Direct Campus Service (Fri–Sun)";
         }
-        m10aNextBusTimeVal.textContent = "N/A";
-        m10aNextBusCountdownVal.textContent = isMs ? "Bas tamat di MITC (Isnin-Khamis). Tiada bas UTeM." : "Bus terminates at MITC (Mon-Thu). No UTeM service.";
-        return;
     }
 
-    const upcomingM10A = m10aUTeMTimes.find(t => t > currentFormattedTime);
+    if (m10aLiveCardHeading) {
+        m10aLiveCardHeading.textContent = isMs ? "Bas M10A (Dari Kampus Induk UTeM ➔ Melaka Sentral)" : "Bus M10A (From UTeM Induk Campus ➔ Melaka Sentral)";
+    }
 
-    if (upcomingM10A) {
-        if (m10aNextBusStatusTag) {
-            m10aNextBusStatusTag.className = "bus-status-tag active-now";
-            m10aNextBusStatusTag.style.background = "rgba(231, 78, 159, 0.15)";
-            m10aNextBusStatusTag.style.color = "#e74e9f";
-            m10aNextBusStatusTag.textContent = isMs ? "Beroperasi Hari Ini" : "Active Service Today";
-        }
-        m10aNextBusTimeVal.textContent = upcomingM10A;
+    if (m10aNextDepLabel) {
+        m10aNextDepLabel.textContent = isMs ? "Waktu Berlepas Seterusnya (UTeM Induk / FTMK):" : "Next Scheduled Departure (UTeM Induk / FTMK):";
+    }
 
-        const nextBusDate = new Date();
-        const [hours, minutes] = upcomingM10A.split(":").map(Number);
-        nextBusDate.setHours(hours, minutes, 0, 0);
+    if (isWeekend) {
+        const upcomingInbound = m10aInboundTimes.find(t => t > currentFormattedTime);
+        const upcomingOutbound = m10aOutboundTimes.find(t => t > currentFormattedTime);
 
-        const minutesDiff = Math.floor((nextBusDate.getTime() - now.getTime()) / (1000 * 60));
-        if (minutesDiff < 60) {
-            m10aNextBusCountdownVal.textContent = isMs ? `Berlepas dlm ${minutesDiff} minit` : `Departs in ${minutesDiff} mins`;
+        if (upcomingInbound) {
+            if (m10aNextBusStatusTag) {
+                m10aNextBusStatusTag.className = "bus-status-tag active-now";
+                m10aNextBusStatusTag.style.background = "rgba(231, 78, 159, 0.15)";
+                m10aNextBusStatusTag.style.color = "#e74e9f";
+                m10aNextBusStatusTag.textContent = isHolidayToday
+                    ? (isMs ? "Beroperasi Hari Cuti Am (Masuk Kampus)" : "Holiday Active Service (Direct Campus)")
+                    : (isMs ? "Beroperasi Hari Ini (Masuk Kampus)" : "Active Service Today (Direct Campus)");
+            }
+            m10aNextBusTimeVal.textContent = upcomingInbound;
+
+            const nextBusDate = new Date();
+            const [hours, minutes] = upcomingInbound.split(":").map(Number);
+            nextBusDate.setHours(hours, minutes, 0, 0);
+
+            const minutesDiff = Math.floor((nextBusDate.getTime() - now.getTime()) / (1000 * 60));
+            if (minutesDiff < 60) {
+                m10aNextBusCountdownVal.textContent = isMs ? `Berlepas dlm ${minutesDiff} minit` : `Departs in ${minutesDiff} mins`;
+            } else {
+                const hrs = Math.floor(minutesDiff / 60);
+                const mins = minutesDiff % 60;
+                m10aNextBusCountdownVal.textContent = isMs ? `Berlepas dlm ${hrs}j ${mins}m` : `Departs in ${hrs}h ${mins}m`;
+            }
+
+            if (m10aNextBusDualRow) {
+                const outTime = upcomingOutbound ? upcomingOutbound : (dayOfWeek === 0 ? (isMs ? "06:30 (Jumaat)" : "06:30 (Friday)") : (isMs ? "06:30 (Esok)" : "06:30 (Tomorrow)"));
+                m10aNextBusDualRow.innerHTML = isMs 
+                    ? `<span>🚌 <strong>Dari Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>Dari UTeM Induk:</strong> ${upcomingInbound}</span>`
+                    : `<span>🚌 <strong>From Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>From UTeM Induk:</strong> ${upcomingInbound}</span>`;
+            }
         } else {
-            const hrs = Math.floor(minutesDiff / 60);
-            const mins = minutesDiff % 60;
-            m10aNextBusCountdownVal.textContent = isMs ? `Berlepas dlm ${hrs}j ${mins}m` : `Departs in ${hrs}h ${mins}m`;
+            // Service ended for today on Friday, Saturday, or Sunday
+            if (dayOfWeek === 5 || dayOfWeek === 6) {
+                // Friday or Saturday night -> Next bus is tomorrow morning (Saturday or Sunday) at 05:30
+                if (m10aNextBusStatusTag) {
+                    m10aNextBusStatusTag.className = "bus-status-tag inactive";
+                    m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.15)";
+                    m10aNextBusStatusTag.style.color = "#ef4444";
+                    m10aNextBusStatusTag.textContent = isMs ? "Tamat Operasi Hari Ini" : "Service Ended For Today";
+                }
+                m10aNextBusTimeVal.textContent = isMs ? "05:30 (Esok)" : "05:30 (Tomorrow)";
+
+                const tomorrowBusDate = new Date();
+                tomorrowBusDate.setDate(tomorrowBusDate.getDate() + 1);
+                tomorrowBusDate.setHours(5, 30, 0, 0);
+                const minutesDiff = Math.max(0, Math.floor((tomorrowBusDate.getTime() - now.getTime()) / (1000 * 60)));
+                const hrs = Math.floor(minutesDiff / 60);
+                const mins = minutesDiff % 60;
+                m10aNextBusCountdownVal.textContent = isMs ? `Bas esok berlepas dlm ${hrs}j ${mins}m` : `Next bus tomorrow in ${hrs}h ${mins}m`;
+
+                if (m10aNextBusDualRow) {
+                    const outTime = isMs ? "06:30 (Esok)" : "06:30 (Tomorrow)";
+                    const inTime = isMs ? "05:30 (Esok)" : "05:30 (Tomorrow)";
+                    m10aNextBusDualRow.innerHTML = isMs 
+                        ? `<span>🚌 <strong>Dari Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>Dari UTeM Induk:</strong> ${inTime}</span>`
+                        : `<span>🚌 <strong>From Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>From UTeM Induk:</strong> ${inTime}</span>`;
+                }
+            } else {
+                // Sunday night -> Weekend service ended, next bus is Friday at 05:30
+                if (m10aNextBusStatusTag) {
+                    m10aNextBusStatusTag.className = "bus-status-tag inactive";
+                    m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.15)";
+                    m10aNextBusStatusTag.style.color = "#ef4444";
+                    m10aNextBusStatusTag.textContent = isMs ? "Tamat Operasi Hujung Minggu" : "Weekend Service Ended";
+                }
+                m10aNextBusTimeVal.textContent = isMs ? "05:30 (Jumaat)" : "05:30 (Friday)";
+
+                const nextFridayDate = new Date(now);
+                nextFridayDate.setDate(nextFridayDate.getDate() + 5);
+                nextFridayDate.setHours(5, 30, 0, 0);
+                const minutesDiff = Math.max(0, Math.floor((nextFridayDate.getTime() - now.getTime()) / (1000 * 60)));
+                const days = Math.floor(minutesDiff / (60 * 24));
+                const hrs = Math.floor((minutesDiff % (60 * 24)) / 60);
+                m10aNextBusCountdownVal.textContent = isMs 
+                    ? `Bas terus seterusnya Jumaat dlm ${days}h ${hrs}j` 
+                    : `Next direct bus Friday in ${days}d ${hrs}h`;
+
+                if (m10aNextBusDualRow) {
+                    const outTime = isMs ? "06:30 (Jumaat)" : "06:30 (Friday)";
+                    const inTime = isMs ? "05:30 (Jumaat)" : "05:30 (Friday)";
+                    m10aNextBusDualRow.innerHTML = isMs 
+                        ? `<span>🚌 <strong>Dari Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>Dari UTeM Induk:</strong> ${inTime}</span>`
+                        : `<span>🚌 <strong>From Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>From UTeM Induk:</strong> ${inTime}</span>`;
+                }
+            }
         }
     } else {
-        if (dayOfWeek === 6) { // Saturday, next bus is Sunday
-            if (m10aNextBusStatusTag) {
-                m10aNextBusStatusTag.className = "bus-status-tag inactive";
-                m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
-                m10aNextBusStatusTag.style.color = "#ef4444";
-                m10aNextBusStatusTag.textContent = isMs ? "Tamat Operasi (Hari Ini)" : "Service Ended For Today";
-            }
-            m10aNextBusTimeVal.textContent = isMs ? "07:15 (Esok)" : "07:15 (Tomorrow)";
-            const tomorrowBusDate = new Date();
-            tomorrowBusDate.setDate(tomorrowBusDate.getDate() + 1);
-            tomorrowBusDate.setHours(7, 15, 0, 0);
-            const minutesDiff = Math.floor((tomorrowBusDate.getTime() - now.getTime()) / (1000 * 60));
-            const hrs = Math.floor(minutesDiff / 60);
-            const mins = minutesDiff % 60;
-            m10aNextBusCountdownVal.textContent = isMs ? `Bas esok berlepas dlm ${hrs}j ${mins}m` : `Next bus tomorrow in ${hrs}h ${mins}m`;
-        } else { // Sunday, next bus is next Saturday
-            if (m10aNextBusStatusTag) {
-                m10aNextBusStatusTag.className = "bus-status-tag inactive";
-                m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.1)";
-                m10aNextBusStatusTag.style.color = "#ef4444";
-                m10aNextBusStatusTag.textContent = isMs ? "Tamat Operasi (Minggu Ini)" : "Service Ended For Weekend";
-            }
-            m10aNextBusTimeVal.textContent = "N/A";
-            m10aNextBusCountdownVal.textContent = isMs ? "Operasi tamat. Servis seterusnya Sabtu depan." : "Weekend service ended. Next UTeM service on Saturday.";
+        // Monday, Tuesday, Wednesday, or Thursday -> Only Fri-Sun service matters
+        if (m10aNextBusStatusTag) {
+            m10aNextBusStatusTag.className = "bus-status-tag inactive";
+            m10aNextBusStatusTag.style.background = "rgba(239, 68, 68, 0.15)";
+            m10aNextBusStatusTag.style.color = "#ef4444";
+            m10aNextBusStatusTag.textContent = isMs ? "Hanya Jumaat – Ahad" : "Runs Fri – Sun Only";
+        }
+        m10aNextBusTimeVal.textContent = isMs ? "05:30 (Jumaat)" : "05:30 (Friday)";
+
+        const daysUntilFriday = (5 - dayOfWeek); // 1->4, 2->3, 3->2, 4->1
+        const nextFridayDate = new Date(now);
+        nextFridayDate.setDate(nextFridayDate.getDate() + daysUntilFriday);
+        nextFridayDate.setHours(5, 30, 0, 0);
+
+        const minutesDiff = Math.max(0, Math.floor((nextFridayDate.getTime() - now.getTime()) / (1000 * 60)));
+        const days = Math.floor(minutesDiff / (60 * 24));
+        const hrs = Math.floor((minutesDiff % (60 * 24)) / 60);
+        const mins = minutesDiff % 60;
+
+        if (days > 0) {
+            m10aNextBusCountdownVal.textContent = isMs 
+                ? `Bas terus seterusnya Jumaat dlm ${days}h ${hrs}j` 
+                : `Next direct bus Friday in ${days}d ${hrs}h`;
+        } else if (hrs > 0) {
+            m10aNextBusCountdownVal.textContent = isMs 
+                ? `Bas terus seterusnya Jumaat dlm ${hrs}j ${mins}m` 
+                : `Next direct bus Friday in ${hrs}h ${mins}m`;
+        } else {
+            m10aNextBusCountdownVal.textContent = isMs 
+                ? `Bas terus seterusnya Jumaat dlm ${mins} minit` 
+                : `Next direct bus Friday in ${mins} mins`;
+        }
+
+        if (m10aNextBusDualRow) {
+            const outTime = isMs ? "06:30 (Jumaat)" : "06:30 (Friday)";
+            const inTime = isMs ? "05:30 (Jumaat)" : "05:30 (Friday)";
+            m10aNextBusDualRow.innerHTML = isMs 
+                ? `<span>🚌 <strong>Dari Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>Dari UTeM Induk:</strong> ${inTime}</span>`
+                : `<span>🚌 <strong>From Melaka Sentral (Bay 17):</strong> ${outTime}</span> &bull; <span>🚌 <strong>From UTeM Induk:</strong> ${inTime}</span>`;
         }
     }
 }
@@ -443,11 +752,13 @@ if (semToggleSpecial && semToggleRegular && pillsSpecialSem && pillsRegularSem) 
     });
 }
 
-// Restore saved user preferences (on weekends Friday - Sunday, default is M10A)
+// Restore saved user preferences (on weekends Friday - Sunday or public holidays, default is M10A)
 try {
     const now = new Date();
     const dayOfWeek = now.getDay();
-    const isWeekend = (dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6); // Sun, Fri, Sat
+    const holidayInfo = typeof getBusHolidayStatus === 'function' ? getBusHolidayStatus(now) : { status: "none" };
+    const isHolidayToday = holidayInfo.status === "active" && holidayInfo.isHoliday;
+    const isWeekend = (dayOfWeek === 0 || dayOfWeek === 5 || dayOfWeek === 6 || isHolidayToday); // Sun, Fri, Sat, or Holiday
 
     const sessionTab = sessionStorage.getItem("ucpm_bus_session_tab");
     const savedTab = localStorage.getItem("ucpm_bus_active_tab");
@@ -460,7 +771,10 @@ try {
         if (pillsSpecialSem) pillsSpecialSem.style.display = "none";
     }
 
-    if (sessionTab === "internal") {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (window.location.hash === "#m10a" || urlParams.get("tab") === "public" || urlParams.get("tab") === "m10a") {
+        if (busTabPublic) busTabPublic.click();
+    } else if (sessionTab === "internal") {
         if (busTabInternal) busTabInternal.click();
     } else if (isWeekend || sessionTab === "public" || savedTab === "public") {
         if (busTabPublic) busTabPublic.click();
@@ -485,6 +799,27 @@ try {
         }
     }
 } catch (e) {}
+
+// Holiday banner interactive controls
+const busHolidaySwitchM10A = document.getElementById("busHolidaySwitchM10A");
+if (busHolidaySwitchM10A) {
+    busHolidaySwitchM10A.addEventListener("click", () => {
+        const publicTab = document.getElementById("busTabPublic");
+        if (publicTab) publicTab.click();
+    });
+}
+
+const busHolidayDismiss = document.getElementById("busHolidayDismiss");
+if (busHolidayDismiss) {
+    busHolidayDismiss.addEventListener("click", () => {
+        const banner = document.getElementById("busHolidayNotice");
+        if (banner) banner.style.display = "none";
+        try { sessionStorage.setItem("ucpm_dismiss_bus_holiday", "true"); } catch (e) {}
+    });
+}
+
+window.getBusHolidayStatus = getBusHolidayStatus;
+window.updateBusHolidayNotice = updateBusHolidayNotice;
 
 refreshAllBusSchedules();
 setInterval(refreshAllBusSchedules, 60000);

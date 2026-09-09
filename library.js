@@ -489,6 +489,220 @@ function initLibraryHoursPill() {
     setInterval(updateLibraryPill, 60000);
 }
 
+// -------------------------------------------------------------
+// UTeM Course Code Anatomy Decoder Engine
+// -------------------------------------------------------------
+const UTEM_COURSE_FACULTIES = {
+    // FTMK - Fakulti Teknologi Maklumat & Komunikasi
+    "BITM": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Software Development", deptMs: "Pembangunan Perisian", degree: "Bachelor Degree" },
+    "BITP": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Software Engineering", deptMs: "Kejuruteraan Perisian", degree: "Bachelor Degree" },
+    "BITS": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Computer Security", deptMs: "Keselamatan Komputer", degree: "Bachelor Degree" },
+    "BITD": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Database Management", deptMs: "Pengurusan Pangkalan Data", degree: "Bachelor Degree" },
+    "BITC": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Computer Networking", deptMs: "Rangkaian Komputer", degree: "Bachelor Degree" },
+    "BITI": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Artificial Intelligence", deptMs: "Sistem Pintar (AI)", degree: "Bachelor Degree" },
+    "BITA": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Interactive Media & Games", deptMs: "Media Interaktif & Permainan", degree: "Bachelor Degree" },
+    "BITZ": { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Bioinformatics", deptMs: "Bioinformatik", degree: "Bachelor Degree" },
+    "BIT":  { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Computing General Faculty Core", deptMs: "Teras Fakulti Pengkomputeran", degree: "Bachelor Degree" },
+    "DIT":  { faculty: "FTMK", facultyFull: "Faculty of Information & Communication Technology", facultyFullMs: "Fakulti Teknologi Maklumat & Komunikasi", dept: "Information Technology (Diploma)", deptMs: "Teknologi Maklumat (Diploma)", degree: "Diploma" },
+
+    // FKM - Fakulti Kejuruteraan Mekanikal
+    "BMMT": { faculty: "FKM", facultyFull: "Faculty of Mechanical Engineering", facultyFullMs: "Fakulti Kejuruteraan Mekanikal", dept: "Automotive Engineering", deptMs: "Kejuruteraan Automotif", degree: "Bachelor Degree" },
+    "BMMC": { faculty: "FKM", facultyFull: "Faculty of Mechanical Engineering", facultyFullMs: "Fakulti Kejuruteraan Mekanikal", dept: "Thermal-Fluids & Mechanical Design", deptMs: "Bendalir Terma & Reka Bentuk Mekanikal", degree: "Bachelor Degree" },
+    "BMMH": { faculty: "FKM", facultyFull: "Faculty of Mechanical Engineering", facultyFullMs: "Fakulti Kejuruteraan Mekanikal", dept: "Air Conditioning & Refrigeration (HVAC)", deptMs: "Penyamanan Udara & Penyejukan", degree: "Bachelor Degree" },
+    "BMMA": { faculty: "FKM", facultyFull: "Faculty of Mechanical Engineering", facultyFullMs: "Fakulti Kejuruteraan Mekanikal", dept: "Aeronautical Engineering", deptMs: "Kejuruteraan Aeronautik", degree: "Bachelor Degree" },
+    "BMM":  { faculty: "FKM", facultyFull: "Faculty of Mechanical Engineering", facultyFullMs: "Fakulti Kejuruteraan Mekanikal", dept: "Mechanical Engineering Core", deptMs: "Teras Kejuruteraan Mekanikal", degree: "Bachelor Degree" },
+    "DMM":  { faculty: "FKM", facultyFull: "Faculty of Mechanical Engineering", facultyFullMs: "Fakulti Kejuruteraan Mekanikal", dept: "Mechanical Engineering (Diploma)", deptMs: "Kejuruteraan Mekanikal (Diploma)", degree: "Diploma" },
+
+    // FKE - Fakulti Kejuruteraan Elektrik
+    "BEKP": { faculty: "FKE", facultyFull: "Faculty of Electrical Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektrik", dept: "Electrical Power Engineering", deptMs: "Kejuruteraan Kuasa Elektrik", degree: "Bachelor Degree" },
+    "BEKM": { faculty: "FKE", facultyFull: "Faculty of Electrical Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektrik", dept: "Mechatronics & Control Engineering", deptMs: "Mekatronik & Kawalan", degree: "Bachelor Degree" },
+    "BEK":  { faculty: "FKE", facultyFull: "Faculty of Electrical Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektrik", dept: "Electrical Engineering Core", deptMs: "Teras Kejuruteraan Elektrik", degree: "Bachelor Degree" },
+    "DEK":  { faculty: "FKE", facultyFull: "Faculty of Electrical Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektrik", dept: "Electrical Engineering (Diploma)", deptMs: "Kejuruteraan Elektrik (Diploma)", degree: "Diploma" },
+
+    // FKEKK - Fakulti Kejuruteraan Elektronik dan Kejuruteraan Komputer
+    "BENC": { faculty: "FKEKK", facultyFull: "Faculty of Electronic & Computer Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektronik & Komputer", dept: "Computer Engineering", deptMs: "Kejuruteraan Komputer", degree: "Bachelor Degree" },
+    "BENT": { faculty: "FKEKK", facultyFull: "Faculty of Electronic & Computer Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektronik & Komputer", dept: "Telecommunications Engineering", deptMs: "Kejuruteraan Telekomunikasi", degree: "Bachelor Degree" },
+    "BENE": { faculty: "FKEKK", facultyFull: "Faculty of Electronic & Computer Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektronik & Komputer", dept: "Industrial Electronics", deptMs: "Elektronik Industri", degree: "Bachelor Degree" },
+    "BEET": { faculty: "FKEKK", facultyFull: "Faculty of Electronic & Computer Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektronik & Komputer", dept: "Wireless & Electronic Engineering", deptMs: "Kejuruteraan Elektronik & Tanpa Wayar", degree: "Bachelor Degree" },
+    "BEE":  { faculty: "FKEKK", facultyFull: "Faculty of Electronic & Computer Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektronik & Komputer", dept: "Electronic Engineering Core", deptMs: "Teras Kejuruteraan Elektronik", degree: "Bachelor Degree" },
+    "DEE":  { faculty: "FKEKK", facultyFull: "Faculty of Electronic & Computer Engineering", facultyFullMs: "Fakulti Kejuruteraan Elektronik & Komputer", dept: "Electronic Engineering (Diploma)", deptMs: "Kejuruteraan Elektronik (Diploma)", degree: "Diploma" },
+
+    // FKP - Fakulti Kejuruteraan Pembuatan
+    "BMFG": { faculty: "FKP", facultyFull: "Faculty of Manufacturing Engineering", facultyFullMs: "Fakulti Kejuruteraan Pembuatan", dept: "Manufacturing Process Engineering", deptMs: "Kejuruteraan Proses Pembuatan", degree: "Bachelor Degree" },
+    "BMFA": { faculty: "FKP", facultyFull: "Faculty of Manufacturing Engineering", facultyFullMs: "Fakulti Kejuruteraan Pembuatan", dept: "Industrial Automation & Robotics", deptMs: "Automasi & Robotik Industri", degree: "Bachelor Degree" },
+    "BMFP": { faculty: "FKP", facultyFull: "Faculty of Manufacturing Engineering", facultyFullMs: "Fakulti Kejuruteraan Pembuatan", dept: "Product Design Engineering", deptMs: "Kejuruteraan Reka Bentuk Produk", degree: "Bachelor Degree" },
+    "BMF":  { faculty: "FKP", facultyFull: "Faculty of Manufacturing Engineering", facultyFullMs: "Fakulti Kejuruteraan Pembuatan", dept: "Manufacturing Core", deptMs: "Teras Kejuruteraan Pembuatan", degree: "Bachelor Degree" },
+    "DMF":  { faculty: "FKP", facultyFull: "Faculty of Manufacturing Engineering", facultyFullMs: "Fakulti Kejuruteraan Pembuatan", dept: "Manufacturing Engineering (Diploma)", deptMs: "Kejuruteraan Pembuatan (Diploma)", degree: "Diploma" },
+
+    // FPTT - Fakulti Pengurusan Teknologi dan Teknousahawanan
+    "BTMI": { faculty: "FPTT", facultyFull: "Faculty of Technology Management & Technopreneurship", facultyFullMs: "Fakulti Pengurusan Teknologi & Teknousahawanan", dept: "Technology Innovation", deptMs: "Inovasi Teknologi", degree: "Bachelor Degree" },
+    "BTMM": { faculty: "FPTT", facultyFull: "Faculty of Technology Management & Technopreneurship", facultyFullMs: "Fakulti Pengurusan Teknologi & Teknousahawanan", dept: "High-Tech Marketing", deptMs: "Pemasaran Teknologi", degree: "Bachelor Degree" },
+    "BTMH": { faculty: "FPTT", facultyFull: "Faculty of Technology Management & Technopreneurship", facultyFullMs: "Fakulti Pengurusan Teknologi & Teknousahawanan", dept: "High-Tech Operations & SCM", deptMs: "Operasi & Pengurusan Rantaian", degree: "Bachelor Degree" },
+    "BTM":  { faculty: "FPTT", facultyFull: "Faculty of Technology Management & Technopreneurship", facultyFullMs: "Fakulti Pengurusan Teknologi & Teknousahawanan", dept: "Technology Management Core", deptMs: "Teras Pengurusan Teknologi", degree: "Bachelor Degree" },
+    "DTM":  { faculty: "FPTT", facultyFull: "Faculty of Technology Management & Technopreneurship", facultyFullMs: "Fakulti Pengurusan Teknologi & Teknousahawanan", dept: "Technology Management (Diploma)", deptMs: "Pengurusan Teknologi (Diploma)", degree: "Diploma" },
+
+    // FTK - Faculty of Engineering Technology
+    "BENA": { faculty: "FTK", facultyFull: "Faculty of Engineering Technology", facultyFullMs: "Fakulti Teknologi Kejuruteraan", dept: "Automotive Technology", deptMs: "Teknologi Automotif", degree: "Bachelor Degree" },
+    "BENB": { faculty: "FTK", facultyFull: "Faculty of Engineering Technology", facultyFullMs: "Fakulti Teknologi Kejuruteraan", dept: "Building Construction Technology", deptMs: "Teknologi Pembinaan Bangunan", degree: "Bachelor Degree" },
+    "BEND": { faculty: "FTK", facultyFull: "Faculty of Engineering Technology", facultyFullMs: "Fakulti Teknologi Kejuruteraan", dept: "Electrical Technology", deptMs: "Teknologi Kejuruteraan Elektrik", degree: "Bachelor Degree" },
+    "BTE":  { faculty: "FTK", facultyFull: "Faculty of Engineering Technology", facultyFullMs: "Fakulti Teknologi Kejuruteraan", dept: "Engineering Technology Core", deptMs: "Teras Teknologi Kejuruteraan", degree: "Bachelor Degree" },
+
+    // PBPI / MPU - Pusat Bahasa & Pembangunan Insan
+    "BLHC": { faculty: "PBPI", facultyFull: "Centre for Languages & Human Development", facultyFullMs: "Pusat Bahasa & Pembangunan Insan", dept: "Humanities & Ethics (MPU)", deptMs: "Kemanusiaan & Etika (MPU)", degree: "University Compulsory" },
+    "BLHL": { faculty: "PBPI", facultyFull: "Centre for Languages & Human Development", facultyFullMs: "Pusat Bahasa & Pembangunan Insan", dept: "Language Communication (English & Foreign)", deptMs: "Komunikasi Bahasa & Antarabangsa", degree: "University Compulsory" },
+    "BLHW": { faculty: "PBPI", facultyFull: "Centre for Languages & Human Development", facultyFullMs: "Pusat Bahasa & Pembangunan Insan", dept: "Nationhood & Constitution", deptMs: "Kenegaraan & Perlembagaan", degree: "University Compulsory" },
+    "BLH":  { faculty: "PBPI", facultyFull: "Centre for Languages & Human Development", facultyFullMs: "Pusat Bahasa & Pembangunan Insan", dept: "General University Compulsory", deptMs: "Wajib Universiti Umum", degree: "University Compulsory" },
+
+    // PKK - Pusat Kokurikulum
+    "BMU":  { faculty: "PKK", facultyFull: "University Co-Curriculum Centre", facultyFullMs: "Pusat Kokurikulum", dept: "Co-Curricular Course (Sports/Corps/Community)", deptMs: "Kursus Kokurikulum (Sukan/Badan Beruniform/Khidmat)", degree: "Co-Curriculum" },
+    "DMU":  { faculty: "PKK", facultyFull: "University Co-Curriculum Centre", facultyFullMs: "Pusat Kokurikulum", dept: "Co-Curricular Course (Diploma)", deptMs: "Kursus Kokurikulum (Diploma)", degree: "Co-Curriculum" }
+};
+
+function decodeUTeMCourseCode(rawCode) {
+    if (!rawCode) return null;
+    const clean = rawCode.toUpperCase().replace(/[^A-Z0-9]/g, "");
+    const match = clean.match(/^([A-Z]{3,4})(\d)(\d{2})(\d)$/);
+    if (!match) return null;
+
+    const prefix = match[1];
+    const yearDigit = match[2];
+    const seqDigits = match[3];
+    const creditDigit = match[4];
+
+    const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || window.currentLang === 'ms' || document.documentElement.lang === 'ms';
+
+    const facData = UTEM_COURSE_FACULTIES[prefix] || UTEM_COURSE_FACULTIES[prefix.slice(0, 3)] || {
+        faculty: prefix.startsWith("B") ? "UTeM Faculty" : "UTeM Department",
+        facultyFull: "UTeM Academic Department",
+        facultyFullMs: "Jabatan Akademik UTeM",
+        dept: "Specialized Course Discipline (" + prefix + ")",
+        deptMs: "Disiplin Kursus Khusus (" + prefix + ")",
+        degree: prefix.startsWith("B") ? "Bachelor Degree" : (prefix.startsWith("D") ? "Diploma" : "Undergraduate Course")
+    };
+
+    let levelTitle = isMs ? ("Tahun " + yearDigit) : ("Year " + yearDigit);
+    let levelSub = isMs ? ("Tahap " + yearDigit + "00") : ("Level " + yearDigit + "00");
+    if (yearDigit === "1") levelSub += isMs ? " · Asas / Pengenalan" : " · Foundation & Core";
+    else if (yearDigit === "2") levelSub += isMs ? " · Pengkhususan Pertengahan" : " · Intermediate Specialization";
+    else if (yearDigit === "3") levelSub += isMs ? " · Pengkhususan Lanjutan" : " · Advanced Specialization";
+    else if (yearDigit === "4") levelSub += isMs ? " · Tahun Akhir / PSM / Latihan Industri" : " · Final Year / Capstone / PSM";
+    else if (yearDigit >= "5") levelSub += isMs ? " · Pascasiswazah" : " · Postgraduate";
+
+    const credits = parseInt(creditDigit, 10);
+    let creditDesc = credits + (isMs ? " Jam Kredit" : " Credit Hours");
+    let creditSub = "";
+    if (credits === 6) creditSub = isMs ? "Projek Sarjana Muda (PSM 2) atau Latihan Industri" : "Final Year Project (PSM 2) or Internship";
+    else if (credits === 4) creditSub = isMs ? "Syarahan & Amali Makmal Berat" : "Lecture + Heavy Practical Lab";
+    else if (credits === 3) creditSub = isMs ? "Syarahan & Tutorial Standard" : "Standard Lecture + Tutorial Course";
+    else if (credits <= 2) creditSub = isMs ? "Kursus MPU / Bahasa / Kokurikulum" : "MPU / Language / Co-Curriculum";
+
+    let explanation = isMs 
+        ? `Kod <strong>${prefix} ${yearDigit}${seqDigits}${creditDigit}</strong> menunjukkan kursus di bawah <strong>${facData.faculty}</strong> (${facData.facultyFullMs}). Angka pertama (<strong>${yearDigit}</strong>) menandakan tahap pengajian Tahun ${yearDigit}, manakala angka terakhir (<strong>${creditDigit}</strong>) memperuntukkan nilai bebanan sebanyak <strong>${credits} jam kredit</strong>.`
+        : `Course code <strong>${prefix} ${yearDigit}${seqDigits}${creditDigit}</strong> belongs to <strong>${facData.faculty}</strong> (${facData.facultyFull}). The first digit (<strong>${yearDigit}</strong>) designates Year ${yearDigit} level, while the final digit (<strong>${creditDigit}</strong>) establishes its academic weighting of <strong>${credits} credit hours</strong>.`;
+
+    return {
+        formattedCode: prefix + " " + yearDigit + seqDigits + creditDigit,
+        prefix: prefix,
+        faculty: facData.faculty,
+        facultyFull: isMs ? facData.facultyFullMs : facData.facultyFull,
+        department: isMs ? facData.deptMs : facData.dept,
+        degree: facData.degree,
+        year: yearDigit,
+        levelTitle: levelTitle,
+        levelSub: levelSub,
+        credits: credits,
+        creditDesc: creditDesc,
+        creditSub: creditSub,
+        explanation: explanation
+    };
+}
+
+function initCourseDecoder() {
+    const input = document.getElementById("courseDecoderInput");
+    const btn = document.getElementById("btnDecodeCourse");
+    const container = document.getElementById("decoderOutputContainer");
+    const pills = document.querySelectorAll(".decoder-sample-pill");
+
+    const errorBox = document.getElementById("decoderErrorBox");
+    const contentBox = document.getElementById("decoderContentBox");
+
+    function handleDecode(codeToDecode) {
+        const query = (codeToDecode || input.value || "").trim();
+        if (!query) {
+            if (typeof showToast === "function") {
+                showToast("Please enter a course code (e.g. BITP 1113).", "warning");
+            }
+            return;
+        }
+
+        const decoded = decodeUTeMCourseCode(query);
+        if (!decoded) {
+            container.style.display = "block";
+            if (errorBox) errorBox.style.display = "block";
+            if (contentBox) contentBox.style.display = "none";
+            return;
+        }
+
+        container.style.display = "block";
+        if (errorBox) errorBox.style.display = "none";
+        if (contentBox) contentBox.style.display = "block";
+
+        const codeBadge = document.getElementById("decodedCodeBadge");
+        const degreeBadge = document.getElementById("decodedDegreeBadge");
+        const facText = document.getElementById("decodedFacultyText");
+        const deptText = document.getElementById("decodedDeptText");
+        const yearText = document.getElementById("decodedYearText");
+        const levelText = document.getElementById("decodedLevelText");
+        const credText = document.getElementById("decodedCreditText");
+        const credSub = document.getElementById("decodedCreditSub");
+        const expText = document.getElementById("decodedExplanation");
+        const btnExam = document.getElementById("btnSearchDecodedExam");
+
+        if (codeBadge) codeBadge.textContent = decoded.formattedCode;
+        if (degreeBadge) degreeBadge.textContent = decoded.degree;
+        if (facText) facText.textContent = decoded.faculty + " · " + decoded.facultyFull;
+        if (deptText) deptText.textContent = decoded.department;
+        if (yearText) yearText.textContent = decoded.levelTitle;
+        if (levelText) levelText.textContent = decoded.levelSub;
+        if (credText) credText.textContent = decoded.creditDesc;
+        if (credSub) credSub.textContent = decoded.creditSub;
+        if (expText) expText.innerHTML = decoded.explanation;
+
+        if (btnExam) {
+            btnExam.onclick = () => {
+                searchExamSubject(decoded.formattedCode);
+            };
+        }
+
+        // Animate entrance
+        container.style.opacity = "0";
+        container.style.transform = "translateY(4px)";
+        container.style.transition = "opacity 0.25s ease, transform 0.25s ease";
+        requestAnimationFrame(() => {
+            container.style.opacity = "1";
+            container.style.transform = "translateY(0)";
+        });
+    }
+
+    btn.addEventListener("click", () => handleDecode());
+    input.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") handleDecode();
+    });
+
+    pills.forEach(pill => {
+        pill.addEventListener("click", () => {
+            const code = pill.getAttribute("data-code");
+            if (code) {
+                input.value = code;
+                handleDecode(code);
+            }
+        });
+    });
+}
+
+// Expose globally
+window.decodeUTeMCourseCode = decodeUTeMCourseCode;
+
 function initLibraryAndExams() {
     const btnSearchExams = document.getElementById("btnSearchExams");
     const examSubjectInput = document.getElementById("examSubjectInput");
@@ -507,6 +721,7 @@ function initLibraryAndExams() {
 
     initExamSeasonPill();
     initLibraryHoursPill();
+    initCourseDecoder();
 }
 
 if (document.readyState === "loading") {

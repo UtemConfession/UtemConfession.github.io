@@ -363,14 +363,14 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- 2. OLED Midnight -->
+                <!-- 2. Midnight Eclipse -->
                 <button type="button" class="theme-card-option" data-theme-id="oled">
                     <div class="theme-swatch-ring" style="border-color: #ffd700; background: #000000;">
                         <span class="theme-swatch-core" style="background: #ffd700; box-shadow: 0 0 6px #ffd700;"></span>
                     </div>
                     <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🌑</span> OLED Midnight</span>
-                        <span class="theme-card-desc">Pitch Black #000</span>
+                        <span class="theme-card-name"><span class="theme-card-emoji">🌑</span> Midnight Eclipse</span>
+                        <span class="theme-card-desc">Pitch Black & Gold</span>
                     </div>
                     <div class="theme-check-circle" aria-hidden="true">
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -456,14 +456,14 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- 9. Catppuccin Mocha -->
+                <!-- 9. Pastel Mocha -->
                 <button type="button" class="theme-card-option" data-theme-id="catppuccin">
                     <div class="theme-swatch-ring" style="border-color: #cba6f7; background: #181825;">
                         <span class="theme-swatch-core" style="background: #cba6f7; box-shadow: 0 0 6px #cba6f7;"></span>
                     </div>
                     <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🐱</span> Catppuccin</span>
-                        <span class="theme-card-desc">Velvet Slate & Lavender</span>
+                        <span class="theme-card-name"><span class="theme-card-emoji">☕</span> Pastel Mocha</span>
+                        <span class="theme-card-desc">Velvet Slate & Soft Mocha</span>
                     </div>
                     <div class="theme-check-circle" aria-hidden="true">
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -549,14 +549,14 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- 16. EVA Mecha-01 -->
+                <!-- 16. Electric Aurora -->
                 <button type="button" class="theme-card-option" data-theme-id="eva">
                     <div class="theme-swatch-ring" style="border-color: #00ff66; background: #0e081c;">
                         <span class="theme-swatch-core" style="background: #00ff66; box-shadow: 0 0 6px #00ff66;"></span>
                     </div>
                     <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🤖</span> EVA Mecha-01</span>
-                        <span class="theme-card-desc">Mecha Violet & Hyper Green</span>
+                        <span class="theme-card-name"><span class="theme-card-emoji">🌌</span> Electric Aurora</span>
+                        <span class="theme-card-desc">Violet Night & Radiant Green</span>
                     </div>
                     <div class="theme-check-circle" aria-hidden="true">
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -780,7 +780,7 @@ function initScrollReveal() {
 const UCPM_THEMES = {
     // 1. Core / Neutral / High-Contrast
     classic: { id: 'classic', name: 'Classic', icon: '🌕', fullName: 'Classic UCPM', color: '#d4af37' },
-    oled: { id: 'oled', name: 'OLED', icon: '🌑', fullName: 'OLED Midnight', color: '#ffd700' },
+    oled: { id: 'oled', name: 'Eclipse', icon: '🌑', fullName: 'Midnight Eclipse', color: '#ffd700' },
     monochrome: { id: 'monochrome', name: 'Mono', icon: '⚪', fullName: 'Minimal Monochrome', color: '#ffffff' },
     // 2. Pink / Magenta / Red / Peach
     sakura: { id: 'sakura', name: 'Sakura', icon: '🌸', fullName: 'Sakura Neon', color: '#ff6b8b' },
@@ -789,7 +789,7 @@ const UCPM_THEMES = {
     arcade: { id: 'arcade', name: 'Arcade', icon: '🕹️', fullName: 'Arcade 1984', color: '#ff2a6d' },
     // 3. Purple / Lilac / Ultraviolet
     dracula: { id: 'dracula', name: 'Dracula', icon: '🔮', fullName: 'Dracula Violet', color: '#c084fc' },
-    catppuccin: { id: 'catppuccin', name: 'Catppuccin', icon: '🐱', fullName: 'Catppuccin Mocha', color: '#cba6f7' },
+    catppuccin: { id: 'catppuccin', name: 'Mocha', icon: '\u2615', fullName: 'Pastel Mocha', color: '#cba6f7' },
     nebula: { id: 'nebula', name: 'Nebula', icon: '🪐', fullName: 'Cosmic Nebula', color: '#d946ef' },
     // 4. Blue / Cyan / Teal / Marine
     cyberpunk: { id: 'cyberpunk', name: 'Cyberpunk', icon: '💎', fullName: 'Cyberpunk Cyan', color: '#00f5d4' },
@@ -798,7 +798,7 @@ const UCPM_THEMES = {
     cobalt: { id: 'cobalt', name: 'Cobalt Blue', icon: '🧿', fullName: 'Cobalt Blue', color: '#3b82f6' },
     // 5. Green / Cyber
     matrix: { id: 'matrix', name: 'Matrix', icon: '📟', fullName: 'Matrix Emerald', color: '#10b981' },
-    eva: { id: 'eva', name: 'EVA-01', icon: '🤖', fullName: 'EVA Mecha-01', color: '#00ff66' },
+    eva: { id: 'eva', name: 'Aurora', icon: '\uD83C\uDF0C', fullName: 'Electric Aurora', color: '#00ff66' },
     // 6. Warm Earth & Hearth
     sepia: { id: 'sepia', name: 'Sepia', icon: '☕', fullName: 'Sepia Warm Night', color: '#e2a964' },
     cathedral: { id: 'cathedral', name: 'Gothic Ember', icon: '🕯️', fullName: 'Gothic Ember', color: '#f59e0b' }
@@ -840,6 +840,9 @@ function initThemePresetSystem() {
         if (toggleBtn) {
             e.preventDefault();
             e.stopPropagation();
+            if (navigator.vibrate) {
+                try { navigator.vibrate(8); } catch (err) {}
+            }
             openThemePaletteModal();
             return;
         }
@@ -853,6 +856,9 @@ function initThemePresetSystem() {
                 clearTimeout(themeModalCloseTimer);
                 themeModalCloseTimer = null;
             }
+            if (closeBtn && navigator.vibrate) {
+                try { navigator.vibrate(6); } catch (err) {}
+            }
             closeThemePaletteModal();
             return;
         }
@@ -863,20 +869,11 @@ function initThemePresetSystem() {
             e.preventDefault();
             const targetTheme = optionBtn.getAttribute('data-theme-id');
             if (targetTheme) {
-                applyThemePreset(targetTheme, e);
                 if (themeModalCloseTimer) {
                     clearTimeout(themeModalCloseTimer);
-                }
-                themeModalCloseTimer = setTimeout(() => {
-                    closeThemePaletteModal();
-                    // Also dismiss mobile drawer if open so user sees their new theme
-                    const drawer = document.getElementById('mobileMoreDrawer');
-                    if (drawer && drawer.classList.contains('active')) {
-                        drawer.classList.remove('active');
-                        document.body.style.overflow = '';
-                    }
                     themeModalCloseTimer = null;
-                }, 950);
+                }
+                applyThemePreset(targetTheme, e);
             }
         }
     });
@@ -963,6 +960,14 @@ function applyThemePreset(targetTheme, e) {
         }
         updateThemePresetUI(targetTheme);
 
+        // Smoothly dismiss palette modal and mobile drawer with DOM commit
+        closeThemePaletteModal();
+        const drawer = document.getElementById('mobileMoreDrawer');
+        if (drawer && drawer.classList.contains('active')) {
+            drawer.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
         if (typeof showStatus === 'function') {
             const themeInfo = UCPM_THEMES[targetTheme];
             showStatus(`${themeInfo.icon} ${themeInfo.fullName} Activated`, 'success');
@@ -1000,95 +1005,142 @@ function applyThemePreset(targetTheme, e) {
     );
 
     const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     if (document.startViewTransition && !prefersReducedMotion) {
+        // Set CSS Custom Properties for pure CSS @keyframes animation (Safari 18+ and Chromium)
+        document.documentElement.style.setProperty('--ripple-x', `${Math.round(x)}px`);
+        document.documentElement.style.setProperty('--ripple-y', `${Math.round(y)}px`);
+        document.documentElement.style.setProperty('--ripple-radius', `${Math.round(endRadius * 1.15)}px`);
+
         document.documentElement.classList.add('theme-ripple-active');
-        const transition = document.startViewTransition(() => {
-            applyDOMChanges();
-        });
 
         const cleanupRipple = () => {
             document.documentElement.classList.remove('theme-ripple-active');
         };
-        if (transition.finished) {
-            transition.finished.finally(cleanupRipple);
-        } else {
-            setTimeout(cleanupRipple, 1000);
-        }
-
-        transition.ready.then(() => {
-            const clipPath = [
-                `circle(0px at ${x}px ${y}px)`,
-                `circle(${endRadius}px at ${x}px ${y}px)`
-            ];
-            document.documentElement.animate(
-                {
-                    clipPath: clipPath
-                },
-                {
-                    duration: 900,
-                    easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
-                    pseudoElement: '::view-transition-new(root)'
-                }
-            );
-        }).catch(() => {
-            cleanupRipple();
-            applyDOMChanges();
-        });
-    } else if (!prefersReducedMotion) {
-        // Universal iOS Safari / Telegram WebView Shockwave Ripple (Hardware Accelerated via Web Animations API)
-        const themeInfo = UCPM_THEMES[targetTheme] || UCPM_THEMES.classic;
-        const accentColor = themeInfo.color || '#d4af37';
-        const rippleSize = Math.max(endRadius * 2.4, 600);
-
-        const rippleEl = document.createElement('div');
-        rippleEl.style.cssText = `
-            position: fixed;
-            left: ${x - rippleSize / 2}px;
-            top: ${y - rippleSize / 2}px;
-            width: ${rippleSize}px;
-            height: ${rippleSize}px;
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 2147483647;
-            border: 4px solid ${accentColor};
-            background: radial-gradient(circle, ${accentColor}55 0%, ${accentColor}25 45%, transparent 70%);
-            box-shadow: 0 0 50px ${accentColor}, inset 0 0 30px ${accentColor};
-            transform: scale(0);
-            opacity: 1;
-            will-change: transform, opacity;
-        `;
-        document.body.appendChild(rippleEl);
 
         try {
-            const anim = rippleEl.animate([
-                { transform: 'scale(0)', opacity: 1 },
-                { transform: 'scale(0.55)', opacity: 0.9, offset: 0.4 },
-                { transform: 'scale(1)', opacity: 0 }
-            ], {
-                duration: 850,
-                easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-                fill: 'forwards'
+            const transition = document.startViewTransition(() => {
+                applyDOMChanges();
             });
 
-            anim.onfinish = () => {
-                if (rippleEl && rippleEl.parentNode) {
-                    rippleEl.parentNode.removeChild(rippleEl);
-                }
-            };
-        } catch (animErr) {
-            // Fallback for older engines
-            if (rippleEl && rippleEl.parentNode) {
-                rippleEl.parentNode.removeChild(rippleEl);
+            if (transition.finished) {
+                transition.finished.finally(cleanupRipple);
+            } else {
+                setTimeout(cleanupRipple, 900);
             }
-        }
 
-        applyDOMChanges();
+            transition.ready.then(() => {
+                // Dual-drive: JS animation for Chromium; if Safari rejects pseudoElement, CSS @keyframes takes over
+                try {
+                    document.documentElement.animate(
+                        {
+                            clipPath: [
+                                `circle(0px at ${x}px ${y}px)`,
+                                `circle(${Math.round(endRadius * 1.15)}px at ${x}px ${y}px)`
+                            ]
+                        },
+                        {
+                            duration: 750,
+                            easing: 'cubic-bezier(0.25, 1, 0.5, 1)',
+                            pseudoElement: '::view-transition-new(root)'
+                        }
+                    );
+                } catch (animErr) {
+                    // Safari 18 executes via CSS @keyframes ucpm-theme-ripple automatically
+                }
+            }).catch(() => {
+                cleanupRipple();
+            });
+        } catch (vtErr) {
+            cleanupRipple();
+            applyDOMChanges();
+        }
+    } else if (!prefersReducedMotion) {
+        // Universal iOS WebKit / In-App WebView Shockwave Circular Reveal
+        const themeInfo = UCPM_THEMES[targetTheme] || UCPM_THEMES.classic;
+        const accentColor = themeInfo.color || '#d4af37';
+
+        const themeBgMap = {
+            classic: '#0a0f1d',
+            oled: '#000000',
+            monochrome: '#121212',
+            sakura: '#170c14',
+            synthwave: '#160822',
+            peach: '#150e12',
+            arcade: '#090510',
+            dracula: '#120d1c',
+            catppuccin: '#141221',
+            nebula: '#11091e',
+            cyberpunk: '#05161e',
+            tokyo: '#0d111e',
+            abyssal: '#04151e',
+            cobalt: '#070f26',
+            matrix: '#03140c',
+            eva: '#0a1408',
+            sepia: '#15110d',
+            cathedral: '#1a100a'
+        };
+        const targetBg = themeBgMap[targetTheme] || '#0a0f1d';
+        const targetRadius = Math.ceil(endRadius * 1.2);
+
+        const wipeEl = document.createElement('div');
+        wipeEl.className = 'ucpm-universal-theme-wipe';
+        wipeEl.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: 2999998;
+            background: ${targetBg};
+            clip-path: circle(0px at ${x}px ${y}px);
+            -webkit-clip-path: circle(0px at ${x}px ${y}px);
+            transition: clip-path 0.7s cubic-bezier(0.25, 1, 0.5, 1), -webkit-clip-path 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.35s ease;
+            will-change: clip-path, -webkit-clip-path;
+        `;
+
+        const ringEl = document.createElement('div');
+        ringEl.className = 'ucpm-universal-theme-ring';
+        ringEl.style.cssText = `
+            position: fixed;
+            left: ${x - 40}px;
+            top: ${y - 40}px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 2999999;
+            border: 3.5px solid ${accentColor};
+            box-shadow: 0 0 45px ${accentColor}, inset 0 0 25px ${accentColor};
+            transform: scale(0);
+            transition: transform 0.7s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.7s ease;
+            will-change: transform, opacity;
+        `;
+
+        document.body.appendChild(wipeEl);
+        document.body.appendChild(ringEl);
+
+        void wipeEl.offsetWidth;
+
+        wipeEl.style.clipPath = `circle(${targetRadius}px at ${x}px ${y}px)`;
+        wipeEl.style.webkitClipPath = `circle(${targetRadius}px at ${x}px ${y}px)`;
+
+        const ringScale = (targetRadius * 2) / 80;
+        ringEl.style.transform = `scale(${ringScale})`;
+        ringEl.style.opacity = '0';
 
         setTimeout(() => {
-            if (rippleEl && rippleEl.parentNode) {
-                rippleEl.parentNode.removeChild(rippleEl);
-            }
-        }, 900);
+            applyDOMChanges();
+        }, 280);
+
+        setTimeout(() => {
+            wipeEl.style.opacity = '0';
+            setTimeout(() => {
+                if (wipeEl.parentNode) wipeEl.parentNode.removeChild(wipeEl);
+                if (ringEl.parentNode) ringEl.parentNode.removeChild(ringEl);
+            }, 320);
+        }, 660);
     } else {
         applyDOMChanges();
     }
