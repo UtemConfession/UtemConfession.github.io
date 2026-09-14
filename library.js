@@ -154,6 +154,16 @@ function initExamSeasonPill() {
 
     updateExamPill();
     setInterval(updateExamPill, 60000);
+
+    // iOS Safari Fix: visibilitychange + pageshow Recovery
+    // iOS Safari suspends setInterval when backgrounded or screen locked.
+    // Immediately recalculate exam pill when the user returns to the tab.
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) updateExamPill();
+    });
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) updateExamPill();
+    });
 }
 
 
@@ -487,6 +497,16 @@ function initLibraryHoursPill() {
 
     updateLibraryPill();
     setInterval(updateLibraryPill, 60000);
+
+    // iOS Safari Fix: visibilitychange + pageshow Recovery
+    // iOS Safari suspends setInterval when backgrounded or screen locked.
+    // Immediately recalculate library hours pill when the user returns to the tab.
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) updateLibraryPill();
+    });
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) updateLibraryPill();
+    });
 }
 
 // -------------------------------------------------------------

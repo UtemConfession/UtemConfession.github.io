@@ -528,6 +528,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Run ticker every 3.5s if there is an oncoming bus
         setInterval(updateTicker, 3500);
+
+        // iOS Safari Fix: visibilitychange + pageshow Recovery
+        // iOS Safari suspends setInterval when backgrounded or screen locked.
+        // Immediately update the ticker when the user returns to the tab.
+        document.addEventListener('visibilitychange', () => {
+            if (!document.hidden) updateTicker();
+        });
+        window.addEventListener('pageshow', (event) => {
+            if (event.persisted) updateTicker();
+        });
     }
 
     initCampusTicker();

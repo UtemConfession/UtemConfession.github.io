@@ -823,3 +823,13 @@ window.updateBusHolidayNotice = updateBusHolidayNotice;
 
 refreshAllBusSchedules();
 setInterval(refreshAllBusSchedules, 60000);
+
+// iOS Safari Fix: visibilitychange + pageshow Recovery
+// iOS Safari suspends setInterval when backgrounded or screen locked.
+// Immediately refresh bus schedules when the user returns to the tab.
+document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) refreshAllBusSchedules();
+});
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) refreshAllBusSchedules();
+});

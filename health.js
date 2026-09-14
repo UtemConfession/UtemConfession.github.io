@@ -207,6 +207,17 @@ function initPkuHoursPill() {
 
     updatePkuPill();
     setInterval(updatePkuPill, 60000);
+
+    // iOS Safari Fix: visibilitychange + pageshow Recovery
+    // iOS Safari suspends setInterval when the tab is backgrounded or screen locked.
+    // When the user returns, immediately recalculate the clinic status pill so it
+    // doesn't show stale open/closed state.
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) updatePkuPill();
+    });
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted) updatePkuPill();
+    });
 }
 
 if (document.readyState === "loading") {

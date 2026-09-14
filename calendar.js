@@ -152,10 +152,11 @@ const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct",
 function formatDateParts(dateString) {
     const parts = dateString.split("-");
     const year = parts[0];
+    const shortYear = "'" + parts[0].slice(-2);
     const monthIndex = parseInt(parts[1], 10) - 1;
     const day = parts[2];
     const month = monthNames[monthIndex];
-    return { day, month, year };
+    return { day, month, year, shortYear };
 }
 
 function renderCalendarEvents(filterCategory = 'all') {
@@ -210,6 +211,18 @@ function renderCalendarEvents(filterCategory = 'all') {
             holiday: "Public Holiday"
         };
 
+        const categoryLabelsShort = isMs ? {
+            academic: "Kuliah",
+            break: "Cuti Sem",
+            exam: "Exam",
+            holiday: "Cuti Am"
+        } : {
+            academic: "Lecture",
+            break: "Break",
+            exam: "Finals",
+            holiday: "Holiday"
+        };
+
         const categoryColors = {
             academic: "#3b82f6",
             break: "#10b981",
@@ -228,14 +241,17 @@ function renderCalendarEvents(filterCategory = 'all') {
                     <div class="cal-date-badge">
                         ${isRange ? `
                             <span class="cal-date-text"><strong>${start.day} ${start.month}</strong> <span class="cal-arrow">➔</span> <strong>${end.day} ${end.month}</strong></span>
-                            <span class="cal-year">${start.year}</span>
+                            <span class="cal-year"><span class="cal-year-full">${start.year}</span><span class="cal-year-short">${start.shortYear}</span></span>
                         ` : `
                             <span class="cal-date-text"><strong>${start.day} ${start.month}</strong></span>
-                            <span class="cal-year">${start.year}</span>
+                            <span class="cal-year"><span class="cal-year-full">${start.year}</span><span class="cal-year-short">${start.shortYear}</span></span>
                         `}
                     </div>
                     <div class="cal-badges-right">
-                        <span class="calendar-event-category cat-${ev.category}">${categoryLabels[ev.category] || ev.category}</span>
+                        <span class="calendar-event-category cat-${ev.category}">
+                            <span class="cat-label-full">${categoryLabels[ev.category] || ev.category}</span>
+                            <span class="cat-label-short">${categoryLabelsShort[ev.category] || categoryLabels[ev.category] || ev.category}</span>
+                        </span>
                         <span class="cal-duration-pill">⏳ ${ev.duration}</span>
                     </div>
                 </div>

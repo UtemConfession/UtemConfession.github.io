@@ -3566,6 +3566,17 @@ footer {
     margin-left: 2px !important;
 }
 
+/* Responsive short/full labels for Calendar */
+.cal-year-short,
+.cat-label-short {
+    display: none !important;
+}
+
+.cal-year-full,
+.cat-label-full {
+    display: inline !important;
+}
+
 /* Badges Container (Right Side) */
 .cal-badges-right {
     display: flex !important;
@@ -3638,46 +3649,69 @@ footer {
     }
 
     .cal-card-top-row {
-        flex-direction: column !important;
-        align-items: flex-start !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex-wrap: nowrap !important;
         gap: 6px !important;
+        width: 100% !important;
     }
 
     .cal-date-badge {
-        padding: 4px 10px !important;
+        padding: 3px 8px !important;
         border-radius: 8px !important;
-        gap: 6px !important;
+        gap: 5px !important;
+        flex-shrink: 0 !important;
     }
 
     .cal-date-text {
-        font-size: 11.5px !important;
+        font-size: 11px !important;
         letter-spacing: 0.2px !important;
+        white-space: nowrap !important;
     }
 
     .cal-arrow {
-        font-size: 10px !important;
+        font-size: 9px !important;
+        margin: 0 1px !important;
     }
 
     .cal-year {
-        font-size: 10px !important;
-        padding-left: 6px !important;
+        font-size: 9.5px !important;
+        padding-left: 5px !important;
+        margin-left: 1px !important;
+        white-space: nowrap !important;
     }
 
     .cal-badges-right {
-        gap: 6px !important;
+        gap: 5px !important;
+        flex-wrap: nowrap !important;
+        flex-shrink: 0 !important;
+        justify-content: flex-end !important;
     }
 
     .calendar-event-category {
         font-size: 8.5px !important;
-        padding: 2px 7px !important;
-        letter-spacing: 0.4px !important;
+        padding: 2.5px 6px !important;
+        letter-spacing: 0.3px !important;
         border-radius: 5px !important;
+        white-space: nowrap !important;
     }
 
     .cal-duration-pill {
-        font-size: 10px !important;
-        padding: 2px 8px !important;
-        border-radius: 10px !important;
+        font-size: 9.5px !important;
+        padding: 2.5px 6px !important;
+        border-radius: 8px !important;
+        white-space: nowrap !important;
+    }
+
+    .cal-year-full,
+    .cat-label-full {
+        display: none !important;
+    }
+
+    .cal-year-short,
+    .cat-label-short {
+        display: inline !important;
     }
 
     .cal-event-title {
@@ -4847,6 +4881,50 @@ iframe[style*="position:fixed"] {
    MODEL B: 6 CURATED THEME PRESETS SYSTEM
    ========================================================================== */
 
+/* 0A. BLUE GLASSMORPHISM THEME ([data-theme="ios-glass"]) */
+[data-theme="ios-glass"] {
+    --bg-primary: #070a13;
+    --bg-secondary: rgba(12, 18, 34, 0.72);
+    --bg-card: rgba(16, 24, 46, 0.58);
+    --bg-card-hover: rgba(24, 36, 68, 0.72);
+    --border-color: rgba(255, 255, 255, 0.14);
+    --border-hover: rgba(10, 132, 255, 0.65);
+    --input-bg: rgba(255, 255, 255, 0.06);
+    --input-border: rgba(255, 255, 255, 0.18);
+    --dark-gradient: linear-gradient(135deg, rgba(16, 24, 46, 0.75) 0%, rgba(7, 10, 19, 0.95) 100%);
+    --gold-gradient: linear-gradient(135deg, #0a84ff 0%, #2997ff 50%, #5ac8fa 100%);
+    --card-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.42), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18);
+    --glow-shadow: 0 0 24px rgba(10, 132, 255, 0.35);
+    --text-primary: #ffffff;
+    --text-secondary: #e2e8f0;
+    --text-muted: #94a3b8;
+    --accent-gold: #0a84ff;
+    --accent-gold-hover: #409cff;
+    --accent-gold-rgb: 10, 132, 255;
+}
+
+/* 0B. VIOLET PRISM THEME ([data-theme="siri-glow"]) */
+[data-theme="siri-glow"] {
+    --bg-primary: #080614;
+    --bg-secondary: rgba(18, 12, 34, 0.72);
+    --bg-card: rgba(26, 18, 48, 0.58);
+    --bg-card-hover: rgba(38, 26, 68, 0.72);
+    --border-color: rgba(255, 255, 255, 0.16);
+    --border-hover: rgba(191, 90, 242, 0.75);
+    --input-bg: rgba(255, 255, 255, 0.07);
+    --input-border: rgba(255, 255, 255, 0.20);
+    --dark-gradient: linear-gradient(135deg, rgba(26, 18, 48, 0.75) 0%, rgba(8, 6, 20, 0.95) 100%);
+    --gold-gradient: linear-gradient(135deg, #0a84ff 0%, #bf5af2 50%, #ff375f 100%);
+    --card-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.42), inset 0 1px 1px 0 rgba(255, 255, 255, 0.20);
+    --glow-shadow: 0 0 28px rgba(191, 90, 242, 0.40);
+    --text-primary: #ffffff;
+    --text-secondary: #f3e8ff;
+    --text-muted: #d8b4fe;
+    --accent-gold: #bf5af2;
+    --accent-gold-hover: #da77f2;
+    --accent-gold-rgb: 191, 90, 242;
+}
+
 /* 1. MIDNIGHT ECLIPSE THEME ([data-theme="oled"]) */
 [data-theme="oled"] {
     --bg-primary: #000000;
@@ -4934,27 +5012,6 @@ iframe[style*="position:fixed"] {
     --accent-gold-rgb: 226, 169, 100;
 }
 
-/* 6. DRACULA VIOLET THEME ([data-theme="dracula"]) */
-[data-theme="dracula"] {
-    --bg-primary: #0d081a;
-    --bg-secondary: #120d24;
-    --bg-card: #191230;
-    --bg-card-hover: #231a42;
-    --border-color: rgba(168, 85, 247, 0.25);
-    --border-hover: rgba(168, 85, 247, 0.65);
-    --input-bg: #0a0614;
-    --input-border: rgba(168, 85, 247, 0.28);
-    --dark-gradient: linear-gradient(135deg, #191230 0%, #0d081a 100%);
-    --gold-gradient: linear-gradient(135deg, #c084fc 0%, #a855f7 100%);
-    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.85);
-    --glow-shadow: 0 0 22px rgba(168, 85, 247, 0.38);
-    --text-primary: #ffffff;
-    --text-secondary: #e9d5ff;
-    --text-muted: #c084fc;
-    --accent-gold: #c084fc;
-    --accent-gold-hover: #d8b4fe;
-    --accent-gold-rgb: 192, 132, 252;
-}
 
 /* 7. MATRIX EMERALD THEME ([data-theme="matrix"]) */
 [data-theme="matrix"] {
@@ -5066,71 +5123,8 @@ iframe[style*="position:fixed"] {
     --accent-gold-rgb: 0, 255, 102;
 }
 
-/* 16. GOTHIC EMBER THEME ([data-theme="cathedral"]) */
-[data-theme="cathedral"] {
-    --bg-primary: #0c0b0e;
-    --bg-secondary: #141217;
-    --bg-card: #1e1b23;
-    --bg-card-hover: #2a2631;
-    --border-color: rgba(245, 158, 11, 0.28);
-    --border-hover: rgba(245, 158, 11, 0.7);
-    --input-bg: #08070a;
-    --input-border: rgba(245, 158, 11, 0.3);
-    --dark-gradient: linear-gradient(135deg, #1e1b23 0%, #0c0b0e 100%);
-    --gold-gradient: linear-gradient(135deg, #f59e0b 0%, #b91c1c 100%);
-    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
-    --glow-shadow: 0 0 22px rgba(245, 158, 11, 0.4);
-    --text-primary: #ffffff;
-    --text-secondary: #fef3c7;
-    --text-muted: #f59e0b;
-    --accent-gold: #f59e0b;
-    --accent-gold-hover: #fbbf24;
-    --accent-gold-rgb: 245, 158, 11;
-}
 
-/* 25. COSMIC NEBULA THEME ([data-theme="nebula"]) */
-[data-theme="nebula"] {
-    --bg-primary: #080414;
-    --bg-secondary: #110829;
-    --bg-card: #1c0e40;
-    --bg-card-hover: #281459;
-    --border-color: rgba(217, 70, 239, 0.28);
-    --border-hover: rgba(217, 70, 239, 0.7);
-    --input-bg: #05020c;
-    --input-border: rgba(217, 70, 239, 0.3);
-    --dark-gradient: linear-gradient(135deg, #1c0e40 0%, #080414 100%);
-    --gold-gradient: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%);
-    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
-    --glow-shadow: 0 0 22px rgba(217, 70, 239, 0.45);
-    --text-primary: #ffffff;
-    --text-secondary: #fae8ff;
-    --text-muted: #e879f9;
-    --accent-gold: #d946ef;
-    --accent-gold-hover: #f0abfc;
-    --accent-gold-rgb: 217, 70, 239;
-}
 
-/* 8. SYNTHWAVE 80S THEME ([data-theme="synthwave"]) */
-[data-theme="synthwave"] {
-    --bg-primary: #0b0217;
-    --bg-secondary: #120424;
-    --bg-card: #1a0733;
-    --bg-card-hover: #250a47;
-    --border-color: rgba(244, 63, 94, 0.25);
-    --border-hover: rgba(244, 63, 94, 0.65);
-    --input-bg: #080112;
-    --input-border: rgba(244, 63, 94, 0.28);
-    --dark-gradient: linear-gradient(135deg, #1a0733 0%, #0b0217 100%);
-    --gold-gradient: linear-gradient(135deg, #f43f5e 0%, #fbbf24 100%);
-    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.9);
-    --glow-shadow: 0 0 22px rgba(244, 63, 94, 0.4);
-    --text-primary: #ffffff;
-    --text-secondary: #ffe4e6;
-    --text-muted: #fda4af;
-    --accent-gold: #f43f5e;
-    --accent-gold-hover: #fb7185;
-    --accent-gold-rgb: 244, 63, 94;
-}
 
 /* 9. MINIMAL MONOCHROME THEME ([data-theme="monochrome"]) */
 [data-theme="monochrome"] {
@@ -5156,27 +5150,6 @@ iframe[style*="position:fixed"] {
 
 
 
-/* 24. ELECTRIC COBALT THEME ([data-theme="cobalt"]) */
-[data-theme="cobalt"] {
-    --bg-primary: #050814;
-    --bg-secondary: #0a1024;
-    --bg-card: #101938;
-    --bg-card-hover: #172552;
-    --border-color: rgba(59, 130, 246, 0.3);
-    --border-hover: rgba(59, 130, 246, 0.75);
-    --input-bg: #03050c;
-    --input-border: rgba(59, 130, 246, 0.35);
-    --dark-gradient: linear-gradient(135deg, #101938 0%, #050814 100%);
-    --gold-gradient: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
-    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.92);
-    --glow-shadow: 0 0 24px rgba(59, 130, 246, 0.4);
-    --text-primary: #ffffff;
-    --text-secondary: #dbeafe;
-    --text-muted: #3b82f6;
-    --accent-gold: #3b82f6;
-    --accent-gold-hover: #60a5fa;
-    --accent-gold-rgb: 59, 130, 246;
-}
 
 /* 26. PEACH BLOSSOM THEME ([data-theme="peach"]) */
 [data-theme="peach"] {
@@ -5290,6 +5263,152 @@ iframe[style*="position:fixed"] {
 [data-theme] .image-drop-zone {
     background: var(--input-bg) !important;
     border-color: var(--border-color) !important;
+}
+
+/* ==========================================================================
+   FROSTED GLASSMORPHISM ENGINE ([data-theme="ios-glass"] & [data-theme="siri-glow"])
+   ========================================================================== */
+
+/* 1. Dynamic Ambient Radiant Canvas (essential for frosted refraction) */
+[data-theme="ios-glass"] body {
+    background-color: #070a13 !important;
+    background-image: 
+        radial-gradient(circle at 15% 15%, rgba(10, 132, 255, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 85% 25%, rgba(41, 151, 255, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 50% 85%, rgba(90, 200, 250, 0.11) 0%, transparent 55%) !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+[data-theme="siri-glow"] body {
+    background-color: #080614 !important;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(10, 132, 255, 0.20) 0%, transparent 45%),
+        radial-gradient(circle at 88% 18%, rgba(191, 90, 242, 0.22) 0%, transparent 50%),
+        radial-gradient(circle at 55% 82%, rgba(255, 55, 95, 0.16) 0%, transparent 52%) !important;
+    background-attachment: fixed !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+/* 2. Glassmorphic Navigation, Sticky Headers, Sidebars, Drawers */
+[data-theme="ios-glass"] .mobile-header,
+[data-theme="ios-glass"] .sidebar,
+[data-theme="ios-glass"] .mobile-bottom-nav,
+[data-theme="ios-glass"] .mobile-drawer-sheet,
+[data-theme="siri-glow"] .mobile-header,
+[data-theme="siri-glow"] .sidebar,
+[data-theme="siri-glow"] .mobile-bottom-nav,
+[data-theme="siri-glow"] .mobile-drawer-sheet {
+    backdrop-filter: blur(28px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.35), inset 0 1px 0 0 rgba(255, 255, 255, 0.14) !important;
+}
+
+/* 3. Frosted Glass Cards with Specular Rim Edge Reflection */
+[data-theme="ios-glass"] .card,
+[data-theme="ios-glass"] .archive-card,
+[data-theme="ios-glass"] .confession-card,
+[data-theme="ios-glass"] .glass-card,
+[data-theme="ios-glass"] .feature-card,
+[data-theme="ios-glass"] .guide-card,
+[data-theme="ios-glass"] .activity-card,
+[data-theme="ios-glass"] .subject-card,
+[data-theme="ios-glass"] .bus-card,
+[data-theme="ios-glass"] .link-category-card,
+[data-theme="ios-glass"] .info-card,
+[data-theme="ios-glass"] .stat-card,
+[data-theme="ios-glass"] .rule-card,
+[data-theme="ios-glass"] .telegram-widget-card,
+[data-theme="siri-glow"] .card,
+[data-theme="siri-glow"] .archive-card,
+[data-theme="siri-glow"] .confession-card,
+[data-theme="siri-glow"] .glass-card,
+[data-theme="siri-glow"] .feature-card,
+[data-theme="siri-glow"] .guide-card,
+[data-theme="siri-glow"] .activity-card,
+[data-theme="siri-glow"] .subject-card,
+[data-theme="siri-glow"] .bus-card,
+[data-theme="siri-glow"] .link-category-card,
+[data-theme="siri-glow"] .info-card,
+[data-theme="siri-glow"] .stat-card,
+[data-theme="siri-glow"] .rule-card,
+[data-theme="siri-glow"] .telegram-widget-card {
+    backdrop-filter: blur(22px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(22px) saturate(180%) !important;
+    box-shadow: 0 10px 32px 0 rgba(0, 0, 0, 0.36), inset 0 1px 1px 0 rgba(255, 255, 255, 0.18) !important;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+[data-theme="ios-glass"] .card:hover,
+[data-theme="ios-glass"] .archive-card:hover,
+[data-theme="ios-glass"] .guide-card:hover,
+[data-theme="ios-glass"] .activity-card:hover,
+[data-theme="ios-glass"] .feature-card:hover,
+[data-theme="ios-glass"] .bus-card:hover,
+[data-theme="ios-glass"] .telegram-widget-card:hover {
+    box-shadow: 0 14px 40px 0 rgba(0, 0, 0, 0.45), inset 0 1px 1px 0 rgba(255, 255, 255, 0.26), 0 0 22px rgba(10, 132, 255, 0.28) !important;
+}
+
+[data-theme="siri-glow"] .card:hover,
+[data-theme="siri-glow"] .archive-card:hover,
+[data-theme="siri-glow"] .guide-card:hover,
+[data-theme="siri-glow"] .activity-card:hover,
+[data-theme="siri-glow"] .feature-card:hover,
+[data-theme="siri-glow"] .bus-card:hover,
+[data-theme="siri-glow"] .telegram-widget-card:hover {
+    box-shadow: 0 14px 40px 0 rgba(0, 0, 0, 0.45), inset 0 1px 1px 0 rgba(255, 255, 255, 0.28), 0 0 26px rgba(191, 90, 242, 0.32) !important;
+}
+
+/* 4. Frosted Modal Dialogs & Sheets */
+[data-theme="ios-glass"] .archive-modal-content,
+[data-theme="ios-glass"] .social-card-modal-box,
+[data-theme="ios-glass"] .modal-content,
+[data-theme="ios-glass"] .theme-modal-card,
+[data-theme="siri-glow"] .archive-modal-content,
+[data-theme="siri-glow"] .social-card-modal-box,
+[data-theme="siri-glow"] .modal-content,
+[data-theme="siri-glow"] .theme-modal-card {
+    backdrop-filter: blur(32px) saturate(190%) !important;
+    -webkit-backdrop-filter: blur(32px) saturate(190%) !important;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.55), inset 0 1px 1px 0 rgba(255, 255, 255, 0.20) !important;
+}
+
+/* 5. Apple Glass Input Fields */
+[data-theme="ios-glass"] input,
+[data-theme="ios-glass"] textarea,
+[data-theme="ios-glass"] select,
+[data-theme="ios-glass"] .search-bar input,
+[data-theme="ios-glass"] .confession-textarea,
+[data-theme="siri-glow"] input,
+[data-theme="siri-glow"] textarea,
+[data-theme="siri-glow"] select,
+[data-theme="siri-glow"] .search-bar input,
+[data-theme="siri-glow"] .confession-textarea {
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25) !important;
+}
+
+[data-theme="ios-glass"] input:focus,
+[data-theme="ios-glass"] textarea:focus,
+[data-theme="ios-glass"] select:focus {
+    border-color: #0a84ff !important;
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.28) !important;
+}
+
+[data-theme="siri-glow"] input:focus,
+[data-theme="siri-glow"] textarea:focus,
+[data-theme="siri-glow"] select:focus {
+    border-color: #bf5af2 !important;
+    box-shadow: 0 0 0 3px rgba(191, 90, 242, 0.28) !important;
+}
+
+/* 6. Apple Glass Pill & Active Card Highlight */
+[data-theme="ios-glass"] .theme-card-option[data-theme-id="ios-glass"],
+[data-theme="siri-glow"] .theme-card-option[data-theme-id="siri-glow"] {
+    background: rgba(255, 255, 255, 0.10) !important;
 }
 
 /* ==========================================

@@ -3,12 +3,13 @@
     try {
         const saved = localStorage.getItem('ucpm_theme');
         const validThemes = [
+            'ios-glass', 'siri-glow',
             'oled', 'monochrome',
-            'sakura', 'synthwave', 'peach', 'arcade',
-            'dracula', 'catppuccin', 'nebula',
-            'cyberpunk', 'tokyo', 'abyssal', 'cobalt',
+            'sakura', 'peach', 'arcade',
+            'catppuccin', 'nebula',
+            'cyberpunk', 'tokyo', 'abyssal',
             'matrix', 'eva',
-            'sepia', 'cathedral'
+            'sepia'
         ];
         if (saved && validThemes.indexOf(saved) !== -1) {
             document.documentElement.setAttribute('data-theme', saved);
@@ -349,7 +350,7 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                 <button id="closeThemeModalBtn" class="theme-modal-close-btn" type="button" aria-label="Close Theme Picker">&times;</button>
             </div>
             <div class="theme-palette-grid">
-                <!-- Group 1: Core / Neutral / High-Contrast -->
+                <!-- Group 1: Signature & High-Contrast -->
                 <!-- 1. Classic Gold -->
                 <button type="button" class="theme-card-option" data-theme-id="classic">
                     <div class="theme-swatch-ring" style="border-color: #d4af37; background: #060b19;">
@@ -389,8 +390,35 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- Group 2: Pink / Magenta / Red / Peach -->
-                <!-- 4. Sakura Neon -->
+                <!-- Group 2: Blue & Violet Glassmorphism -->
+                <!-- 4. Blue Glassmorphism -->
+                <button type="button" class="theme-card-option" data-theme-id="ios-glass">
+                    <div class="theme-swatch-ring" style="border-color: #0a84ff; background: #070a13;">
+                        <span class="theme-swatch-core" style="background: #0a84ff; box-shadow: 0 0 6px #0a84ff;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">💠</span> Blue Glassmorphism</span>
+                        <span class="theme-card-desc">Frosted Glass & Cobalt Blue</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- 5. Violet Prism -->
+                <button type="button" class="theme-card-option" data-theme-id="siri-glow">
+                    <div class="theme-swatch-ring" style="border-color: #bf5af2; background: #080614;">
+                        <span class="theme-swatch-core" style="background: linear-gradient(135deg, #0a84ff, #bf5af2, #ff375f); box-shadow: 0 0 6px #bf5af2;"></span>
+                    </div>
+                    <div class="theme-card-info">
+                        <span class="theme-card-name"><span class="theme-card-emoji">🔮</span> Violet Prism</span>
+                        <span class="theme-card-desc">Frosted Glass & Purple Glow</span>
+                    </div>
+                    <div class="theme-check-circle" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+                    </div>
+                </button>
+                <!-- Group 3: Pink / Magenta / Red / Peach -->
+                <!-- 6. Sakura Neon -->
                 <button type="button" class="theme-card-option" data-theme-id="sakura">
                     <div class="theme-swatch-ring" style="border-color: #ff6b8b; background: #000000;">
                         <span class="theme-swatch-core" style="background: #ff6b8b; box-shadow: 0 0 6px #ff6b8b;"></span>
@@ -403,20 +431,7 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- 5. Synthwave 80s -->
-                <button type="button" class="theme-card-option" data-theme-id="synthwave">
-                    <div class="theme-swatch-ring" style="border-color: #f43f5e; background: #0b0217;">
-                        <span class="theme-swatch-core" style="background: #fbbf24; box-shadow: 0 0 6px #f43f5e;"></span>
-                    </div>
-                    <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🌆</span> Synthwave 80s</span>
-                        <span class="theme-card-desc">Retro Plum & Magenta</span>
-                    </div>
-                    <div class="theme-check-circle" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                </button>
-                <!-- 6. Peach Blossom -->
+                <!-- 7. Peach Blossom -->
                 <button type="button" class="theme-card-option" data-theme-id="peach">
                     <div class="theme-swatch-ring" style="border-color: #fb7185; background: #150e12;">
                         <span class="theme-swatch-core" style="background: #fb7185; box-shadow: 0 0 6px #fb7185;"></span>
@@ -429,7 +444,7 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- 7. Arcade 1984 -->
+                <!-- 8. Arcade 1984 -->
                 <button type="button" class="theme-card-option" data-theme-id="arcade">
                     <div class="theme-swatch-ring" style="border-color: #ff2a6d; background: #090510;">
                         <span class="theme-swatch-core" style="background: #ff2a6d; box-shadow: 0 0 6px #ff2a6d;"></span>
@@ -442,20 +457,7 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- Group 3: Purple / Lilac / Ultraviolet -->
-                <!-- 8. Dracula Violet -->
-                <button type="button" class="theme-card-option" data-theme-id="dracula">
-                    <div class="theme-swatch-ring" style="border-color: #c084fc; background: #0d081a;">
-                        <span class="theme-swatch-core" style="background: #c084fc; box-shadow: 0 0 6px #c084fc;"></span>
-                    </div>
-                    <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🔮</span> Dracula Violet</span>
-                        <span class="theme-card-desc">Obsidian & Electric Lilac</span>
-                    </div>
-                    <div class="theme-check-circle" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                </button>
+                <!-- Group 4: Purple / Lilac / Ultraviolet -->
                 <!-- 9. Pastel Mocha -->
                 <button type="button" class="theme-card-option" data-theme-id="catppuccin">
                     <div class="theme-swatch-ring" style="border-color: #cba6f7; background: #181825;">
@@ -469,19 +471,7 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
                     </div>
                 </button>
-                <!-- 10. Cosmic Nebula -->
-                <button type="button" class="theme-card-option" data-theme-id="nebula">
-                    <div class="theme-swatch-ring" style="border-color: #d946ef; background: #080414;">
-                        <span class="theme-swatch-core" style="background: #d946ef; box-shadow: 0 0 6px #d946ef;"></span>
-                    </div>
-                    <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🪐</span> Cosmic Nebula</span>
-                        <span class="theme-card-desc">Interstellar & Ultraviolet</span>
-                    </div>
-                    <div class="theme-check-circle" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                </button>
+
                 <!-- Group 4: Blue / Cyan / Teal / Marine -->
                 <!-- 11. Cyberpunk Cyan -->
                 <button type="button" class="theme-card-option" data-theme-id="cyberpunk">
@@ -517,19 +507,6 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                     <div class="theme-card-info">
                         <span class="theme-card-name"><span class="theme-card-emoji">🌊</span> Abyssal Blue</span>
                         <span class="theme-card-desc">Deep Trench & Teal</span>
-                    </div>
-                    <div class="theme-check-circle" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                </button>
-                <!-- 14. Cobalt Blue -->
-                <button type="button" class="theme-card-option" data-theme-id="cobalt">
-                    <div class="theme-swatch-ring" style="border-color: #3b82f6; background: #050814;">
-                        <span class="theme-swatch-core" style="background: #3b82f6; box-shadow: 0 0 6px #3b82f6;"></span>
-                    </div>
-                    <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🧿</span> Cobalt Blue</span>
-                        <span class="theme-card-desc">Midnight Ink & Azure</span>
                     </div>
                     <div class="theme-check-circle" aria-hidden="true">
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -571,19 +548,6 @@ const UCPMThemeModalHTML = `<!-- Curated Theme Palette Selection Modal -->
                     <div class="theme-card-info">
                         <span class="theme-card-name"><span class="theme-card-emoji">☕</span> Sepia Warm Night</span>
                         <span class="theme-card-desc">Amber & Reading Paper</span>
-                    </div>
-                    <div class="theme-check-circle" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
-                    </div>
-                </button>
-                <!-- 18. Gothic Ember -->
-                <button type="button" class="theme-card-option" data-theme-id="cathedral">
-                    <div class="theme-swatch-ring" style="border-color: #f59e0b; background: #0c0b0e;">
-                        <span class="theme-swatch-core" style="background: #f59e0b; box-shadow: 0 0 6px #f59e0b;"></span>
-                    </div>
-                    <div class="theme-card-info">
-                        <span class="theme-card-name"><span class="theme-card-emoji">🕯️</span> Gothic Ember</span>
-                        <span class="theme-card-desc">Dark Slate & Warm Flame</span>
                     </div>
                     <div class="theme-check-circle" aria-hidden="true">
                         <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
@@ -778,30 +742,29 @@ function initScrollReveal() {
 
 // --- MODEL B: Curated Theme Preset Engine & Circular View Transition System ---
 const UCPM_THEMES = {
-    // 1. Core / Neutral / High-Contrast
+    // 1. Signature & High-Contrast
     classic: { id: 'classic', name: 'Classic', icon: '🌕', fullName: 'Classic UCPM', color: '#d4af37' },
     oled: { id: 'oled', name: 'Eclipse', icon: '🌑', fullName: 'Midnight Eclipse', color: '#ffd700' },
     monochrome: { id: 'monochrome', name: 'Mono', icon: '⚪', fullName: 'Minimal Monochrome', color: '#ffffff' },
+    // 2. Blue & Violet Glassmorphism
+    'ios-glass': { id: 'ios-glass', name: 'Blue Glass', icon: '💠', fullName: 'Blue Glassmorphism', color: '#0a84ff' },
+    'siri-glow': { id: 'siri-glow', name: 'Violet', icon: '🔮', fullName: 'Violet Prism', color: '#bf5af2' },
     // 2. Pink / Magenta / Red / Peach
     sakura: { id: 'sakura', name: 'Sakura', icon: '🌸', fullName: 'Sakura Neon', color: '#ff6b8b' },
-    synthwave: { id: 'synthwave', name: 'Synthwave', icon: '🌆', fullName: 'Synthwave 80s', color: '#f43f5e' },
     peach: { id: 'peach', name: 'Peach', icon: '🍑', fullName: 'Peach Blossom', color: '#fb7185' },
     arcade: { id: 'arcade', name: 'Arcade', icon: '🕹️', fullName: 'Arcade 1984', color: '#ff2a6d' },
     // 3. Purple / Lilac / Ultraviolet
-    dracula: { id: 'dracula', name: 'Dracula', icon: '🔮', fullName: 'Dracula Violet', color: '#c084fc' },
-    catppuccin: { id: 'catppuccin', name: 'Mocha', icon: '\u2615', fullName: 'Pastel Mocha', color: '#cba6f7' },
-    nebula: { id: 'nebula', name: 'Nebula', icon: '🪐', fullName: 'Cosmic Nebula', color: '#d946ef' },
+    catppuccin: { id: 'catppuccin', name: 'Mocha', icon: '☕', fullName: 'Pastel Mocha', color: '#cba6f7' },
+
     // 4. Blue / Cyan / Teal / Marine
     cyberpunk: { id: 'cyberpunk', name: 'Cyberpunk', icon: '💎', fullName: 'Cyberpunk Cyan', color: '#00f5d4' },
     tokyo: { id: 'tokyo', name: 'Tokyo', icon: '🗼', fullName: 'Tokyo Night', color: '#7aa2f7' },
     abyssal: { id: 'abyssal', name: 'Abyssal', icon: '🌊', fullName: 'Abyssal Blue', color: '#06b6d4' },
-    cobalt: { id: 'cobalt', name: 'Cobalt Blue', icon: '🧿', fullName: 'Cobalt Blue', color: '#3b82f6' },
     // 5. Green / Cyber
     matrix: { id: 'matrix', name: 'Matrix', icon: '📟', fullName: 'Matrix Emerald', color: '#10b981' },
-    eva: { id: 'eva', name: 'Aurora', icon: '\uD83C\uDF0C', fullName: 'Electric Aurora', color: '#00ff66' },
+    eva: { id: 'eva', name: 'Aurora', icon: '🌌', fullName: 'Electric Aurora', color: '#00ff66' },
     // 6. Warm Earth & Hearth
-    sepia: { id: 'sepia', name: 'Sepia', icon: '☕', fullName: 'Sepia Warm Night', color: '#e2a964' },
-    cathedral: { id: 'cathedral', name: 'Gothic Ember', icon: '🕯️', fullName: 'Gothic Ember', color: '#f59e0b' }
+    sepia: { id: 'sepia', name: 'Sepia', icon: '☕', fullName: 'Sepia Warm Night', color: '#e2a964' }
 };
 
 function getActiveThemeId() {
@@ -1064,21 +1027,19 @@ function applyThemePreset(targetTheme, e) {
             classic: '#0a0f1d',
             oled: '#000000',
             monochrome: '#121212',
+            'ios-glass': '#070a13',
+            'siri-glow': '#080614',
             sakura: '#170c14',
-            synthwave: '#160822',
             peach: '#150e12',
             arcade: '#090510',
-            dracula: '#120d1c',
             catppuccin: '#141221',
             nebula: '#11091e',
             cyberpunk: '#05161e',
             tokyo: '#0d111e',
             abyssal: '#04151e',
-            cobalt: '#070f26',
             matrix: '#03140c',
             eva: '#0a1408',
-            sepia: '#15110d',
-            cathedral: '#1a100a'
+            sepia: '#15110d'
         };
         const targetBg = themeBgMap[targetTheme] || '#0a0f1d';
         const targetRadius = Math.ceil(endRadius * 1.2);
