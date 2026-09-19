@@ -13,28 +13,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function getCategoryConfig(type) {
+    const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms";
     const configs = {
         'new': {
             icon: '🚀',
-            label: 'NEW',
+            label: isMs ? 'BARU' : 'NEW',
             color: '#4ade80',
             bg: 'rgba(74, 222, 128, 0.15)'
         },
         'improved': {
             icon: '✨',
-            label: 'IMPROVED',
+            label: isMs ? 'DITAMBAH BAIK' : 'IMPROVED',
             color: '#3b82f6',
             bg: 'rgba(59, 130, 246, 0.15)'
         },
         'fixed': {
             icon: '🛠️',
-            label: 'FIXED',
+            label: isMs ? 'DIPERBAIKI' : 'FIXED',
             color: '#ef4444',
             bg: 'rgba(239, 68, 68, 0.15)'
         },
         'important': {
             icon: '📢',
-            label: 'IMPORTANT',
+            label: isMs ? 'PENTING' : 'IMPORTANT',
             color: '#f59e0b',
             bg: 'rgba(245, 158, 11, 0.15)'
         }
@@ -43,15 +44,17 @@ function getCategoryConfig(type) {
 }
 
 function formatDate(dateString) {
+    const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms";
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', options);
+    return date.toLocaleDateString(isMs ? 'ms-MY' : 'en-US', options);
 }
 
 function getMonthYear(dateString) {
+    const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms";
     const options = { year: 'numeric', month: 'long' };
     const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', options).toUpperCase();
+    return date.toLocaleDateString(isMs ? 'ms-MY' : 'en-US', options).toUpperCase();
 }
 
 function renderUpdates() {
@@ -69,6 +72,7 @@ function renderUpdates() {
     }
 
     // Render pinned update (newest)
+    const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms";
     const latestUpdate = sortedUpdates[0];
     const catLatest = getCategoryConfig(latestUpdate.type);
     
@@ -80,7 +84,7 @@ function renderUpdates() {
                     <span style="background: ${catLatest.bg}; color: ${catLatest.color}; padding: 6px 12px; border-radius: 20px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px; border: 1px solid ${catLatest.color}40;">
                         ${catLatest.icon} ${catLatest.label}
                     </span>
-                    <span style="color: #6366f1; background: rgba(99, 102, 241, 0.1); font-size: 11px; font-weight: 800; letter-spacing: 0.5px; border: 1px solid rgba(99, 102, 241, 0.3); padding: 6px 12px; border-radius: 20px;">PINNED</span>
+                    <span style="color: #6366f1; background: rgba(99, 102, 241, 0.1); font-size: 11px; font-weight: 800; letter-spacing: 0.5px; border: 1px solid rgba(99, 102, 241, 0.3); padding: 6px 12px; border-radius: 20px;">${isMs ? 'DISEMAT' : 'PINNED'}</span>
                 </div>
                 <span style="color: var(--text-secondary); font-size: 13px; font-weight: 600;">${formatDate(latestUpdate.date)}</span>
             </div>
@@ -164,13 +168,19 @@ function renderUpdates() {
         btn.addEventListener('click', (e) => {
             const card = e.target.closest('.update-card');
             const details = card.querySelector('.update-details');
+            const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms";
             if (details.style.display === 'none') {
                 details.style.display = 'block';
-                e.target.textContent = 'Show less';
+                e.target.textContent = isMs ? 'Tutup' : 'Show less';
             } else {
                 details.style.display = 'none';
-                e.target.textContent = 'Read more';
+                e.target.textContent = isMs ? 'Baca lagi' : 'Read more';
             }
         });
     });
 }
+
+window.renderUpdates = renderUpdates;
+window.addEventListener("languageChanged", () => {
+    renderUpdates();
+});

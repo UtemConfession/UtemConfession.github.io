@@ -20,6 +20,8 @@ const translations = {
         mobile_nav_updates: "Updates",
         nav_parcels: "Parcel Hub",
         mobile_nav_parcels: "Parcel Hub",
+        nav_about: "About & Editorial Board",
+        mobile_nav_about: "About & Editorial",
 
         mobile_nav_gpa: "GPA Calc",
         mobile_nav_archive: "Student Voices",
@@ -657,6 +659,11 @@ const translations = {
         descHealthExamAbsence: "If you miss an official exam due to health emergencies, obtain an official PKU MC on the same day to submit with your Faculty special exam petition.",
         labelHealthCoverage: "Student Takaful Insurance Coverage:",
         descHealthCoverage: "All registered UTeM students are covered under the university group student Takaful scheme for accidental injuries and hospital admissions.",
+        labelHealthEmergencyTitle: "Emergency & After-Hours Assistance",
+        descHealthEmergency: "When PKU is closed during nights, weekends, or public holidays, or for immediate on-campus emergencies (accidents, acute illness, or distress), contact UTeM Campus Security (Polis Bantuan) or National Emergency:",
+        labelHealthSecHotline1: "Security Hotline 1: 06-270 1200 \u2794",
+        labelHealthSecHotline2: "Security Hotline 2: 06-270 1300 \u2794",
+        labelHealthNatEmerg: "National Emergency: 999 \u2794",
         labelHealthContact: "Contact & Inquiries",
         labelHealthPhone: "Phone:",
         labelHealthEmail: "Email:",
@@ -870,6 +877,8 @@ const translations = {
         mobile_nav_updates: "Kemas Kini",
         nav_parcels: "Pusat Bungkusan",
         mobile_nav_parcels: "Parcel Hub",
+        nav_about: "Tentang & Sidang Pengarang",
+        mobile_nav_about: "Tentang & Sidang",
 
         mobile_nav_gpa: "Kalkulator GPA",
         mobile_nav_archive: "Suara Pelajar",
@@ -1515,6 +1524,11 @@ const translations = {
         descHealthExamAbsence: "Jika anda tidak dapat menghadiri peperiksaan kerana kecemasan kesihatan, dapatkan MC rasmi PKU pada hari yang sama untuk disertakan dalam rayuan peperiksaan khas fakulti.",
         labelHealthCoverage: "Perlindungan Insurans Takaful Pelajar:",
         descHealthCoverage: "Semua pelajar UTeM yang berdaftar dilindungi di bawah skim Takaful berkelompok universiti bagi kecederaan kemalangan dan kemasukan ke hospital.",
+        labelHealthEmergencyTitle: "Bantuan Kecemasan & Luar Waktu Operasi",
+        descHealthEmergency: "Sekiranya PKU tutup pada waktu malam, hujung minggu, cuti umum, atau untuk kecemasan mendesak di kampus (kemalangan, sakit teruk, kecemasan), hubungi Pejabat Keselamatan UTeM (Polis Bantuan) atau Kecemasan Kebangsaan:",
+        labelHealthSecHotline1: "Talian Keselamatan 1: 06-270 1200 \u2794",
+        labelHealthSecHotline2: "Talian Keselamatan 2: 06-270 1300 \u2794",
+        labelHealthNatEmerg: "Kecemasan Kebangsaan: 999 \u2794",
         labelHealthContact: "Hubungan & Pertanyaan",
         labelHealthPhone: "Telefon:",
         labelHealthEmail: "Emel:",
@@ -1780,6 +1794,7 @@ function setLanguage(lang) {
         "guides.html": { desktop: t.nav_guides, mobile: t.mobile_nav_guides },
         "parcels.html": { desktop: t.nav_parcels, mobile: t.mobile_nav_parcels },
         "updates.html": { desktop: t.nav_updates, mobile: t.mobile_nav_updates },
+        "about.html": { desktop: t.nav_about, mobile: t.mobile_nav_about },
         "index.html": { desktop: t.nav_confessions, mobile: t.nav_confessions },
         "index.html#confession-tab": { desktop: t.nav_confessions, mobile: t.nav_confessions },
         "index.html#calendar-tab": { desktop: t.nav_calendar, mobile: t.mobile_nav_calendar },
@@ -1919,6 +1934,10 @@ function setLanguage(lang) {
     const firstClassBadge = document.getElementById("firstClassBadge");
     if (firstClassBadge) firstClassBadge.textContent = lang === "en" ? "🎓 First Class (Kelas Pertama) Eligible!" : "🎓 Layak Kelas Pertama (First Class)!";
 
+    if (typeof window.calculateGpa === "function") {
+        window.calculateGpa();
+    }
+
     const gpaLabels = document.querySelectorAll("#gpa-tab .gpa-result-card .form-label");
     if (gpaLabels.length >= 3) {
         gpaLabels[0].textContent = t.label_sem_gpa;
@@ -2037,8 +2056,8 @@ function setLanguage(lang) {
 
     const descMarketItems = document.getElementById("descMarketItems");
     if (descMarketItems) descMarketItems.textContent = lang === "en" 
-        ? "Buy & sell student essentials directly with fellow UTeM students. From mechanical keyboards and electronics to textbooks and hostel gear." 
-        : "Beli & jual keperluan pelajar secara terus dengan rakan pelajar UTeM. Dari papan kekunci mekanikal dan barangan elektronik kepada buku teks dan kelengkapan asrama.";
+        ? "Buy & sell student essentials directly with fellow UTeM students. From books and study materials to electronics and campus essentials." 
+        : "Beli & jual keperluan pelajar secara terus dengan rakan pelajar UTeM. Dari buku rujukan dan bahan belajar kepada barangan elektronik dan keperluan kampus.";
 
     const titleMarketServices = document.getElementById("titleMarketServices");
     if (titleMarketServices) titleMarketServices.textContent = lang === "en" ? "🚘 Student Services Directory" : "🚘 Direktori Perkhidmatan Pelajar";
@@ -2306,6 +2325,17 @@ function setLanguage(lang) {
 
     const descHealthCoverage = document.getElementById("descHealthCoverage");
     if (descHealthCoverage) descHealthCoverage.textContent = t.desc_health_coverage;
+
+    const labelHealthEmergencyTitle = document.getElementById("labelHealthEmergencyTitle");
+    if (labelHealthEmergencyTitle && t.labelHealthEmergencyTitle) labelHealthEmergencyTitle.textContent = t.labelHealthEmergencyTitle;
+    const descHealthEmergency = document.getElementById("descHealthEmergency");
+    if (descHealthEmergency && t.descHealthEmergency) descHealthEmergency.textContent = t.descHealthEmergency;
+    const labelHealthSecHotline1 = document.getElementById("labelHealthSecHotline1");
+    if (labelHealthSecHotline1 && t.labelHealthSecHotline1) labelHealthSecHotline1.textContent = t.labelHealthSecHotline1;
+    const labelHealthSecHotline2 = document.getElementById("labelHealthSecHotline2");
+    if (labelHealthSecHotline2 && t.labelHealthSecHotline2) labelHealthSecHotline2.textContent = t.labelHealthSecHotline2;
+    const labelHealthNatEmerg = document.getElementById("labelHealthNatEmerg");
+    if (labelHealthNatEmerg && t.labelHealthNatEmerg) labelHealthNatEmerg.textContent = t.labelHealthNatEmerg;
 
     const labelHealthContact = document.getElementById("labelHealthContact");
     if (labelHealthContact) labelHealthContact.textContent = t.label_health_contact;

@@ -15,6 +15,8 @@ const tabToPageMap = {
     "support-tab": "support.html",
     "activities-tab": "activities.html",
     "marketplace-tab": "marketplace.html",
+    "parcels-tab": "parcels.html",
+    "archive-tab": "archive.html",
     "updates-tab": "updates.html"
 };
 

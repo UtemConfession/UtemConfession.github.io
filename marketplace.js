@@ -1,21 +1,46 @@
 // marketplace.js — Handles Marketplace Data & Rendering
 
+/**
+ * Marketplace Listing Format Reference (Template for new listings):
+ * {
+ *     id: "listing-001",                           // Unique ID (e.g., listing-001, listing-002)
+ *     type: "WTS",                                  // "WTS" (Want to Sell) | "WTB" (Want to Buy) | "WTT" (Want to Trade)
+ *     category: "Books",                            // One of:
+ *                                                   //   "Books"
+ *                                                   //   "Electronics"
+ *                                                   //   "Others"
+ *                                                   //   "Student Grab / Transport"
+ *                                                   //   "Personal Shopper (PS)"
+ *                                                   //   "Campus Runners"
+ *                                                   //   "Printing & Assignments"
+ *     title: "Keyboards - Elec Fox Spectra 75 & Madlion 60 HE",
+ *     images: ["spectra.webp", "madlion.webp"],     // Array of image file paths or [] if none
+ *     items: [
+ *         { name: "Item Name", condition: "New" | "Used", price: "RM230" }
+ *     ],
+ *     bundlePrice: "RM300",                         // Optional bundle price or omit if not applicable
+ *     location: "Melaka",                           // Location / Campus
+ *     contact: {
+ *         telegram: "username",                     // Username without @
+ *         whatsapp: "601111575548"                  // Format with country code without + or spaces
+ *     }
+ * }
+ */
 const marketplaceListings = [
     {
         id: "listing-001",
         type: "WTS",
-        category: "Tech & Electronics",
-        title: "Keyboards - Elec Fox Spectra 75 & Madlion 60 HE",
-        images: ["spectra.webp", "madlion.webp"],
+        category: "Books",
+        title: "Books - Falsafah & Isu Semasa & Data Structure & Algorithm",
+        images: ["falsafah.webp", "dsa.webp"],
         items: [
-            { name: "Elec Fox Spectra 75", condition: "New", price: "RM230" },
-            { name: "Madlion 60 HE", condition: "Used", price: "RM90" }
+            { name: "Falsafah & Isu Semasa", condition: "", price: "RM15" },
+            { name: "Data Structure & Algorithm", condition: "(OP: RM24)", price: "RM15" }
         ],
-        bundlePrice: "RM300",
+        bundlePrice: "RM25",
         location: "Melaka",
         contact: {
-            telegram: "keemoch1", // Username without @
-            whatsapp: "601111575548" // Format with country code for wa.me
+            telegram: "nintendontknow"
         }
     }
 ];
@@ -24,9 +49,9 @@ const marketplaceListings = [
 const servicesListings = [];
 
 const categoryIcons = {
-    "Textbooks & Notes": "📚",
-    "Tech & Electronics": "💻",
-    "Hostel Essentials": "🏠",
+    "Books": "📚",
+    "Electronics": "💻",
+    "Others": "📦",
     "Student Grab / Transport": "🚗",
     "Personal Shopper (PS)": "🛍️",
     "Campus Runners": "🏃",
@@ -84,18 +109,25 @@ window.openImageModal = function(images, title) {
         
         document.body.appendChild(modal);
         
+        const closeModal = () => {
+            modal.style.opacity = "0";
+            setTimeout(() => { modal.style.display = "none"; }, 300);
+        };
+
         const closeBtn = document.getElementById("closeMarketplaceModalBtn");
         if (closeBtn) {
-            closeBtn.addEventListener("click", () => {
-                modal.style.opacity = "0";
-                setTimeout(() => { modal.style.display = "none"; }, 300);
-            });
+            closeBtn.addEventListener("click", closeModal);
         }
         
         modal.addEventListener("click", (e) => {
             if (e.target === modal || e.target.id === "marketplaceModalImageContainer") {
-                modal.style.opacity = "0";
-                setTimeout(() => { modal.style.display = "none"; }, 300);
+                closeModal();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal.style.display !== "none" && modal.style.opacity !== "0") {
+                closeModal();
             }
         });
     }
@@ -130,8 +162,13 @@ window.openImageModal = function(images, title) {
 };
 
 window.openMarketplaceImages = function(listingId) {
-    if (typeof marketplaceListings === 'undefined') return;
-    const listing = marketplaceListings.find(l => l.id === listingId);
+    let listing = null;
+    if (typeof marketplaceListings !== 'undefined') {
+        listing = marketplaceListings.find(l => l.id === listingId);
+    }
+    if (!listing && typeof servicesListings !== 'undefined') {
+        listing = servicesListings.find(l => l.id === listingId);
+    }
     if (!listing || !listing.images || !listing.images.length) return;
     if (typeof window.openImageModal === 'function') {
         window.openImageModal(listing.images, listing.title);
@@ -187,10 +224,11 @@ function renderMarketplaceListings() {
         
         let itemsHtml = `<div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; border-left: 2px solid var(--border-color); padding-left: 12px; margin: 8px 0;">`;
         listing.items.forEach(item => {
+            const conditionPrefix = item.condition ? `${escapeHTML(item.condition)} &middot; ` : '';
             itemsHtml += `
                 <div>
                     <strong style="color: var(--text-primary); display: block;">${escapeHTML(item.name)}</strong>
-                    <span style="color: var(--text-secondary); font-size: 12px;">${escapeHTML(item.condition)} &middot; <span style="color: var(--accent-gold); font-weight: 600;">${escapeHTML(item.price)}</span></span>
+                    <span style="color: var(--text-secondary); font-size: 12px;">${conditionPrefix}<span style="color: var(--accent-gold); font-weight: 600;">${escapeHTML(item.price)}</span></span>
                 </div>
             `;
         });
@@ -289,7 +327,6 @@ function renderServicesListings() {
     }
 
     filteredListings.forEach(listing => {
-        // Services rendering logic (similar to marketplace, simplified for now)
         const card = document.createElement("div");
         card.style.cssText = `
             background: var(--bg-secondary);
@@ -302,25 +339,94 @@ function renderServicesListings() {
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         `;
 
-        // Rendering service card
+        const serviceType = escapeHTML(listing.type || 'SERVICE');
         const typeBg = "rgba(59, 130, 246, 0.1)";
         const typeColor = "#3b82f6";
         
+        let detailsHtml = "";
+        if (listing.description) {
+            detailsHtml += `<p style="margin: 0; font-size: 13.5px; line-height: 1.6; color: var(--text-secondary);">${escapeHTML(listing.description)}</p>`;
+        }
+        if (listing.items && Array.isArray(listing.items) && listing.items.length > 0) {
+            detailsHtml += `<div style="display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; border-left: 2px solid var(--border-color); padding-left: 12px; margin: 4px 0;">`;
+            listing.items.forEach(item => {
+                const conditionPrefix = item.condition ? `${escapeHTML(item.condition)} &middot; ` : '';
+                detailsHtml += `
+                    <div>
+                        <strong style="color: var(--text-primary); display: block;">${escapeHTML(item.name)}</strong>
+                        <span style="color: var(--text-secondary); font-size: 12px;">${conditionPrefix}<span style="color: var(--accent-gold); font-weight: 600;">${escapeHTML(item.price || item.rate)}</span></span>
+                    </div>
+                `;
+            });
+            detailsHtml += `</div>`;
+        }
+
+        let rateHtml = "";
+        if (listing.rate || listing.price) {
+            rateHtml = `
+                <div style="font-size: 14px; font-weight: 700; color: var(--text-primary); background: rgba(255,255,255,0.03); padding: 8px 12px; border-radius: 6px; border: 1px solid var(--border-color);">
+                    Rate &mdash; <span style="color: var(--accent-gold);">${escapeHTML(listing.rate || listing.price)}</span>
+                </div>
+            `;
+        }
+
+        let actionsHtml = `<div style="margin-top: auto; display: flex; flex-direction: column; gap: 10px; padding-top: 6px;">`;
+
+        if (listing.images && listing.images.length > 0) {
+            actionsHtml += `
+                <button type="button" onclick="window.openMarketplaceImages('${escapeHTML(listing.id)}')" style="width: 100%; box-sizing: border-box; padding: 10px 14px; background: rgba(255, 255, 255, 0.06); color: var(--text-primary); border: 1px solid var(--border-color); border-radius: 10px; font-size: 13px; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 8px; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='rgba(255,255,255,0.12)'; this.style.borderColor='rgba(255,255,255,0.25)';" onmouseout="this.style.background='rgba(255,255,255,0.06)'; this.style.borderColor='var(--border-color)';">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="flex-shrink: 0;"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+                    <span>View Images (${listing.images.length})</span>
+                </button>
+            `;
+        }
+
+        const hasTg = listing.contact && listing.contact.telegram;
+        const hasWa = listing.contact && listing.contact.whatsapp;
+
+        if (hasTg || hasWa) {
+            actionsHtml += `<div style="display: flex; gap: 10px; width: 100%; box-sizing: border-box;">`;
+            if (hasTg) {
+                const cleanTg = encodeURIComponent(String(listing.contact.telegram).replace(/^@/, ''));
+                actionsHtml += `
+                    <a href="https://t.me/${cleanTg}" target="_blank" rel="noopener noreferrer" style="flex: 1 1 0; min-width: 0; box-sizing: border-box; text-align: center; text-decoration: none; padding: 10px 14px; background: rgba(36, 161, 222, 0.12); color: #24a1de; border: 1px solid rgba(36, 161, 222, 0.35); border-radius: 10px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 7px; transition: all 0.2s;" onmouseover="this.style.background='rgba(36, 161, 222, 0.22)'; this.style.borderColor='rgba(36, 161, 222, 0.6)';" onmouseout="this.style.background='rgba(36, 161, 222, 0.12)'; this.style.borderColor='rgba(36, 161, 222, 0.35)';">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="flex-shrink: 0;"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 10 10 10-4.47 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69.01-.03.01-.14-.07-.19-.08-.05-.19-.02-.27 0-.12.03-1.96 1.25-5.54 3.67-.52.36-.99.54-1.41.53-.46-.01-1.35-.26-2.01-.48-.81-.27-1.46-.42-1.4-.88.03-.22.35-.45.96-.69 3.78-1.65 6.3-2.73 7.55-3.26 3.59-1.52 4.33-1.78 4.82-1.79.11 0 .35.03.48.14.11.09.14.22.15.34-.01.12-.02.26-.03.43z"/></svg>
+                        <span>Telegram</span>
+                    </a>
+                `;
+            }
+            if (hasWa) {
+                const cleanWa = encodeURIComponent(String(listing.contact.whatsapp).replace(/\D/g, ''));
+                actionsHtml += `
+                    <a href="https://wa.me/${cleanWa}" target="_blank" rel="noopener noreferrer" style="flex: 1 1 0; min-width: 0; box-sizing: border-box; text-align: center; text-decoration: none; padding: 10px 14px; background: rgba(37, 211, 102, 0.12); color: #25d366; border: 1px solid rgba(37, 211, 102, 0.35); border-radius: 10px; font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; justify-content: center; gap: 7px; transition: all 0.2s;" onmouseover="this.style.background='rgba(37, 211, 102, 0.22)'; this.style.borderColor='rgba(37, 211, 102, 0.6)';" onmouseout="this.style.background='rgba(37, 211, 102, 0.12)'; this.style.borderColor='rgba(37, 211, 102, 0.35)';">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="flex-shrink: 0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                        <span>WhatsApp</span>
+                    </a>
+                `;
+            }
+            actionsHtml += `</div>`;
+        }
+        actionsHtml += `</div>`;
+
         card.innerHTML = `
             <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;">
                 <h4 style="margin: 0; font-size: 15px; color: var(--text-primary); font-weight: 700; line-height: 1.4;">
-                    ${listing.title}
+                    ${escapeHTML(listing.title)}
                 </h4>
                 <span style="background: ${typeBg}; color: ${typeColor}; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid ${typeColor}40;">
-                    ${listing.type || 'SERVICE'}
+                    ${serviceType}
                 </span>
             </div>
             
             <div style="font-size: 12px; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
-                <span>${categoryIcons[listing.category] || "🚘"} ${listing.category}</span>
+                <span>${categoryIcons[listing.category] || "🚘"} ${escapeHTML(listing.category)}</span>
                 <span>•</span>
-                <span>📍 ${listing.location}</span>
+                <span>📍 ${escapeHTML(listing.location)}</span>
             </div>
+
+            ${detailsHtml}
+            ${rateHtml}
+            ${actionsHtml}
         `;
         
         container.appendChild(card);

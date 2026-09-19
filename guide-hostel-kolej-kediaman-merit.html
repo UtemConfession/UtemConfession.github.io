@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -12,6 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#060b19">
 
     <title>UTeM Kolej Kediaman (Hostel) Merit System & Application Guide | UTeM Confessions Pro Max</title>
     <meta name="description" content="Complete guide to UTeM residential colleges (Kolej Kediaman Satria, Lestari, Hang Tuah). How to earn hostel merit points, room facilities, fees, and appeal procedures.">
@@ -23,8 +24,10 @@
     <meta property="og:title" content="UTeM Kolej Kediaman (Hostel) Merit System & Application Guide | UTeM Confessions Pro Max">
     <meta property="og:description" content="Discover how to secure a room at UTeM residential colleges through merit points, club participation, and campus leadership.">
     <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:url" content="https://utemconfession.github.io/guide-hostel-kolej-kediaman-merit.html">
     <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- Custom Style System -->
         <!-- Google Fonts Preconnect & Stylesheet -->
@@ -316,6 +319,28 @@
             </div>
         </article>
 
+            <!-- Related Student Handbooks (Topic Cluster Internal Linking) -->
+            <section class="card related-guides-card" style="margin-top: 24px; padding: 20px; border-radius: 12px; background: rgba(var(--accent-gold-rgb), 0.03); border: 1px solid var(--border-color);">
+                <h3 style="color: var(--accent-gold); font-size: 16.5px; font-weight: 700; margin-top: 0; margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
+                    <span>&#x1F4DA;</span> Related UTeM Student Handbooks
+                </h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+                    <a href="guide-off-campus-rental.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                        <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🏡 Off-Campus Rental & Tenancy Guide</strong>
+                        <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">How to search, inspect, and secure houses when moving out of university hostels.</span>
+                    </a>
+                    <a href="guide-campus-bus-transit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                        <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🚌 Campus Shuttle Bus Routes</strong>
+                        <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Navigating daily transit loops between residential colleges and academic faculties.</span>
+                    </a>
+                    <a href="guide-freshman-survival.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                        <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">📖 Freshman Onboarding & Housing</strong>
+                        <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">First-year hostel check-in procedures, room inventory, and college activities.</span>
+                    </a>
+                </div>
+            </section>
+            <!-- END Related Student Handbooks -->
+
             <!-- Universal Footer -->
     <!-- Legal & Editorial Footer -->
     <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
@@ -443,12 +468,12 @@ document.addEventListener("DOMContentLoaded", () => {
         function shareWhatsApp() {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent(document.title + "\n\n" + url);
-            window.open("https://api.whatsapp.com/send?text=" + text, "_blank");
+            window.open("https://api.whatsapp.com/send?text=" + text, "_blank", "noopener,noreferrer");
         }
         function shareTelegram() {
             const url = encodeURIComponent(window.location.href);
             const text = encodeURIComponent(document.title);
-            window.open("https://t.me/share/url?url=" + url + "&text=" + text, "_blank");
+            window.open("https://t.me/share/url?url=" + url + "&text=" + text, "_blank", "noopener,noreferrer");
         }
         function copyGuideLink() {
             navigator.clipboard.writeText(window.location.href).then(() => {

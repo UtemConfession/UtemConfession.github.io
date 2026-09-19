@@ -340,8 +340,9 @@ if (submitBtn) {
         const confession = confessionText.value.trim();
         if (!confession) return;
 
+        const curLang = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms" ? "ms" : "en";
         submitBtn.disabled = true;
-        submitBtn.textContent = "Submitting...";
+        submitBtn.textContent = curLang === "ms" ? "Menghantar..." : "Submitting...";
 
         const submission = {
             type: "text",
@@ -413,7 +414,8 @@ if (submitBtn) {
             console.error("Confession Submission Network Error:", error);
             showStatus("Network error: Unable to connect to Apps Script server. Ensure your Apps Script Web App access is set to 'Anyone'.", "error");
         } finally {
-            submitBtn.textContent = "Submit Confession";
+            const curLang = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms" ? "ms" : "en";
+            submitBtn.textContent = curLang === "ms" ? "Hantar Pengakuan" : "Submit Confession";
             updateSubmitButton();
         }
     });
@@ -627,16 +629,17 @@ if (submitImageBtn) {
             return;
         }
 
+        const curLang = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms" ? "ms" : "en";
         submitImageBtn.disabled = true;
-        submitImageBtn.textContent = "Compressing & Uploading...";
+        submitImageBtn.textContent = curLang === "ms" ? "Memampatkan & Memuat naik..." : "Compressing & Uploading...";
 
         let base64Data = "";
         try {
             base64Data = await compressImage(selectedImageFile);
         } catch (readErr) {
             console.error("Failed to compress image file:", readErr);
-            showStatus("Failed to process image file. Please try another file.", "error");
-            submitImageBtn.textContent = "Submit Image";
+            showStatus(curLang === "ms" ? "Gagal memproses fail imej. Sila cuba fail lain." : "Failed to process image file. Please try another file.", "error");
+            submitImageBtn.textContent = curLang === "ms" ? "Hantar Gambar" : "Submit Image";
             updateImageSubmitButton();
             return;
         }
@@ -710,7 +713,8 @@ if (submitImageBtn) {
             const errDetail = error && error.message ? `: ${error.message}` : "";
             showStatus(`Unable to submit image${errDetail}. Ensure your Apps Script Web App access is set to 'Anyone'.`, "error");
         } finally {
-            submitImageBtn.textContent = "Submit Image";
+            const curLang = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms' || localStorage.getItem("lang") === "ms" ? "ms" : "en";
+            submitImageBtn.textContent = curLang === "ms" ? "Hantar Gambar" : "Submit Image";
             updateImageSubmitButton();
         }
     });

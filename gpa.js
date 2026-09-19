@@ -150,9 +150,12 @@ function calculateGpa() {
     let noteText = "";
 
     // Forgiving Rule 1: If user entered prior CGPA but left prior credits blank -> auto-estimate prior credits as 15 (1 sem)
+    const isMs = (typeof currentLang !== 'undefined' && currentLang === 'ms') || document.documentElement.lang === 'ms';
     if (!isNaN(prevCgpa) && prevCgpa > 0 && (isNaN(prevCredits) || prevCredits <= 0)) {
         prevCredits = 15;
-        noteText = "💡 Prior credits estimated at 15 credits (1 semester average).";
+        noteText = isMs
+            ? "💡 Kredit terdahulu dianggarkan 15 jam kredit (purata 1 semester)."
+            : "💡 Prior credits estimated at 15 credits (1 semester average).";
     }
 
     let targetCGPA = currentGPA;
@@ -168,23 +171,60 @@ function calculateGpa() {
 
     if (calculatedCgpaVal) calculatedCgpaVal.textContent = targetCGPA.toFixed(2);
 
-    // Dean's List Badge (Displayed strictly for 3.50 - 4.00)
+    // Dean's List Badge (Strict UTeM Criteria: Semester GPA >= 3.50 with at least 12 graded credit hours)
     const deansListBadge = document.getElementById("deansListBadge");
     if (deansListBadge) {
-        if (currentGPA >= 3.50 || targetCGPA >= 3.50) {
+        if (currentGPA >= 3.50 && totalCredits >= 12) {
             deansListBadge.style.display = "flex";
         } else {
             deansListBadge.style.display = "none";
         }
     }
 
-    // First Class Badge (Displayed strictly for 3.75 - 4.00)
+    // First Class Badge (Degree Cumulative Honors: CGPA >= 3.67 with at least 30 cumulative credits)
     const firstClassBadge = document.getElementById("firstClassBadge");
+    const cumulativeCredits = (isNaN(prevCredits) ? 0 : prevCredits) + totalCredits;
     if (firstClassBadge) {
-        if (currentGPA >= 3.75 || targetCGPA >= 3.75) {
+        if (targetCGPA >= 3.67 && cumulativeCredits >= 30) {
             firstClassBadge.style.display = "flex";
         } else {
             firstClassBadge.style.display = "none";
+        }
+    }
+
+    // Dynamic Academic Standing Status Banner (KB / KS / KG)
+    const standingBadge = document.getElementById("academicStandingBadge") || document.getElementById("academicStandingPill");
+    if (standingBadge) {
+        if (totalCredits > 0 || (prevCredits && prevCredits > 0)) {
+            standingBadge.style.display = "flex";
+            const isEn = (typeof currentLang !== "undefined" && currentLang === "en") || document.documentElement.lang === "en";
+            if (targetCGPA >= 2.00) {
+                standingBadge.textContent = isEn 
+                    ? "🟢 Academic Standing: KB (Good Standing) · Eligible to continue studies" 
+                    : "🟢 Kedudukan Akademik: KB (Kedudukan Baik) · Layak meneruskan pengajian";
+                standingBadge.style.background = "linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%)";
+                standingBadge.style.color = "#10b981";
+                standingBadge.style.border = "1px solid rgba(16, 185, 129, 0.35)";
+                standingBadge.style.boxShadow = "0 0 12px rgba(16, 185, 129, 0.1)";
+            } else if (targetCGPA >= 1.67) {
+                standingBadge.textContent = isEn 
+                    ? "🟡 Academic Standing: KS (Academic Probation) · Academic warning (CGPA < 2.00)" 
+                    : "🟡 Kedudukan Akademik: KS (Kedudukan Bersyarat) · Amaran akademik (PNGK < 2.00)";
+                standingBadge.style.background = "linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%)";
+                standingBadge.style.color = "#f59e0b";
+                standingBadge.style.border = "1px solid rgba(245, 158, 11, 0.35)";
+                standingBadge.style.boxShadow = "0 0 12px rgba(245, 158, 11, 0.1)";
+            } else {
+                standingBadge.textContent = isEn 
+                    ? "🔴 Academic Standing: KG (Academic Dismissal) · Faculty action required (CGPA < 1.67)" 
+                    : "🔴 Kedudukan Akademik: KG (Kedudukan Gagal) · Tindakan fakulti (PNGK < 1.67)";
+                standingBadge.style.background = "linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%)";
+                standingBadge.style.color = "#ef4444";
+                standingBadge.style.border = "1px solid rgba(239, 68, 68, 0.35)";
+                standingBadge.style.boxShadow = "0 0 12px rgba(239, 68, 68, 0.1)";
+            }
+        } else {
+            standingBadge.style.display = "none";
         }
     }
 
@@ -234,6 +274,13 @@ if (clearGpaBtn) {
 if (prevCgpaInput) prevCgpaInput.addEventListener("input", calculateGpa);
 if (prevCreditsInput) prevCreditsInput.addEventListener("input", calculateGpa);
 
+const btnPrintGpa = document.getElementById("btnPrintGpa");
+if (btnPrintGpa) {
+    btnPrintGpa.addEventListener("click", () => {
+        window.print();
+    });
+}
+
 function initGpaCalculator() {
     if (!gpaRowsContainer) return;
     const restored = restoreGpaState();
@@ -244,6 +291,8 @@ function initGpaCalculator() {
         addCalculatorRow('', 3, 'B');
     }
 }
+
+window.calculateGpa = calculateGpa;
 
 if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initGpaCalculator);

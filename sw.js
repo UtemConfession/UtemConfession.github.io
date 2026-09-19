@@ -11,11 +11,12 @@ try {
 }
 
 // sw.js — UTeM Confessions Pro Max Service Worker (Offline Support)
-const CACHE_NAME = 'ucpm-cache-v118';
+const CACHE_NAME = 'ucpm-cache-v129';
 const ASSETS_TO_CACHE = [
     './',
     './index.html',
     './offline.html',
+    './404.html',
     './manifest.json',
     './archive.html',
     './calendar.html',
@@ -32,7 +33,11 @@ const ASSETS_TO_CACHE = [
     './marketplace.html',
     './updates.html',
     './guides.html',
-    './guide-campus-parking-clamping.html',
+    './about.html',
+    './rules.html',
+    './privacy.html',
+    './terms.html',
+    './telegram-terms.html',
     './components.js',
     './style.min.css',
     './utils.min.js',
@@ -43,6 +48,7 @@ const ASSETS_TO_CACHE = [
     './gpa.min.js',
     './health.min.js',
     './bus.min.js',
+    './parcels.min.js',
     './lookup.min.js',
     './calendar.min.js',
     './library.min.js',
@@ -50,7 +56,6 @@ const ASSETS_TO_CACHE = [
     './activities-data.min.js',
     './activities.min.js',
     './marketplace.min.js',
-    './popunder.min.js',
     './updates-data.min.js',
     './updates.min.js',
     './script.min.js',
@@ -59,8 +64,9 @@ const ASSETS_TO_CACHE = [
     './ads.min.js',
     './vignette.min.js',
     './UCPMLogo.webp',
-    './spectra.webp',
-    './madlion.webp'
+    './UCPMLogo.png',
+    './falsafah.webp',
+    './dsa.webp'
 ];
 
 self.addEventListener('install', (event) => {
@@ -105,14 +111,14 @@ self.addEventListener('fetch', (event) => {
                 }
                 return networkResponse;
             }).catch(async () => {
-                const cachedMatch = await caches.match(event.request);
+                const cachedMatch = await caches.match(event.request, { ignoreSearch: true });
                 if (cachedMatch) return cachedMatch;
 
                 // If navigation fails while offline, gracefully serve offline.html or index.html
                 if (event.request.mode === 'navigate' || (event.request.headers.get('accept') && event.request.headers.get('accept').includes('text/html'))) {
-                    const offlinePage = await caches.match('./offline.html');
+                    const offlinePage = await caches.match('./offline.html', { ignoreSearch: true });
                     if (offlinePage) return offlinePage;
-                    return caches.match('./index.html');
+                    return caches.match('./index.html', { ignoreSearch: true });
                 }
 
                 return new Response('Network error occurred while offline.', {
@@ -125,7 +131,7 @@ self.addEventListener('fetch', (event) => {
     } else {
         // Cache-first for images / static media
         event.respondWith(
-            caches.match(event.request).then((cachedResponse) => {
+            caches.match(event.request, { ignoreSearch: true }).then((cachedResponse) => {
                 return cachedResponse || fetch(event.request);
             })
         );

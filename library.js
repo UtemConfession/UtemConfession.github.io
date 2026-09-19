@@ -11,7 +11,7 @@ function searchExamSubject(query) {
 
     const encodedTerm = encodeURIComponent(term);
     const searchUrl = `https://library2.utem.edu.my/exampaper/index.php?option=com_docman&view=list&Itemid=101&layout=table&filter%5Bsearch%5D=${encodedTerm}`;
-    window.open(searchUrl, "_blank");
+    window.open(searchUrl, "_blank", "noopener,noreferrer");
 }
 
 // --- DYNAMIC EXAM SEASON COUNTDOWN & GOOD LUCK PILL ---

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -12,6 +12,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#060b19">
 
     <title>Telegram Terms of Service & Channel Safety Policy | UTeM Confessions Pro Max</title>
     <meta name="description" content="Official Telegram compliance policy for UTeM Confessions Pro Max. Learn about Telegram TOS, ban prevention, drug & illegal substance bans, Google integration, and student safety.">
@@ -23,8 +24,10 @@
     <meta property="og:title" content="Telegram Terms of Service & Channel Safety Policy | UTeM Confessions Pro Max">
     <meta property="og:description" content="Official Telegram compliance and channel protection policy. Understand platform rules, prohibited activities, and safety guidelines.">
     <meta property="og:type" content="article">
+    <meta name="twitter:card" content="summary_large_image">
     <meta property="og:url" content="https://utemconfession.github.io/telegram-terms.html">
     <meta property="og:image" content="https://utemconfession.github.io/UCPMLogo.png">
+    <meta name="twitter:card" content="summary_large_image">
 
     <!-- Custom Style System -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -204,43 +207,8 @@
 
     <div class="app-container">
         
-        <!-- Desktop Sidebar -->
-        <aside class="sidebar">
-            <div class="brand-section">
-                <img src="UCPMLogo.webp" alt="UTeM Confessions Pro Max" class="brand-logo-img" width="76" height="76" decoding="async">
-                <h1 class="brand-title">UTeM Confessions</h1>
-                <span class="brand-subtitle">Pro Max</span>
-            </div>
-            
-            <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
-                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); background: rgba(var(--accent-gold-rgb), 0.05); border-radius: 6px; transition: all 0.2s;">
-                    Bahasa Melayu
-                </button>
-            </div>
-
-            <ul class="nav-menu">
-                <a href="index.html" class="nav-item">
-                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                    <span id="navHome">Back to Home</span>
-                </a>
-                <a href="rules.html" class="nav-item">
-                    <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
-                    <span id="navRules">Confession Rules</span>
-                </a>
-                <a href="guides.html" class="nav-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    <span id="navGuides">Student Guides</span>
-                </a>
-                <a href="about.html" class="nav-item">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    <span id="navAbout">About Us</span>
-                </a>
-            </ul>
-
-            <div class="sidebar-footer">
-                
-            </div>
-        </aside>
+        <!-- Desktop Sidebar Navigation -->
+        <ucpm-sidebar></ucpm-sidebar>
 
         <!-- Main Content Area -->
         <main class="main-content">
@@ -609,7 +577,12 @@
 
             const desktopToggle = document.getElementById("desktopLangToggle");
             const mobileToggle = document.getElementById("mobileLangToggle");
-            if (desktopToggle) desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
+            const drawerToggle = document.getElementById("drawerLangToggle");
+            if (desktopToggle) {
+                const span = desktopToggle.querySelector("span");
+                if (span) span.textContent = lang === "en" ? "BM" : "EN";
+                else desktopToggle.textContent = lang === "en" ? "Bahasa Melayu" : "English";
+            }
             if (mobileToggle) {
                 const span = mobileToggle.querySelector("span");
                 const label = lang === "en" ? "BM" : "EN";
@@ -618,6 +591,12 @@
                 const langAria = lang === "en" ? "Switch to Bahasa Melayu" : "Tukar ke Bahasa Inggeris";
                 mobileToggle.setAttribute("aria-label", langAria);
                 mobileToggle.setAttribute("title", langAria);
+            }
+            if (drawerToggle) {
+                const span = drawerToggle.querySelector("span");
+                const label = lang === "en" ? "BM" : "EN";
+                if (span) span.textContent = label;
+                else drawerToggle.textContent = label;
             }
         }
 
@@ -631,8 +610,10 @@
             setLanguage(currentLang);
             const desktopToggle = document.getElementById("desktopLangToggle");
             const mobileToggle = document.getElementById("mobileLangToggle");
+            const drawerToggle = document.getElementById("drawerLangToggle");
             if (desktopToggle) desktopToggle.addEventListener("click", toggleLanguage);
             if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
+            if (drawerToggle) drawerToggle.addEventListener("click", toggleLanguage);
         });
     </script>
     

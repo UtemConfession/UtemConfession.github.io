@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#060b19">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>404 Page Not Found | UTeM Confessions Pro Max</title>
+    <meta name="robots" content="noindex, follow">
+    <meta name="description" content="The page you are looking for was not found on UTeM Confessions Pro Max. Explore campus bus schedules, GPA calculator, parcel tracking, and student guides.">
+    <link rel="icon" type="image/png" href="UCPMLogo.png">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <style>
+        :root {
+            --bg-primary: #060b19;
+            --bg-secondary: rgba(13, 21, 39, 0.9);
+            --border-color: rgba(255, 255, 255, 0.1);
+            --accent-gold: #f59e0b;
+            --accent-gold-rgb: 245, 158, 11;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(var(--accent-gold-rgb), 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+        }
+
+        .error-container {
+            width: 92%;
+            max-width: 600px;
+            margin: 24px auto;
+            background: var(--bg-secondary);
+            border: 1px solid rgba(var(--accent-gold-rgb), 0.35);
+            border-radius: 20px;
+            padding: 36px 28px;
+            text-align: center;
+            box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6), 0 0 25px rgba(var(--accent-gold-rgb), 0.1);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-sizing: border-box;
+        }
+
+        .error-code-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(var(--accent-gold-rgb), 0.15);
+            border: 1px solid rgba(var(--accent-gold-rgb), 0.4);
+            color: var(--accent-gold);
+            font-size: 13px;
+            font-weight: 800;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .error-number {
+            font-size: 64px;
+            font-weight: 900;
+            line-height: 1;
+            margin: 0 0 10px 0;
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 24px rgba(var(--accent-gold-rgb), 0.3);
+        }
+
+        .error-title {
+            font-size: 22px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: var(--text-primary);
+        }
+
+        .error-desc {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0 0 24px 0;
+        }
+
+        .quick-nav-card {
+            background: rgba(6, 11, 25, 0.7);
+            border: 1px solid var(--border-color);
+            border-radius: 14px;
+            padding: 18px;
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .quick-nav-title {
+            font-size: 12.5px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--accent-gold);
+            margin: 0 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .quick-nav-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        @media (max-width: 480px) {
+            .quick-nav-grid {
+                grid-template-columns: 1fr;
+            }
+            .error-container {
+                padding: 28px 20px;
+            }
+            .error-number {
+                font-size: 52px;
+            }
+        }
+
+        .quick-link-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .quick-link-item:hover {
+            background: rgba(var(--accent-gold-rgb), 0.12);
+            border-color: rgba(var(--accent-gold-rgb), 0.35);
+            color: var(--accent-gold);
+            transform: translateY(-2px);
+        }
+
+        .action-btn-row {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-action-home {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #060b19;
+            border: none;
+            border-radius: 10px;
+            padding: 12px 24px;
+            font-weight: 800;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+            transition: transform 0.2s ease;
+        }
+
+        .btn-action-home:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-action-back {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 20px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action-back:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--text-secondary);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="error-container">
+        <div class="error-code-badge">
+            <span>🧭</span>
+            <span>Error 404 · Link Not Found</span>
+        </div>
+
+        <div class="error-number">404</div>
+        <h1 class="error-title">Sesat di Kampus Induk?</h1>
+        <p class="error-desc">
+            The page you are looking for might have been moved, renamed, or no longer exists. Jangan risau, semua tools dan info student masih ada di sini!
+        </p>
+
+        <!-- Quick Directory -->
+        <div class="quick-nav-card">
+            <div class="quick-nav-title">
+                <span>⚡</span>
+                <span>Popular Student Hubs / Pintasan Pantas</span>
+            </div>
+            <div class="quick-nav-grid">
+                <a href="index.html" class="quick-link-item">
+                    <span>🏠</span>
+                    <span>Home Dashboard</span>
+                </a>
+                <a href="bus.html" class="quick-link-item">
+                    <span>🚌</span>
+                    <span>Campus Bus & M10A</span>
+                </a>
+                <a href="gpa.html" class="quick-link-item">
+                    <span>🎓</span>
+                    <span>GPA & CGPA Calculator</span>
+                </a>
+                <a href="parcels.html" class="quick-link-item">
+                    <span>📦</span>
+                    <span>Hostel Parcel Hub</span>
+                </a>
+                <a href="calendar.html" class="quick-link-item">
+                    <span>📅</span>
+                    <span>Academic Calendar</span>
+                </a>
+                <a href="library.html" class="quick-link-item">
+                    <span>📚</span>
+                    <span>Library & Exam Papers</span>
+                </a>
+                <a href="wifi.html" class="quick-link-item">
+                    <span>📶</span>
+                    <span>Wi-Fi & Eduroam</span>
+                </a>
+                <a href="marketplace.html" class="quick-link-item">
+                    <span>🛍️</span>
+                    <span>Student Marketplace</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-btn-row">
+            <button onclick="window.history.length > 1 ? window.history.back() : window.location.href='index.html'" class="btn-action-back">
+                <span>⬅️</span>
+                <span>Kembali / Go Back</span>
+            </button>
+            <a href="index.html" class="btn-action-home">
+                <span>🏠</span>
+                <span>Kembali ke Laman Utama</span>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

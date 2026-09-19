@@ -356,6 +356,7 @@
             title: "🤖 Android 11, 12, 13 & 14+ Setup Settings",
             badge: "Android Enterprise",
             badgeColor: "#34d399",
+            hasEduroamCat: true,
             items: [
                 { k: "Wi-Fi Network (SSID)", v: "<strong>UTeM-Wifi</strong> or <strong>eduroam</strong>" },
                 { k: "EAP Method", v: "<code>PEAP</code>" },
@@ -554,6 +555,29 @@
                     <button type="button" id="btnDownloadAppleProfile" class="btn btn-primary btn-sm" style="font-size: 11.5px; padding: 6px 14px; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px;">
                         <span>📥</span> Download Apple Profile
                     </button>
+                </div>
+            `;
+        }
+
+        if (g.hasEduroamCat) {
+            html += `
+                <div style="margin: 14px 0 10px 0; padding: 12px; background: rgba(52, 211, 153, 0.08); border: 1px solid rgba(52, 211, 153, 0.25); border-radius: 8px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                    <div>
+                        <strong style="color: #34d399; display: flex; align-items: center; gap: 6px; font-size: 12.5px;">
+                            <span>⚡</span> Official UTeM eduroam CAT Auto-Installer
+                        </strong>
+                        <span style="color: var(--text-secondary); font-size: 11.5px;">
+                            Auto-configures encryption certificates without domain or CA errors on Android 11, 12, 13, 14+.
+                        </span>
+                    </div>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <a href="https://cat.eduroam.org/?idp=5623" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="font-size: 11.5px; padding: 6px 14px; white-space: nowrap; display: inline-flex; align-items: center; gap: 6px; background: #059669; border-color: #10b981;">
+                            <span>📥</span> Download UTeM CAT Profile &#10142;
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=app.eduroam.geteduroam" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="font-size: 11.5px; padding: 6px 12px; white-space: nowrap; display: inline-flex; align-items: center; gap: 5px; border-color: rgba(52, 211, 153, 0.4); color: #34d399;">
+                            <span>📲</span> geteduroam App &#10142;
+                        </a>
+                    </div>
                 </div>
             `;
         }
