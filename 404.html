@@ -13,15 +13,44 @@
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
+    <!-- Forward old consolidated legal URLs -->
+    <script>
+        (function() {
+            var p = window.location.pathname.toLowerCase();
+            var map = {
+                'rules.html': 'legal.html#rules',
+                'terms.html': 'legal.html#terms',
+                'privacy.html': 'legal.html#privacy',
+                'telegram-terms.html': 'legal.html#telegram'
+            };
+            for (var key in map) {
+                if (p.indexOf(key) !== -1) {
+                    var base = window.location.pathname.substring(0, window.location.pathname.toLowerCase().lastIndexOf(key));
+                    window.location.replace(base + map[key]);
+                    break;
+                }
+            }
+        })();
+    </script>
+    <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <style>
         :root {
             --bg-primary: #060b19;
             --bg-secondary: rgba(13, 21, 39, 0.9);
             --border-color: rgba(255, 255, 255, 0.1);
-            --accent-gold: #f59e0b;
-            --accent-gold-rgb: 245, 158, 11;
+            --accent-gold: #d4af37;
+            --accent-gold-rgb: 212, 175, 55;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
         }
@@ -81,6 +110,7 @@
             margin: 0 0 10px 0;
             background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #d97706 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 24px rgba(var(--accent-gold-rgb), 0.3);
         }
@@ -143,7 +173,7 @@
             align-items: center;
             gap: 10px;
             padding: 10px 14px;
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--bg-secondary);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 10px;
             color: var(--text-primary);

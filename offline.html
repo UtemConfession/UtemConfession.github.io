@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -11,13 +11,26 @@
     <meta name="description" content="You are currently offline. Access cached UTeM student services, bus schedules, and academic calendars.">
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
+    <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <style>
         :root {
             --bg-primary: #060b19;
             --bg-secondary: rgba(13, 21, 39, 0.9);
             --border-color: rgba(255, 255, 255, 0.1);
-            --accent-gold: #f59e0b;
+            --accent-gold: #d4af37;
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
         }
@@ -128,7 +141,7 @@
             align-items: center;
             gap: 10px;
             padding: 10px 14px;
-            background: rgba(255, 255, 255, 0.03);
+            background: var(--bg-secondary);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 10px;
             color: var(--text-primary);

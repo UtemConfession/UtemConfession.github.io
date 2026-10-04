@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense temporarily paused on tool pages during review -->
 
     <!-- JSON-LD Structured Data -->
@@ -90,11 +90,19 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -121,198 +129,195 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24" style="fill: currentColor;">
-                            <path
-                                d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" />
-                        </svg>
-                        <span id="titlePastExamsTab">UTeM Past Year Exam Papers</span>
-                    </h2>
+                <div class="exam-page-container">
 
-                    <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;"
-                        id="descPastExamsTab">
-                        Access the official UTeM library repository to search, browse, and download past semester
-                        examination papers for your courses.
-                    </p>
-
-                    <!-- Instant Subject Search Input Box -->
-                    <div
-                        style="background: rgba(13, 21, 39, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 20px; margin-bottom: 20px; box-shadow: 0 0 16px rgba(var(--accent-gold-rgb), 0.12);">
-                        <h3
-                            style="font-size: 15px; font-weight: 700; color: var(--accent-gold); margin-bottom: 8px; display: flex; align-items: center; gap: 8px;">
-                            🔍 Direct Course Exam Search
-                        </h3>
-                        <p
-                            style="font-size: 12.5px; color: var(--text-secondary); margin-bottom: 14px; line-height: 1.4;">
-                            Type your subject code or title below to generate a pre-filtered search link directly into
-                            the UTeM Library Exam Repository.
+                    <!-- PRIMARY FOCAL POINT: The Hero Search Card -->
+                    <section class="card exam-hero-card" aria-label="Course Exam Search">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 8px;">
+                            <h1 class="card-title" style="margin: 0; padding-bottom: 0; border-bottom: none;">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 18.5c-3.73 0-6.95-1.95-8.66-4.9L12 21l8.66-4.4c-1.71 2.95-4.93 4.9-8.66 4.9z" />
+                                </svg>
+                                <span id="titlePastExamsTab">UTeM Past Year Exam Papers</span>
+                            </h1>
+                            <span style="font-size: 11.5px; padding: 4px 12px; background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); border-radius: 999px; border: 1px solid rgba(var(--accent-gold-rgb), 0.3); font-weight: 700;">
+                                🔍 Direct Repository Access
+                            </span>
+                        </div>
+                        <p class="subtitle" id="descPastExamsTab" style="color: var(--text-secondary); font-size: 13.5px; margin: 0 0 20px 0; line-height: 1.55;">
+                            Access the official UTeM library repository to search, browse, and download past semester examination papers for your courses.
                         </p>
 
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <input type="text" id="examSubjectInput" class="form-control"
+                        <div class="exam-search-bar">
+                            <input type="text" id="examSubjectInput" class="form-control exam-search-input"
                                 placeholder="e.g. BITM, Software Engineering, BITP 1113..."
-                                style="flex: 1; min-width: 240px; padding: 12px 16px; font-size: 14px;">
-                            <button type="button" id="btnSearchExams" class="btn btn-primary"
-                                style="padding: 12px 20px; font-weight: 800; display: inline-flex; align-items: center; gap: 8px; flex-shrink: 0;">
-                                🔍 Search Papers ➔
+                                aria-label="Search past year exam papers">
+                            <button type="button" id="btnSearchExams" class="btn btn-primary exam-search-btn">
+                                <span>🔍 Search Papers ➔</span>
                             </button>
                         </div>
 
-                        <!-- Popular Quick Search Tags -->
-                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-top: 14px;">
-                            <span
-                                style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Quick
-                                Subjects:</span>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Algorithm')">Algorithm</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Artificial Intelligence')">Artificial Intelligence</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Business Ethics')">Business Ethics</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Calculus')">Calculus</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Computer Architecture')">Computer Architecture</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Computer Networks')">Computer Networks</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Control Systems')">Control Systems</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Database Systems')">Database Systems</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Operating Systems')">Operating Systems</button>
-                            <button type="button" class="btn btn-sm btn-secondary exam-tag-btn"
-                                onclick="searchExamSubject('Software Engineering')">Software Engineering</button>
+                        <!-- Popular Quick Faculty Search Chips -->
+                        <div class="exam-quick-tags-container" style="margin-bottom: 12px; padding-bottom: 12px; border-bottom: 1px dashed var(--border-color);">
+                            <div class="exam-quick-tags-label">
+                                <span>🏛️</span>
+                                <span>Filter by Faculty:</span>
+                            </div>
+                            <div class="exam-quick-tags-grid">
+                                <button type="button" class="btn exam-tag-btn" style="border-color: rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); font-weight: 700;" onclick="searchExamSubject('FTMK')">💻 FTMK</button>
+                                <button type="button" class="btn exam-tag-btn" style="border-color: rgba(59, 130, 246, 0.4); color: #60a5fa; font-weight: 700;" onclick="searchExamSubject('FKE')">⚡ FKE</button>
+                                <button type="button" class="btn exam-tag-btn" style="border-color: rgba(239, 68, 68, 0.4); color: #f87171; font-weight: 700;" onclick="searchExamSubject('FKM')">⚙️ FKM</button>
+                                <button type="button" class="btn exam-tag-btn" style="border-color: rgba(16, 185, 129, 0.4); color: #34d399; font-weight: 700;" onclick="searchExamSubject('FKP')">🏭 FKP</button>
+                                <button type="button" class="btn exam-tag-btn" style="border-color: rgba(168, 85, 247, 0.4); color: #c084fc; font-weight: 700;" onclick="searchExamSubject('FPTT')">📊 FPTT</button>
+                                <button type="button" class="btn exam-tag-btn" style="border-color: rgba(234, 179, 8, 0.4); color: #facc15; font-weight: 700;" onclick="searchExamSubject('FTKEE')">🔌 FTKEE</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Official Exam Paper Database Direct Portal Card -->
-                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-                        <h4 style="font-size: 14px; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.5px; margin: 0;"
-                            id="labelPastExamsLib">Official Exam Paper Database:</h4>
-                        <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">
-                            Access the official Perpustakaan Laman Hikmah (PLH) digital exam database directly to browse the full catalog by academic year, faculty, and semester:
-                        </p>
+                        <!-- Popular Quick Search Tags -->
+                        <div class="exam-quick-tags-container">
+                            <div class="exam-quick-tags-label">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M21.41 11.58l-9-9C12.05 2.22 11.55 2 11 2H4c-1.1 0-2 .9-2 2v7c0 .55.22 1.05.59 1.42l9 9c.36.36.86.58 1.41.58s1.05-.22 1.41-.59l7-7c.37-.36.59-.86.59-1.41s-.23-1.06-.59-1.42zM5.5 7C4.67 7 4 6.33 4 5.5S4.67 4 5.5 4 7 4.67 7 5.5 6.33 7 5.5 7z"/></svg>
+                                <span>Quick Subjects:</span>
+                            </div>
+                            <div class="exam-quick-tags-grid">
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Algorithm')">Algorithm</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Artificial Intelligence')">Artificial Intelligence</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Business Ethics')">Business Ethics</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Calculus')">Calculus</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Computer Architecture')">Computer Architecture</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Computer Networks')">Computer Networks</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Control Systems')">Control Systems</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Database Systems')">Database Systems</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Operating Systems')">Operating Systems</button>
+                                <button type="button" class="btn exam-tag-btn" onclick="searchExamSubject('Software Engineering')">Software Engineering</button>
+                            </div>
+                        </div>
 
-                        <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&amp;view=list&amp;Itemid=101&amp;layout=table"
-                            target="_blank" rel="noopener noreferrer" class="btn btn-secondary"
-                            style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; font-weight: 700; width: 100%; max-width: 320px; border-color: var(--border-color);"
-                            id="btnPastExamsLink">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"
-                                style="margin-top: -2px;">
-                                <path
-                                    d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-                            </svg>
-                            <span>Open Library Exam Portal ➔</span>
-                        </a>
-                    </div>
+                        <!-- Integrated Official Repository Banner -->
+                        <div class="exam-portal-banner">
+                            <div class="exam-portal-banner-info">
+                                <h3 class="exam-portal-banner-title" id="labelPastExamsLib">
+                                    <span>🏛️</span> Official Exam Paper Database
+                                </h3>
+                                <p class="exam-portal-banner-desc">
+                                    Access the official Perpustakaan Laman Hikmah (PLH) digital exam database directly to browse the full catalog by academic year, faculty, and semester:
+                                </p>
+                            </div>
+                            <a href="https://library2.utem.edu.my/exampaper/index.php?option=com_docman&amp;view=list&amp;Itemid=101&amp;layout=table"
+                                target="_blank" rel="noopener noreferrer" class="exam-portal-btn" id="btnPastExamsLink">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                                    <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                                </svg>
+                                <span>Open Library Exam Portal ➔</span>
+                            </a>
+                        </div>
+                    </section>
 
-                    <!-- Feature 4: UTeM Course Code Anatomy Decoder -->
-                    <div id="courseDecoderCard"
-                        style="background: linear-gradient(135deg, rgba(17, 24, 39, 0.95), rgba(31, 41, 55, 0.85)); border: 1px solid rgba(var(--accent-gold-rgb), 0.35); border-radius: 14px; padding: 22px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);">
-                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
-                            <h3 style="font-size: 16px; font-weight: 700; color: var(--accent-gold); margin: 0; display: flex; align-items: center; gap: 8px;" id="courseDecoderTitle">
-                                🧬 UTeM Course Code Anatomy Decoder
-                            </h3>
-                            <span style="font-size: 11px; padding: 3px 9px; background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); border-radius: 999px; border: 1px solid rgba(var(--accent-gold-rgb), 0.3); font-weight: 600;">
+                    <!-- Secondary Tool: UTeM Course Code Anatomy Decoder -->
+                    <section id="courseDecoderCard" class="card exam-decoder-card" aria-label="Course Code Decoder">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
+                            <h2 style="font-size: 19px; font-weight: 800; color: var(--accent-gold); margin: 0; display: flex; align-items: center; gap: 10px;" id="courseDecoderTitle">
+                                <span>🧬</span> UTeM Course Code Anatomy Decoder
+                            </h2>
+                            <span style="font-size: 11.5px; padding: 4px 12px; background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); border-radius: 999px; border: 1px solid rgba(var(--accent-gold-rgb), 0.3); font-weight: 700;">
                                 Official Syllabus Structure
                             </span>
                         </div>
-                        <p style="font-size: 12.5px; color: var(--text-secondary); margin: 0 0 16px 0; line-height: 1.5;" id="courseDecoderDesc">
+                        <p style="font-size: 13.5px; color: var(--text-secondary); margin: 0 0 20px 0; line-height: 1.6;" id="courseDecoderDesc">
                             Decode any UTeM subject code into its faculty, academic year level, department specialty, and credit hour weighting according to the Senate curriculum guidelines.
                         </p>
 
                         <!-- Input & Action -->
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px;">
-                            <input type="text" id="courseDecoderInput" class="form-control"
+                        <div class="exam-search-bar" style="margin-bottom: 16px;">
+                            <input type="text" id="courseDecoderInput" class="form-control exam-search-input"
                                 placeholder="Enter code (e.g. BITP 1113, BMMT 2323, BLHC 4032...)"
-                                style="flex: 1; min-width: 220px; padding: 11px 16px; font-size: 13.5px; text-transform: uppercase; letter-spacing: 0.5px;">
-                            <button type="button" id="btnDecodeCourse" class="btn btn-primary"
-                                style="padding: 11px 22px; font-weight: 700; font-size: 13.5px; display: inline-flex; align-items: center; gap: 8px;">
+                                style="text-transform: uppercase; letter-spacing: 0.5px;">
+                            <button type="button" id="btnDecodeCourse" class="btn btn-primary exam-search-btn">
                                 <span>Decode Code ➔</span>
                             </button>
                         </div>
 
                         <!-- Sample Quick Pills -->
-                        <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 16px;">
-                            <span style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Try Sample:</span>
-                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BITP 1113" style="font-size: 11px; padding: 3px 8px;">BITP 1113 (FTMK)</button>
-                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BMMT 2323" style="font-size: 11px; padding: 3px 8px;">BMMT 2323 (FKM)</button>
-                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BEKP 2413" style="font-size: 11px; padding: 3px 8px;">BEKP 2413 (FKE)</button>
-                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BMFG 3113" style="font-size: 11px; padding: 3px 8px;">BMFG 3113 (FKP)</button>
-                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BTMI 2123" style="font-size: 11px; padding: 3px 8px;">BTMI 2123 (FPTT)</button>
-                            <button type="button" class="btn btn-sm btn-secondary decoder-sample-pill" data-code="BLHC 4032" style="font-size: 11px; padding: 3px 8px;">BLHC 4032 (PBPI)</button>
+                        <div style="display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                            <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase;">Try Sample:</span>
+                            <button type="button" class="btn exam-tag-btn decoder-sample-pill" data-code="BITP 1113">BITP 1113 (FTMK)</button>
+                            <button type="button" class="btn exam-tag-btn decoder-sample-pill" data-code="BMMT 2323">BMMT 2323 (FKM)</button>
+                            <button type="button" class="btn exam-tag-btn decoder-sample-pill" data-code="BEKP 2413">BEKP 2413 (FKE)</button>
+                            <button type="button" class="btn exam-tag-btn decoder-sample-pill" data-code="BMFG 3113">BMFG 3113 (FKP)</button>
+                            <button type="button" class="btn exam-tag-btn decoder-sample-pill" data-code="BTMI 2123">BTMI 2123 (FPTT)</button>
+                            <button type="button" class="btn exam-tag-btn decoder-sample-pill" data-code="BLHC 4032">BLHC 4032 (PBPI)</button>
                         </div>
 
                         <!-- Decoded Result Box (hidden by default) -->
-                        <div id="decoderOutputContainer" style="display: none; background: rgba(0, 0, 0, 0.35); border: 1px solid rgba(var(--accent-gold-rgb), 0.25); border-radius: 10px; padding: 18px; margin-top: 10px;">
-                            <div id="decoderErrorBox" style="display: none; text-align: center; padding: 14px; color: #ef4444; font-size: 13px;">
+                        <div id="decoderOutputContainer" style="display: none; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; margin-top: 14px; box-shadow: var(--card-shadow);">
+                            <div id="decoderErrorBox" style="display: none; text-align: center; padding: 16px; color: #ef4444; font-size: 13.5px;">
                                 ⚠️ Invalid course code format. Please use standard UTeM format (3-4 letters followed by 4 digits, e.g. <code>BITP 1113</code>, <code>BMMT 2323</code>, <code>BLHC 4032</code>).
                             </div>
                             <div id="decoderContentBox">
-                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 14px;">
-                                    <div style="display: flex; align-items: center; gap: 10px;">
-                                        <span id="decodedCodeBadge" style="font-size: 18px; font-weight: 800; color: var(--accent-gold); font-family: monospace; letter-spacing: 1px;">-</span>
-                                        <span id="decodedDegreeBadge" style="font-size: 11px; padding: 2px 8px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 6px; font-weight: 600;">-</span>
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; border-bottom: 1px solid var(--border-color); padding-bottom: 14px; margin-bottom: 18px;">
+                                    <div style="display: flex; align-items: center; gap: 12px;">
+                                        <span id="decodedCodeBadge" style="font-size: 20px; font-weight: 800; color: var(--accent-gold); font-family: monospace; letter-spacing: 1px;">-</span>
+                                        <span id="decodedDegreeBadge" style="font-size: 12px; padding: 3px 10px; background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.4); border-radius: 8px; font-weight: 700;">-</span>
                                     </div>
-                                    <button type="button" id="btnSearchDecodedExam" class="btn btn-sm btn-outline-primary" style="font-size: 12px; padding: 5px 12px; display: inline-flex; align-items: center; gap: 6px;">
+                                    <button type="button" id="btnSearchDecodedExam" class="btn btn-outline-primary" style="font-size: 13px; font-weight: 700; padding: 8px 16px; display: inline-flex; align-items: center; gap: 8px;">
                                         <span>🔍 Search Past Papers for This Code</span>
                                     </button>
                                 </div>
 
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 14px;">
+                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 18px;">
                                     <!-- Faculty & Department -->
-                                    <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: 8px; border-left: 3px solid var(--accent-gold);">
-                                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Faculty & Specialty</div>
-                                        <div id="decodedFacultyText" style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin-bottom: 2px;">-</div>
-                                        <div id="decodedDeptText" style="font-size: 11.5px; color: var(--text-secondary);">-</div>
+                                    <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border: 1px solid var(--border-color); border-left: 3px solid var(--accent-gold);">
+                                        <div style="font-size: 11.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">Faculty & Specialty</div>
+                                        <div id="decodedFacultyText" style="font-size: 14px; font-weight: 700; color: var(--text-primary); margin-bottom: 4px;">-</div>
+                                        <div id="decodedDeptText" style="font-size: 12.5px; color: var(--text-secondary);">-</div>
                                     </div>
 
                                     <!-- Academic Progression -->
-                                    <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #3b82f6;">
-                                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Academic Progression</div>
-                                        <div id="decodedYearText" style="font-size: 13px; font-weight: 700; color: #60a5fa; margin-bottom: 2px;">-</div>
-                                        <div id="decodedLevelText" style="font-size: 11.5px; color: var(--text-secondary);">-</div>
+                                    <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border: 1px solid var(--border-color); border-left: 3px solid #3b82f6;">
+                                        <div style="font-size: 11.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">Academic Progression</div>
+                                        <div id="decodedYearText" style="font-size: 14px; font-weight: 700; color: #60a5fa; margin-bottom: 4px;">-</div>
+                                        <div id="decodedLevelText" style="font-size: 12.5px; color: var(--text-secondary);">-</div>
                                     </div>
 
                                     <!-- Credit Hours & Workload -->
-                                    <div style="background: var(--bg-secondary); padding: 12px 14px; border-radius: 8px; border-left: 3px solid #10b981;">
-                                        <div style="font-size: 11px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 4px;">Credit Hours & Workload</div>
-                                        <div id="decodedCreditText" style="font-size: 13px; font-weight: 700; color: #34d399; margin-bottom: 2px;">-</div>
-                                        <div id="decodedCreditSub" style="font-size: 11.5px; color: var(--text-secondary);">-</div>
+                                    <div style="background: var(--bg-card); padding: 16px; border-radius: 10px; border: 1px solid var(--border-color); border-left: 3px solid #10b981;">
+                                        <div style="font-size: 11.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 6px;">Credit Hours & Workload</div>
+                                        <div id="decodedCreditText" style="font-size: 14px; font-weight: 700; color: #34d399; margin-bottom: 4px;">-</div>
+                                        <div id="decodedCreditSub" style="font-size: 12.5px; color: var(--text-secondary);">-</div>
                                     </div>
                                 </div>
 
                                 <!-- Narrative Breakdown -->
-                                <div id="decodedExplanation" style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.6; padding: 10px 14px; background: var(--bg-secondary); border-radius: 8px;">
+                                <div id="decodedExplanation" style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.65; padding: 14px 18px; background: var(--bg-card); border-radius: 10px; border: 1px solid var(--border-color);">
                                     -
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <!-- PSM & Thesis Toolkit Bridge Banner -->
-                    <div style="background: rgba(var(--accent-gold-rgb), 0.07); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); border-radius: 12px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
-                        <div style="display: flex; align-items: center; gap: 12px; flex: 1; min-width: 260px;">
-                            <span style="font-size: 24px; line-height: 1;">🎓</span>
+                    <div class="card exam-psm-banner">
+                        <div style="display: flex; align-items: center; gap: 16px; flex: 1; min-width: 260px;">
+                            <span style="font-size: 32px; line-height: 1;">🎓</span>
                             <div>
-                                <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 2px;">
+                                <strong style="color: var(--accent-gold); font-size: 15px; display: block; margin-bottom: 4px;">
                                     Working on PSM 1 / PSM 2 (Final Year Project)?
                                 </strong>
-                                <span style="color: var(--text-secondary); font-size: 12px; line-height: 1.4;">
+                                <span style="color: var(--text-secondary); font-size: 13px; line-height: 1.5;">
                                     Check UTeM thesis margin rules (3.8 cm gutter), Word &amp; Overleaf LaTeX templates, Turnitin criteria, and e-Prints submission guidelines.
                                 </span>
                             </div>
                         </div>
-                        <a href="library.html#psm-toolkit" class="btn btn-secondary btn-sm" style="font-size: 12px; font-weight: 700; color: var(--accent-gold); border-color: rgba(var(--accent-gold-rgb), 0.4); white-space: nowrap;">
-                            Open PSM Thesis Hub &#10142;
+                        <a href="library.html#psm-toolkit" class="btn btn-secondary" style="font-size: 13px; font-weight: 700; color: var(--accent-gold); border-color: rgba(var(--accent-gold-rgb), 0.4); padding: 10px 20px; white-space: nowrap;">
+                            Open PSM Thesis Hub ➔
                         </a>
                     </div>
 
                     <!-- Section 1: UTeM Faculty Subject Codes Reference Table -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                        <h3 style="font-size: 15px; font-weight: 700; color: var(--accent-gold); margin-top: 0; margin-bottom: 12px;" id="exam_sec1_title">🏛️ UTeM Faculty Subject Code Prefixes</h3>
+                    <section class="card exam-section-card" aria-label="Faculty Code Reference">
+                        <div class="exam-section-header">
+                            <h2 class="exam-section-title" id="exam_sec1_title">🏛️ UTeM Faculty Subject Code Prefixes</h2>
+                        </div>
                         <div class="table-responsive" style="margin-bottom: 0;">
                             <table class="structured-table">
                                 <thead>
@@ -356,145 +361,150 @@
                                 </tbody>
                             </table>
                         </div>
-                    </div>
+                    </section>
 
                     <!-- Section 2: How to Authenticate via EZproxy Off-Campus -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="exam_sec2_title">🔐 Accessing Exam Papers Off-Campus via UTeM LibProxy</h3>
-                        <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 10px;" id="exam_sec2_desc">
+                    <section class="card exam-section-card" aria-label="Off-Campus Access Guide">
+                        <div class="exam-section-header">
+                            <h2 class="exam-section-title" id="exam_sec2_title">🔐 Accessing Exam Papers Off-Campus via UTeM LibProxy</h2>
+                        </div>
+                        <p style="color: var(--text-secondary); font-size: 14px; line-height: 1.65; margin-bottom: 16px;" id="exam_sec2_desc">
                             When accessing the examination repository from off-campus residential Wi-Fi or mobile hotspots, the university firewall enforces Single Sign-On (SSO) authentication:
                         </p>
-                        <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;" id="exam_libproxy_steps">
+                        <ol style="color: var(--text-secondary); font-size: 14px; line-height: 1.7; margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 10px;" id="exam_libproxy_steps">
                             <li>Navigate directly to the official <strong>UTeM LibProxy portal</strong> (<a href="https://ezproxy.utem.edu.my" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700;">ezproxy.utem.edu.my</a>).</li>
                             <li>Log in using your standard UTeM Student Matric Number (e.g. <code>B032110000</code>) and SMPWeb student password.</li>
                             <li>Once authenticated, search by subject code (e.g. <code>BITP 1113</code>) to download high-resolution official PDF papers without encountering 403 Forbidden errors.</li>
                         </ol>
-                    </div>
+                    </section>
 
                     <!-- Section 3: Exam Preparation Strategies -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 12px;" id="exam_sec3_title">💡 High-Yield Past Year Examination Revision Strategies</h3>
-                        <div style="display: flex; flex-direction: column; gap: 10px;">
-                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
-                                <strong style="color: #60a5fa; font-size: 13.5px; display: block; margin-bottom: 2px;" id="exam_strat1_title">1. Simulate Timed 3-Hour Closed-Book Exam Conditions</strong>
-                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_strat1_desc">Avoid reading answers passively. Complete full 3-hour past papers under strict timer conditions without notes to master calculation pacing and time management across multi-part questions.</span>
+                    <section class="card exam-section-card" aria-label="Exam Revision Strategies">
+                        <div class="exam-section-header">
+                            <h2 class="exam-section-title" id="exam_sec3_title">💡 High-Yield Past Year Examination Revision Strategies</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div class="exam-card-item" style="border-left: 3px solid #60a5fa;">
+                                <strong style="color: #60a5fa; font-size: 14.5px; display: block; margin-bottom: 6px;" id="exam_strat1_title">1. Simulate Timed 3-Hour Closed-Book Exam Conditions</strong>
+                                <span style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;" id="exam_strat1_desc">Avoid reading answers passively. Complete full 3-hour past papers under strict timer conditions without notes to master calculation pacing and time management across multi-part questions.</span>
                             </div>
-                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
-                                <strong style="color: #34d399; font-size: 13.5px; display: block; margin-bottom: 2px;" id="exam_strat2_title">2. Master Bloom's Taxonomy Marks Allocation (C1 to C6)</strong>
-                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_strat2_desc">In technical degree courses, higher-order analysis, evaluation, and design problems (Bloom's C4–C6) represent 50%–70% of total examination marks. Prioritize derivation and design problems over simple definition memorization.</span>
+                            <div class="exam-card-item" style="border-left: 3px solid #34d399;">
+                                <strong style="color: #34d399; font-size: 14.5px; display: block; margin-bottom: 6px;" id="exam_strat2_title">2. Master Bloom's Taxonomy Marks Allocation (C1 to C6)</strong>
+                                <span style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;" id="exam_strat2_desc">In technical degree courses, higher-order analysis, evaluation, and design problems (Bloom's C4–C6) represent 50%–70% of total examination marks. Prioritize derivation and design problems over simple definition memorization.</span>
                             </div>
-                            <div>
-                                <strong style="color: #fbbf24; font-size: 13.5px; display: block; margin-bottom: 2px;" id="exam_strat3_title">3. Collaborative Peer Solution Circles & Formula Sheet Mastery</strong>
-                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_strat3_desc">Form focused study groups of 3–4 classmates to compare mathematical derivations and algorithm traces. Practice solving complex problems using only the standard approved UTeM examination formula appendices.</span>
+                            <div class="exam-card-item" style="border-left: 3px solid #fbbf24;">
+                                <strong style="color: #fbbf24; font-size: 14.5px; display: block; margin-bottom: 6px;" id="exam_strat3_title">3. Collaborative Peer Solution Circles &amp; Formula Sheet Mastery</strong>
+                                <span style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;" id="exam_strat3_desc">Form focused study groups of 3–4 classmates to compare mathematical derivations and algorithm traces. Practice solving complex problems using only the standard approved UTeM examination formula appendices.</span>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <!-- Section 4: Official Examination Hall Regulations -->
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                        <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 12px;" id="exam_sec4_title">📜 Official Examination Hall Rules & Regulations</h3>
-                        <div style="display: flex; flex-direction: column; gap: 10px;">
-                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
-                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule1_title">1. Slip Menduduki Peperiksaan (SMPWeb Exam Slip)</strong>
-                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule1_desc">Every student must print their official <em>Slip Menduduki Peperiksaan</em> from SMPWeb before exam week. You must bring the physical printed slip along with your Student Matric Card to every exam session.</span>
+                    <section class="card exam-section-card" aria-label="Examination Hall Rules">
+                        <div class="exam-section-header">
+                            <h2 class="exam-section-title" id="exam_sec4_title">📜 Official Examination Hall Rules &amp; Regulations</h2>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div class="exam-card-item" style="border-left: 3px solid var(--accent-gold);">
+                                <strong style="color: var(--text-primary); font-size: 14px; display: block; margin-bottom: 6px;" id="exam_rule1_title">1. Slip Menduduki Peperiksaan (SMPWeb Exam Slip)</strong>
+                                <span style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;" id="exam_rule1_desc">Every student must print their official <em>Slip Menduduki Peperiksaan</em> from SMPWeb before exam week. You must bring the physical printed slip along with your Student Matric Card to every exam session.</span>
                             </div>
-                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
-                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule2_title">2. Dress Code & Prohibited Items</strong>
-                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule2_desc">Formal attire with collared shirts and covered shoes is mandatory. Smartwatches, programmable calculator memory banks without reset, and mobile phones are strictly prohibited at examination desks.</span>
+                            <div class="exam-card-item" style="border-left: 3px solid #ef4444;">
+                                <strong style="color: var(--text-primary); font-size: 14px; display: block; margin-bottom: 6px;" id="exam_rule2_title">2. Dress Code &amp; Prohibited Items</strong>
+                                <span style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;" id="exam_rule2_desc">Formal attire with collared shirts and covered shoes is mandatory. Smartwatches, programmable calculator memory banks without reset, and mobile phones are strictly prohibited at examination desks.</span>
                             </div>
-                            <div style="padding-bottom: 10px; border-bottom: 1px dashed var(--border-color);">
-                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule3_title">3. Medical Absence & PKU Endorsement Procedure</strong>
-                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule3_desc">If you are unable to sit for an examination due to illness, you must obtain an official Medical Certificate (MC) from Pusat Kesihatan UTeM (PKU) or endorse private clinic MCs within 48 hours to qualify for special replacement exams.</span>
+                            <div class="exam-card-item" style="border-left: 3px solid #3b82f6;">
+                                <strong style="color: var(--text-primary); font-size: 14px; display: block; margin-bottom: 6px;" id="exam_rule3_title">3. Medical Absence &amp; PKU Endorsement Procedure</strong>
+                                <span style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;" id="exam_rule3_desc">If you are unable to sit for an examination due to illness, you must obtain an official Medical Certificate (MC) from Pusat Kesihatan UTeM (PKU) or endorse private clinic MCs within 48 hours to qualify for special replacement exams.</span>
                             </div>
-                            <div>
-                                <strong style="color: var(--text-primary); font-size: 13px; display: block; margin-bottom: 2px;" id="exam_rule4_title">4. Grade Remarking & Result Appeals (Semakan Semula)</strong>
-                                <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;" id="exam_rule4_desc">If you suspect a grading error on your final paper, you can submit an official <em>Permohonan Semakan Semula Keputusan Peperiksaan</em> to the Academic Management Division (BPA) within 14 working days of official result release.</span>
+                            <div class="exam-card-item" style="border-left: 3px solid #a855f7;">
+                                <strong style="color: var(--text-primary); font-size: 14px; display: block; margin-bottom: 6px;" id="exam_rule4_title">4. Grade Remarking &amp; Result Appeals (Semakan Semula)</strong>
+                                <span style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;" id="exam_rule4_desc">If you suspect a grading error on your final paper, you can submit an official <em>Permohonan Semakan Semula Keputusan Peperiksaan</em> to the Academic Management Division (BPA) within 14 working days of official result release.</span>
                             </div>
                         </div>
-                    </div>
+                    </section>
 
                     <!-- Section 5: Frequently Asked Questions -->
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;" id="exam_sec5_title">❓ Frequently Asked Questions (FAQ)</h3>
-                    <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq1_q">Why do some UTeM exam papers require EZproxy login when accessed off-campus?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq1_a">Perpustakaan Laman Hikmah (PLH) restricts past examination papers to enrolled students and faculty. When off-campus, you must authenticate through the UTeM LibProxy portal using your Student ID and SMPWeb password.</span>
+                    <section class="card exam-section-card" aria-label="Frequently Asked Questions">
+                        <div class="exam-section-header">
+                            <h2 class="exam-section-title" id="exam_sec5_title">❓ Frequently Asked Questions (FAQ)</h2>
                         </div>
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq2_q">Are answer schemes (skema jawapan) included in the library repository?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq2_a">No, official marking schemes and answer keys are not released publicly in the library repository to encourage independent critical thinking and tutorial discussion with course lecturers.</span>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <details class="exam-faq-item" open>
+                                <summary id="exam_faq1_q">Why do some UTeM exam papers require EZproxy login when accessed off-campus?</summary>
+                                <div class="exam-faq-content" id="exam_faq1_a">
+                                    Perpustakaan Laman Hikmah (PLH) restricts past examination papers to enrolled students and faculty. When off-campus, you must authenticate through the UTeM LibProxy portal using your Student ID and SMPWeb password.
+                                </div>
+                            </details>
+                            <details class="exam-faq-item">
+                                <summary id="exam_faq2_q">Are answer schemes (skema jawapan) included in the library repository?</summary>
+                                <div class="exam-faq-content" id="exam_faq2_a">
+                                    No, official marking schemes and answer keys are not released publicly in the library repository to encourage independent critical thinking and tutorial discussion with course lecturers.
+                                </div>
+                            </details>
+                            <details class="exam-faq-item">
+                                <summary id="exam_faq3_q">How many past semester papers should I practice before finals?</summary>
+                                <div class="exam-faq-content" id="exam_faq3_a">
+                                    Reviewing 3 to 5 recent past semesters is recommended to identify recurring question formats, syllabus weightings, and key engineering calculation paradigms.
+                                </div>
+                            </details>
+                            <details class="exam-faq-item">
+                                <summary id="exam_faq4_q">Where can I find exam papers if my course code was recently updated?</summary>
+                                <div class="exam-faq-content" id="exam_faq4_a">
+                                    When faculties restructure curriculum codes (e.g. from <code>BITM</code> to <code>BITS</code>), search using the previous equivalent course title or old subject code to find historical papers covering the identical syllabus topics.
+                                </div>
+                            </details>
+                            <details class="exam-faq-item">
+                                <summary id="exam_faq5_q">What should I do if two of my final exams clash on the timetable?</summary>
+                                <div class="exam-faq-content" id="exam_faq5_a">
+                                    Timetable clashes must be reported to your Faculty Academic Advisor and the Academic Management Division (BPA) within 5 working days of the draft exam schedule release to arrange special isolated sitting sessions.
+                                </div>
+                            </details>
+                            <details class="exam-faq-item">
+                                <summary id="exam_faq6_q">Are non-programmable scientific calculators inspected before entry?</summary>
+                                <div class="exam-faq-content" id="exam_faq6_a">
+                                    Yes. Invigilators verify calculator models (e.g. Casio fx-570 series). Calculator covers with written notes or formulas are confiscated, and programmable memories must be cleared prior to exam commencement.
+                                </div>
+                            </details>
                         </div>
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq3_q">How many past semester papers should I practice before finals?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq3_a">Reviewing 3 to 5 recent past semesters is recommended to identify recurring question formats, syllabus weightings, and key engineering calculation paradigms.</span>
-                        </div>
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq4_q">Where can I find exam papers if my course code was recently updated?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq4_a">When faculties restructure curriculum codes (e.g. from <code>BITM</code> to <code>BITS</code>), search using the previous equivalent course title or old subject code to find historical papers covering the identical syllabus topics.</span>
-                        </div>
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq5_q">What should I do if two of my final exams clash on the timetable?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq5_a">Timetable clashes must be reported to your Faculty Academic Advisor and the Academic Management Division (BPA) within 5 working days of the draft exam schedule release to arrange special isolated sitting sessions.</span>
-                        </div>
-                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                            <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_faq6_q">Are non-programmable scientific calculators inspected before entry?</strong>
-                            <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="exam_faq6_a">Yes. Invigilators verify calculator models (e.g. Casio fx-570 series). Calculator covers with written notes or formulas are confiscated, and programmable memories must be cleared prior to exam commencement.</span>
-                        </div>
-                    </div>
+                    </section>
 
-                    <!-- Section 6: Related Guides Cross-linking -->
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="exam_sec6_title">🔗 Related Student Guides</h3>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
-                        <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_rel1_title">📝 Past Year Exam Practice Guide</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);" id="exam_rel1_desc">In-depth study techniques, active recall, and exam week schedule planner.</span>
-                        </a>
-                        <a href="library.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_rel2_title">📚 Perpustakaan Laman Hikmah (PLH)</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);" id="exam_rel2_desc">Study rooms, 24-hour exam zones, borrowing quotas, and digital libraries.</span>
-                        </a>
-                        <a href="gpa.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                            <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="exam_rel3_title">🎓 GPA & CGPA Target Calculator</strong>
-                            <span style="font-size: 12px; color: var(--text-muted);" id="exam_rel3_desc">Calculate target examination grades needed to earn Dean's List honours.</span>
-                        </a>
-                    </div>
-                </section>
-            </div>
+                    <!-- Section 6: Related Student Guides -->
+                    <section class="card exam-section-card" aria-label="Related Student Guides">
+                        <div class="exam-section-header">
+                            <h2 class="exam-section-title" id="exam_sec6_title">🔗 Related Student Guides</h2>
+                        </div>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 16px;">
+                            <a href="guide-past-year-exams.html" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 20px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)';">
+                                <div>
+                                    <strong style="color: var(--accent-gold); font-size: 14.5px; display: block; margin-bottom: 6px;" id="exam_rel1_title">📝 Past Year Exam Practice Guide</strong>
+                                    <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" id="exam_rel1_desc">In-depth study techniques, active recall, and exam week schedule planner.</span>
+                                </div>
+                                <span style="color: var(--accent-gold); font-size: 12.5px; font-weight: 700; margin-top: 12px; display: inline-flex; align-items: center; gap: 4px;">Read Guide ➔</span>
+                            </a>
+                            <a href="library.html" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 20px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)';">
+                                <div>
+                                    <strong style="color: var(--accent-gold); font-size: 14.5px; display: block; margin-bottom: 6px;" id="exam_rel2_title">📚 Perpustakaan Laman Hikmah (PLH)</strong>
+                                    <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" id="exam_rel2_desc">Study rooms, 24-hour exam zones, borrowing quotas, and digital libraries.</span>
+                                </div>
+                                <span style="color: var(--accent-gold); font-size: 12.5px; font-weight: 700; margin-top: 12px; display: inline-flex; align-items: center; gap: 4px;">View Library Hub ➔</span>
+                            </a>
+                            <a href="gpa.html" style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 20px; text-decoration: none; color: inherit; transition: all 0.2s ease; display: flex; flex-direction: column; justify-content: space-between;" onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.transform='translateY(-2px)';" onmouseout="this.style.borderColor='var(--border-color)'; this.style.transform='translateY(0)';">
+                                <div>
+                                    <strong style="color: var(--accent-gold); font-size: 14.5px; display: block; margin-bottom: 6px;" id="exam_rel3_title">🎓 GPA &amp; CGPA Target Calculator</strong>
+                                    <span style="font-size: 12.5px; color: var(--text-muted); line-height: 1.5;" id="exam_rel3_desc">Calculate target examination grades needed to earn Dean's List honours.</span>
+                                </div>
+                                <span style="color: var(--accent-gold); font-size: 12.5px; font-weight: 700; margin-top: 12px; display: inline-flex; align-items: center; gap: 4px;">Calculate Targets ➔</span>
+                            </a>
+                        </div>
+                    </section>
 
-                        <!-- Universal Footer -->
-    <div class="card" style="margin-top: 40px; text-align: left;">
-    <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Exam Preparation & Hall Rules</h3>
-    <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
-        Utilizing past year papers is one of the most effective ways to prepare for UTeM final exams. Familiarize yourself with the question formats and common topics.
-    </p>
-    <ul style="color: var(--text-secondary); line-height: 1.6; font-size: 14px; margin-top: 10px; padding-left: 20px;">
-        <li><strong>Exam Hall Attire:</strong> Strict formal attire is required. Collared shirts, slacks, and covered shoes for male students. Traditional/formal wear for female students. No jeans or sandals.</li>
-        <li><strong>Required Documents:</strong> You MUST bring your Student Matrix Card and the printed Exam Slip. No slip, no entry.</li>
-        <li><strong>Prohibited Items:</strong> Smartwatches, programmable calculators (unless specified), and mobile phones must be left outside or placed at the front of the hall.</li>
-    </ul>
-</div>
+                </div> <!-- end exam-page-container -->
+            </div> <!-- end #exams-tab -->
 
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
-            </main>
+            <!-- Universal Footer -->
+            <ucpm-footer></ucpm-footer>
+        </main>
     </div>
 
     <!-- Mobile Bottom Navigation Bar -->
@@ -503,14 +513,11 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Core Utilities & Exam Logic Engine -->
-    <script src="utils.min.js" defer></script>
     <script src="library.min.js?v=8.0" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
     <script src="script.min.js?v=8.0" defer></script>
-
-    <script src="ads.min.js" defer></script>
 
 </body>
 

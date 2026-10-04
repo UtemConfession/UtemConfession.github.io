@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -40,13 +40,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "UTeM Confessions Pro Max Changelog & Updates",
+        "description": "Latest additions, feature rollouts, bug fixes, and improvements for UTeM Confessions Pro Max.",
+        "url": "https://utemconfession.github.io/updates.html"
+      }
+    ]
+    </script>
     <!-- Google AdSense temporarily paused on tool pages during review -->
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -65,10 +86,10 @@
                 <div style="padding-bottom: 40px;">
                     
                     <div style="margin-bottom: 32px; text-align: center;">
-                        <h2 style="font-size: 32px; font-weight: 800; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; color: var(--text-primary);">
+                        <h1 style="font-size: 32px; font-weight: 800; margin-bottom: 12px; display: inline-flex; align-items: center; justify-content: center; gap: 12px; color: var(--text-primary);">
                             <span style="background: linear-gradient(135deg, #3b82f6, #2563eb); color: white; font-size: 13px; font-weight: 800; padding: 4px 10px; border-radius: 6px; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);">NEW</span>
                             <span id="updatesTitle">UCPM Web Updates</span>
-                        </h2>
+                        </h1>
                         <p id="updatesSubtitle" style="color: var(--text-secondary); font-size: 15px; margin: 0; max-width: 580px; margin-left: auto; margin-right: auto; line-height: 1.5;">
                             Stay informed with the latest feature releases, enhancements, UI refinements, and bug fixes across the UCPM web platform.
                         </p>
@@ -224,7 +245,7 @@
                 </div>
 
                 <!-- STANDALONE PAGE BOTTOM SEO SECTION -->
-                <section class="card content-card" style="margin-top: 40px; margin-bottom: 40px;">
+                <section class="card content-card" style="margin-bottom: 24px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                         <div style="width: 48px; height: 48px; background: rgba(var(--accent-gold-rgb), 0.1); border-radius: 12px; display: flex; align-items: center; justify-content: center; color: var(--accent-gold);">
                             <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
@@ -265,26 +286,8 @@
 
             </div>
 
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Confessions platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
+    <!-- Universal Footer -->
+            <ucpm-footer></ucpm-footer>
             
         </main>
     </div>
@@ -295,10 +298,8 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Scripts -->
-    <script src="utils.min.js" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
     <script src="script.min.js?v=8.0" defer></script>
-    <script src="updates-data.min.js?v=8.0" defer></script>
     <script src="updates.min.js?v=8.0" defer></script>
     
 </body>

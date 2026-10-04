@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense temporarily paused on tool pages during review -->
 
     <!-- JSON-LD Structured Data -->
@@ -88,11 +88,19 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -107,307 +115,376 @@
         <!-- Main Content Area -->
         <main class="main-content">
 
-            
             <!-- HEALTH CENTER (PKU) MAIN CONTAINER -->
             <div class="tab-content active" id="health-tab">
                 <!-- Dynamic PKU Main Campus Clinic Hours Smart Pill -->
-                <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 6px;">
+                <div style="display: flex; justify-content: center; width: 100%; margin-bottom: 12px;">
                     <div id="pkuHoursPill" class="top-smart-pill glow-pku-closed" title="Click to view detailed PKU clinic hours, ambulance hotline & appointments">
                         <span id="pkuPillIcon" style="font-size: 16px;">&#x1F512;</span>
                         <span id="pkuPillText">Closed Today &middot; Reopens Mon 8:00 AM</span>
                         <span id="pkuPillBadge" style="background: rgba(148, 163, 184, 0.15); color: #94a3b8; padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 800; letter-spacing: 0.5px;">Semester Break</span>
                     </div>
                 </div>
-                <div class="card">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24" style="fill: currentColor;">
-                            <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
-                        </svg>
-                        <span id="titleHealthTab">Pusat Kesihatan UTeM (PKU)</span>
-                    </h2>
 
-                    <!-- UTeM Campus Emergency Hotline Quick Action Card -->
-                    <div style="background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 14px; padding: 18px 20px; margin-bottom: 20px; box-shadow: 0 0 16px rgba(239, 68, 68, 0.15);">
-                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 12px;">
-                            <h3 style="font-size: 16px; font-weight: 800; color: #ef4444; margin: 0; display: flex; align-items: center; gap: 8px;">
-                                🚨 UTeM Campus Emergency Hotlines (24/7 Response)
-                            </h3>
-                            <span style="background: #ef4444; color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 800;">
-                                Emergency Priority
-                            </span>
-                        </div>
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px;">
-                            <!-- Hotline 1: Security Unit -->
-                            <div style="background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                                <div>
-                                    <strong style="color: var(--text-primary); font-size: 13px; display: block;">Pejabat Keselamatan UTeM (Security Unit)</strong>
-                                    <span style="color: var(--text-muted); font-size: 11.5px;">Campus Incident & Emergency Dispatch</span>
-                                </div>
-                                <a href="tel:062701200" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-weight: 800; background: #ef4444; border: none; color: #fff; text-decoration: none; flex-shrink: 0;">
-                                    📞 06-270 1200
-                                </a>
-                            </div>
+                <div class="health-main-layout">
 
-                            <!-- Hotline 2: PKU Ambulance -->
-                            <div style="background: rgba(13, 21, 39, 0.85); border: 1px solid var(--border-color); padding: 12px 16px; border-radius: 10px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
-                                <div>
-                                    <strong style="color: var(--text-primary); font-size: 13px; display: block;">PKU Emergency Ambulance & Clinic</strong>
-                                    <span style="color: var(--text-muted); font-size: 11.5px;">Medical Assistance & Urgent Care</span>
-                                </div>
-                                <a href="tel:062701300" class="btn btn-primary btn-sm" style="padding: 6px 12px; font-weight: 800; background: #10b981; border: none; color: #fff; text-decoration: none; flex-shrink: 0;">
-                                    📞 06-270 1300
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-
-                        <!-- Operating Hours -->
-                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
-                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                    <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                    <!-- SECTION 1: HERO (Clinic Hours & 24/7 Emergency Dispatch) -->
+                    <section class="card health-hero-card" aria-label="Operating Hours & Emergency Hotline">
+                        <div style="margin-bottom: 20px; border-bottom: 1px solid var(--border-color); padding-bottom: 14px;">
+                            <h1 class="card-title" style="margin-bottom: 6px; padding-bottom: 0; border-bottom: none;">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
                                 </svg>
-                                <span id="labelHealthHours">Operating Hours</span>
-                            </h3>
-                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
-                                <li>
-                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthMainInduk">Main Campus (Durian Tunggal):</strong>
-                                    <span id="labelHoursIndukAcad">Academic Weeks: Mon - Fri, 8:00 AM - 7:00 PM</span><br>
-                                    <span id="labelHoursIndukBreak">Semester Breaks: Mon - Fri, 8:00 AM - 5:00 PM</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthTechAyer">Technology Campus (Ayer Keroh):</strong>
-                                    <span id="labelHoursTech">Mon - Fri: 8:00 AM - 5:00 PM</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                                    <strong style="color: var(--text-primary); display: block;" id="labelHealthBreaks">Daily Rest Breaks:</strong>
-                                    <span id="labelHoursBreakMonThu">Mon - Thu: 1:00 PM - 2:00 PM</span><br>
-                                    <span id="labelHoursBreakFri">Friday: 12:15 PM - 2:45 PM</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px; color: #e74c3c; font-weight: 600;">
-                                    <span id="labelHealthClosed">Weekends & Public Holidays: Closed</span>
-                                </li>
-                            </ul>
+                                <span id="titleHealthTab">Pusat Kesihatan UTeM (PKU)</span>
+                            </h1>
+                            <p class="subtitle" style="color: var(--text-secondary); font-size: 13.5px; margin: 0; line-height: 1.55;">
+                                Official campus medical center directory, 24/7 emergency response vehicle dispatch, clinic consultation hours, dental e-appointments, and medical leave endorsement guides.
+                            </p>
                         </div>
 
-                        <!-- E-Services & Bookings -->
-                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
-                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                    <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v-2zm3-4H7v-2h10v-2zm0-4H7V7h10v2z" />
-                                </svg>
-                                <span id="labelHealthServices">Online Appointments & Requests</span>
-                            </h3>
+                        <div class="health-hero-grid">
+                            
+                            <!-- Left: Clinic Operating Hours -->
+                            <div class="health-schedule-col">
+                                <div>
+                                    <div class="health-section-heading">
+                                        <h2 class="health-section-title">
+                                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                                <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
+                                            </svg>
+                                            <span id="labelHealthHours">Operating Hours</span>
+                                        </h2>
+                                        <span style="background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 800; border: 1px solid rgba(var(--accent-gold-rgb), 0.25);">
+                                            Campus Clinics
+                                        </span>
+                                    </div>
+                                    <p style="font-size: 13px; color: var(--text-secondary); margin: 0 0 14px 0; line-height: 1.5;">
+                                        Primary healthcare, consultations, and dispensary pharmacy services across both UTeM campuses:
+                                    </p>
+                                </div>
 
-                            <div>
-                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelDentalApp">Dental Clinic Appointment:</h4>
-                                <a href="https://form.jotform.com/dentalpkuutem/e-appointment" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnDentalLink">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-                                    </svg>
-                                    Dental e-Appointment ➔
-                                </a>
+                                <div class="health-schedule-blocks">
+                                    <!-- Main Campus -->
+                                    <div class="health-hours-item">
+                                        <strong id="labelHealthMainInduk">Main Campus (Durian Tunggal):</strong>
+                                        <span id="labelHoursIndukAcad">Academic Weeks: Mon - Fri, 8:00 AM - 7:00 PM</span><br>
+                                        <span id="labelHoursIndukBreak">Semester Breaks: Mon - Fri, 8:00 AM - 5:00 PM</span>
+                                    </div>
+
+                                    <!-- Technology Campus -->
+                                    <div class="health-hours-item">
+                                        <strong id="labelHealthTechAyer">Technology Campus (Ayer Keroh):</strong>
+                                        <span id="labelHoursTech">Mon - Fri: 8:00 AM - 5:00 PM</span>
+                                    </div>
+
+                                    <!-- Daily Rest Breaks -->
+                                    <div class="health-hours-item" style="border-left: 3px solid var(--accent-gold);">
+                                        <strong id="labelHealthBreaks">Daily Rest &amp; Prayer Breaks:</strong>
+                                        <span id="labelHoursBreakMonThu">Mon - Thu: 1:00 PM - 2:00 PM</span><br>
+                                        <span id="labelHoursBreakFri">Friday: 12:15 PM - 2:45 PM (Solat Jumaat)</span>
+                                    </div>
+
+                                    <!-- Closed Notices -->
+                                    <div class="health-hours-item" style="border-left: 3px solid #ef4444; background: rgba(239, 68, 68, 0.05);">
+                                        <span id="labelHealthClosed" style="color: #ef4444; font-weight: 700; font-size: 13px;">Weekends &amp; Public Holidays: Closed</span>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
-                                <h4 style="font-size: 13px; font-weight: 600; color: var(--text-primary);" id="labelEmergKit">Borrow Emergency First Aid Kits:</h4>
-                                <a href="https://forms.office.com/pages/responsepage.aspx?id=Vut-Z9_ydUaeDMzWAKkVgGQQ4HDQiuVKqFEd44j-gG5UOEhLSldKODZGQlZQQ1NaQlVDOFM1RTNOSy4u&origin=QRCode&route=shorturl" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnEmergLink">
-                                    <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
-                                    </svg>
-                                    First Aid Request Form ➔
-                                </a>
+                            <!-- Right: 24/7 Campus Emergency Hub -->
+                            <div class="health-emergency-box">
+                                <div>
+                                    <div class="health-emergency-title-row">
+                                        <h3 class="health-emergency-heading" id="labelHealthEmergencyTitle">
+                                            <span>🚨</span> Emergency &amp; After-Hours Assistance
+                                        </h3>
+                                        <span class="health-emergency-badge">Priority Dispatch</span>
+                                    </div>
+                                    <p style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55; margin: 10px 0 14px 0;" id="descHealthEmergency">
+                                        When PKU is closed during nights, weekends, or public holidays, or for immediate on-campus emergencies (accidents, acute illness, or distress), contact UTeM Campus Security (Polis Bantuan) or National Emergency:
+                                    </p>
+                                </div>
+
+                                <div class="health-hotline-stack">
+                                    <!-- Hotline 1: Security Unit -->
+                                    <div class="health-hotline-card">
+                                        <div class="health-hotline-info">
+                                            <strong id="labelHealthSecHotline1">Security Hotline 1: 06-270 1200</strong>
+                                            <span>Pejabat Keselamatan (Incident Dispatch)</span>
+                                        </div>
+                                        <a href="tel:062701200" class="btn btn-primary btn-sm" style="font-weight: 800; padding: 7px 14px; white-space: nowrap; text-decoration: none;">
+                                            📞 06-270 1200
+                                        </a>
+                                    </div>
+
+                                    <!-- Hotline 2: Security Unit 2 / PKU Ambulance -->
+                                    <div class="health-hotline-card">
+                                        <div class="health-hotline-info">
+                                            <strong id="labelHealthSecHotline2">Security Hotline 2: 06-270 1300</strong>
+                                            <span>PKU Medical Hotline &amp; Ambulance</span>
+                                        </div>
+                                        <a href="tel:062701300" class="btn btn-primary btn-sm" style="font-weight: 800; padding: 7px 14px; white-space: nowrap; text-decoration: none;">
+                                            📞 06-270 1300
+                                        </a>
+                                    </div>
+
+                                    <!-- Hotline 3: National 999 -->
+                                    <div class="health-hotline-card">
+                                        <div class="health-hotline-info">
+                                            <strong id="labelHealthNatEmerg">National Emergency: 999</strong>
+                                            <span>Ambulance, Fire &amp; Police Triage</span>
+                                        </div>
+                                        <a href="tel:999" class="btn btn-secondary btn-sm" style="font-weight: 800; padding: 7px 14px; white-space: nowrap; text-decoration: none;">
+                                            🚑 Call 999
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
-                                <h4 style="font-size: 13px; font-weight: 600; color: #a855f7; margin-bottom: 4px;">🧠 Counselling & Mental Health Support:</h4>
-                                <p style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.4; margin-bottom: 8px;">
-                                    Confidential 1-on-1 counseling sessions with certified UTeM Unit Kaunseling & Kerjaya counselors.
-                                </p>
-                                <a href="mailto:kaunseling@utem.edu.my" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; color: #a855f7; border-color: rgba(168, 85, 247, 0.4); font-weight: 700;">
+                        </div>
+                    </section>
+
+                    <!-- SECTION 2: HEALTH SERVICES & E-BOOKINGS (3 Cards) -->
+                    <section aria-label="Student Healthcare Services">
+                        <div class="health-services-grid">
+                            
+                            <!-- Card 1: Outpatient & Dispensary -->
+                            <div class="card health-service-card">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
+                                            🩺
+                                        </div>
+                                        <div>
+                                            <h3 style="font-size: 15.5px; font-weight: 700; color: var(--text-primary); margin: 0;">Clinical Consultation</h3>
+                                            <span style="font-size: 11.5px; color: var(--text-muted);">Outpatient &amp; Pharmacy</span>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                                        Free outpatient check-ups, fever &amp; flu medications, chronic illness monitoring, dressing, and minor wound care covered under your student health fee.
+                                    </p>
+                                </div>
+                                <div style="display: flex; align-items: center; justify-content: space-between; border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                                    <span style="font-size: 12px; color: var(--text-muted);">Walk-in during open hours</span>
+                                    <span style="font-size: 11px; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); border: 1px solid rgba(var(--accent-gold-rgb), 0.25); padding: 2px 8px; border-radius: 6px; font-weight: 700;">Zero Co-Pay</span>
+                                </div>
+                            </div>
+
+                            <!-- Card 2: E-Appointments & Forms -->
+                            <div class="card health-service-card">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
+                                            🦷
+                                        </div>
+                                        <div>
+                                            <h3 style="font-size: 15.5px; font-weight: 700; color: var(--text-primary); margin: 0;" id="labelHealthServices">Online Appointments &amp; Requests</h3>
+                                            <span style="font-size: 11.5px; color: var(--text-muted);">Dental &amp; First Aid Kits</span>
+                                        </div>
+                                    </div>
+                                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                                        <div>
+                                            <h4 style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin: 0 0 6px 0;" id="labelDentalApp">Dental Clinic Appointment:</h4>
+                                            <a href="https://form.jotform.com/dentalpkuutem/e-appointment" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; width: fit-content;" id="btnDentalLink">
+                                                Dental e-Appointment ➔
+                                            </a>
+                                        </div>
+                                        <div style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+                                            <h4 style="font-size: 12.5px; font-weight: 600; color: var(--text-primary); margin: 0 0 6px 0;" id="labelEmergKit">Borrow Emergency First Aid Kits:</h4>
+                                            <a href="https://forms.office.com/pages/responsepage.aspx?id=Vut-Z9_ydUaeDMzWAKkVgGQQ4HDQiuVKqFEd44j-gG5UOEhLSldKODZGQlZQQ1NaQlVDOFM1RTNOSy4u&origin=QRCode&route=shorturl" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; width: fit-content;" id="btnEmergLink">
+                                                First Aid Request Form ➔
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Card 3: Counseling & Mental Health -->
+                            <div class="card health-service-card">
+                                <div>
+                                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px;">
+                                        <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
+                                            🧠
+                                        </div>
+                                        <div>
+                                            <h3 style="font-size: 15.5px; font-weight: 700; color: var(--text-primary); margin: 0;">Counseling &amp; Mental Health</h3>
+                                            <span style="font-size: 11.5px; color: var(--text-muted); font-weight: 600;">Unit Kaunseling &amp; Kerjaya</span>
+                                        </div>
+                                    </div>
+                                    <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.6; margin: 0 0 14px 0;">
+                                        Confidential, professional 1-on-1 counseling support for academic stress, personal wellbeing, and anxiety with registered UTeM counselors.
+                                    </p>
+                                </div>
+                                <a href="mailto:kaunseling@utem.edu.my" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; font-weight: 700; width: fit-content;">
                                     ✉️ Email UTeM Counselor ➔
                                 </a>
                             </div>
+
+                        </div>
+                    </section>
+
+                    <!-- SECTION 3: ACADEMIC MEDICAL LEAVE (MC) & POLICIES -->
+                    <section class="card health-policy-card" aria-label="Medical Leave Policies">
+                        <div class="health-section-heading">
+                            <h2 class="health-section-title">
+                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z" />
+                                </svg>
+                                <span id="labelHealthPolicies">Medical Leave (MC) &amp; Policies</span>
+                            </h2>
+                            <span style="background: rgba(var(--accent-gold-rgb), 0.12); color: var(--accent-gold); padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 800; border: 1px solid rgba(var(--accent-gold-rgb), 0.25);">
+                                Academic Regulations
+                            </span>
                         </div>
 
-                    </div>
-
-                    <!-- Medical Leave (MC) & Policies -->
-                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 20px;">
-                        <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2zm-3-7V3.5L18.5 9H13z" />
-                            </svg>
-                            <span id="labelHealthPolicies">Medical Leave (MC) &amp; Policies</span>
-                        </h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.5;">
-                            <li>
-                                <strong style="color: var(--text-primary);" id="labelHealthExtMc">External Private-Clinic MCs:</strong>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 16px; margin-top: 14px;">
+                            <div class="health-hours-item" style="border-left: 3px solid var(--accent-gold);">
+                                <strong id="labelHealthExtMc">External Private-Clinic MCs:</strong>
                                 <span id="descHealthExtMc">Medical certificates (MC) from external private clinics must be endorsed/validated by PKU UTeM before they are accepted by faculties.</span>
-                            </li>
-                            <li style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
-                                <strong style="color: var(--text-primary);" id="labelHealthExamAbsence">Examination Absence:</strong>
+                            </div>
+                            <div class="health-hours-item" style="border-left: 3px solid var(--accent-gold);">
+                                <strong id="labelHealthExamAbsence">Examination Absence:</strong>
                                 <span id="descHealthExamAbsence">Absence from final exams due to medical reasons requires a verified MC/Endorsement submitted to your faculty/academic division.</span>
-                            </li>
-                            <li style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
-                                <strong style="color: var(--text-primary);" id="labelHealthCoverage">Student Medical Coverage:</strong>
+                            </div>
+                            <div class="health-hours-item" style="border-left: 3px solid var(--accent-gold);">
+                                <strong id="labelHealthCoverage">Student Medical Coverage:</strong>
                                 <span id="descHealthCoverage">Active/registered UTeM students are covered for outpatient treatment and basic dental care at PKU under the student health scheme.</span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Emergency & After-Hours Assistance -->
-                    <div style="background: linear-gradient(135deg, rgba(239, 68, 68, 0.12) 0%, rgba(220, 38, 38, 0.04) 100%); border: 1px solid rgba(239, 68, 68, 0.35); border-radius: 12px; padding: 18px 20px; margin-top: 20px;">
-                        <h3 style="font-size: 15.5px; color: #ef4444; margin: 0 0 8px 0; display: flex; align-items: center; gap: 8px; font-weight: 800;">
-                            <span>🚨</span>
-                            <span id="labelHealthEmergencyTitle">Emergency &amp; After-Hours Assistance</span>
-                        </h3>
-                        <p style="font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 0 0 14px 0;" id="descHealthEmergency">
-                            When PKU is closed during nights, weekends, or public holidays, or for immediate on-campus emergencies (accidents, acute illness, or distress), contact UTeM Campus Security (Polis Bantuan) or National Emergency:
-                        </p>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap; align-items: center;">
-                            <a href="tel:+6062701200" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; border-color: rgba(239, 68, 68, 0.45); color: #f87171; font-weight: 700; font-size: 12.5px;">
-                                <span>🛡️</span> <span id="labelHealthSecHotline1">Security Hotline 1: 06-270 1200 &#10142;</span>
-                            </a>
-                            <a href="tel:+6062701300" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; border-color: rgba(239, 68, 68, 0.45); color: #f87171; font-weight: 700; font-size: 12.5px;">
-                                <span>🛡️</span> <span id="labelHealthSecHotline2">Security Hotline 2: 06-270 1300 &#10142;</span>
-                            </a>
-                            <a href="tel:999" class="btn btn-secondary btn-sm" style="display: inline-flex; align-items: center; gap: 6px; border-color: rgba(239, 68, 68, 0.45); color: #ef4444; font-weight: 800; font-size: 12.5px;">
-                                <span>🚑</span> <span id="labelHealthNatEmerg">National Emergency: 999 &#10142;</span>
-                            </a>
+                            </div>
                         </div>
-                    </div>
+                    </section>
 
-                    <!-- Contact Information -->
-                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
-                        <div>
-                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelHealthContact">Contact Information</h3>
-                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
-                                <li>
-                                    <strong style="color: var(--text-primary);" id="labelHealthPhone">Phone:</strong> <a href="tel:+6062292308" style="color: var(--accent-gold); font-weight: 700; text-decoration: underline;">06-2292308</a>
-                                </li>
-                                <li>
-                                    <strong style="color: var(--text-primary);" id="labelHealthEmail">Email:</strong> <a href="mailto:pusatkesihatanutem@utem.edu.my" style="color: var(--accent-gold);">pusatkesihatanutem@utem.edu.my</a>
-                                </li>
+                    <!-- SECTION 4: CONTACT & OFFICIAL PORTAL -->
+                    <section class="card health-policy-card" aria-label="PKU Contact Information">
+                        <div class="health-section-heading">
+                            <h2 class="health-section-title">
+                                <span>📞</span> <span id="labelHealthContact">Contact Information &amp; Official Channels</span>
+                            </h2>
+                            <span id="labelHealthRef" style="font-size: 12px; color: var(--text-muted);">Information sourced from official channels:</span>
+                        </div>
+
+                        <div class="health-contact-grid" style="margin-top: 14px;">
+                            <!-- Phone -->
+                            <div class="health-contact-box">
+                                <span style="font-size: 24px;">☎️</span>
+                                <div>
+                                    <strong style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; display: block;" id="labelHealthPhone">Clinic Reception</strong>
+                                    <a href="tel:+6062292308" style="color: var(--accent-gold); font-weight: 700; font-size: 15px; text-decoration: none;">06-229 2308</a>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="health-contact-box">
+                                <span style="font-size: 24px;">✉️</span>
+                                <div>
+                                    <strong style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; display: block;" id="labelHealthEmail">Official Inquiries</strong>
+                                    <a href="mailto:pusatkesihatanutem@utem.edu.my" style="color: var(--text-primary); font-size: 13px; word-break: break-all; text-decoration: none;">pusatkesihatanutem@utem.edu.my</a>
+                                </div>
+                            </div>
+
+                            <!-- Portal Link Button -->
+                            <div class="health-contact-box">
+                                <span style="font-size: 24px;">🌐</span>
+                                <div>
+                                    <strong style="color: var(--text-muted); font-size: 11px; text-transform: uppercase; display: block;">Official PKU Portal</strong>
+                                    <a href="https://pusatkesihatan.utem.edu.my/en/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); font-weight: 700; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                                        Visit PKU Website ➔
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- SECTION 5: MASTER GUIDE & COLLAPSIBLE FAQS -->
+                    <section class="card content-card" style="margin: 0; max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
+                        <h2 style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                                <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
+                            </svg>
+                            <span id="health_guide_title">UTeM Pusat Kesihatan Universiti (PKU) Student Healthcare Master Guide</span>
+                        </h2>
+                        
+                        <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 20px;" id="health_guide_intro">
+                            <strong>Pusat Kesihatan Universiti (PKU UTeM)</strong> provides primary healthcare, emergency medical response, dispensary pharmacy services, dental treatments, first aid equipment loans, and confidential mental health counseling for all registered diploma, undergraduate, and postgraduate students across <strong>Kampus Induk (Durian Tunggal)</strong> and <strong>Kampus Teknologi (Ayer Keroh)</strong>.
+                        </p>
+
+                        <!-- Section 1: Clinical Services & Operating Schedule -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                            <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec1_title">🏥 Available Medical Services &amp; Clinic Hours</h3>
+                            <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px;" id="health_services_list">
+                                <li><strong>Outpatient Medical Consultation (Pesakit Luar):</strong> General diagnosis, fever/flu treatments, chronic disease monitoring, and minor surgical procedures (dressing &amp; wound care). Operating Monday–Friday, 8:00 AM – 5:00 PM.</li>
+                                <li><strong>Dispensary Pharmacy:</strong> Dispensing prescribed generic medications and medical supplies covered under student health fees.</li>
+                                <li><strong>Dental Clinic (Klinik Pergigian):</strong> Routine oral check-ups, scaling, fillings, and tooth extractions by appointment via the PKU dental portal.</li>
+                                <li><strong>First-Aid Kits Loan:</strong> Equipment supply for approved student association events and outdoor sports tournaments.</li>
                             </ul>
                         </div>
-                    </div>
 
-                    <!-- Official Portal Reference -->
-                    <div style="border-top: 1px dashed var(--border-color); padding-top: 16px; margin-top: 20px;">
-                        <span style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 8px;" id="labelHealthRef">Information sourced from official channels:</span>
-                        <a href="https://pusatkesihatan.utem.edu.my/en/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent-gold);">
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                            </svg>
-                            Pusat Kesihatan UTeM Official Portal &#10142;
-                        </a>
-                    </div>
+                        <!-- Section 2: 24/7 Emergency & Ambulance Dispatch Protocol -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
+                            <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec2_title">🚨 24/7 Emergency Response &amp; Ambulance Hotline</h3>
+                            <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;" id="health_sec2_desc">
+                                For acute medical emergencies, vehicle collisions, or severe injuries occurring outside regular clinic hours:
+                            </p>
+                            <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;" id="health_sec2_steps">
+                                <li>Call the <strong>UTeM Security Control Room (Pejabat Keselamatan)</strong> 24/7 Hotline: <code style="color: var(--accent-gold); font-size: 13px;">06-270 1200</code> or <code style="color: var(--accent-gold); font-size: 13px;">06-270 1300</code>.</li>
+                                <li>State the exact casualty location (e.g. Kolej Kediaman Satria Block B, FTMK Level 2, or Lestari Cafe).</li>
+                                <li>The control room will immediately dispatch the on-duty campus ambulance or coordinate with <strong>Hospital Melaka / Hospital Alor Gajah</strong> for emergency room triage.</li>
+                            </ol>
+                        </div>
+
+                        <!-- Section 3: Medical Certificate (MC) Endorsement Rules -->
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px;">
+                            <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec3_title">📄 Medical Certificate (MC) Endorsement Rules</h3>
+                            <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0;" id="health_sec3_desc">
+                                If you receive a Medical Certificate (MC / Cuti Sakit) from an external private clinic or government hospital, university academic regulations require you to submit the physical slip to PKU for endorsement by a UTeM Medical Officer within <strong>48 hours</strong>. Unverified external MCs may not be accepted by your faculty for missed midterms, quizzes, or final examinations.
+                            </p>
+                        </div>
+
+                        <!-- Section 4: Collapsible Frequently Asked Questions -->
+                        <h3 style="color: var(--accent-gold); font-size: 15.5px; margin: 28px 0 14px 0;" id="health_sec4_title">❓ Frequently Asked Questions (FAQ)</h3>
+                        <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 28px;">
+                            <details class="ucpm-faq-details">
+                                <summary id="health_faq1_q">How do I get private clinic MCs validated by PKU for missed exams?</summary>
+                                <div class="ucpm-faq-answer" id="health_faq1_a">
+                                    Medical certificates (MC) issued by external private clinics must be presented in person to PKU within 48 hours of issue for official endorsement by a UTeM Medical Officer before submission to your faculty dean's office.
+                                </div>
+                            </details>
+                            <details class="ucpm-faq-details">
+                                <summary id="health_faq2_q">Are medical consultations and dispensary medications free for UTeM students?</summary>
+                                <div class="ucpm-faq-answer" id="health_faq2_a">
+                                    Yes, basic primary outpatient consultations, standard dispensary medications, and minor treatments at PKU are covered by student health service fees included in your semester registration.
+                                </div>
+                            </details>
+                            <details class="ucpm-faq-details">
+                                <summary id="health_faq3_q">How do I request ambulance transport for after-hours on-campus emergencies?</summary>
+                                <div class="ucpm-faq-answer" id="health_faq3_a">
+                                    Contact the 24/7 UTeM Security Control Centre (Pejabat Keselamatan) immediately at 06-270 1200 or 06-270 1300 to dispatch the on-duty campus emergency response vehicle or coordinate with 999.
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- Section 5: Related Guides Cross-linking -->
+                        <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 12px 0;" id="health_sec5_title">🔗 Related Student Guides</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 4px;">
+                            <a href="guide-freshman-survival.html" class="related-guide-link">
+                                <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel1_title">🎒 Freshman Survival Guide</strong>
+                                <span style="font-size: 12px; color: var(--text-muted);" id="health_rel1_desc">Essential emergency hotlines and clinic navigation tips.</span>
+                            </a>
+                            <a href="guide-hostel-kolej-kediaman-merit.html" class="related-guide-link">
+                                <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel2_title">🏢 Kolej Kediaman Hostel Guide</strong>
+                                <span style="font-size: 12px; color: var(--text-muted);" id="health_rel2_desc">Hostel warden contacts and first-aid points at Satria &amp; Lestari.</span>
+                            </a>
+                            <a href="bus.html" class="related-guide-link">
+                                <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel3_title">🚌 Campus Shuttle Buses</strong>
+                                <span style="font-size: 12px; color: var(--text-muted);" id="health_rel3_desc">Shuttle routes between Durian Tunggal and Ayer Keroh clinics.</span>
+                            </a>
+                        </div>
+                    </section>
+
                 </div>
             </div>
 
-            <!-- Crawlable Feature-Specific SEO Overview Section -->
-            <section class="card content-card" style="margin-top: 20px; max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
-                <h2 style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
-                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                        <path d="M19 3H5c-1.1 0-1.99.9-1.99 2L3 19c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-1 11h-4v4h-4v-4H6v-4h4V6h4v4h4v4z" />
-                    </svg>
-                    <span id="health_guide_title">UTeM Pusat Kesihatan Universiti (PKU) Student Healthcare Master Guide</span>
-                </h2>
-                
-                <p style="color: var(--text-secondary); line-height: 1.65; font-size: 13.5px; margin-bottom: 18px;" id="health_guide_intro">
-                    <strong>Pusat Kesihatan Universiti (PKU UTeM)</strong> provides primary healthcare, emergency medical response, dispensary pharmacy services, dental treatments, first aid equipment loans, and confidential mental health counseling for all registered diploma, undergraduate, and postgraduate students across <strong>Kampus Induk (Durian Tunggal)</strong> and <strong>Kampus Teknologi (Ayer Keroh)</strong>.
-                </p>
-                <!-- Section 1: Clinical Services & Operating Schedule -->
-                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec1_title">🏥 Available Medical Services & Clinic Hours</h3>
-                    <ul style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 4px;" id="health_services_list">
-                        <li><strong>Outpatient Medical Consultation (Pesakit Luar):</strong> General diagnosis, fever/flu treatments, chronic disease monitoring, and minor surgical procedures (dressing & wound care). Operating Monday–Friday, 8:00 AM – 5:00 PM.</li>
-                        <li><strong>Dispensary Pharmacy:</strong> Dispensing prescribed generic medications and medical supplies covered under student health fees.</li>
-                        <li><strong>Dental Clinic (Klinik Pergigian):</strong> Routine oral check-ups, scaling, fillings, and tooth extractions by appointment via the PKU dental portal.</li>
-                        <li><strong>First-Aid Kits Loan:</strong> Equipment supply for approved student association events and outdoor sports tournaments.</li>
-                    </ul>
-                </div>
-
-                <!-- Section 2: 24/7 Emergency & Ambulance Dispatch Protocol -->
-                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec2_title">🚨 24/7 Emergency Response & Ambulance Hotline</h3>
-                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin-bottom: 8px;" id="health_sec2_desc">
-                        For acute medical emergencies, vehicle collisions, or severe injuries occurring outside regular clinic hours:
-                    </p>
-                    <ol style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0; padding-left: 20px;" id="health_sec2_steps">
-                        <li>Call the <strong>UTeM Security Control Room (Pejabat Keselamatan)</strong> 24/7 Hotline: <code style="color: var(--accent-gold); font-size: 13px;">06-270 1200</code> or <code style="color: var(--accent-gold); font-size: 13px;">06-270 1300</code>.</li>
-                        <li>State the exact casualty location (e.g. Kolej Kediaman Satria Block B, FTMK Level 2, or Lestari Cafe).</li>
-                        <li>The control room will immediately dispatch the on-duty campus ambulance or coordinate with <strong>Hospital Melaka / Hospital Alor Gajah</strong> for emergency room triage.</li>
-                    </ol>
-                </div>
-
-                <!-- Section 3: Medical Certificate (MC) Endorsement Rules -->
-                <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin-bottom: 20px;">
-                    <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 10px;" id="health_sec3_title">📄 Medical Certificate (MC) Endorsement Rules</h3>
-                    <p style="color: var(--text-secondary); font-size: 13px; line-height: 1.6; margin: 0;" id="health_sec3_desc">
-                        If you receive a Medical Certificate (MC / Cuti Sakit) from an external private clinic or government hospital, university academic regulations require you to submit the physical slip to PKU for endorsement by a UTeM Medical Officer within <strong>48 hours</strong>. Unverified external MCs may not be accepted by your faculty for missed midterms, quizzes, or final examinations.
-                    </p>
-                </div>
-
-                <!-- Section 4: Frequently Asked Questions -->
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;" id="health_sec4_title">❓ Frequently Asked Questions (FAQ)</h3>
-                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_faq1_q">How do I get private clinic MCs validated by PKU for missed exams?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="health_faq1_a">Medical certificates (MC) issued by external private clinics must be presented in person to PKU within 48 hours of issue for official endorsement by a UTeM Medical Officer before submission to your faculty dean's office.</span>
-                    </div>
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_faq2_q">Are medical consultations and dispensary medications free for UTeM students?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="health_faq2_a">Yes, basic primary outpatient consultations, standard dispensary medications, and minor treatments at PKU are covered by student health service fees included in your semester registration.</span>
-                    </div>
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_faq3_q">How do I request ambulance transport for after-hours on-campus emergencies?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="health_faq3_a">Contact the 24/7 UTeM Security Control Centre (Pejabat Keselamatan) immediately at 06-270 1200 or 06-270 1300 to dispatch the on-duty campus emergency response vehicle or coordinate with 999.</span>
-                    </div>
-                </div>
-
-                <!-- Section 5: Related Guides Cross-linking -->
-                <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="health_sec5_title">🔗 Related Student Guides</h3>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
-                    <a href="guide-freshman-survival.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel1_title">🎒 Freshman Survival Guide</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);" id="health_rel1_desc">Essential emergency hotlines and clinic navigation tips.</span>
-                    </a>
-                    <a href="guide-hostel-kolej-kediaman-merit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel2_title">🏢 Kolej Kediaman Hostel Guide</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);" id="health_rel2_desc">Hostel warden contacts and first-aid points at Satria & Lestari.</span>
-                    </a>
-                    <a href="bus.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="health_rel3_title">🚌 Campus Shuttle Buses</strong>
-                        <span style="font-size: 12px; color: var(--text-muted);" id="health_rel3_desc">Shuttle routes between Durian Tunggal and Ayer Keroh clinics.</span>
-                    </a>
-                </div>
-            </section>
-
             <!-- Universal Footer -->
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
+            <ucpm-footer></ucpm-footer>
             
         </main>
     </div>
@@ -418,14 +495,11 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Core Utilities & Health Center Scripts -->
-    <script src="utils.min.js" defer></script>
     <script src="health.min.js?v=8.0" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
     <script src="script.min.js?v=8.0" defer></script>
-
-    <script src="ads.min.js" defer></script>
 
 </body>
 

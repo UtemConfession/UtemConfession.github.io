@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -39,7 +39,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
 
     <!-- Rich Google Search Snippet (JSON-LD Schema) -->
     <script type="application/ld+json">
@@ -70,11 +70,19 @@
     <!-- Google AdSense temporarily paused on tool pages during review -->
 
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -128,13 +136,13 @@
 
                     <!-- Submission card -->
                     <div class="card">
-                        <h2 class="card-title">
+                        <h1 class="card-title">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z" />
                             </svg>
                             Submit Confession
-                        </h2>
+                        </h1>
 
                         <div id="googleLoginContainer" class="google-auth-box">
                             <div id="telegramInAppNotice" class="telegram-browser-alert" style="display: none;">
@@ -250,7 +258,7 @@
                                 <!-- Image Preview Card -->
                                 <div id="imagePreviewContainer"
                                     style="display: none; margin-top: 4px; margin-bottom: 14px; background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 8px 10px; align-items: center; gap: 10px;">
-                                    <img id="imagePreviewImg"
+                                    <img id="imagePreviewImg" alt="Confession image upload preview"
                                         style="width: 40px; height: 40px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-color);">
                                     <div style="flex: 1; min-width: 0;">
                                         <div id="imagePreviewName"
@@ -266,11 +274,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group" style="margin-top: 8px;">
+                            <div class="form-group">
                                 <textarea id="imageCaptionInput" class="form-control"
-                                    placeholder="Write an optional caption..." maxlength="500"
-                                    style="min-height: 60px;"></textarea>
-                                <div class="char-count" id="imageCharCount">0 / 500 characters</div>
+                                    placeholder="Write an optional caption..." maxlength="10000"></textarea>
+                                <div class="char-count" id="imageCharCount">0 / 10000 characters</div>
                             </div>
 
                             <div class="form-group" style="margin-bottom: 6px;">
@@ -324,7 +331,7 @@
                 </div>
 
                 <!-- Telegram TOS & Channel Protection Card (Full-width) -->
-                <div class="card" style="margin-top: 20px; border-color: rgba(42, 171, 238, 0.35); background: linear-gradient(180deg, rgba(13, 21, 39, 0.95) 0%, rgba(10, 16, 30, 0.98) 100%);">
+                <div class="card" style="margin-top: 24px; border-color: rgba(42, 171, 238, 0.35); background: linear-gradient(180deg, rgba(13, 21, 39, 0.95) 0%, rgba(10, 16, 30, 0.98) 100%);">
                     <h3 class="card-title" style="color: #38bdf8; border-bottom-color: rgba(42, 171, 238, 0.25);">
                         <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
@@ -402,7 +409,7 @@
                             </div>
 
                             <!-- Link to Dedicated Policy Page -->
-                            <a href="telegram-terms.html" class="telegram-link-btn" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(42, 171, 238, 0.1); border: 1px solid rgba(42, 171, 238, 0.35); border-radius: 10px; color: #38bdf8; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; margin-top: 18px;">
+                            <a href="legal.html#telegram" class="telegram-link-btn" style="display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; background: rgba(42, 171, 238, 0.1); border: 1px solid rgba(42, 171, 238, 0.35); border-radius: 10px; color: #38bdf8; font-size: 13px; font-weight: 700; text-decoration: none; transition: all 0.2s; margin-top: 18px;">
                                 <span style="display: flex; align-items: center; gap: 8px;">
                                     <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.75-.55 2.92-1.27 4.86-2.11 5.83-2.52 2.77-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/></svg>
                                     <span id="tg_card_btn_policy">Read Full Telegram TOS & Rules Policy</span>
@@ -443,19 +450,19 @@
                     <span>📚</span> Academic Excellence, GPA Tracking & Examinations
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 18px;">
-                    <a href="guide-gpa-calculator.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-gpa-calculator.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🎓 UTeM GPA Calculator & Grading Scale</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Calculate cumulative CGPA, target Dean's List (Anugerah Dekan, GPA &ge; 3.50), understand probation criteria (Kedudukan Bersyarat), and course repeat limits.</span>
                     </a>
-                    <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-past-year-exams.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📝 Past Year Exam Papers & Revision Strategies</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Access Perpustakaan Laman Hikmah examination repository, effective study timing for FTMK, FKE, FKM, FTKEE, and formal exam hall dress codes.</span>
                     </a>
-                    <a href="guide-final-year-project-fyp.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-final-year-project-fyp.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🔬 Final Year Project (FYP 1 & 2) Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Master supervisor consultation, proposal methodology defence, IEEE referencing standards, logbook documentation, and viva presentations.</span>
                     </a>
-                    <a href="guide-course-registration-add-drop.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-course-registration-add-drop.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📋 Course Registration, Add/Drop & SMP Web</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Step-by-step guidance on credit hour limits, prerequisite clearance, course withdrawal (TD) deadlines, and advisor endorsements.</span>
                     </a>
@@ -465,19 +472,19 @@
                     <span>🚌</span> Campus Mobility, Parking & Residential Living
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 18px;">
-                    <a href="guide-campus-bus-transit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-campus-bus-transit.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚌 Shuttle Bus Routes & Real-Time Loops</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Navigate peak hour bus transit between Durian Tunggal, Ayer Keroh, Kolej Kediaman Satelit, and Melaka Sentral transit points.</span>
                     </a>
-                    <a href="guide-campus-parking-clamping.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-campus-parking-clamping.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚗 Vehicle Stickers & Clamping Regulations</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Eligibility conditions for car and motorcycle stickers, auxiliary police enforcement (Polis Bantuan), demerit points, and fines.</span>
                     </a>
-                    <a href="guide-hostel-kolej-kediaman-merit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-hostel-kolej-kediaman-merit.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🏢 Kolej Kediaman (Hostel) Merit System</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">How to accumulate collegiate merit points through student clubs, residential activities, and maintain on-campus room placement.</span>
                     </a>
-                    <a href="guide-off-campus-rental.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-off-campus-rental.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🏡 Off-Campus Rental & Housing Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Neighborhood comparison across Durian Tunggal, Taman Angkasa Nuri, Bukit Beruang, and Ayer Keroh including tenancy checklist.</span>
                     </a>
@@ -487,26 +494,26 @@
                     <span>💡</span> Student Support, Financial Aid & Campus Health
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-bottom: 20px;">
-                    <a href="guide-freshman-survival.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-freshman-survival.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📖 Freshman Survival & Healthcare Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Navigating Pusat Kesihatan Universiti (PKU), PLH 24-hour study spaces, subsidized dispensary medicine, and student welfare officers.</span>
                     </a>
-                    <a href="guide-ptptn-loan.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-ptptn-loan.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">💰 PTPTN Financing & Repayment Exemption</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Application windows, semester CGPA 2.00 active status requirements, and First Class Honours complete loan exemption process.</span>
                     </a>
-                    <a href="guide-it-software-eduroam.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-it-software-eduroam.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📶 Eduroam Wi-Fi Setup & Academic Software</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Setup student 802.1X certificates for Windows, iOS, and Android, and access MATLAB, AutoCAD, and Microsoft 365 campus licenses.</span>
                     </a>
-                    <a href="guide-budget-living-food.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit; transition: var(--transition);">
+                    <a href="guide-budget-living-food.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🍽️ Student Budget Living & Cafeteria Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.5; display: block;">Affordable meal options across campus food courts, monthly student budgeting strategies, and campus grocery shopping tips.</span>
                     </a>
                 </div>
 
                 <!-- Frequently Asked Questions Section for AdSense & Search Engines -->
-                <div style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-top: 10px;">
+                <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-top: 10px;">
                     <h3 style="color: var(--accent-gold); font-size: 16px; font-weight: 700; margin-top: 0; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
                         <span>❓</span> Frequently Asked Questions (UTeM Student FAQ)
                     </h3>
@@ -538,28 +545,10 @@
                 </div>
             </section>
 
-            <!-- Universal Footer -->
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
 
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="telegram-terms.html">Telegram Policy</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
+            <!-- Universal Footer -->
+    <!-- Universal Footer -->
+            <ucpm-footer></ucpm-footer>
             
         </main>
     </div>
@@ -573,7 +562,6 @@
     <script src="authentication.min.js" defer></script>
 
     <!-- Utilities (must load first — helpers used by all modules) -->
-    <script src="utils.min.js" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Core modules -->
@@ -582,7 +570,12 @@
     <!-- Entry point: tab nav + DOMContentLoaded init (must load last) -->
     <script src="script.min.js?v=8.0" defer></script>
 
-    <script src="ads.min.js" defer></script>
+    <!-- Infolinks Ad Network Tag -->
+    <script type="text/javascript">
+        var infolinks_pid = 3448001;
+        var infolinks_wsid = 0;
+    </script>
+    <script type="text/javascript" async src="https://resources.infolinks.com/js/infolinks_main.js"></script>
 
 </body>
 

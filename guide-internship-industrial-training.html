@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -35,7 +35,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
 
@@ -116,11 +116,19 @@
       }
     ]
     </script>
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 <body>
@@ -131,41 +139,8 @@
 
     <div class="app-container">
         
-        <!-- Desktop Sidebar -->
-        <aside class="sidebar">
-            <div class="brand-section">
-                <img src="UCPMLogo.webp" alt="UTeM Confessions Pro Max" class="brand-logo-img" width="76" height="76" decoding="async">
-                <h1 class="brand-title">UTeM Confessions</h1>
-                <span class="brand-subtitle">Pro Max</span>
-            </div>
-            <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
-                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); background: rgba(var(--accent-gold-rgb), 0.05); border-radius: 6px; transition: all 0.2s;">
-                    Bahasa Melayu
-                </button>
-            </div>
-
-            <ul class="nav-menu">
-                <a href="index.html" class="nav-item">
-                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                    <span id="navHome">Back to Home</span>
-                </a>
-                <a href="guides.html" class="nav-item active">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    <span id="navGuides">Student Guides Hub</span>
-                </a>
-            </ul>
-
-            <div class="sidebar-footer">
-                <div class="ad-slot ad-sidebar" id="adSidebar">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-1444529930367815"
-                         data-ad-slot="7411190923"
-                         data-ad-format="autorelaxed"
-                         data-full-width-responsive="true"></ins>
-                </div>
-            </div>
-        </aside>
+        <!-- Desktop Sidebar Navigation -->
+        <ucpm-sidebar></ucpm-sidebar>
 
         <!-- Main Content Area -->
         <main class="main-content">
@@ -295,7 +270,7 @@
                     </div>
                 
                 <!-- Social Share Action Card -->
-                <div class="share-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin: 32px 0 16px 0;">
+                <div class="share-card">
                     <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 6px;" id="shareTitle">📢 Share this Guide with Coursemates</h3>
                     <p style="color: var(--text-secondary); font-size: 12.8px; margin: 0 0 14px 0; line-height: 1.5;" id="shareDesc">Help your faculty coursemates and juniors stay informed by sharing this guide directly to WhatsApp or Telegram study groups.</p>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -322,15 +297,15 @@
                     <span>&#x1F4DA;</span> Related UTeM Student Handbooks
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-                    <a href="guide-final-year-project-fyp.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-final-year-project-fyp.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🔬 Final Year Project (FYP 1 & 2)</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Balancing technical research and internship commitments during your final academic year.</span>
                     </a>
-                    <a href="guide-course-registration-add-drop.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-course-registration-add-drop.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">📋 Course Registration & SMP Web</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Enrollment steps, prerequisite verification, and academic advisor approvals.</span>
                     </a>
-                    <a href="guide-budget-living-food.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-budget-living-food.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🍽️ Student Budget Living & Allowance</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Managing off-campus accommodation expenses and living allowances during industrial training.</span>
                     </a>
@@ -339,45 +314,14 @@
             <!-- END Related Student Handbooks -->
 
             <!-- Universal Footer -->
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; <span id="footerText">Unofficial Student Resource & Confessions Platform.</span>
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
+            <ucpm-footer></ucpm-footer>
             
         </main>
     </div>
 
-    <!-- Mobile Navigation Bar -->
-    <nav class="mobile-bottom-nav">
-        <a href="index.html" class="mobile-nav-btn">
-            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span>Home</span>
-        </a>
-        <a href="guides.html" class="mobile-nav-btn active">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            <span>Guides</span>
-        </a>
-        <a href="privacy.html" class="mobile-nav-btn">
-            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
-            <span>Privacy</span>
-        </a>
-    </nav>
+    <!-- Mobile Bottom Navigation & Drawer -->
+    <ucpm-mobile-nav></ucpm-mobile-nav>
+    <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Dual Language Script -->
     <script>
@@ -460,7 +404,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
         });
     </script>
-    <script src="ads.min.js" defer></script>
     <script>
         function shareWhatsApp() {
             const url = encodeURIComponent(window.location.href);

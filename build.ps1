@@ -239,10 +239,13 @@ if (-not $workspaceRoot) { $workspaceRoot = Get-Location }
 
 # Identify paired targets
 $pairs = @()
+$srcDir = Join-Path $workspaceRoot "src"
+if (-not (Test-Path $srcDir)) { $srcDir = $workspaceRoot }
 
 # 1. CSS Target
 if ($Target -eq 'all' -or $Target -eq 'css') {
-    $styleCss = Join-Path $workspaceRoot "style.css"
+    $styleCss = Join-Path $srcDir "style.css"
+    if (-not (Test-Path $styleCss)) { $styleCss = Join-Path $workspaceRoot "style.css" }
     $styleMinCss = Join-Path $workspaceRoot "style.min.css"
     if (Test-Path $styleCss) {
         $pairs += [PSCustomObject]@{
@@ -258,7 +261,8 @@ if ($Target -eq 'all' -or $Target -eq 'css') {
 # 2. JS Targets
 if ($Target -eq 'all' -or $Target -eq 'js') {
     $excludeJs = @("sw.js", "components.js")
-    $jsFiles = Get-ChildItem -Path $workspaceRoot -Filter "*.js" | Where-Object { 
+    $searchDir = if (Test-Path (Join-Path $workspaceRoot "src")) { Join-Path $workspaceRoot "src" } else { $workspaceRoot }
+    $jsFiles = Get-ChildItem -Path $searchDir -Filter "*.js" | Where-Object { 
         $_.Name -notmatch "\.min\.js$" -and $_.Name -notin $excludeJs 
     }
     foreach ($js in $jsFiles) {
@@ -317,7 +321,6 @@ foreach ($pair in $pairs) {
     if ($needsBuild) {
         if ($Check) {
             $status = "OUT OF SYNC"
-            $statusColor = "Yellow"
             $results += [PSCustomObject]@{
                 Asset = $pair.SourceName
                 Type = $pair.Type

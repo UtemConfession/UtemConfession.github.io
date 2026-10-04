@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense temporarily paused on tool pages during review -->
 
     <!-- JSON-LD Structured Data -->
@@ -90,11 +90,19 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -113,12 +121,12 @@
             <div class="tab-content active" id="marketplace-tab">
                 <!-- SECTION 1: PRE-LOVED MARKETPLACE -->
                 <div class="card">
-                    <h2 class="card-title">
+                    <h1 class="card-title">
                         <svg viewBox="0 0 24 24">
                             <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
                         </svg>
                         <span id="titleMarketItems">Pre-loved Items & Marketplace</span>
-                    </h2>
+                    </h1>
                     <p id="descMarketItems" style="margin-bottom: 24px; line-height: 1.6; color: var(--text-secondary);">
                         Buy & sell student essentials directly with fellow UTeM students. From books and study materials to electronics and campus essentials.
                     </p>
@@ -191,7 +199,7 @@
             </div>
 
             <!-- FEATURE-SPECIFIC SEO OVERVIEW & CROSS-LINK SECTION -->
-            <section class="card content-card" style="margin-top: 24px; border-color: rgba(var(--accent-gold-rgb), 0.25);">
+            <section class="card content-card" style="border-color: rgba(var(--accent-gold-rgb), 0.25);">
                 <h2 class="card-title" style="display: flex; align-items: center; gap: 10px; color: var(--accent-gold); font-size: 18px; font-weight: 800;">
                     <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
                         <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z" />
@@ -227,41 +235,41 @@
 
                 <!-- Section 3: Frequently Asked Questions -->
                 <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;">❓ Frequently Asked Questions (FAQ)</h3>
-                <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I list an item for sale or offer student services on this marketplace?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Send your item details, price, condition, photos, and Telegram/WhatsApp contact handle to our editorial moderation inbox at utemconfessionpromax@duck.com.</span>
-                    </div>
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Where are the safest recommended meetup spots for item COD on campus?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Always conduct transactions in well-lit public campus areas such as the Kolej Kediaman Satria cafeteria, Lestari student lounge, PLH Library lobby, or faculty foyers.</span>
-                    </div>
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">Are there any listing fees charged for student sellers?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">No, listing pre-loved academic items, textbooks, hostel gear, and student freelance services is 100% free for all active UTeM undergraduates.</span>
-                    </div>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px;">
+                    <details class="ucpm-faq-details">
+                        <summary>How do I list an item for sale or offer student services on this marketplace?</summary>
+                        <p>Send your item details, price, condition, photos, and Telegram/WhatsApp contact handle to our editorial moderation inbox at utemconfessionpromax@duck.com.</p>
+                    </details>
+                    <details class="ucpm-faq-details">
+                        <summary>Where are the safest recommended meetup spots for item COD on campus?</summary>
+                        <p>Always conduct transactions in well-lit public campus areas such as the Kolej Kediaman Satria cafeteria, Lestari student lounge, PLH Library lobby, or faculty foyers.</p>
+                    </details>
+                    <details class="ucpm-faq-details">
+                        <summary>Are there any listing fees charged for student sellers?</summary>
+                        <p>No, listing pre-loved academic items, textbooks, hostel gear, and student freelance services is 100% free for all active UTeM undergraduates.</p>
+                    </details>
                 </div>
 
                 <!-- Section 4: Related Guides Cross-linking -->
                 <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
-                    <a href="guide-budget-living-food.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-budget-living-food.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🍛 Student Budget Living Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted);">Budget-friendly meal options and grocery hacks in Melaka.</span>
                     </a>
-                    <a href="guide-off-campus-rental.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-off-campus-rental.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🏡 Off-Campus Rental Housing</strong>
                         <span style="font-size: 12px; color: var(--text-muted);">Find student rooms in Taman Angkasa Nuri & Emerald Park.</span>
                     </a>
-                    <a href="guide-vehicle-sticker-parking.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-vehicle-sticker-parking.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🚗 Vehicle Sticker & Parking Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted);">Application steps for campus car and motorcycle stickers.</span>
                     </a>
                 </div>
             </section>
 
-                        <!-- Universal Footer -->
-    <div class="card" style="margin-top: 40px; text-align: left;">
+            <!-- Campus Marketplace Safety Guidelines -->
+    <div class="card" style="margin-top: 24px; text-align: left;">
     <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Campus Marketplace Safety Guidelines</h3>
     <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
         The UTeM Marketplace is a great place to buy and sell used textbooks, electronics, and offer services. However, always prioritize your safety when conducting transactions.
@@ -273,26 +281,8 @@
     </ul>
 </div>
 
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
+    <!-- Universal Footer -->
+            <ucpm-footer></ucpm-footer>
             </main>
     </div>
 
@@ -302,14 +292,11 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Core Utilities & Marketplace Engine -->
-    <script src="utils.min.js" defer></script>
     <script src="marketplace.min.js" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
     <script src="script.min.js?v=8.0" defer></script>
-
-    <script src="ads.min.js" defer></script>
 
 </body>
 

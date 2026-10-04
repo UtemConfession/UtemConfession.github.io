@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense temporarily paused on tool pages during review -->
 
     <!-- JSON-LD Structured Data -->
@@ -90,11 +90,19 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -121,69 +129,80 @@
                     </div>
                 </div>
 
-                <div class="card">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24" style="fill: currentColor;">
-                            <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM9 9h10v2H9zm0 3h6v2H9zm0-6h10v2H9z" />
-                        </svg>
-                        <span id="titleLibTab">Perpustakaan Laman Hikmah (PLH)</span>
-                    </h2>
+                <div class="library-main-layout">
 
-                    <div class="gpa-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <!-- Main Section 1: Operating Hours & Real-time Status -->
+                    <section class="card library-section-card" aria-label="Library Operating Hours">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 12px; margin-bottom: 16px;">
+                            <div>
+                                <h1 class="card-title" style="margin-bottom: 6px;">
+                                    <svg viewBox="0 0 24 24" style="fill: currentColor;">
+                                        <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12zM9 9h10v2H9zm0 3h6v2H9zm0-6h10v2H9z" />
+                                    </svg>
+                                    <span id="titleLibTab">Perpustakaan Laman Hikmah (PLH)</span>
+                                </h1>
+                                <p style="color: var(--text-secondary); font-size: 13.5px; margin: 0; line-height: 1.5;">
+                                    Central academic knowledge hub across Kampus Induk and Kampus Teknologi.
+                                </p>
+                            </div>
+                        </div>
 
-                        <!-- Library Opening Hours -->
-                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                        <div style="background: var(--bg-secondary); padding: 22px; border-radius: 12px; border: 1px solid var(--border-color);">
                             <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
                                 <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                                     <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm.01 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zM12.5 7H11v6l5.25 3.15.75-1.23-4.5-2.67z" />
                                 </svg>
                                 <span id="labelLibHours">Library Hours</span>
                             </h3>
-                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
-                                <li>
-                                    <strong style="color: var(--text-primary); display: block;" id="labelLibMainHours">Academic Semester Hours:</strong>
-                                    <span id="labelHoursLibMonThu">Mon - Thu: 8:00 AM - 10:00 PM</span><br>
-                                    <span id="labelHoursLibFri">Friday: 8:00 AM - 12:15 PM, 2:45 PM - 10:00 PM</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                                    <strong style="color: var(--text-primary); display: block;" id="labelLibWeekendHours">Study & Exam Weeks (Weekends):</strong>
-                                    <span id="labelHoursLibWeekend">Sat - Sun: 9:00 AM - 5:00 PM (Selected areas)</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                                    <strong style="color: var(--text-primary); display: block;" id="labelLibBreakHours">Semester Break Hours:</strong>
-                                    <span id="labelHoursLibBreak">Mon - Fri: 8:00 AM - 5:00 PM (Closed on Weekends)</span>
-                                </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px; color: var(--accent-gold); font-weight: 600;">
-                                    <span id="labelLib24Hours">24-Hour Study Area: Available at Main Entrance Area (Exam weeks)</span>
-                                </li>
-                            </ul>
+                            <div class="library-hours-grid">
+                                <div>
+                                    <strong style="color: var(--text-primary); display: block; font-size: 13.5px; margin-bottom: 4px;" id="labelLibMainHours">Academic Semester Hours:</strong>
+                                    <span id="labelHoursLibMonThu" style="font-size: 13px; color: var(--text-secondary);">Mon - Thu: 8:00 AM - 10:00 PM</span><br>
+                                    <span id="labelHoursLibFri" style="font-size: 13px; color: var(--text-secondary);">Friday: 8:00 AM - 12:15 PM, 2:45 PM - 10:00 PM</span>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary); display: block; font-size: 13.5px; margin-bottom: 4px;" id="labelLibWeekendHours">Study & Exam Weeks (Weekends):</strong>
+                                    <span id="labelHoursLibWeekend" style="font-size: 13px; color: var(--text-secondary);">Sat - Sun: 9:00 AM - 5:00 PM (Selected areas)</span>
+                                </div>
+                                <div>
+                                    <strong style="color: var(--text-primary); display: block; font-size: 13.5px; margin-bottom: 4px;" id="labelLibBreakHours">Semester Break Hours:</strong>
+                                    <span id="labelHoursLibBreak" style="font-size: 13px; color: var(--text-secondary);">Mon - Fri: 8:00 AM - 5:00 PM (Closed on Weekends)</span>
+                                </div>
+                                <div style="background: rgba(var(--accent-gold-rgb), 0.08); border: 1px solid rgba(var(--accent-gold-rgb), 0.25); border-radius: 10px; padding: 12px 14px;">
+                                    <span id="labelLib24Hours" style="color: var(--accent-gold); font-weight: 700; font-size: 13px;">24-Hour Study Area: Available at Main Entrance Area (Exam weeks)</span>
+                                </div>
+                            </div>
                         </div>
+                    </section>
 
-                        <!-- Gaming Zone & Indoor Games -->
+                    <!-- Main Section 2: Gaming Zone & Leisure Facilities -->
+                    <section class="card library-section-card" aria-label="Gaming Zone and Leisure">
+                        <h2 class="card-title">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                <path d="M21.58 7.47c-.13-.25-.33-.45-.58-.58l-3-1.5c-.5-.25-1.12-.05-1.37.45l-1.5 3c-.25.5-.05 1.12.45 1.37l3 1.5c.25.13.53.19.8.19.64 0 1.22-.38 1.48-1l1.5-3c.25-.5.05-1.12-.45-1.37zm-9.1 5.91l-1.5-3c-.25-.5-.87-.7-1.37-.45l-3 1.5c-.25.13-.45.33-.58.58-.25.5-.05 1.12.45 1.37l3 1.5c.27.13.55.19.82.19.64 0 1.22-.38 1.48-1l1.12-2.25c.26-.5.06-1.12-.45-1.37zM4 15h16v2H4z" />
+                            </svg>
+                            <span id="labelLibServices">PLH Gaming Zone & Leisure</span>
+                        </h2>
+
                         <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); display: flex; flex-direction: column; gap: 16px;">
-                            <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 4px; display: flex; align-items: center; gap: 8px;">
-                                <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
-                                    <path d="M21.58 7.47c-.13-.25-.33-.45-.58-.58l-3-1.5c-.5-.25-1.12-.05-1.37.45l-1.5 3c-.25.5-.05 1.12.45 1.37l3 1.5c.25.13.53.19.8.19.64 0 1.22-.38 1.48-1l1.5-3c.25-.5.05-1.12-.45-1.37zm-9.1 5.91l-1.5-3c-.25-.5-.87-.7-1.37-.45l-3 1.5c-.25.13-.45.33-.58.58-.25.5-.05 1.12.45 1.37l3 1.5c.27.13.55.19.82.19.64 0 1.22-.38 1.48-1l1.12-2.25c.26-.5.06-1.12-.45-1.37zM4 15h16v2H4z" />
-                                </svg>
-                                <span id="labelLibServices">PLH Gaming Zone & Leisure</span>
-                            </h3>
-
-                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text-secondary);">
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary);">
                                 <li>
-                                    <strong style="color: var(--text-primary);" id="labelLibPlaystation">PS4 Console & Controller Rental:</strong>
+                                    <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;" id="labelLibPlaystation">PS4 Console & Controller Rental:</strong>
                                     <span id="descLibPlaystation">RM4 per hour (max 2 hours, 2 controllers). 3 sets at Main Campus & 2 sets at Tech Campus. You can bring your own CDs but need to let the staff know.</span>
                                 </li>
-                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
-                                    <strong style="color: var(--text-primary);" id="labelLibBoardgames">Free Indoor & Board Games:</strong>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
+                                    <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;" id="labelLibBoardgames">Free Indoor & Board Games:</strong>
                                     <span id="descLibBoardgames">Free rental for carrom, chess, darts, checkers, and board games at the counter.</span>
                                 </li>
                             </ul>
 
-                            <div style="border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 4px;">
-                                <h4 style="font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 6px;" id="labelLibBookingTitle">Booking & Further Questions:</h4>
-                                <p style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 8px;" id="descLibBookingText">
-                                    Do at the Counter after passing the scanners. Contact:
-                                </p>
+                            <div style="border-top: 1px solid var(--border-color); padding-top: 14px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+                                <div>
+                                    <h4 style="font-size: 12.5px; font-weight: 700; color: var(--text-primary); margin: 0 0 2px 0;" id="labelLibBookingTitle">Booking & Further Questions:</h4>
+                                    <p style="font-size: 12px; color: var(--text-secondary); margin: 0;" id="descLibBookingText">
+                                        Do at the Counter after passing the scanners. Contact:
+                                    </p>
+                                </div>
                                 <a href="mailto:lamanhikmah@utem.edu.my" class="btn btn-primary btn-sm" style="display: inline-flex; align-items: center; gap: 6px;" id="btnLibMail">
                                     <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
                                         <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
@@ -192,58 +211,60 @@
                                 </a>
                             </div>
                         </div>
+                    </section>
 
-                    </div>
-
-                    <!-- Borrowing & E-Resources -->
-                    <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-top: 20px;">
-                        <h3 style="font-size: 16px; color: var(--accent-gold); margin-bottom: 14px; display: flex; align-items: center; gap: 8px;">
-                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+                    <!-- Main Section 3: Borrowing & E-Resources -->
+                    <section class="card library-section-card" aria-label="Borrowing and E-Resources">
+                        <h2 class="card-title">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
                                 <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
                             </svg>
                             <span id="labelLibBorrowing">Borrowing &amp; E-Resources</span>
-                        </h3>
-                        <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.5;">
-                            <li>
-                                <strong style="color: var(--text-primary);" id="labelLibRenewals">Book Renewals:</strong>
-                                <span id="descLibRenewals">Students can renew borrowed books online for a maximum of 2 renewals before they must be returned.</span>
-                            </li>
-                            <li style="border-top: 1px dashed var(--border-color); padding-top: 10px;">
-                                <strong style="color: var(--text-primary);" id="labelLibEzproxy">Off-Campus Access (EZproxy):</strong>
-                                <span id="descLibEzproxy">Access premium journals (e.g., IEEE Xplore, ScienceDirect) from home using the UTeM EZproxy portal with your student credentials.</span>
-                            </li>
-                        </ul>
-                    </div>
+                        </h2>
 
-                    <!-- PSM / FINAL YEAR PROJECT (FYP) & THESIS FORMATTING TOOLKIT -->
-                    <div id="psm-toolkit" style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color); border-top: 3.5px solid var(--accent-gold); margin-top: 20px;">
-                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 14px;">
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">
+                        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);">
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; font-size: 13.5px; color: var(--text-secondary); line-height: 1.55;">
+                                <li>
+                                    <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;" id="labelLibRenewals">Book Renewals:</strong>
+                                    <span id="descLibRenewals">Students can renew borrowed books online for a maximum of 2 renewals before they must be returned.</span>
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 12px;">
+                                    <strong style="color: var(--text-primary); display: block; margin-bottom: 2px;" id="labelLibEzproxy">Off-Campus Access (EZproxy):</strong>
+                                    <span id="descLibEzproxy">Access premium journals (e.g., IEEE Xplore, ScienceDirect) from home using the UTeM EZproxy portal with your student credentials.</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Main Section 4: PSM / Final Year Project (FYP) & Thesis Formatting Toolkit -->
+                    <section id="psm-toolkit" class="card library-section-card" style="border-top: 4px solid var(--accent-gold);" aria-label="PSM and Thesis Formatting Toolkit">
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; margin-bottom: 16px;">
+                            <div style="display: flex; align-items: center; gap: 12px;">
+                                <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
                                     🎓
                                 </div>
                                 <div>
-                                    <h3 style="font-size: 16px; font-weight: 700; color: var(--text-primary); margin: 0;" id="titlePsmToolkit">
+                                    <h2 style="font-size: 18px; font-weight: 700; color: var(--text-primary); margin: 0;" id="titlePsmToolkit">
                                         UTeM PSM (Projek Sarjana Muda) &amp; Thesis Guidelines Toolkit
-                                    </h3>
-                                    <span style="font-size: 11.5px; color: var(--text-muted);" id="subtitlePsmToolkit">
+                                    </h2>
+                                    <span style="font-size: 12px; color: var(--text-muted);" id="subtitlePsmToolkit">
                                         Official thesis formatting standards, Word/LaTeX templates, Turnitin criteria &amp; e-Prints submission.
                                     </span>
                                 </div>
                             </div>
-                            <span style="background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); padding: 3px 10px; border-radius: 12px; font-size: 10.5px; font-weight: 800;">
+                            <span style="background: rgba(var(--accent-gold-rgb), 0.15); color: var(--accent-gold); padding: 4px 12px; border-radius: 12px; font-size: 11px; font-weight: 800;">
                                 📄 PSM 1 &amp; 2 / Degree
                             </span>
                         </div>
 
-                        <!-- 4 Core Thesis Rule Columns -->
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-bottom: 18px;">
+                        <!-- 4 Core Thesis Rule Columns (Theme-Aware Adaptive Tokens) -->
+                        <div class="library-thesis-grid">
                             <!-- Box 1: Page Margins & Layout -->
-                            <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; font-size: 12.5px;">
-                                <strong style="color: var(--accent-gold); display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 6px;">
+                            <div class="library-thesis-box">
+                                <strong style="color: var(--accent-gold); display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 8px;">
                                     📐 Strict Page Margins
                                 </strong>
-                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.5;">
+                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.55;">
                                     <li><strong>Left (Binding Gutter):</strong> 3.8 cm (1.5 in)</li>
                                     <li><strong>Right, Top, Bottom:</strong> 2.5 cm (1.0 in)</li>
                                     <li><strong>Paper:</strong> A4 80gsm white paper</li>
@@ -251,11 +272,11 @@
                             </div>
 
                             <!-- Box 2: Typography & Spacing -->
-                            <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; font-size: 12.5px;">
-                                <strong style="color: #60a5fa; display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 6px;">
+                            <div class="library-thesis-box">
+                                <strong style="color: #60a5fa; display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 8px;">
                                     ✍️ Typography &amp; Line Spacing
                                 </strong>
-                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.5;">
+                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.55;">
                                     <li><strong>Font:</strong> Times New Roman 12 pt or Arial 11 pt</li>
                                     <li><strong>Body Spacing:</strong> 1.5 line spacing</li>
                                     <li><strong>Tables/References:</strong> Single line spacing</li>
@@ -263,34 +284,34 @@
                             </div>
 
                             <!-- Box 3: Pagination Standards -->
-                            <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; font-size: 12.5px;">
-                                <strong style="color: #34d399; display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 6px;">
+                            <div class="library-thesis-box">
+                                <strong style="color: #34d399; display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 8px;">
                                     🔢 Page Numbering System
                                 </strong>
-                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.5;">
+                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.55;">
                                     <li><strong>Preliminaries:</strong> Roman (i, ii, iii...) bottom center</li>
                                     <li><strong>Main Chapters:</strong> Arabic (1, 2, 3...) bottom center / top right</li>
                                 </ul>
                             </div>
 
                             <!-- Box 4: Citation Style by Faculty -->
-                            <div style="background: rgba(13, 21, 39, 0.8); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px; font-size: 12.5px;">
-                                <strong style="color: #c084fc; display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 6px;">
+                            <div class="library-thesis-box">
+                                <strong style="color: #c084fc; display: flex; align-items: center; gap: 6px; font-size: 13px; margin-bottom: 8px;">
                                     📚 Faculty Citation Style
                                 </strong>
-                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.5;">
+                                <ul style="margin: 0; padding-left: 16px; color: var(--text-secondary); line-height: 1.55;">
                                     <li><strong>FTMK, FKE, FKM, FKP, FTKEE:</strong> IEEE Numeric [1]</li>
-                                    <li><strong>FPTT (Technology Management):</strong> Harvard or APA Author-Date</li>
+                                    <li><strong>FPTT (Tech Management):</strong> Harvard / APA Author-Date</li>
                                 </ul>
                             </div>
                         </div>
 
                         <!-- Turnitin & Institutional Repository (e-Prints) Guidelines -->
-                        <div style="background: rgba(var(--accent-gold-rgb), 0.05); border: 1px solid rgba(var(--accent-gold-rgb), 0.25); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; font-size: 12.5px; line-height: 1.5;">
+                        <div style="background: rgba(var(--accent-gold-rgb), 0.06); border: 1px solid rgba(var(--accent-gold-rgb), 0.25); border-radius: 10px; padding: 14px 16px; margin-bottom: 16px; font-size: 12.8px; line-height: 1.55;">
                             <div style="display: flex; align-items: flex-start; gap: 10px;">
                                 <span style="font-size: 18px; line-height: 1;">🛡️</span>
                                 <div>
-                                    <strong style="color: var(--accent-gold); display: block; margin-bottom: 2px;" id="labelTurnitinHeading">
+                                    <strong style="color: var(--accent-gold); display: block; margin-bottom: 3px;" id="labelTurnitinHeading">
                                         Turnitin Similarity Index &amp; Final Repository Submission (e-Prints)
                                     </strong>
                                     <span style="color: var(--text-secondary);" id="descTurnitinText">
@@ -306,37 +327,45 @@
                                 <span>🍃</span> Overleaf LaTeX UTeM Templates &#10142;
                             </a>
                         </div>
-                    </div>
+                    </section>
 
-                    <!-- Contact & Location Info -->
-                    <div style="border-top: 1px solid var(--border-color); padding-top: 20px; margin-top: 24px;">
-                        <div>
-                            <h3 style="font-size: 15px; color: var(--accent-gold); margin-bottom: 12px;" id="labelLibContact">Contact & Inquiries</h3>
-                            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: 13.5px; color: var(--text-secondary);">
+                    <!-- Main Section 5: Contact & Inquiries -->
+                    <section class="card library-section-card" aria-label="Library Contact and Catalog">
+                        <h2 class="card-title">
+                            <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor">
+                                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z" />
+                            </svg>
+                            <span id="labelLibContact">Contact &amp; Inquiries</span>
+                        </h2>
+
+                        <div style="background: var(--bg-secondary); padding: 18px 20px; border-radius: 12px; border: 1px solid var(--border-color); margin-bottom: 16px;">
+                            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 13.5px; color: var(--text-secondary);">
                                 <li>
-                                    <strong style="color: var(--text-primary);" id="labelLibPhone">Phone:</strong>
-                                <li>
+                                    <strong style="color: var(--text-primary);" id="labelLibPhone">Phone:</strong> +606-270 1200 / 1202
+                                </li>
+                                <li style="border-top: 1px dashed var(--border-color); padding-top: 8px;">
                                     <strong style="color: var(--text-primary);" id="labelLibEmail">Email:</strong> <a href="mailto:lamanhikmah@utem.edu.my" style="color: var(--accent-gold);">lamanhikmah@utem.edu.my</a>
                                 </li>
                             </ul>
                         </div>
-                    </div>
 
-                    <!-- Official Portal Reference -->
-                    <div style="border-top: 1px dashed var(--border-color); padding-top: 16px; margin-top: 20px;">
-                        <span style="font-size: 12px; color: var(--text-secondary); display: block; margin-bottom: 8px;" id="labelLibRef">Visit official UTeM library site for catalog searches:</span>
-                        <a href="https://library.utem.edu.my/en/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent-gold);">
-                            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
-                            </svg>
-                            UTeM Laman Hikmah Library Portal ➔
-                        </a>
-                    </div>
+                        <!-- Official Portal Reference -->
+                        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px; padding-top: 6px;">
+                            <span style="font-size: 12.5px; color: var(--text-secondary);" id="labelLibRef">Visit official UTeM library site for catalog searches:</span>
+                            <a href="https://library.utem.edu.my/en/" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: var(--accent-gold);">
+                                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" />
+                                </svg>
+                                UTeM Laman Hikmah Library Portal ➔
+                            </a>
+                        </div>
+                    </section>
+
                 </div>
             </div>
 
             <!-- Crawlable Overview Section for Search Engines -->
-            <section class="card content-card" style="margin-top: 20px; max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
+            <section class="card content-card" style="max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
                 <h2 style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z" />
@@ -406,35 +435,47 @@
                     </p>
                 </div>
 
-                <!-- Section 4: Frequently Asked Questions -->
+                <!-- Section 4: Frequently Asked Questions (Modern Accordion) -->
                 <h3 style="color: var(--accent-gold); font-size: 15px; margin: 24px 0 12px 0;" id="lib_sec4_title">❓ Frequently Asked Questions (FAQ)</h3>
                 <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_faq1_q">How do I book a private discussion room or PS4 console at PLH?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="lib_faq1_a">Discussion rooms and PS4 console sessions can be reserved in person at the PLH Customer Service Counter (Level 1) or online via the UTeM Library Portal using your active Student ID.</span>
-                    </div>
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_faq2_q">Can I access the 24-hour study area after regular library operating hours?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="lib_faq2_a">Yes, the 24-Hour Study Zone located at the Ground Floor of PLH Kampus Induk remains accessible via student matric card tap-in even after main counter hours, particularly during exam revision weeks.</span>
-                    </div>
-                    <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
-                        <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_faq3_q">How can I renew borrowed library books online?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="lib_faq3_a">Log into your student account on the UTeM Library OPAC catalog portal (library.utem.edu.my) to renew unreserved books up to two consecutive times before the due date.</span>
-                    </div>
+                    <details class="ucpm-faq-details">
+                        <summary class="ucpm-faq-summary">
+                            <span id="lib_faq1_q">How do I book a private discussion room or PS4 console at PLH?</span>
+                        </summary>
+                        <div class="ucpm-faq-answer">
+                            <span id="lib_faq1_a">Discussion rooms and PS4 console sessions can be reserved in person at the PLH Customer Service Counter (Level 1) or online via the UTeM Library Portal using your active Student ID.</span>
+                        </div>
+                    </details>
+                    <details class="ucpm-faq-details">
+                        <summary class="ucpm-faq-summary">
+                            <span id="lib_faq2_q">Can I access the 24-hour study area after regular library operating hours?</span>
+                        </summary>
+                        <div class="ucpm-faq-answer">
+                            <span id="lib_faq2_a">Yes, the 24-Hour Study Zone located at the Ground Floor of PLH Kampus Induk remains accessible via student matric card tap-in even after main counter hours, particularly during exam revision weeks.</span>
+                        </div>
+                    </details>
+                    <details class="ucpm-faq-details">
+                        <summary class="ucpm-faq-summary">
+                            <span id="lib_faq3_q">How can I renew borrowed library books online?</span>
+                        </summary>
+                        <div class="ucpm-faq-answer">
+                            <span id="lib_faq3_a">Log into your student account on the UTeM Library OPAC catalog portal (library.utem.edu.my) to renew unreserved books up to two consecutive times before the due date.</span>
+                        </div>
+                    </details>
                 </div>
 
                 <!-- Section 5: Related Guides Cross-linking -->
                 <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="lib_sec5_title">🔗 Related Student Guides</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
-                    <a href="guide-past-year-exams.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-past-year-exams.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_rel1_title">📝 Past Year Exam Practice</strong>
                         <span style="font-size: 12px; color: var(--text-muted);" id="lib_rel1_desc">Access previous semester exam questions from the library archive.</span>
                     </a>
-                    <a href="guide-top-10-study-places.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-top-10-study-places.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_rel2_title">☕ Top 10 Campus Study Spots</strong>
                         <span style="font-size: 12px; color: var(--text-muted);" id="lib_rel2_desc">Compare quiet spots across Kampus Induk & Kampus Teknologi.</span>
                     </a>
-                    <a href="guide-it-software-eduroam.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-it-software-eduroam.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="lib_rel3_title">💻 IT Setup & Software Licenses</strong>
                         <span style="font-size: 12px; color: var(--text-muted);" id="lib_rel3_desc">Download MATLAB, SolidWorks, and setup eduroam Wi-Fi.</span>
                     </a>
@@ -442,39 +483,8 @@
             </section>
 
             <!-- Universal Footer -->
-    <div class="card" style="margin-top: 40px; text-align: left;">
-    <h3 style="color: var(--accent-gold); margin-bottom: 15px;">Perpustakaan Laman Hikmah (PLH) Resources</h3>
-    <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
-        Perpustakaan Laman Hikmah (PLH) is UTeM's primary academic library, offering a wealth of resources beyond just books.
-    </p>
-    <ul style="color: var(--text-secondary); line-height: 1.6; font-size: 14px; margin-top: 10px; padding-left: 20px;">
-        <li><strong>Borrowing Quotas:</strong> Undergraduates can typically borrow up to 10 books for 14 days. Postgraduates have higher limits.</li>
-        <li><strong>24-Hour Study Area:</strong> Located on the Ground Floor, accessible 24/7 using your student matrix card. Ideal for exam week revision.</li>
-        <li><strong>PS4 Console & Board Games:</strong> Take a break! You can rent the PS4 console or board games at the circulation counter by presenting your student ID.</li>
-    </ul>
-</div>
-
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
-            </main>
+            <ucpm-footer></ucpm-footer>
+        </main>
     </div>
 
     <!-- Mobile Bottom Navigation Bar -->
@@ -483,14 +493,11 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Core Utilities & Library Engine -->
-    <script src="utils.min.js" defer></script>
     <script src="library.min.js?v=8.0" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
     <script src="script.min.js?v=8.0" defer></script>
-
-    <script src="ads.min.js" defer></script>
 
 </body>
 

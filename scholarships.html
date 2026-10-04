@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense temporarily paused on tool pages during review -->
 
     <!-- JSON-LD Structured Data -->
@@ -74,7 +74,7 @@
             "name": "How do I apply for the PTPTN First Class Loan Repayment Exemption at UTeM?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Graduates achieving First Class Honours (CGPA >= 3.70/3.75) must submit an exemption application via the myPTPTN portal within 12 months of their official UTeM Convocation Ceremony along with certified degree certificates."
+              "text": "Graduates achieving First Class Honours (CGPA >= 3.75) must submit an exemption application via the myPTPTN portal within 12 months of their official UTeM Convocation Ceremony along with certified degree certificates."
             }
           },
           {
@@ -90,11 +90,19 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
     <!-- PWA & SEO Additions -->
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -109,43 +117,44 @@
         <!-- Main Content Area -->
         <main class="main-content">
 
-            
             <!-- SCHOLARSHIPS MAIN CONTAINER -->
             <div class="tab-content active" id="scholarships-tab">
-                <div class="card">
-                    <h2 class="card-title">
-                        <svg viewBox="0 0 24 24">
-                            <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
-                        </svg>
-                        <span id="titleScholarships">Scholarship &amp; Financial Aid</span>
-                    </h2>
+                <div class="scholarships-layout">
+                    <section class="card" aria-label="Scholarship Search and Filters">
+                        <h1 class="card-title">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
+                            </svg>
+                            <span id="titleScholarships">Scholarship &amp; Financial Aid</span>
+                        </h1>
 
-                    <p style="margin-bottom: 24px; line-height: 1.6; color: var(--text-secondary);"
-                        id="descScholarships">
-                        Discover government loans, MARA schemes, state foundation grants, corporate awards, and
-                        university financial assistance available for UTeM and Malaysian university students.
-                    </p>
+                        <p style="margin-bottom: 20px; line-height: 1.6; color: var(--text-secondary);"
+                            id="descScholarships">
+                            Discover government loans, MARA schemes, state foundation grants, corporate awards, and
+                            university financial assistance available for UTeM and Malaysian university students.
+                        </p>
 
-                    <!-- Filter Controls Bar -->
-                    <div style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="schCategoryFilters">
-                            <button type="button" class="btn btn-secondary btn-sm sch-filter-btn active" data-category="all">All Aid</button>
-                            <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="mara">MARA & Federal</button>
-                            <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="ptptn">PTPTN Loan</button>
-                            <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="state">State Foundations</button>
-                            <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="utem">UTeM Internal Zakat</button>
-                            <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="corporate">Corporate Sponsorships</button>
+                        <!-- Filter Controls Bar -->
+                        <div style="display: flex; flex-direction: column; gap: 14px;">
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;" id="schCategoryFilters">
+                                <button type="button" class="btn btn-secondary btn-sm sch-filter-btn active" data-category="all">All Aid</button>
+                                <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="mara">MARA & Federal</button>
+                                <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="ptptn">PTPTN Loan</button>
+                                <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="state">State Foundations</button>
+                                <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="utem">UTeM Internal Zakat</button>
+                                <button type="button" class="btn btn-secondary btn-sm sch-filter-btn" data-category="corporate">Corporate Sponsorships</button>
+                            </div>
+                            <input type="text" id="scholarshipSearch" class="form-control" placeholder="Search by scholarship title, sponsor, or keyword..." style="padding: 10px 16px; font-size: 14px;">
                         </div>
-                        <input type="text" id="scholarshipSearch" class="form-control" placeholder="Search by scholarship title, sponsor, or keyword..." style="padding: 10px 16px; font-size: 14px;">
-                    </div>
+                    </section>
 
                     <!-- Scholarship Cards Grid -->
                     <div class="scholarships-grid" id="scholarshipList"
-                        style="display: grid; grid-template-columns: 1fr; gap: 16px;">
+                        style="display: grid; grid-template-columns: 1fr; gap: 18px;">
 
                         <!-- CARD 0: UTEM STUDENT WELFARE & ZAKAT EMERGENCY AID -->
                         <div class="scholarship-card" data-category="utem"
-                            style="background: rgba(13, 21, 39, 0.9); border: 1px solid var(--accent-gold); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition); box-shadow: 0 0 16px rgba(var(--accent-gold-rgb), 0.15);">
+                            style="background: var(--bg-secondary); border: 1.5px solid var(--accent-gold); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition); box-shadow: 0 4px 18px rgba(var(--accent-gold-rgb), 0.12);">
                             <div
                                 style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                 <div>
@@ -177,7 +186,7 @@
 
                         <!-- CARD 1: MARA TESP / YTP -->
                         <div class="scholarship-card" data-category="mara"
-                            style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
+                            style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
                             <div
                                 style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                 <div>
@@ -209,7 +218,7 @@
 
                         <!-- CARD 2: PTPTN LOAN -->
                         <div class="scholarship-card" data-category="ptptn"
-                            style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
+                            style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 14px; padding: 22px; display: flex; flex-direction: column; gap: 12px; transition: var(--transition);">
                             <div
                                 style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                 <div>
@@ -224,7 +233,6 @@
                                     style="background: rgba(245, 158, 11, 0.15); color: #f59e0b; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: 700;">✦
                                     Deadlines: April 30 & Sept 30</span>
                             </div>
-                            <p style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; margin: 0;">
                                 Primary tertiary education loan scheme for Malaysian undergraduates. First-Class Honours
                                 graduates from UTeM may qualify for complete loan-to-scholarship conversion (bebas
                                 bayaran balik).
@@ -307,7 +315,7 @@
                                 <div class="state-panel" id="panel-state-johor"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -346,7 +354,7 @@
                                 <div class="state-panel" id="panel-state-kedah"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -385,7 +393,7 @@
                                 <div class="state-panel" id="panel-state-kelantan"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -424,7 +432,7 @@
                                 <div class="state-panel" id="panel-state-melaka"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -462,7 +470,7 @@
                                 <div class="state-panel" id="panel-state-negeri_sembilan"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -501,7 +509,7 @@
                                 <div class="state-panel" id="panel-state-pahang"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -544,7 +552,7 @@
                                 <div class="state-panel" id="panel-state-pulau_pinang"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -582,7 +590,7 @@
                                 <div class="state-panel" id="panel-state-perak"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -621,7 +629,7 @@
                                 <div class="state-panel" id="panel-state-perlis"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -664,7 +672,7 @@
                                 <div class="state-panel" id="panel-state-sabah"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -707,7 +715,7 @@
                                 <div class="state-panel" id="panel-state-sarawak"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -747,7 +755,7 @@
                                 <div class="state-panel" id="panel-state-selangor"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -790,7 +798,7 @@
                                 <div class="state-panel" id="panel-state-terengganu"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -829,7 +837,7 @@
                                 <div class="state-panel" id="panel-state-wilayah_persekutuan"
                                     style="display: none; flex-direction: column; gap: 12px;">
                                     <div
-                                        style="background: rgba(13, 21, 39, 0.4); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; display: flex; flex-direction: column; gap: 10px;">
+                                        class="state-panel-card">
                                         <div
                                             style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px;">
                                             <div>
@@ -1055,7 +1063,7 @@
             </div>
 
             <!-- Crawlable Feature-Specific SEO Overview Section -->
-            <section class="card content-card" style="margin-top: 20px; max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
+            <section class="card content-card" style="max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
                 <h2 style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
@@ -1099,7 +1107,7 @@
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
                         <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">How do I apply for the PTPTN First Class Loan Repayment Exemption at UTeM?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Graduates achieving First Class Honours (CGPA &ge; 3.70/3.75) must submit an exemption application via the myPTPTN portal within 12 months of their official UTeM Convocation Ceremony along with certified degree certificates.</span>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;">Graduates achieving First Class Honours (CGPA &ge; 3.75) must submit an exemption application via the myPTPTN portal within 12 months of their official UTeM Convocation Ceremony along with certified degree certificates.</span>
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
                         <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;">What is the minimum CGPA required to keep PTPTN loan disbursements active?</strong>
@@ -1110,42 +1118,23 @@
                 <!-- Section 4: Related Guides Cross-linking -->
                 <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;">🔗 Related Student Guides</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
-                    <a href="guide-ptptn-loan.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">💰 PTPTN Loan & Exemption Guide</strong>
+                    <a href="guide-ptptn-loan.html" class="related-guide-link">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">💰 PTPTN Loan &amp; Exemption Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted);">Step-by-step application walkthrough and waiver tips.</span>
                     </a>
-                    <a href="gpa.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📊 GPA & CGPA Target Calculator</strong>
+                    <a href="gpa.html" class="related-guide-link">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">📊 GPA &amp; CGPA Target Calculator</strong>
                         <span style="font-size: 12px; color: var(--text-muted);">Calculate targets required for First Class degree honours.</span>
                     </a>
-                    <a href="guide-budget-living-food.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
-                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🍛 Student Budget & Makan Guide</strong>
+                    <a href="guide-budget-living-food.html" class="related-guide-link">
+                        <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;">🍱 Student Budget &amp; Makan Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted);">Stretch your scholarship allowance in Durian Tunggal & Ayer Keroh.</span>
                     </a>
                 </div>
             </section>
 
             <!-- Universal Footer -->
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
+            <ucpm-footer></ucpm-footer>
             
         </main>
     </div>
@@ -1156,14 +1145,11 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Core Utilities & Scholarships Logic Engine -->
-    <script src="utils.min.js" defer></script>
     <script src="scholarships.min.js" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
     <script src="script.min.js?v=8.0" defer></script>
-
-    <script src="ads.min.js" defer></script>
 
 </body>
 

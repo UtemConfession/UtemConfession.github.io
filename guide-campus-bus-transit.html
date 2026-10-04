@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -35,11 +35,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     [
@@ -129,6 +128,15 @@
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 <body>
@@ -139,42 +147,8 @@
 
     <div class="app-container">
         
-        <!-- Desktop Sidebar -->
-        <aside class="sidebar">
-            <div class="brand-section">
-                <img src="UCPMLogo.webp" alt="UTeM Confessions Pro Max" class="brand-logo-img" width="76" height="76" decoding="async">
-                <h1 class="brand-title">UTeM Confessions</h1>
-                <span class="brand-subtitle">Pro Max</span>
-            </div>
-            <!-- Sidebar Language Toggle -->
-            <div style="padding: 0 20px 12px 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border-color); margin-bottom: 12px;">
-                <button class="btn btn-secondary btn-sm lang-toggle-btn" id="desktopLangToggle" style="width: auto; min-width: 130px; padding: 4px 12px; font-size: 11.5px; font-weight: 700; border-color: rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); background: rgba(var(--accent-gold-rgb), 0.05); border-radius: 6px; transition: all 0.2s;">
-                    Bahasa Melayu
-                </button>
-            </div>
-
-            <ul class="nav-menu">
-                <a href="index.html" class="nav-item">
-                    <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-                    <span id="navHome">Back to Home</span>
-                </a>
-                <a href="guides.html" class="nav-item active">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-                    <span id="navGuides">Student Guides Hub</span>
-                </a>
-            </ul>
-
-            <div class="sidebar-footer">
-                <div class="ad-slot ad-sidebar" id="adSidebar">
-                    <ins class="adsbygoogle"
-                         style="display:block"
-                         data-ad-client="ca-pub-1444529930367815"
-                         data-ad-slot="7411190923"
-                         data-ad-format="autorelaxed"
-                         data-full-width-responsive="true"></ins>
-                </div>
-            </div>
-        </aside>
+        <!-- Desktop Sidebar Navigation -->
+        <ucpm-sidebar></ucpm-sidebar>
 
         <!-- Main Content Area -->
         <main class="main-content">
@@ -216,7 +190,7 @@
                         </div>
                     </div>
                     <div style="display: flex; gap: 12px; color: var(--text-muted); font-size: 11.5px; align-items: center;">
-                        <span id="eeatDate">Fact-Checked: August 2026</span>
+                        <span id="eeatDate">Fact-Checked: October 2026</span>
                         <span>•</span>
                         <a href="about.html" style="color: var(--accent-gold); text-decoration: none; font-weight: 600;" id="eeatLink">Editorial Standards ➔</a>
                     </div>
@@ -242,28 +216,28 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td data-label="Route"><strong>Route A (Induk Loop)</strong></td>
-                                    <td data-label="Origin">Kolej Kediaman Satria & Lestari</td>
-                                    <td data-label="Stops">FKE, FKM, FTMK, Kompleks Pembelajaran (KPB), Chancellery</td>
-                                    <td data-label="Frequency" id="rA_freq">Every 10 - 15 mins (Peak) / 30 mins (Off-Peak)</td>
+                                    <td data-label="Route"><strong>Hop On Campus (KI Loop)</strong></td>
+                                    <td data-label="Origin">Kolej Satria, Lestari & AJ (Al-Jazari)</td>
+                                    <td data-label="Stops">Fakulti (FKE, FKM, FTMK, FACT), Kompleks Sukan (KSU)</td>
+                                    <td data-label="Frequency" id="rA_freq">Continuous Loop (Mon–Fri)</td>
                                 </tr>
                                 <tr>
-                                    <td data-label="Route"><strong>Route B (Teknologi Express)</strong></td>
-                                    <td data-label="Origin">Kampus Induk Hentian Bus Central</td>
-                                    <td data-label="Stops">Kampus Teknologi Ayer Keroh (FTKT, FTKEE, FPTT)</td>
-                                    <td data-label="Frequency" id="rB_freq">Every 20 - 30 mins (Direct Highway Shuttle)</td>
+                                    <td data-label="Route"><strong>Kampus Teknologi (KT Shuttle)</strong></td>
+                                    <td data-label="Origin">Satria / Lestari / AJ (Al-Jazari)</td>
+                                    <td data-label="Stops">Kampus Teknologi Ayer Keroh (FKE, FKEKK, FKP, FTKEE)</td>
+                                    <td data-label="Frequency" id="rB_freq">Every 30 - 45 mins (Mon–Fri)</td>
                                 </tr>
                                 <tr>
-                                    <td data-label="Route"><strong>Route C (Outer Residential)</strong></td>
-                                    <td data-label="Origin">Kolej Kediaman Off-Campus (Taman Universitas, Taman Suria)</td>
-                                    <td data-label="Stops">Kampus Induk Central Bus Stop & FTMK</td>
-                                    <td data-label="Frequency" id="rC_freq">Every 20 - 30 mins</td>
+                                    <td data-label="Route"><strong>Kediaman Luar (Emerald Park)</strong></td>
+                                    <td data-label="Origin">Pangsapuri Emerald Park (Kediaman Luar)</td>
+                                    <td data-label="Stops">Kampus Teknologi ⇄ Kampus Induk Terminal</td>
+                                    <td data-label="Frequency" id="rC_freq">Scheduled Trips (Mon–Thu & Friday)</td>
                                 </tr>
                                 <tr>
-                                    <td data-label="Route"><strong>Weekend Shuttle</strong></td>
-                                    <td data-label="Origin">KK Satria / KK Lestari</td>
-                                    <td data-label="Stops">Mydin MITC Ayer Keroh / Melaka Sentral (Scheduled)</td>
-                                    <td data-label="Frequency" id="rW_freq">Fixed Trips (Saturday & Sunday)</td>
+                                    <td data-label="Route"><strong>BAS.MY Melaka (M10A Pink Bus)</strong></td>
+                                    <td data-label="Origin">Melaka Sentral / MITC Ayer Keroh</td>
+                                    <td data-label="Stops">Zoo Melaka ⇄ UTeM Kampus Induk Terminal</td>
+                                    <td data-label="Frequency" id="rW_freq">Hourly Public Transit (7 Days/Week)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -281,7 +255,7 @@
                     <h2 id="h2_sec3">3. Tips for Smooth Shuttle Riding at UTeM</h2>
                     
                     <div class="info-callout">
-                        <strong id="calloutRuleTitle">? 15-Minute Rule:</strong>
+                        <strong id="calloutRuleTitle">⏱️ 15-Minute Rule:</strong>
                         <p style="margin:0;" id="calloutRuleText">Always arrive at the bus stop at least 15 minutes before your target departure time during morning peak hours (7:30 AM - 8:00 AM). Buses fill up quickly at KK Satria Block B and C stops.</p>
                     </div>
 
@@ -291,9 +265,20 @@
                         <li id="tip3"><strong>Keep Student ID Accessible:</strong> Drivers or campus auxiliary police (Polis Bantuan) may periodically check UTeM Student IDs before boarding.</li>
                         <li id="tip4"><strong>Rainy Day Advisory:</strong> During heavy downpours in Melaka, road traffic slows down. Plan an extra 2030 minutes buffer for inter-campus travel.</li>
                     </ol>
+
+                    <!-- Direct Live Timetable Action Card -->
+                    <div style="background: rgba(var(--accent-gold-rgb), 0.08); border: 1px solid rgba(var(--accent-gold-rgb), 0.3); border-radius: 12px; padding: 18px 20px; margin: 24px 0; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+                        <div style="flex: 1; min-width: 240px;">
+                            <strong style="color: var(--accent-gold); font-size: 14px; display: block; margin-bottom: 4px;">🚌 Live Semester 1 (2026/2027) Bus Timetables</strong>
+                            <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.5;">Check real-time countdowns for Hop On Campus (KI), Kampus Teknologi (KT), Kediaman Luar (Emerald Park), and BAS.MY M10A pink bus.</span>
+                        </div>
+                        <a href="bus.html" class="btn btn-primary" style="white-space: nowrap; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 8px; text-decoration: none;">
+                            View Live Bus Schedule ➔
+                        </a>
+                    </div>
                 
                 <!-- Social Share Action Card -->
-                <div class="share-card" style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px 20px; margin: 32px 0 16px 0;">
+                <div class="share-card">
                     <h3 style="color: var(--accent-gold); font-size: 15px; margin-top: 0; margin-bottom: 6px;" id="shareTitle">📢 Share this Guide with Coursemates</h3>
                     <p style="color: var(--text-secondary); font-size: 12.8px; margin: 0 0 14px 0; line-height: 1.5;" id="shareDesc">Help your faculty coursemates and juniors stay informed by sharing this guide directly to WhatsApp or Telegram study groups.</p>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -320,15 +305,15 @@
                     <span>&#x1F4DA;</span> Related UTeM Student Handbooks
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-                    <a href="guide-campus-parking-clamping.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-campus-parking-clamping.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🚗 Vehicle Stickers & Clamping Rules</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Parking zone allocations, Polis Bantuan clamping fines, and summons prevention.</span>
                     </a>
-                    <a href="guide-hostel-kolej-kediaman-merit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-hostel-kolej-kediaman-merit.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🏢 Kolej Kediaman (Hostel) Merit System</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Residential college locations and shuttle bus connections between campuses.</span>
                     </a>
-                    <a href="guide-off-campus-rental.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-off-campus-rental.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🏡 Off-Campus Rental Housing Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Renting in Durian Tunggal and Ayer Keroh along active shuttle bus transit corridors.</span>
                     </a>
@@ -346,45 +331,15 @@
                      data-full-width-responsive="true"></ins>
             </div>
 
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; <span id="footerText">Unofficial Student Resource & Confessions Platform.</span>
-                </div>
-                <div class="footer-links">
-                    <a href="index.html" id="footerHome">Home</a>
-                    <a href="guides.html" id="footerGuides">Student Guides</a>
-                    <a href="about.html" id="footerAbout">About Us</a>
-                    <a href="rules.html" id="footerRules">Confession Rules</a>
-                    <a href="privacy.html" id="footerPrivacy">Privacy Policy</a>
-                    <a href="terms.html" id="footerTerms">Terms of Service</a>
-                </div>
-            </footer>
+    <!-- Universal Footer -->
+            <ucpm-footer></ucpm-footer>
             
         </main>
     </div>
 
-    <!-- Mobile Nav Bar -->
-    <nav class="mobile-bottom-nav">
-        <a href="index.html" class="mobile-nav-btn">
-            <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
-            <span id="mobileNavHome">Home</span>
-        </a>
-        <a href="guides.html" class="mobile-nav-btn active">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-            <span id="mobileNavGuides">Guides</span>
-        </a>
-        <a href="privacy.html" class="mobile-nav-btn">
-            <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
-            <span id="mobileNavPrivacy">Privacy</span>
-        </a>
-    </nav>
+    <!-- Mobile Bottom Navigation & Drawer -->
+    <ucpm-mobile-nav></ucpm-mobile-nav>
+    <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Dual Language Script -->
     <script>
@@ -416,13 +371,13 @@
                 thPickup: "Origin / Pickup Point",
                 thStops: "Destination / Faculty Stops",
                 thFreq: "Frequency (Peak / Off-Peak)",
-                rA_freq: "Every 10 - 15 mins (Peak) / 30 mins (Off-Peak)",
-                rB_freq: "Every 20 - 30 mins (Direct Highway Shuttle)",
-                rC_freq: "Every 20 - 30 mins",
-                rW_freq: "Fixed Trips (Saturday & Sunday)",
+                rA_freq: "Continuous Loop (Mon–Fri)",
+                rB_freq: "Every 30 - 45 mins (Mon–Fri)",
+                rC_freq: "Scheduled Trips (Mon–Thu & Friday)",
+                rW_freq: "Hourly Public Transit (7 Days/Week)",
                 h2_sec2: "2. Operational Hours & Peak Time Management",
                 h2_sec3: "3. Tips for Smooth Shuttle Riding at UTeM",
-                calloutRuleTitle: "? 15-Minute Rule:",
+                calloutRuleTitle: "⏱️ 15-Minute Rule:",
                 calloutRuleText: "Always arrive at the bus stop at least 15 minutes before your target departure time during morning peak hours (7:30 AM - 8:00 AM). Buses fill up quickly at KK Satria Block B and C stops.",
                 footerText: "Unofficial Student Resource & Confessions Platform.",
                 footerHome: "Home",
@@ -438,7 +393,7 @@
             ms: {
                 eeatTitle: "Panduan Disemak & Disahkan Fakta",
                 eeatDesc: "Ditulis oleh Mahasiswa Kanan UTeM & disahkan berpandukan buku panduan akademik rasmi universiti.",
-                eeatDate: "Disemak: Ogos 2026",
+                eeatDate: "Disemak: Oktober 2026",
                 eeatLink: "Piawaian Editorial ➔",
                 mobileSubtitle: "Panduan Bas",
                 navHome: "Kembali ke Laman Utama",
@@ -454,13 +409,13 @@
                 thPickup: "Lokasi Ambil / Puncak",
                 thStops: "Hentian Fakulti / Destinasi",
                 thFreq: "Kekerapan (Waktu Puncak / Luar Puncak)",
-                rA_freq: "Setiap 10 - 15 min (Waktu Puncak) / 30 min (Luar Puncak)",
-                rB_freq: "Setiap 20 - 30 min (Bas Laluan Terus Lebuhraya)",
-                rC_freq: "Setiap 20 - 30 min",
-                rW_freq: "Perjalanan Tetap (Sabtu & Ahad)",
+                rA_freq: "Pusingan Berterusan (Isnin–Jumaat)",
+                rB_freq: "Setiap 30 - 45 min (Isnin–Jumaat)",
+                rC_freq: "Perjalanan Berjadual (Isnin–Khamis & Jumaat)",
+                rW_freq: "Transit Awam Setiap Jam (7 Hari Seminggu)",
                 h2_sec2: "2. Waktu Operasi & Pengurusan Waktu Puncak",
                 h2_sec3: "3. Petua Penggunaan Bas Kampus UTeM",
-                calloutRuleTitle: "? Peraturan 15 Minit:",
+                calloutRuleTitle: "⏱️ Peraturan 15 Minit:",
                 calloutRuleText: "Sentiasa tiba di hentian bas sekurang-kurangnya 15 minit awal sebelum waktu berlepas sasaran pada waktu puncak pagi (7:30 AM - 8:00 AM). Bas cepat penuh di hentian KK Satria Blok B dan C.",
                 footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi.",
                 footerHome: "Laman Utama",
@@ -507,8 +462,6 @@ document.addEventListener("DOMContentLoaded", () => {
             if (mobileToggle) mobileToggle.addEventListener("click", toggleLanguage);
         });
     </script>
-
-    <script src="ads.min.js" defer></script>
     <script>
         function shareWhatsApp() {
             const url = encodeURIComponent(window.location.href);

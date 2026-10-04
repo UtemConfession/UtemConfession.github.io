@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- Google Analytics 4 (GA4) -->
@@ -34,12 +34,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
 
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1444529930367815" crossorigin="anonymous"></script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -107,6 +106,15 @@
     </script>
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -222,22 +230,22 @@
                     </p>
 
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin: 20px 0;">
-                        <div style="background: rgba(13, 21, 39, 0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
                             <span style="display: inline-block; background: rgba(239, 68, 68, 0.15); color: #ef4444; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px; margin-bottom: 8px;">HOTSPOT #1 &bull; KAMPUS INDUK</span>
                             <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0 0 6px 0;">FTMK Front Lobby &amp; Roundabout Curb</h3>
                             <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">The curb directly in front of FTMK is strictly for 2-minute passenger drop-offs. Students who park there to rush into lab sessions get clamped within 15 minutes.</p>
                         </div>
-                        <div style="background: rgba(13, 21, 39, 0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
                             <span style="display: inline-block; background: rgba(239, 68, 68, 0.15); color: #ef4444; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px; margin-bottom: 8px;">HOTSPOT #2 &bull; KAMPUS INDUK</span>
                             <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0 0 6px 0;">Dewan Canselor (DC) Admin Perimeter</h3>
                             <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Reserved exclusively for Chancellery VIPs and senior management. Always use the large open student gravel parking lot located behind the sports complex instead.</p>
                         </div>
-                        <div style="background: rgba(13, 21, 39, 0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
                             <span style="display: inline-block; background: rgba(239, 68, 68, 0.15); color: #ef4444; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px; margin-bottom: 8px;">HOTSPOT #3 &bull; KAMPUS INDUK</span>
                             <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0 0 6px 0;">Masjid Sayyidina Ali Roadside Curves</h3>
                             <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Parking on the curves outside the mosque narrows the road and prevents campus shuttle buses from completing turns, causing immediate clamping and traffic obstruction tickets.</p>
                         </div>
-                        <div style="background: rgba(13, 21, 39, 0.7); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
+                        <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px;">
                             <span style="display: inline-block; background: rgba(239, 68, 68, 0.15); color: #ef4444; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 8px; margin-bottom: 8px;">HOTSPOT #4 &bull; KAMPUS TEKNOLOGI</span>
                             <h3 style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin: 0 0 6px 0;">KT Ayer Keroh Barrier Gate &amp; Workshop Strip</h3>
                             <p style="font-size: 13px; color: var(--text-secondary); margin: 0; line-height: 1.5;">Parking inside the mechanical workshop driveway blocks machinery and forklift movement. Students must park in the designated open bays before the entrance gate.</p>
@@ -338,15 +346,15 @@
                     <span>&#x1F4DA;</span> Related UTeM Student Handbooks
                 </h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
-                    <a href="guide-vehicle-sticker-parking.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-vehicle-sticker-parking.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🏷️ Vehicle Sticker Online Application</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Step-by-step application guide for student car and motorcycle campus stickers.</span>
                     </a>
-                    <a href="guide-campus-bus-transit.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-campus-bus-transit.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🚌 Shuttle Bus Routes & Timetables</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Skip driving and take free university transit between Durian Tunggal and Ayer Keroh.</span>
                     </a>
-                    <a href="guide-off-campus-rental.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 10px; padding: 12px 14px; text-decoration: none; color: inherit; display: block; transition: var(--transition);">
+                    <a href="guide-off-campus-rental.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;">🏡 Off-Campus Housing & Commuting</strong>
                         <span style="font-size: 12px; color: var(--text-muted); line-height: 1.45; display: block;">Finding student accommodation with safe vehicle parking and straightforward commutes.</span>
                     </a>
@@ -362,7 +370,8 @@
                 <a href="bus.html" class="btn btn-primary" style="font-size: 13.5px; font-weight: 700; padding: 10px 18px; border-radius: 10px;">
                     🚌 Check Campus Bus Schedules &rarr;
                 </a>
-            </div>
+            <!-- Universal Footer -->
+            <ucpm-footer></ucpm-footer>
 
         </main>
     </div>
@@ -372,7 +381,6 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Core Utilities -->
-    <script src="utils.min.js" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
     <script src="script.min.js?v=8.0" defer></script>
 

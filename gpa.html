@@ -42,7 +42,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="style.min.css?v=8.0">
+    <link rel="stylesheet" href="style.min.css?v=8.1">
     <!-- Google AdSense temporarily paused on tool pages during review -->
 
     <!-- JSON-LD Structured Data -->
@@ -82,7 +82,7 @@
             "name": "What CGPA is required for First Class degree honours at UTeM?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "First Class Honours (Ijazah Kelas Pertama) generally requires a graduating CGPA of 3.70 and above (or 3.50+ depending on specific engineering accreditation faculty guidelines). First-class graduates are eligible for 100% PTPTN loan repayment exemptions."
+              "text": "First Class Honours (Ijazah Kelas Pertama) requires a graduating CGPA of 3.75 and above (CGPA >= 3.75) at UTeM. First-class graduates are eligible for 100% PTPTN loan repayment exemptions."
             }
           }
         ]
@@ -90,7 +90,6 @@
     ]
     </script>
     <!-- Monetag Vignette Banner with 15 Min Cooldown -->
-    <script src="vignette.min.js" defer></script>
 
     <style>
         @media print {
@@ -129,6 +128,15 @@
     <link rel="icon" type="image/png" href="UCPMLogo.png">
     <link rel="manifest" href="manifest.json">
     <link rel="preconnect" href="https://accounts.google.com">
+        <!-- Theme Initialization (prevents flash of incorrect theme) -->
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('ucpm_theme') || 'classic';
+            if (savedTheme && savedTheme !== 'classic') {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+            }
+        })();
+    </script>
     <script src="components.js?v=8.0"></script>
 </head>
 
@@ -148,13 +156,13 @@
                 <div class="gpa-grid">
 
                     <div class="card">
-                        <h2 class="card-title">
+                        <h1 class="card-title">
                             <svg viewBox="0 0 24 24">
                                 <path
                                     d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
                             </svg>
                             UTeM Semester GPA & CGPA Calculator
-                        </h2>
+                        </h1>
 
                         <!-- Top results cards -->
                         <div class="gpa-results-bar">
@@ -173,9 +181,6 @@
                                     style="text-shadow: 0 0 10px rgba(var(--accent-gold-rgb), 0.3);">4.00</div>
                             </div>
                         </div>
-
-                        <!-- Academic Standing Status Banner -->
-                        <div id="academicStandingBadge" style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 10px 18px; border-radius: 12px; font-weight: 700; font-size: 13px; text-align: center; transition: all 0.25s ease;"></div>
 
                         <!-- Anugerah Dekan Badge Container -->
                         <div id="deansListBadge" style="display: none; align-items: center; justify-content: center; gap: 8px; margin-top: 12px; padding: 10px 18px; border-radius: 12px; background: linear-gradient(135deg, rgba(var(--accent-gold-rgb), 0.18) 0%, rgba(255, 215, 0, 0.08) 100%); border: 1px solid rgba(var(--accent-gold-rgb), 0.4); color: var(--accent-gold); font-weight: 800; font-size: 13px; text-shadow: 0 0 8px rgba(var(--accent-gold-rgb), 0.3); box-shadow: 0 0 14px rgba(var(--accent-gold-rgb), 0.15);">&#127942; Anugerah Dekan (Dean's List) Eligible!</div>
@@ -228,7 +233,7 @@
             </div>
 
             <!-- Crawlable Feature-Specific SEO Overview Section -->
-            <section class="card content-card" style="margin-top: 20px; max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
+            <section class="card content-card" style="max-width: 100%; border-color: rgba(var(--accent-gold-rgb), 0.25);">
                 <h2 style="color: var(--accent-gold); font-size: 18px; font-weight: 800; margin-top: 0; display: flex; align-items: center; gap: 8px;">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
                         <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2zm0-4H7V7h10v2zm0 8H7v-2h10v2z" />
@@ -317,7 +322,7 @@
                     </ol>
                     <div style="background: rgba(var(--accent-gold-rgb), 0.08); border-left: 4px solid var(--accent-gold); padding: 12px 16px; border-radius: 6px;">
                         <strong style="color: var(--accent-gold); font-size: 13px; display: block; margin-bottom: 4px;" id="gpa_ptptn_waiver_title">🎓 PTPTN Loan-to-Scholarship Conversion (First Class)</strong>
-                        <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.55;" id="gpa_ptptn_waiver_desc">Graduates completing their bachelor's degree with <strong>First Class Honours (CGPA &ge; 3.70)</strong> can apply for 100% PTPTN loan exemption through the myPTPTN portal within 12 months of official graduation.</span>
+                        <span style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.55;" id="gpa_ptptn_waiver_desc">Graduates completing their bachelor's degree with <strong>First Class Honours (CGPA &ge; 3.75)</strong> can apply for 100% PTPTN loan exemption through the myPTPTN portal within 12 months of official graduation.</span>
                     </div>
                 </div>
 
@@ -347,7 +352,7 @@
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
                         <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="gpa_faq3_q">What CGPA is required for First Class degree honours at UTeM?</strong>
-                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="gpa_faq3_a">First Class Honours (Ijazah Kelas Pertama) generally requires a graduating CGPA of <strong>3.70 and above</strong> (or 3.50+ depending on specific engineering accreditation faculty guidelines). First-class graduates are eligible for 100% PTPTN loan repayment exemptions.</span>
+                        <span style="font-size: 12.8px; color: var(--text-secondary); line-height: 1.55;" id="gpa_faq3_a">First Class Honours (Ijazah Kelas Pertama) requires a graduating CGPA of <strong>3.75 and above</strong> (CGPA &ge; 3.75) at UTeM. First-class graduates are eligible for 100% PTPTN loan repayment exemptions.</span>
                     </div>
                     <div style="background: var(--bg-secondary); border: 1px solid var(--border-color); border-radius: 10px; padding: 14px 18px;">
                         <strong style="color: var(--text-primary); font-size: 13.5px; display: block; margin-bottom: 4px;" id="gpa_faq4_q">Do Pass/Fail (TL/HL) courses count toward my semester GPA?</strong>
@@ -366,15 +371,15 @@
                 <!-- Section 7: Related Guides Cross-linking -->
                 <h3 style="color: var(--accent-gold); font-size: 15px; margin: 20px 0 10px 0;" id="gpa_sec7_title">🔗 Related Student Guides</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; margin-bottom: 8px;">
-                    <a href="guide-gpa-calculator.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-gpa-calculator.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="gpa_rel1_title">🎓 In-Depth UTeM GPA Guide</strong>
                         <span style="font-size: 12px; color: var(--text-muted);" id="gpa_rel1_desc">Step-by-step strategies for Dean's List and probation recovery.</span>
                     </a>
-                    <a href="guide-course-registration-add-drop.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-course-registration-add-drop.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="gpa_rel2_title">📋 Course Add/Drop & Credit Limits</strong>
                         <span style="font-size: 12px; color: var(--text-muted);" id="gpa_rel2_desc">Understand credit hour caps by academic standing.</span>
                     </a>
-                    <a href="guide-ptptn-loan.html" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-color); border-radius: 12px; padding: 14px; text-decoration: none; color: inherit;">
+                    <a href="guide-ptptn-loan.html" class="related-guide-link">
                         <strong style="color: var(--accent-gold); font-size: 13.5px; display: block; margin-bottom: 4px;" id="gpa_rel3_title">💰 PTPTN 1st Class Loan Waiver</strong>
                         <span style="font-size: 12px; color: var(--text-muted);" id="gpa_rel3_desc">How to convert your PTPTN loan into a full scholarship.</span>
                     </a>
@@ -382,7 +387,7 @@
             </section>
 
             <!-- Universal Footer -->
-    <div class="card" style="margin-top: 40px; text-align: left;">
+    <div class="card" style="margin-top: 24px; text-align: left;">
     <h3 style="color: var(--accent-gold); margin-bottom: 15px;">UTeM 4.0 Grading System Guide</h3>
     <p style="color: var(--text-secondary); line-height: 1.6; font-size: 14px;">
         Universiti Teknikal Malaysia Melaka (UTeM) uses a standard 4.0 Cumulative Grade Point Average (CGPA) system. Understanding how your grades are calculated is essential for maintaining your academic standing.
@@ -397,26 +402,8 @@
     </p>
 </div>
 
-    <!-- Legal & Editorial Footer -->
-    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
-        <strong>Author / Editorial Transparency:</strong> Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.<br>
-        <strong>Editorial Disclaimer:</strong> UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).<br>
-        <strong>Contact & Takedown Channel:</strong> For inquiries, DMCA, or content takedown requests, please email <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
-    </div>
-
-            <footer>
-                <div>
-                    <strong>UTeM Confessions Pro Max</strong> &copy; Unofficial Student Resource & Confessions Platform.
-                </div>
-                <div class="footer-links">
-                    <a href="index.html">Home</a>
-                    <a href="guides.html">Student Guides</a>
-                    <a href="about.html">About Us</a>
-                    <a href="rules.html">Confession Rules</a>
-                    <a href="privacy.html">Privacy Policy</a>
-                    <a href="terms.html">Terms of Service</a>
-                </div>
-            </footer>
+    <!-- Universal Footer -->
+            <ucpm-footer></ucpm-footer>
             </main>
     </div>
 
@@ -426,14 +413,11 @@
     <ucpm-mobile-drawer></ucpm-mobile-drawer>
 
     <!-- Core Utilities & GPA Calculator Engine -->
-    <script src="utils.min.js" defer></script>
     <script src="gpa.min.js" defer></script>
     <script src="translation.min.js?v=8.0" defer></script>
 
     <!-- Application Initialization & Shared Navigation -->
     <script src="script.min.js?v=8.0" defer></script>
-
-    <script src="ads.min.js" defer></script>
 
 </body>
 

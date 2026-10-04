@@ -49,7 +49,7 @@ const UCPMSidebarHTML = `<!-- Desktop Sidebar Navigation -->
             <div class="brand-section">
                 <!-- Custom Inline SVG Logo matching Channel Emblem -->
                 <img src="UCPMLogo.webp" alt="UTeM Confessions Pro Max" class="brand-logo-img">
-                <h1 class="brand-title">UTeM Confessions</h1>
+                <div class="brand-title">UTeM Confessions</div>
                 <span class="brand-subtitle">Pro Max</span>
             </div>
             <!-- Sidebar Controls (Language & Theme) -->
@@ -577,9 +577,248 @@ customElements.define('ucpm-mobile-nav', UCPMMobileNav);
 class UCPMMobileDrawer extends HTMLElement { connectedCallback() { this.insertAdjacentHTML('afterend', UCPMDrawerHTML); this.remove(); } }
 customElements.define('ucpm-mobile-drawer', UCPMMobileDrawer);
 
+const UCPMFooterHTML = `<!-- Universal Legal & Editorial Footer -->
+    <div class="editorial-footer" style="color: var(--text-muted); text-align: center; margin-top: 30px; padding: 15px; border-top: 1px solid var(--border-color); line-height: 1.5; padding-bottom: 20px;">
+        <strong id="ed_transparency_title">Author / Editorial Transparency:</strong> <span id="ed_transparency_desc">Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.</span><br>
+        <strong id="ed_disclaimer_title">Editorial Disclaimer:</strong> <span id="ed_disclaimer_desc">UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).</span><br>
+        <strong id="ed_contact_title">Contact & Takedown Channel:</strong> <span id="ed_contact_desc">For inquiries, DMCA, or content takedown requests, please email</span> <a href="mailto:utemconfessionpromax@duck.com" style="color: var(--text-muted); text-decoration: underline;">utemconfessionpromax@duck.com</a>.
+    </div>
+
+    <footer>
+        <div>
+            <strong id="footerBrand">UTeM Confessions Pro Max</strong> &copy; <span id="footerText">Unofficial Student Resource & Confessions Platform.</span>
+        </div>
+        <div class="footer-links">
+            <a href="index.html" id="footerHome">Home</a>
+            <a href="guides.html" id="footerGuides">Student Guides</a>
+            <a href="about.html" id="footerAbout">About Us</a>
+            <a href="legal.html#rules" id="footerRules">Confession Rules</a>
+            <a href="legal.html#telegram" id="footerTelegram">Telegram Policy</a>
+            <a href="legal.html#privacy" id="footerPrivacy">Privacy Policy</a>
+            <a href="legal.html#terms" id="footerTerms">Terms of Service</a>
+        </div>
+    </footer>`;
+
+class UCPMFooter extends HTMLElement { connectedCallback() { this.insertAdjacentHTML('afterend', UCPMFooterHTML); this.remove(); } }
+customElements.define('ucpm-footer', UCPMFooter);
+
+// Universal Footer & Drawer Translations Dictionary
+const UCPM_COMPONENT_TRANSLATIONS = {
+    en: {
+        footerHome: "Home",
+        footerGuides: "Student Guides",
+        footerAbout: "About Us",
+        footerRules: "Confession Rules",
+        footerTelegram: "Telegram Policy",
+        footerPrivacy: "Privacy Policy",
+        footerTerms: "Terms of Service",
+        footerText: "Unofficial Student Resource & Confessions Platform.",
+        ed_transparency_title: "Author / Editorial Transparency:",
+        ed_transparency_desc: "Maintained by senior UTeM engineering & computing undergraduates. All guides verified against official UTeM Academic Regulations Handbooks.",
+        ed_disclaimer_title: "Editorial Disclaimer:",
+        ed_disclaimer_desc: "UTeM Confessions Pro Max is an independent student resource and is not affiliated with, endorsed by, or sponsored by Universiti Teknikal Malaysia Melaka (UTeM).",
+        ed_contact_title: "Contact & Takedown Channel:",
+        ed_contact_desc: "For inquiries, DMCA, or content takedown requests, please email",
+        drawerHeaderTitle: "Services",
+        drawerLibrary: "Library",
+        drawerHealth: "Health Center",
+        drawerParcels: "Parcel Hub",
+        drawerSupport: "Support Us"
+    },
+    ms: {
+        footerHome: "Laman Utama",
+        footerGuides: "Panduan Pelajar",
+        footerAbout: "Tentang Kami",
+        footerRules: "Peraturan Pengakuan",
+        footerTelegram: "Polisi Telegram",
+        footerPrivacy: "Dasar Privasi",
+        footerTerms: "Syarat Perkhidmatan",
+        footerText: "Platform Sumber & Pengakuan Pelajar Tidak Rasmi.",
+        ed_transparency_title: "Ketelusan Pengarang / Editorial:",
+        ed_transparency_desc: "Diselenggara oleh mahasiswa senior kejuruteraan & pengkomputeran UTeM. Semua panduan disahkan berpandukan Buku Peraturan Akademik rasmi UTeM.",
+        ed_disclaimer_title: "Penafian Editorial:",
+        ed_disclaimer_desc: "UTeM Confessions Pro Max ialah sumber pelajar bebas dan tidak bergabung dengan, disahkan oleh, atau ditaja oleh Universiti Teknikal Malaysia Melaka (UTeM).",
+        ed_contact_title: "Saluran Hubungan & Penurunan Kandungan:",
+        ed_contact_desc: "Untuk sebarang pertanyaan, DMCA, atau permohonan penurunan kandungan, sila e-mel",
+        drawerHeaderTitle: "Perkhidmatan",
+        drawerLibrary: "Perpustakaan",
+        drawerHealth: "Pusat Kesihatan",
+        drawerParcels: "Pusat Bungkusan",
+        drawerSupport: "Sokong Kami"
+    }
+};
+
+function updateUniversalLangLabels(lang) {
+    const label = lang === "en" ? "BM" : "EN";
+    const aria = lang === "en" ? "Switch to Bahasa Melayu" : "Tukar ke Bahasa Inggeris";
+    document.querySelectorAll(".lang-toggle-btn").forEach(btn => {
+        const span = btn.querySelector("span");
+        if (span) span.textContent = label;
+        else btn.textContent = label;
+        btn.setAttribute("aria-label", aria);
+        btn.setAttribute("title", aria);
+    });
+}
+
+function applyUniversalComponentTranslations(lang) {
+    if (!lang) lang = localStorage.getItem("lang") || "en";
+    const dict = UCPM_COMPONENT_TRANSLATIONS[lang] || UCPM_COMPONENT_TRANSLATIONS.en;
+    Object.keys(dict).forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.textContent = dict[id];
+        }
+    });
+    updateUniversalLangLabels(lang);
+}
+
+let lastActiveElementBeforeDrawer = null;
+let lastActiveElementBeforeThemeModal = null;
+
+function trapFocusInDialog(container, e) {
+    if (!container) return;
+    const focusables = Array.from(container.querySelectorAll(
+        'button:not([disabled]):not([aria-hidden="true"]), [href]:not([aria-hidden="true"]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+    )).filter(el => el.offsetParent !== null && window.getComputedStyle(el).visibility !== 'hidden');
+
+    if (focusables.length === 0) return;
+    const firstEl = focusables[0];
+    const lastEl = focusables[focusables.length - 1];
+
+    if (e.shiftKey) {
+        if (document.activeElement === firstEl || !container.contains(document.activeElement)) {
+            e.preventDefault();
+            lastEl.focus();
+        }
+    } else {
+        if (document.activeElement === lastEl || !container.contains(document.activeElement)) {
+            e.preventDefault();
+            firstEl.focus();
+        }
+    }
+}
+
+function openMobileDrawer() {
+    const drawer = document.getElementById("mobileMoreDrawer");
+    if (drawer) {
+        lastActiveElementBeforeDrawer = document.activeElement;
+        drawer.classList.add("active");
+        drawer.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        if (typeof navigator !== 'undefined' && navigator.vibrate) {
+            try { navigator.vibrate(8); } catch (e) {}
+        }
+        const firstFocus = drawer.querySelector('#closeMobileDrawerBtn') || drawer.querySelector('.drawer-item-btn');
+        if (firstFocus) {
+            setTimeout(() => {
+                try { firstFocus.focus(); } catch (err) {}
+            }, 60);
+        }
+    }
+}
+
+function closeMobileDrawer() {
+    const drawer = document.getElementById("mobileMoreDrawer");
+    if (drawer) {
+        drawer.classList.remove("active");
+        drawer.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        if (lastActiveElementBeforeDrawer && typeof lastActiveElementBeforeDrawer.focus === 'function') {
+            try { lastActiveElementBeforeDrawer.focus(); } catch (e) {}
+            lastActiveElementBeforeDrawer = null;
+        }
+    }
+}
+
+// Global delegated drawer and universal controls handler
+function initMobileDrawerController() {
+    document.addEventListener("click", (e) => {
+        // Open drawer button
+        const openBtn = e.target.closest("#openMobileDrawerBtn, .mobile-nav-btn[aria-label*='More']");
+        if (openBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            openMobileDrawer();
+            return;
+        }
+
+        // Close drawer button
+        const closeBtn = e.target.closest("#closeMobileDrawerBtn, .mobile-drawer-close-btn");
+        if (closeBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            closeMobileDrawer();
+            return;
+        }
+
+        // Click on drawer overlay backdrop
+        const drawerOverlay = document.getElementById("mobileMoreDrawer");
+        if (drawerOverlay && e.target === drawerOverlay) {
+            e.preventDefault();
+            closeMobileDrawer();
+            return;
+        }
+
+        // Clicking any drawer link
+        const drawerLink = e.target.closest(".drawer-item-btn");
+        if (drawerLink) {
+            const href = drawerLink.getAttribute("href");
+            if (href) {
+                let currentPage = window.location.pathname.split("/").pop().split("?")[0].split("#")[0];
+                if (!currentPage || currentPage === "" || currentPage === "test-site") currentPage = "index.html";
+                if (href === currentPage) {
+                    e.preventDefault();
+                    closeMobileDrawer();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    return;
+                }
+            }
+            closeMobileDrawer();
+        }
+
+        // Universal language toggle button delegation
+        const langBtn = e.target.closest(".lang-toggle-btn");
+        if (langBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (typeof window.toggleLanguage === "function") {
+                window.toggleLanguage();
+            } else if (typeof toggleLanguage === "function") {
+                toggleLanguage();
+            } else {
+                const current = localStorage.getItem("lang") || "en";
+                const next = current === "en" ? "ms" : "en";
+                localStorage.setItem("lang", next);
+                if (typeof window.setLanguage === "function") {
+                    window.setLanguage(next);
+                } else if (typeof setLanguage === "function") {
+                    setLanguage(next);
+                }
+            }
+            const activeLang = localStorage.getItem("lang") || "en";
+            applyUniversalComponentTranslations(activeLang);
+            return;
+        }
+    });
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            const drawer = document.getElementById("mobileMoreDrawer");
+            if (drawer && drawer.classList.contains("active")) {
+                closeMobileDrawer();
+            }
+        }
+    });
+}
+
+// Expose on window for interoperability
+window.openMobileDrawer = openMobileDrawer;
+window.closeMobileDrawer = closeMobileDrawer;
+window.applyUniversalComponentTranslations = applyUniversalComponentTranslations;
+
 document.addEventListener('DOMContentLoaded', () => {
     let currentPage = window.location.pathname.split("/").pop();
-    if (!currentPage || currentPage === "") currentPage = "index.html";
+    if (!currentPage || currentPage === "" || currentPage === "test-site") currentPage = "index.html";
     
     // Strip hash and query parameters
     currentPage = currentPage.split("?")[0].split("#")[0];
@@ -609,10 +848,13 @@ document.addEventListener('DOMContentLoaded', () => {
         openDrawerBtn.classList.add("active");
     }
 
+    initMobileDrawerController();
+    applyUniversalComponentTranslations();
     initPwaInstallPrompt();
     initOfflineStatusBar();
     initScrollReveal();
     initThemePresetSystem();
+    syncStructuredTableLabels();
 });
 
 // --- PWA Native Install Prompt Handler ---
@@ -849,14 +1091,41 @@ function initThemePresetSystem() {
         }
     });
 
-    // Escape key to close modal
+    // Universal Modal Keyboard Accessibility Handler (WCAG 2.1 Focus Trap & Escape Dismissal)
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
+        const themeModal = document.getElementById('themePaletteModal');
+        const isThemeModalOpen = themeModal && themeModal.classList.contains('active');
+        const drawer = document.getElementById('mobileMoreDrawer');
+        const isDrawerOpen = drawer && drawer.classList.contains('active');
+        const imageModal = document.getElementById('marketplaceImageModal') || document.querySelector('.image-modal.active');
+        const isImageModalOpen = imageModal && (imageModal.classList.contains('active') || (imageModal.style && imageModal.style.opacity === '1'));
+
+        if (e.key === 'Tab') {
+            if (isThemeModalOpen) {
+                trapFocusInDialog(themeModal, e);
+            } else if (isDrawerOpen) {
+                trapFocusInDialog(drawer, e);
+            } else if (isImageModalOpen) {
+                trapFocusInDialog(imageModal, e);
+            }
+        } else if (e.key === 'Escape') {
             if (themeModalCloseTimer) {
                 clearTimeout(themeModalCloseTimer);
                 themeModalCloseTimer = null;
             }
-            closeThemePaletteModal();
+            if (isThemeModalOpen) {
+                closeThemePaletteModal();
+            } else if (isDrawerOpen) {
+                closeMobileDrawer();
+            } else if (isImageModalOpen) {
+                if (typeof window.closeMarketplaceImageModal === 'function') {
+                    window.closeMarketplaceImageModal();
+                } else {
+                    const closeBtn = imageModal.querySelector('#closeMarketplaceModalBtn, .modal-close');
+                    if (closeBtn) closeBtn.click();
+                    else imageModal.remove();
+                }
+            }
         }
     });
 }
@@ -868,11 +1137,20 @@ function openThemePaletteModal() {
     }
     const modal = document.getElementById('themePaletteModal');
     if (!modal) return;
+    lastActiveElementBeforeThemeModal = document.activeElement;
     const currentTheme = getActiveThemeId();
     updateThemePresetUI(currentTheme);
     modal.classList.add('active');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+
+    // Auto-focus active theme option or close button for keyboard accessibility
+    const targetFocus = modal.querySelector('.theme-card-option.active') || modal.querySelector('#closeThemeModalBtn');
+    if (targetFocus) {
+        setTimeout(() => {
+            try { targetFocus.focus(); } catch (err) {}
+        }, 60);
+    }
 }
 
 function closeThemePaletteModal() {
@@ -885,6 +1163,10 @@ function closeThemePaletteModal() {
     modal.classList.remove('active');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    if (lastActiveElementBeforeThemeModal && typeof lastActiveElementBeforeThemeModal.focus === 'function') {
+        try { lastActiveElementBeforeThemeModal.focus(); } catch (e) {}
+        lastActiveElementBeforeThemeModal = null;
+    }
 }
 
 function updateThemePresetUI(themeId) {
@@ -1114,3 +1396,199 @@ function applyThemePreset(targetTheme, e) {
         applyDOMChanges();
     }
 }
+
+// =========================================================================
+// MERGED MODULE 1: UCPM Shared Utilities (Merged from utils.js)
+// =========================================================================
+function updateNodeText(element, text) {
+    if (!element) return;
+    for (let i = 0; i < element.childNodes.length; i++) {
+        let node = element.childNodes[i];
+        if (node.nodeType === Node.TEXT_NODE && node.nodeValue.trim() !== '') {
+            node.nodeValue = " " + text;
+            return;
+        }
+    }
+    const span = element.querySelector("span");
+    if (span) {
+        span.textContent = text;
+        return;
+    }
+    element.appendChild(document.createTextNode(text));
+}
+
+function showToast(msg, type = "info", duration = 4000) {
+    let toastContainer = document.getElementById("toastContainer");
+    if (!toastContainer) {
+        toastContainer = document.createElement("div");
+        toastContainer.id = "toastContainer";
+        toastContainer.className = "toast-container";
+        document.body.appendChild(toastContainer);
+    }
+
+    const toast = document.createElement("div");
+    toast.className = `toast-item toast-${type}`;
+
+    let icon = "ℹ️";
+    if (type === "success") icon = "✅";
+    if (type === "error") icon = "⚠️";
+    if (type === "warning") icon = "🔔";
+
+    toast.innerHTML = `
+        <span style="font-size: 16px;">${icon}</span>
+        <span style="flex: 1; font-size: 13px; font-weight: 600; line-height: 1.4;">${escapeHtml(msg)}</span>
+    `;
+
+    toastContainer.appendChild(toast);
+
+    setTimeout(() => {
+        toast.classList.add("toast-fade-out");
+        setTimeout(() => toast.remove(), 400);
+    }, duration);
+}
+
+function showStatus(msg, type) {
+    showToast(msg, type || "info", 5000);
+}
+
+function escapeHtml(text) {
+    if (!text) return "";
+    return String(text)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(new RegExp('"', 'g'), "&quot;")
+        .replace(new RegExp("'", 'g'), "&#039;");
+}
+
+function syncStructuredTableLabels() {
+    document.querySelectorAll(".structured-table").forEach(table => {
+        const ths = table.querySelectorAll("thead th");
+        if (!ths || ths.length === 0) return;
+        const labels = Array.from(ths).map(th => th.textContent.trim());
+        table.querySelectorAll("tbody tr").forEach(row => {
+            row.querySelectorAll("td").forEach((td, index) => {
+                if (labels[index]) {
+                    td.setAttribute("data-label", labels[index]);
+                }
+            });
+        });
+    });
+}
+
+// Expose utils globally for other modules
+window.updateNodeText = updateNodeText;
+window.showToast = showToast;
+window.showStatus = showStatus;
+window.escapeHtml = escapeHtml;
+window.syncStructuredTableLabels = syncStructuredTableLabels;
+
+// =========================================================================
+// MERGED MODULE 2: Site-Wide Ad Monetization Loader (Merged from ads.js)
+// =========================================================================
+(function () {
+    // --- Infolinks Global Configuration ---
+    window.infolinks_pid = 3448001;
+    window.infolinks_wsid = 0;
+
+    // Dynamically inject Infolinks main script across all pages if not already injected statically
+    if (!document.querySelector('script[src*="resources.infolinks.com/js/infolinks_main.js"]')) {
+        var infolinksScript = document.createElement('script');
+        infolinksScript.type = 'text/javascript';
+        infolinksScript.async = true;
+        infolinksScript.src = 'https://resources.infolinks.com/js/infolinks_main.js';
+        document.head.appendChild(infolinksScript);
+    }
+
+    // --- Device Detection ---
+    var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        || window.innerWidth < 768;
+
+    // Track loaded containers to prevent duplicates
+    var loadedSlots = {};
+
+    function isSlotBlockedByDevice(element) {
+        if (!element) return true;
+        if (isMobile && (element.classList.contains('ad-slot--desktop-only') || element.classList.contains('ad-sidebar'))) return true;
+        if (!isMobile && element.classList.contains('ad-slot--mobile-only')) return true;
+        if (element.offsetWidth === 0 && element.offsetHeight === 0) return true;
+        return false;
+    }
+
+    function loadAdSenseAd(container) {
+        if (!container || isSlotBlockedByDevice(container)) return;
+
+        var cRect = container.getBoundingClientRect();
+        if (cRect.width <= 0 || container.offsetWidth <= 0 || container.offsetParent === null) return;
+
+        var insTags = container.querySelectorAll('ins.adsbygoogle:not([data-ad-status="unfilled"]):not([data-adsbygoogle-status="done"])');
+        
+        for (var i = 0; i < insTags.length; i++) {
+            var ins = insTags[i];
+            var slotId = ins.id || (ins.getAttribute('data-ad-slot') + '_' + i);
+            
+            if (loadedSlots['adsense_' + slotId]) continue;
+            if (isSlotBlockedByDevice(container)) continue;
+            if (container.offsetWidth <= 0 || cRect.width <= 0) continue;
+            
+            loadedSlots['adsense_' + slotId] = true;
+            try {
+                (window.adsbygoogle = window.adsbygoogle || []).push({});
+            } catch (e) {
+                console.error("AdSense Error: ", e);
+            }
+        }
+    }
+
+    window.initAdsInContainer = function(containerElement) {
+        if (!containerElement) return;
+        loadAdSenseAd(containerElement);
+    };
+
+    function initGlobalAds() {
+        var allAdsenseIns = document.querySelectorAll('ins.adsbygoogle');
+        for (var j = 0; j < allAdsenseIns.length; j++) {
+            var ins = allAdsenseIns[j];
+            var parentTab = ins.closest('.tab-content');
+            if (!parentTab || parentTab.classList.contains('active')) {
+                var container = ins.parentElement;
+                loadAdSenseAd(container);
+            }
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initGlobalAds);
+    } else {
+        initGlobalAds();
+    }
+})();
+
+// =========================================================================
+// MERGED MODULE 3: Monetag Vignette Interstitial (Merged from vignette.js)
+// =========================================================================
+(function () {
+    function initVignette() {
+        var VIGNETTE_KEY = 'lastVignetteTime';
+        var VIGNETTE_COOLDOWN = 5 * 60 * 1000; // 5 minutes
+
+        var lastTime = localStorage.getItem(VIGNETTE_KEY);
+        var now = Date.now();
+
+        if (!lastTime || (now - parseInt(lastTime, 10)) > VIGNETTE_COOLDOWN) {
+            (function (s) {
+                s.dataset.zone = '11584116';
+                s.src = 'https://n6wxm.com/vignette.min.js';
+            })([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')));
+
+            localStorage.setItem(VIGNETTE_KEY, now.toString());
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVignette);
+    } else {
+        initVignette();
+    }
+})();
+
